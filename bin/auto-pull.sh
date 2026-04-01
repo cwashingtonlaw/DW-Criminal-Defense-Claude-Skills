@@ -13,6 +13,14 @@ LOG_PREFIX="$(date '+%Y-%m-%d %H:%M:%S')"
 cd "$REPO_DIR"
 BRANCH=$(git branch --show-current 2>/dev/null || echo "main")
 
+# --- Helper: macOS notification on failure ---
+notify_failure() {
+    local title="$1"
+    local msg="$2"
+    osascript -e "display notification \"$msg\" with title \"DW Skill Sync\" subtitle \"$title\" sound name \"Basso\"" 2>/dev/null || true
+    echo "$LOG_PREFIX ⚠️  NOTIFICATION: $title — $msg"
+}
+
 # --- Step 1: Reverse-sync ~/.claude/skills/ → repo (capture Claude edits) ---
 if [ -d "$SKILLS_DST" ] && [ -d "$SKILLS_SRC" ]; then
     for skill_dir in "$SKILLS_SRC"/*/; do
@@ -33,8 +41,10 @@ if [ -f "$COMMIT_MSG_FILE" ]; then
     if ! git diff --cached --quiet; then
         git commit -m "$MSG" --quiet && \
             git push origin "$BRANCH" --quiet 2>/dev/null && \
-            echo "$LOG_PREFIX PUSH: committed and pushed — $MSG" || \
-            echo "$LOG_PREFIX PUSH: failed"
+            echo "$LOG_PREFIX PUSH: committed and pushed — $MSG" || {
+                notify_failure "Push Failed" "Could not push skill changes to GitHub. Check SSH keys or network."
+                echo "$LOG_PREFIX PUSH: failed"
+            }
     else
         echo "$LOG_PREFIX PUSH: COMMIT_MSG found but no changes to commit"
     fi
@@ -46,7 +56,11 @@ else
 fi
 
 # --- Step 3: Git pull ---
-git fetch origin "$BRANCH" --quiet 2>/dev/null || { echo "$LOG_PREFIX FETCH FAILED"; exit 0; }
+git fetch origin "$BRANCH" --quiet 2>/dev/null || {
+    notify_failure "Fetch Failed" "Cannot reach GitHub. Check network or credentials."
+    echo "$LOG_PREFIX FETCH FAILED"
+    exit 0
+}
 
 LOCAL=$(git rev-parse HEAD 2>/dev/null)
 REMOTE=$(git rev-parse "origin/$BRANCH" 2>/dev/null)
@@ -57,7 +71,10 @@ if [ "$LOCAL" != "$REMOTE" ]; then
         git pull --ff-only origin "$BRANCH" --quiet 2>/dev/null && {
             PULLED=true
             echo "$LOG_PREFIX GIT-PULL: updated to $(git rev-parse --short HEAD)"
-        } || echo "$LOG_PREFIX GIT-PULL: ff-only failed, skipping"
+        } || {
+            notify_failure "Merge Conflict" "Fast-forward pull failed. You have a conflict that needs manual resolution."
+            echo "$LOG_PREFIX GIT-PULL: ff-only failed — CONFLICT DETECTED"
+        }
     else
         echo "$LOG_PREFIX GIT-PULL: skipped — uncommitted local changes"
     fi
