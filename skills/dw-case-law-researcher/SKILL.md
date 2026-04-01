@@ -47,6 +47,8 @@ Each source fills a different gap. The skill runs them in a tiered sequence — 
   - **Judge search** — biographical data on 16,000+ federal and state judges
   - **Court info** — jurisdiction details for 3,353 courts
 
+**Direct REST API access**: For complex filtered queries, docket-level research, or bulk retrieval beyond what the MCP tools support, use the CourtListener REST API directly. Read `references/courtlistener-api-reference.md` for endpoints, parameters, Louisiana court codes, and D&W-specific research patterns.
+
 **CourtListener + case.dev together**: Run both in parallel when possible. Cross-reference results — if case.dev returns a citation, verify it through CourtListener's citation verification tool before including it in a filing. If CourtListener's semantic search surfaces cases that case.dev missed, add them. The two sources complement rather than duplicate each other.
 
 ### Tier 2: DEVONthink Firm Library (always runs)
