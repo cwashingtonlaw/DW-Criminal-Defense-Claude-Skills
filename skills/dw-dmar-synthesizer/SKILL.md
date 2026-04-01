@@ -23,7 +23,7 @@ description: >
 
 ## Why This Skill Exists
 
-Each transcript pipeline (Calcasieu and Rev) produces a DMAR for a single client's evidence. That's powerful for one case — but criminal defense often involves situations where the real gold is in the *gaps between* cases:
+Each transcript pipeline (Calcasieu and Rev) produces a Defense Media Analysis Report (DMAR) for a single client's evidence. That's powerful for one case — but criminal defense often involves situations where the real gold is in the *gaps between* cases:
 - **Co-defendants** whose recorded statements contradict each other about who did what
 - **The same officer** telling different stories across separate interrogations
 - **The same witness** giving a statement in Case A that's irreconcilable with their testimony in Case B
