@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# iCloud conflict artifacts
+*.icloud
+
+# Editor swap/backup
+*.swp
+*.swo
+*~
+.*.swp
+
+# IDE
+.vscode/
+.idea/
+
+# Cowork packaging artifacts (generated, not tracked)
+_cowork-exports/
+
+# Sync logs (local only)
+sync.log
+*.log
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# OS junk
+Thumbs.db
+ehthumbs.db
+Desktop.ini
