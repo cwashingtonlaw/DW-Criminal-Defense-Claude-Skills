@@ -1,18 +1,51 @@
 #!/usr/bin/env bash
-# DW Skills Git → Claude Sync
-# Pulls latest from GitHub, then rsyncs skills into ~/.claude/skills/
+# DW Skills Git ↔ Claude Sync
+# Two-way sync: push local changes (if COMMIT_MSG exists), pull remote, rsync to ~/.claude/skills/
 # Runs every 5 minutes via com.dw.skill-git-pull launchd agent
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 SKILLS_SRC="$REPO_DIR/skills"
 SKILLS_DST="$HOME/.claude/skills"
+COMMIT_MSG_FILE="$REPO_DIR/COMMIT_MSG"
 LOG_PREFIX="$(date '+%Y-%m-%d %H:%M:%S')"
 
 cd "$REPO_DIR"
-
-# --- Step 1: Git pull ---
 BRANCH=$(git branch --show-current 2>/dev/null || echo "main")
+
+# --- Step 1: Reverse-sync ~/.claude/skills/ → repo (capture Claude edits) ---
+if [ -d "$SKILLS_DST" ] && [ -d "$SKILLS_SRC" ]; then
+    for skill_dir in "$SKILLS_SRC"/*/; do
+        skill_name=$(basename "$skill_dir")
+        if [ -d "$SKILLS_DST/$skill_name" ]; then
+            rsync -a --delete "$SKILLS_DST/$skill_name/" "$SKILLS_SRC/$skill_name/"
+        fi
+    done
+fi
+
+# --- Step 2: Auto-push if COMMIT_MSG file exists ---
+if [ -f "$COMMIT_MSG_FILE" ]; then
+    MSG=$(cat "$COMMIT_MSG_FILE")
+    if [ -z "$MSG" ]; then
+        MSG="auto-sync: skill updates from $(hostname -s)"
+    fi
+    git add -A
+    if ! git diff --cached --quiet; then
+        git commit -m "$MSG" --quiet && \
+            git push origin "$BRANCH" --quiet 2>/dev/null && \
+            echo "$LOG_PREFIX PUSH: committed and pushed — $MSG" || \
+            echo "$LOG_PREFIX PUSH: failed"
+    else
+        echo "$LOG_PREFIX PUSH: COMMIT_MSG found but no changes to commit"
+    fi
+    rm -f "$COMMIT_MSG_FILE"
+else
+    # Still check for uncommitted changes and warn (but don't push)
+    git add -A --dry-run 2>/dev/null | grep -q . && \
+        echo "$LOG_PREFIX INFO: local changes detected — drop a COMMIT_MSG file to push"
+fi
+
+# --- Step 3: Git pull ---
 git fetch origin "$BRANCH" --quiet 2>/dev/null || { echo "$LOG_PREFIX FETCH FAILED"; exit 0; }
 
 LOCAL=$(git rev-parse HEAD 2>/dev/null)
@@ -30,11 +63,9 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     fi
 fi
 
-# --- Step 2: Rsync skills into ~/.claude/skills/ ---
-# Only copies skills that exist in the repo; does NOT delete other skills in dest
+# --- Step 4: Rsync skills into ~/.claude/skills/ ---
 if [ -d "$SKILLS_SRC" ]; then
     mkdir -p "$SKILLS_DST"
-    # Sync each skill folder individually (no --delete on parent dir)
     for skill_dir in "$SKILLS_SRC"/*/; do
         skill_name=$(basename "$skill_dir")
         rsync -a --delete "$skill_dir" "$SKILLS_DST/$skill_name/"
@@ -42,6 +73,4 @@ if [ -d "$SKILLS_SRC" ]; then
     if [ "$PULLED" = true ]; then
         echo "$LOG_PREFIX RSYNC: synced $(ls -d "$SKILLS_SRC"/*/ | wc -l | tr -d ' ') skills to $SKILLS_DST"
     fi
-else
-    echo "$LOG_PREFIX RSYNC: skills directory not found at $SKILLS_SRC"
 fi
