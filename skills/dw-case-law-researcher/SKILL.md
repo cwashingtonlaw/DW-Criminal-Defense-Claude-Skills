@@ -69,7 +69,7 @@ Each source fills a different gap. The skill runs them in a tiered sequence — 
 - **Why it's last**: Requires browser automation, is slower, and depends on active login sessions (Westlaw/Fastcase) or account access (OpenCase)
 - **Tools**: Claude in Chrome MCP (`mcp__Claude_in_Chrome__*`) — navigate, read_page, get_page_text, form_input, find
 
-**Important**: The attorney always controls whether Tier 4 runs. Never launch into Westlaw/Fastcase/OpenCase without asking first — the attorney may prefer to do that research themselves, or the Tier 1 results may be sufficient.
+**Important**: The attorney always controls which platforms run. Never launch into any search without confirming platforms first (see Step 1 of the Standalone Research Workflow). For Tier 4 specifically, the attorney may prefer to do that research themselves, or the earlier tiers may be sufficient.
 
 ---
 
@@ -77,7 +77,7 @@ Each source fills a different gap. The skill runs them in a tiered sequence — 
 
 When the attorney directly asks for legal research (not called by another skill):
 
-### Step 1: Clarify the Research Question
+### Step 1: Clarify the Research Question and Confirm Platforms
 
 Before searching, make sure you understand:
 - **The legal issue**: What specific question of law needs answering? (e.g., "Can the state use a co-defendant's statement under the co-conspirator hearsay exception when the conspiracy charge was dropped?")
@@ -85,7 +85,20 @@ Before searching, make sure you understand:
 - **The purpose**: Is this for a specific motion type? A memo to the attorney? General issue-spotting? This affects how deep to go
 - **Any known starting points**: Does the attorney already have a case name, statute, or article number to build from?
 
-If the request is clear enough from context (e.g., called mid-conversation while drafting a suppression motion), skip the questions and start searching.
+**REQUIRED — Platform Confirmation**: Because this skill spans multiple research platforms with different speeds, costs, and coverage, always present the available sources and ask the attorney which ones to use before running any searches. Present them like this:
+
+> **Which platforms should I search?**
+> 1. **case.dev** — case law & statutes, API-based, fast
+> 2. **CourtListener** — 9M+ opinions, semantic search, citation verification, free
+> 3. **DEVONthink** — firm library, prior work product, templates
+> 4. **Consensus** — academic/empirical research (200M+ papers)
+> 5. **Westlaw / Fastcase / OpenCase** — premium databases, requires browser login
+>
+> I'd recommend [1, 2, 3] for this issue. Want me to run all of those, or a different combination?
+
+Tailor the recommendation to the request — e.g., suggest Consensus only when empirical research is relevant, suggest Westlaw only when KeyCite/Shepard's validation is needed. But always let the attorney confirm before executing.
+
+**Exception — called by another skill**: When invoked as a service layer by another D&W skill (e.g., `dw-suppression-motion` calls for authority), use the calling skill's platform preferences if specified. If not specified, default to case.dev + CourtListener + DEVONthink (Tiers 1A + 1B + 2) without asking, since the attorney already initiated the parent workflow. The attorney can always say "also run Westlaw" or "skip DEVONthink" to override.
 
 ### Step 2: Run Tiered Searches
 
@@ -162,10 +175,10 @@ Trigger Consensus when the research topic touches any of these areas:
 - Drug recognition expert (DRE) reliability
 - Arson investigation methodology (debunked indicators, modern fire science)
 
-**Tier 4 — Westlaw / Fastcase / OpenCase** (if requested):
+**Tier 4 — Westlaw / Fastcase / OpenCase** (only if selected in Step 1):
 
-Before launching Chrome automation, ask the attorney:
-> "I found [X results] from case.dev, [Y results] from CourtListener, and [Z prior filings] in DEVONthink. Would you like me to log into Westlaw, Fastcase, or OpenCase to verify these citations, pull full opinion text, or run a deeper search?"
+Only run if the attorney selected Westlaw, Fastcase, or OpenCase during the platform confirmation in Step 1. If the attorney didn't select Tier 4 upfront but the earlier tiers returned thin or uncertain results, ask before escalating:
+> "Tiers 1–3 returned [brief summary of gaps]. Would you like me to also check Westlaw, Fastcase, or OpenCase?"
 
 If approved, the attorney chooses which platform(s) to use:
 
