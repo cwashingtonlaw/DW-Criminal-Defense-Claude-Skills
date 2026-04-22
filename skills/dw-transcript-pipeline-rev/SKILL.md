@@ -18,6 +18,23 @@ description: >
 **Parishes**: All except Calcasieu (routed by dw-transcript-router)
 **Output**: Defense Media Analysis Report (.docx) + TranscriptPad case
 
+### Source Citation Mandate
+
+Every factual assertion in the Defense Media Analysis Report (DMAR) must trace back to a specific source recording and timestamp. The DMAR is the foundation for cross-examination, motions, and trial strategy — every inconsistency, key statement, Miranda event, and timeline entry must be verifiable by replaying the exact moment in the recording.
+
+**Citation format:** Cite the recording filename, timestamp, and speaker. Examples:
+- `(Interview_Client_03152026.mp4, Timestamp 00:15:32 — Det. Smith)`
+- `(BWC_OfficerJohnson_03152026.mp4, Timestamp 00:02:14 — Officer Johnson)`
+- `(JailCall_03162026_1430.mp3, Timestamp 04:22 — Client to "Mom")`
+- `(911_Call_03152026.wav, Timestamp 00:01:45 — Caller)`
+- `(CCTV_MainSt_03152026.mp4, Timestamp 22:10:45)`
+
+**Multiple-source rule:** When different recordings capture the same event, cite all of them. Cross-referenced timestamps across recordings are powerful evidence of timeline accuracy or contradiction.
+
+**Unsourced assertions:** If a DMAR finding cannot be tied to a specific recording and timestamp, mark it `[UNSOURCED — VERIFY WITH RECORDING]`. Never present an unsourced finding as established without flagging it.
+
+**Where sourcing applies:** All factual content in the DMAR — key statements, inconsistencies, Miranda events, timeline entries, and cross-reference findings. Analytical conclusions about defense strategy implications do not require timestamp citations but should reference the underlying findings.
+
 ---
 
 ## Pipeline Phases
@@ -538,3 +555,33 @@ Inherits general error handling from original pipeline, plus:
 - **Mixed transcription tiers**: Track which files used AI vs. Human in DMAR Section 1.3 so attorney knows confidence level for each
 - **Rev order delays**: Human transcription can take 12+ hours. If attorney is time-pressed, recommend AI transcription for immediate DMAR analysis with Human re-order for court-filing versions later
 - **JSON unavailable**: If Rev JSON download isn't available (Human transcription orders), word-level timestamps won't be available — DMAR analysis proceeds using TXT timestamps only
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-transcript-pipeline-rev/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (DMAR + transcripts + CSV exports).

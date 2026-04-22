@@ -16,6 +16,23 @@ Your role is adversarial in the best sense: you assume the defense perspective a
 
 **Cowork assists; attorney decides.** Every juror rating, strike recommendation, and question suggestion is a recommendation for attorney review. The attorney makes all final strike decisions and conducts voir dire. This tool never replaces attorney judgment -- it amplifies it.
 
+### Source Citation Mandate
+
+Every factual assertion in juror analysis cards, cause challenge briefs, and Batson compliance documentation must trace back to a specific source document. Cause challenges and Batson responses require precision — the court will ask exactly where the juror made the statement the defense relies upon, and a vague reference to "during voir dire" is insufficient.
+
+**Citation format:** Cite the source, juror identifier, and question/response reference. Examples:
+- `(Juror Questionnaire — Juror #7 (Smith), Question #14, Response: "I trust police")`
+- `(Voir Dire Transcript, p. 34, ll. 5-18 — Juror #7 exchange with defense counsel)`
+- `(Venire Panel List, Juror #7 — Smith, Jane, Seat 14)`
+- `(Juror Background Check — Juror #7, LCPD employment record)`
+- `(Prior Jury Service Record — Juror #7, served 14th JDC Case #2024-FE-5678)`
+
+**Multiple-source rule:** When a cause challenge or strike justification relies on multiple responses, cite all of them — e.g., `(Questionnaire Q#14; Voir Dire Transcript, p. 34, ll. 5-18)`.
+
+**Unsourced assertions:** If a juror assessment cannot be tied to a specific questionnaire response or voir dire exchange, mark it `[UNSOURCED — VERIFY DURING VOIR DIRE]`. Never present an unsourced juror assessment as established without flagging it.
+
+**Where sourcing applies:** All factual content — juror responses, bias indicators, cause challenge grounds, Batson race-neutral justifications, and strike recommendations. Legal standards and case law follow normal citation format.
+
 ---
 
 ## STEP 0 -- FILE INTAKE HARD STOP (Always First)
@@ -58,9 +75,10 @@ Before conducting any juror analysis or generating voir dire strategy, collect t
 
 13. **Parish / Venue Demographics:** Community demographics for fair cross-section baseline
 14. **Case Timeline:** Estimated trial length -- affects hardship challenge analysis
-15. **Witness List:** Names of all witnesses -- cross-referenced against juror connections
+15. **Witness List:** Names of all witnesses -- cross-referenced against juror connections. If the Master Witness Table (5-column format from dw-criminal-defense Phase 2 Report 8) is available, use it as the primary witness reference. The Witness Table provides name/contact info, witness type, association with case, source documents, and trial exam status — all of which inform relationship screening and witness-specific voir dire questions under Art. 797(1) and Art. 798(3).
 16. **Law Enforcement Agencies Involved:** Agency names for juror relationship screening
 17. **Court / Division:** Specific court section and judge (for institutional knowledge of voir dire practices)
+18. **Defense Narrative Theme & Juror Messaging Strategy (REQUIRED):** The Memorable Theme from dw-criminal-defense Phase 2 Report 6 and the defense narrative from Report 4. These drive juror selection: the ideal juror profile is someone receptive to the defense theme. Use the theme to develop analogies and "de-biasing" techniques during voir dire — questions designed to surface juror attitudes toward the defense narrative and inoculate against prosecution framing. For example, if the theme is "A rushed investigation, not a real one," develop voir dire questions testing juror attitudes about police thoroughness, willingness to question authority, and comfort holding the State to its burden.
 
 **Present missing info as a ranked checklist before analyzing.** If essential items 1-5 are missing, do not analyze -- ask for them first.
 
@@ -1064,3 +1082,33 @@ Jurors may be excused for hardship under La. C.Cr.P. Art. 783. Common grounds:
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. It reflects Daniels & Washington Jury Selection / Voir Dire Assistant Version 1.0 (March 2026). Update whenever Louisiana jury selection statutes, Batson case law, or firm procedures change.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-4-Trial/dw-voir-dire-assistant/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (juror cards + strike list + Batson log).

@@ -16,6 +16,25 @@ This skill handles the "bread and butter" motions — the ones filed in nearly e
 
 **Cowork drafts; attorney approves.** Every output is a draft for attorney review.
 
+### Source Citation Mandate
+
+Every factual assertion in any pretrial motion and its supporting memorandum must trace back to a specific source document. Courts evaluate pretrial motions on their factual grounding — unsourced claims weaken the filing and invite challenge from opposing counsel. Precise sourcing also helps the attorney verify facts quickly before filing.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Arrest Report — LCPD Case #2026-00456, p. 2, para. 3)`
+- `(Witness Statement of Jane Doe, p. 2, para. 4)`
+- `(Discovery Production, Bates #00145-00148)`
+- `(Minute Entry, 03/15/2026)`
+- `(State's Discovery Response, 03/15/2026, p. 3, Item #14)`
+- `(Bill of Information, Count 1)`
+- `(Court Order, 03/20/2026, para. 3)`
+
+**Multiple-source rule:** When more than one document confirms a fact, cite all of them. Corroboration strengthens every filing.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before filing.
+
+**Where sourcing applies:** All factual content in all motion types — statements of fact, background sections, and factual assertions in argument sections. Legal standards and case law follow normal legal citation format.
+
 ---
 
 ## STEP 0 — FILE INTAKE HARD STOP (Always First)
@@ -438,6 +457,25 @@ limit: 15
 
 ---
 
+## STEP 2.5 — Pre-Trial Motion Action Plan Report
+
+Before drafting any individual motion, generate a consolidated Pre-Trial Motion Action Plan. This report provides the attorney with a strategic overview of all potential motions and their likelihood of success, enabling prioritization.
+
+For each potential motion (suppress, exclude, limine, dismiss, compel, sever, change venue, continuance, recusal, quash, competency):
+
+- **Motion Type:** Name and legal basis
+- **Specific Evidence/Constitutional Violation:** The exact facts or evidence triggering this motion, with source document citations (document title, page, paragraph/timestamp)
+- **Likelihood of Success:** HIGH / MEDIUM / LOW — based on the strength of the legal argument, available evidence, and likely judicial reception
+- **Assessment:** 1-3 sentences explaining the legal basis and strategic value
+
+This report is concise by design — it gives the attorney a motion roadmap before committing resources to full drafting. The attorney selects which motions to pursue, then Cowork drafts each selected motion using the appropriate MODULE above.
+
+**Output:** `Pre-Trial Motion Action Plan — [Client Name] — [Date].docx` → save to `01 - Trial Notebook/09 - Case Analysis/`
+
+**Source Citation Mandate applies:** Every factual assertion in the action plan must cite the specific source document.
+
+---
+
 ## STEP 3 — Draft the Motion and Memorandum
 
 For each motion type, generate two .docx files following the `docx` skill conventions:
@@ -492,3 +530,33 @@ For each motion type, generate two .docx files following the `docx` skill conven
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Integrates with dw-criminal-defense (Phase 2 Red Flags trigger motion practice), dw-brady-giglio-auditor (CI findings → Reveal the Deal), dw-case-brain (motion status tracking), and the docx skill (document generation).*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-pretrial-motion-library/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (motion + memorandum + proposed order).

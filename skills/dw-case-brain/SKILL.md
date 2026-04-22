@@ -9,7 +9,7 @@ description: >
 
 # D&W Case Brain — Persistent Case Memory
 
-**Version 3.2 | Internal Use Only**
+**Version 3.3 | Internal Use Only**
 
 This skill gives every case a living memory stored in the firm's Obsidian vault ("Dream Team Law"). It eliminates manual case re-briefing by reading case state at session open and writing updates at session close. Every session picks up exactly where the last one left off. The Obsidian vault provides the attorney with a searchable, linked reference — with YAML frontmatter for properties/search and clickable `file://` links that open case folders directly from Google Drive for Desktop.
 
@@ -65,6 +65,7 @@ Charges: [Charge summary]
 Phase: [Current Phase]
 Last Session: [Date] — [One-line summary]
 Open Issues: [Count] flagged items pending
+CASE_ROOT: [absolute path from YAML frontmatter]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Type "full brief" to see complete case history.
 ```
@@ -279,10 +280,13 @@ lwop_risk: false
 co_defendants: "Name1, Name2"
 gdrive_root: "Drive Name"
 gdrive_path: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
+CASE_ROOT: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
 ---
 ```
 
 The `gdrive_root` and `gdrive_path` fields record which Google Drive shared drive holds this case's files. This makes it possible to regenerate `file://` links without re-searching.
+
+**`CASE_ROOT` is the canonical output-path variable** — every D&W skill that writes a file reads `CASE_ROOT` from this frontmatter to construct its output path (see `OUTPUT_PATH_CONVENTION.md` at the repo root). `CASE_ROOT` and `gdrive_path` always hold the same absolute path; `CASE_ROOT` exists as a named alias so skills can reference it unambiguously. When updating `gdrive_path`, always update `CASE_ROOT` to match.
 
 ### 6C — Auto-Detect Google Drive Location
 
@@ -393,6 +397,36 @@ DW-CASE BRAINS/
 
 The Case Brain's **Trial Preparation** section displays a summary view of all these folders' contents for the case, with links back to the individual notes.
 
+### 6H — CASE_ROOT: Canonical Output-Path Variable
+
+Every D&W skill that writes a file depends on the `CASE_ROOT` variable to construct its output path. The Case Brain is the single source of truth for this value.
+
+**Where `CASE_ROOT` lives:**
+
+| Location | Purpose |
+|---|---|
+| YAML frontmatter (`CASE_ROOT:` field) | Authoritative value read by all file-writing skills |
+| YAML frontmatter (`gdrive_path:` field) | Same value, used for `file://` link generation (legacy alias) |
+| SESSION OPEN CONFIRMATION | Displayed at session start so the attorney can see and verify the path |
+
+**`CASE_ROOT` always equals `gdrive_path`.** They are two labels for the same absolute path. The duplication exists because `gdrive_path` has historical meaning for the `file://` link generator in Step 6D, and `CASE_ROOT` is the name every output-writing skill looks for (per `OUTPUT_PATH_CONVENTION.md`).
+
+**When creating a new Case Brain:**
+- Set both `gdrive_path` and `CASE_ROOT` to the same absolute path
+- Never leave `CASE_ROOT` blank — if you're uncertain of the path, ask the attorney before creating the Case Brain
+
+**When updating an existing Case Brain:**
+- If a case moves drives (e.g., conflict case reassigned), update BOTH fields together
+- Never let them drift — a mismatch will cause output files to scatter between the old and new locations
+
+**How other skills read it:**
+1. Skill loads the active Case Brain (via `dw-case-brain`)
+2. Skill reads `CASE_ROOT` from the YAML frontmatter
+3. Skill constructs its output path: `{CASE_ROOT}/Deliverables/{Phase}/{SkillName}/{YYYY-MM-DD}_{filename}.{ext}`
+4. Skill creates the subfolder chain and writes the file
+
+**If `CASE_ROOT` is missing from the frontmatter** (older Case Brains created before v3.3): read `gdrive_path` and use that value, then backfill `CASE_ROOT` on the next session-close write.
+
 ---
 
 ## Fallback (If Vault Not Accessible)
@@ -445,6 +479,13 @@ The Case Brain provides the context; the companion skill does the work.
 ---
 
 ## Changelog
+
+### v3.3 (April 2026)
+- Added `CASE_ROOT` as canonical output-path variable in YAML frontmatter (Step 6B)
+- Added Step 6H documenting `CASE_ROOT` as the single source of truth for all file-writing D&W skills
+- `CASE_ROOT` now displayed in SESSION OPEN CONFIRMATION so the attorney can verify the output path at session start
+- `CASE_ROOT` and `gdrive_path` hold identical values; `CASE_ROOT` is the name 38 downstream skills look for per `OUTPUT_PATH_CONVENTION.md`
+- Older Case Brains without `CASE_ROOT` fall back to `gdrive_path` and are backfilled on next session close
 
 ### v3.2 (March 2026)
 - **FIX:** Obsidian MCP times out in Cowork because there's no local Obsidian app running in the cloud

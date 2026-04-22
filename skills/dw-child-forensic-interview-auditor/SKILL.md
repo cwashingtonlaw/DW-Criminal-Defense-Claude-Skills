@@ -24,6 +24,25 @@ This skill audits child forensic interviews from an **adversarial criminal defen
 
 The auditor maintains that **children can be highly reliable witnesses when properly interviewed**. The focus is entirely on **interviewer technique, environmental factors, and protocol adherence**—never on disparaging the child's credibility or ability to perceive events accurately.
 
+### Source Citation Mandate
+
+Every factual assertion in the Child Forensic Interview Audit Report must trace back to a specific source document. Interview audits challenge interviewer technique, not the child — and every finding about leading questions, protocol violations, or suggestive behavior must be pinpointed in the interview recording or transcript so the attorney can verify and present it at hearing or trial.
+
+**Citation format:** Cite the document title, page number or timestamp. Examples:
+- `(CAC Interview Recording — 03/15/2026, Timestamp 00:12:45)`
+- `(CAC Interview Transcript, p. 8, ll. 12-18)`
+- `(Second Interview Recording — 04/02/2026, Timestamp 00:05:30)`
+- `(Forensic Interviewer Report — Ms. Jones, p. 2, para. 3)`
+- `(MDT Meeting Notes, 03/16/2026, p. 1)`
+- `(SANE Exam Report, p. 4, History Section)`
+- `(Police Report — Det. Smith, p. 3, para. 5)`
+
+**Multiple-source rule:** When more than one document confirms a finding, cite all of them — e.g., `(CAC Interview Transcript, p. 8, ll. 12-18; Police Report, p. 3, para. 5)`.
+
+**Unsourced assertions:** If a finding cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH RECORDING/TRANSCRIPT]`. Never present an unsourced finding as established without flagging it.
+
+**Where sourcing applies:** This mandate covers all factual content — question classifications, protocol compliance findings, developmental assessments, contamination tracking, and multi-interview comparisons. Research citations follow normal academic/legal citation format.
+
 All findings are framed as **process deficiencies and methodology failures**, not child incompetence.
 
 ---
@@ -887,6 +906,433 @@ Landmark research: "Jeopardy in the Courtroom"
 
 ---
 
+## MODULE H — Post-Interview Contamination Indicators
+
+### **Temporal Proximity Analysis**
+
+The timing between major legal events and the child's initial disclosure can reveal whether external pressures prompted an outcry.
+
+**Key Analysis Questions:**
+
+1. **Timeline Mapping**
+   - When was the initial allegation made? (First mention to parent, teacher, counselor, or investigator)
+   - What significant legal event occurred near this date?
+   - Document the calendar days between the legal event and the disclosure date
+
+2. **Legal Event Categories to Cross-Reference**
+   - Divorce filing or divorce finalization
+   - Custody hearing or custody ruling
+   - Restraining order filing or hearing
+   - Child protective services involvement or threatened removal
+   - School disciplinary action against the defendant
+   - Employment termination or workplace discipline
+   - Any other legal proceedings involving the defendant
+
+3. **Temporal Proximity Red Flags**
+   - Disclosure occurs within 2 weeks of custody hearing (child may be influenced by custody-focused parent)
+   - Allegation surfaces immediately after parent learns of defendant's new romantic relationship
+   - Outcry coincides with CPS involvement for unrelated reasons (child may be coached as "proof" of the original concern)
+   - First mention follows a lawyer consultation or attorney advising parent to investigate
+
+**Output:** Create a chronological timeline table:
+
+| Date | Event Type | Description | Days to Allegation |
+|------|-----------|-------------|--------------------|
+| 2024-03-15 | Custody Hearing | Judge awards custody to non-accusing parent | +0 (same week) |
+| 2024-03-22 | Child Disclosure | Child mentions "bad touching" to mother for first time | — |
+| 2024-04-01 | Police Report | Detective takes formal statement from child | +10 days post-hearing |
+
+**Citation Format:** Source each timeline entry with discovery documents:
+- `(Custody Order, dated 2024-03-15, Page 1)`
+- `(Mother's Written Statement to CPS, dated 2024-03-22, Page 2)`
+- `(Police Report — Det. Smith, dated 2024-04-01, Page 3, para. 2)`
+
+### **Adult Voice Detection**
+
+Children naturally use age-appropriate language and speak from their own experiences. When a child's statement contains phrases, terminology, or narrative structure that mirror adult language from a parent, investigator, or therapist, this indicates the child has adopted language rather than generating it from independent memory.
+
+**Detection Methodology:**
+
+1. **Exact Phrase Matching**
+   - Extract all phrases the child used in the forensic interview
+   - Search prior police reports, parent statements, and notes for the same phrases
+   - Highlight any exact or near-exact matches
+
+   **Example:**
+   ```
+   Parent's statement (to police): "He engaged in genital contact with my child."
+   Child's statement (in forensic interview): "He did genital contact to me."
+   Red flag: "Genital contact" is legal/adult terminology; 4-year-old would use "touched my pee pee" or similar.
+   ```
+
+2. **Legal/Formal Terminology**
+   - Flag words like: "perpetrator," "victim," "sexual abuse," "genital contact," "inappropriate touching"
+   - Compare against the child's baseline language (what the child uses for other topics)
+   - If child uses sophisticated terminology only when discussing allegations, this suggests adult coaching
+
+   **Example:**
+   ```
+   Child's general speech: "I like my dog." "My friend is nice." "I don't like broccoli."
+   Child's abuse disclosure: "The perpetrator engaged in inappropriate sexual contact."
+   Discrepancy: Child's natural vocabulary does not match the formal allegation language.
+   ```
+
+3. **Parental Accusation Language**
+   - Search parent's statements for how they describe the other parent's alleged behavior
+   - Search for complaints about the other parent in custody documents
+   - If child's disclosure mirrors parent's grievances (beyond the abuse allegation itself), this indicates coaching
+
+   **Example:**
+   ```
+   Mother's custody complaint: "Father is controlling, abusive, and has no respect for boundaries."
+   Child's statement: "Daddy is mean and has no respect for me. He touches me in bad places."
+   Red flag: Child combines mother's character attack ("no respect") with abuse allegation.
+   ```
+
+4. **Interviewer-Introduced Language Adoption**
+   - Flag instances where interviewer introduces specific terminology
+   - Note when child subsequently adopts that exact terminology
+   - This demonstrates source monitoring failure (child cannot distinguish own memory from adult suggestion)
+
+   **Example from transcript:**
+   ```
+   Interviewer: "Did he touch your private parts?"
+   Child: "I don't know."
+   [Later in same interview]
+   Interviewer: "Some kids call it their privates. Did he touch your privates?"
+   Child: "Yes, he touched my privates."
+   Red flag: Child adopted the term "privates" only after interviewer introduced it.
+   ```
+
+**Output:** Create an "Adult Voice Detection Report" titled "Indicators of External Influence and Coaching"
+
+- **Table: Phrase Matching**
+  | Child's Statement | Context | Potential Adult Source | Match Assessment |
+  |------------------|---------|----------------------|------------------|
+  | "genital contact" | Forensic interview, timestamp 00:12:30 | Mother's police statement, p. 2, para. 3 | EXACT MATCH — adult terminology |
+  | "he has no boundaries" | Forensic interview, describing perpetrator's character | Mother's custody complaint, p. 5, para. 2 | NEAR MATCH — mirrors mother's language pattern |
+
+- **Baseline Language Comparison**
+  - Child's natural vocabulary for neutral topics: [list of examples from interview]
+  - Child's vocabulary when discussing allegations: [list of examples]
+  - **Assessment:** Language is [consistent/inconsistent] with developmental expectations
+
+- **Source Citations**
+  - Each matched phrase cited to both child's statement and potential adult source
+  - Example: `(Forensic Interview Transcript, p. 8, ll. 10-15; Mother's Police Statement, p. 2, para. 3)`
+
+### **Reward System Documentation**
+
+Children are sensitive to adult reinforcement. When a child receives special privileges, gifts, increased attention, or lack of normal discipline immediately after making a disclosure, this can reinforce the disclosure behavior and suggest that the child is motivated to continue the narrative to maintain the rewards.
+
+**Key Questions:**
+
+1. **Timing of Rewards Relative to Disclosure**
+   - When did the disclosure occur?
+   - When did special privileges begin?
+   - What specific rewards did the child receive?
+
+2. **Types of Rewards to Investigate**
+   - **Material gifts:** Toys, electronics, clothing, money, increased allowance
+   - **Privileges:** Extended screen time, later bedtime, skipping chores, special outings
+   - **Attention:** Excessive praise, one-on-one time with the parent, special "investigation" meetings
+   - **Reduced discipline:** Normal consequences suspended (no timeout, no chores withheld, no restrictions)
+   - **Social validation:** Told "you're so brave," "you're a hero," "we're all so proud of you"
+
+3. **Documentation Sources**
+   - Parent's own statements or notes mentioning gifts
+   - Receipts or purchase records coinciding with disclosure date
+   - Therapist notes mentioning "reward for disclosure"
+   - Sibling statements about the disclosing child receiving special treatment
+   - School records showing behavioral changes or parent notes about increased freedom
+
+**Analysis Framework:**
+
+Ask yourself:
+- Did the child's material circumstances improve immediately after disclosure?
+- Did the child receive praise/attention from the disclosing parent specifically for sharing abuse allegations?
+- Were consequences for misbehavior suspended after the disclosure?
+- Is there a pattern of rewards escalating as the allegations escalate?
+
+**Output:** Generate a "Reward System Documentation" summary:
+
+| Date | Allegation Status | Reward Given | Type | Source |
+|------|------------------|--------------|------|--------|
+| 2024-03-20 | Initial disclosure: "bad touching" | Nintendo Switch | Material gift | (Receipt, dated 2024-03-21, Purchase Confirmatio) |
+| 2024-03-25 | Escalated disclosure: "genital touching" | Weekend trip to amusement park | Privilege/Attention | (Calendar notes from mother's phone, 2024-03-25) |
+| 2024-04-10 | Full graphic details provided | New iPhone | Material gift | (Credit card statement, dated 2024-04-11) |
+
+**Purpose:** Demonstrates whether the child's motivation to elaborate on allegations correlates with receipt of rewards, suggesting reinforcement-based narrative development rather than spontaneous memory recovery.
+
+---
+
+## MODULE I — Multi-Interview Comparative Analysis (Escalation Tracker)
+
+The "growth of the allegation" is one of the most powerful defense tools. By tracing how a child's statement evolves from the very first mention through subsequent interviews, you can demonstrate whether the child is recounting a fresh memory or a learned narrative.
+
+### **Core Principle**
+
+Research (Ceci & Bruck, Lamb et al.) documents that with each additional interview:
+- New details are "remembered"
+- Vague descriptions become graphic
+- Peripheral details multiply
+- Core inconsistencies are often overlooked as child "fills in" details to match adult expectations
+
+If Interview 1 shows a vague, hesitant disclosure and Interview 3 shows graphic detail, the allegation grew through suggestion and rehearsal, not through independent memory.
+
+### **Step 1: Original Claim Extraction**
+
+Locate the VERY FIRST mention of abuse by the child. This is not the forensic interview; this is the earliest statement.
+
+**Examples of first mention:**
+- Offhand comment to parent: "Daddy touched me funny."
+- Disclosure to teacher: "Something bad happened."
+- Mention to friend: "I don't like my uncle."
+- Statement during unrelated CPS interview: "He did bad things."
+
+**Documentation:**
+- **Source:** Who did the child first tell?
+- **Date:** When was this first mention?
+- **Exact wording:** What were the child's exact words?
+- **Context:** What prompted the disclosure?
+- **Specificity level:** Was it vague, moderate, or graphic?
+
+**Example:**
+```
+Interview 1 (Mother, 2024-01-15, unrecorded): Child says, "Daddy did bad things."
+Mother asks, "What bad things?" Child: "I don't know. Just bad."
+Assessment: VAGUE. No specific allegation offered. Child does not elaborate.
+```
+
+### **Step 2: Trace Changes Across Sequential Interviews**
+
+Create a chronological table of all interviews. For each, document:
+- **Date and interviewer**
+- **New details introduced (not mentioned before)**
+- **Details confirmed or repeated**
+- **Apparent contradictions**
+- **Level of specificity (vague → moderate → graphic)**
+
+**Example Escalation:**
+
+| Interview # | Date | Interviewer | Original Claim | New Details Added | Specificity Level |
+|-------------|------|-------------|-----------------|-------------------|-----------------|
+| 1 | 2024-01-15 | Mother | "Bad things" | None (original disclosure) | VAGUE |
+| 2 | 2024-01-17 | School counselor | "He touched me" | Location: "at his house"; Body part: "on my leg" | MODERATE |
+| 3 | 2024-01-22 | Police officer (unrecorded) | Full description matching mother's allegations from court files | Genital touching, clothing removal, specific timeline | GRAPHIC |
+| 4 | 2024-02-05 | CAC interviewer (recorded) | Identical to Police interview | None; mostly repetition of prior statements | GRAPHIC (no new details) |
+
+**Key Analysis:**
+- Interview 1 → 2: Slight elaboration, but still simple
+- Interview 2 → 3: MAJOR ESCALATION — specific genital allegations appear for first time
+- Interview 3 → 4: Plateau — no new details; child repeating prior statement
+
+**Interpretation:** The critical leap occurs in Interview 3 (police interview). This is where the allegation transforms from "touched me on my leg" to "took my clothes off and touched my genital area." **Who interviewed the child in Interview 3?** Check whether the police officer had reviewed the mother's allegations beforehand.
+
+### **Step 3: Identify Contradictions & Timeline Problems**
+
+As the allegation grows, children often introduce contradictions that reveal the grown nature of the narrative.
+
+**Common contradiction patterns:**
+
+1. **Location Shifting**
+   - Interview 2: "It happened at his house."
+   - Interview 3: "It happened at the park."
+   - Interview 4: "It happened multiple places."
+   - Problem: If a traumatic event occurred, location should be stable in memory.
+
+2. **Perpetrator Identity Confusion**
+   - Interview 1: "Uncle did bad things."
+   - Interview 2: "My dad did bad things."
+   - Interview 3: "Both of them did bad things."
+   - Problem: If abuse occurred, child should be clear about who did it.
+
+3. **Frequency Shifting**
+   - Interview 1: "One time."
+   - Interview 2: "Many times."
+   - Interview 3: "Every time I visited."
+   - Problem: Frequency escalates with each adult prompting.
+
+4. **Temporal Confusion**
+   - Interview 1: "Last summer."
+   - Interview 2: "Last year."
+   - Interview 3: "Since I was a baby."
+   - Problem: Timeframe expands backward with each interview.
+
+5. **Detail Contradiction**
+   - Interview 2: "He was wearing a blue shirt."
+   - Interview 3: "He was wearing a red shirt."
+   - Interview 4: "He wasn't wearing a shirt."
+   - Problem: Sensory details should not shift; inconsistency suggests construction.
+
+**Output: Contradiction Table**
+
+| Issue | Interview 1 | Interview 2 | Interview 3 | Contradiction Assessment |
+|-------|------------|------------|------------|------------------------|
+| Location | Home | School playground | Multiple locations | ESCALATION — territory expands |
+| Frequency | One time | "A lot" | Every visit | ESCALATION — vague becomes frequent |
+| Clothing | Not mentioned | Blue shirt | No shirt | CONTRADICTION — inconsistent sensory detail |
+
+### **Step 4: Highlight "Growth of the Allegation" Over Time**
+
+**Create a narrative progression document:**
+
+**Version 1 (Original Claim):**
+"Daddy did bad things."
+
+**Version 2 (After first re-interview):**
+"Daddy touched me on my leg at his house."
+
+**Version 3 (After police interview — NOTE: Interviewer had access to mother's allegations):**
+"Daddy took my clothes off and touched my private parts. It hurt. He told me not to tell mommy. This happened every time I went to his house."
+
+**Version 4 (CAC interview — almost identical to Version 3):**
+[Nearly identical to Version 3, with minor elaboration on emotional impact]
+
+**Forensic Assessment:**
+
+The allegation underwent a **three-stage evolution:**
+
+1. **Stage 1 (Original):** Child offers minimal information; no specific allegations.
+2. **Stage 2 (Teacher interview):** Child adds location and body part (still non-sexual).
+3. **Stage 3 (Police interview):** CRITICAL TRANSFORMATION. Genital abuse allegation appears for first time. Police officer had reviewed mother's allegations beforehand.
+
+**Implication for Defense:** If the child's original disclosure was vague ("bad things") and the specific genital allegation appeared only after police officer intervention, the allegation may be investigator-generated rather than child-generated.
+
+### **Purpose of This Module**
+
+This module demonstrates to a judge or jury that:
+- The child's first disclosure was limited and non-specific
+- Each subsequent interview added details and escalated severity
+- The most graphic allegations appeared only after adult interviews that had access to prior allegations
+- The child may be describing a learned narrative (rehearsed through multiple interviews) rather than an independent memory
+
+---
+
+## MODULE J — External Validity Cross-Check (Behavioral Baseline)
+
+Powerful corroborating evidence comes from documents that have nothing to do with the allegations: school records, attendance logs, report cards, behavioral incident reports, and academic performance files. These contemporaneous records, created without knowledge of the abuse allegations, provide an objective baseline against which to measure the child's behavior during the alleged abuse period.
+
+**The Logic:** If a child experienced severe, repeated abuse over months or years, there should be **observable changes** in:
+- School attendance
+- Academic performance
+- Behavioral incidents
+- Teachers' observations
+
+If none of these metrics changed during the alleged abuse period, this raises questions about either:
+1. The abuse did not occur
+2. The abuse occurred but did not impact the child's functioning
+3. The child's disclosure was recent, suggesting the alleged abuse was not ongoing
+
+### **Cross-Reference Strategy**
+
+1. **Obtain School Records Covering the Full Alleged Abuse Period**
+   - Attendance records (every day marked present/absent)
+   - Report cards (grades in each subject)
+   - Teacher progress reports and comments
+   - Behavioral incident reports (detentions, suspensions, discipline)
+   - Counselor notes (if child was referred for behavioral concerns)
+   - Special education records (if applicable)
+   - Nurse visit logs (if child complained of physical symptoms)
+
+2. **Map Alleged Incidents Against School Records**
+
+   Create a table with three columns:
+   - **Alleged Incident Dates** (from child's interview)
+   - **School Attendance/Performance** (from official records)
+   - **Correlation Assessment**
+
+   **Example:**
+
+   | Alleged Incident | Date(s) | School Status | Assessment |
+   |-----------------|---------|---------------|------------|
+   | "Abuse at Dad's house" | "Every weekend from Jan-Dec 2023" | Present every school day Jan-Dec 2023; no absences. Grades: A/B range. No behavioral incidents. | ZERO CORRELATION — Child attended school every day during alleged abuse period without absences or academic decline. |
+   | "Severe abuse, multiple times per week" | "Throughout 2022-2023" | Perfect attendance 2022-2023. Grades improved from C to A in 2023. No discipline issues. | ZERO CORRELATION — Academic performance improved during alleged abuse period; no behavioral deterioration. |
+   | "Hurt so badly he couldn't walk" | "2024-03-15" | Present at school 2024-03-15, participated in PE class, no incident reports. | ZERO CORRELATION — Child attended full school day including physical education on the date of alleged severe injury. |
+
+3. **School vs. Home Check**
+
+   **Question:** Did any alleged incidents occur on dates/times when the child was marked present at school?
+
+   **Example:**
+   ```
+   Alleged Statement: "Daddy abused me at his house after school on March 20, 2024."
+   School Record: Child marked present March 20, 2024. Classroom attendance 8:30am-3:15pm.
+   No sign-out before school ended. No nurse visit.
+
+   Contradiction: If child was in school until 3:15pm on March 20, when did the abuse occur "after school"?
+   Testimony would need to specify timing; if timing conflicts, allegation lacks credibility.
+   ```
+
+4. **Academic Baseline Assessment**
+
+   **Question:** Is there an objective correlation between dates of alleged abuse and the child's academic performance?
+
+   Create a timeline:
+
+   | Period | Alleged Abuse (Yes/No) | Grades | Attendance | Behavioral Incidents |
+   |--------|---------------------|-------|-----------|-------------------|
+   | Fall 2022 | No | B range | 95% | 0 incidents |
+   | Spring 2023 | No | B range | 96% | 0 incidents |
+   | Fall 2023 | Yes (alleged abuse begins) | A/B range | 98% | 0 incidents |
+   | Spring 2024 | Yes (ongoing alleged abuse) | A range | 99% | 0 incidents |
+
+   **Assessment:** Grades **improved** during alleged abuse period. Attendance **improved**. No behavioral changes. This is inconsistent with a child experiencing trauma or abuse.
+
+5. **Behavioral Indicators**
+
+   **Question:** Were there documented behavioral changes at school during the alleged abuse period?
+
+   **Trauma Response Indicators to Look For (or NOT find):**
+   - Withdrawn behavior (note: this is not in school records; it's observed only at home)
+   - Aggression toward peers or teachers
+   - Regression (toileting accidents, baby talk, clinginess)
+   - Sexualized behavior (inappropriate comments, touching)
+   - Anxiety or phobia (refusing to go to school, clinging to teacher)
+   - Dissociation or spacing out
+
+   **Red Flag:** If school records show **zero behavioral changes** during the alleged abuse period, but the child's disclosure occurs only months later (well after the alleged abuse ended), this suggests:
+   - The abuse may not have occurred
+   - The abuse occurred but did not impact the child
+   - The child's disclosure was prompted by external factors (custody dispute, parental coaching) rather than trauma recall
+
+### **Output: Behavioral Baseline Comparison Table**
+
+Create a comprehensive table:
+
+| Period | Alleged Incident(s) | School Attendance | Grades | Teacher Comments | Behavioral Incidents | Correlation |
+|--------|-------------------|------------------|--------|------------------|-------------------|------------|
+| Sept 2023 | None yet | 95% | B/C | "Works well in class" | 0 | N/A |
+| Oct 2023 | Alleged abuse begins (weekly) | 97% | B | "Improving in math" | 0 | NO CHANGE |
+| Nov 2023 | Alleged abuse continues | 98% | A/B | "Excellent participation" | 0 | IMPROVED |
+| Dec 2023 | Alleged abuse intensifies | 100% | A | "Outstanding student" | 0 | IMPROVED |
+| Jan 2024 | Alleged abuse ongoing | 99% | A | "Star pupil" | 0 | NO DECLINE |
+| Feb 2024 | Alleged abuse (final month before disclosure) | 96% | A | "Participating well" | 0 | NO CHANGE |
+| March 2024 | Disclosure made | 92% | A (decline begins post-disclosure) | "Withdrawn recently" | 1 incident (post-disclosure) | POST-DISCLOSURE |
+
+**Interpretation:** Academic performance and behavior remained stable **throughout the alleged abuse period**. The only decline appears **after the disclosure**, suggesting:
+1. The child may not have experienced the abuse
+2. Or the disclosure itself (not the abuse) is driving behavioral changes
+
+### **Citation Format for All Documents**
+
+Every entry in the Behavioral Baseline table must cite the source:
+
+- `(School Attendance Record, Sept 2023 - March 2024, [School Name] Records Department)`
+- `(Report Card, Fall 2023, Mr. Johnson's 3rd Grade Class)`
+- `(Disciplinary Record, [School Name], Jan 2024, Zero Incidents Filed)`
+- `(Teacher Progress Note, dated 2024-01-15, Ms. Smith, 3rd Grade Language Arts)`
+
+### **Purpose of This Module**
+
+This module provides **powerful objective evidence** that:
+- The child's school functioning remained stable during the alleged abuse period
+- If a child were experiencing severe, repeated abuse, school records would likely reflect behavioral changes, attendance problems, or academic decline
+- The absence of school-based indicators contradicts allegations of ongoing trauma
+- For jury presentations: "If this child were being abused weekly, why did the teacher write in December 2023 that she was a 'star pupil with excellent participation'?"
+
+---
+
 ## Severity Classification System
 
 ### **CRITICAL FINDINGS**
@@ -1023,6 +1469,24 @@ ATTORNEY-CLIENT PRIVILEGED
 - Age-appropriate assessment
 - Research-based vulnerabilities
 - Competency score
+- Findings: [CRITICAL/SIGNIFICANT/MINOR]
+
+**Module H: Post-Interview Contamination Indicators**
+- Temporal proximity analysis (legal events vs. disclosure timeline)
+- Adult voice detection (age-inappropriate terminology tracing)
+- Reward system documentation
+- Findings: [CRITICAL/SIGNIFICANT/MINOR]
+
+**Module I: Multi-Interview Comparative Analysis (Escalation Tracker)**
+- Original claim extraction (first mention)
+- Narrative evolution across sequential interviews
+- Contradiction tracking between interview versions
+- Findings: [CRITICAL/SIGNIFICANT/MINOR]
+
+**Module J: External Validity Cross-Check (Behavioral Baseline)**
+- School attendance correlation with abuse timeline
+- Academic performance baseline comparison
+- Behavioral incident analysis during alleged abuse period
 - Findings: [CRITICAL/SIGNIFICANT/MINOR]
 
 ### **Consolidated Findings & Severity Rating**
@@ -1320,4 +1784,132 @@ If protocol deviations are found, offer to route to dw-expert-witness-evaluator 
 
 ---
 
+## Register Output with Case Brain
+
+After generating any deliverable, check if a case session is active (i.e., if `dw-case-brain` has been loaded for this case). If so, register the output:
+
+1. **Append to COMPANION SKILL OUTPUTS** in the Case Brain:
+   - Skill: `dw-child-forensic-interview-auditor`
+   - Output: `[filename of deliverable]`
+   - Date: `[today's date]`
+   - Location: `[path where the deliverable was saved]`
+
+2. **Add to OPEN ISSUES** if the audit identified any items requiring attorney action.
+
+3. **Update NEXT STEPS** if the audit output changes the recommended case strategy.
+
+If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard` and `dw-trial-notebook-builder` during their folder scans.
+
+---
+
+## APPENDIX: NotebookLM Audit Prompts
+
+Copy-paste these prompts directly into NotebookLM after uploading the CAC interview transcript and case documents.
+
+### Prompt A — Forensic Interview Audit
+
+```
+Act as a Forensic Interviewing Expert Defense Witness (similar to the role of Dr. Michaeleen Maher or Dr. Stephen Ceci).
+
+Review the provided CAC interview transcript/summary and audit it for adherence to the NICHD Protocol and best practices for minimizing suggestibility.
+
+Your Task: Identify instances where the interviewer may have contaminated the child's memory.
+
+Please generate a 'Methodology Flaw Report' covering these four specific areas:
+
+1. The 'Free Recall' vs. 'Directed' Ratio
+   - Did the child disclose the abuse spontaneously during the 'free narrative' phase (e.g., 'Tell me everything that happened')?
+   - Or did the disclosure only happen after the interviewer introduced the topic or asked a specific, leading question?
+   - Flag the exact moment/question where the allegation was first solidified.
+
+2. Linguistic Contamination (Adult Terminology)
+   - Identify words or phrases the child uses that are age-inappropriate or inconsistent with their previous language (e.g., using specific legal/anatomical terms).
+   - Check if these terms originated from the child or were first spoken by the interviewer/parent and then adopted by the child.
+
+3. The 'Option-Posing' Trap
+   - List instances where the interviewer used 'Option-Posing' questions (e.g., 'Did he touch you over or under your clothes?') instead of open-ended questions.
+   - Did the child simply agree with the option presented?
+
+4. Coercive Reinforcement
+   - Highlight moments where the interviewer praised the child specifically for making an incriminating statement (e.g., 'You are doing a great job telling the truth') but remained silent or neutral when the child denied abuse or said 'I don't know.'
+
+Output: A bulleted list of specific 'Impeachment Opportunities' based on these protocol violations.
+```
+
+### Prompt B — Red Team Simulation (Prosecution's View)
+
+```
+Act as the Lead Prosecutor. Review the file and draft your Closing Argument. Highlight the 3 most damning pieces of evidence against the defendant and explain how you will explain away the inconsistencies in the child's timeline.
+```
+
+### Prompt C — Behavioral Baseline Check
+
+```
+Review the school records and report cards from [Year 1] to [Year 3]. Is there an objective correlation between the dates of alleged abuse and the child's academic performance or attendance? Or did the grades remain consistent?
+```
+
+### Prompt D — Coaching & Motive Scan
+
+```
+Analyze the context surrounding the first outcry.
+
+Search for evidence of 'Motive to Fabricate' or 'Parental Alienation':
+- Temporal Proximity: How close was the first accusation to a significant legal event (divorce filing, custody ruling, disciplinary event)?
+- The 'Adult Voice': Identify phrases in the child's statement that sound like they were mimicked from an adult.
+- The 'Reward' System: Is there any evidence the child received special privileges, gifts, or lack of discipline from the other parent immediately following a disclosure?
+
+Output: A summary titled 'Indicators of External Influence and Coaching.'
+```
+
+### Prompt E — Escalation Tracker
+
+```
+Trace the evolution of the allegations from the very first mention through to the final police report.
+
+Step 1: What was the original claim? (Usually simple or vague).
+Step 2: How did the claim change after each interview? Look for new, more graphic details that were 'remembered' only after speaking with investigators or therapists.
+Step 3: Highlight contradictions. Where does the story of the same event change completely between versions?
+
+Output: A chronological list showing the 'Growth of the Allegation' over time.
+```
+
+### Golden Rule for NotebookLM
+
+If answers are too generic or neutral, use this follow-up:
+```
+You are being too neutral. Rewrite that last response, but assume the police officer is mistaken or lying. How does the evidence look then?
+```
+
+---
+
 **END OF SKILL DOCUMENTATION**
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-child-forensic-interview-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (forensic interview audit).

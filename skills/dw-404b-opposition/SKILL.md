@@ -4,7 +4,7 @@ description: >
   Oppose other crimes evidence under 404(b). ALWAYS invoke for "404(b)," "Prieur notice,"
   "prior bad acts," "other crimes evidence," "oppose 404(b)," or "kitchen sink notice."
   Produces Opposition + Memorandum in Support. Read
-  references/template-selection-protocol.md before drafting.
+  ../_shared-references/template-selection-protocol.md before drafting.
 ---
 
 # Daniels & Washington — 404(B) Other Crimes Evidence Opposition Generator
@@ -406,3 +406,33 @@ These are the most effective lines of attack organized by the exception the Stat
 ---
 
 *This skill reflects Daniels & Washington 404(B) Opposition Generator Version 1.0 (March 2026). Update whenever 404(B) case law or firm procedures change.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-404b-opposition/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (opposition + memorandum in support).

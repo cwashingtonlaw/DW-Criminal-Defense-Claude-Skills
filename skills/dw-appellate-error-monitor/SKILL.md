@@ -16,6 +16,25 @@ Your role is adversarial in the best sense: you assume the defense perspective a
 
 Error preservation is the bridge between trial and appeal. In Louisiana, the contemporaneous objection rule (La. C.Cr.P. Art. 841) is strictly enforced: an irregularity or error cannot be availed of after verdict unless it was objected to at the time of occurrence. The appellate courts will not consider issues raised for the first time on appeal, with narrow exceptions for errors patent (Art. 920) and structural errors. This skill ensures that no appellate opportunity is lost to a preservation failure, and that where preservation has failed, every available alternative -- post-trial motions, errors patent, ineffective assistance claims, writ applications -- is identified and assessed.
 
+### Source Citation Mandate
+
+Every factual assertion in the error preservation log, post-trial motions, appellate issue ranking, and all other outputs must trace back to a specific source document. The appellate attorney needs to verify each issue against the record, and appellate courts will not consider claims that cannot be tied to the record. Precise sourcing prevents the audit from being built on assumptions about what happened at trial.
+
+**Citation format:** Cite the document title, page number, and line or paragraph. Examples:
+- `(Trial Transcript, Vol. II, p. 147, ll. 12-18)`
+- `(Sentencing Transcript, p. 8, ll. 3-15)`
+- `(Minute Entry, 03/15/2026)`
+- `(Jury Instruction Packet, Instruction No. 7)`
+- `(Voir Dire Transcript, p. 34, ll. 5-22)`
+- `(Defense Motion for New Trial, p. 3, para. 4)`
+- `(Court Ruling on Motion to Suppress, 02/10/2026, p. 2)`
+
+**Multiple-source rule:** When more than one document confirms an event or ruling, cite all of them — e.g., `(Trial Transcript, Vol. II, p. 147, ll. 12-18; Minute Entry, 03/15/2026)`. Corroboration from multiple record sources strengthens the appellate issue assessment.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document in the record, mark it `[UNSOURCED — VERIFY WITH TRANSCRIPT/RECORDS]` so the attorney knows to confirm or remove it. Never present an unsourced factual claim as established without flagging it.
+
+**Where sourcing applies:** This mandate applies to all factual content — objection descriptions, missed objection identifications, proffer assessments, errors patent findings, post-trial motion fact sections, and the appellate issue ranking narrative. Legal standards and case law citations follow normal legal citation format and do not need source-document citations.
+
 ---
 
 ## STEP 0 -- FILE INTAKE HARD STOP (Always First)
@@ -62,6 +81,26 @@ Before conducting any error preservation analysis, collect the following in rank
 17. **Appointed vs. Retained:** Whether counsel was appointed or retained -- relevant for Anders brief obligations and IAC analysis on direct appeal vs. post-conviction.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1-6 are missing, do not audit -- ask for them first. If the transcript is unavailable, state clearly that any audit conducted from minute entries alone is preliminary and must be verified against the transcript when available.
+
+---
+
+## STEP 1.5 — Timeline & Narrative Inconsistency Pre-Audit
+
+Before analyzing objections and trial errors, identify inconsistencies and constitutional issues that *should* trigger defensive objections or proffers. This step uses the Comprehensive Case Timeline (dw-criminal-defense Phase 2 Report 1) as the diagnostic baseline.
+
+**Review the Case Timeline for these analyst flags:**
+- `[INCONSISTENCY]` — Conflicting accounts of the same event from different sources. If the prosecution presents testimony consistent with one version, and no objection preserves the conflict for appeal, this becomes a waived issue.
+- `[4TH AMENDMENT]` — Search/seizure events that should trigger suppression objections at trial. Cross-reference against MODULE A objection log to confirm preservation.
+- `[5TH/6TH AMENDMENT]` — Interrogation/Miranda/counsel issues. Verify defense objected when related testimony was introduced at trial.
+- `[CHAIN OF CUSTODY]` — Evidence handling issues. Confirm foundation objections were made when the evidence was introduced.
+- `[BRADY MATERIAL]` — Potentially exculpatory evidence. If Brady material was identified pre-trial but not disclosed, verify the issue is preserved in the record.
+
+**For each flagged timeline entry:**
+1. Was a defense objection made when related testimony/evidence was presented at trial?
+2. If yes → document in MODULE A objection log
+3. If no → flag as potential waived issue in MODULE B (Missed Objection Identifier) and assess whether post-trial motion can cure the deficiency
+
+**Output:** Pre-Audit Summary listing all timeline-flagged issues and their preservation status (Preserved / Waived / Curable by Post-Trial Motion / Error Patent).
 
 ---
 
@@ -235,6 +274,43 @@ When the court grants a continuing objection, record:
 **Louisiana jurisprudence on continuing objections:**
 - *State v. Hongo*, 625 So.2d 610 (La. App. 3d Cir. 1993) -- continuing objection preserves issues within its stated scope
 - A continuing objection does NOT preserve issues outside its stated scope -- if the subject matter shifts, a new objection is required
+
+---
+
+## MODULE A.5 — Landmine Preservation Protocol
+
+"Landmine" issues are specific trial moments where the absence of an objection or a weak proffer creates appellate vulnerability that could sink an appeal. This module systematically identifies and ranks the most dangerous preservation failures.
+
+After completing MODULE A (objections made) and STEP 1.5 (timeline pre-audit), cross-reference to identify landmine issues:
+
+### Landmine Identification
+
+For each potential landmine, assess:
+
+| Field | What to Record |
+|-------|---------------|
+| **Landmine #** | Sequential (LM-001, LM-002, etc.) |
+| **Issue** | Description of the trial moment creating appellate vulnerability |
+| **Legal Basis** | Constitutional provision, statute, or case law at stake |
+| **Was Objection Made?** | Yes / No / Partial |
+| **Was Proffer Adequate?** | Yes / No / N/A |
+| **Can Post-Trial Motion Cure?** | Yes (MNOV, MNT, Art. 851) / No (permanently waived) |
+| **Will This Waive Appellate Review?** | Yes / Possibly / No (error patent) |
+| **Danger Level** | FATAL (appeal-killing if waived) / SERIOUS (significant issue lost) / MODERATE (secondary issue) |
+
+### Landmine Categories
+
+1. **Confrontation Clause Landmines** — Testimonial hearsay admitted without Crawford objection; cross-reference witness table to identify which prosecution witnesses provided hearsay that was not confronted
+2. **Other Crimes / 404(b) Landmines** — Prior bad acts testimony admitted without contemporaneous objection specifying Art. 404(b) and Prieur
+3. **Prosecutorial Misconduct Landmines** — Improper closing argument (commenting on silence, vouching, inflammatory) without objection
+4. **Jury Instruction Landmines** — Failure to object to incorrect charges or request necessary lesser included offenses
+5. **Expert Testimony Landmines** — Failure to challenge expert methodology under Daubert/Foret before testimony reaches the jury
+
+### Output
+
+Landmine Summary Table ranked by Danger Level (FATAL first), with recommended cure for each (post-trial motion language, Art. 920 errors patent argument, or notation that the issue is permanently waived).
+
+This module feeds directly into MODULE E (Post-Trial Motion Generator) — every curable landmine becomes a ground in the Motion for New Trial or Motion in Arrest of Judgment.
 
 ---
 
@@ -1050,3 +1126,33 @@ OUTPUTS: Generate applicable outputs based on case needs:
 ---
 
 *This skill reflects Daniels & Washington Appellate Error Preservation Monitor Version 1.0 (March 2026). Update whenever Louisiana Code of Criminal Procedure, Code of Evidence, appellate jurisprudence, or firm procedures change.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Post-Trial/dw-appellate-error-monitor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (running error log + appellate viability memo).

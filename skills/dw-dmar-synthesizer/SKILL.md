@@ -19,6 +19,24 @@ description: >
 **Jurisdiction**: Louisiana / 5th Circuit (toggle if another jurisdiction applies)
 **Privilege**: Attorney Work Product / Privileged Communication
 
+### Source Citation Mandate
+
+Every factual assertion in the Consolidated DMAR, inconsistency matrix, and cross-case witness comparison must trace back to a specific source document across the input DMARs and underlying case files. Cross-case analysis is only credible when the attorney can verify each inconsistency against the original evidence — vague references to "the other case" are not actionable.
+
+**Citation format:** Cite the case, document title, page number, and paragraph or timestamp. Examples:
+- `(Case A — DMAR, Witness: Officer Smith, Timestamp 00:15:32)`
+- `(Case B — DMAR, Witness: Officer Smith, Timestamp 00:08:14)`
+- `(Case A — Arrest Report, p. 3, para. 2)`
+- `(Case B — Witness Statement of Jane Doe, p. 2, para. 4)`
+- `(Case A — Jail Call Recording, 03/15/2026, Timestamp 04:22)`
+- `(Case B — Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** Cross-case inconsistencies inherently involve multiple sources — always cite the conflicting documents from each case side by side.
+
+**Unsourced assertions:** If a cross-case finding cannot be tied to specific documents in the input DMARs or case files, mark it `[UNSOURCED — VERIFY WITH CASE FILES]`. Never present an unsourced inconsistency as established without flagging it.
+
+**Where sourcing applies:** Every entry in the inconsistency matrix, every witness comparison, every timeline conflict, and every Brady finding. Legal analysis and case law citations follow normal citation format.
+
 ---
 
 ## Why This Skill Exists
@@ -386,3 +404,35 @@ Write to `dw-case-brain` for each client whose DMAR was included:
   - `dw-pretrial-motion-library` — XS severance indicators support severance motions
   - `dw-discovery-compliance-monitor` — XB alerts update discovery ledgers
   - `dw-plea-negotiation-analyzer` — Cross-case inconsistencies strengthen negotiation leverage
+<<<<<<< Updated upstream
+=======
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-dmar-synthesizer/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (consolidated inconsistency matrix + cross-case brief).
+>>>>>>> Stashed changes

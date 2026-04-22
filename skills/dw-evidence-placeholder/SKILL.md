@@ -56,25 +56,86 @@ user wants to regenerate them).
 
 ### Step 3: Generate the Placeholders
 
-Run the bundled generator script. It lives at:
+Generate placeholder PDFs using inline Python with `reportlab`. Do **not** reference an external script — the generation logic runs directly in the Cowork sandbox.
 
+```python
+# Inline placeholder generator — run in Cowork bash sandbox
+# Requires: pip install reportlab --break-system-packages
+
+import os, sys
+from pathlib import Path
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.units import inch
+from reportlab.pdfgen import canvas
+
+MEDIA_TYPES = {
+    "Audio": {".wav", ".mp3", ".aac", ".flac", ".ogg", ".wma", ".m4a", ".wpl"},
+    "Photo/Image": {".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".gif", ".raw", ".cr2", ".nef", ".heic"},
+    "Video": {".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".mts", ".vob", ".mpg", ".mpeg", ".m4v", ".3gp", ".dav", ".264", ".sec", ".thm", ".bup", ".ifo"},
+    "Other Data": {".pdf", ".docx", ".doc", ".txt", ".xlsx", ".csv", ".exe", ".dll", ".db", ".seclist"},
+}
+
+def classify_folder(folder_path):
+    files = [f for f in Path(folder_path).rglob("*") if f.is_file()]
+    types_found = set()
+    ext_counts = {}
+    for f in files:
+        ext = f.suffix.lower()
+        ext_counts[ext] = ext_counts.get(ext, 0) + 1
+        for cat, exts in MEDIA_TYPES.items():
+            if ext in exts:
+                types_found.add(cat)
+                break
+        else:
+            types_found.add("Other Data")
+    return len(files), types_found, ext_counts
+
+def generate_placeholder(folder_path, output_dir):
+    name = Path(folder_path).name
+    count, types, ext_counts = classify_folder(folder_path)
+    out_path = Path(output_dir) / f"{name}.pdf"
+    c = canvas.Canvas(str(out_path), pagesize=letter)
+    w, h = letter
+    y = h - inch
+    c.setFont("Helvetica-Bold", 16)
+    c.drawCentredString(w / 2, y, "DIGITAL EVIDENCE PLACEHOLDER")
+    y -= 40
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(inch, y, f"EVIDENCE ID/NAME: {name}")
+    y -= 25
+    c.drawString(inch, y, f"NUMBER OF FILES IN FOLDER: {count}")
+    y -= 25
+    c.drawString(inch, y, "MEDIA TYPE:")
+    y -= 20
+    c.setFont("Helvetica", 11)
+    for cat in ["Audio", "Photo/Image", "Video", "Other Data"]:
+        mark = "X" if cat in types else " "
+        c.drawString(inch + 20, y, f"[{mark}] {cat}")
+        y -= 18
+    y -= 15
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(inch, y, "DESCRIPTION:")
+    y -= 20
+    c.setFont("Helvetica", 10)
+    fmt_str = ", ".join(f"{v} {k.upper().lstrip('.')} files" for k, v in sorted(ext_counts.items(), key=lambda x: -x[1]))
+    c.drawString(inch, y, f"Contains {count} files. File formats: {fmt_str}")
+    y -= 30
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(inch, y, "STORAGE PATH / LOCATION:")
+    y -= 20
+    c.setFont("Helvetica", 10)
+    c.drawString(inch, y, str(folder_path))
+    c.save()
+    return out_path
+
+# Usage: set evidence_dir and optional folder list, then run
+# evidence_dir = "<path-to-05-Evidence>"
+# folders = None  # or ["folder1", "folder2"] for specific folders
+# for d in (folders or [f.name for f in Path(evidence_dir).iterdir() if f.is_dir()]):
+#     generate_placeholder(Path(evidence_dir) / d, evidence_dir)
 ```
-<skill-directory>/scripts/generate_placeholders.py
-```
 
-Execute it like this:
-
-```bash
-python3 <skill-directory>/scripts/generate_placeholders.py \
-  --evidence-dir "<path-to-evidence-folder>" \
-  [--folders "folder1" "folder2" ...]  # optional: specific folders only
-```
-
-If `--folders` is omitted, the script processes all subfolders.
-
-The script handles everything: scanning, classification, description generation, and PDF creation.
-Each output PDF is saved directly into the evidence directory with the same name as its folder
-plus `.pdf`.
+To run: set `evidence_dir` to the case's `05 - Evidence` path, optionally specify folder names, and execute in the Cowork bash sandbox. Each output PDF is saved directly into the evidence directory with the same name as its folder plus `.pdf`.
 
 ### Step 4: Report Results
 
@@ -143,3 +204,33 @@ with 1-inch margins.
 - Proprietary player executables (.exe) that ship with surveillance footage are counted and
   classified as Other Data.
 - The storage path uses the relative path from the evidence root (e.g., `05 - Evidence/054 - Item # 30 - Crime Scene Photos`).
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-evidence-placeholder/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (placeholder PDFs per media folder).

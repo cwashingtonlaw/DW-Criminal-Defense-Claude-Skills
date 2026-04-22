@@ -24,6 +24,7 @@ Parish-based routing layer for the D&W dual-platform transcription system.
 |--------|----------|----------------|
 | Calcasieu | JusticeText | `dw-transcript-pipeline-calcasieu` |
 | All other parishes | Rev.com | `dw-transcript-pipeline-rev` |
+| Any (ad-hoc single files) | case.dev | `casedev:transcription` (connected skill) |
 
 ## Step 1 — Determine the Parish
 
@@ -37,6 +38,7 @@ Check these sources in order:
 > Which parish is this case in? This determines which transcription platform I'll use:
 > - **Calcasieu** → JusticeText
 > - **Any other parish** → Rev.com
+> - **Quick single-file transcription** → case.dev (no parish routing needed)
 
 ## Step 2 — Route to the Correct Pipeline
 
@@ -46,6 +48,14 @@ Once the parish is determined:
 - **If any other parish**: Read and execute `dw-transcript-pipeline-rev/SKILL.md`
 
 Pass all context forward: client name, docket number, folder path, any specific evidence the attorney mentioned, and the parish name.
+
+- **If the attorney requests ad-hoc / single-file transcription** (e.g., "just transcribe this one recording," "quick transcript of this file"): Route to `casedev:transcription` skill. This uses case.dev's transcription API with speaker diarization. It does NOT produce a full DMAR — it returns a raw transcript. Use this for quick turnaround on individual files when the full pipeline workflow isn't needed.
+
+**When to suggest case.dev over the full pipeline:**
+- Single file (not a batch of discovery media)
+- Attorney wants a quick transcript, not a full Defense Media Analysis Report
+- File is already isolated (not part of a larger evidence folder scan)
+- Attorney explicitly asks for "quick" or "fast" transcription
 
 ## Step 3 — Confirm Routing
 
@@ -65,6 +75,43 @@ Both pipeline skills produce an identical **Defense Media Analysis Report** (DMA
 
 The attorney never needs to know which platform produced the transcript — downstream skills receive the same structured input regardless of source.
 
-## Adding New Parishes
+**Note on case.dev transcripts:** The `casedev:transcription` route produces a raw transcript with speaker diarization — it does NOT generate a full DMAR. If the attorney later needs the full DMAR analysis (inconsistency detection, Miranda analysis, interrogation techniques, cross-examination seeds), run the appropriate parish-based pipeline on the same file. The case.dev transcript can serve as input to accelerate that process.
 
-If a new parish contracts with JusticeText or Rev changes, update only the routing table in Step 1. The pipeline skills themselves do not contain parish logic.
+## Adding New Parishes or Platforms
+
+If a new parish contracts with JusticeText, or Rev changes pricing/availability, update only the routing table in Step 1. The pipeline skills themselves do not contain parish logic.
+
+To add a new transcription platform:
+1. Create a new `dw-transcript-pipeline-[platform]` skill following the DMAR output contract in `dw-data-contracts/SKILL.md`
+2. Add the platform to the routing table above
+3. Ensure the new pipeline produces an identical DMAR schema so downstream skills work unchanged
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-transcript-router/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (routing decision log).

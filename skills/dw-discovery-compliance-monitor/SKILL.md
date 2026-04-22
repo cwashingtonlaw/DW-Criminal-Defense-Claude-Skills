@@ -11,6 +11,24 @@ description: >
 
 Systematic tracker of prosecution disclosure obligations. Maintains a living ledger of what has been demanded, what has been produced, what is outstanding, and what may have been suppressed. This tool converts discovery obligations from abstract constitutional duties into concrete, auditable tasks.
 
+### Source Citation Mandate
+
+Every ledger entry must trace back to a specific source document. When the defense argues that discovery is missing or late, the court will ask: where was this demanded, and what was or wasn't produced? Precise sourcing in the ledger turns a vague complaint into a documented compliance failure.
+
+**Citation format:** Cite the document title, page number, and paragraph or item number. Examples:
+- `(Defense Discovery Demand, 03/01/2026, Item #14)`
+- `(State's Discovery Response, 03/15/2026, p. 3, Item #14 — "N/A")`
+- `(Supplemental Discovery Production, 04/01/2026, Bates #00345-00360)`
+- `(Court Order Compelling Discovery, 03/20/2026, para. 3)`
+- `(State's 701 Motion Response, p. 2, para. 4)`
+- `(Minute Entry, 03/22/2026 — State represents all discovery produced)`
+
+**Multiple-source rule:** When documenting a gap, cite both the demand and the production (or lack thereof) — e.g., `(Demand Item #14; State's Response — "N/A"; no supplemental production as of 04/05/2026)`.
+
+**Unsourced assertions:** If a discovery gap cannot be documented with specific demand-and-response citations, mark it `[UNSOURCED — VERIFY WITH CASE FILE]`.
+
+**Where sourcing applies:** Every ledger entry — demands, productions, gaps, late disclosures, and compliance status updates. Legal authority citations follow normal citation format.
+
 ---
 
 ## STEP 0 — FILE INTAKE HARD STOP
@@ -652,6 +670,23 @@ Calculate automatically:
 - 75-94% compliance: Deficient (consider motion to compel)
 - 50-74% compliance: Significantly deficient (motion to compel + sanctions recommended)
 - <50% compliance: Presumptive Brady violation; consider writ application
+
+### **PRIORITIZED MISSING ITEMS REPORT**
+
+After updating the discovery ledger, generate a Prioritized Missing Items Report that synthesizes all outstanding discovery items into a defense-focused deliverable. This transforms raw ledger data into an actionable list ranked by defense impact.
+
+For each missing item (e.g., body-cam footage, dispatch logs, lab notes, personnel files, 911 audio):
+
+- **Item Description:** What is missing and why it should exist (cite the source document that references or implies its existence)
+- **Priority Ranking:**
+  - **CRITICAL** — Constitutional materiality (Brady/Giglio material, exculpatory evidence)
+  - **HIGH** — Direct impact on defense theory at trial
+  - **MEDIUM** — Corroborative value or impeachment potential
+  - **LOW** — Administrative completeness
+- **Source Citation:** The specific demand, report, or document that references or implies the item should have been produced — e.g., `(Arrest Report, p. 3, para. 2 — references "dash cam recording" but no video produced)` or `(Defense Discovery Demand, 03/01/2026, Item #14)`
+- **Deadline Urgency:** Days until next court date or discovery deadline
+
+This report feeds directly into the **dw-criminal-defense** Phase 2 Report 7 (Table of Missing Discovery) and triggers the Auto-Action Missing Discovery Demand Letter. Route CRITICAL items immediately to **dw-brady-giglio-auditor**.
 
 ---
 
@@ -1615,3 +1650,33 @@ This skill integrates with other Daniels & Washington tools:
 **END OF SKILL.MD**
 
 *This skill is maintained by Daniels & Washington and should be updated as Louisiana criminal procedure rules change or new case law develops.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-discovery-compliance-monitor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (discovery ledger + compliance log).

@@ -31,6 +31,9 @@ __pycache__/
 *.pyc
 *.pyo
 
+# Firecrawl plugin artifacts (not part of D&W skills)
+skills/firecrawl*
+
 # OS junk
 Thumbs.db
 ehthumbs.db

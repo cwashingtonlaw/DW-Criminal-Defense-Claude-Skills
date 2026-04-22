@@ -15,6 +15,25 @@ Location evidence is uniquely dangerous in criminal cases because it carries a v
 
 The legal landscape here is also rapidly evolving. *Carpenter v. United States*, 585 U.S. 296 (2018) transformed the Fourth Amendment framework for historical CSLI, and lower courts are still working through its implications for tower dumps, real-time tracking, geofence warrants, and other location technologies. Every geolocation audit must evaluate the legal authorization alongside the technical methodology.
 
+### Source Citation Mandate
+
+Every factual assertion in the Cell Site Audit Report, suppression analysis, and attorney summary must trace back to a specific source document. Cell site evidence auditing requires pinpoint citations because the defense is challenging the gap between what the data shows and what the prosecution claims — every finding must be verifiable in the underlying records. Imprecise sourcing undermines the audit's credibility with the court and with expert witnesses.
+
+**Citation format:** Cite the document title, page number, and row/entry or timestamp. Examples:
+- `(AT&T CDR Production, Bates #00234, Row 147 — 03/15/2026 22:15:04)`
+- `(Cell Site Analyst Report — Det. Johnson, p. 5, para. 3)`
+- `(Tower Dump Return — Site LAC:1234 CI:5678, Record #892)`
+- `(Geofence Warrant Return — Google, p. 12, User ID #3)`
+- `(Search Warrant Affidavit, p. 3, para. 6)`
+- `(RF Coverage Map — Carrier Production, Exhibit B)`
+- `(Arrest Report — LCPD Case #2026-00456, p. 4, para. 2)`
+
+**Multiple-source rule:** When more than one document confirms a finding, cite all of them — e.g., `(CDR Row 147; Cell Site Analyst Report, p. 5, para. 3)`. Corroboration from multiple sources strengthens the audit.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document in the case file, mark it `[UNSOURCED — VERIFY WITH DISCOVERY/RECORDS]` so the attorney knows to confirm or remove it. Never present an unsourced technical finding as established without flagging it.
+
+**Where sourcing applies:** This mandate covers all factual content — CDR analysis findings, coverage area conclusions, tower identification, timing claims, legal authorization analysis, and methodology critiques. Legal standards and case law citations follow normal legal citation format.
+
 ---
 
 ## STEP 0 — FILE INTAKE HARD STOP (Always First)
@@ -577,4 +596,52 @@ If CSLI methodology is unreliable, flag for dw-expert-witness-evaluator for a de
 
 ---
 
+## Register Output with Case Brain
+
+After generating any deliverable, check if a case session is active (i.e., if `dw-case-brain` has been loaded for this case). If so, register the output:
+
+1. **Append to COMPANION SKILL OUTPUTS** in the Case Brain:
+   - Skill: `dw-cell-site-geolocation-auditor`
+   - Output: `[filename of deliverable]`
+   - Date: `[today's date]`
+   - Location: `[path where the deliverable was saved]`
+
+2. **Add to OPEN ISSUES** if the audit identified any items requiring attorney action.
+
+3. **Update NEXT STEPS** if the audit output changes the recommended case strategy.
+
+If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard` and `dw-trial-notebook-builder` during their folder scans.
+
+---
+
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for Phase 2 integration, the dw-cross-exam-architect skill for witness cross-examination preparation, the dw-mobile-forensic-auditor skill for digital evidence from mobile devices, the dw-crime-scene-auditor skill for physical evidence challenges, and the dw-video-evidence-auditor skill for video evidence analysis.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-cell-site-geolocation-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (cell site audit + tower map).

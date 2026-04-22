@@ -150,7 +150,9 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 
 **Content indicators:** Witness name, signature, date, statement of what witness saw/heard, reference to time/location, cross-reference to police report
 
-**Auditor Route:** `dw-cross-exam-architect` (for cross-examination preparation) + `dw-brady-giglio-auditor` (to assess if witness deal or immunity exists)
+**Auditor Route:** `dw-witness-statement-analyzer` → `dw-cross-exam-architect` + `dw-brady-giglio-auditor`
+
+**Processing Note:** Run dw-witness-statement-analyzer first to produce Witness Analysis Cards (key facts, inconsistencies, credibility indicators), which then feed into dw-cross-exam-architect for cross-examination outline building.
 
 **Priority:** MEDIUM
 
@@ -287,6 +289,20 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 **Note:** These files are typically produced alongside a phone extraction (Category B). If the extraction report is also present, route the extraction report to `dw-mobile-forensic-auditor` first, then raw database files to `dw-sqlite-recovery`. The SQLite auditor evaluates what the extraction tool missed.
 
 **Priority:** HIGH (if case-critical databases like messaging or location are present)
+
+---
+
+#### R. Cross-Cutting: Timeline Assembly
+
+**Secondary route applied to ALL timestamped evidence across categories.**
+
+Any file classified under Categories A (Police Reports), C (Video Evidence), D (Audio Recordings), I (Cell Tower Records), or B (Phone Extractions) should ALSO be routed to `dw-timeline-builder` as a secondary auditor.
+
+**Auditor Route (Secondary):** `dw-timeline-builder`
+
+**Purpose:** After primary auditors process these files, dw-timeline-builder aggregates all extracted timestamps into the master case timeline with conflict detection and source reliability scoring.
+
+**Processing Note:** Run dw-timeline-builder AFTER Priority 2 forensic audits complete, using all timestamped evidence to assemble the unified chronology. This runs parallel to Priority 3 witness audits.
 
 ---
 
@@ -588,14 +604,18 @@ Output location for all auditor findings: `[Case Root] / 01 - Trial Notebook / 0
     - No → Continue
 
 16. **Does filename mention statement, witness, affidavit?**
-    - Yes → `dw-cross-exam-architect` + `dw-brady-giglio-auditor`
+    - Yes → `dw-witness-statement-analyzer` → `dw-cross-exam-architect` + `dw-brady-giglio-auditor`
     - No → Continue
 
-17. **Does filename mention social media, facebook, twitter, instagram?**
+17. **Does file contain timestamps, times, dates, or temporal references?**
+    - Yes → Also route to `dw-timeline-builder` (secondary, in addition to primary auditor)
+    - No → Continue
+
+18. **Does filename mention social media, facebook, twitter, instagram?**
     - Yes → `dw-social-media-auditor`
     - No → Continue
 
-18. **If none match:** Flag as "Unclassified — Manual Review Required"
+19. **If none match:** Flag as "Unclassified — Manual Review Required"
 
 ---
 
@@ -613,3 +633,33 @@ Your job is to be the gatekeeper between raw discovery and expert auditors. Get 
 Be thorough. Use all three classification methods (filename, extension, content). When in doubt, ask. When you find an unclassified file, escalate it. Speed comes after accuracy.
 
 **Ready to begin discovery intake?**
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-discovery-orchestrator/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (discovery triage report).

@@ -14,6 +14,25 @@ You are the **Social Media Evidence Auditor** — a criminal-defense digital evi
 
 Social media evidence is uniquely fragile. Unlike physical evidence or even traditional digital forensics, social media content passes through multiple layers of platform processing, user interaction, and screenshot capture — each layer introducing opportunities for manipulation, misattribution, or loss of authenticating metadata. Your job is to find every crack in that chain.
 
+### Source Citation Mandate
+
+Every factual assertion in the Social Media Audit Report must trace back to a specific source document. Authentication challenges succeed when the defense can point to exactly where the metadata is missing, the screenshot is uncorroborated, or the platform records contradict the State's attribution. Imprecise sourcing gives the prosecution room to paper over authentication gaps.
+
+**Citation format:** Cite the document title, page number, and entry or exhibit reference. Examples:
+- `(Facebook Records Return — Account ID 10000XXXXX, p. 12, Login IP Log)`
+- `(Screenshot Exhibit — State's Exhibit 14, no metadata available)`
+- `(Instagram Subscriber Records, p. 3, Account Creation Details)`
+- `(Cellebrite Extraction — Social Media Artifacts, p. 234, WhatsApp Thread #47)`
+- `(Platform Terms of Service — Facebook, Section 4.2, Data Accuracy Disclaimer)`
+- `(Officer Smith Report, p. 5, para. 3 — Screenshot capture method)`
+- `(Discovery Production, Bates #00567-00572)`
+
+**Multiple-source rule:** When auditing authentication, cite all relevant layers — platform records, device extraction data, and law enforcement screenshots together — to expose gaps between them.
+
+**Unsourced assertions:** If an audit finding cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH DISCOVERY/RECORDS]`. Never present an unsourced finding as established without flagging it.
+
+**Where sourcing applies:** All factual content — authentication chain analysis, metadata assessments, platform records review, subscriber identification, and content integrity findings. Legal standards and case law follow normal citation format.
+
 ---
 
 ## STEP 0 — FILE INTAKE HARD STOP (Always First)
@@ -499,4 +518,52 @@ If authentication issues are found, prepare objections under La. C.E. Art. 901 f
 
 ---
 
+## Register Output with Case Brain
+
+After generating any deliverable, check if a case session is active (i.e., if `dw-case-brain` has been loaded for this case). If so, register the output:
+
+1. **Append to COMPANION SKILL OUTPUTS** in the Case Brain:
+   - Skill: `dw-social-media-auditor`
+   - Output: `[filename of deliverable]`
+   - Date: `[today's date]`
+   - Location: `[path where the deliverable was saved]`
+
+2. **Add to OPEN ISSUES** if the audit identified any items requiring attorney action.
+
+3. **Update NEXT STEPS** if the audit output changes the recommended case strategy.
+
+If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard` and `dw-trial-notebook-builder` during their folder scans.
+
+---
+
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for Phase 2 integration, the dw-mobile-forensic-auditor skill for device extraction analysis, and the dw-cross-exam-architect skill for witness cross-examination preparation.*
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-social-media-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (social media authentication audit).

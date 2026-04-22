@@ -18,6 +18,52 @@ description: >
 **Parish**: Calcasieu only (routed by dw-transcript-router)
 **Output**: Defense Media Analysis Report (.docx) + TranscriptPad case
 
+### Source Citation Mandate
+
+Every factual assertion in the Defense Media Analysis Report (DMAR) must trace back to a specific source recording and timestamp. The DMAR is the foundation for cross-examination, motions, and trial strategy — every inconsistency, key statement, Miranda event, and timeline entry must be verifiable by replaying the exact moment in the recording.
+
+**Citation format:** Cite the recording filename, timestamp, and speaker. Examples:
+- `(Interview_Client_03152026.mp4, Timestamp 00:15:32 — Det. Smith)`
+- `(BWC_OfficerJohnson_03152026.mp4, Timestamp 00:02:14 — Officer Johnson)`
+- `(JailCall_03162026_1430.mp3, Timestamp 04:22 — Client to "Mom")`
+- `(911_Call_03152026.wav, Timestamp 00:01:45 — Caller)`
+- `(CCTV_MainSt_03152026.mp4, Timestamp 22:10:45)`
+
+**Multiple-source rule:** When different recordings capture the same event, cite all of them. Cross-referenced timestamps across recordings are powerful evidence of timeline accuracy or contradiction.
+
+**Unsourced assertions:** If a DMAR finding cannot be tied to a specific recording and timestamp, mark it `[UNSOURCED — VERIFY WITH RECORDING]`. Never present an unsourced finding as established without flagging it.
+
+**Where sourcing applies:** All factual content in the DMAR — key statements, inconsistencies, Miranda events, timeline entries, and cross-reference findings. Analytical conclusions about defense strategy implications do not require timestamp citations but should reference the underlying findings.
+
+---
+
+## Bundled Resources
+
+This skill includes the following reference documentation and automation tools:
+
+### References
+
+1. **justicetext-architecture.md** (`references/`)
+   - JusticeText API endpoints and authentication mechanisms
+   - AWS Cognito configuration and S3 bucket mappings
+   - File upload flow documentation
+   - Future automation paths for API-based uploads
+
+2. **transcriptpad-database.md** (`references/`)
+   - TranscriptPad `.tracase` SQLite Core Data schema
+   - Entity types, table relationships, and primary key management
+   - Timestamp rendering mechanics (ZTIMECODEMS field behavior)
+   - Common database operations and SQL examples
+
+### Scripts
+
+3. **transcriptpad-timestamp-fix.py** (`scripts/`)
+   - Parses JusticeText .txt transcript exports with [MM:SS] or [HH:MM:SS] timestamps
+   - Converts to milliseconds for TranscriptPad ZTIMECODEMS field
+   - Reformats text as `:SS - Speaker - Content` matching TranscriptPad conventions
+   - Updates both evidence folder and iCloud `.tracase` database locations
+   - Usage: Configure EVIDENCE_PATH, CASE_PATHS, and TRANSCRIPT_FILES mapping, then run the script
+
 ---
 
 ## Pipeline Phases
@@ -295,3 +341,33 @@ Inherits all error handling from the original dw-transcript-pipeline, plus:
 - **Missing speaker labels**: If speakers are still "Speaker 1", "Speaker 2" in the TXT, warn attorney that DMAR speaker analysis will be generic — recommend going back to JusticeText to label speakers first
 - **No written reports**: Module B (document comparison) produces an empty section with a note; this is normal for early-stage discovery
 - **Extremely long recordings (4+ hours)**: Process DMAR analysis in chunks — summarize each hour, then synthesize cross-file analysis across chunks
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-transcript-pipeline-calcasieu/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (DMAR + transcripts + CSV exports).

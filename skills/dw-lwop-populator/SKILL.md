@@ -12,6 +12,22 @@ This skill reads discovery materials from a Calcasieu Parish criminal defense ca
 
 There are two templates — **Homicide** and **Sex Offense** — and the skill selects the correct one based on the charges. The populated sheet preserves the original formatting, letterhead, and layout of the official PDO template.
 
+### Source Citation Mandate
+
+Every factual entry populated on the LWOP Review Sheet must trace back to a specific source document in the case file. The District Defender reviews these sheets to assess resource allocation and case strategy — inaccurate or unsourced entries undermine that assessment and waste the reviewing attorney's time.
+
+**Citation format:** Cite the document title, page number, and paragraph. Examples:
+- `(Arrest Report — LCPD Case #2026-00456, p. 2, para. 3)`
+- `(Autopsy Report, p. 4, Cause of Death)`
+- `(Witness Statement of Jane Doe, p. 2, para. 4)`
+- `(Bill of Information, Count 1)`
+- `(Discovery Production, Bates #00145-00148)`
+- `(Criminal History Record, NCIC Report, p. 3)`
+
+**Unsourced entries:** If a field cannot be populated from a specific document, mark it `[UNSOURCED — VERIFY]` rather than guessing. The attorney will fill it from client interview or additional discovery.
+
+**Where sourcing applies:** All factual fields on the LWOP sheet — charges, facts of the offense, witness information, criminal history, and case assessment entries.
+
 ---
 
 ## When This Skill Runs
@@ -174,3 +190,33 @@ When new discovery arrives and the attorney wants the sheet updated:
 3. Merge new information — add to witness lists, update discovery checklist, flag new issues
 4. Do not overwrite attorney-entered content (trial theory, defense strategy, attorney notes)
 5. Note in completion summary what was added or changed
+
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-4-Trial/dw-lwop-populator/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (LWOP review sheet).

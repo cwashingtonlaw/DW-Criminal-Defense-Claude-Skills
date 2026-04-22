@@ -4,7 +4,7 @@ description: >
   Draft suppression motions AND audit search warrants. ALWAYS invoke for "suppress," "motion
   to suppress," "illegal search," "bad warrant," "audit the warrant," "probable cause,"
   "Franks," or "fruit of the poisonous tree." Covers 4th and 5th Amendment issues. Read
-  references/template-selection-protocol.md before drafting.
+  ../_shared-references/template-selection-protocol.md before drafting.
 ---
 
 # Daniels & Washington — Suppression Motion & Warrant Auditor
@@ -22,6 +22,25 @@ Both modes read discovery files to extract facts, search firm databases for temp
 
 **Cowork drafts; attorney approves.** Every output is a draft for attorney review. The attorney verifies facts, confirms legal arguments, signs, and files.
 
+### Source Citation Mandate
+
+Every factual assertion in the Warrant Audit Report, Motion to Suppress, and Memorandum in Support must trace back to a specific source document. Suppression hearings are fact-intensive — the court evaluates probable cause, warrant particularity, and execution compliance based on the documented record. Unsourced claims about what officers did or didn't do carry no weight.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Search Warrant Affidavit, p. 2, para. 4)`
+- `(Search Warrant — 14th JDC, signed 03/15/2026, Scope paragraph)`
+- `(Return on Search Warrant, p. 1, Items Seized)`
+- `(Officer Smith BWC — Warrant Execution, Timestamp 00:05:32)`
+- `(Arrest Report — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Inventory Receipt, Items #1-14)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the search, cite all of them — e.g., `(Warrant Affidavit, p. 2, para. 4; Officer Smith BWC, Timestamp 00:05:32)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before filing.
+
+**Where sourcing applies:** All factual content — probable cause analysis, warrant scope review, execution compliance, Franks material, and fruit of the poisonous tree analysis. Legal standards and case law follow normal legal citation format.
+
 ---
 
 ## Suppression Categories
@@ -38,6 +57,40 @@ This skill handles four categories of suppression, each with distinct constituti
 ---
 
 ## Workflow
+
+### STEP 0.5 — Constitutional Red Flag Scan
+
+Before proceeding to template selection and motion drafting, conduct a rapid constitutional triage of the case file. This scan identifies whether suppression motions are warranted and which grounds to prioritize.
+
+**Scan the discovery for these red flag categories:**
+
+1. **4th Amendment — Search & Seizure Issues:**
+   - Warrantless searches or seizures
+   - Warrant defects (stale probable cause, overbroad scope, wrong address)
+   - Consent issues (voluntariness, scope exceeded, authority to consent)
+   - Traffic stop pretextuality or prolonged detention
+   - Cell phone/digital device searches without warrant
+
+2. **5th Amendment — Self-Incrimination Issues:**
+   - Miranda warnings absent, late, or defective
+   - Interrogation continued after invocation of rights
+   - Statements obtained during impermissible delay (La. C.Cr.P. Art. 230.1)
+   - Coerced or involuntary confessions
+   - Use of silence as evidence
+
+3. **6th Amendment — Right to Counsel Issues:**
+   - Interrogation after formal charges without counsel
+   - Denial of attorney access during custodial questioning
+   - Use of jailhouse informants post-indictment
+
+**For each red flag identified:**
+- Cite the specific source document (document title, page, paragraph/timestamp)
+- Classify urgency: IMMEDIATE (file now) / STRATEGIC (file before trial) / MONITORING (preserve for record)
+- Note the specific suppression ground and applicable Louisiana/federal authority
+
+**Output:** Red Flag Scan Summary — a ranked list of suppression grounds by strength and urgency. This summary determines which suppression categories (Search & Seizure, Statements, Identification, Fruit) to activate for full motion drafting.
+
+If no constitutional red flags are identified, document the clean scan result and note for the file. The absence of red flags may itself be strategically significant (e.g., the State's case relies on properly obtained evidence, shifting defense focus to factual disputes rather than suppression).
 
 ### Step 1: Template-First Search
 
@@ -423,6 +476,35 @@ This chronological approach is persuasive because it tells a story: one illegal 
 | Warrant execution window (LA) | La. C.Cr.P. Art. 163 (10 days) |
 | Return and inventory requirement | La. C.Cr.P. Art. 167 |
 | Anticipatory warrants | *United States v. Grubbs*, 547 U.S. 90 (2006) |
+
+---
+
+## Output Location
+
+All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
+
+**Output path:**
+
+`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-suppression-motion/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
+
+**Resolving `{CASE_ROOT}`:**
+
+1. Read from the active `dw-case-brain` session (preferred)
+2. Use an absolute path if present in the attorney's prompt
+3. If neither is available, ask the attorney for the absolute case folder path before writing
+
+**Before writing:**
+
+- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
+- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
+
+**After writing, report the path:**
+
+> ✅ Saved
+> `{full absolute path}`
+> Size: [size] | Type: [.docx / .pdf / .md / etc.]
+
+List all files written, including intermediate exports (motion + memorandum in support, exhibit list, proposed order, etc.).
 
 ---
 
