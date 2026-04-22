@@ -26,6 +26,9 @@ _cowork-exports/
 sync.log
 *.log
 
+# Sync scratch file (consumed & deleted by auto-pull.sh — must never be tracked)
+COMMIT_MSG
+
 # Python bytecode
 __pycache__/
 *.pyc
