@@ -1,393 +1,355 @@
 #!/usr/bin/env python3
 """
-Digital Evidence Placeholder Generator
-Daniels & Washington Criminal Defense
+Digital Evidence Placeholder Generator — Daniels & Washington
 
-Scans evidence folders containing media files and generates a one-page
-placeholder PDF for each folder, matching the firm's standard template.
+Scans media subfolders in the evidence directory and generates a one-page
+PDF placeholder for each folder. Each placeholder summarizes the folder's
+contents (file count, media types, formats) so it can sit in the evidence
+sequence alongside Bate-stamped documents.
 
 Usage:
-    python generate_placeholders.py --evidence-dir /path/to/evidence
-    python generate_placeholders.py --evidence-dir /path/to/evidence --folders "folder1" "folder2"
+    python3 generate_placeholders.py --evidence-dir "<path-to-05-Evidence>" \
+        [--folders "folder1" "folder2" ...]
+
+If --folders is omitted, all subfolders are processed.
+Folders that already have a corresponding placeholder PDF are skipped
+unless --force is passed.
 """
 
 import argparse
 import os
 import sys
+from collections import Counter
+from pathlib import Path
 
-from reportlab.lib.pagesizes import letter
-from reportlab.lib.units import inch
-from reportlab.pdfgen import canvas
+# --- Media type classification ---
+MEDIA_TYPES = {
+    "Audio": {".wav", ".mp3", ".aac", ".flac", ".ogg", ".wma", ".m4a", ".wpl"},
+    "Photo/Image": {
+        ".jpg", ".jpeg", ".png", ".bmp", ".tiff", ".gif", ".raw",
+        ".cr2", ".nef", ".heic",
+    },
+    "Video": {
+        ".mp4", ".avi", ".mov", ".mkv", ".wmv", ".flv", ".mts", ".vob",
+        ".mpg", ".mpeg", ".m4v", ".3gp", ".dav", ".264", ".sec", ".thm",
+        ".bup", ".ifo",
+    },
+    "Other Data": {
+        ".pdf", ".docx", ".doc", ".txt", ".xlsx", ".csv", ".exe",
+        ".dll", ".db", ".seclist",
+    },
+}
 
 
-# ── File extension classification ───────────────────────────────────────
-
-AUDIO_EXTS = {'.wav', '.mp3', '.aac', '.flac', '.ogg', '.wma', '.m4a', '.wpl'}
-PHOTO_EXTS = {'.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.gif', '.raw',
-              '.cr2', '.nef', '.heic', '.db'}
-VIDEO_EXTS = {'.mp4', '.avi', '.mov', '.mkv', '.wmv', '.flv', '.mts', '.vob',
-              '.mpg', '.mpeg', '.m4v', '.3gp', '.dav', '.264', '.sec', '.thm',
-              '.bup', '.ifo'}
-OTHER_EXTS = {'.pdf', '.docx', '.doc', '.txt', '.xlsx', '.csv', '.exe',
-              '.dll', '.seclist'}
-
-
-def classify_extension(ext):
+def classify_file(ext: str) -> str:
     """Return the media category for a file extension."""
     ext = ext.lower()
-    if ext in AUDIO_EXTS:
-        return 'audio'
-    elif ext in PHOTO_EXTS:
-        return 'photo'
-    elif ext in VIDEO_EXTS:
-        return 'video'
-    elif ext in OTHER_EXTS or ext == '':
-        return 'other'
-    else:
-        return 'other'
+    for category, extensions in MEDIA_TYPES.items():
+        if ext in extensions:
+            return category
+    return "Other Data"
 
 
-# ── Folder scanning ────────────────────────────────────────────────────
+def scan_folder(folder_path: Path) -> dict:
+    """Scan a folder and return a summary of its contents."""
+    files = [f for f in folder_path.iterdir() if f.is_file()]
+    total = len(files)
 
-def scan_folder(folder_path, folder_name):
-    """
-    Scan a folder (and one level of subdirectories) and return:
-        (file_count, has_audio, has_photo, has_video, has_other, description)
-    """
-    files = []
-    for item in os.listdir(folder_path):
-        full = os.path.join(folder_path, item)
-        if os.path.isfile(full):
-            files.append(item)
-        elif os.path.isdir(full):
-            # Include files one level deep inside subdirectories
-            try:
-                for sub_item in os.listdir(full):
-                    if os.path.isfile(os.path.join(full, sub_item)):
-                        files.append(sub_item)
-            except PermissionError:
-                pass
+    ext_counts = Counter(f.suffix.lower() for f in files)
+    category_counts = Counter()
+    for ext, count in ext_counts.items():
+        cat = classify_file(ext)
+        category_counts[cat] += count
 
-    file_count = len(files)
+    total_size = sum(f.stat().st_size for f in files)
 
-    has_audio = False
-    has_photo = False
-    has_video = False
-    has_other = False
-
-    ext_counts = {}
-    for f in files:
-        ext = os.path.splitext(f)[1].lower()
-        category = classify_extension(ext)
-
-        if category == 'audio':
-            has_audio = True
-        elif category == 'photo':
-            has_photo = True
-        elif category == 'video':
-            has_video = True
-        else:
-            has_other = True
-
-        label = ext.upper().strip('.') if ext else '(no ext)'
-        ext_counts[label] = ext_counts.get(label, 0) + 1
-
-    # ── Build contextual description ────────────────────────────────
-    desc_parts = []
-    name_lower = folder_name.lower()
-    has_transcripts = any(f.lower().endswith('.docx') for f in files)
-
-    if 'crime scene video' in name_lower:
-        desc_parts.append(
-            f"Contains {file_count} crime scene video recordings and "
-            "associated thumbnail files")
-    elif 'crime scene photo' in name_lower:
-        desc_parts.append(f"Contains {file_count} crime scene photographs")
-    elif ('photo' in name_lower or 'pictures' in name_lower
-          or 'lab photos' in name_lower):
-        desc_parts.append(f"Contains {file_count} photographic image files")
-    elif 'surveillance' in name_lower:
-        desc_parts.append("Contains surveillance video footage")
-    elif 'interview' in name_lower:
-        desc_parts.append("Contains recorded interview files")
-        if has_transcripts:
-            desc_parts.append("including transcription document(s)")
-    elif ('body' in name_lower
-          and ('cam' in name_lower or 'car' in name_lower
-               or 'in-car' in name_lower)):
-        desc_parts.append(
-            "Contains body-worn camera and/or in-car camera video recordings")
-        if has_transcripts:
-            desc_parts.append("with associated transcription document(s)")
-    elif '911' in name_lower or 'dispatch' in name_lower:
-        desc_parts.append("Contains audio recordings")
-        if has_transcripts:
-            desc_parts.append("with associated transcription document(s)")
-    elif 'victim' in name_lower:
-        desc_parts.append("Contains photographs of victims")
-    elif 'search' in name_lower and 'photo' in name_lower:
-        desc_parts.append("Contains photographs from search execution")
-    elif 'avail media' in name_lower or 'arrest' in name_lower:
-        desc_parts.append("Contains mixed media files related to arrest")
-    else:
-        desc_parts.append(f"Contains {file_count} digital evidence files")
-
-    # File format breakdown
-    sorted_exts = sorted(ext_counts.items(), key=lambda x: -x[1])
-    format_strs = [
-        f"{count} {ext} file{'s' if count > 1 else ''}"
-        for ext, count in sorted_exts
-    ]
-    if format_strs:
-        desc_parts.append("File formats: " + ", ".join(format_strs))
-
-    description = ". ".join(desc_parts) + "."
-
-    return file_count, has_audio, has_photo, has_video, has_other, description
+    return {
+        "total_files": total,
+        "ext_counts": dict(ext_counts),
+        "category_counts": dict(category_counts),
+        "total_size_bytes": total_size,
+        "categories_present": sorted(category_counts.keys()),
+    }
 
 
-# ── PDF generation ─────────────────────────────────────────────────────
+def format_size(size_bytes: int) -> str:
+    """Human-readable file size."""
+    for unit in ("B", "KB", "MB", "GB"):
+        if size_bytes < 1024:
+            return f"{size_bytes:.1f} {unit}"
+        size_bytes /= 1024
+    return f"{size_bytes:.1f} TB"
 
-def create_placeholder_pdf(output_path, evidence_name, file_count,
-                           has_audio, has_photo, has_video, has_other,
-                           description, storage_path):
-    """Create a single Digital Evidence Placeholder PDF."""
-    c = canvas.Canvas(output_path, pagesize=letter)
+
+def generate_placeholder_pdf(folder_path: Path, summary: dict, output_path: Path):
+    """Generate a one-page placeholder PDF for the given folder."""
+    try:
+        from reportlab.lib.pagesizes import letter
+        from reportlab.lib.units import inch
+        from reportlab.pdfgen import canvas
+    except ImportError:
+        print("ERROR: reportlab not installed. Install with: pip install reportlab")
+        print("Falling back to text-based placeholder.")
+        generate_placeholder_txt(folder_path, summary, output_path.with_suffix(".txt"))
+        return False
+
+    c = canvas.Canvas(str(output_path), pagesize=letter)
     width, height = letter
 
-    left = 1.0 * inch
-    right = width - 1.0 * inch
-    usable_width = right - left
+    y = height - 1 * inch
 
-    # ── Title ──
-    c.setFont("Helvetica-Bold", 18)
-    title = "DIGITAL EVIDENCE PLACEHOLDER"
-    title_width = c.stringWidth(title, "Helvetica-Bold", 18)
-    c.drawString((width - title_width) / 2, height - 1.0 * inch, title)
+    # Title
+    c.setFont("Helvetica-Bold", 16)
+    c.drawCentredString(width / 2, y, "DIGITAL EVIDENCE PLACEHOLDER")
+    y -= 0.5 * inch
 
-    # Horizontal rule
-    y = height - 1.25 * inch
-    c.setLineWidth(1)
-    c.line(left, y, right, y)
+    c.setLineWidth(1.5)
+    c.line(0.75 * inch, y, width - 0.75 * inch, y)
+    y -= 0.4 * inch
 
-    # ── EVIDENCE ID/NAME ──
+    # Evidence ID/Name
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(0.75 * inch, y, "EVIDENCE ID / NAME:")
+    c.setFont("Helvetica", 11)
+    c.drawString(2.75 * inch, y, folder_path.name)
     y -= 0.35 * inch
-    c.setFont("Helvetica-Bold", 11)
-    c.drawString(left, y, "EVIDENCE ID/NAME:")
-    name_x = left + c.stringWidth("EVIDENCE ID/NAME:  ", "Helvetica-Bold", 11)
-    available = right - name_x
 
-    # Auto-shrink font to fit long names
-    for size in (10, 9, 8, 7):
-        if c.stringWidth(evidence_name, "Helvetica", size) <= available:
-            break
-    c.setFont("Helvetica", size)
-    c.drawString(name_x, y, evidence_name)
-    c.setLineWidth(0.5)
-    c.line(name_x, y - 0.05 * inch, right, y - 0.05 * inch)
-
-    # ── NUMBER OF FILES ──
-    y -= 0.40 * inch
+    # File count
     c.setFont("Helvetica-Bold", 11)
-    c.drawString(left, y, "NUMBER OF FILES IN Folder:")
+    c.drawString(0.75 * inch, y, "NUMBER OF FILES IN FOLDER:")
     c.setFont("Helvetica", 11)
-    bracket_x = left + c.stringWidth(
-        "NUMBER OF FILES IN Folder:  ", "Helvetica-Bold", 11)
-    c.drawString(bracket_x, y, f"[ {file_count} ]")
+    c.drawString(3.5 * inch, y, str(summary["total_files"]))
+    y -= 0.35 * inch
 
-    # ── MEDIA TYPE ──
-    y -= 0.40 * inch
+    # Total size
     c.setFont("Helvetica-Bold", 11)
-    c.drawString(left, y, "MEDIA TYPE:")
-
-    y -= 0.30 * inch
+    c.drawString(0.75 * inch, y, "TOTAL SIZE:")
     c.setFont("Helvetica", 11)
-    checkbox_size = 10
-    gap = 1.6 * inch
-    cx = left
+    c.drawString(2.75 * inch, y, format_size(summary["total_size_bytes"]))
+    y -= 0.5 * inch
 
-    for label, checked in [("Audio", has_audio), ("Photo/Image", has_photo),
-                           ("Video", has_video), ("Other Data", has_other)]:
-        c.rect(cx, y - 2, checkbox_size, checkbox_size)
-        if checked:
-            c.setFont("Helvetica-Bold", 10)
-            c.drawString(cx + 1.5, y - 0.5, "X")
-            c.setFont("Helvetica", 11)
-        c.drawString(cx + checkbox_size + 4, y, label)
-        cx += gap
-
-    # ── DESCRIPTION ──
-    y -= 0.50 * inch
+    # Media type checkboxes
     c.setFont("Helvetica-Bold", 11)
-    c.drawString(left, y, "DESCRIPTION:")
+    c.drawString(0.75 * inch, y, "MEDIA TYPE:")
+    y -= 0.3 * inch
 
-    y -= 0.22 * inch
-    c.setFont("Helvetica-Oblique", 10)
-    c.drawString(left, y, "Brief Description of Folder Contents:")
-
-    y -= 0.30 * inch
+    categories = ["Audio", "Photo/Image", "Video", "Other Data"]
+    x_positions = [0.75, 2.5, 4.25, 6.0]
     c.setFont("Helvetica", 10)
+    for cat, x_pos in zip(categories, x_positions):
+        checked = cat in summary["categories_present"]
+        symbol = "\u2611" if checked else "\u2610"
+        # Use ZapfDingbats for checkboxes
+        if checked:
+            c.setFont("ZapfDingbats", 12)
+            c.drawString(x_pos * inch, y, "4")  # checkmark in ZapfDingbats
+        else:
+            c.setFont("ZapfDingbats", 12)
+            c.drawString(x_pos * inch, y, "o")  # empty circle
+        c.setFont("Helvetica", 10)
+        c.drawString(x_pos * inch + 0.2 * inch, y, cat)
+    y -= 0.5 * inch
 
-    # Word-wrap description
-    lines = _word_wrap(c, description, "Helvetica", 10, usable_width)
-    for line in lines:
-        c.drawString(left, y, line)
-        y -= 0.20 * inch
-
-    # Blank underlines to fill remaining description space
-    for _ in range(max(0, 3 - len(lines))):
-        c.setLineWidth(0.5)
-        c.line(left, y + 0.05 * inch, right, y + 0.05 * inch)
-        y -= 0.20 * inch
-
-    # ── STORAGE PATH / LOCATION ──
-    y -= 0.30 * inch
+    # Description
     c.setFont("Helvetica-Bold", 11)
-    c.drawString(left, y, "STORAGE PATH / LOCATION:")
+    c.drawString(0.75 * inch, y, "DESCRIPTION:")
+    y -= 0.25 * inch
 
-    y -= 0.22 * inch
-    c.setFont("Helvetica-Oblique", 10)
-    c.drawString(left, y, "Refer to the detailed directory path below for retrieval:")
+    c.setFont("Helvetica", 10)
+    desc_parts = []
+    for cat in categories:
+        count = summary["category_counts"].get(cat, 0)
+        if count > 0:
+            desc_parts.append(f"{count} {cat}")
 
-    y -= 0.30 * inch
-    c.setFont("Courier", 9)
+    desc_line1 = f"This folder contains {summary['total_files']} files: {', '.join(desc_parts)}."
+    c.drawString(0.75 * inch, y, desc_line1)
+    y -= 0.2 * inch
 
-    # Word-wrap path on "/" boundaries
-    path_lines = _path_wrap(c, storage_path, "Courier", 9, usable_width)
-    for line in path_lines:
-        c.drawString(left, y, line)
-        y -= 0.20 * inch
+    # File format breakdown
+    ext_str = ", ".join(
+        f"{ext} ({count})" for ext, count in sorted(summary["ext_counts"].items())
+    )
+    if len(ext_str) > 85:
+        # Wrap long lines
+        words = ext_str.split(", ")
+        line = ""
+        for word in words:
+            if len(line + word) > 85:
+                c.drawString(0.75 * inch, y, f"Formats: {line}")
+                y -= 0.2 * inch
+                line = word + ", "
+            else:
+                line += word + ", "
+        if line:
+            c.drawString(0.75 * inch, y, f"  {line.rstrip(', ')}")
+            y -= 0.2 * inch
+    else:
+        c.drawString(0.75 * inch, y, f"Formats: {ext_str}")
+        y -= 0.2 * inch
 
-    for _ in range(max(0, 3 - len(path_lines))):
-        c.setLineWidth(0.5)
-        c.line(left, y + 0.05 * inch, right, y + 0.05 * inch)
-        y -= 0.20 * inch
+    y -= 0.3 * inch
+
+    # Storage path
+    c.setFont("Helvetica-Bold", 11)
+    c.drawString(0.75 * inch, y, "STORAGE PATH / LOCATION:")
+    y -= 0.25 * inch
+    c.setFont("Courier", 8)
+    path_str = str(folder_path.resolve())
+    # Wrap long paths
+    max_chars = 90
+    while path_str:
+        c.drawString(0.75 * inch, y, path_str[:max_chars])
+        path_str = path_str[max_chars:]
+        y -= 0.18 * inch
+
+    y -= 0.3 * inch
+    c.setLineWidth(0.5)
+    c.line(0.75 * inch, y, width - 0.75 * inch, y)
+    y -= 0.2 * inch
+    c.setFont("Helvetica-Oblique", 8)
+    c.drawCentredString(
+        width / 2, y,
+        "Generated by Daniels & Washington Cowork — Digital Evidence Placeholder System"
+    )
 
     c.save()
+    return True
 
 
-def _word_wrap(c, text, font, size, max_width):
-    """Break text into lines that fit within max_width."""
-    words = text.split()
-    lines = []
-    current = ""
-    for word in words:
-        test = current + (" " if current else "") + word
-        if c.stringWidth(test, font, size) <= max_width:
-            current = test
-        else:
-            if current:
-                lines.append(current)
-            current = word
-    if current:
-        lines.append(current)
-    return lines
+def generate_placeholder_txt(folder_path: Path, summary: dict, output_path: Path):
+    """Fallback: generate a text-based placeholder when reportlab is unavailable."""
+    categories = ["Audio", "Photo/Image", "Video", "Other Data"]
 
+    lines = [
+        "=" * 60,
+        "DIGITAL EVIDENCE PLACEHOLDER",
+        "=" * 60,
+        "",
+        f"EVIDENCE ID / NAME: {folder_path.name}",
+        f"NUMBER OF FILES IN FOLDER: {summary['total_files']}",
+        f"TOTAL SIZE: {format_size(summary['total_size_bytes'])}",
+        "",
+        "MEDIA TYPE:",
+    ]
 
-def _path_wrap(c, path, font, size, max_width):
-    """Break a file path into lines, splitting on '/' boundaries."""
-    segments = path.split("/")
-    lines = []
-    current = ""
-    for seg in segments:
-        test = current + ("/" if current else "") + seg
-        if c.stringWidth(test, font, size) <= max_width:
-            current = test
-        else:
-            if current:
-                lines.append(current)
-            current = seg
-    if current:
-        lines.append(current)
-    return lines
+    for cat in categories:
+        checked = "[X]" if cat in summary["categories_present"] else "[ ]"
+        count = summary["category_counts"].get(cat, 0)
+        lines.append(f"  {checked} {cat} ({count} files)")
 
+    lines.append("")
+    lines.append("DESCRIPTION:")
 
-# ── Main ───────────────────────────────────────────────────────────────
+    desc_parts = []
+    for cat in categories:
+        count = summary["category_counts"].get(cat, 0)
+        if count > 0:
+            desc_parts.append(f"{count} {cat}")
+    lines.append(
+        f"This folder contains {summary['total_files']} files: {', '.join(desc_parts)}."
+    )
+
+    ext_str = ", ".join(
+        f"{ext} ({count})" for ext, count in sorted(summary["ext_counts"].items())
+    )
+    lines.append(f"Formats: {ext_str}")
+
+    lines.append("")
+    lines.append("STORAGE PATH / LOCATION:")
+    lines.append(str(folder_path.resolve()))
+    lines.append("")
+    lines.append("-" * 60)
+    lines.append(
+        "Generated by Daniels & Washington Cowork — Digital Evidence Placeholder System"
+    )
+
+    output_path.write_text("\n".join(lines))
+
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generate Digital Evidence Placeholder PDFs")
+        description="Generate Digital Evidence Placeholder PDFs for media folders."
+    )
     parser.add_argument(
-        '--evidence-dir', required=True,
-        help='Path to the evidence directory containing media folders')
+        "--evidence-dir",
+        required=True,
+        help="Path to the 05 - Evidence directory",
+    )
     parser.add_argument(
-        '--folders', nargs='*', default=None,
-        help='Specific folder names to process (default: all subfolders)')
+        "--folders",
+        nargs="*",
+        help="Specific folder names to process (default: all subfolders)",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Regenerate placeholders even if they already exist",
+    )
     args = parser.parse_args()
 
-    evidence_dir = args.evidence_dir
-    if not os.path.isdir(evidence_dir):
-        print(f"Error: '{evidence_dir}' is not a valid directory.")
+    evidence_dir = Path(args.evidence_dir)
+    if not evidence_dir.is_dir():
+        print(f"ERROR: Evidence directory not found: {evidence_dir}")
         sys.exit(1)
 
-    # Determine the evidence directory name for storage paths
-    evidence_dir_name = os.path.basename(os.path.normpath(evidence_dir))
-
-    # Get folder list
-    all_dirs = sorted([
-        d for d in os.listdir(evidence_dir)
-        if os.path.isdir(os.path.join(evidence_dir, d))
-    ])
-
+    # Identify target folders
     if args.folders:
-        # Filter to only requested folders
-        requested = set(args.folders)
-        folders = [d for d in all_dirs if d in requested]
-        missing = requested - set(folders)
+        targets = [evidence_dir / name for name in args.folders]
+        missing = [t for t in targets if not t.is_dir()]
         if missing:
-            print(f"Warning: folders not found: {missing}")
+            print(f"WARNING: Folders not found: {[str(m) for m in missing]}")
+        targets = [t for t in targets if t.is_dir()]
     else:
-        folders = all_dirs
+        targets = sorted([d for d in evidence_dir.iterdir() if d.is_dir()])
 
-    # Exclude the Evidence_Placeholder folder itself
-    folders = [f for f in folders if f != "Evidence_Placeholder"]
+    if not targets:
+        print("No subfolders found to process.")
+        sys.exit(0)
 
-    print(f"Processing {len(folders)} folders in: {evidence_dir}\n")
-
-    success = 0
+    created = 0
     skipped = 0
+    results = {"Audio": 0, "Photo/Image": 0, "Video": 0, "Other Data": 0}
 
-    for folder_name in folders:
-        folder_path = os.path.join(evidence_dir, folder_name)
+    for folder in targets:
+        placeholder_name = f"{folder.name}.pdf"
+        placeholder_path = evidence_dir / placeholder_name
 
-        try:
-            result = scan_folder(folder_path, folder_name)
-            file_count, has_audio, has_photo, has_video, has_other, desc = result
+        if placeholder_path.exists() and not args.force:
+            print(f"  SKIP: {folder.name} (placeholder already exists)")
+            skipped += 1
+            continue
 
-            if file_count == 0:
-                print(f"[SKIP] {folder_name} (empty folder)")
-                skipped += 1
-                continue
+        summary = scan_folder(folder)
+        if summary["total_files"] == 0:
+            print(f"  SKIP: {folder.name} (empty folder)")
+            skipped += 1
+            continue
 
-            storage_path = f"{evidence_dir_name}/{folder_name}"
-            output_path = os.path.join(evidence_dir, f"{folder_name}.pdf")
+        success = generate_placeholder_pdf(folder, summary, placeholder_path)
+        if success:
+            print(f"  CREATED: {placeholder_name} ({summary['total_files']} files)")
+            created += 1
+        else:
+            txt_path = placeholder_path.with_suffix(".txt")
+            print(f"  CREATED (txt fallback): {txt_path.name}")
+            created += 1
 
-            create_placeholder_pdf(
-                output_path=output_path,
-                evidence_name=folder_name,
-                file_count=file_count,
-                has_audio=has_audio,
-                has_photo=has_photo,
-                has_video=has_video,
-                has_other=has_other,
-                description=desc,
-                storage_path=storage_path,
-            )
+        for cat, count in summary["category_counts"].items():
+            if cat in results:
+                results[cat] += count
 
-            media = []
-            if has_audio: media.append("Audio")
-            if has_photo: media.append("Photo")
-            if has_video: media.append("Video")
-            if has_other: media.append("Other")
-
-            print(f"[OK] {folder_name}.pdf  "
-                  f"({file_count} files | {', '.join(media)})")
-            success += 1
-
-        except Exception as e:
-            print(f"[ERROR] {folder_name}: {e}")
-
-    print(f"\nDone: {success} created, {skipped} skipped.")
+    # Summary report
+    print(f"\n{'=' * 50}")
+    print(f"Placeholder Generation Complete")
+    print(f"  Created: {created}")
+    print(f"  Skipped: {skipped}")
+    print(f"  Total folders scanned: {len(targets)}")
+    print(f"\nMedia breakdown across all processed folders:")
+    for cat, count in results.items():
+        if count > 0:
+            print(f"  {cat}: {count} files")
+    print(f"{'=' * 50}")
 
 
 if __name__ == "__main__":

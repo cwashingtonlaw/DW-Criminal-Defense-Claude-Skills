@@ -2,14 +2,18 @@
 name: dw-criminal-defense
 description: >
   Master 3-phase criminal defense workflow. ALWAYS invoke for "case intake," "new case,"
-  "run Phase 1/2/3," or initial case setup. Do NOT use for loading existing case state —
-  use dw-case-brain. Do NOT use for case status checks — use dw-case-dashboard.
+  "run Phase 1/2/3," initial case setup, "fill out the LWOP sheet," "LWOP review,"
+  "District Defender review," "life without parole worksheet," or "refresh the Case Profile."
+  Do NOT use for loading existing case state — use dw-case-brain. Do NOT use for case
+  status checks — use dw-case-dashboard.
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.2 | Internal Use Only**
+**Version 5.3 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
+
+**v5.3 change:** The former `dw-lwop-populator` skill has been merged into Phase 1 Step 3. LWOP review sheets are no longer a separate deliverable — they live as Part 2A (Homicide) or Part 2B (Sex Offense) of the unified `000 - Case Profile.docx`. The populator's field schema and extraction rules are now in `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`. Refresh Mode (Phase 1 Step 3 sub-mode) handles late-discovery updates that previously triggered standalone populator runs.
 
 ---
 
@@ -22,11 +26,16 @@ dw-criminal-defense/
 ├── SKILL.md                              ← You are here
 ├── references/
 │   ├── case-analysis-prompts.md          ← Phase 2: all 8 report prompt templates
-│   └── output-path-convention.md         ← Where to save deliverables (CASE_ROOT resolution, phase folders, naming)
+│   ├── output-path-convention.md         ← Where to save deliverables (CASE_ROOT resolution, phase folders, naming)
+│   ├── lwop-field-maps.md                ← v5.3: complete field schema for Part 2A (Homicide) and Part 2B (Sex Offense) of 000 - Case Profile.docx
+│   └── lwop-extraction-patterns.md       ← v5.3: how to extract each field from discovery (filename patterns, content markers, sourcing rules)
 ├── assets/
 │   ├── CASE PROFILE.docx                 ← Master Case Profile template (Part 1 + case-type Parts 2A/2B/2C)
 │   ├── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
-│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs
+│   ├── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs
+│   └── legacy/
+│       ├── LWOP Homicide Review Sheet - FOR TYPING.docx    ← Reference only — original Calcasieu PDO standalone form
+│       └── LWOP Sex Offense Review Sheet - FOR TYPING.docx ← Reference only — original Calcasieu PDO standalone form
 └── scripts/
     └── generate_placeholders.py          ← Generates one-page placeholder PDFs for media evidence folders
 ```
@@ -34,7 +43,8 @@ dw-criminal-defense/
 **When to load each resource:**
 - **Phase 1 Step 1 (new case):** Read `references/output-path-convention.md` to resolve `CASE_ROOT`. Copy `assets/Case Tables.xlsx` to the case root if not already present.
 - **Phase 1 Step 2f:** Run `scripts/generate_placeholders.py` against the evidence directory.
-- **Phase 1 Step 3 (Case Profile):** Copy `assets/CASE PROFILE.docx` into the case folder as `000 - Case Profile.docx`. Populate Part 1 for every case; populate exactly one of Part 2A (LWOP Homicide), Part 2B (LWOP Sex Offense), or Part 2C (Other Felony) based on case type.
+- **Phase 1 Step 3 (Case Profile, any LWOP case):** Read both `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md` before populating Part 2A or 2B. Copy `assets/CASE PROFILE.docx` into the case folder as `000 - Case Profile.docx`.
+- **Phase 1 Step 3 Refresh Mode:** Same two reference files plus the existing `000 - Case Profile.docx` already on the case file.
 - **Phase 2 Step 2:** Read `references/case-analysis-prompts.md` for the exact prompt templates for all 8 reports.
 - **Any file-write step:** Consult `references/output-path-convention.md` for the canonical save path.
 
@@ -48,6 +58,7 @@ dw-criminal-defense/
 - **Cowork drafts; attorney approves.** Claude prepopulates templates and drafts documents. Attorneys make final decisions and send all external communications.
 - **Quality Gates must be confirmed** before advancing to the next phase. Do not proceed if any gate item is unresolved.
 - **Louisiana law applies** unless otherwise indicated. Use Louisiana statutes for all charge research, discovery obligations, and citations.
+- **Attorney-only fields are sacred.** Any field marked `[ATTORNEY]` in red font must be preserved blank for attorney completion. Cowork never fills these. In Refresh Mode, Cowork never overwrites them.
 
 ---
 
@@ -99,6 +110,7 @@ If the attorney reports the change is missing:
 *Triggered the moment a new client engagement is confirmed. This phase covers everything from folder creation through a fully organized, Bate-stamped, searchable case file with a complete Case Profile — the foundation for all analysis in Phase 2.*
 
 ### Step 1: Folder Setup
+
 - Read `references/output-path-convention.md` to resolve `CASE_ROOT` (checks Case Brain session → attorney prompt → Cowork project mapping → asks attorney).
 - Confirm all standard subfolders exist: `01 - Trial Notebook` (all sub-tabs) and `02 - Pretrial Notebook` (all sub-tabs).
 - Locate `Case Tables.xlsx` at the root of the case folder. If this is a new case and no `Case Tables.xlsx` exists, copy the master template from `assets/Case Tables.xlsx` into the case root.
@@ -107,6 +119,7 @@ If the attorney reports the change is missing:
 **✓ Step 1 Check:** Folder structure confirmed, `CASE_ROOT` resolved, `Case Tables.xlsx` located.
 
 ### Step 2: Prepare Discovery for Review
+
 *Converts raw discovery into organized, Bate-stamped, searchable files. Folder sorting runs in parallel with OCR — do not wait for OCR to begin sorting.*
 
 **2a — Download & Organize Discovery**
@@ -177,8 +190,10 @@ If `--folders` is omitted, the script processes all subfolders automatically. Th
 - [ ] Digital Evidence Placeholder PDF exists for every media folder in `05 - Evidence`
 
 ### Step 3: Generate Case Profile
+
 **Output:** `000 - Case Profile.docx` → save to `Pretrial Notebook → 03 - Case Analysis & Notes`
 **Source template:** `assets/CASE PROFILE.docx` — copy this template to the output path before populating.
+**Reference files (mandatory for any LWOP case):** `references/lwop-field-maps.md` (field schema for Part 2A and 2B) and `references/lwop-extraction-patterns.md` (extraction rules from discovery documents).
 
 This single document replaces the former Initial Case Profile, Criminal Defense Cover, and (where applicable) the standalone LWOP review sheet. It follows the lifecycle of a criminal case — from identification through disposition — so the attorney can use it as a living reference from intake through trial.
 
@@ -191,6 +206,23 @@ The template has two parts:
   - **Part 2C — Other Felony** — for non-LWOP felony cases. No District Defender submission requirement.
 
 If the case carries both homicide and sex offense LWOP exposure, populate both Part 2A and Part 2B.
+
+#### Operating Modes
+
+Step 3 has two operating modes. Pick the right one before starting.
+
+**Initial Generation Mode** — runs as part of Phase 1 intake when no `000 - Case Profile.docx` exists yet on the case file. Populates the entire document end-to-end.
+
+**Refresh Mode** — runs when `000 - Case Profile.docx` already exists and new discovery has arrived. Updates Part 2A/2B fields from the new discovery only. **Never** overwrites attorney-entered content. **Never** re-touches Part 1 Sections 1–6 unless the attorney explicitly says "rebuild the Case Profile."
+
+Triggers for Refresh Mode:
+- "Update the LWOP review"
+- "Refresh the Case Profile"
+- "New discovery came in — update Part 2A"
+- "Re-pull the LWOP fields"
+- The case folder already contains `000 - Case Profile.docx` AND new discovery has been added since its last modification
+
+Initial Generation Mode is the default. If unclear which mode applies, ask the attorney.
 
 #### Part 1 — Case Profile (always completed)
 
@@ -229,6 +261,8 @@ For each potential defense, include:
 
 **Section 5 — Client Background** *(Attorney completes after client interview)*
 - Prior Criminal History
+  - **Format guidance for LWOP cases (Part 2A or 2B applies):** Use structured list `MM-DD-YYYY — Offense Name (Disposition)`, one prior per line. The District Defender expects rap-sheet-style summaries on submitted forms. Pull from the client's NCIC printout / RAP sheet. Include dispositions where available.
+  - **Format guidance for non-LWOP cases:** Narrative form is acceptable.
 - Family / Home Life
 - Educational History
 - Employment History
@@ -254,15 +288,15 @@ Populate exactly one of Part 2A, 2B, or 2C. None of these fields duplicate Part 
 6. **Motions:** Discovery, Bill of Particulars, Suppression(s), In Limine, Reveal the Deal, Bond Reduction (filed?, date filed, original amount, post-hearing amount), Speedy Trial, Other Motions, Reports Checklist, Prescription, Defendant testify? [ATTORNEY]
 7. **Investigation:** Investigator Assigned | Request Form Completed On | Requested by Attorney | Results
 8. **Evidence Inventory** — *differs per case type, see below*
-9. **Records & Authorizations:** HIPPA Y/N, Date Signed, Date Requested, Date Received, School Records, IEP, Date Records Requested, Date IEP Requested
+9. **Records & Authorizations:** HIPAA Y/N, Date Signed, Date Requested, Date Received, School Records, IEP, Date Records Requested, Date IEP Requested
 
 **Part 2A — LWOP Homicide-specific fields (Sections 3 and 8 only):**
-- Section 3: Alleged Victim(s) (* by name of any deceased) | Aggravating Factors (La. C.Cr.P. art. 905.4) | Indictment Attached (Y/N) | Theory of the Case — Initial [ATTORNEY] | Theory of the Case — Trial [ATTORNEY] | Witnesses (numbered list) | Witness Statements (numbered list) | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
+- Section 3: Alleged Victim(s) (* by name of any deceased) | Aggravating Factors (La. C.Cr.P. art. 905.4) | Theory of the Case — Initial [ATTORNEY] | Theory of the Case — Trial [ATTORNEY] | Witnesses (numbered list) | Witness Statements (numbered list) | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
 - Section 8: standard evidence inventory PLUS **Autopsy — Performed by**, **Autopsy — Date first read by attorney**, and lab column **Deceased** (alongside Client / Co-Defendant / Witness)
 - Footer: "Submission: To be submitted to the District Defender."
 
 **Part 2B — LWOP Sex Offense-specific fields (Sections 3 and 8 only):**
-- Section 3: Alleged Victim(s) (include ages & DOBs) | Aggravating Factors (focus on age of victim, relationship to defendant, use of force, threats, position of trust/authority) | Indictment Attached (Y/N) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
+- Section 3: Alleged Victim(s) (include ages & DOBs) | Aggravating Factors (focus on age of victim, relationship to defendant, use of force, threats, position of trust/authority) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
 - Section 8: standard evidence inventory PLUS **SANE Exam — Performed by**, **SANE Exam — Date first read by attorney**, **CAC Video — Is it viewable?**, **CAC Video — Date first viewed by attorney**, and lab column **Accuser** (alongside Client / Co-Defendant / Witness)
 - Footer: "Submission: To be submitted to the District Defender 30 days after appointment and again every consecutive 30 days."
 
@@ -275,18 +309,134 @@ Populate exactly one of Part 2A, 2B, or 2C. None of these fields duplicate Part 
 
 Every field marked `[ATTORNEY]` (Theory of the Case — Initial, Theory of the Case — Trial, Possible Defense Witnesses, Does Defendant want to testify?, and any Section 4 — Defenses entries that require client communication or strategic judgment) is rendered in **red font** with `[ATTORNEY]` placeholder text. Cowork leaves these blank.
 
-#### Routing to dw-lwop-populator
+In the XML, apply red font by setting `<w:color w:val="FF0000"/>` inside the `<w:rPr>` run properties for the relevant text runs.
 
-When the case has LWOP exposure (Part 2A or 2B is in scope), Cowork still routes the District Defender submission workflow to **dw-lwop-populator** for auto-population from discovery. The LWOP populator now reads from and writes to Part 2A or Part 2B of `000 - Case Profile.docx` rather than producing a separate `001 - LWOP Worksheet.docx`.
+Any content flagged for attorney review (conflicts between sources, preliminary assessments, items needing verification) should also be rendered in red font so the attorney can spot it at a glance.
+
+#### LWOP Population (Part 2A / 2B)
+
+When the case has LWOP exposure (Part 2A or 2B is in scope), populate Part 2A or 2B of `000 - Case Profile.docx` directly from discovery using the field schema in `references/lwop-field-maps.md` and the extraction rules in `references/lwop-extraction-patterns.md`.
+
+**Extraction priority order (read documents in this sequence):**
+
+1. Charging Instrument (Indictment / Bill of Information) — establishes charges, docket, defendant name, victim names
+2. Police / Incident Report — core facts, witnesses, timeline, officer names
+3. Defendant Statement — Miranda status, confession/denial, voluntariness
+4. Witness Statements — corroboration or inconsistency with police report
+5. Autopsy Report (Homicide) / SANE Report (Sex Offense) — forensic evidence
+6. Lab Reports — toxicology, DNA, ballistics
+7. CAC Interview (Sex Offense) — victim's account
+8. Criminal History (RAP sheet) — prior convictions for Part 1 Section 5
+9. Medical Records — HIPAA-related records
+10. Investigator Reports — defense investigation results
+11. Filed Motions — motions section data
+12. Bond Documents — bond reduction data
+
+For each field, follow the source-priority and extraction notes in `references/lwop-field-maps.md`. Critical sourcing rules:
+
+| Field | Source | Notes |
+|---|---|---|
+| Indictment Date | Date printed on the Grand Jury Indictment / Bill of Information | The filing date on the instrument itself, not the offense date |
+| Age at Time of Offense | Calculated from client DOB (booking/RAP) vs. offense date | If DOB unavailable, note approximate age from documents |
+| Indictment Attached | Always mark **Yes** | If we have the case folder and are filling Part 2A/2B, the indictment is presumed present |
+| Prior Convictions | Client's RAP sheet / NCIC printout | Format MM-DD-YYYY — Offense Name (Disposition); pull into Part 1 Section 5 |
+
+**Formatting conventions:**
+- **Witnesses:** Numbered list. Each entry: number, bolded name, then relationship in parentheses (e.g., "1. **Det. John Smith** (lead detective)"; "2. **Maria Garcia** (eyewitness, neighbor)").
+- **Witness Statements:** Numbered list. Each entry: number, bolded witness name, who took the statement, date/time, summary with direct quotes bolded. Note inconsistencies between witnesses.
+- **Charges:** Include the Louisiana statute number (e.g., "14:42 First Degree Rape").
+- **Aggravating Factors:** Include specific alleged acts, not just legal categories.
+- **Police Report Summary:** Specific times, locations, officer actions, dispatch/arrival times.
+- Direct quotes are **bolded**.
+
+**Field-completeness checklist (mandatory before saving):**
+Walk every field listed for the active case-type branch in `references/lwop-field-maps.md`. For each field:
+1. Confirm the field label exists in the output document
+2. Confirm the data cell is present (populated or blank — but the cell exists)
+3. If a field is missing, stop and add it before proceeding
+
+Log any fields left blank and the reason (missing discovery, attorney-only field, etc.) in the completion notes.
+
+**Completion notes (after generating the document):**
+Provide a brief summary including:
+1. Fields populated — which fields were filled and from which source documents
+2. Fields left blank — which fields could not be populated and why
+3. Conflicts found — contradictions between sources the attorney should review (rendered in red in the document)
+4. Missing discovery — documents referenced in police reports but absent from the folder
+5. Suppression flags — Miranda/search/seizure issues identified during extraction
+
+#### Refresh Mode (Part 2A / 2B update from new discovery)
+
+When `000 - Case Profile.docx` already exists and new discovery has been added since its last modification:
+
+1. **Read the existing `000 - Case Profile.docx` in full.** Identify which case-type branch is populated (Part 2A, 2B, or 2C). If multiple branches are populated (rare — both 2A and 2B for cases with both homicide and sex-offense LWOP exposure), refresh both.
+2. **Identify the new discovery.** Either the attorney has named it explicitly, or compare the case folder's file timestamps against the existing Case Profile's last-modified date. List the new items.
+3. **Re-extract using `references/lwop-extraction-patterns.md`** against the new discovery only (not the full case file — that would re-do work already in the document).
+4. **Apply updates field-by-field** using these merge rules:
+
+| Existing cell state | Action |
+|---|---|
+| Blank | Populate from new discovery |
+| Cowork-extracted black-text content | Update if newer source contradicts; preserve if newer source is silent |
+| Black-text content matching attorney handwriting / additions | **Do not touch** unless attorney explicitly says "re-pull everything" |
+| Red `[ATTORNEY]` placeholder | **Never touch** |
+| Red attorney-flagged content | **Never touch** |
+
+5. **Append a Refresh Log entry** at the bottom of Part 2A or 2B (under Section 9 — Records & Authorizations):
+```
+REFRESH LOG — [YYYY-MM-DD]
+New discovery processed: [list Bates ranges or file names]
+Fields updated: [list field names]
+Attorney-only fields preserved: [list field names left untouched]
+Conflicts flagged for attorney review (red text added in fields): [list field names]
+```
+6. **Run the field-completeness checklist** as in Initial Generation Mode.
+7. **Save** as `000 - Case Profile.docx` (same filename — overwrite the existing file).
+
+**Save the output for both modes** to:
+`Pretrial Notebook → 03 - Case Analysis & Notes/000 - Case Profile.docx`
+
+#### Generation procedure (XML edit)
+
+Read the docx skill (at the path listed in your available skills) for the full unpack/edit/repack procedure. Then:
+
+```bash
+# Initial Generation Mode
+cp "<skill>/assets/CASE PROFILE.docx" "<case-root>/02 - Pretrial Notebook/03 - Case Analysis & Notes/000 - Case Profile.docx"
+
+# 1. Unpack
+python <docx-skill-path>/scripts/office/unpack.py "<output-path>" working/unpacked/
+
+# 2. Edit the XML cells in working/unpacked/word/document.xml
+#    - For each Part 2A/2B field listed in references/lwop-field-maps.md:
+#      - Find the cell containing the label text
+#      - Locate the adjacent/next cell in the same row
+#      - Replace empty <w:t/> with extracted data
+#      - Preserve all <w:rPr> and <w:pPr> formatting
+#    - Use multiple <w:p> paragraphs within a cell for multi-line content
+#    - Apply red font (<w:color w:val="FF0000"/>) to attorney-only fields and flagged content
+#    - For Part 2 case-type selection: keep the active branch; remove or leave blank the inactive branches per attorney instruction
+
+# 3. Repack
+python <docx-skill-path>/scripts/office/pack.py working/unpacked/ "<output-path>" --original "<skill>/assets/CASE PROFILE.docx"
+
+# 4. Validate
+python <docx-skill-path>/scripts/office/validate.py "<output-path>"
+```
+
+For Refresh Mode, replace step 1 with reading the existing file, and apply the merge rules from the Refresh Mode subsection above when editing cell contents in step 2.
 
 **✓ Step 3 Check:**
-- [ ] `assets/CASE PROFILE.docx` copied into `Pretrial Notebook → 03 - Case Analysis & Notes` as `000 - Case Profile.docx`
-- [ ] Part 1 sections 1–6 populated from available sources
+- [ ] `assets/CASE PROFILE.docx` copied into `Pretrial Notebook → 03 - Case Analysis & Notes` as `000 - Case Profile.docx` (Initial Generation Mode) OR existing file read in full (Refresh Mode)
+- [ ] Part 1 sections 1–6 populated from available sources (Initial Generation only)
 - [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges; the other two parts left blank or removed
+- [ ] If LWOP exposure is present (Part 2A or 2B): every field listed in `references/lwop-field-maps.md` for that branch is present in the output (field-completeness checklist run)
 - [ ] All `[ATTORNEY]` fields preserved in red for attorney completion
-- [ ] If LWOP exposure is present, dw-lwop-populator routed to fill Part 2A or 2B
+- [ ] In Refresh Mode: all attorney-entered content preserved untouched; Refresh Log entry appended
+- [ ] Completion notes generated (fields populated, fields blank with reasons, conflicts, missing discovery, suppression flags)
 
 ### Step 4: Build Case Tables
+
 Populate three sheets in `Case Tables.xlsx`. Do not create new sheets — use the existing ones. Maintain all existing color coding, dropdown lists, and formatting. The Case Profile (Step 3) provides the charge and defense context needed for accurate assessment of all columns.
 
 ⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
@@ -343,7 +493,7 @@ Same data as 4b, sorted alphabetically. Standard reference list for quick lookup
 Before proceeding to Phase 2, confirm all step checks are complete:
 - [ ] Folder structure confirmed — all standard subfolders exist (Step 1)
 - [ ] Discovery fully organized, Bate-stamped, OCR'd, transcribed, and placeholders generated (Step 2)
-- [ ] `000 - Case Profile.docx` complete with all auto-populated fields (Step 3)
+- [ ] `000 - Case Profile.docx` complete with all auto-populated fields (Step 3) — including Part 2A/2B for any LWOP case
 - [ ] All Case Tables populated — Evidence Table (all 11 columns), Witness Tables (Priority and Alpha) (Step 4)
 - [ ] Case state saved to **dw-case-brain** — Phase 1 complete, ready for Phase 2
 
@@ -640,7 +790,7 @@ Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliv
     ├── 01 - Pleadings/
     ├── 02 - Discovery/
     ├── 03 - Case Analysis & Notes/
-    │   ├── 000 - Case Profile.docx
+    │   ├── 000 - Case Profile.docx     ← Single deliverable: Part 1 + Part 2A/2B/2C
     │   └── Cowork Analysis/            ← Parallel analysis outputs
     └── 06 - Law & Research/            ← Missing Discovery Demand Letters
 ```
@@ -670,4 +820,24 @@ The master template in `assets/Case Tables.xlsx` contains all sheets below with 
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.2 (April 2026). Report 8 (Witness Table) removed — witness data is captured in Case Tables.xlsx during Phase 1 Step 4. Former Report 9 renumbered to Report 8. Bundled resources: 8 report prompt templates, output path convention, Case Tables.xlsx master template, Evidence Placeholder template, and generate_placeholders.py script. Update this file whenever the master workflow document is revised.*
+## Changelog
+
+### v5.3 (April 2026)
+- **MERGED:** `dw-lwop-populator` is now part of this skill. The standalone populator skill has been retired.
+- **NEW reference files:** `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md` (both moved from the populator's `references/` folder).
+- **NEW assets/legacy/ folder:** archives the two original Calcasieu PDO standalone templates (`LWOP Homicide Review Sheet - FOR TYPING.docx`, `LWOP Sex Offense Review Sheet - FOR TYPING.docx`) for reference. They are no longer used as the output substrate.
+- **Phase 1 Step 3 expanded:** absorbs the populator's full workflow — extraction priority order, source-priority rules, formatting conventions, attorney-only field handling, field-completeness checklist, completion notes.
+- **NEW: Refresh Mode** added as a sub-mode of Phase 1 Step 3. Handles late-discovery updates that previously triggered standalone populator runs. Strict merge rules preserve all attorney-entered content; Refresh Log entry appended to the document on each refresh.
+- **Trigger phrases added** to skill description: "fill out the LWOP sheet," "LWOP review," "District Defender review," "life without parole worksheet," "refresh the Case Profile."
+- **Documentation patch** for Part 1 Section 5 (Prior Criminal History): explicit format guidance for LWOP cases (`MM-DD-YYYY — Offense Name (Disposition)`) vs. non-LWOP narrative form.
+- **HIPAA spelling normalized** throughout (legacy templates retained "HIPPA" typo; v5.3 references and unified template use "HIPAA").
+
+### v5.2 (April 2026)
+- Consolidated former Initial Case Profile, Criminal Defense Cover, and standalone LWOP review sheet into single `000 - Case Profile.docx` with Part 1 + Part 2A/2B/2C.
+- Report 8 (Witness Table) removed — witness data is captured in Case Tables.xlsx during Phase 1 Step 4.
+- Former Report 9 renumbered to Report 8.
+- Bundled resources: 8 report prompt templates, output path convention, Case Tables.xlsx master template, Evidence Placeholder template, generate_placeholders.py script.
+
+---
+
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.3 (April 2026). Update this file whenever the master workflow document is revised.*

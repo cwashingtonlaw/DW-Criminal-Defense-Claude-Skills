@@ -31,7 +31,9 @@ Phone data is objective — it records what happened on the device without narra
 - Phone data is not infallible — timestamps can be wrong, data can be incomplete, and extraction errors exist
 - Absence of phone data doesn't always mean the event didn't happen — not all activity leaves digital traces
 - Minor discrepancies (off by a few minutes) may reflect innocent clock differences rather than fabrication
-- Flag uncertain findings as "requires further investigation" rather than overstating their significance---
+- Flag uncertain findings as "requires further investigation" rather than overstating their significance
+
+---
 
 ## 2. Phone Data vs. Police Reports {#police}
 
@@ -80,7 +82,9 @@ SIGNIFICANCE: [How this affects the defense]
 
 **Location assumptions:** The report places the defendant at a location based on an officer's interpretation of cell data that may be more nuanced than the report suggests. Verify the underlying data.
 
-**Timeline compression:** Officers sometimes compress a sequence of events to fit their narrative. Phone data with precise timestamps may show the sequence took much longer (or shorter) than the report implies.---
+**Timeline compression:** Officers sometimes compress a sequence of events to fit their narrative. Phone data with precise timestamps may show the sequence took much longer (or shorter) than the report implies.
+
+---
 
 ## 3. Phone Data vs. Witness Statements {#witnesses}
 
@@ -139,7 +143,9 @@ SUGGESTED USE: [Cross-exam / Motion / Argument]
 
 **Co-defendant as witness:** If a co-defendant is cooperating with the State, cross-reference their claims against phone data from both phones. Cooperators have incentive to minimize their role and exaggerate the client's — phone data can expose this.
 
-**Law enforcement as witness:** Officers are witnesses too. Their claims about what they observed, when they responded, and what they were told should be cross-referenced against phone data and dispatch records.---
+**Law enforcement as witness:** Officers are witnesses too. Their claims about what they observed, when they responded, and what they were told should be cross-referenced against phone data and dispatch records.
+
+---
 
 ## 4. Phone Data vs. State's Timeline {#timeline}
 
@@ -226,7 +232,9 @@ When dumps from multiple phones are available (defendant + victim, defendant + c
 - Separation (phones at different locations — contradicts claims they were together)
 - Movement patterns (did they travel together or separately?)
 
-**Contact list comparison:** Check whether each phone has the other's number saved, what name it's saved under, and when the contact was created.---
+**Contact list comparison:** Check whether each phone has the other's number saved, what name it's saved under, and when the contact was created.
+
+---
 
 ## 6. Phone Data vs. Surveillance & Body Cam Video {#video}
 
@@ -303,7 +311,9 @@ CAVEATS: [Sync uncertainty, video quality, angle limitations]
 | **SOFT CONTRADICTION** | Phone data is inconsistent but not conclusively | Witness says "around 8 PM"; phone records suggest 8:45 PM — could be memory error |
 | **CORROBORATED** | Phone data supports the claim | Witness says "he texted me at 9"; text appears at 9:02 PM |
 | **NO DATA** | Phone records don't address the claim one way or the other | Claim about in-person conversation with no phone involvement |
-| **SUSPICIOUS GAP** | Expected phone data is missing during the period of the claim | State claims extended interaction, but phone shows zero activity for 3 hours in a normally active period |### Severity Assessment
+| **SUSPICIOUS GAP** | Expected phone data is missing during the period of the claim | State claims extended interaction, but phone shows zero activity for 3 hours in a normally active period |
+
+### Severity Assessment
 
 For each contradiction, assess:
 

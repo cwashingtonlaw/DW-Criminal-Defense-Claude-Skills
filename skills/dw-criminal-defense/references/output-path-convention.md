@@ -114,8 +114,7 @@ If a skill runs across phases, assign it to the phase where the deliverable is p
     │   ├── dw-cross-exam-architect/
     │   ├── dw-jury-instructions-builder/
     │   ├── dw-voir-dire-assistant/
-    │   ├── dw-trial-notebook-builder/
-    │   └── dw-lwop-populator/
+    │   └── dw-trial-notebook-builder/
     └── Post-Trial/
         ├── dw-sentencing-mitigation-specialist/
         └── dw-appellate-error-monitor/

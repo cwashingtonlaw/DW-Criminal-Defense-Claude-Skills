@@ -191,7 +191,7 @@ When cloud-derived data appears in the State's case:
 - [ ] Identify any multi-device contamination risks
 - [ ] Demand cloud provider logs for critical findings (subpoena if necessary)
 - [ ] Flag in Section 4 (Authentication Chain) any cloud data with weaker chain of custody
-- [ ] Consider suppression motion if cloud data was extracted without warrant/consent for cloud account- [ ] Consider suppression motion if cloud data was extracted without warrant/consent for cloud account
+- [ ] Consider suppression motion if cloud data was extracted without warrant/consent for cloud account
 
 ---
 
@@ -211,7 +211,8 @@ A single forensic artifact—a photograph, message, file, or call record—can c
 
 - Written by the camera hardware at the moment of capture
 - Embedded in the image file itself (EXIF metadata)
-- Hardest to forge without leaving digital traces (would require hex-editing the binary file)- **This is THE timestamp for when a photo or video was created**
+- Hardest to forge without leaving digital traces (would require hex-editing the binary file)
+- **This is THE timestamp for when a photo or video was created**
 
 **Defense use:**
 - If the State claims a photo was taken at time X, always extract the full EXIF data and verify DateTimeOriginal
@@ -232,7 +233,9 @@ A single forensic artifact—a photograph, message, file, or call record—can c
 
 #### 3. Cellebrite-Parsed Creation Timestamp (Database Records)
 
-**Authority level: HIGH (for messages, calls, app data)**- Extracted directly from the app's SQLite database (e.g., message "sent" timestamp from sms.db, call log timestamp from contacts.db)
+**Authority level: HIGH (for messages, calls, app data)**
+
+- Extracted directly from the app's SQLite database (e.g., message "sent" timestamp from sms.db, call log timestamp from contacts.db)
 - Reliable because it comes from the app's own authoritative record
 - **But:** Subject to UTC offset error if the examiner misconfigured the system timezone or failed to account for DST transitions
 
@@ -254,7 +257,9 @@ A single forensic artifact—a photograph, message, file, or call record—can c
 **Defense use:**
 - Filesystem created time is useful as a secondary check, but should not be the sole timestamp cited
 - If a photo's EXIF and filesystem "created" timestamps differ by hours or days, investigate: the file may have been copied, restored from backup, or synced from the cloud
-- For evidence with no EXIF (e.g., documents, downloads), filesystem created becomes more important#### 5. Filesystem Modified (mtime)
+- For evidence with no EXIF (e.g., documents, downloads), filesystem created becomes more important
+
+#### 5. Filesystem Modified (mtime)
 
 **Authority level: LOW-MODERATE**
 
@@ -285,7 +290,9 @@ A single forensic artifact—a photograph, message, file, or call record—can c
 **Defense use:**
 - **NEVER use atime as evidence of user activity**
 - atime is essentially useless for forensic analysis on mobile devices
-- If the State attempts to cite atime as proof of defendant accessing content, challenge it immediately as scientifically unreliable#### 7. Cloud Sync Timestamp
+- If the State attempts to cite atime as proof of defendant accessing content, challenge it immediately as scientifically unreliable
+
+#### 7. Cloud Sync Timestamp
 
 **Authority level: LOW**
 
@@ -312,7 +319,9 @@ A single forensic artifact—a photograph, message, file, or call record—can c
   - "Isn't the 'Last Modified' timestamp just the filesystem mtime?"
   - "Could this mtime be changed by a backup/restore or cloud sync operation?"
   - "What does the EXIF DateTimeOriginal show for this photo?"
-- Always require the expert to dig deeper than Cellebrite's export table### When Timestamps Conflict — Resolution Rules
+- Always require the expert to dig deeper than Cellebrite's export table
+
+### When Timestamps Conflict — Resolution Rules
 
 #### EXIF vs. Filesystem Created
 
@@ -357,7 +366,9 @@ Cellebrite and mobile forensics require the examiner to set the device's timezon
 - If you detect a timezone offset error, ALL timestamps in the extraction are suspect
 - File a supplemental report flagging the error
 - Demand re-extraction or re-analysis with the correct timezone
-- Use this to argue systemic unreliability: "If the examiner got the timezone wrong, how can we trust any timestamp in this extraction?"### Conflicting Timestamps Checklist
+- Use this to argue systemic unreliability: "If the examiner got the timezone wrong, how can we trust any timestamp in this extraction?"
+
+### Conflicting Timestamps Checklist
 
 **When you find timestamps that don't align:**
 
@@ -378,7 +389,9 @@ from datetime import datetime, timedelta
 def timestamp_audit(artifact_metadata):
     """
     Flag timestamp conflicts for a single artifact (photo, message, file, etc.).
-    Returns a list of conflicts and recommendations.    artifact_metadata: dict with keys like:
+    Returns a list of conflicts and recommendations.
+
+    artifact_metadata: dict with keys like:
         - 'exif_original': str or datetime (when photo was taken)
         - 'exif_digitized': str or datetime (when digitized)
         - 'fs_created': str or datetime (filesystem birth time)
@@ -401,7 +414,8 @@ def timestamp_audit(artifact_metadata):
                     ts = datetime.fromisoformat(value.replace('Z', '+00:00'))
                 else:
                     ts = value
-                timestamps[key] = ts            except (ValueError, AttributeError):
+                timestamps[key] = ts
+            except (ValueError, AttributeError):
                 pass
 
     if not timestamps:
@@ -427,7 +441,9 @@ def timestamp_audit(artifact_metadata):
 
     # Determine authoritative timestamp based on artifact type
     authoritative = None
-    reason = ''    if 'exif_original' in timestamps:
+    reason = ''
+
+    if 'exif_original' in timestamps:
         authoritative = timestamps['exif_original']
         reason = 'EXIF DateTimeOriginal (written by camera hardware at capture)'
     elif 'db_parsed_timestamp' in timestamps:
@@ -457,7 +473,8 @@ artifact = {
 
 result = timestamp_audit(artifact)
 if result['conflicts']:
-    print("⚠ Timestamp conflicts detected:")    for conflict in result['conflicts']:
+    print("⚠ Timestamp conflicts detected:")
+    for conflict in result['conflicts']:
         print(f"  {conflict['pair']}: {conflict['diff_hours']} hours apart")
     print(f"\nAuthoritative: {result['authoritative_timestamp']}")
     print(f"Reason: {result['reason']}")
@@ -484,7 +501,9 @@ if result['conflicts']:
 3. Cross-reference against known events:
    - If the message says "watching the news" and a timestamp shows 9 PM but the news aired at 8 PM, the offset may be wrong
    - If the recipient's phone shows the message arriving at 8:00 PM (their timezone), but the defendant's device shows 9:00 PM (due to timezone difference or offset error), flag this
-4. If timestamps don't align, demand clarification in the State's response or expert deposition**Scenario 3: State Claims File Was Created/Possessed at Time X (Filesystem "Created" Timestamp)**
+4. If timestamps don't align, demand clarification in the State's response or expert deposition
+
+**Scenario 3: State Claims File Was Created/Possessed at Time X (Filesystem "Created" Timestamp)**
 
 1. Check whether the file has EXIF metadata (photos/videos)
    - If yes, EXIF DateTimeOriginal is authoritative; if different from filesystem, the file was copied/restored
@@ -515,7 +534,9 @@ This is a red flag for bulk operations, not individual user actions.
 - Delivery status (sent, delivered, read, failed)
 - Group message participants
 - MMS attachments (photos, videos, audio, contacts shared)
-- Deleted messages recovered from SQLite WAL files or unallocated space### Defense Analysis Checklist
+- Deleted messages recovered from SQLite WAL files or unallocated space
+
+### Defense Analysis Checklist
 
 **Alibi & Timeline:**
 - [ ] Map all message activity during the critical time window — active texting from a location inconsistent with the crime scene is powerful alibi evidence
@@ -539,7 +560,9 @@ This is a red flag for bulk operations, not individual user actions.
 - [ ] Read the tone and content of messages in the hours/days before the incident
 - [ ] Look for expressions of normal daily life (making plans, discussing routine matters) inconsistent with criminal planning
 - [ ] Identify any messages showing emotional distress, intoxication, confusion, or coercion
-- [ ] Check for messages showing the client's intentions ("going to bed," "heading to work tomorrow")**Victim Credibility:**
+- [ ] Check for messages showing the client's intentions ("going to bed," "heading to work tomorrow")
+
+**Victim Credibility:**
 - [ ] Map the COMPLETE communication history between client and victim — not just the State's selected excerpts
 - [ ] Look for victim-initiated contact (calls, messages) that contradicts claims of fear
 - [ ] Check for affectionate, neutral, or reconciliatory messages between them
@@ -568,6 +591,7 @@ This is a red flag for bulk operations, not individual user actions.
 
 # 2. Communication frequency analysis
 # Messages per hour/day with the victim, key contacts, unknown numbers
+
 # 3. Keyword search
 # Search for case-relevant terms: location names, weapon terms,
 # victim name, co-defendant names, alibi-relevant phrases
@@ -594,7 +618,9 @@ This is a red flag for bulk operations, not individual user actions.
 - End-to-end encrypted — extraction quality depends heavily on method
 - Check for: message timestamps, read receipts (blue checks), last seen status, group memberships
 - Media files may be stored separately from message databases
-- Deleted messages may show as "This message was deleted" placeholders**Facebook Messenger:**
+- Deleted messages may show as "This message was deleted" placeholders
+
+**Facebook Messenger:**
 - Check for: message reactions, read receipts, active status timestamps
 - Messenger Rooms/calls may have separate logging
 - Secret Conversations use separate encryption — may not be extracted
@@ -624,7 +650,8 @@ This is a red flag for bulk operations, not individual user actions.
 Apply the same eight-lens analysis as SMS/MMS, plus:
 
 - [ ] **Platform authentication:** Verify that the account shown in the extraction actually belongs to the client — check account creation date, phone number linkage, email verification
-- [ ] **Multi-device access:** Many chat apps allow multiple devices — messages may have been sent from a different device (computer, tablet) than the phone- [ ] **Disappearing messages context:** If the client used disappearing messages, this is a platform FEATURE, not evidence of concealment. Note the client's settings and whether this was their default across all conversations (habit, not targeted deletion)
+- [ ] **Multi-device access:** Many chat apps allow multiple devices — messages may have been sent from a different device (computer, tablet) than the phone
+- [ ] **Disappearing messages context:** If the client used disappearing messages, this is a platform FEATURE, not evidence of concealment. Note the client's settings and whether this was their default across all conversations (habit, not targeted deletion)
 - [ ] **Group context:** Messages in group chats must be read in the context of the full group conversation — a response to someone else's message may appear incriminating out of context
 - [ ] **Forwarded messages:** Check whether messages were forwarded vs. composed — a forwarded threatening message is very different from an authored one
 
@@ -666,7 +693,9 @@ Apply the same eight-lens analysis as SMS/MMS, plus:
 - Call duration (0-second calls = didn't connect or went to voicemail)
 - Timestamps (start time, and end time if available)
 - Call type (cellular, VoIP, FaceTime, WhatsApp call, etc.)
-- Voicemail recordings and transcriptions if available### Defense Analysis Checklist
+- Voicemail recordings and transcriptions if available
+
+### Defense Analysis Checklist
 
 **Alibi & Timeline:**
 - [ ] Map all calls during the critical window — active phone calls establish the client was conscious, responsive, and potentially at a specific location (via cell tower data during the call)
@@ -687,7 +716,9 @@ Apply the same eight-lens analysis as SMS/MMS, plus:
 **Gaps & Anomalies:**
 - [ ] Zero-duration calls may indicate calls rejected by the recipient or network issues — not necessarily "hang-ups"
 - [ ] Missing calls (calls visible on carrier records but not on device) may indicate selective deletion or extraction failure
-- [ ] Multiple rapid calls to the same number may indicate urgency, fear, or attempts to reach someone for help### Voicemail Content Analysis
+- [ ] Multiple rapid calls to the same number may indicate urgency, fear, or attempts to reach someone for help
+
+### Voicemail Content Analysis
 
 Voicemail recordings and transcriptions are frequently overlooked but can contain critical defense evidence:
 
@@ -716,7 +747,9 @@ import pandas as pd
 df['date'] = pd.to_datetime(df['timestamp']).dt.date
 daily_freq = df.groupby(['contact', 'date']).size().reset_index(name='calls')
 baseline = daily_freq[daily_freq['date'] < critical_start].groupby('contact')['calls'].mean()
-# Compare crime-window frequency against baseline per contact# 3. Contact pattern analysis
+# Compare crime-window frequency against baseline per contact
+
+# 3. Contact pattern analysis
 # Identify: top contacts by volume, new contacts near incident,
 # contacts with sudden frequency changes
 
@@ -757,7 +790,8 @@ baseline = daily_freq[daily_freq['date'] < critical_start].groupby('contact')['c
 
 ### Programmatic Analysis (Contacts Data)
 
-```python# 1. Contact creation timeline
+```python
+# 1. Contact creation timeline
 # Sort contacts by creation date to see when relationships formed
 # Flag contacts added in the weeks before the incident
 
@@ -786,7 +820,8 @@ SIM card data extracted from Cellebrite includes:
 - **IMSI (International Mobile Subscriber Identity)** — identifies the subscriber to the carrier; also changes with SIM replacement
 - **MSISDN** — the phone number assigned to the SIM by the carrier
 - **Stored contacts** — SIM can store a limited number of contacts (usually 250 max); these are independently maintained from phone contacts
-- **Last dialed numbers (LDN)** — stored on SIM independently of the phone's call log; typically 10-20 entries, easily overwritten- **SMS stored on SIM** — limited storage (usually 20-50 messages); common on older phones or specific carrier configurations
+- **Last dialed numbers (LDN)** — stored on SIM independently of the phone's call log; typically 10-20 entries, easily overwritten
+- **SMS stored on SIM** — limited storage (usually 20-50 messages); common on older phones or specific carrier configurations
 - **SIM application toolkit data** — carrier-specific services and menu options
 - **Carrier/network information** — network access code (NAC), service provider data
 
@@ -804,7 +839,8 @@ Some extractions may consolidate SIM data; others split it across multiple secti
 ### Defense Analysis Checklist
 
 - [ ] **SIM ICCID/IMSI matches carrier records** — Obtain carrier records (via discovery or subpoena) and verify the ICCID and IMSI in the Cellebrite extraction match the carrier's records for the account in question. Mismatch indicates the wrong SIM was in the device or the SIM was replaced between extraction and carrier records.
-- [ ] **SIM-stored contacts vs. phone contacts** — Compare contacts present on SIM to contacts in the phone's main contact list. SIM contacts are older and rarely updated. Absence from the phone but presence on SIM may indicate a long-standing relationship or an older contact the client de-prioritized.- [ ] **Last dialed numbers (LDN) on SIM vs. phone call log** — Cross-reference the SIM's last dialed numbers against the phone's full call log. Discrepancies suggest the SIM was placed into a different device (LDN would have different entries than the current phone's call log).
+- [ ] **SIM-stored contacts vs. phone contacts** — Compare contacts present on SIM to contacts in the phone's main contact list. SIM contacts are older and rarely updated. Absence from the phone but presence on SIM may indicate a long-standing relationship or an older contact the client de-prioritized.
+- [ ] **Last dialed numbers (LDN) on SIM vs. phone call log** — Cross-reference the SIM's last dialed numbers against the phone's full call log. Discrepancies suggest the SIM was placed into a different device (LDN would have different entries than the current phone's call log).
 - [ ] **SIM swap history** — Investigate whether the SIM was recently changed. Check dates: Did the ICCID change between the incident date and extraction date? Was a new SIM activated on the account? SIM changes may indicate the defendant obtained a replacement device or passed the phone to someone else.
 - [ ] **Dual SIM detection** — Does the device have two SIM slots? Was a second SIM present during the critical time period? Dual-SIM phones can have two active numbers; only extracting one SIM misses half the device's communication potential.
 - [ ] **eSIM vs. physical SIM** — Modern phones support eSIM (embedded, programmable). If the device has eSIM capability, did the extraction capture eSIM data separately? eSIM data extraction varies by method; physical SIM extraction is more reliable.
@@ -812,7 +848,8 @@ Some extractions may consolidate SIM data; others split it across multiple secti
 
 ### Defense Value
 
-- **Independent call record:** SIM-stored last dialed numbers provide a call log that exists independently of the phone's own call log. If the phone's call log has been truncated, cleared, or recovered from unallocated space with gaps, the SIM's LDN offers a second, uncorrupted source of evidence about who was called from that device.- **Historical contacts:** SIM contacts may preserve relationships that were deleted from the phone's contact list. The presence of a contact on the SIM but not the phone may indicate a relationship the client wanted to de-emphasize but that existed during the period when the SIM was in use.
+- **Independent call record:** SIM-stored last dialed numbers provide a call log that exists independently of the phone's own call log. If the phone's call log has been truncated, cleared, or recovered from unallocated space with gaps, the SIM's LDN offers a second, uncorrupted source of evidence about who was called from that device.
+- **Historical contacts:** SIM contacts may preserve relationships that were deleted from the phone's contact list. The presence of a contact on the SIM but not the phone may indicate a relationship the client wanted to de-emphasize but that existed during the period when the SIM was in use.
 - **Device continuity verification:** SIM ICCID is a permanent hardware identifier on the physical card. If the ICCID in the Cellebrite extraction differs from what the carrier lists for that account, this raises critical questions: Was the wrong SIM extracted? Was the SIM swapped between devices? Was the extraction performed on a device the defendant doesn't actually own?
 - **Device continuity challenge:** If the SIM last dialed numbers differ significantly from the current phone's call log, this suggests the SIM spent time in a different device — directly challenging the assumption that all data on the extracted phone was generated by the defendant while the SIM was present.
 
@@ -826,7 +863,9 @@ Some extractions may consolidate SIM data; others split it across multiple secti
 
 ## 5. Location Data {#5-location-data}
 
-**IMPORTANT: This skill performs initial extraction and organization of location data only. All deep analysis — tower coverage, RF propagation, directional antenna challenges, Carpenter issues — is handled by dw-cell-site-geolocation-auditor.**### What to Extract and Organize for Handoff
+**IMPORTANT: This skill performs initial extraction and organization of location data only. All deep analysis — tower coverage, RF propagation, directional antenna challenges, Carpenter issues — is handled by dw-cell-site-geolocation-auditor.**
+
+### What to Extract and Organize for Handoff
 - Cell tower connection records (Cell ID, LAC, MCC, MNC, timestamps)
 - GPS coordinates (from photos, maps app, location services)
 - Wi-Fi connection history (SSID names, timestamps, MAC addresses)
@@ -854,7 +893,9 @@ TIMESTAMP          | SOURCE           | LOCATION DATA              | DEFENSE NOT
 2024-03-15 20:45   | GPS (photo EXIF) | 30.4515° N, 91.1871° W    | Client at home
 2024-03-15 21:30   | Cell Tower       | CID: 12346, LAC: 678      | Crime window
 ...
-```### Programmatic Analysis (Location Data)
+```
+
+### Programmatic Analysis (Location Data)
 
 ```python
 # 1. Chronological location timeline
@@ -895,7 +936,9 @@ Cellebrite extracts Wi-Fi connection history under **Device Information > Wirele
 - **Connection timestamps**: When the phone connected to and disconnected from the network
 - **Password history**: If the phone saved the password (useful for distinguishing networks the client intentionally used vs. networks the phone auto-connected to)
 - **Security type**: Whether the network was open, WEP, WPA, WPA2 (helps verify the network's authenticity — official networks use strong security)
-- **Last known connection**: The most recent time the phone connected to this network#### Wi-Fi as Location Evidence
+- **Last known connection**: The most recent time the phone connected to this network
+
+#### Wi-Fi as Location Evidence
 
 A Wi-Fi connection is **location evidence** because the phone only connects when within 30–100 feet of the router (typical range). Named networks indicate probable location:
 
@@ -912,7 +955,9 @@ A Wi-Fi connection is **location evidence** because the phone only connects when
 - [ ] **Commercial venue timestamps:** Starbucks, restaurants, hotels, airports — specific named networks place the client at real, verifiable locations with independent businesses that may have security cameras or receipts
 - [ ] **Network gaps:** Periods with no Wi-Fi connection — may indicate driving (outside all Wi-Fi range) or outdoor activity
 - [ ] **Cross-reference with cell tower & GPS:** If Wi-Fi, GPS, and cell tower all show the client at the same location at the same time, the corroboration is extremely strong
-- [ ] **Prosecution misinterpretation:** Ensure the prosecution isn't claiming that a Wi-Fi connection proves the client was using the phone personally. A phone can be connected to home Wi-Fi while sitting on a table (not being used) — this proves the phone was at home, not that the client was actively using it#### Limitations to Highlight in Defense
+- [ ] **Prosecution misinterpretation:** Ensure the prosecution isn't claiming that a Wi-Fi connection proves the client was using the phone personally. A phone can be connected to home Wi-Fi while sitting on a table (not being used) — this proves the phone was at home, not that the client was actively using it
+
+#### Limitations to Highlight in Defense
 
 - **Wi-Fi range:** Standard routers reach 30–100 feet. A connection to "HomeNetwork" proves the phone was within range of the home router, but the client could have been in the driveway, on the porch, or in a neighbor's house near the router
 - **Phone left behind:** The most damaging limitation: the phone could be connected to home Wi-Fi while the client is elsewhere. The prosecution will argue this. Counter by: (a) showing the defendant's phone was with them via other data (calls, text messages sent, app activity, other location markers); (b) showing the client was at that location via witness testimony or receipts; (c) combining Wi-Fi with call logs (a call placed during the Wi-Fi connection is harder to explain away — the client was likely there)
@@ -957,7 +1002,9 @@ DEFENSE NARRATIVE:
 - Media creation date vs. file modification date
 - Deleted photos recovered from unallocated space
 - Cloud-synced photos (iCloud Photos, Google Photos indicators)
-- Live Photo still frames (the video component goes in Section 6B)### Defense Analysis Checklist
+- Live Photo still frames (the video component goes in Section 6B)
+
+### Defense Analysis Checklist
 
 **EXIF Metadata Mining:**
 - [ ] GPS coordinates in photos taken during the critical window — precision alibi evidence
@@ -1022,7 +1069,9 @@ Videos on a phone are among the most powerful pieces of defense evidence — and
 - **File system context**: file path (reveals source — DCIM/Camera vs. Downloads vs. WhatsApp Media), creation date vs. modification date, file size
 - **Deleted videos** recovered from unallocated space or SQLite databases
 - **Cloud-synced video indicators** (iCloud, Google Photos upload timestamps)
-- **Thumbnail/preview images** — even if the original video was deleted, the system may retain a thumbnail### Step 1: Run Video Inventory
+- **Thumbnail/preview images** — even if the original video was deleted, the system may retain a thumbnail
+
+### Step 1: Run Video Inventory
 
 Use `scripts/preprocessing.py` → `inventory_video_files()` to catalog every video in the extraction. This produces a classified inventory before you open a single file.
 
@@ -1050,7 +1099,9 @@ Use `scripts/preprocessing.py` → `build_video_timeline()` to arrange all video
 - [ ] Videos that show the client's surroundings (background details that identify location independently of GPS)
 - [ ] Continuous recording duration — a 10-minute video means the phone wasn't being used for anything else during that time
 - [ ] Screen recordings during the critical window — if the client was screen-recording a game or social media, they weren't committing a crime
-- [ ] Live Photos (iOS) — the 1.5-3 second video clip embedded in each Live Photo captures a brief moment of reality with audio. These are timestamped and GPS-tagged just like regular photos**Video Content Assessment:**
+- [ ] Live Photos (iOS) — the 1.5-3 second video clip embedded in each Live Photo captures a brief moment of reality with audio. These are timestamped and GPS-tagged just like regular photos
+
+**Video Content Assessment:**
 - [ ] **Flag all videos from the critical window for attorney review.** Describe what can be determined from metadata and filename, but the attorney needs to see the actual content.
 - [ ] Videos showing the client's physical condition (no visible injuries before alleged assault, visible injuries consistent with self-defense)
 - [ ] Videos capturing interactions between client and victim (tone, body language, context)
@@ -1078,7 +1129,9 @@ Use `scripts/preprocessing.py` → `build_video_timeline()` to arrange all video
 - [ ] Check for signs of video editing: does the codec match what the device natively records? (e.g., iPhone records H.265/HEVC; an H.264 re-encode suggests editing)
 - [ ] File modification date significantly later than creation date may indicate post-capture editing
 - [ ] Abnormally small file size for the resolution and duration may indicate re-encoding or compression
-- [ ] Metadata stripping — if a video has no EXIF data at all, it may have been processed through an app or service that strips metadata (common for videos shared via social media)**Gaps & Missing Videos:**
+- [ ] Metadata stripping — if a video has no EXIF data at all, it may have been processed through an app or service that strips metadata (common for videos shared via social media)
+
+**Gaps & Missing Videos:**
 - [ ] Are there thumbnails or database entries for videos that no longer exist in the extraction?
 - [ ] Does the Photos.sqlite (iOS) or media database (Android) reference video files that weren't extracted?
 - [ ] Were videos selectively excluded from the production? Compare extraction manifest against what was produced — flag for Brady/Giglio if the State chose which videos to disclose
@@ -1137,7 +1190,8 @@ gps_videos = [v for v in metadata_list if v.get('gps_raw')]
 ### What to Extract
 - URLs visited with timestamps
 - Search queries (Google, Bing, etc.) with timestamps
-- Bookmarks- Download history
+- Bookmarks
+- Download history
 - Cookies and cached content
 - Autofill data
 - Private/incognito mode indicators (absence of expected history may indicate private browsing, which is normal privacy behavior, NOT consciousness of guilt)
@@ -1153,198 +1207,6 @@ gps_videos = [v for v in metadata_list if v.get('gps_raw')]
 **Defense-Favorable Browser Evidence:**
 - [ ] Searches consistent with innocent activity during the critical window ("pizza near me," "movie times," "weather tomorrow")
 - [ ] Searches that support the defense narrative ("self-defense laws," "restraining order how to get," "domestic violence hotline")
-- [ ] Browsing activity that places the client at home or engaged in normal life during the alleged crime
-- [ ] Absence of the kind of searches the State's theory would predict (if the State claims premeditation, the absence of planning-related searches is notable)
-
-**What the State Will Misuse:**
-- [ ] Isolated searches taken out of context
-- [ ] Searches from days or weeks before the incident presented as "premeditation"
-- [ ] Shared-device searches attributed to the client (verify: was anyone else using this device?)
-- [ ] Auto-complete artifacts treated as intentional queries### Programmatic Analysis (Browser Data)
-
-```python
-# 1. Search query session reconstruction
-# Group search queries by session (queries within 5 minutes of
-# each other are likely the same research session)
-# Present sessions as units — shows context around any
-# query the State will highlight
-
-# 2. Adjacent search context
-# For any search query the State flags, extract the 5 searches
-# before and 5 after — this is the context that changes meaning
-
-# 3. Browsing activity during critical window
-# Filter all URLs and searches to crime date ± 24h
-# Active browsing during the alleged crime = alibi evidence
-
-# 4. Shared device indicators
-# Check for searches in multiple languages, drastically different
-# topics, or searches during times client was confirmed elsewhere
-# (may indicate someone else used the device)
-
-# 5. Auto-complete vs. intentional query detection
-# Auto-complete suggestions appear in some extraction formats
-# differently from typed queries — distinguish them
-# Flag any query that may be an auto-complete artifact
-```
-
----
-
-## 8. Application Data {#8-app-data}
-
-### Key App Categories
-
-**Financial Apps (Venmo, Cash App, banking):**
-- Transaction history with timestamps and locations
-- Transfers to/from relevant individuals
-- Balance history around relevant dates
-- Defense use: financial transactions can establish timeline, location, and relationships
-
-**Navigation Apps (Google Maps, Waze, Apple Maps):**
-- Search history, recent destinations, saved locations
-- Route history with start/end times
-- Estimated vs. actual travel times
-- Defense use: route data is precise timeline evidence; "no route to crime scene" is powerful
-
-**Ride-Share (Uber, Lyft):**
-- Trip history with precise pickup/dropoff locations and times
-- Driver information (independent witness)
-- Defense use: independently verifiable alibi evidence with GPS precision**Fitness/Health Apps:**
-- Step counts and activity levels with timestamps
-- Heart rate data (stress/activity indicators)
-- Sleep tracking data
-- Defense use: step count showing sedentary activity during alleged crime; sleep data showing client was asleep
-
-**Social Media:**
-- Posts, stories, check-ins with timestamps
-- DMs (see Chat Applications section above)
-- Login activity logs (IP addresses, device types, locations)
-- Defense use: public posts/check-ins are timestamped alibi evidence; login locations provide location data
-- **Hand off authentication challenges to dw-social-media-auditor**
-
-**Notes/Memo Apps:**
-- Saved notes with creation and modification timestamps
-- Deleted notes (recoverable from SQLite)
-- Defense use: notes showing the client's plans, thoughts, or to-do lists inconsistent with criminal intent
-
-**Calendar:**
-- Events, appointments, reminders
-- Event locations
-- Defense use: scheduled events at alibi locations; established routine
-
-### Defense Analysis for All Apps
-- [ ] Check app install dates — when was the app first installed? Was it present before, during, and after the incident?
-- [ ] Distinguish automatic app activity from user-initiated activity
-- [ ] Verify account ownership — is the logged-in account actually the client's?
-- [ ] Check for multiple accounts or profiles on the same app
-- [ ] Note apps that were uninstalled around the incident date — but also note that app cleanup is normal device management
-
-### Programmatic Analysis (App Data)
-
-```python
-# 1. Financial transaction timeline
-# Extract all financial app transactions (Venmo, Cash App, etc.)
-# with timestamps, amounts, recipients, and descriptions
-# Map to timeline — transactions establish location and activity
-
-# 2. Ride-share trip extraction
-# Parse Uber/Lyft databases for trip history
-# Extract: pickup/dropoff coords, times, driver info
-# These are independently verifiable alibi records
-
-# 3. Fitness/health data extraction
-# Step counts by hour, heart rate data, sleep tracking
-# Step count during alleged crime window can establish
-# whether client was active (walking) or sedentary
-
-# 4. Navigation app history
-# Extract recent destinations, route history, saved locations
-# from Google Maps, Waze, Apple Maps databases
-# "No route to crime scene in search history" is notable
-
-# 5. App install/uninstall timeline
-# Parse app management databases for install dates,
-# last-opened dates, and uninstall events
-# Apps installed long before incident and never opened are noise
-
-# 6. Calendar/reminder extraction
-# Extract events, appointments, reminders
-# Events at alibi locations are schedule evidence
-# "Alarm set for 6:00 AM" suggests planning for a normal day
-```
-
----
-
-## 8A. Financial App Data {#8a-financial}
-
-Financial app data is often the most underutilized category in phone dumps. Every Venmo payment, Cash App transfer, or Zelle transaction creates a timestamped, location-tagged record of real-world activity. A Zelle payment at 9:15 PM proves the client was on their phone conducting a financial transaction at that exact moment — and the recipient can independently verify it happened.
-
-### What to Extract
-- Cash App: transaction history (sent/received), Bitcoin transactions, account activity, linked bank info
-- Venmo: payment feed (timestamps, recipients, amounts, notes), friend list, linked accounts
-- Zelle: transfer history with timestamps and recipient info
-- PayPal: transaction log, invoices, payment requests
-- Apple Pay / Google Pay: transaction history with merchant names and locations
-- Banking apps: transaction logs, login timestamps, check deposits (photo captures with timestamps)
-- Cryptocurrency wallets: transaction IDs, wallet addresses, timestamps### Defense Analysis Checklist
-
-**Alibi & Timeline:**
-- [ ] Transactions during the critical window — a Cash App payment at 9:22 PM means the client was on their phone at 9:22 PM
-- [ ] Merchant transactions with locations (Apple Pay at a gas station, food delivery order) — places the client at a specific business
-- [ ] Food delivery app orders (DoorDash, UberEats) with delivery addresses — proves location
-- [ ] Ride-share payments (Uber, Lyft) — ride history includes pickup/dropoff locations and times
-- [ ] ATM withdrawals — bank apps log ATM locations and timestamps
-
-**Third-Party Suspects:**
-- [ ] Payments to/from unknown individuals around the incident date
-- [ ] Unusual financial activity from people connected to the case
-- [ ] Cash App / Venmo notes that reference case-relevant people or events
-
-**Victim Credibility / Relationship:**
-- [ ] Payment history between client and victim — regular payments may show nature of relationship
-- [ ] Venmo notes between parties (people write revealing things in Venmo notes)
-- [ ] Financial disputes or refund requests that indicate conflict
-
-**State's Narrative Contradictions:**
-- [ ] If the State claims the client was at the crime scene, but Apple Pay shows a transaction at a different location at the same time
-- [ ] Financial records that contradict witness statements about the client's whereabouts
-
-**What Hurts Us:**
-- [ ] Payments that could be characterized as drug transactions (round numbers, coded Venmo notes)
-- [ ] Financial patterns the State will try to use as circumstantial evidence
-
-### Programmatic Analysis (Financial Data)
-
-```python
-# 1. Transaction timeline — extract all financial app transactions
-#    and plot chronologically against critical window
-# 2. Location extraction — pull merchant locations from Apple Pay/
-#    Google Pay, ATM locations from banking apps
-# 3. Contact cross-reference — match payment recipients against
-#    known contacts, victim, witnesses, co-defendants
-# 4. Pattern analysis — regular vs. unusual transactions
-#    (with baseline comparison, as always)
-```
-
----
-
-## 8B. Health & Fitness Data {#8b-health}
-
-Health data from Apple Health, Google Fit, Fitbit, or similar apps records continuous biometric and activity data that the phone owner usually doesn't think about — which makes it highly credible as evidence. Step counts prove walking, heart rate data proves physical exertion or rest, and sleep data proves the client was in bed. This data is difficult to fabricate because it's collected passively by sensors.- Download history
-- Cookies and cached content
-- Autofill data
-- Private/incognito mode indicators (absence of expected history may indicate private browsing, which is normal privacy behavior, NOT consciousness of guilt)
-
-### Defense Analysis Checklist
-
-**Context Is Everything:**
-- [ ] ALWAYS read search queries in context of adjacent searches — a search for "how to clean blood" that follows "nosebleed won't stop" has an innocent explanation
-- [ ] Check whether the search was typed or auto-suggested — auto-complete can generate alarming-looking queries from innocent partial inputs
-- [ ] Cookies ≠ visits — cookie presence indicates a site was loaded (possibly via ad, redirect, or tracking pixel), not that the user intentionally navigated there
-- [ ] Cached images ≠ viewed images — browsers cache thousands of images the user never sees (ad networks, tracking pixels, link preview thumbnails)
-
-**Defense-Favorable Browser Evidence:**
-- [ ] Searches consistent with innocent activity during the critical window ("pizza near me," "movie times," "weather tomorrow")- [ ] Searches that support the defense narrative ("self-defense laws," "restraining order how to get," "domestic violence hotline")
 - [ ] Browsing activity that places the client at home or engaged in normal life during the alleged crime
 - [ ] Absence of the kind of searches the State's theory would predict (if the State claims premeditation, the absence of planning-related searches is notable)
 
@@ -1384,7 +1246,9 @@ Health data from Apple Health, Google Fit, Fitbit, or similar apps records conti
 
 ---
 
-## 8. Application Data {#8-app-data}### Key App Categories
+## 8. Application Data {#8-app-data}
+
+### Key App Categories
 
 **Financial Apps (Venmo, Cash App, banking):**
 - Transaction history with timestamps and locations
@@ -1526,7 +1390,9 @@ Financial app data is often the most underutilized category in phone dumps. Ever
 
 ## 8B. Health & Fitness Data {#8b-health}
 
-Health data from Apple Health, Google Fit, Fitbit, or similar apps records continuous biometric and activity data that the phone owner usually doesn't think about — which makes it highly credible as evidence. Step counts prove walking, heart rate data proves physical exertion or rest, and sleep data proves the client was in bed. This data is difficult to fabricate because it's collected passively by sensors.### What to Extract
+Health data from Apple Health, Google Fit, Fitbit, or similar apps records continuous biometric and activity data that the phone owner usually doesn't think about — which makes it highly credible as evidence. Step counts prove walking, heart rate data proves physical exertion or rest, and sleep data proves the client was in bed. This data is difficult to fabricate because it's collected passively by sensors.
+
+### What to Extract
 - Step counts with timestamps (Apple Health, Google Fit, Fitbit, Samsung Health)
 - Heart rate data with timestamps (Apple Watch, Fitbit, wearables)
 - Sleep data (bedtime, wake time, sleep stages)
@@ -1559,7 +1425,9 @@ Health data from Apple Health, Google Fit, Fitbit, or similar apps records conti
 - [ ] Step counts can be generated by arm motion (not just walking) — the State or defense shouldn't overstate precision
 - [ ] Heart rate is affected by many factors (caffeine, medications, anxiety) — elevated heart rate ≠ guilt
 
-### Programmatic Analysis (Health Data)```python
+### Programmatic Analysis (Health Data)
+
+```python
 # Apple Health data is typically exported as XML (export.xml)
 # Google Fit data as JSON or CSV from Takeout
 
@@ -1722,7 +1590,9 @@ Notifications are powerful because they generate independent, timestamped record
 - [ ] **Delivery/rideshare notifications** — Uber arrival, DoorDash delivery, Amazon package notifications provide independent timestamp + potential location evidence
 - [ ] **Security/smart home notifications** — Ring doorbell, Nest camera, security system alerts can trigger subpoena of external footage corroborating the client's location or activity
 - [ ] **Banking/payment notifications** — Transaction confirmations with amounts, merchants, and timestamps establish what the client was doing with their money at that moment
-- [ ] **Calendar reminder notifications** — Proves scheduled events existed and were active in the device at that moment**Prosecution Misinterpretation Watch:**
+- [ ] **Calendar reminder notifications** — Proves scheduled events existed and were active in the device at that moment
+
+**Prosecution Misinterpretation Watch:**
 - [ ] **Notification receipt vs. interaction:** Notifications can be received without the phone being in the defendant's hands (e.g., phone left at home still receives push notifications from apps). This is PASSIVE evidence.
 - [ ] **Distinguish receipt from engagement:** A notification tapped/opened requires ACTIVE user engagement. A client opening a text notification at 9:24 PM proves they were looking at the phone at 9:24 PM — far stronger than merely receiving it.
 - [ ] **Dismissal counts as interaction:** If a notification was explicitly dismissed (not just ignored/auto-cleared), this shows the client was actively managing their notifications
@@ -1755,7 +1625,9 @@ Cellebrite exports application usage logs under **Device Information > Applicati
 - Total session duration
 - App category / classification (social, productivity, entertainment, etc.)
 
-This is distinct from installed apps — an app may be installed but never launched, or launched once. App *usage* is what matters defensively.### Why App Usage Data is Gold for Alibi Evidence
+This is distinct from installed apps — an app may be installed but never launched, or launched once. App *usage* is what matters defensively.
+
+### Why App Usage Data is Gold for Alibi Evidence
 
 App usage logs prove active, engaged phone use at a specific timestamp. Unlike:
 - **Received messages:** The client may have been sleeping when a message arrived
@@ -1917,7 +1789,7 @@ Under Device Information > User Dictionaries, or within individual app databases
 - Not all extraction types capture keyboard data
 - iOS keyboard cache is more limited than Android
 
-------
+---
 
 ## 10. Timeline Construction & Pattern of Life Baseline Methodology {#10-timeline}
 
@@ -2029,7 +1901,9 @@ The defense needs a structured framework to rebut this bias because:
 
 4. **Volume context is critical** — If 0.4% of messages show "deleted" status across 50,000 messages, that's consistent with normal attrition. If 95% are deleted, that's a different story. The baseline matters.
 
-### Automatic Deletion Mechanisms (Reasons Data Gets Deleted WITHOUT User Action)Defense must be prepared to articulate these mechanisms to the jury, expert witnesses, and the court:
+### Automatic Deletion Mechanisms (Reasons Data Gets Deleted WITHOUT User Action)
+
+Defense must be prepared to articulate these mechanisms to the jury, expert witnesses, and the court:
 
 #### iMessage Thread Cleanup (iOS Auto-Manages Storage)
 - iOS automatically culls old iMessage conversations to maintain storage efficiency
@@ -2113,7 +1987,9 @@ This is **NOT** definitive proof that the user deleted it, that it was intention
 
 **Defense position:** "Of the estimated [X] messages that may have existed on this device during the critical period, Cellebrite recovered [Y] intact messages and [Z] deleted/fragmented messages. This recovery is incomplete and probabilistic. The absence of a recovered message doesn't prove the user deleted it — it may have been overwritten, lost to fragmentation, or inaccessible to forensic recovery methods."
 
-#### WAL Journal Entries May Show Database States, Not Individual User Actions- SQLite write-ahead logs show database transactions, not individual message deletions
+#### WAL Journal Entries May Show Database States, Not Individual User Actions
+
+- SQLite write-ahead logs show database transactions, not individual message deletions
 - A single "delete" transaction in the WAL may reflect iOS auto-cleanup, not a user pressing "delete message"
 - Multiple deletions in rapid succession in the WAL may indicate automatic bulk cleanup (storage management), not targeted concealment
 - **Defense position:** "The deleted messages appear in SQLite transaction logs but cannot be definitively attributed to user action. They may reflect automatic system cleanup."

@@ -198,7 +198,6 @@ Before finalizing ANY Full Report, verify every section is present. The Full Rep
 | Hash Verified | [Yes — SHA256: xxxx / No / Unknown] |
 
 ---
----
 
 **1.2 Top 5 Messaging Parties**
 
@@ -396,7 +395,8 @@ Ranked by connection frequency. Bluetooth pairings reveal the defendant's daily 
 
 **Top 5 Findings (quick reference):**
 1. [Finding ID]: [One-line summary] — [STRONG]
-2. [Finding ID]: [One-line summary] — [STRONG]3. [Finding ID]: [One-line summary] — [STRONG]
+2. [Finding ID]: [One-line summary] — [STRONG]
+3. [Finding ID]: [One-line summary] — [STRONG]
 4. [Finding ID]: [One-line summary] — [MODERATE]
 5. [Finding ID]: [One-line summary] — [MODERATE]
 
@@ -417,7 +417,8 @@ Ranked by connection frequency. Bluetooth pairings reveal the defendant's daily 
 **MANDATORY.** Two to three paragraphs covering:
 - What data was analyzed (categories, volume, date range)
 - **Quantified findings summary** (e.g., "33 defense-favorable findings (14 STRONG, 11 MODERATE, 8 CONTEXTUAL) against 17 adverse data points") — always include the count and strength breakdown
-- The most significant defense-favorable findings (top 5-6, each as a bold numbered paragraph with label and one-sentence description)- **Defense theory stated explicitly** (e.g., "Defense Theory: Fabrication orchestrated to break up April (mother) from Banks")
+- The most significant defense-favorable findings (top 5-6, each as a bold numbered paragraph with label and one-sentence description)
+- **Defense theory stated explicitly** (e.g., "Defense Theory: Fabrication orchestrated to break up April (mother) from Banks")
 - Adverse data summary (1 paragraph identifying the most damaging items and their mitigation posture)
 - **Immediate action items** (numbered list, 3-5 highest priority)
 
@@ -445,7 +446,9 @@ Write this section LAST — after completing all analysis — but place it FIRST
 
 **Why this section matters:** The charge table ensures the analyst (and attorney) never lose sight of what's at stake. It also ensures findings are mapped to specific counts — a finding that helps on Count 1 but is irrelevant to Count 3 should be noted as such.
 
-### EXTRACTION AUTHENTICATION CHAIN (Section 4)**MANDATORY.** This section establishes the forensic foundation for every finding in the report. It answers the threshold question: can we trust this data? Every piece of evidence derived from this extraction inherits this authentication chain unless a per-finding exception is noted. Elevating this to its own section (rather than burying it in a subsection) ensures the attorney sees it immediately and can assess whether the extraction itself is challengeable before reading any findings.
+### EXTRACTION AUTHENTICATION CHAIN (Section 4)
+
+**MANDATORY.** This section establishes the forensic foundation for every finding in the report. It answers the threshold question: can we trust this data? Every piece of evidence derived from this extraction inherits this authentication chain unless a per-finding exception is noted. Elevating this to its own section (rather than burying it in a subsection) ensures the attorney sees it immediately and can assess whether the extraction itself is challengeable before reading any findings.
 
 **4.1 Extraction Summary:**
 
@@ -469,7 +472,9 @@ Lab Report:       [Report number and date / Not provided]
 |----------------|-------------------|---------------------|----------------------|
 | Logical | User-accessible data, app exports | Deleted data, system databases, unallocated space | [assessment] |
 | Full File System | All file system data, app databases | Unallocated space, some encrypted containers | [assessment] |
-| Physical | Everything including unallocated space | Hardware-encrypted containers without passcode | [assessment] |**4.3 Authentication Challenges:**
+| Physical | Everything including unallocated space | Hardware-encrypted containers without passcode | [assessment] |
+
+**4.3 Authentication Challenges:**
 - [ ] Hash verification: [Verified / Not verified — significance]
 - [ ] Chain of custody gaps: [None / describe each gap with dates]
 - [ ] Multiple extractions: [Single extraction / Multiple — note tool/date differences]
@@ -497,7 +502,8 @@ Most findings inherit the extraction-level auth above. Only note exceptions here
 | Category | File | Format | Records | Date Range | Unique | Completeness |
 |----------|------|--------|---------|-----------|--------|-------------|
 | Messages | [filename] | CSV | [N] | [range] | [N] | Complete / Partial |
-| Call Logs | [filename] | CSV | [N] | [range] | [N] | PARTIAL — [explain] || Searches | [filename] | CSV | [N] | [range] | [N]* | Complete (*[noise note]) |
+| Call Logs | [filename] | CSV | [N] | [range] | [N] | PARTIAL — [explain] |
+| Searches | [filename] | CSV | [N] | [range] | [N]* | Complete (*[noise note]) |
 | Browsing | [filename] | CSV | [N] | [range] | [N]* | Complete (*[noise note]) |
 | Contacts | [filename] | CSV | [N] | N/A | — | Complete |
 | Device Events | [filename] | CSV | [N] | [range or "NO TIMESTAMPS"] | — | [assessment] |
@@ -521,7 +527,9 @@ Reference Section 4 (Extraction Authentication Chain) for the full auth chain. T
 
 **5.3 Deduplication Summary:**
 - Messages: [N] raw → [N] unique ([N]% duplicates). Method: [describe composite key].
-- Calls: [N] raw → [N] unique ([N]% duplicates). Method: [describe]. Note any duplicate database artifacts (e.g., SSRM Heating Log duplicate records with timezone offset).**5.4 Top Contacts by Message Volume:**
+- Calls: [N] raw → [N] unique ([N]% duplicates). Method: [describe]. Note any duplicate database artifacts (e.g., SSRM Heating Log duplicate records with timezone offset).
+
+**5.4 Top Contacts by Message Volume:**
 
 | Contact | Messages | Relationship |
 |---------|----------|-------------|
@@ -564,7 +572,9 @@ If multi-user indicators were detected, document with specific evidence (e.g., D
 | Navigation/Location | [Google Maps, Life360, Waze, etc.] | [N] | [Location data sources] |
 | Employment/Productivity | [Indeed, LinkedIn, email, etc.] | [N] | [Stable employment indicators] |
 | Security/Monitoring | [Ring, Nest, Find My, etc.] | [N] | [Home security — subpoena potential] |
-| Deleted Apps | [list with version numbers if available] | [N] | [Assess deletion significance] |**6.2 Apps NOT Found (Defense Favorable):**
+| Deleted Apps | [list with version numbers if available] | [N] | [Assess deletion significance] |
+
+**6.2 Apps NOT Found (Defense Favorable):**
 
 List apps commonly associated with exploitation/concealment that are ABSENT:
 - Signal (encrypted messaging) — NOT FOUND
@@ -588,7 +598,9 @@ List apps commonly associated with exploitation/concealment that are ABSENT:
 - Total accounts on device: [N]
 - Stored passwords/credentials: [N]
 - Notable accounts: [list accounts that reveal identity, aliases, or relationships]
-- Alias accounts: [any secondary identities — assess defense impact]### TOP 10 KEY CONTACTS IDENTIFIED (Section 7)
+- Alias accounts: [any secondary identities — assess defense impact]
+
+### TOP 10 KEY CONTACTS IDENTIFIED (Section 7)
 
 **MANDATORY.** This section consolidates the most important people identified across ALL data categories into a single reference. The attorney needs a quick-reference roster of who matters and why — not scattered across dashboard panels, message logs, call records, and financial transactions. Every contact listed here should be someone the defense needs to account for in trial preparation.
 
@@ -610,7 +622,9 @@ Contacts are ranked by defense relevance, not just message volume. A person with
 - Potential alibi witnesses (people who can verify the client's location/activity)
 - Third-party suspect indicators
 - Financial transaction counterparties during relevant period
-- People the State will likely call as witnesses**7.3 Contact Relationship Map:**
+- People the State will likely call as witnesses
+
+**7.3 Contact Relationship Map:**
 
 For complex cases (3+ key contacts with interconnections), include a brief narrative describing how the key contacts relate to each other and to the defendant. This helps the attorney visualize the social dynamics:
 
@@ -642,7 +656,9 @@ The core timeline covering the alleged offense dates. Interleave ALL data source
 | [datetime] | VIDEO | Recording | — | [filename, duration, GPS, has audio] | [significance] | [tag] |
 | [datetime] | FINANCE | Transaction | [sent/rcvd] | [app, amount, recipient, note] | [significance] | [tag] |
 | [datetime] | HEALTH | Biometric | — | [step count, heart rate, sleep] | [significance] | [tag] |
-| [datetime] | DEVICE | System | — | [lock/unlock/camera/etc.] | [significance] | [tag] |**8.2 Pre-Offense Timeline (Context):**
+| [datetime] | DEVICE | System | — | [lock/unlock/camera/etc.] | [significance] | [tag] |
+
+**8.2 Pre-Offense Timeline (Context):**
 Key events from the baseline period that establish patterns, relationships, and context. Not every record — just the significant ones (e.g., fabrication indicators, relationship dynamics, third-party interference).
 
 **8.3 Arrest Day / Disclosure Day Timeline (Critical):**
@@ -676,7 +692,9 @@ Time Zone:        [Zone — verified against device settings]
 
 **9.2 Minute-by-Minute Reconstruction:**
 
-Every data source is interleaved chronologically. Unlike the Comprehensive Timeline (Section 8) which summarizes, this section includes FULL content for messages, complete transaction details, exact GPS coordinates, and video metadata.| Time | Source | Type | Detail | GPS/Location | Defense Value |
+Every data source is interleaved chronologically. Unlike the Comprehensive Timeline (Section 8) which summarizes, this section includes FULL content for messages, complete transaction details, exact GPS coordinates, and video metadata.
+
+| Time | Source | Type | Detail | GPS/Location | Defense Value |
 |------|--------|------|--------|-------------|--------------|
 | [HH:MM:SS] | MSG | SMS Out | "[Full message text]" → [Recipient] | [coords if available] | [significance] |
 | [HH:MM:SS] | VIDEO | Camera | [filename] — [duration] — audio: [Y/N] | [GPS coords] | **ALIBI — recording at [location] for [duration]** |
@@ -701,7 +719,9 @@ Every gap longer than 15 minutes within the critical window gets its own entry:
 
 > *"Between [start] and [end], [Client]'s phone data shows continuous, verifiable activity inconsistent with the State's allegations. At [time], [Client] recorded a [N]-minute selfie video at [location — GPS verified], placing them [N] miles from the alleged crime scene. At [time], [Client] sent a Cash App payment to [Recipient] with the note '[note].' At [time], [Client]'s Apple Watch recorded [N] steps and a resting heart rate of [N] bpm, consistent with [sitting/walking] rather than [violent activity]. The only gap in activity — [time] to [time] — is consistent with [Client]'s baseline sleep pattern established in Section 10."*
 
-**Why this is a standalone section:** The critical window is the battlefield. Having it as a dedicated, deep-dive section — separate from the broader Comprehensive Timeline — ensures the attorney can turn directly to this section and have everything they need for the most important period of the case in one place, at maximum detail.---
+**Why this is a standalone section:** The critical window is the battlefield. Having it as a dedicated, deep-dive section — separate from the broader Comprehensive Timeline — ensures the attorney can turn directly to this section and have everything they need for the most important period of the case in one place, at maximum detail.
+
+---
 
 ### PATTERN OF LIFE BASELINE (Section 10)
 
@@ -730,7 +750,9 @@ Every gap longer than 15 minutes within the critical window gets its own entry:
 - Whether late-night activity is pre-existing or new
 - Whether contact network expanded or contracted and why
 - Any data artifacts that distort the comparison (e.g., native call log starting mid-period)
-- Which findings were strengthened or weakened by baseline comparison### CRITICAL WINDOW ANALYSIS (Section 11)
+- Which findings were strengthened or weakened by baseline comparison
+
+### CRITICAL WINDOW ANALYSIS (Section 11)
 
 **MANDATORY.** This section presents the analytical findings derived from the Critical Timeline (Section 9). While Section 9 is a chronological reconstruction of raw data, this section interprets what that data means for the defense. Every entry in the Critical Timeline that has defense significance gets analyzed here.
 
@@ -776,7 +798,9 @@ Identify the data points in the critical window that HELP the State, with mitiga
 
 | # | Time | Source | What State Will Argue | Mitigation | Damage |
 |---|------|--------|----------------------|------------|--------|
-| 1 | [time] | [source] | [argument] | [defense response] | HIGH/MOD/LOW |**11.5 Critical Window Verdict:**
+| 1 | [time] | [source] | [argument] | [defense response] | HIGH/MOD/LOW |
+
+**11.5 Critical Window Verdict:**
 
 1–2 paragraphs: the analyst's overall assessment of what the critical window data proves or disproves. This is the defense's strongest summary of the crime window evidence, written for the attorney to adapt into argument.
 
@@ -822,7 +846,9 @@ ADVERSE DATA:
 BASELINE COMPARISON:
 [How activity on this date compares to the Pattern of Life baseline]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```**12.3 Date Cross-Correlation:**
+```
+
+**12.3 Date Cross-Correlation:**
 
 Identify patterns across key dates:
 - Communication with victim/complainant across all key dates: [pattern]
@@ -854,7 +880,9 @@ Identify patterns across key dates:
 - Call duration patterns: [average duration, longest calls, marathon sessions]
 - 911/emergency calls: [N] — dates and significance
 - Deleted calls: [N] — characterization
-- Duplicate database artifacts: [describe any SSRM/dual-source issues]**13.3 Browsing & Search History Analysis:**
+- Duplicate database artifacts: [describe any SSRM/dual-source issues]
+
+**13.3 Browsing & Search History Analysis:**
 - Total browsing records: [N] ([N] unique after deduplication/noise removal)
 - Total search records: [N] ([N] unique user searches vs. [N] system/Gmail noise)
 - Date range: [range]
@@ -883,7 +911,9 @@ Identify patterns across key dates:
 - Total events: [N] — [timestamped / NOT timestamped]
 - Categories: [lock/unlock (N), display (N), camera (N), power (N), WiFi (N)]
 - Timestamp status: [available / MISSING — impact assessment]
-- Factory resets: [N] — dates if known, significance**13.7 Video Analysis:**
+- Factory resets: [N] — dates if known, significance
+
+**13.7 Video Analysis:**
 - Total videos on device: [N] ([N] camera recordings, [N] screen recordings, [N] received, [N] chat media, [N] social media, [N] Live Photo clips)
 - Total recording duration (camera + screen): [H:MM:SS]
 - Videos with GPS metadata: [N]
@@ -912,7 +942,9 @@ Identify patterns across key dates:
 - Videos where codec does NOT match device native recording format: [N] — [list, assess if re-encoded]
 - Videos with stripped metadata: [N] — [assess origin, likely social media pipeline]
 - Deleted videos (database entries without files): [N] — [assess significance]
-- Videos flagged for attorney content review: [N] — **[ATTORNEY REVIEW REQUIRED]****13.8 Financial App Data:**
+- Videos flagged for attorney content review: [N] — **[ATTORNEY REVIEW REQUIRED]**
+
+**13.8 Financial App Data:**
 - Apps present: [Cash App / Venmo / Zelle / Apple Pay / Google Pay / banking apps — or NONE]
 - Total transactions across all platforms: [N]
 - Date range: [range]
@@ -944,7 +976,9 @@ Identify patterns across key dates:
 - Sources: [Apple Health / Google Fit / Fitbit / Samsung Health / Apple Watch — or NONE]
 - Wearable device: [Make/model if identifiable, e.g., "Apple Watch Series 7"]
 - Date range: [range]
-- Data types available: [Steps / Heart rate / Sleep / Workouts / GPS routes / Elevation]**Critical Window Health Data:**
+- Data types available: [Steps / Heart rate / Sleep / Workouts / GPS routes / Elevation]
+
+**Critical Window Health Data:**
 
 | Time | Steps (cumul.) | Heart Rate | Activity | Sleep Status | Defense Value |
 |------|---------------|------------|----------|-------------|--------------|
@@ -962,11 +996,7 @@ Identify patterns across key dates:
 **Health Data Limitations (must disclose):**
 - Consumer wearables are not medical-grade instruments
 - Step counts can be triggered by arm motion without walking
-- Heart rate data is approximate and subject to sensor error
-- Sleep data is inferred from activity patterns, not biometric certainty
-- Gap in heart rate data does NOT necessarily mean the device was removed (syncing, software issues)
-
-**If health data is NOT available:** State reason: [Not extracted / Device not paired / App not installed / No wearable device identified]. Assess significance.- Heart rate is affected by caffeine, medication, anxiety, temperature
+- Heart rate is affected by caffeine, medication, anxiety, temperature
 - Sleep algorithms estimate based on motion/HR — not definitive proof of sleep
 - Absence of data means device wasn't recording, not that person was absent
 
@@ -991,7 +1021,9 @@ Identify patterns across key dates:
 - Total voice memos: [N] | Date range: [range]
 - Voice memos during/near critical window: [N] — **[ATTORNEY REVIEW REQUIRED — cannot assess audio content programmatically]**
 - Durations: [list with timestamps]
-- Defense note: Voice memo recordings prove the phone owner was holding their phone and speaking. Duration establishes continuous phone possession.**Email:**
+- Defense note: Voice memo recordings prove the phone owner was holding their phone and speaking. Duration establishes continuous phone possession.
+
+**Email:**
 - Email accounts on device: [list]
 - Emails sent/received during critical window: [N]
 - Work emails establishing professional activity: [describe]
@@ -1019,7 +1051,9 @@ Identify patterns across key dates:
 - Apps used: [list in chronological order]
 - Most-used app: [App name], [duration] — user was actively engaged [when]
 - App switching rate: [High/Normal/Low] — indicates [conscious engagement / normal use / low engagement]
-- Gaps in app usage: [Gaps lasting >1 hour: [times] / No significant gaps]**Baseline Comparison (Pattern of Life):**
+- Gaps in app usage: [Gaps lasting >1 hour: [times] / No significant gaps]
+
+**Baseline Comparison (Pattern of Life):**
 
 | Metric | Baseline Period | Critical Window | Assessment |
 |--------|-----------------|-----------------|-----------|
@@ -1042,7 +1076,9 @@ Identify patterns across key dates:
 | Communication | Messages, WhatsApp, Signal, Messenger | [N/day avg] | [N during crime window] | [Normal/Spike/Drop] |
 | Entertainment | Netflix, YouTube, Spotify, Games | [N/day avg] | [N during crime window] | [Normal/Spike/Drop] |
 | Productivity | Email, Calendar, Notes, Banking | [N/day avg] | [N during crime window] | [Normal/Spike/Drop] |
-| Utility | Maps, Weather, Settings, Camera | [N/day avg] | [N during crime window] | [Normal/Spike/Drop] |**Notable App Sessions:**
+| Utility | Maps, Weather, Settings, Camera | [N/day avg] | [N during crime window] | [Normal/Spike/Drop] |
+
+**Notable App Sessions:**
 - [App name], [timestamp], [duration] — significant because [user was engaged in normal/expected activity]
 - [App name], [timestamp], [duration] — significant because [time/duration inconsistent with prosecution theory]
 
@@ -1067,7 +1103,9 @@ Identify patterns across key dates:
 - Total location records: [N]
 - Sources: [Google Location History (N), Gmail (N), Facebook (N), GPS (N), Wi-Fi (N), Cell tower (N)]
 - Date range: [range]
-- Geographic concentration: [primary areas — e.g., "Orange/Vidor, TX and Lake Charles, LA"]**14.2 Offense Date Location Analysis:**
+- Geographic concentration: [primary areas — e.g., "Orange/Vidor, TX and Lake Charles, LA"]
+
+**14.2 Offense Date Location Analysis:**
 For each alleged offense date:
 
 | Date | Location Records | Primary Location | Coordinates | Consistent with Allegation? |
@@ -1104,7 +1142,9 @@ For each alleged offense date:
 - 15.2 Third-Party Fabrication & Victim Credibility (Lenses 2, 5)
 - 15.3 State of Mind & Consciousness of Innocence (Lens 4)
 - 15.4 Gaps in State's Case & Contradictions (Lenses 3, 7)
-- 15.5 Additional Defense-Favorable Findings**Mandatory finding categories to check (include or note 'not applicable'):**
+- 15.5 Additional Defense-Favorable Findings
+
+**Mandatory finding categories to check (include or note 'not applicable'):**
 - Deleted messages analysis (count, content characterization, does deletion = guilt?)
 - Installed apps absence analysis (what privacy/encrypted/exploitation apps are NOT present?)
 - Location data pattern analysis (any suspicious locations? school/daycare/playground proximity?)
@@ -1155,7 +1195,8 @@ CORROBORATION NEEDED:
 **16.1 Adverse Findings Summary:**
 
 | # | Category | Description | Damage Level | Mitigation Available | Finding Ref |
-|---|----------|-------------|-------------|---------------------|-------------|| A-1 | [Messages/Browsing/Location/etc.] | [One-line description] | CRITICAL/HIGH/MOD/LOW | [Y/N — brief] | [ref] |
+|---|----------|-------------|-------------|---------------------|-------------|
+| A-1 | [Messages/Browsing/Location/etc.] | [One-line description] | CRITICAL/HIGH/MOD/LOW | [Y/N — brief] | [ref] |
 | A-2 | [Category] | [Description] | [Level] | [Y/N] | [ref] |
 | ... | ... | ... | ... | ... | ... |
 
@@ -1197,7 +1238,9 @@ CORROBORATION CHECK:
 | CRITICAL | [N] | [N] | [N] |
 | HIGH | [N] | [N] | [N] |
 | MODERATE | [N] | [N] | [N] |
-| LOW | [N] | [N] | [N] |**Why this is a standalone section:** In prior reports, adverse data was buried within Prosecution Vulnerabilities, which mixed the bad facts with the defense response. The attorney preparing for client meetings, plea negotiations, or trial strategy needs a clean, honest inventory of everything that hurts — separate from the spin. Section 16 gives them the bad news; Section 17 gives them the response playbook.
+| LOW | [N] | [N] | [N] |
+
+**Why this is a standalone section:** In prior reports, adverse data was buried within Prosecution Vulnerabilities, which mixed the bad facts with the defense response. The attorney preparing for client meetings, plea negotiations, or trial strategy needs a clean, honest inventory of everything that hurts — separate from the spin. Section 16 gives them the bad news; Section 17 gives them the response playbook.
 
 ---
 
@@ -1226,7 +1269,9 @@ Common misinterpretation patterns to always check:
 - Venmo notes decontextualized (inside jokes, emoji, casual speech ≠ coded drug references)
 - Transaction frequency without baseline (regular roommate splits look like "high volume" without context)
 - Health data overstatement (step counts ≠ precise location; heart rate ≠ emotional state; consumer devices ≠ medical instruments)
-- Absence of wearable data ≠ suspicious (people charge devices, shower, sleep without them)**17.2 Adverse Data — What Hurts the Defense**
+- Absence of wearable data ≠ suspicious (people charge devices, shower, sleep without them)
+
+**17.2 Adverse Data — What Hurts the Defense**
 
 For each anticipated prosecution data point:
 
@@ -1262,7 +1307,11 @@ Clearly marked subsection listing data that hurts the defense. For each:
 
 **18.1 Timeline Gaps:**
 
-Gaps in the chronological record where expected device activity is absent.| TG-1 | [time] | [time] | [N min/hr] | [All / MSG only / etc.] | [Normal per baseline / Abnormal] | [Defense favorable / Concerning / Neutral] | [Investigate / Explainable / Flag] |
+Gaps in the chronological record where expected device activity is absent.
+
+| # | Gap Start | Gap End | Duration | Data Sources Silent | Baseline Comparison | Significance | Action |
+|---|-----------|---------|----------|-------------------|-------------------|-------------|--------|
+| TG-1 | [time] | [time] | [N min/hr] | [All / MSG only / etc.] | [Normal per baseline / Abnormal] | [Defense favorable / Concerning / Neutral] | [Investigate / Explainable / Flag] |
 | TG-2 | ... | ... | ... | ... | ... | ... | ... |
 
 **18.2 Data Category Gaps:**
@@ -1296,7 +1345,9 @@ Gaps that the State may try to use against the defense — unexplained silences,
 |---|-----|------------------------|---------------------------|
 | 1 | [Gap ref] | [How State will spin it] | [Defense explanation] |
 
-**Why this is a standalone section:** Gaps were previously scattered across timeline analysis, data inventory, and findings. Having a single gap inventory lets the attorney immediately see every hole and decide which gaps to exploit (missing grooming evidence = defense favorable), which to explain (sleep gaps = normal), and which to preempt (unexplained silences = prepare client testimony).---
+**Why this is a standalone section:** Gaps were previously scattered across timeline analysis, data inventory, and findings. Having a single gap inventory lets the attorney immediately see every hole and decide which gaps to exploit (missing grooming evidence = defense favorable), which to explain (sleep gaps = normal), and which to preempt (unexplained silences = prepare client testimony).
+
+---
 
 ### MISSING DATA ANALYSIS (Section 19)
 
@@ -1345,6 +1396,207 @@ Confidence: [HIGH — supported by multiple sources / MODERATE — supported but
 5. **Third-Party Dynamics:** What do cross-category patterns reveal about household dynamics, relationship conflicts, or third-party interference?
 
 6. **Temporal Patterns:** What do cross-category time patterns reveal? (e.g., "Browsing activity spikes correlate with work breaks, not with child access times.")
+
+### TAGS — Evidence Classification Index (Section 21)
+
+**MANDATORY.** Tags provide a searchable, filterable index of every finding and data point by category. This allows the attorney to quickly pull all evidence related to a specific defense theme.
+
+**Tag Categories:**
+
+| Tag | Description | Findings |
+|-----|------------|----------|
+| `ALIBI` | Evidence placing defendant elsewhere during alleged offense | [F-5, F-6, F-7, ...] |
+| `FABRICATION` | Evidence supporting fabrication defense theory | [F-8, F-10, ...] |
+| `DENIAL` | Contemporaneous denials or consciousness of innocence | [F-2, F-13, ...] |
+| `COOPERATION` | Evidence of willingness to cooperate with LE | [F-2, F-16, ...] |
+| `NO-EVIDENCE` | Absence of expected incriminating evidence | [F-3, F-4, F-17, F-18, F-19, ...] |
+| `PARENTING` | Evidence of normal parental behavior | [F-6, F-7, F-24, ...] |
+| `EMPLOYMENT` | Evidence of stable employment | [F-23, ...] |
+| `VICTIM-CRED` | Evidence bearing on victim/complainant credibility | [F-8, F-10, F-11, F-12, ...] |
+| `THIRD-PARTY` | Evidence of third-party interference or suspects | [F-9, ...] |
+| `FORENSIC-GAP` | Extraction or forensic methodology issues | [F-20, F-21, Gap-1 through Gap-6, ...] |
+| `404B-RISK` | Data that could trigger 404(b)/Prieur notice | [A-1, A-2, A-3, A-5, A-6, ...] |
+| `ADVERSE` | All adverse data points | [A-1 through A-8, ...] |
+| `CROSS-EXAM` | Findings useful for cross-examination | [F-10, F-11, F-15, F-17, F-20, F-21, ...] |
+| `MOTION` | Findings supporting pretrial motions | [A-1 → 404(b), Gap-1 → compel, ...] |
+| `EXPERT-NEEDED` | Findings requiring expert testimony | [F-20, F-21, F-22, Gap-2, Gap-3, ...] |
+| `SUBPOENA` | Items requiring subpoena for additional evidence | [F-24 → Ring, F-23 → Halliburton, Gap-1 → carrier, ...] |
+| `VIDEO-ALIBI` | Video recordings supporting alibi (timestamp + duration + GPS) | [F-xx, ...] |
+| `FINANCIAL` | Financial app data bearing on timeline, location, or pattern | [F-xx, ...] |
+| `HEALTH-DATA` | Health/fitness data bearing on physical state or location | [F-xx, ...] |
+| `VOICE-MEMO` | Voice memos requiring attorney review | [F-xx, ...] |
+
+**How to use tags:** The attorney preparing for cross-examination pulls all `CROSS-EXAM` tagged findings. The attorney drafting a 404(b) opposition pulls all `404B-RISK` tagged items. The attorney briefing an expert pulls all `EXPERT-NEEDED` items.
+
+**Tag assignment rule:** Every finding and adverse data point MUST be assigned at least one tag. Most will have 2-3 tags.
+
+### EIGHT-LENS DEFENSE ANALYSIS MATRIX (Section 22)
+
+**MANDATORY.** This is a one-page summary table that gives the attorney the entire case posture at a glance. Place AFTER findings and adverse data so the attorney has already read the detail.
+
+| Lens | Key Findings | Strength |
+|------|-------------|----------|
+| 1. Alibi | [Finding refs and 1-line summaries] | [STRONG/MODERATE/WEAK] |
+| 2. Third-Party Fabrication | [refs] | [strength] |
+| 3. State Contradictions | [refs] | [strength] |
+| 4. State of Mind | [refs] | [strength] |
+| 5. Victim Credibility | [refs] | [strength] |
+| 6. Self-Defense | [refs or N/A] | [strength or —] |
+| 7. Gaps in State's Case | [refs] | [strength] |
+| 8. What Hurts Us | [adverse refs with risk level] | [risk assessment] |
+
+**Why this matters:** This table was present in one report output but missing from another. It provides the single most useful at-a-glance reference for trial preparation. It must be in every Full Report.
+
+### CROSS-REFERENCE FINDINGS (Section 23 — Conditional)
+
+Only include if case documents, surveillance, or body cam footage were provided for cross-referencing.
+
+Use the documentation format from `references/cross-reference-guide.md` Section 8.
+
+Organize by severity: CRITICAL contradictions first, then SIGNIFICANT, MODERATE, MINOR. Include video cross-references with sync offset noted.
+
+### COMPANION SKILL HANDOFFS (Section 24)
+
+**MANDATORY.** Present as a table for quick reference, then detail each handoff below the table:
+
+| Skill | Purpose | Priority |
+|-------|---------|----------|
+| [skill name] | [what to hand off] | HIGH/MODERATE/LOW |
+
+**Minimum handoffs to evaluate (include or explain why N/A):**
+- dw-mobile-forensic-auditor (extraction methodology issues)
+- dw-cross-exam-architect (cross-exam seeds for LE, victims, witnesses)
+- dw-brady-giglio-auditor (disclosure obligations)
+- dw-404b-opposition (if ANY adverse data could trigger 404(b) notice)
+- dw-suppression-motion (if search warrant issues exist)
+- dw-sqlite-recovery (if deleted databases identified)
+- dw-sex-offense-specialist (if sex offense charges — strategy, jury selection, expert retention)
+- dw-criminal-defense (Phase 1 Step 3, Refresh Mode — if LWOP exposure on any count and `000 - Case Profile.docx` already exists)
+- dw-child-forensic-interview-auditor (if child victim forensic interview exists)
+- dw-search-warrant-auditor (if search warrant in case)
+- dw-video-evidence-auditor (if body cam, dash cam, or surveillance video — NOT phone-recorded video, which stays in this analysis)
+
+Collect all handoff summaries generated during analysis:
+
+**Geolocation Auditor Handoffs:**
+[Full handoff summaries per SKILL.md Step 5 format]
+
+**Forensic Methodology Auditor Handoffs:**
+[Full handoff summaries per SKILL.md Step 5 format]
+
+**Cross-Exam Seeds:**
+[All cross-exam chapter seeds per SKILL.md Step 5 format]
+
+**Brady/Giglio Auditor Handoffs:**
+[If selective reporting, selective extraction, or undisclosed exculpatory data identified]
+
+### DEFENSE ACTION ITEMS (Section 25)
+
+Prioritized checklist:
+
+```
+IMMEDIATE (within 48 hours):
+□ [Action item with brief explanation]
+□ ...
+
+SHORT-TERM (within 2 weeks):
+□ [Action item]
+□ ...
+
+ONGOING / AS NEEDED:
+□ [Action item]
+□ ...
+
+MOTIONS TO CONSIDER:
+⚖ [Motion type — grounds — supporting finding reference]
+⚖ ...
+
+ADDITIONAL DATA NEEDED:
+📋 [What to request — from whom — why]
+📋 ...
+
+EXPERT WITNESSES:
+👤 [Expert type needed — what they would address — which findings require expert support]
+👤 ...
+
+INVESTIGATION LEADS:
+🔍 [What to investigate — how — which findings generated this lead]
+🔍 ...
+```
+
+### EXHIBIT-READY EXTRACTS (Section 26)
+
+Pre-formatted evidence extracts ready for trial use. Each exhibit is designed for direct printing or courtroom projection. The attorney should be able to pull these directly into motions, opening/closing arguments, or cross-examination without reformatting.
+
+**For each exhibit:**
+
+```
+EXHIBIT [Letter]: [Descriptive Title]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Type: [Timeline Chart / Message Thread / Call Log Excerpt /
+      Location Map Data / Photo EXIF Summary / Frequency Chart]
+
+CONTENT:
+  [The exhibit itself — formatted for readability:
+   - Timeline charts: chronological table with timestamps,
+     source types, and content summaries
+   - Message threads: full thread with context (not cherry-picked),
+     sender/recipient, timestamps, read receipts
+   - Call logs: filtered and annotated subset
+   - Frequency charts: baseline vs. critical window comparison]
+
+AUTHENTICATION:
+  [References extraction-level auth from Section 4.
+   Only detail exceptions here — secondary extraction,
+   WAL recovery, different chain of custody.]
+  Source File: [filename, rows/lines]
+
+FOUNDATION REQUIREMENTS (La. C.E. Art. 901(B)(9)):
+  [Only if auth exception — what additional foundation needed
+   beyond extraction-level auth established in Section 4]
+
+DEFENSE PURPOSE:
+  [How this exhibit is used — which argument or cross-exam it supports]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+**Standard exhibit types to generate when data supports them:**
+- **Exhibit A: Critical Window Timeline** — the master timeline chart for the crime date
+- **Exhibit B: Key Message Thread(s)** — full conversation context for any thread the State will cite
+- **Exhibit C: Call Log Annotated Excerpt** — calls during critical window with baseline comparison
+- **Exhibit D: Pattern of Life Comparison** — visual showing baseline vs. crime date activity
+- **Exhibit E+: Specific Findings** — any additional findings strong enough to warrant standalone exhibits
+
+**Additional exhibit types identified from practice:**
+- **Exhibit: Fabrication Timeline** — if fabrication defense: chronological demonstrative from first fabrication indicator through arrest
+- **Exhibit: Family Tracking Invitation** — if family GPS/tracking app invitation exists (e.g., Life360) — powerful for cross-examination
+- **Exhibit: Browsing Keyword False Positive Analysis** — technical rebuttal chart showing all false positive keyword matches with actual source URLs
+- **Exhibit: Communication Channel Shift Analysis** — if text gap explained by call data or other channel
+- **Exhibit: Installed App Absence Chart** — list of privacy/exploitation apps NOT found on device
+- **Exhibit: Video Alibi Timeline** — chronological chart of all videos recorded during critical window with timestamp, duration, GPS, and audio track indicators. A 4-minute video at a GPS-verified location during the crime window is a visual demonstrative the jury can understand immediately.
+- **Exhibit: Financial Transaction Timeline** — chronological chart of Cash App/Venmo/Zelle transactions during critical window, cross-referenced with location data from merchant transactions. Rebuts "defendant was at crime scene" when Apple Pay shows a gas station purchase across town.
+- **Exhibit: Transaction Baseline Comparison** — visual comparing defendant's payment patterns (frequency, amounts, recipients) during baseline period vs. State's "suspicious" window. Demonstrates that flagged transactions are consistent with normal behavior.
+- **Exhibit: Health Data Activity Chart** — step count and heart rate timeline during critical window overlaid against baseline. A flat line (zero steps, resting heart rate) during the alleged assault is powerful alibi evidence.
+- **Exhibit: Video Origin Classification Chart** — visual showing how many videos were camera-recorded vs. received vs. downloaded. Rebuts State's implication that all videos on the device were the defendant's creation.
+
+### EVIDENCE INTEGRITY (Section 27)
+
+**MANDATORY.** Consolidated integrity summary for quick attorney reference:
+
+- **Hash Verified:** [Full SHA256 value — chain of custody status]
+- **Extraction Method:** [Filesystem / Physical / Chip-off — note limitations]
+- **Time Zone:** [All timestamps in X format. Local time = Y during relevant period]
+- **Deleted Data:** [N deleted messages recovered, N deleted calls. Content characterization]
+- **Forensic Gaps:** [List all unextracted containers, deleted databases, undatable events]
+
+**Per-Finding Authentication Exceptions:**
+
+| Finding | Exception | Impact |
+|---------|-----------|--------|
+| [Finding ref] | [What's different about auth] | [Admissibility impact] |
+
+---
+
 ### REPORTS — Companion Analysis Requests (Section 28)
 
 **MANDATORY.** This section translates companion skill handoffs into actionable report requests. While Section 24 lists the technical handoffs, this section frames them as deliverable reports the attorney can request or assign.
@@ -1361,7 +1613,7 @@ Confidence: [HIGH — supported by multiple sources / MODERATE — supported but
 | R-6 | Search Warrant Audit | dw-search-warrant-auditor | Search warrants (003/004) | MODERATE | Pending |
 | R-7 | SQLite Database Recovery | dw-sqlite-recovery | Raw extraction databases | MODERATE | Pending |
 | R-8 | Sex Offense Defense Strategy | dw-sex-offense-specialist | This report + all case documents | HIGH | Pending |
-| R-9 | LWOP Defense Checklist | dw-lwop-populator | This report + client history | HIGH | Pending |
+| R-9 | LWOP Defense Checklist | dw-criminal-defense (Phase 1 Step 3 Refresh Mode) | This report + client history | HIGH | Pending |
 | R-10 | Suppression Motion | dw-suppression-motion | Search warrants + this report | MODERATE | Pending |
 
 **For each report request, detail:**
@@ -1383,6 +1635,7 @@ If Python scripts were used to parse structured data, include the script logic (
 
 **Appendix D: Raw Timeline Data**
 If the critical timeline was built from multiple sources, include the complete chronological data set (may be large — consider as separate Excel attachment).
+
 **Appendix E: Authentication Chain Log**
 See Section 27: Evidence Integrity for extraction-level auth and per-finding exceptions.
 

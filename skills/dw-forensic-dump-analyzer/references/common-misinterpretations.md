@@ -16,7 +16,8 @@ Use this reference during Step 3 of the analysis (Prosecution Misinterpretation 
 7. [Frequency Analysis Abuse](#7-frequency)
 8. [App Presence vs. App Use](#8-apps)
 9. [Cached Content vs. Intentional Viewing](#9-cached)
-10. [Call Log Misreadings](#10-calls)11. [Photo/Media Misattribution](#11-media)
+10. [Call Log Misreadings](#10-calls)
+11. [Photo/Media Misattribution](#11-media)
 12. [Selective Reporting Bias](#12-selective)
 13. [Technical Jargon Inflation](#13-jargon)
 14. [Jailbreak / Root Detection Misuse](#14-jailbreak)
@@ -43,7 +44,9 @@ The State presents timestamps as precise, reliable markers of user activity at s
 
 **NTP sync events:** Devices periodically synchronize their clocks with network time servers. A sync event can shift all subsequent timestamps relative to pre-sync timestamps, creating apparent inconsistencies in the timeline.
 
-**System-generated timestamps vs. user timestamps:** Database write timestamps, file system modification times, and backup timestamps often differ from the user-facing timestamps for the same event. Analysts may conflate these.### Defense Counter
+**System-generated timestamps vs. user timestamps:** Database write timestamps, file system modification times, and backup timestamps often differ from the user-facing timestamps for the same event. Analysts may conflate these.
+
+### Defense Counter
 - Demand documentation of the device's time zone setting at the time of the alleged offense
 - Ask whether the analyst verified the device clock against known-accurate time sources
 - Challenge any timestamp within 2 hours of a DST transition
@@ -68,7 +71,9 @@ The State presents recovered deleted messages, photos, or app data as evidence t
 
 **Auto-delete features:** Signal, Telegram, WhatsApp, and iMessage all offer disappearing messages as a standard privacy feature. If the client had disappearing messages enabled ACROSS ALL CONVERSATIONS (not just with the victim), deletion was a default setting, not targeted concealment.
 
-**Storage management:** Modern phones routinely prompt users to free storage space. iOS "Offload Unused Apps" and Android's automatic storage management can delete data without user action.**Device lifecycle:** Upgrading to a new phone, performing a factory reset for performance, or trading in a device are normal behaviors that result in data loss.
+**Storage management:** Modern phones routinely prompt users to free storage space. iOS "Offload Unused Apps" and Android's automatic storage management can delete data without user action.
+
+**Device lifecycle:** Upgrading to a new phone, performing a factory reset for performance, or trading in a device are normal behaviors that result in data loss.
 
 **App updates:** Application updates can restructure databases, clear caches, or remove old message formats — resulting in "deleted" records that were actually migrated or deprecated.
 
@@ -90,7 +95,9 @@ The State presents recovered deleted messages, photos, or app data as evidence t
 
 ---
 
-## 3. System Activity vs. User Action {#3-system}### The Misinterpretation
+## 3. System Activity vs. User Action {#3-system}
+
+### The Misinterpretation
 The State presents phone activity timestamps as evidence the defendant was using their phone at a specific time. In reality, a large percentage of phone "activity" is automated, background processes requiring zero user interaction.
 
 ### System-Generated Activity Commonly Misattributed to Users
@@ -119,7 +126,9 @@ The State presents phone activity timestamps as evidence the defendant was using
 
 ---
 
-## 4. Search Query Decontextualization {#4-searches}### The Misinterpretation
+## 4. Search Query Decontextualization {#4-searches}
+
+### The Misinterpretation
 The State presents isolated search queries as evidence of intent, planning, or consciousness of guilt — stripped of the surrounding search history that provides innocent context.
 
 ### Why Context Matters
@@ -150,7 +159,9 @@ The State presents isolated search queries as evidence of intent, planning, or c
 
 ---
 
-## 5. Location Data Overstatement {#5-location}### The Misinterpretation
+## 5. Location Data Overstatement {#5-location}
+
+### The Misinterpretation
 The State presents cell tower connection data as precise location evidence — placing the defendant "at the crime scene" when the data actually shows the defendant's phone connected to a tower that serves a large geographic area that includes the crime scene along with homes, businesses, and other locations the defendant routinely visits.
 
 **NOTE: Flag all location data for handoff to dw-cell-site-geolocation-auditor. The points below are for initial screening only.**
@@ -178,7 +189,9 @@ The State excerpts specific messages from longer conversations and presents them
 
 **Sarcasm and humor stripped of tone:** Text messages lack vocal tone. Sarcastic or joking messages can appear threatening when read literally by an analyst who doesn't know the relationship dynamics.
 
-**Mid-conversation excerpts:** Starting a quote partway through a conversation can fundamentally change the meaning. A message saying "I'm going to kill him" might be venting about a frustrating coworker, quoting a movie, or using hyperbole — all clear from the full thread.**Group chat context removed:** A message in a group chat may be responding to someone else's message. Without the full group thread, attribution and context are lost.
+**Mid-conversation excerpts:** Starting a quote partway through a conversation can fundamentally change the meaning. A message saying "I'm going to kill him" might be venting about a frustrating coworker, quoting a movie, or using hyperbole — all clear from the full thread.
+
+**Group chat context removed:** A message in a group chat may be responding to someone else's message. Without the full group thread, attribution and context are lost.
 
 **Emoji and reaction context:** Modern messages heavily use emoji, reactions, GIFs, and memes. Stripping these changes the tone from playful to menacing.
 
@@ -205,7 +218,9 @@ The State presents raw call or message frequency numbers to imply drug dealing, 
 
 **Raw count without baseline:** Presenting the total number of contacts with a specific person without comparing to the defendant's overall communication volume. A person who sends 150 texts per day is not "obsessively" texting someone they sent 8 messages to.
 
-**Selective date range:** Choosing a date range that maximizes the frequency — e.g., counting contacts over a weekend when the defendant and the victim were actively planning an event, rather than averaging over a longer period.**Aggregating communication types:** Combining calls, texts, voicemails, and app messages into a single "contacts" count to inflate the number, when many of those were brief or automated (read receipts, delivery confirmations).
+**Selective date range:** Choosing a date range that maximizes the frequency — e.g., counting contacts over a weekend when the defendant and the victim were actively planning an event, rather than averaging over a longer period.
+
+**Aggregating communication types:** Combining calls, texts, voicemails, and app messages into a single "contacts" count to inflate the number, when many of those were brief or automated (read receipts, delivery confirmations).
 
 **Ignoring bidirectionality:** Presenting "47 contacts between the defendant and [person]" without noting that 30 of those were initiated by the other person.
 
@@ -244,7 +259,9 @@ The State notes that a particular app was installed on the defendant's phone and
 ## 9. Cached Content vs. Intentional Viewing {#9-cached}
 
 ### The Misinterpretation
-The State presents browser cache contents, cookie data, or thumbnail images as evidence the defendant intentionally viewed specific content. In reality, browsers cache enormous amounts of content the user never sees.### What Creates Cache Entries Without User Action
+The State presents browser cache contents, cookie data, or thumbnail images as evidence the defendant intentionally viewed specific content. In reality, browsers cache enormous amounts of content the user never sees.
+
+### What Creates Cache Entries Without User Action
 - **Ad networks:** Every webpage loads dozens of ads, each with images and tracking scripts that get cached
 - **Link preview thumbnails:** Messaging apps automatically generate previews of shared links — the thumbnail gets cached even if the user never clicks
 - **Social media feeds:** Scrolling past content caches it — the user may never have paused to read or view it
@@ -290,7 +307,9 @@ The State attributes photos or videos to the defendant when they may have been r
 - **Original vs. screenshot:** A screenshot of a photo is not the same as having taken the photo
 - **Cloud sync:** iCloud and Google Photos sync media across devices — a photo taken on an iPad may appear on the phone
 - **Saved from social media:** Photos saved from Instagram, Snapchat, or other apps retain different metadata signatures than camera-captured photos
-- **Forwarded media:** Media forwarded through messaging apps may retain the original creator's metadata or may be stripped — either way, it wasn't created by the device owner---
+- **Forwarded media:** Media forwarded through messaging apps may retain the original creator's metadata or may be stripped — either way, it wasn't created by the device owner
+
+---
 
 ## 12. Selective Reporting Bias {#12-selective}
 
@@ -336,7 +355,9 @@ The analyst uses technical terminology to inflate the significance or certainty 
 ## 14. Jailbreak / Root Detection Misuse {#14-jailbreak}
 
 ### The Misinterpretation
-The forensic examiner notes that the device was jailbroken (iOS) or rooted (Android) and implies the defendant is technically sophisticated, was trying to hide evidence, or was engaged in suspicious activity requiring unauthorized software. Prosecutors use this to paint the defendant as someone who goes to unusual lengths to control their device — implying consciousness of guilt.### Why This Is Often Wrong
+The forensic examiner notes that the device was jailbroken (iOS) or rooted (Android) and implies the defendant is technically sophisticated, was trying to hide evidence, or was engaged in suspicious activity requiring unauthorized software. Prosecutors use this to paint the defendant as someone who goes to unusual lengths to control their device — implying consciousness of guilt.
+
+### Why This Is Often Wrong
 
 **Jailbreaking/rooting is common and mainstream:**
 - Millions of devices are jailbroken for customization (themes, app sideloading, carrier unlock)
@@ -368,7 +389,7 @@ The forensic examiner notes that the device was jailbroken (iOS) or rooted (Andr
 
 > "Are you aware of tools like Checkra1n that allow a person to jailbreak an iPhone with a single button press and no technical knowledge whatsoever?"
 
-> "Can you determine whether my client jailbroked this device, or whether it was jailbroken by a prior owner before my client purchased it?"
+> "Can you determine whether my client jailbroke this device, or whether it was jailbroken by a prior owner before my client purchased it?"
 
 ---
 
@@ -379,7 +400,9 @@ The State presents a video found on the defendant's phone as evidence the defend
 
 ### Common Variants
 
-**Received videos presented as created:** A video in a WhatsApp Media folder or Downloads directory was sent to the defendant by someone else. The State presents it as the defendant's own recording without checking the file path, camera model metadata, or chat thread that delivered it.**Video presence ≠ intentional viewing:** Auto-downloaded chat media, cached social media videos, and pre-loaded content can create video files on a device the user never chose to watch. Check whether the video was auto-downloaded by app settings vs. manually opened.
+**Received videos presented as created:** A video in a WhatsApp Media folder or Downloads directory was sent to the defendant by someone else. The State presents it as the defendant's own recording without checking the file path, camera model metadata, or chat thread that delivered it.
+
+**Video presence ≠ intentional viewing:** Auto-downloaded chat media, cached social media videos, and pre-loaded content can create video files on a device the user never chose to watch. Check whether the video was auto-downloaded by app settings vs. manually opened.
 
 **Duration ignored:** The State notes that a video "exists on the device" without mentioning it's a 2-second accidental recording (common when phones are in pockets or when the camera app is triggered by a button press). Always report duration — it completely changes the significance.
 
@@ -414,7 +437,9 @@ The State presents financial app transactions — particularly Cash App, Venmo, 
 
 **Venmo notes decontextualized:** Venmo notes are often inside jokes, emoji-heavy, or deliberately absurd. A Venmo note of "for the goods 🔥" between college students splitting groceries doesn't mean what the State wants the jury to think it means. Always pull the FULL payment history between the parties.
 
-**Transaction frequency as evidence:** Multiple small transactions to the same person may be portrayed as "consistent with distribution." Check whether this is the defendant's normal pattern — friends who frequently share expenses (roommates, coworkers, family) make many small transactions.### Defense Counter
+**Transaction frequency as evidence:** Multiple small transactions to the same person may be portrayed as "consistent with distribution." Check whether this is the defendant's normal pattern — friends who frequently share expenses (roommates, coworkers, family) make many small transactions.
+
+### Defense Counter
 - Build a transaction baseline: what was the defendant's normal payment pattern over the preceding months?
 - Pull complete Venmo/Cash App history — not just the State's selected transactions
 - Interview the recipient about the purpose of the payments
@@ -458,7 +483,9 @@ The State presents health or fitness data — step counts, heart rate, sleep dat
 ## 18. Decontextualized Message Content {#18-decontextualized}
 
 ### The Pattern
-Prosecution presents message text stripped of emoji, GIFs, media attachments, message reactions, reply threading context, and group chat dynamics. A message that reads as threatening in plain text may be clearly sarcastic with the accompanying laughing emoji, or obviously a joke when viewed with the meme/GIF that accompanied it.### Why This Happens
+Prosecution presents message text stripped of emoji, GIFs, media attachments, message reactions, reply threading context, and group chat dynamics. A message that reads as threatening in plain text may be clearly sarcastic with the accompanying laughing emoji, or obviously a joke when viewed with the meme/GIF that accompanied it.
+
+### Why This Happens
 
 - **Cellebrite exports render messages as flat text tables**, stripping emoji to Unicode descriptions or omitting them entirely
 - **PDF/printed reports may not render emoji correctly**
@@ -507,7 +534,9 @@ The prosecution presents phone data timestamps as though they are in the correct
 - **This offset is applied universally to ALL data across ALL tabs and exports**
 - If the examiner sets UTC-6 (CST) but the offense occurred during CDT (UTC-5), every timestamp in the report is off by one hour
 - The examiner may use the device's current timezone setting, which may not match the timezone during the offense date
-- Some data sources have their own timezone handling (carrier records in UTC, Google Location History in UTC, Facebook timestamps in PST) that conflicts with the Cellebrite global offset### Common Misinterpretation Scenarios
+- Some data sources have their own timezone handling (carrier records in UTC, Google Location History in UTC, Facebook timestamps in PST) that conflicts with the Cellebrite global offset
+
+### Common Misinterpretation Scenarios
 
 1. **DST transition error**: Offense occurred March 15 (Daylight Saving Time in effect = CDT, UTC-5). Examiner set Cellebrite to CST (UTC-6) based on device's winter setting. Every timestamp in the report is one hour LATE. A message the prosecution says was sent at "9:15 PM during the crime window" was actually sent at 8:15 PM — before the alleged offense.
 

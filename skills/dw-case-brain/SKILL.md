@@ -9,7 +9,7 @@ description: >
 
 # D&W Case Brain — Persistent Case Memory
 
-**Version 3.3 | Internal Use Only**
+**Version 3.4 | Internal Use Only**
 
 This skill gives every case a living memory stored in the firm's Obsidian vault ("Dream Team Law"). It eliminates manual case re-briefing by reading case state at session open and writing updates at session close. Every session picks up exactly where the last one left off. The Obsidian vault provides the attorney with a searchable, linked reference — with YAML frontmatter for properties/search and clickable `file://` links that open case folders directly from Google Drive for Desktop.
 
@@ -25,17 +25,6 @@ SESSION CLOSE →  Write session delta to Obsidian vault →  Brain updated for 
 ```
 
 The Case Brain is a structured markdown document with YAML frontmatter (for Obsidian properties/search) and clickable `file://` links to case files on Google Drive for Desktop.
-
----
-
-## STEP 0.5 — LOAD SHARED PROTOCOLS
-
-Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
-
-1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
-2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
-
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
 
@@ -60,8 +49,8 @@ When a session begins without full case context in the conversation, immediately
 
 ## STEP 2 — SESSION OPEN: Load Case Brain
 
-Read the Case Brain file from the Obsidian vault:
-- **Via MCP:** `mcp__obsidian__view` with `path: "DW-CASE BRAINS/Cases/[LastName]-[FirstName].md"`
+Read the **entire** Case Brain file from the Obsidian vault (do not read sections piecemeal):
+- **Via MCP:** `obsidian_get_file_contents` with `filepath: "DW-CASE BRAINS/Cases/[LastName]-[FirstName].md"`
 - **Via mounted folder:** Use the `Read` tool with the absolute path
 
 Then do the following:
@@ -76,12 +65,11 @@ Charges: [Charge summary]
 Phase: [Current Phase]
 Last Session: [Date] — [One-line summary]
 Open Issues: [Count] flagged items pending
-CASE_ROOT: [absolute path from YAML frontmatter]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Type "full brief" to see complete case history.
 ```
 
-- Hold the **full Case Brain content** in context for the session — do not summarize it away.
+- **IMPORTANT:** Hold the **entire Case Brain content in memory** for the session — do not summarize it away. You will need the full document when merging changes at session close.
 - Resume work from the `CURRENT STATUS` and `OPEN ISSUES` sections of the Brain.
 - Activate the appropriate D&W skill for the work being requested (e.g., `dw-criminal-defense`, `dw-forensic-dump-analyzer`, etc.).
 
@@ -137,30 +125,68 @@ Summarize what happened this session in 3–8 bullet points:
 Ask:
 > *"Anything to add before I save? Any decisions, concerns, or next steps I should note?"*
 
-### 4C — Update the Case Brain
+### 4C — Read Current Case Brain (Full Document)
 
-Read the current Case Brain file from the Obsidian vault first (never blindly overwrite), then update these sections:
+Use the **same method** you used at session open to read the entire current Case Brain into memory:
+- **Via MCP:** `obsidian_get_file_contents` with `filepath: "DW-CASE BRAINS/Cases/[LastName]-[FirstName].md"`
+- **Via mounted folder:** Use the `Read` tool with the absolute path
+
+Do NOT attempt to read sections individually. Read the complete document in one operation.
+
+### 4D — Merge All Changes In-Memory
+
+Apply all updates to the full document now in Claude's context:
 
 | Section | What to Update |
 |---|---|
-| `CURRENT STATUS` | New phase / status if changed |
-| `SESSION LOG` | Prepend new session entry (most recent first) |
-| `OPEN ISSUES` | Add new issues; mark resolved issues with checkmark |
+| `YAML Frontmatter` | Update `last_updated` and `phase` fields if changed. Preserve all other YAML fields. |
+| `CURRENT STATUS` | Update phase / status if changed |
+| `SESSION LOG` | Prepend new session entry at the top of this section (most recent first) |
+| `OPEN ISSUES` | Add new issues; mark resolved issues with checkmark; preserve all existing issues |
 | `NEXT STEPS` | Replace with fresh list from this session |
 | `KEY DECISIONS` | Append any decisions made this session |
-| `LAST UPDATED` | Today's date |
+| `COMPANION SKILL OUTPUTS` | Add links to new deliverables (files, motions, analysis reports, etc.) generated this session |
+| `Case File Locations` | Only add links to new files if they've been created during this session. Preserve all existing links. |
 
-**Write procedure:**
-1. Read the current file first (via MCP `mcp__obsidian__view` or `Read` tool)
-2. Preserve the YAML frontmatter — update fields that changed, don't remove any
-3. Preserve the Case File Locations section — only add new links for new files, don't remove existing links
-4. Update the body content sections listed above
-5. Write the updated file back:
-   - **Via MCP (targeted edits):** Use `mcp__obsidian__str_replace` for section-level updates. This is preferred for small changes because it avoids overwriting the entire file.
-   - **Via MCP (full rewrite):** If many sections changed, read the full file, apply all edits in memory, then use `mcp__obsidian__create` to write the complete updated file. Note: `mcp__obsidian__create` will overwrite the existing file — this is acceptable ONLY after you've read the current version and merged changes.
-   - **Via mounted folder:** Use the `Edit` or `Write` tool with the absolute path.
+**IMPORTANT MERGE RULE:** Preserve ALL existing content that has not changed. This is a merge, not a replacement. You are updating specific fields while keeping the rest of the document intact.
 
-### 4D — Confirm Save
+### 4E — Write Full Document Back
+
+Write the complete merged document using **full-document replacement**, never section-by-section patching:
+- **Via MCP:** Use `obsidian_patch_content` with `operation: "replace"` on the target `filepath`, passing the complete updated document content.
+  - Alternatively, use `obsidian_delete_file` followed by `obsidian_create_record` with the complete merged document.
+- **Via mounted folder:** Use the `Edit` tool with `old_string` set to the entire original document and `new_string` set to the complete merged document. Or use the `Write` tool with `mode: "rewrite"` to overwrite the entire file.
+
+**CRITICAL RULE:** Never attempt to patch individual sections by heading name. Always write the complete document. This prevents data loss from heading-targeting failures.
+
+### 4F — Verify Write Success
+
+Read the file back immediately with the same method you used at 4C:
+- **Via MCP:** `obsidian_get_file_contents` with the same filepath
+- **Via mounted folder:** Use the `Read` tool with the same path
+
+Confirm that:
+- The new session entry appears in `SESSION LOG`
+- Updated fields (status, next steps, issues) match what you merged
+- YAML frontmatter is intact and `last_updated` reflects today's date
+- No content was lost
+
+### 4G — Fallback Protocol (If Write Fails)
+
+If the Obsidian write fails for any reason (MCP timeout, filesystem error, permission issue, or any other failure):
+
+1. **Save the complete updated Case Brain as a markdown file** in the case folder on Google Drive at:
+   ```
+   [case-root]/02 - Pretrial Notebook/03 - Case Analysis & Notes/CASE BRAIN — [Client Name] | [Docket].md
+   ```
+   Use the complete merged document content you created in step 4D.
+
+2. **Notify the attorney:**
+   > *"Obsidian sync failed. I've saved the updated Case Brain to your case folder at [path]. You can manually paste the content into Obsidian, or I can try the write again. Whatever you prefer."*
+
+3. **Never lose session data** due to an Obsidian API or filesystem failure. The fallback ensures the updated Case Brain is always preserved somewhere accessible.
+
+### 4H — Confirm Save
 
 Display:
 ```
@@ -291,13 +317,10 @@ lwop_risk: false
 co_defendants: "Name1, Name2"
 gdrive_root: "Drive Name"
 gdrive_path: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
-CASE_ROOT: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
 ---
 ```
 
 The `gdrive_root` and `gdrive_path` fields record which Google Drive shared drive holds this case's files. This makes it possible to regenerate `file://` links without re-searching.
-
-**`CASE_ROOT` is the canonical output-path variable** — every D&W skill that writes a file reads `CASE_ROOT` from this frontmatter to construct its output path (see `OUTPUT_PATH_CONVENTION.md` at the repo root). `CASE_ROOT` and `gdrive_path` always hold the same absolute path; `CASE_ROOT` exists as a named alias so skills can reference it unambiguously. When updating `gdrive_path`, always update `CASE_ROOT` to match.
 
 ### 6C — Auto-Detect Google Drive Location
 
@@ -408,36 +431,6 @@ DW-CASE BRAINS/
 
 The Case Brain's **Trial Preparation** section displays a summary view of all these folders' contents for the case, with links back to the individual notes.
 
-### 6H — CASE_ROOT: Canonical Output-Path Variable
-
-Every D&W skill that writes a file depends on the `CASE_ROOT` variable to construct its output path. The Case Brain is the single source of truth for this value.
-
-**Where `CASE_ROOT` lives:**
-
-| Location | Purpose |
-|---|---|
-| YAML frontmatter (`CASE_ROOT:` field) | Authoritative value read by all file-writing skills |
-| YAML frontmatter (`gdrive_path:` field) | Same value, used for `file://` link generation (legacy alias) |
-| SESSION OPEN CONFIRMATION | Displayed at session start so the attorney can see and verify the path |
-
-**`CASE_ROOT` always equals `gdrive_path`.** They are two labels for the same absolute path. The duplication exists because `gdrive_path` has historical meaning for the `file://` link generator in Step 6D, and `CASE_ROOT` is the name every output-writing skill looks for (per `OUTPUT_PATH_CONVENTION.md`).
-
-**When creating a new Case Brain:**
-- Set both `gdrive_path` and `CASE_ROOT` to the same absolute path
-- Never leave `CASE_ROOT` blank — if you're uncertain of the path, ask the attorney before creating the Case Brain
-
-**When updating an existing Case Brain:**
-- If a case moves drives (e.g., conflict case reassigned), update BOTH fields together
-- Never let them drift — a mismatch will cause output files to scatter between the old and new locations
-
-**How other skills read it:**
-1. Skill loads the active Case Brain (via `dw-case-brain`)
-2. Skill reads `CASE_ROOT` from the YAML frontmatter
-3. Skill constructs its output path: `{CASE_ROOT}/Deliverables/{Phase}/{SkillName}/{YYYY-MM-DD}_{filename}.{ext}`
-4. Skill creates the subfolder chain and writes the file
-
-**If `CASE_ROOT` is missing from the frontmatter** (older Case Brains created before v3.3): read `gdrive_path` and use that value, then backfill `CASE_ROOT` on the next session-close write.
-
 ---
 
 ## Fallback (If Vault Not Accessible)
@@ -453,13 +446,15 @@ If no access method works (MCP unavailable in Claude Code, vault not mounted in 
 
 ## Guardrails
 
-- **Never overwrite a Case Brain without reading the current version first.** Always pull → merge → write. Never replace.
+- **Never patch individual sections by heading name.** The Obsidian API's heading-based targeting is unreliable and prone to failure. Instead, always read the full document, merge all changes in Claude's context, and write the complete document back in a single operation. This prevents data loss from heading-targeting failures.
+- **Never overwrite a Case Brain without reading the current version first.** Always read → merge in-memory → write full document. Never blindly replace.
 - **Never delete session log entries.** Session history is append-only.
 - **Never mark an open issue resolved** unless the attorney explicitly confirms it is closed.
-- **Never summarize away context** from the full brief — the Case Brain is the full record.
+- **Never summarize away context** from the full brief — the Case Brain is the full record. Load the entire document at session open and keep it in memory for the eventual merge.
 - **This skill fires before other skills** when no case context is present. Do not skip it.
 - **Always read `CASE-BRAIN-CONFIG.md`** from the Obsidian vault before creating or updating a Case Brain — it contains the authoritative Google Drive mappings and encoding reference.
 - **Detect the environment first** (Cowork vs Claude Code) and use the appropriate access method. In Cowork, skip the MCP — go straight to the mounted folder. In Claude Code, try MCP first, then fall back to the local filesystem.
+- **Use the fallback protocol** if any write operation fails — save the updated Case Brain to Google Drive and notify the attorney. Never lose session data due to an API failure.
 
 ---
 
@@ -478,7 +473,7 @@ After loading the Case Brain, hand off to the appropriate skill based on what th
 | Cell site / CSLI | `dw-cell-site-geolocation-auditor` | `Case-Analysis/` |
 | 404(b) opposition | `dw-404b-opposition` | `Pleadings/` |
 | CI / informant audit | `dw-brady-giglio-auditor` | `Case-Analysis/` |
-| LWOP worksheet | `dw-lwop-populator` | `Cases/` |
+| LWOP Part 2A / 2B population | `dw-criminal-defense` (Phase 1 Step 3) | `Cases/` |
 | Jury selection / voir dire | `dw-voir-dire-assistant` | `Jury-Selection/` |
 | Expert witness evaluation | `dw-expert-witness-evaluator` | `Witnesses/Expert/` |
 | Jury instructions | `dw-jury-instructions-builder` | `Pretrial-Orders/` |
@@ -491,19 +486,25 @@ The Case Brain provides the context; the companion skill does the work.
 
 ## Changelog
 
+### v3.4 (April 2026)
+- **Cleanup:** Removed the last residual reference to legacy non-Obsidian storage from the changelog
+- Obsidian is — and has been — the sole repository for Case Brains; the skill body is now fully consistent with that fact
+- Bumped header version to match the most recent changelog entry (was stuck at 3.2 despite v3.3 having been added)
+
 ### v3.3 (April 2026)
-- Added `CASE_ROOT` as canonical output-path variable in YAML frontmatter (Step 6B)
-- Added Step 6H documenting `CASE_ROOT` as the single source of truth for all file-writing D&W skills
-- `CASE_ROOT` now displayed in SESSION OPEN CONFIRMATION so the attorney can verify the output path at session start
-- `CASE_ROOT` and `gdrive_path` hold identical values; `CASE_ROOT` is the name 38 downstream skills look for per `OUTPUT_PATH_CONVENTION.md`
-- Older Case Brains without `CASE_ROOT` fall back to `gdrive_path` and are backfilled on next session close
+- **FIX:** Session close protocol repeatedly failed using obsidian_patch_content with heading-based targeting
+- Rewrote entire STEP 4 (SESSION CLOSE) to use **full-document merge-and-rewrite strategy** instead of section-by-section patching
+- Session Open now explicitly reads the complete Case Brain (not sections) to support eventual merge at close
+- Added new steps 4C–4H: Read Full Document → Merge In-Memory → Write Complete Document → Verify → Fallback
+- Added fallback protocol: if Obsidian write fails, save updated Case Brain to Google Drive and notify attorney
+- Added guardrail: never use heading-based patching; always read full document, merge changes in-memory, write complete document
+- This eliminates data loss from API failures and prevents silent sync errors
 
 ### v3.2 (March 2026)
 - **FIX:** Obsidian MCP times out in Cowork because there's no local Obsidian app running in the cloud
 - Added environment detection (Cowork vs Claude Code) to Step 6A — Cowork now skips MCP entirely and goes straight to mounted filesystem
 - MCP is now Claude Code-only; Cowork uses Read/Write/Edit tools on mounted vault
 - Updated guardrail from "always try MCP first" to "detect environment first"
-- Removed DevonThink as a storage option — Obsidian is the sole case brain repository
 
 ### v3.1 (March 2026)
 - Added Obsidian MCP server as primary vault access method (Steps 1–4, 6A)
