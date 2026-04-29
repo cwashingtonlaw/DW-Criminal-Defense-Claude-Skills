@@ -52,6 +52,17 @@ Every investigation task, lead, and factual assertion in tasking documents must 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 After receiving case materials, systematically extract and organize information into three tiers before generating any investigation output.
@@ -100,12 +111,6 @@ Extract or confirm the following from the case file:
 | **Political Context** | DA office priorities, judicial tendencies, election cycles |
 | **Similar Cases** | Comparable cases and outcomes in the jurisdiction |
 | **Victim Advocacy** | Victim advocacy involvement, protective orders, civil suits |
-
----
-
-## STEP 1.5 — Load Shared Protocols
-
-Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "Internal work product (Case Brain, threat matrix, cross outline, audit reports)". This is an internal deliverable — apply attorney work product marking per `attorney-work-product-marking.md` and use the output path formula in `output-path-formula.md`.
 
 ---
 
@@ -1146,10 +1151,3 @@ For the top 5 highest-priority witnesses, generate preliminary interview scripts
 | `dw-shared-protocols` | Attorney work product marking + output path formula |
 
 This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Investigation outputs can feed directly into the **DW Case Theory Builder**, **DW Motion Drafting Tool**, **DW Trial Preparation Tool**, **DW Mitigation Investigation Tool**, and **DW Sentencing Memorandum Tool**. When generating investigation tasks, flag any findings that should trigger analysis under another DW skill — for example, a constitutional violation discovered during investigation should trigger the **DW Suppression Motion Drafting Tool**, and mitigation evidence uncovered during background investigation should trigger the **DW Mitigation Investigation Tool**.
-
-
----
-
-## Output Location
-
-Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Investigator tasking memos save to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
