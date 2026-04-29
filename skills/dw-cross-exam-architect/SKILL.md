@@ -53,7 +53,18 @@ If the user requests analysis but no documents are attached, ask whether uploads
 
 ---
 
-## STEP 0.5 — Witness Prioritization & Impeachment Audit
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
+## STEP 0.6 — Witness Prioritization & Impeachment Audit
 
 **Before any outline drafting begins, conduct a systematic audit of all prosecution witnesses.**
 
@@ -205,13 +216,13 @@ Create a 5-column inventory table with the following columns:
 - Witness sequences are consistent across all outlines
 - Source documents are tracked consistently (matching the source register in each outline)
 - Strategic decisions about whom to call/challenge are documented
-- Cross-examination priorities are aligned with the Witness Prioritization audit (Step 0.5)
+- Cross-examination priorities are aligned with the Witness Prioritization audit (Step 0.6)
 
 ### Output Format
 
 Present the Master Witness Table as:
 - A formatted table (Excel, Google Sheets, or markdown table)
-- Sortable by: Witness Type, Trial Status, Impeachment Strength (linked to Step 0.5 findings), or Trial Sequence
+- Sortable by: Witness Type, Trial Status, Impeachment Strength (linked to Step 0.6 findings), or Trial Sequence
 - Refreshed and updated every time a new cross-examination outline is generated (to track cumulative witness coverage)
 
 ---
@@ -271,7 +282,7 @@ Structure cross-examination questions in **"short-question sequences"** — each
 
 **Implementation:**
 
-- Extract each impeachment hook from the Witness Prioritization audit (STEP 0.5)
+- Extract each impeachment hook from the Witness Prioritization audit (STEP 0.6)
 - Frame the impeachment as a sequence of **3–5 leading questions** that:
   - Q1: Establish the context or precondition (unchallengeable)
   - Q2–4: Lock in each specific element of the prior statement or expected standard procedure
@@ -517,32 +528,3 @@ All three files are saved to the same folder. Present all three links to the att
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for full Phase 3 integration.*
 
 **Reads from:** dw-witness-statement-analyzer (Witness Analysis Cards with pre-analyzed key facts, inconsistencies, credibility flags; Conflict Matrix for multi-witness comparison)
-
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-4-Trial/dw-cross-exam-architect/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (cross outline + source catalog + combined sources PDF).
