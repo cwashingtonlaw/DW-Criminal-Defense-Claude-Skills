@@ -83,6 +83,10 @@ Key documents known to exist in DEVONthink (404 B - Other Crimes folder):
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
 
+### Step 1.5: Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
+
 ### Step 2: Gather Case Context
 
 **From the attorney prompt:** Parse whatever the attorney provides — client name, docket number, the charged offense(s), what other crimes evidence the State seeks to introduce, and the defense theory.
@@ -137,7 +141,7 @@ The Opposition (or Motion in Limine) is a short, formal filing — typically 3-5
 **Structure:**
 
 ```
-[CAPTION — use ;caption snippet]
+[CAPTION — per shared protocols]
 
 DEFENDANT'S OPPOSITION TO STATE'S NOTICE OF INTENT TO
 INTRODUCE OTHER CRIMES EVIDENCE PURSUANT TO LA. C.E. ART. 404(B)
@@ -178,8 +182,8 @@ IV.   PRAYER FOR RELIEF
           Art. 404(B) and Art. 403;
       (5) Grant such other relief as the Court deems just and proper.
 
-[CERTIFICATE OF SERVICE — use ;cos snippet]
-[SIGNATURE BLOCK — use ;sig snippet]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 **If generating a defense Motion in Limine** (preemptive, no State notice yet):
@@ -195,7 +199,7 @@ The Memorandum is the substantive legal brief — typically 10-25 pages dependin
 **Structure:**
 
 ```
-[CAPTION — use ;caption snippet]
+[CAPTION — per shared protocols]
 
 MEMORANDUM IN SUPPORT OF DEFENDANT'S OPPOSITION TO STATE'S
 404(B) NOTICE [or: MOTION IN LIMINE TO EXCLUDE OTHER CRIMES EVIDENCE]
@@ -267,8 +271,8 @@ IV.   ARGUMENT
 V.    CONCLUSION
       [Summarize the deficiencies. Reiterate specific relief requested.]
 
-[CERTIFICATE OF SERVICE — use ;cos snippet]
-[SIGNATURE BLOCK — use ;sig snippet]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 **Key rules for the Memorandum:**
@@ -400,8 +404,9 @@ These are the most effective lines of attack organized by the exception the Stat
 | `dw-cross-exam-architect` | If 404(b) evidence is admitted despite opposition, build cross-examination to minimize its impact |
 | `dw-brady-giglio-auditor` | Undisclosed favorable evidence may undermine the other acts the State seeks to introduce |
 | `docx` | Document generation — read for .docx creation instructions |
+| `dw-shared-protocols` | Caption, signature, COS, notice of hearing, proposed order, citation style, filing conventions, output path |
 | DEVONthink | Template-First search in `404 B - Other Crimes` folder |
-| TextExpander | `;caption`, `;sig`, `;cos`, `;draft` |
+| TextExpander | `;draft` (skill-specific; caption/sig/cos now via shared protocols) |
 
 ---
 
@@ -412,27 +417,4 @@ These are the most effective lines of attack organized by the exception the Stat
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-404b-opposition/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (opposition + memorandum in support).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.

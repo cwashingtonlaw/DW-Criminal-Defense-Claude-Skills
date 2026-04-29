@@ -16,6 +16,20 @@ This skill handles the "bread and butter" motions — the ones filed in nearly e
 
 **Cowork drafts; attorney approves.** Every output is a draft for attorney review.
 
+## Integration
+
+| Skill | Purpose |
+|-------|---------|
+| `dw-shared-protocols` | Caption, signature block, certificate of service, notice of hearing, proposed order, work-product marking (internal drafts only — filed pleadings get NO marking), Louisiana citation style, 14th JDC filing conventions, output path formula |
+| `dw-criminal-defense` | Phase 2 Red Flags trigger motion practice |
+| `dw-brady-giglio-auditor` | CI findings → Module 11 (Reveal the Deal); missing-discovery findings → Module 4 (Compel) |
+| `dw-case-brain` | Motion status tracking and CASE_ROOT resolution |
+| `dw-template-selector` | Shared template selection protocol after DEVONthink search |
+| `dw-suppression-motion` | Hand off suppression issues |
+| `dw-404b-opposition` | Hand off 404(b) issues |
+| `dw-bond-and-release-motion` | Hand off bond issues |
+| `docx` | Document generation |
+
 ### Source Citation Mandate
 
 Every factual assertion in any pretrial motion and its supporting memorandum must trace back to a specific source document. Courts evaluate pretrial motions on their factual grounding — unsourced claims weaken the filing and invite challenge from opposing counsel. Precise sourcing also helps the attorney verify facts quickly before filing.
@@ -107,6 +121,11 @@ If a template is selected, preserve the firm's preferred formatting and legal po
 
 ---
 
+## STEP 1.5 — Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
+
+These shared protocols govern caption, signature block, certificate of service, notice of hearing, proposed order, attorney work-product marking (internal drafts only — filed pleadings get NO marking), Louisiana citation style, 14th JDC filing conventions, and the output path formula. Apply them to every motion, memorandum, and proposed order produced by this skill.
 
 ---
 
@@ -470,7 +489,7 @@ For each potential motion (suppress, exclude, limine, dismiss, compel, sever, ch
 
 This report is concise by design — it gives the attorney a motion roadmap before committing resources to full drafting. The attorney selects which motions to pursue, then Cowork drafts each selected motion using the appropriate MODULE above.
 
-**Output:** `Pre-Trial Motion Action Plan — [Client Name] — [Date].docx` → save to `01 - Trial Notebook/09 - Case Analysis/`
+**Output:** `Pre-Trial Motion Action Plan - [Client Name] - [Date].docx`. This is internal analysis (not a filed pleading) — save to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` per the shared-protocols output path formula in `dw-shared-protocols/references/output-path-formula.md`. Apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`.
 
 **Source Citation Mandate applies:** Every factual assertion in the action plan must cite the specific source document.
 
@@ -483,16 +502,7 @@ For each motion type, generate two .docx files following the `docx` skill conven
 1. **Motion** (2-3 pages): Short-form filing with facts and prayer for relief
 2. **Memorandum in Support** (5-20 pages depending on complexity): Full legal argument
 
-**Formatting requirements:**
-- US Letter (8.5" x 11"), 1-inch margins
-- Times New Roman, 12pt body text, 14pt headings
-- Double-spaced body text
-- Left-aligned, page numbers centered in footer
-- Caption on first page of each document
-
-**File naming:**
-- Motion: `Motion for [Type] - [Client Last Name] - [Date].docx`
-- Memorandum: `Memorandum in Support - [Type] - [Client Last Name] - [Date].docx`
+Apply caption, signature block, certificate of service, notice of hearing, proposed order, formatting, and filename conventions per shared protocols (see Step 1.5 — `dw-shared-protocols`).
 
 ---
 
@@ -504,8 +514,8 @@ For each motion type, generate two .docx files following the `docx` skill conven
 - `[ATTORNEY TO COMPLETE]` — signature, bar number, specific dates
 - `[STRATEGIC DECISION]` — which arguments to include/exclude
 
-**Save locations:**
-- Active case folder: `02 - Pretrial Notebook/01 - Pleadings/`
+**Save location:** Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`.
+
 - Create Clio task: *"Review and File [Motion Type] — [Client Name]"*
 - Update Case Brain with motion status
 
@@ -529,34 +539,9 @@ For each motion type, generate two .docx files following the `docx` skill conven
 
 ---
 
-*This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Integrates with dw-criminal-defense (Phase 2 Red Flags trigger motion practice), dw-brady-giglio-auditor (CI findings → Reveal the Deal), dw-case-brain (motion status tracking), and the docx skill (document generation).*
-
 
 ---
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-pretrial-motion-library/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (motion + memorandum + proposed order).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. The Pre-Trial Motion Action Plan (internal analysis, Step 2.5) goes to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.

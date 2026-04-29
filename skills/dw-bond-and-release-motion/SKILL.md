@@ -124,6 +124,12 @@ If a template is selected, preserve the firm's preferred formatting, language, a
 
 ---
 
+## STEP 1.5 — Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
+
+---
+
 ## STEP 2 — Information Gathering Protocol
 
 Before drafting any motion, collect the following in ranked order:
@@ -368,7 +374,7 @@ When, in the opinion of the court, bail is excessive, the court on motion of the
 ### ROR Motion Structure
 
 ```
-[CAPTION]
+[CAPTION — per shared protocols]
 
 DEFENDANT'S MOTION FOR RELEASE ON PERSONAL RECOGNIZANCE
 
@@ -413,8 +419,8 @@ V.    PRAYER FOR RELIEF
       with such conditions as the Court deems appropriate, and grant
       such other relief as the Court deems just and proper.
 
-[CERTIFICATE OF SERVICE]
-[SIGNATURE BLOCK]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 ---
@@ -470,7 +476,7 @@ RELEASE RIGHTS TRIGGERED:          [YES — specify which deadline exceeded /
 When a time limit has been exceeded:
 
 ```
-[CAPTION]
+[CAPTION — per shared protocols]
 
 DEFENDANT'S MOTION FOR RELEASE PURSUANT TO
 LA. C.CR.P. ART. 701
@@ -501,8 +507,8 @@ V.    PRAYER FOR RELIEF
       release the defendant from custody forthwith, on personal
       recognizance or on reasonable bail, pursuant to Art. 701(B).
 
-[CERTIFICATE OF SERVICE]
-[SIGNATURE BLOCK]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 ---
@@ -622,7 +628,7 @@ The court may revoke bail and order the defendant re-incarcerated upon a showing
 ### Bail Revocation Defense Motion Structure
 
 ```
-[CAPTION]
+[CAPTION — per shared protocols]
 
 DEFENDANT'S OPPOSITION TO STATE'S MOTION TO REVOKE BAIL
 [or: DEFENDANT'S MOTION TO REINSTATE BAIL]
@@ -659,8 +665,8 @@ VI.   PRAYER FOR RELIEF
       above, and grant such other relief as the Court deems just
       and proper.
 
-[CERTIFICATE OF SERVICE]
-[SIGNATURE BLOCK]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 ---
@@ -672,7 +678,7 @@ Generate a short-form Motion (2-3 pages) using the `docx` skill conventions.
 **Structure:**
 
 ```
-[CASE CAPTION]
+[CAPTION — per shared protocols]
 
 MOTION FOR REDUCTION OF BOND
 [or appropriate motion type from Step 4]
@@ -709,9 +715,11 @@ VI.   PRAYER FOR RELIEF
       (3) Conduct a formal bail hearing pursuant to La. C.Cr.P. Art. 316(B);
       (4) Grant such other relief as the Court deems just and proper.
 
-[CERTIFICATE OF SERVICE]
-[SIGNATURE BLOCK]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
+
+Filed pleadings get caption, signature, certificate of service, and (when applicable) notice of hearing and proposed order per `dw-shared-protocols`. Do not apply attorney-work-product marking to filed pleadings.
 
 ---
 
@@ -722,7 +730,7 @@ Generate a substantive Memorandum (5-15 pages) with full legal argument.
 **Structure:**
 
 ```
-[CASE CAPTION]
+[CAPTION — per shared protocols]
 
 MEMORANDUM IN SUPPORT OF MOTION FOR REDUCTION OF BOND
 
@@ -754,8 +762,8 @@ IV.   ARGUMENT
 V.    CONCLUSION
       [Summarize and reiterate relief requested]
 
-[CERTIFICATE OF SERVICE]
-[SIGNATURE BLOCK]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 ---
@@ -849,7 +857,7 @@ Read the `docx` skill (SKILL.md) for document creation instructions. Use `docx-j
 
 ### Module A: Capital Case Bond
 For charges where bond is not a matter of right (La. C.Cr.P. Art. 313):
-- The defense bears the burden of proving bail is appropriate [CORRECTION: The State bears the burden of proving proof is evident or presumption is great]
+- The State bears the burden of proving proof is evident or presumption is great
 - Address: proof is not evident, presumption is not great
 - Cite *State v. Ranson*, 421 So.2d 884 (La. 1982)
 - Special hearing requirements under Art. 313
@@ -904,13 +912,14 @@ When the court imposes a cash-only monetary condition:
 
 | Skill | How It Integrates |
 |-------|------------------|
+| `dw-shared-protocols` | Caption, signature, COS, notice of hearing, proposed order, citation style, filing conventions, output path |
 | `dw-criminal-defense` | Phase 0 Criminal Defense Cover includes bail status section; bail motion filings saved to Pretrial Notebook |
 | `dw-discovery-compliance-monitor` | Discovery delays may trigger Art. 701 release rights; coordinate timeline tracking |
 | `dw-cross-exam-architect` | When bond hearing is set, invoke to prepare cross-examination of State's witnesses |
 | `dw-case-brain` | Bond status tracking; update after hearing or when conditions are modified |
 | `docx` | Document generation — read for .docx creation instructions |
 | DEVONthink | Template-First search in Law Library-Criminal for prior bail filings |
-| TextExpander | `;caption`, `;sig`, `;cos`, `;draft` |
+| TextExpander | `;draft` |
 
 ---
 
@@ -940,27 +949,4 @@ If the attorney says yes or indicates a bond hearing is scheduled, invoke the `d
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-bond-and-release-motion/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (bond motion + memorandum).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed bond/release motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.

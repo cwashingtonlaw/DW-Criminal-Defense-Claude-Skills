@@ -466,6 +466,8 @@ When assessing whether a Dorthey challenge is viable, evaluate:
 If the Dorthey analysis supports a constitutional challenge, prepare a motion with this structure:
 
 ```
+[CAPTION — per shared protocols]
+
 MOTION TO DECLARE ENHANCED SENTENCE UNCONSTITUTIONALLY EXCESSIVE
 PURSUANT TO La. Const. Art. I, Sec. 20 AND State v. Dorthey
 
@@ -490,7 +492,12 @@ IV.   APPLICATION
 
 V.    CONCLUSION — Request the court exercise its constitutional duty
       to reduce the sentence to one that is not excessive.
+
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
+
+This is a filed pleading — no work product marking. Caption, COS, and signature block sourced from `dw-shared-protocols` per the parish row that fits the case.
 
 ---
 
@@ -625,6 +632,16 @@ Common plea negotiation outcomes involving habitual offender bills:
 
 ---
 
+## STEP 2.5 — Load Shared Protocols (before drafting any filed pleading)
+
+This step applies ONLY to motion-drafting outputs (Output 2: Habitual Offender Bill Response / Challenge Motion; Output 3: Boykinization Challenge Motion; Output 6: Dorthey Excessive Sentence Motion). It does NOT apply to internal audit-report outputs (Outputs 1, 4, 5, 7).
+
+> Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
+
+For internal audit-report deliverables (predicate audit table, cleansing-period timelines, enhancement worksheets, hearing-prep checklist), apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`. Do NOT apply work product marking to filed pleadings.
+
+---
+
 ## OUTPUT FORMAT SPECIFICATIONS
 
 ### Output 1: Predicate Conviction Audit Table
@@ -659,11 +676,12 @@ and the strategic recommendation]
 
 ### Output 2: Habitual Offender Bill Response / Challenge Motion (.docx)
 
-**Save to:** `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
+**This is a FILED PLEADING — apply caption, signature, COS, notice of hearing, and proposed order per shared protocols (`dw-shared-protocols/SKILL.md`). Do NOT apply work product marking.** Save per the shared output path formula (filed motions → `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`).
+
 Structure:
 
 ```
-[CAPTION — use ;caption snippet]
+[CAPTION — per shared protocols]
 
 DEFENDANT'S RESPONSE TO HABITUAL OFFENDER BILL OF INFORMATION
 AND CHALLENGE TO PREDICATE CONVICTION(S)
@@ -702,8 +720,10 @@ V.    PRAYER FOR RELIEF
       (4) Impose a sentence within the [base / reduced enhancement] range;
       (5) Grant such other relief as the Court deems just and proper.
 
-[CERTIFICATE OF SERVICE — use ;cos snippet]
-[SIGNATURE BLOCK — use ;sig snippet]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
+[NOTICE OF HEARING — per shared protocols, if hearing required]
+[PROPOSED ORDER — per shared protocols, attach as separate document]
 ```
 
 ### Output 3: Boykinization Challenge Motion
@@ -940,6 +960,7 @@ OUTPUTS: Generate applicable outputs (1-7) based on case needs
 
 | Skill | How It Integrates |
 |-------|------------------|
+| `dw-shared-protocols` | Centralized boilerplate for filed pleadings (caption, signature, COS, notice of hearing, proposed order, citation style, filing conventions) and for output path resolution. Read before drafting Output 2 (Habitual Bill Response/Challenge), Output 3 (Boykin Motion), and Output 6 (Dorthey Motion). Audit deliverables (Outputs 1, 4, 5, 7) consume only `attorney-work-product-marking.md` and `output-path-formula.md`. |
 | `dw-criminal-defense` | Phase 0 LWOP Assessment flags habitual offender exposure; Initial Case Profile identifies prior conviction history; Phase 2 analysis may trigger habitual offender audit |
 | `dw-404b-opposition` | Prior convictions used as habitual offender predicates may also be the subject of a 404(b) notice — coordinate challenges to ensure consistent positions |
 | `dw-discovery-compliance-monitor` | Prior conviction packets, plea transcripts, and certified records should be tracked in discovery — request through Brady/discovery demands if not provided |
@@ -947,8 +968,7 @@ OUTPUTS: Generate applicable outputs (1-7) based on case needs
 | `dw-voir-dire-assistant` | Post-2017 habitual offender determinations are made by jury — voir dire must address juror attitudes toward enhanced sentencing and recidivism |
 | `dw-expert-witness-evaluator` | Fingerprint experts testifying to identity at habitual offender hearings may be subject to expert qualification and methodology challenges |
 | `docx` | Document generation — read for .docx creation instructions |
-| DEVONthink | Search `Law Library-Criminal` for habitual offender templates, prior filings, and research |
-| TextExpander | `;caption`, `;sig`, `;cos`, `;draft` |
+| TextExpander | `;draft` (caption / signature / COS now sourced from `dw-shared-protocols`) |
 
 ---
 
@@ -959,27 +979,4 @@ OUTPUTS: Generate applicable outputs (1-7) based on case needs
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-habitual-offender-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (habitual bill audit + predicate challenge).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`; predicate-conviction audit reports go to `{{CASE_ROOT}}/02 - Pretrial Notebook/03 - Case Analysis & Notes/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.

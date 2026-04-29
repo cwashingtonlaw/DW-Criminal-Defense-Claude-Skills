@@ -110,11 +110,12 @@ Also search with tags: `template`, `suppression`, `motion`
 If a template is selected, preserve the firm's preferred formatting, language, and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
 
 **TextExpander snippets to apply:**
-- `;caption` — case caption block
 - `;miranda` — Miranda citation block (for statement suppression)
-- `;sig` — attorney signature block
-- `;cos` — certificate of service
 - `;draft` — Cowork draft disclaimer
+
+### Step 1.5: Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
 
 ### Step 2: Gather Case Context
 
@@ -240,7 +241,7 @@ When in Audit Mode, produce a .docx report with:
 
 File naming: `[3-digit prefix] - Search Warrant Audit - [Client Last Name].docx`
 Location: `02 - Pretrial Notebook/03 - Case Analysis & Notes`
-Mark: "Privileged & Confidential — Attorney Work Product"
+Mark: per `attorney-work-product-marking.md` in shared protocols (internal deliverable)
 
 After producing the audit report, offer: *"This warrant has [X] deficiencies. Want me to draft the suppression motion based on these findings?"*
 
@@ -268,7 +269,7 @@ The Motion to Suppress is a short, formal filing — typically 2-3 pages. It tel
 **Structure:**
 
 ```
-[CAPTION — use ;caption snippet]
+[CAPTION — per shared protocols]
 
 MOTION TO SUPPRESS [EVIDENCE / STATEMENT / IDENTIFICATION]
 
@@ -299,8 +300,8 @@ IV.   PRAYER FOR RELIEF
       (3) Prohibit the State from referencing [suppressed evidence] at trial;
       (4) Grant such other relief as the Court deems just and proper.
 
-[CERTIFICATE OF SERVICE — use ;cos snippet]
-[SIGNATURE BLOCK — use ;sig snippet]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 **Key rules for the Motion:**
@@ -316,7 +317,7 @@ The Memorandum is the substantive legal brief — typically 8-20 pages depending
 **Structure:**
 
 ```
-[CAPTION — use ;caption snippet]
+[CAPTION — per shared protocols]
 
 MEMORANDUM IN SUPPORT OF MOTION TO SUPPRESS
 
@@ -358,8 +359,8 @@ V.    CONCLUSION
       [Summarize the constitutional violation and the remedy. Reiterate
        the specific relief requested.]
 
-[CERTIFICATE OF SERVICE — use ;cos snippet]
-[SIGNATURE BLOCK — use ;sig snippet]
+[CERTIFICATE OF SERVICE — per shared protocols]
+[SIGNATURE BLOCK — per shared protocols]
 ```
 
 **Key rules for the Memorandum:**
@@ -449,12 +450,13 @@ This chronological approach is persuasive because it tells a story: one illegal 
 
 | Skill | How It Integrates |
 |-------|------------------|
+| `dw-shared-protocols` | Caption, signature, COS, notice of hearing, proposed order, citation style, filing conventions, output path |
 | `dw-template-selector` | Template-First DEVONthink search protocol before drafting |
 | `dw-criminal-defense` | Phase 2 Constitutional Issues Scan feeds suppression grounds |
 | `dw-mobile-forensic-auditor` | Forensic Audit report provides digital evidence suppression facts |
 | `dw-cross-exam-architect` | Warrant audit generates cross-exam seeds for affiant/executing officers |
 | `docx` | Document generation — read for .docx creation instructions |
-| TextExpander snippets | `;caption`, `;miranda`, `;sig`, `;cos`, `;draft` |
+| TextExpander snippets | `;miranda`, `;draft` (skill-specific; caption/sig/cos now via shared protocols) |
 
 ### Search Warrant Legal Standards Quick Reference
 
@@ -481,30 +483,7 @@ This chronological approach is persuasive because it tells a story: one illegal 
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-3-Motions/dw-suppression-motion/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (motion + memorandum in support, exhibit list, proposed order, etc.).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`; warrant audit reports go to `{{CASE_ROOT}}/02 - Pretrial Notebook/03 - Case Analysis & Notes/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
 
 ---
 

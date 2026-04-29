@@ -103,6 +103,12 @@ Extract or confirm the following from the case file:
 
 ---
 
+## STEP 1.5 — Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "Internal work product (Case Brain, threat matrix, cross outline, audit reports)". This is an internal deliverable — apply attorney work product marking per `attorney-work-product-marking.md` and use the output path formula in `output-path-formula.md`.
+
+---
+
 ## STEP 2 — Module A: Investigation Task Generator
 
 After extracting case information, generate a comprehensive investigation task list organized by priority and category.
@@ -966,7 +972,6 @@ Pre-built investigation checklists for common case types. These supplement (not 
 
 ## OUTPUT FORMAT SPECIFICATIONS
 
-**Save to:** `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 When generating investigation output, format deliverables as follows:
 
 | Output Type | Format | Contents |
@@ -993,7 +998,7 @@ When generating investigation output, format deliverables as follows:
 5. **Respect grand jury secrecy.** Do not suggest investigation methods that would violate grand jury secrecy rules (La. C.Cr.P. Art. 434).
 6. **Comply with protective orders.** If discovery materials are subject to a protective order, ensure all investigation tasks comply with its terms.
 7. **Investigator licensing.** All field investigation tasks must be performed by or under the supervision of a licensed private investigator (La. R.S. 15:145 et seq.) or by the attorney directly.
-8. **Client confidentiality.** Never include privileged attorney-client communications or work product in documents that may be discoverable. Clearly mark all investigation materials as attorney work product.
+8. **Client confidentiality.** Never include privileged attorney-client communications or work product in documents that may be discoverable. Apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`.
 
 ### Constitutional Framework
 - **Sixth Amendment** — The right to effective assistance of counsel includes the right to investigation. Failure to investigate is a basis for ineffective assistance of counsel claims. Strickland v. Washington, 466 U.S. 668 (1984).
@@ -1008,7 +1013,7 @@ When generating investigation output, format deliverables as follows:
 2. All scene visits must be documented with photographs, video, measurements, and written observations.
 3. All records requests must be logged with date sent, recipient, records requested, response received, and date of response.
 4. All canvass contacts must be documented, including negative contacts (no one home, refused to speak, had no information).
-5. All investigation reports must be marked: **"ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIAL"**
+5. Apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`.
 6. Chain of custody must be maintained for all physical items obtained during investigation.
 7. All investigation hours and expenses must be documented for billing and court reporting purposes.
 
@@ -1136,6 +1141,10 @@ For the top 5 highest-priority witnesses, generate preliminary interview scripts
 
 ## INTEGRATION WITH OTHER DW SKILLS
 
+| Skill | Integration |
+|---|---|
+| `dw-shared-protocols` | Attorney work product marking + output path formula |
+
 This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Investigation outputs can feed directly into the **DW Case Theory Builder**, **DW Motion Drafting Tool**, **DW Trial Preparation Tool**, **DW Mitigation Investigation Tool**, and **DW Sentencing Memorandum Tool**. When generating investigation tasks, flag any findings that should trigger analysis under another DW skill — for example, a constitutional violation discovered during investigation should trigger the **DW Suppression Motion Drafting Tool**, and mitigation evidence uncovered during background investigation should trigger the **DW Mitigation Investigation Tool**.
 
 
@@ -1143,27 +1152,4 @@ This skill integrates with the broader Daniels & Washington criminal defense ski
 
 ## Output Location
 
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-defense-investigator-tasking/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (task list + interview questionnaires + scene checklists).
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Investigator tasking memos save to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.

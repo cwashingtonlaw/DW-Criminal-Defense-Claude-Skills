@@ -27,7 +27,7 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 **Required Documentation Before Full Analysis Begins:**
 
-``````
+```
 ☐ Charging document (Bill of Information / Indictment) with statutory citations
 ☐ Conviction details (plea or verdict, counts of conviction, dismissed counts)
 ☐ Applicable sentencing statutes with ranges (minimum / maximum)
@@ -50,7 +50,7 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ## SOURCE CITATION PROTOCOL (Applies to All Outputs)
 
-Every factual claim, data point, date, quote, or assertion in any output produced by this skill must be tied back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, PSI correction letter, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
+Every factual claim, data point, date, quote, or assertion in any output produced by this skill must be tied back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
 
 ### Citation Standard
 
@@ -69,7 +69,7 @@ If a fact cannot be sourced at all, flag it clearly: **[SOURCE NEEDED]** — and
 
 ### Where Citations Appear in Outputs
 
-- **Inline citations** within narrative text (sentencing memoranda, mitigation narratives, PSI correction letters): Place the source in parentheses immediately after the factual claim, e.g., "The client served two combat tours in Afghanistan (DD-214, Section 12a; VA Records, p. 3)."
+- **Inline citations** within narrative text (sentencing memoranda, mitigation narratives): Place the source in parentheses immediately after the factual claim, e.g., "The client served two combat tours in Afghanistan (DD-214, Section 12a; VA Records, p. 3)."
 - **Table citations** (mitigation timelines, PSI audit tables, sentencing range tables, comparable case tables): Include a dedicated "Source Document(s)" column in every factual table.
 - **Source Appendix** at the end of major deliverables (sentencing memoranda, excessive sentence briefs): Include a numbered list of all source documents referenced, with full titles, dates, and where they can be found in the case file.
 
@@ -223,6 +223,18 @@ Before proceeding to the applicable modules, load the reference files needed for
 **Template selection (before drafting any pleading):**
 - Read `../_shared-references/template-selection-protocol.md` — DEVONthink template search protocol
 
+### Step 2.5 -- Load Shared Protocols
+
+Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
+
+For sentencing memoranda specifically, the relevant manifest row is "Sentencing memorandum" — load those references (caption per parish + `attorney-work-product-marking.md` + `signature-block.md` + `certificate-of-service.md` + `louisiana-citation-style.md` + `output-path-formula.md`). The parish-specific caption is loaded the same way regardless.
+
+**INTERNAL DRAFT vs FILED VERSION (sentencing memoranda):** Sentencing memoranda are unusual — they have two modes:
+- **INTERNAL DRAFT** (for attorney review, before filing): apply attorney work product marking per `attorney-work-product-marking.md`.
+- **FILED VERSION** (the sentencing memorandum filed with the court): NO work product marking. It is a filed pleading.
+
+Always confirm with the attorney which mode is being produced. The work product marking rule in shared protocols controls; this skill preserves the distinction.
+
 ---
 
 ## MODULE A -- SENTENCING RANGE CALCULATOR
@@ -322,52 +334,9 @@ Audit the Pre-Sentence Investigation report for factual errors, omissions, misle
 
 **Source Citation Requirement for PSI Audits:** Every error, omission, or discrepancy identified in the PSI must cite both (1) the PSI page/section where the error appears and (2) the contradicting source document with page/paragraph. For example: "PSI Report, p. 8, Section III states three prior felonies; NCIC Rap Sheet, p. 2 shows only two felony entries." This dual-citation approach gives the attorney — and ultimately the court — immediate ability to verify each correction.
 
-### PSI Correction Letter Output
+### PSI Audit Output
 
-When errors are identified, generate a formal PSI Correction Letter:
-
-**Format:**
-```
-[Attorney Letterhead]
-
-[Date]
-
-[Probation Officer Name]
-[Department of Probation and Parole]
-[Address]
-
-Re: [Client Name] -- Docket No. [XXXXX]
-    Corrections to Pre-Sentence Investigation Report
-
-Dear [Officer Name]:
-
-We have reviewed the Pre-Sentence Investigation Report dated [date]
-and respectfully submit the following corrections and supplemental
-information for the Court's consideration:SECTION I -- FACTUAL CORRECTIONS
-[Numbered list of factual errors with correct information and
-supporting documentation]
-
-SECTION II -- OMITTED MITIGATING INFORMATION
-[Numbered list of mitigating facts not included in the PSI with
-supporting documentation]
-
-SECTION III -- CHARACTERIZATION OBJECTIONS
-[Specific objections to inflammatory or misleading characterizations
-with proposed neutral language]
-
-SECTION IV -- SUPPLEMENTAL DOCUMENTATION
-[List of attached documents supporting corrections and additions]
-
-We request that this letter and all attachments be appended to the
-Pre-Sentence Investigation Report and provided to the Court prior
-to sentencing.
-
-Respectfully submitted,
-
-[Attorney Name]
-Daniels & Washington
-[Address / Contact]
-```
+When errors are identified, package the corrections as findings within the sentencing memorandum or as supporting tables for oral objections at sentencing. Each correction must dual-cite: (1) the PSI page/section containing the error, and (2) the contradicting source document with page/paragraph.
 
 ---
 
@@ -666,12 +635,13 @@ X.    Conclusion
 
 **Format:**
 - Formal legal memorandum filed with the court
-- Case caption, counsel identification, certificate of service
+- Caption, signature block, and certificate of service per shared protocols (`dw-shared-protocols`)
+- Citation style per `dw-shared-protocols/references/louisiana-citation-style.md`
 - Structure per Module D (state) or Module H (federal)
-- All citations in proper Bluebook format
 - Attachments indexed and referenced by exhibit letter
 - **Inline source citations** for every factual claim per the Source Citation Protocol
 - **Source Appendix** at the end of the memorandum listing all source documents referenced
+- **Work product marking:** apply per `dw-shared-protocols/references/attorney-work-product-marking.md` ONLY for INTERNAL DRAFTS produced for attorney review. The FILED VERSION of the sentencing memorandum receives NO work product marking.
 
 ### Output 2: Mitigation Timeline
 
@@ -679,42 +649,36 @@ X.    Conclusion
 
 **Format:** Chronological table per Module C, from birth to present. Includes life events, mitigation value, and a **Source Document(s) column** citing the specific document, page, and paragraph/timestamp for each entry. Color-coded by category (family, trauma, mental health, substance abuse, employment, military, rehabilitation). Any entry that cannot be sourced must be flagged **[SOURCE NEEDED]**.
 
-### Output 3: PSI Correction Letter
-
-**When to produce:** Whenever PSI report contains errors, omissions, or misleading characterizations.
-
-**Format:** Formal letter per Module B template. Numbered corrections with supporting documentation. **Each correction must dual-cite**: (1) the PSI page/section containing the error, and (2) the contradicting source document.
-
-### Output 4: Sentencing Range Calculation Table
+### Output 3: Sentencing Range Calculation Table
 
 **When to produce:** Every case at the outset of sentencing preparation.
 **Format:** Per Module A output table. Shows base range, enhanced range, and habitual offender range (if applicable) for each count. Includes concurrent and consecutive totals. **Each statutory citation and enhancement must reference the source document**.
 
-### Output 5: Good Time / Parole Eligibility Projection
+### Output 4: Good Time / Parole Eligibility Projection
 
 **When to produce:** Every case where incarceration is a possible outcome.
 
 **Format:** Per Module E calculation template. Three dates: parole eligibility, good time release, and full sentence expiration.
 
-### Output 6: Comparable Case Outcome Table
+### Output 5: Comparable Case Outcome Table
 
 **When to produce:** Every sentencing memorandum.
 
 **Format:** Per Module D comparable case table. Minimum 5 comparable cases with full citations, facts, sentences, and distinguishing factors. **Each case must include its Bluebook citation as source.**
 
-### Output 7: Excessive Sentence Challenge Brief
+### Output 6: Excessive Sentence Challenge Brief
 
 **When to produce:** When sentence imposed exceeds defense recommendation or appears disproportionate.
 
 **Format:** Legal memorandum with Dorthey analysis (state) or SS 3553(a) analysis (federal). Includes comparable case data, individualized assessment, and specific alternative sentence request. **Inline source citations and Source Appendix required**.
 
-### Output 8: Juvenile Sentencing Analysis
+### Output 7: Juvenile Sentencing Analysis
 
 **When to produce:** Any case where defendant was under 18 at time of offense.
 
 **Format:** Miller factor analysis with developmental history and rehabilitation potential assessment. Integrated into sentencing memorandum or filed as standalone brief.
 
-### Output 9: Federal Guidelines Worksheet
+### Output 8: Federal Guidelines Worksheet
 
 **When to produce:** Every federal case.
 **Format:** Step-by-step Guidelines calculation per Module H. Base offense level, SOCs, adjustments, criminal history points, criminal history category, advisory range. Departure and variance arguments listed with supporting authority.
@@ -723,13 +687,7 @@ X.    Conclusion
 
 ## SAVE LOCATIONS
 
-All reports and documents produced by this skill — sentencing memoranda, mitigation timelines, PSI correction letters, sentencing range tables, good time projections, comparable case tables, excessive sentence briefs, juvenile sentencing analyses, and federal guidelines worksheets — are saved to:
-
-```
-01 - Trial Notebook/08 - Verdict_Sentencing/
-```
-
-This applies whether saving to the client's Google Drive case folder, the local filesystem, or the Cowork outputs directory. Use the client case folder path as the root when available. If the folder does not yet exist, create it.
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed sentencing memoranda (motion-form pleadings) go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. Internal mitigation work product goes to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. [CONFIRM WITH ATTORNEY: a dedicated `01 - Trial Notebook/08 - Verdict_Sentencing/` folder may exist or be preferred for sentencing-phase materials — confirm and update once verified.] See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
 
 After saving, update the Case Brain (`dw-case-brain`) with the filename, date, and document type under COMPANION SKILL OUTPUTS, and save corresponding Obsidian notes to the `Verdict-Sentencing/` folder in the DW-CASE BRAINS vault.
 
@@ -773,12 +731,16 @@ After saving, update the Case Brain (`dw-case-brain`) with the filename, date, a
 
 This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Cross-reference these skills as needed:
 
-- **dw-criminal-defense:** Master case management workflow (Phases 0-3)
-- **dw-sex-offense-specialist:** Sex offense-specific sentencing considerations- **dw-expert-witness-evaluator:** Challenge prosecution experts at sentencing
-- **dw-child-forensic-interview-auditor:** Juvenile sentencing cases involving forensic interview evidence
-- **dw-404b-opposition:** Prior bad acts evidence at sentencing
-- **dw-discovery-compliance-monitor:** Ensure all discovery relevant to sentencing has been produced
-- **dw-voir-dire-assistant:** Penalty-phase jury selection in capital and LWOP cases
+| Skill | Purpose |
+|-------|---------|
+| **dw-shared-protocols** | Caption, signature block, certificate of service, work product marking, citation style, output path formula — load before drafting any pleading |
+| **dw-criminal-defense** | Master case management workflow (Phases 0-3) |
+| **dw-sex-offense-specialist** | Sex offense-specific sentencing considerations |
+| **dw-expert-witness-evaluator** | Challenge prosecution experts at sentencing |
+| **dw-child-forensic-interview-auditor** | Juvenile sentencing cases involving forensic interview evidence |
+| **dw-404b-opposition** | Prior bad acts evidence at sentencing |
+| **dw-discovery-compliance-monitor** | Ensure all discovery relevant to sentencing has been produced |
+| **dw-voir-dire-assistant** | Penalty-phase jury selection in capital and LWOP cases |
 
 ---
 

@@ -49,6 +49,17 @@ The reason this matters: a Brady audit is only as good as the universe of docume
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all audit report headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before conducting any audit, collect the following. The more complete the picture, the more gaps you can identify.
@@ -407,7 +418,7 @@ Supreme Court]
 
 ### File Naming & Location
 - **Filename:** `[3-digit prefix] - Brady-Giglio Compliance Audit.docx`
-- **Location:** Save to `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` per D&W folder conventions
+- **Location:** Per `dw-shared-protocols` output path formula
 - Also save the Disclosure Tracking Log as a separate companion document: `[3-digit prefix] - Brady-Giglio Disclosure Tracking Log.docx`
 
 ---
@@ -528,33 +539,3 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Incorporates the former dw-ci-auditor skill. Pair with dw-criminal-defense for case management, dw-cross-exam-architect for witness impeachment (especially cooperators), and dw-suppression-motion for CI-tainted evidence.*
-
-
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-brady-giglio-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (Brady/Giglio audit + CI detection report).
