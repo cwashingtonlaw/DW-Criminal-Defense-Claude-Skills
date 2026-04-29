@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1f2937; max-width: 720px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 24px 0 8px; padding-bottom: 4px; border-bottom: 1px solid #e5e7eb; }
+  .subtitle { color: #6b7280; font-size: 13px; margin-bottom: 16px; }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  .pill-overdue { background: #fee2e2; color: #b91c1c; }
+  .pill-court { background: #dbeafe; color: #1e40af; }
+  .pill-trial { background: #fef3c7; color: #92400e; }
+  .pill-new { background: #dcfce7; color: #166534; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #f3f4f6; vertical-align: top; }
+  th { background: #f9fafb; font-weight: 600; color: #374151; }
+  .empty { color: #9ca3af; font-style: italic; padding: 8px 0; }
+  .footer { margin-top: 32px; color: #9ca3af; font-size: 11px; }
+</style>
+</head>
+<body>
+  <h1>Weekly Visit List</h1>
+  <div class="subtitle">{{TODAY}} — auto-generated from JusticeWorks</div>
+
+  <h2><span class="pill pill-overdue">OVERDUE</span> Jail visits ({{COUNT_OVERDUE}})</h2>
+  {{TABLE_OVERDUE}}
+
+  <h2><span class="pill pill-court">COURT ≤7 DAYS</span> ({{COUNT_COURT}})</h2>
+  {{TABLE_COURT}}
+
+  <h2><span class="pill pill-trial">TRIAL ≤30 DAYS</span> ({{COUNT_TRIAL}})</h2>
+  {{TABLE_TRIAL}}
+
+  <h2><span class="pill pill-new">NEW THIS WEEK</span> ({{COUNT_NEW}})</h2>
+  {{TABLE_NEW}}
+
+  <div class="footer">
+    Tracker: Court &amp; Jail Visit Tracker.xlsx &nbsp;·&nbsp;
+    Backed up before edit to ~/.dw-tracker/backups/
+  </div>
+</body>
+</html>
