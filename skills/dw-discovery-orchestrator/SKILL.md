@@ -32,6 +32,17 @@ Wait for explicit confirmation. If more discovery is coming, acknowledge and wai
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Phase 1 until these protocols are loaded. All deliverables from this skill (triage reports, findings summaries) are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## PHASE 1 — FILE CLASSIFICATION
 
 Once intake is complete, scan **every file and folder** in the discovery upload. Classify each using the heuristics below.
@@ -448,7 +459,7 @@ For each auditor skill invocation:
 - **List all assigned files** (by filename and path)
 - **Provide context** (case name, docket number, attorney name)
 - **Set execution expectation** (e.g., "Audit for constitutional violations and chain-of-custody breaks")
-- **Specify output location** (e.g., `Case Root / 01 - Trial Notebook / 09 - Case Analysis / Cowork Analysis`)
+- **Specify output location** (follow shared protocols for output paths; see Step 0.5)
 
 ### Example Handoff to dw-crime-scene-auditor
 
@@ -633,33 +644,3 @@ Your job is to be the gatekeeper between raw discovery and expert auditors. Get 
 Be thorough. Use all three classification methods (filename, extension, content). When in doubt, ask. When you find an unclassified file, escalate it. Speed comes after accuracy.
 
 **Ready to begin discovery intake?**
-
-
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-discovery-orchestrator/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (discovery triage report).
