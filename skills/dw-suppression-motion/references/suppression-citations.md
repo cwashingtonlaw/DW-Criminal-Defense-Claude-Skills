@@ -6,6 +6,43 @@ This library is the Layer 1 (training-knowledge) starting point for drafting sup
 
 ---
 
+## 0. Firm Authority — `Law Library-Criminal` DEVONthink Database
+
+The firm's `Law Library-Criminal` database is the operational source for suppression work. Unlike 404(B) (where the firm keeps the foundational cases as standalone PDFs), suppression authority lives primarily in firm-drafted motion templates organized by category. Each template embeds the relevant federal and Louisiana authority — when drafting, lift the citation skeleton from the most analogous template, then refresh the case law against current research.
+
+**Database root:** [Law Library-Criminal](x-devonthink-item://3C34A487-54B3-4D41-91EF-B83DC32F31C3)
+
+**Key groups by suppression category:**
+
+| Category | DEVONthink Group | What's there |
+|---|---|---|
+| Search & Seizure (4th Am.) — *motions* | [Motions / 4th Amendment Issues](x-devonthink-item://51CAE66C-E7AA-4BFE-9E34-9D3046F04D7F) | 60+ motion templates: auto stops, warrantless searches, Franks hearings, cell-site, geofence, FISA, drone surveillance |
+| Search & Seizure — *case law / treatises* | [Search & Seizure](x-devonthink-item://EB955B5A-934B-439E-A5CF-CB5F40505E4B) | Subgroups for SILA, warrantless search, no-reasonable-grounds-to-stop; plus the *Automobile_Suppression* PDF and search-and-seizure outline |
+| Statements (5th Am.) | [Motions / 5th Amendment Issues](x-devonthink-item://8BAFE1E0-BAA4-48C7-84EE-1C94366CFF3A) | Miranda suppression motions; statement-suppression templates |
+| False Confessions | [Motions / False Confessions](x-devonthink-item://961A20A0-0591-49E9-B7AC-7DC9A51373E9) | Voluntariness and false-confession-specific templates |
+| Identification | [Motions / Eyewitness Identification](x-devonthink-item://ACF16B84-8632-4AED-9243-24E9B00D2F40) | Wade/reliability motions, expert-notice templates, Innocence Project amicus, Manson framework briefs |
+| Treatise — Louisiana Criminal Trial Practice | [Open formulary](x-devonthink-item://F43B9C6D-3D5A-44D1-B228-520090BBEEEF) | Primary template source per dw-template-selector |
+
+**Layered workflow:**
+
+1. Read this file (Layer 1) — well-established baseline of federal + Louisiana authority.
+2. Open the DEVONthink groups above and identify the firm motion template closest to the case facts (Layer 1.5 — firm authority). Lift its citation skeleton.
+3. Run the DEVONthink searches in `dw-suppression-motion/SKILL.md` Step "Layer 2" against this database for adjacent prior filings.
+4. Web/Westlaw search (Layer 3) for any case decided after the firm's last template revision — particularly important post-*Carpenter*, post-*Riley*, post-*Strieff*.
+
+**High-value firm templates to start from** (most-used skeletons for the four categories):
+
+- **Search & Seizure — auto stops:** [Memo in Support of Motion to Suppress Evidence from Illegal Automobile Stop](x-devonthink-item://97303EBF-A0CB-4C4A-B02C-75DC90AB2D7E) · [Motion to Suppress Evidence from Warrantless Auto Stop](x-devonthink-item://7F6E61CE-EF0C-4D52-ADA6-DC5F2CFA5BF6) · [Motion to Suppress Traffic Stop](x-devonthink-item://D88CE6F1-5A2C-46E8-B3CC-09761C395818)
+- **Search & Seizure — warrants & Franks:** [Motion for Franks Hearing](x-devonthink-item://D23D7D0E-EC14-459C-B21D-636B78C523CA) · [Motion to Suppress Custodial Statements and Evidence Seized from Invalid Search Warrant](x-devonthink-item://F567A6B7-3732-4E78-B83D-CDB0853A4684) · [Memo in Support of Motion to Suppress Evidence Seized from Home Pursuant to Warrant](x-devonthink-item://C98A5BB1-0FA9-404C-81A2-D12CCF3889DF)
+- **Search & Seizure — digital:** [Motion to Suppress Digital Information from Cell Phone](x-devonthink-item://F81BE5FB-8C3A-45DD-B626-E30C87E223AF) · [Motion to Suppress Cell Phone Evidence from Warrantless Search](x-devonthink-item://604DF1D1-7FE9-4A25-AC0D-ADD42BD058D8) · [Motion to Suppress Evidence Obtained from Google Geofence Reverse Location Search Warrant](x-devonthink-item://F9BD4589-EC70-4349-8038-C86C7333F3F0) · [4th Amendment Motions Primer for Digital Evidence — OUTLINE](x-devonthink-item://BAEFD4E6-153F-4572-B88B-42D9608FE988)
+- **Search & Seizure — overview outline:** [Motions to Suppress — OUTLINE](x-devonthink-item://CEB2A270-6790-48E5-BAE4-F1DCCA018BA4)
+- **Statements (Miranda / Voluntariness):** [Motion to Suppress Statements and Physical Evidence Due to Violation of Miranda](x-devonthink-item://6DAD1134-8123-40F8-B116-9E3EDD625BD4) · [Memo in Support of Motion to Suppress Testimony of Defendant](x-devonthink-item://2CBE1485-53DD-43DA-8969-A0485FDE4199)
+- **Identification:** [Motion to Suppress Identification Testimony or for Wade and Reliability Hearing](x-devonthink-item://517BF592-6215-481F-BA94-20871052E618) · [Memo of Law in Support of Motion to Suppress In-Court and Out of Court Identification](x-devonthink-item://459837CA-05FF-4B26-B887-7A628BF8D87A) · [Motions to Suppress in Eyewitness Identification Cases — OUTLINE](x-devonthink-item://BF238FDF-110F-4F69-B907-3C722BAB89DD) · [Brief Of Amicus Curiae The Innocence Project — Eyewitness ID](x-devonthink-item://1DA86715-1D00-4161-B5A2-B316C94B6C60)
+
+The federal foundational cases cited below in Sections 1–4 (*Mapp*, *Katz*, *Carpenter*, *Riley*, *Franks*, *Miranda*, *Manson*, *Wong Sun*, etc.) are **not** stored as standalone PDFs in the firm database — they are cited within the templates above. When you need full text, pull from Westlaw/Fastcase. The motion templates are the firm's operational citation source.
+
+---
+
 ## Constitutional Foundations
 
 | Right | Federal | Louisiana |

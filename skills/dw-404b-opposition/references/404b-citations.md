@@ -6,6 +6,37 @@ This library is the Layer 1 (training-knowledge) starting point for opposing a P
 
 ---
 
+## 0. Firm Authority — `Law Library-Criminal` DEVONthink Database
+
+The firm maintains a curated copy of every foundational 404(B) case below in DEVONthink. When this library is loaded as Layer 1, the next step is to open the corresponding firm copies via the `x-devonthink-item://` links that appear inline below — they take you straight to the firm's PDFs, which often include attorney annotations, prior brief callouts, and stamped filings.
+
+**Database root:** [Law Library-Criminal](x-devonthink-item://3C34A487-54B3-4D41-91EF-B83DC32F31C3)
+
+**Key groups for 404(B) work:**
+
+| Group | DEVONthink Link | What's there |
+|---|---|---|
+| Motions / 404 B - Other Crimes | [Open](x-devonthink-item://3E4C8057-3DB3-4E11-819F-E3AB0105E2DF) | Foundational Louisiana 404(B) cases, firm motion templates, brief memos |
+| Case Law (top-level) | [Open](x-devonthink-item://ECFB323D-6DC1-45F4-8188-B31FDE426242) | Cross-cutting decisions including *State v. Beal* (reverse 404(B)) |
+| Trial Practice & Procedure | [Open](x-devonthink-item://ADBCCA75-4C6C-4B6F-9C32-DF94808F5C7B) | LA Criminal Trial Practice formulary — primary treatise source |
+
+**Layered workflow (echoes the parent skill's Layer 1/2/3 structure):**
+
+1. Read this file (Layer 1) — well-established baseline.
+2. Open each linked DEVONthink item below to load firm-vetted cases and prior briefs (Layer 1.5 — firm authority).
+3. Run the DEVONthink searches in `dw-404b-opposition/SKILL.md` Step "Layer 2" against the same database to surface adjacent prior filings.
+4. Web/Westlaw search (Layer 3) for any case decided since the firm's last update.
+
+**Firm motion templates already drafted** (start here when building a new opposition):
+
+- [044s2 Supplement to Adequate 404b Notice (RTF)](x-devonthink-item://376429AE-6AC5-44F0-9AC2-07A2FE42BC6D)
+- [brief memo-404 b (RTF)](x-devonthink-item://35AA7B46-8241-422F-B915-F29FBCEB5C50)
+- [motion to Exclude other crimes evidence (RTF)](x-devonthink-item://0B8428CC-0100-4CA3-A406-D6CE20A5600B)
+- [notice requirement (RTF)](x-devonthink-item://B8CE4DD3-867B-4348-AF64-36EA1A42BECA)
+- [Louisiana supreme court reigns in 404 b (recent overview)](x-devonthink-item://9A4016D6-9374-42B5-A4EA-2E6376D6DEB1)
+
+---
+
 ## 1. Constitutional & Statutory Framework
 
 ### Louisiana
@@ -24,7 +55,7 @@ This library is the Layer 1 (training-knowledge) starting point for opposing a P
 
 ## 2. The Prieur Framework — Cornerstone Authority
 
-### State v. Prieur, 277 So. 2d 126 (La. 1973)
+### State v. Prieur, 277 So. 2d 126 (La. 1973) — [firm copy](x-devonthink-item://95D89D6C-E4B5-40A1-A1D4-F94A94702134)
 
 The seminal Louisiana case. Establishes:
 
@@ -36,11 +67,11 @@ The seminal Louisiana case. Establishes:
 
 **Key quote often used in opposition memoranda:** *"The probative value of [other crimes] evidence must be weighed against possible prejudice."* Prieur, 277 So.2d at 128.
 
-### State v. Goffner, 449 So. 2d 1054 (La. App. 1st Cir. 1984)
+### State v. Goffner, 449 So. 2d 1054 (La. App. 1st Cir. 1984) — [firm copy](x-devonthink-item://60B5E452-B07B-426F-91AE-B782DDFABE5A)
 
 Sharpens the notice requirement: "kitchen sink" notices that lump multiple acts together, fail to identify which exception is claimed for each act, or claim every Art. 404(B) exception in the alternative are *facially inadequate* and the evidence must be excluded. Cite when attacking notice specificity.
 
-### State v. Hatcher, 372 So. 2d 1024 (La. 1979)
+### State v. Hatcher, 372 So. 2d 1024 (La. 1979) — [firm copy](x-devonthink-item://5E280C4D-8404-4FEE-B986-DC6B17AA8AC1)
 
 Confirms the contradictory-hearing requirement and the State's pre-trial burden. Often cited together with *Prieur*.
 
@@ -48,15 +79,15 @@ Confirms the contradictory-hearing requirement and the State's pre-trial burden.
 
 ## 3. Independent Relevance — The "Material Issue Genuinely Contested" Requirement
 
-### State v. Martin, 377 So. 2d 259 (La. 1979)
+### State v. Martin, 377 So. 2d 259 (La. 1979) — [firm copy](x-devonthink-item://93ECDBBE-AA62-4043-903C-A349E82B862F)
 
 Other-crimes evidence is admissible only when relevant to a material issue *genuinely contested at trial*. If the defendant has not raised a defense that puts the issue in play, the State cannot inject the issue and then use other crimes to rebut it. **Use heavily when the State claims "intent" or "knowledge" but the defense is a denial of the act itself.**
 
-### State v. Rose, 2006-0402 (La. 2/22/07), 949 So. 2d 1236
+### State v. Rose, 2006-0402 (La. 2/22/07), 949 So. 2d 1236 — [firm copy](x-devonthink-item://DB9331EC-099C-4D19-8F3C-96FA17374451)
 
 Reaffirms Martin. Material issue must be genuinely disputed, not merely formally in issue. The State cannot manufacture relevance by predicting a defense the defendant has not asserted.
 
-### State v. Kennedy, 2000-1554 (La. 4/3/01), 803 So. 2d 916
+### State v. Kennedy, 2000-1554 (La. 4/3/01), 803 So. 2d 916 — [firm copy](x-devonthink-item://335421F3-1EC8-4458-9050-242F039866AA)
 
 Identity exception requires more than mere similarity — must show a "modus operandi" so distinctive that it functions as a "signature." Repeated use of force or general criminal conduct is not a signature. Cite when the State invokes the identity exception loosely.
 
@@ -64,7 +95,7 @@ Identity exception requires more than mere similarity — must show a "modus ope
 
 ## 4. State's Burden — Clear and Convincing Evidence
 
-### State v. Galliano, 2002-2849 (La. 1/10/03), 839 So. 2d 932
+### State v. Galliano, 2002-2849 (La. 1/10/03), 839 So. 2d 932 — [firm copy](x-devonthink-item://109BF08B-AD84-438A-BEF4-A1F227C1EA29)
 
 The State must prove by *clear and convincing evidence* that the defendant committed the other acts before they may be introduced at trial. Mere accusation, arrest, or even charge is not enough. **Use when the State relies on uncharged or dismissed prior acts.**
 
@@ -152,7 +183,7 @@ Even with a limiting instruction, the prejudicial effect of other-crimes evidenc
 ## 9. Federal-Court Authority (for federal cases or persuasive value)
 
 - **United States v. Beechum, 582 F.2d 898 (5th Cir. 1978) (en banc)** — Two-step framework: (1) evidence must be relevant to an issue other than character, (2) probative value must not be substantially outweighed by undue prejudice.
-- **Old Chief v. United States, 519 U.S. 172 (1997)** — Evidentiary alternatives matter — when the State can prove its point through less prejudicial means, the more prejudicial evidence must be excluded under Rule 403.
+- **Old Chief v. United States, 519 U.S. 172 (1997)** — Evidentiary alternatives matter — when the State can prove its point through less prejudicial means, the more prejudicial evidence must be excluded under Rule 403. [Firm copy](x-devonthink-item://02AE6FDF-A300-4C0E-A0C6-843CBC4E575A).
 
 ---
 
@@ -165,6 +196,13 @@ This section is intentionally minimal. **Always run a current Westlaw or Fastcas
 - Application in sex-offense cases under La. C.E. Art. 412.2
 
 After web/DEVONthink search, append findings to the Memorandum with full Westlaw or Fastcase citation strings.
+
+**Recent firm-curated authority** (already in DEVONthink, worth reviewing on every new opposition):
+
+- **State v. Jones, 285 So. 3d 1074** — [firm copy](x-devonthink-item://6AF7C1AA-24FE-43B6-8C95-D9BD8DA0AB26). Recent Louisiana decision applying the Prieur framework; check the holding before filing.
+- **State v. Kahey** — [firm copy](x-devonthink-item://4EC88B60-0308-4084-A04D-345D1B6E6E3D). Louisiana case in the firm library; review for applicable facts.
+- **State v. Beal (Reverse 404(B))** — [firm copy](x-devonthink-item://AF25A828-994E-486B-92CE-4566E0D7977E). Reverse 404(B) authority — relevant when the *defense* seeks to introduce other-crimes evidence to support an alternative-perpetrator theory.
+- **"Louisiana supreme court reigns in 404 b"** — [firm copy](x-devonthink-item://9A4016D6-9374-42B5-A4EA-2E6376D6DEB1). Recent overview / commentary; useful for framing the trend in Louisiana 404(B) jurisprudence.
 
 ---
 
