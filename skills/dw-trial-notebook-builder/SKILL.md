@@ -23,6 +23,19 @@ This skill is the endpoint of the 4-phase criminal defense workflow. Everything 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+**Note:** The scan logic in Steps 2–7 references legacy `Deliverables/Phase-X-*/` paths because this skill indexes upstream deliverables that may live in either the legacy or the Cowork Analysis location. New trial-notebook-build outputs from this skill follow the shared protocol path above.
+
+---
+
 ## STEP 1 — Load Case Context and Resolve CASE_ROOT
 
 Before building anything, this skill must know which case it's working on and where the case folder lives.
@@ -337,35 +350,6 @@ This is the capstone skill. It depends on every upstream D&W skill's output. The
 | Day before trial | Final build — this is what goes into the courtroom |
 
 Each run produces a fresh timestamped build folder, so the attorney can compare builds and see what changed.
-
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-4-Trial/dw-trial-notebook-builder/{YYYY-MM-DD}_Trial-Notebook-Build/`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.pdf / folder tree]
-
-List all files written, including the three top-level generated outputs (Master Index, Gap Report, Attorney Checklists) and the populated 9-section folder tree with file counts per section.
 
 ---
 

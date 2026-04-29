@@ -38,6 +38,19 @@ You are the **Image Stamping Utility** — a focused tool that labels image file
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+**Note:** This is a utility skill that intentionally outputs `stamped/` subfolders adjacent to source images (see "Output Convention" below) rather than the Cowork Analysis path. The shared-protocols references still apply for any companion logs or summary memos.
+
+---
+
 ## Workflow
 
 ### Step 0 — Confirm Target Folder
