@@ -7,9 +7,36 @@ description: >
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.0 | Internal Use Only**
+**Version 5.2 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
+
+---
+
+## Bundled Resources
+
+This skill includes bundled files organized into three directories. Load them as needed — they are not all required at once.
+
+```
+dw-criminal-defense/
+├── SKILL.md                              ← You are here
+├── references/
+│   ├── case-analysis-prompts.md          ← Phase 2: all 8 report prompt templates
+│   └── output-path-convention.md         ← Where to save deliverables (CASE_ROOT resolution, phase folders, naming)
+├── assets/
+│   ├── CASE PROFILE.docx                 ← Master Case Profile template (Part 1 + case-type Parts 2A/2B/2C)
+│   ├── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
+│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs
+└── scripts/
+    └── generate_placeholders.py          ← Generates one-page placeholder PDFs for media evidence folders
+```
+
+**When to load each resource:**
+- **Phase 1 Step 1 (new case):** Read `references/output-path-convention.md` to resolve `CASE_ROOT`. Copy `assets/Case Tables.xlsx` to the case root if not already present.
+- **Phase 1 Step 2f:** Run `scripts/generate_placeholders.py` against the evidence directory.
+- **Phase 1 Step 3 (Case Profile):** Copy `assets/CASE PROFILE.docx` into the case folder as `000 - Case Profile.docx`. Populate Part 1 for every case; populate exactly one of Part 2A (LWOP Homicide), Part 2B (LWOP Sex Offense), or Part 2C (Other Felony) based on case type.
+- **Phase 2 Step 2:** Read `references/case-analysis-prompts.md` for the exact prompt templates for all 8 reports.
+- **Any file-write step:** Consult `references/output-path-convention.md` for the canonical save path.
 
 ---
 
@@ -17,21 +44,53 @@ This skill governs all Claude Cowork operations for criminal defense case manage
 
 - **Never create new spreadsheets.** All tabular data goes into the sheets that already exist in `Case Tables.xlsx` at the root of the case folder.
 - **Never create new folders** unless a standard subfolder is confirmed missing.
-- **Naming convention:** All documents use `[3-digit prefix] - [Document Name].docx` format (e.g., `010 - Incident Report`).
+- **Naming convention:** All documents use `[3-digit prefix] - [Document Name].docx` format with **sequential numbering starting at 001** (e.g., `001 - Bill of Information`, `002 - Incident Report`, `003 - Arrest Warrant`). Number documents consecutively with no gaps — do not skip numbers or leave room between entries.
 - **Cowork drafts; attorney approves.** Claude prepopulates templates and drafts documents. Attorneys make final decisions and send all external communications.
 - **Quality Gates must be confirmed** before advancing to the next phase. Do not proceed if any gate item is unresolved.
 - **Louisiana law applies** unless otherwise indicated. Use Louisiana statutes for all charge research, discovery obligations, and citations.
 
 ---
 
-## STEP 0.5 — LOAD SHARED PROTOCOLS
+## Case Tables Write Protocol
 
-Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+**CRITICAL:** Google Drive sync can silently overwrite changes to Case Tables.xlsx if the file is open in Excel, Google Sheets, or any other application on another device. To prevent data loss, **ALWAYS follow this protocol before writing to any sheet in Case Tables.xlsx** — including Evidence Table, Timeline Sheet, Witness Sheet, Witness List - Alpha, Witness List - Priority, Defense Matrix, Defense Shield, Running List, and any future sheets.
 
-1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
-2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+### Pre-Write Warning
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. Note: filed documents delegated to sub-skills (motions, pleadings) use `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`.
+Before modifying any sheet in Case Tables.xlsx, alert the attorney with this exact message:
+
+> "I need to update Case Tables.xlsx. **Please close it in Excel, Google Sheets, or any other application before I proceed.** Google Drive sync can overwrite my changes if the file is open elsewhere. Confirm when it's closed."
+
+### Wait for Confirmation
+
+Do not proceed to write until the attorney explicitly confirms the file is closed. Accept confirmations like:
+- "closed"
+- "go ahead"
+- "it's closed"
+- "ready"
+- Any other affirmative confirmation that the file is no longer open
+
+### Write the Changes
+
+Once confirmed, perform the update to Case Tables.xlsx.
+
+### Post-Write Verification
+
+After writing, instruct the attorney:
+
+> "Update complete. Please open Case Tables.xlsx and confirm you can see [specific sheet name and change description]. If the change isn't visible, let me know and I'll reapply it."
+
+### Retry Protocol — If Changes Disappear
+
+If the attorney reports the change is missing:
+1. Ask them to close the file again
+2. Re-read the current state of Case Tables.xlsx (it may have been overwritten by sync)
+3. Reapply the changes
+4. Verify again using the Post-Write Verification message above
+
+### Guardrail
+
+**Never write to Case Tables.xlsx without first warning the attorney to close the file and waiting for confirmation.** Google Drive sync conflicts can silently overwrite changes, causing lost work.
 
 ---
 
@@ -40,11 +99,12 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 *Triggered the moment a new client engagement is confirmed. This phase covers everything from folder creation through a fully organized, Bate-stamped, searchable case file with a complete Case Profile — the foundation for all analysis in Phase 2.*
 
 ### Step 1: Folder Setup
+- Read `references/output-path-convention.md` to resolve `CASE_ROOT` (checks Case Brain session → attorney prompt → Cowork project mapping → asks attorney).
 - Confirm all standard subfolders exist: `01 - Trial Notebook` (all sub-tabs) and `02 - Pretrial Notebook` (all sub-tabs).
-- Locate `Case Tables.xlsx` at the root of the case folder.
+- Locate `Case Tables.xlsx` at the root of the case folder. If this is a new case and no `Case Tables.xlsx` exists, copy the master template from `assets/Case Tables.xlsx` into the case root.
 - Do not create new folders unless a standard subfolder is missing.
 
-**✓ Step 1 Check:** Folder structure confirmed, `Case Tables.xlsx` located.
+**✓ Step 1 Check:** Folder structure confirmed, `CASE_ROOT` resolved, `Case Tables.xlsx` located.
 
 ### Step 2: Prepare Discovery for Review
 *Converts raw discovery into organized, Bate-stamped, searchable files. Folder sorting runs in parallel with OCR — do not wait for OCR to begin sorting.*
@@ -77,8 +137,8 @@ Rules:
 **2d — Separate Discovery into Individual Documents**
 - Review the State's index to identify document divisions and names.
 - Split the combined PDF into individual files at the State's document boundaries.
-- Apply naming convention: `[3-digit prefix] - [Document Name]` (e.g., `010 - Incident Report`).
-- Create subfolders for multi-file audio/video (e.g., `025 - Body Camera Footage/`).
+- Apply naming convention: `[3-digit prefix] - [Document Name]` with sequential numbering starting at `001` (e.g., `001 - Bill of Information`, `002 - Incident Report`). Assign the next consecutive number to each document — never skip numbers.
+- Create subfolders for multi-file audio/video using the same sequential number (e.g., `008 - Body Camera Footage/`).
 - Output a **Separation Checklist**: expected document count (from State index) vs. actual file count.
 - Flag any document in the State's index with no corresponding file — log in Report 7 queue.
 
@@ -99,30 +159,13 @@ python3 <skill-directory>/scripts/generate_placeholders.py \
   [--folders "folder1" "folder2" ...]  # optional: specific folders only
 ```
 
-If `--folders` is omitted, the script processes all subfolders automatically.
-
-**What the script does:**
-1. Scans each subfolder in the evidence directory for file counts, types, and size
-2. Classifies contents by media type (Audio, Photo/Image, Video, Other Data)
-3. Generates a one-page PDF placeholder for each folder matching the firm's template
-4. Names each PDF identically to its source folder and saves it in the evidence directory
+If `--folders` is omitted, the script processes all subfolders automatically. The script scans each subfolder for file counts, types, and size; classifies contents by media type (Audio, Photo/Image, Video, Other Data); generates a one-page PDF placeholder matching the firm's template layout (defined in `assets/Evidence_Placeholder_Template.md`); and names each PDF identically to its source folder.
 
 **Workflow:**
 - Identify every subfolder in `05 - Evidence` that contains media files
 - Confirm scope with user — default to processing all folders unless told otherwise
-- Skip folders that already have a corresponding placeholder PDF (unless regenerating)
+- Skip folders that already have a corresponding placeholder PDF (use `--force` to regenerate)
 - After running, report: total placeholders created, any folders skipped, breakdown by media type
-
-**Media type classification:**
-
-| Category | Extensions |
-|----------|-----------|
-| Audio | .wav, .mp3, .aac, .flac, .ogg, .wma, .m4a, .wpl |
-| Photo/Image | .jpg, .jpeg, .png, .bmp, .tiff, .gif, .raw, .cr2, .nef, .heic |
-| Video | .mp4, .avi, .mov, .mkv, .wmv, .flv, .mts, .vob, .mpg, .mpeg, .m4v, .3gp, .dav, .264, .sec, .thm, .bup, .ifo |
-| Other Data | .pdf, .docx, .doc, .txt, .xlsx, .csv, .exe, .dll, .db, .seclist |
-
-Each placeholder PDF includes: Evidence ID/Name, file count, checked media type boxes, auto-generated description with file format breakdown, and storage path for retrieval.
 
 **✓ Step 2 Check:**
 - [ ] File count in Evidence Folder matches downloaded discovery
@@ -135,15 +178,28 @@ Each placeholder PDF includes: Evidence ID/Name, file count, checked media type 
 
 ### Step 3: Generate Case Profile
 **Output:** `000 - Case Profile.docx` → save to `Pretrial Notebook → 03 - Case Analysis & Notes`
+**Source template:** `assets/CASE PROFILE.docx` — copy this template to the output path before populating.
 
-This single document replaces the former Initial Case Profile and Criminal Defense Cover. It is organized to follow the lifecycle of a criminal case — from identification through disposition — so the attorney can use it as a living reference from intake through trial.
+This single document replaces the former Initial Case Profile, Criminal Defense Cover, and (where applicable) the standalone LWOP review sheet. It follows the lifecycle of a criminal case — from identification through disposition — so the attorney can use it as a living reference from intake through trial.
+
+The template has two parts:
+
+- **Part 1 — Case Profile** (six sections). Populate for **every** case.
+- **Part 2 — Case-Type Specific Review Sheet.** Populate **exactly one** of Part 2A, 2B, or 2C based on the charges:
+  - **Part 2A — LWOP Homicide** — for cases with LWOP exposure on a homicide charge (La. R.S. 14:30, 14:30.1). Submit to the District Defender per Calcasieu PDO requirements.
+  - **Part 2B — LWOP Sex Offense** — for cases with LWOP exposure on a sex offense charge (La. R.S. 14:42, 14:42.1, 14:43, 14:43.1, 14:81.2). Submit to the District Defender 30 days after appointment and every consecutive 30 days.
+  - **Part 2C — Other Felony** — for non-LWOP felony cases. No District Defender submission requirement.
+
+If the case carries both homicide and sex offense LWOP exposure, populate both Part 2A and Part 2B.
+
+#### Part 1 — Case Profile (always completed)
 
 **Section 1 — Case Identification**
 - Client Name | DOB | SS# | Address | Phone | Email
 - Docket # | Court | Division | Judge
 - Date of Offense | Date of Arrest | Date of Hire
 - Co-Defendant(s) (if any)
-- **Cowork populates** from Clio intake and court filings where available. **Staff/Attorney completes** remaining client demographic fields.
+- **Cowork populates** from court filings and intake documents where available. **Staff/Attorney completes** remaining client demographic fields.
 
 **Section 2 — Charges & Exposure**
 - All charges with Louisiana statutory citations
@@ -180,19 +236,60 @@ For each potential defense, include:
 - Military Service (if applicable)
 
 **Section 6 — Key Dates & Next Steps**
-- Next Court Date (from Clio / Google Calendar)
+- Next Court Date (from Google Calendar)
 - Bill/Indictment Date
 - Discovery deadlines
 - Motion filing deadlines
-- Clio tasks created for attorney/staff completion of all open fields
+
+#### Part 2 — Case-Type Specific Review Sheet
+
+Populate exactly one of Part 2A, 2B, or 2C. None of these fields duplicate Part 1 — they capture only the case-development detail required for that case type.
+
+**Common to 2A / 2B / 2C** (every case-type branch contains these nine sections):
+1. **Key Dates (LWOP/case-specific):** Age at Time of Offense | Discovery Filed (date) | Discovery Received (date) | Trial Date
+2. **Co-Defendant Details:** Separately Charged? | Plea Status | Cooperating with State?
+3. **Case Specifics** — *differs per case type, see below*
+4. **Defendant Statement:** substance + voluntariness flags
+5. **Suppression Analysis:** Miranda advised/invoked, Voluntary, Reid technique, Confession, Statements credible, Against client's interest, Suppression motion Y/N + Why + basis
+6. **Motions:** Discovery, Bill of Particulars, Suppression(s), In Limine, Reveal the Deal, Bond Reduction (filed?, date filed, original amount, post-hearing amount), Speedy Trial, Other Motions, Reports Checklist, Prescription, Defendant testify? [ATTORNEY]
+7. **Investigation:** Investigator Assigned | Request Form Completed On | Requested by Attorney | Results
+8. **Evidence Inventory** — *differs per case type, see below*
+9. **Records & Authorizations:** HIPPA Y/N, Date Signed, Date Requested, Date Received, School Records, IEP, Date Records Requested, Date IEP Requested
+
+**Part 2A — LWOP Homicide-specific fields (Sections 3 and 8 only):**
+- Section 3: Alleged Victim(s) (* by name of any deceased) | Aggravating Factors (La. C.Cr.P. art. 905.4) | Indictment Attached (Y/N) | Theory of the Case — Initial [ATTORNEY] | Theory of the Case — Trial [ATTORNEY] | Witnesses (numbered list) | Witness Statements (numbered list) | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
+- Section 8: standard evidence inventory PLUS **Autopsy — Performed by**, **Autopsy — Date first read by attorney**, and lab column **Deceased** (alongside Client / Co-Defendant / Witness)
+- Footer: "Submission: To be submitted to the District Defender."
+
+**Part 2B — LWOP Sex Offense-specific fields (Sections 3 and 8 only):**
+- Section 3: Alleged Victim(s) (include ages & DOBs) | Aggravating Factors (focus on age of victim, relationship to defendant, use of force, threats, position of trust/authority) | Indictment Attached (Y/N) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
+- Section 8: standard evidence inventory PLUS **SANE Exam — Performed by**, **SANE Exam — Date first read by attorney**, **CAC Video — Is it viewable?**, **CAC Video — Date first viewed by attorney**, and lab column **Accuser** (alongside Client / Co-Defendant / Witness)
+- Footer: "Submission: To be submitted to the District Defender 30 days after appointment and again every consecutive 30 days."
+
+**Part 2C — Other Felony-specific fields (Sections 3 and 8 only):**
+- Section 3: Alleged Victim(s) / Complainant(s) (if applicable) | Charging Instrument Attached (Indictment or Bill of Information — Y/N) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
+- Section 8: standard evidence inventory PLUS **Physical Evidence Inventory** (weapons, drugs, paraphernalia, clothing, etc.), **Lab type** (DNA, toxicology, ballistics, drug analysis, digital forensics), and lab column **Victim/Complainant** (alongside Client / Co-Defendant / Witness). No autopsy, SANE, or CAC fields.
+- No District Defender submission footer.
+
+#### Attorney-only fields
+
+Every field marked `[ATTORNEY]` (Theory of the Case — Initial, Theory of the Case — Trial, Possible Defense Witnesses, Does Defendant want to testify?, and any Section 4 — Defenses entries that require client communication or strategic judgment) is rendered in **red font** with `[ATTORNEY]` placeholder text. Cowork leaves these blank.
+
+#### Routing to dw-lwop-populator
+
+When the case has LWOP exposure (Part 2A or 2B is in scope), Cowork still routes the District Defender submission workflow to **dw-lwop-populator** for auto-population from discovery. The LWOP populator now reads from and writes to Part 2A or Part 2B of `000 - Case Profile.docx` rather than producing a separate `001 - LWOP Worksheet.docx`.
 
 **✓ Step 3 Check:**
-- [ ] `000 - Case Profile.docx` saved to correct location
-- [ ] All auto-populated fields completed from available sources
-- [ ] Clio tasks created for attorney/staff completion of open fields
+- [ ] `assets/CASE PROFILE.docx` copied into `Pretrial Notebook → 03 - Case Analysis & Notes` as `000 - Case Profile.docx`
+- [ ] Part 1 sections 1–6 populated from available sources
+- [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges; the other two parts left blank or removed
+- [ ] All `[ATTORNEY]` fields preserved in red for attorney completion
+- [ ] If LWOP exposure is present, dw-lwop-populator routed to fill Part 2A or 2B
 
 ### Step 4: Build Case Tables
 Populate three sheets in `Case Tables.xlsx`. Do not create new sheets — use the existing ones. Maintain all existing color coding, dropdown lists, and formatting. The Case Profile (Step 3) provides the charge and defense context needed for accurate assessment of all columns.
+
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
 
 **4a — Evidence Table**
 Populate the **Evidence Table Sheet** with the full discovery catalog, including analysis columns.
@@ -248,24 +345,32 @@ Before proceeding to Phase 2, confirm all step checks are complete:
 - [ ] Discovery fully organized, Bate-stamped, OCR'd, transcribed, and placeholders generated (Step 2)
 - [ ] `000 - Case Profile.docx` complete with all auto-populated fields (Step 3)
 - [ ] All Case Tables populated — Evidence Table (all 11 columns), Witness Tables (Priority and Alpha) (Step 4)
+- [ ] Case state saved to **dw-case-brain** — Phase 1 complete, ready for Phase 2
 
 ---
 
 ## PHASE 2 — Case Processing & Analysis
 
-*Runs parallel analysis before attorney review. Auto-action loops triggered by Reports 7 and 9 eliminate rework in Phase 3.*
+*Runs parallel analysis before attorney review. Auto-action loops triggered by Reports 7 and 8 eliminate rework in Phase 3.*
 
-### Step 1: Parallel Analysis
-Before attorney review begins, independently analyze all case documents and generate:
-- **Constitutional Issues Scan:** flag any document suggesting 4th, 5th, or 6th Amendment concerns → route to **dw-suppression-motion**
-- **Brady/Giglio Checklist:** identify material favorable to defense that may not have been disclosed → route to **dw-brady-giglio-auditor**
-- **Witness Cross-Reference:** map every witness name across all documents and flag inconsistencies → route to **dw-cross-exam-architect**
-- **Timeline Cross-Check:** build a preliminary chronology and flag any date/time conflicts in reports
-- **Chain of Custody Audit:** verify each piece of physical evidence has an unbroken custody log → route to **dw-chain-of-custody-auditor**
+### Step 1: Rapid Triage & Specialist Routing
+Before the 8 Case Analysis Reports are generated, scan all case documents to produce two deliverables: a **Triage Routing Memo** and early **specialist skill dispatches**. The purpose of this step is speed — get routing decisions to specialist skills fast so they can begin working in parallel while the full reports are being written. This step flags and routes; the reports (Step 2) analyze in depth.
 
-Save all outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` subfolder.
+**1A — Triage Routing Memo**
+Quickly scan all discovery documents and produce a short routing memo that identifies which documents need specialist attention. The memo is a working document for Cowork's internal use — not a deliverable to the attorney. It contains routing decisions, not analysis.
 
-**Specialized Evidence Routing:** Identify and route based on evidence type:
+For each flag below, list the specific documents (by name and Bate stamp) and the routing destination. Do not write analysis — just identify and route:
+- **Constitutional flags:** documents suggesting 4th, 5th, or 6th Amendment concerns → route to **dw-suppression-motion** *(Report 3 will provide the full analysis)*
+- **Brady/Giglio flags:** material potentially favorable to the defense that may not have been disclosed → route to **dw-brady-giglio-auditor** *(Report 7 will provide the full table)*
+- **Witness inconsistency flags:** witnesses who appear in multiple documents with conflicting accounts → flag for **Report 8** *(Report 8 will provide the full impeachment plan)*
+- **Timeline conflict flags:** events with conflicting dates, times, or sequences across documents → flag for **Report 1** *(Report 1 will build the authoritative timeline)*
+
+**1B — Chain of Custody Audit**
+This is substantive analysis, not triage — no report covers this domain. Verify that each piece of physical evidence has an unbroken custody log from collection to present. Flag any gaps, undocumented transfers, or missing logs. Route findings to **dw-chain-of-custody-auditor**.
+
+**1C — Specialist Evidence Routing**
+Classify evidence by type and dispatch to the appropriate specialist skill for early analysis. Specialist skills can begin their work in parallel while the 8 reports are being generated in Step 2.
+
 - Eyewitness identification issues → **dw-eyewitness-identification-auditor**
 - Confession/interrogation issues → **dw-confession-interrogation-auditor**
 - Cell phone forensics → **dw-mobile-forensic-auditor** then **dw-forensic-dump-analyzer**
@@ -275,20 +380,23 @@ Save all outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` s
 - Child forensic interviews → **dw-child-forensic-interview-auditor**
 - Expert witness issues → **dw-expert-witness-evaluator**
 
-### Step 2: Generate the 9 Case Analysis Reports
-Use the **Case Analysis Prompts for Criminal Defense** document. Name each report exactly as shown. Run using the provided prompts. For each report, identify and route specific issues to specialist skills (suppress motions, Brady audits, bond reduction, sentencing, plea analysis, etc.).
+Save all Step 1 outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` subfolder.
+
+### Step 2: Generate the 8 Case Analysis Reports
+Read `references/case-analysis-prompts.md` for the exact prompt template for each report. That file contains the common analytical framework ("Dream Team" lens), the source citation standard, and per-report instructions. Name each report exactly as shown below. For each report, identify and route specific issues to specialist skills.
+
+Note: The former "Report 8 — Witness Table" has been removed because witness data is already captured in `Case Tables.xlsx` during Phase 1 Step 4 (Witness List - Priority and Witness List - Alpha sheets). The former Report 9 (Key Witness Impeachment Plan) is now Report 8.
 
 | # | Report Name | Output Location | Priority | Skill Routing |
 |---|-------------|-----------------|----------|----------------|
-| 1 | Comprehensive Case Timeline | `Case Tables.xlsx — Timeline Sheet` | Standard | - |
+| 1 | Comprehensive Case Timeline | `Case Tables.xlsx — Timeline Sheet` ⚠ | Standard | - |
 | 2 | Prosecution's Case Summary | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
 | 3 | Immediate Red Flags | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★** | **dw-suppression-motion** (for warrant/search issues); **dw-expert-witness-evaluator** (for expert issues) |
 | 4 | Core Defense Narrative | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
 | 5 | Viable Legal Defenses | `01 - Trial Notebook/09 - Case Analysis/` | Standard | **dw-404b-opposition** (for bad acts); **dw-sentencing-mitigation-specialist** (for sentencing exposure); **dw-habitual-offender-auditor** (for habitual claims) |
 | 6 | Memorable Theme | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
 | 7 | Table of Missing Discovery | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★ → Auto-Action** | **dw-brady-giglio-auditor** |
-| 8 | Witness Table | `Case Tables.xlsx — Witness Sheet` | Standard | - |
-| 9 | Key Witness Impeachment Plan | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★ → Auto-Action** | **dw-cross-exam-architect** |
+| 8 | Key Witness Impeachment Plan | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★ → Auto-Action** | **dw-cross-exam-architect** |
 
 **Bond/Release Issues:** If Report 3 or 5 identifies bond concerns → route to **dw-bond-and-release-motion**
 **Plea Negotiations:** If prosecution indicates negotiation interest → route to **dw-plea-negotiation-analyzer**
@@ -302,31 +410,29 @@ Use the **Case Analysis Prompts for Criminal Defense** document. Name each repor
 - Draft a formal demand letter addressed to the prosecution citing Brady/Giglio obligations.
 - List each missing item with description and why it is material to the defense.
 - Include Louisiana statutory citations for discovery disclosure requirements.
-- Create a Clio task: *"Review and Send Missing Discovery Demand Letter"* — assigned to attorney.
 - **Attorney must approve before letter is sent.**
 
-### Step 4: Auto-Action — Report 9 → Impeachment Worksheets
-*Triggered immediately upon filing Report 9.*
+### Step 4: Auto-Action — Report 8 → Impeachment Worksheets
+*Triggered immediately upon filing Report 8.*
 
 Create one Impeachment Worksheet per key witness in `Trial Notebook → 03 - Witnesses`:
 - **Prepopulate:** witness name, role, all document references (Bate stamps) from Evidence Table
-- **Prepopulate:** all impeachment material from Report 9 for that witness
+- **Prepopulate:** all impeachment material from Report 8 for that witness
 - **Prepopulate:** all prior statements from transcripts with Bate stamp references
 - **Add:** Witness Dossier cover page consolidating everything known about this witness
 - **Leave blank (attorney completes):** Line of Attack, Question Sequence, Anticipated Responses
 
 ### Step 5: Route Case Analysis to Attorney
-Once all 9 reports and auto-action documents are complete:
+Once all 8 reports and auto-action documents are complete:
 - Draft attorney email: *"Case Analysis Ready for Review — [Client Name] / [Case Number]"*
-- Attach Case Analysis Index listing all 9 reports + Cowork Analysis findings
+- Attach Case Analysis Index listing all 8 reports + Cowork Analysis findings
 - Confirm Missing Discovery Demand Letter is ready for attorney approval
 - Confirm all Impeachment Worksheets are filed and ready for Phase 3
-- Create Clio task: *"Case Analysis Ready for Review"* — assigned to attorney
 
-### Step 6: Auto-Push Attorney Review Checklist to Google Docs & Apple Notes
-*Triggered immediately after Step 5. The attorney needs actionable review items in their daily-driver apps — not buried in the case folder.*
+### Step 6: Auto-Push Attorney Review Checklist to Apple Notes
+*Triggered immediately after Step 5. The attorney needs actionable review items in their daily-driver app — not buried in the case folder.*
 
-After completing all 9 reports and auto-actions, Cowork generates an **Attorney Review Checklist** and pushes it to both Google Docs and Apple Notes. This ensures the attorney sees the checklist where they actually work, with a clear deadline.
+After completing all 8 reports and auto-actions, Cowork generates an **Attorney Review Checklist** and pushes it to Apple Notes. This ensures the attorney sees the checklist where they actually work, with a clear deadline.
 
 **Checklist content** (auto-generated from Phase 2 outputs):
 - Title: `Attorney Review Checklist — [Matter Name] ([YYYY-MM-DD])`
@@ -341,15 +447,7 @@ After completing all 9 reports and auto-actions, Cowork generates an **Attorney 
   - Any outstanding discovery demands from Report 7
 - Footer: `Generated by Cowork — Daniels & Washington`
 
-**6A — Push to Google Docs:**
-1. Use Claude in Chrome (`mcp__Claude_in_Chrome`) to navigate to `https://docs.google.com/document/create`
-2. Wait for the blank document to load
-3. Set the document title using the `.docs-title-input` element
-4. Click into the document body and type the full checklist content
-5. For checkboxes: use Google Docs keyboard shortcut or menu to insert checklist items
-6. The document auto-saves to the attorney's Google Drive — no manual save needed
-
-**6B — Push to Apple Notes (via iCloud web):**
+**Push to Apple Notes (via iCloud web):**
 1. Use Claude in Chrome to navigate to `https://www.icloud.com/notes`
 2. Wait for iCloud Notes to load (user must be logged into iCloud in Chrome)
 3. Click the "New Note" button to create a new note
@@ -357,23 +455,23 @@ After completing all 9 reports and auto-actions, Cowork generates an **Attorney 
 5. Apple Notes on iCloud supports checklist formatting — use the checklist button in the toolbar
 
 **Fallback behavior (important — Chrome may not always be connected):**
-If Claude in Chrome is not available or either service is unreachable:
+If Claude in Chrome is not available or Apple Notes is unreachable:
 1. Save the checklist as `Attorney Review Checklist — [Date].md` at the case root
-2. Log which pushes failed in the Quality Gate
-3. Alert the attorney: *"Review checklist saved locally — Chrome automation was unavailable for [Google Docs / Apple Notes]. Connect Claude in Chrome and re-run Step 6 to push."*
+2. Log the failed push in the Quality Gate
+3. Alert the attorney: *"Review checklist saved locally — Chrome automation was unavailable for Apple Notes. Connect Claude in Chrome and re-run Step 6 to push."*
 
 The reason for the fallback is that Claude in Chrome requires the browser extension to be installed and connected, which isn't always the case. The local markdown file ensures the checklist is never lost, even if the push fails.
 
 ### ✓ Phase 2 Quality Gate
 Before proceeding to Phase 3, confirm:
-- [ ] All 9 reports named correctly and saved to correct locations
-- [ ] Cowork Parallel Analysis complete — all outputs saved to Cowork Analysis subfolder
-- [ ] Missing Discovery Demand Letter drafted — Clio task assigned to attorney
-- [ ] Impeachment Worksheet exists for every witness named in Report 9
+- [ ] All 8 reports named correctly and saved to correct locations
+- [ ] Triage Routing Memo, Chain of Custody Audit, and Specialist Evidence Routing complete — all outputs saved to Cowork Analysis subfolder
+- [ ] Missing Discovery Demand Letter drafted and ready for attorney approval
+- [ ] Impeachment Worksheet exists for every witness named in Report 8
 - [ ] Witness Dossier cover page exists for every key witness
-- [ ] Attorney notified via email AND Clio task
-- [ ] Attorney Review Checklist pushed to Google Docs (or fallback .md saved at case root)
+- [ ] Attorney notified via email with Case Analysis Index
 - [ ] Attorney Review Checklist pushed to Apple Notes (or fallback .md saved at case root)
+- [ ] Case state saved to **dw-case-brain** — Phase 2 complete, ready for Phase 3
 
 ---
 
@@ -383,6 +481,8 @@ Before proceeding to Phase 3, confirm:
 
 ### Step 1: Case Timeline Spreadsheet
 Built from **Report 1** (Comprehensive Case Timeline) → `Case Tables.xlsx — Timeline Sheet`
+
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
 
 Columns to populate: Start Date | Start Time | End Date | End Time | Title | Subtitle | Description | Tags (Cowork Flags) | Bate Stamp | Notes
 
@@ -396,23 +496,78 @@ Rules:
 ### Step 2: Update Witness Tables
 The Witness Tables (Priority and Alpha) were initially populated in Phase 1 Step 4. Now update them with intelligence from Phase 2's case analysis:
 
-- Incorporate Report 8 (Witness Table) data — merge any new witnesses or details
-- Incorporate Report 9 (Key Witness Impeachment Plan) — bold-mark any witness with an Impeachment Plan as **KEY WITNESS** in both tables
-- Re-rank Priority table: Key Witness (Report 9) > Eyewitnesses > Law Enforcement > Character Witnesses > Others
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
+
+- Incorporate Report 8 (Key Witness Impeachment Plan) — bold-mark any witness with an Impeachment Plan as **KEY WITNESS** in both tables
+- Re-rank Priority table: Key Witness (Report 8) > Eyewitnesses > Law Enforcement > Character Witnesses > Others
 - Update the `Trial Exam Prepared (Y/N)` column as preparation progresses
 
-### Step 3: Defense Matrix
-Populate the Defense Matrix sheet in `Case Tables.xlsx`. Complete all 6 columns.
+### Step 3: Defense Shield & Defense Matrix
 
-- Charge column: list each offense charged AND all responsive verdicts on separate rows
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
+
+This step has two parts: first, build the case-specific **Defense Shield** (the universe of potential defenses filtered to this case); then populate the **Defense Matrix** (charges mapped to the defenses you'll actually run).
+
+#### 3A — Build the Case-Specific Defense Shield
+
+The `Case Tables.xlsx` template contains **Defense Shield templates** — comprehensive catalogs of potential defenses organized by case type. These templates exist on the `Legal Defenses (Rape)` and `Legal Defenses (Homicide)` sheets. They are reference libraries, not checklists. Rarely if ever will every defense apply to a given case. Your job is to analyze the case facts and build a case-specific shield containing only the defenses that have traction.
+
+**If a template exists for this case type** (currently: Rape, Homicide):
+
+1. **Read the full template sheet** for this case type. Each row represents a potential defense category with columns for: Defense Category, Specific Defense, Priority/Feasibility, Key Action/Theory, Critical Expert/Witness Needed, Evidence Source/Location, and Litigation Checkpoint.
+
+2. **Evaluate every defense row against the actual case facts.** For each potential defense, ask:
+   - Does the discovery contain evidence supporting this defense?
+   - Does the Case Profile (Section 4 — Case-Specific Defenses) flag facts relevant to this defense?
+   - Do the 8 Case Analysis Reports identify weaknesses in the State's case that this defense exploits?
+
+3. **Populate only the applicable defenses.** For each defense that has factual support in this case:
+   - Keep the template's strategic guidance (Key Action/Theory column) as a starting framework
+   - **Replace generic placeholders** with case-specific facts, Bate stamp references, witness names, and evidence locations from the actual discovery
+   - **Update the Priority/Feasibility** column (High/Med/Low) based on the strength of the case-specific evidence — not the template default
+   - **Fill in** the Critical Expert/Witness and Evidence Source columns with the actual witnesses and documents from this case file
+
+4. **Remove defenses that clearly don't apply.** If a defense has zero factual support in the discovery (e.g., "Misidentification" in a case where identity isn't in dispute), delete that row from the case-specific sheet. A lean, focused shield is more useful than an exhaustive one full of inapplicable theories.
+
+5. **Flag borderline defenses for attorney review.** When a defense has some factual support but isn't clearly viable — or when its applicability depends on facts only the attorney or client knows — mark it with a `⚖ ATTORNEY REVIEW` tag in the Priority column. Present these to the attorney with a brief explanation of what makes it borderline, and ask whether to keep or discard.
+
+**If no template exists for this case type** (e.g., drug offenses, DWI, weapons charges, theft/fraud, domestic violence):
+
+Build a new Defense Shield from scratch following the same column structure as the existing templates. The process:
+
+1. **Research the charge elements** under Louisiana statutes. Identify what the State must prove for each count.
+2. **Catalog potential defenses** organized by category (Constitutional, Identity, Forensic, Credibility, Mens Rea, Investigation, Procedural, etc.). Use the Rape and Homicide templates as structural models — the defense *categories* often overlap across case types even when the specific defenses differ.
+3. **For each defense**, fill in all 7 columns: Defense Category, Specific Defense, Priority/Feasibility, Key Action/Theory of the Case, Critical Expert/Witness Needed, Evidence Source/Location, and Litigation Checkpoint.
+4. **Populate only case-applicable defenses** — follow the same filtering logic as above.
+5. **Save the new template** as a new sheet in `Case Tables.xlsx` named `Legal Defenses ([Case Type])` so it's available for future cases of the same type.
+
+**Also populate the "Dealing with States Narrative" sheet.** This sheet contains 13 counter-narrative strategies (Ignore It, Make Lemonade, Backchain, Clarify & Polarize, Absurd, Use the Mirror, Moral Core, Own It, Drop It, Context, Undermine, Rules, Exclude It). The template includes both Rape-specific and Homicide-specific application columns. For this case:
+- Link each strategy to the defense categories you've identified as applicable
+- Write case-specific applications showing how each strategy applies to the actual facts and witnesses
+- Not every strategy will be useful — populate only the ones that map to your defense theories
+
+#### 3B — Populate the Defense Matrix
+
+Now that the Defense Shield identifies *which* defenses apply, the Defense Matrix maps them to *specific charges*. Populate the Defense Matrix sheet in `Case Tables.xlsx`. Complete all 7 columns.
+
+- **Charge column:** list each offense charged AND all responsive verdicts on separate rows
 - Review `Art 814 Responsive Verdicts` document in `Trial Notebook → 01 - Jury Instructions & Selection`
-- After populating charges and responsive verdicts, identify applicable defenses
-- Review `Legal Defenses (Rape)` OR `Legal Defenses (Homicide)` sheet — only the one applicable to this case
+- For each charge/responsive verdict row, pull the applicable defenses from the Defense Shield you just built
+- Cross-reference: every defense in the Shield should map to at least one charge in the Matrix; any defense that doesn't map to a charge may not belong in the Shield
 - Route jury instruction research and drafting to **dw-jury-instructions-builder** for comprehensive instruction set
 - Route voir dire strategy to **dw-voir-dire-assistant** for juror challenge guidance
 
+#### 3C — Initialize the Running List
+
+The `Running List` sheet tracks defenses as they are discovered or refined throughout the life of the case. It has three columns: Litigation Phase, Defenses Raised/Discovered, and Source. The phases are pre-populated (Discovery, Motions, Witness notes, Exhibits, Demonstratives, Case Vocab, Voir Dire, Open/Close).
+
+At this point, populate the Running List with any defenses already identified during Phases 1 and 2. As the case progresses through motions, witness prep, and trial, update the Running List whenever a new defense theory emerges or an existing one gains/loses support. The Running List feeds back into the Defense Shield — if a new defense surfaces during motions practice, add it to the Shield and Matrix.
+
 ### Step 4: Version Control — Amended & Superseded Documents
 When the prosecution sends corrected or supplemental productions:
+
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
+
 - Maintain a version control log to keep the Master Evidence Table accurate
 - Mark superseded documents clearly in the Evidence Table
 - Do not delete prior versions — archive with notation
@@ -420,7 +575,7 @@ When the prosecution sends corrected or supplemental productions:
 ### Step 5: Case Readiness Memo
 The attorney's single entry point into the Trial Notebook — one-page summary of everything the attorney needs to know before diving into the file.
 
-Inputs: all 9 case analysis reports, Cowork parallel analysis, current case status
+Inputs: all 8 case analysis reports, Cowork parallel analysis, current case status
 
 ### Step 6: Discover the Story Worksheet (Case Story Development)
 Complete before witness preparation begins. This is the foundation of the defense narrative and informs all witness examination preparation.
@@ -434,7 +589,7 @@ Complete before witness preparation begins. This is the foundation of the defens
 - **Expert witness (prosecution)** → route to **dw-expert-witness-evaluator** for methodology challenges
 - **Save location:** `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`
 
-**7B — Mapping the Cross Worksheet:** prepopulate from impeachment materials, Report 9, and all prior statements. Route to **dw-cross-exam-architect** for strategic question mapping.
+**7B — Mapping the Cross Worksheet:** prepopulate from impeachment materials, Report 8, and all prior statements. Route to **dw-cross-exam-architect** for strategic question mapping.
 
 **7C — Cross Exam Template:** prepopulate structure and available impeachment points; leave question sequencing and line of attack to attorney. Route specialized witness cross (confessions, interrogation tactics, mobile forensics, video authentication) to appropriate specialist skills.
 
@@ -456,6 +611,11 @@ Populate the Mapping the Story templates (Opening and Closing) from: Report 4 (C
 
 Route preservation of trial error, evidentiary challenges, and appellate strategy to **dw-appellate-error-monitor** to ensure all grounds for appeal are documented and preserved for post-conviction review.
 
+### Step 11: Assemble Trial Notebook
+*Final assembly — triggered when all Phase 3 deliverables are complete.*
+
+Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliverables into the final Trial Notebook. The trial notebook builder scans the case folder for all upstream deliverables, organizes them into the Trial Notebook folder structure, generates a master index, and produces a Trial Readiness Gap Report identifying any missing items.
+
 ---
 
 ## Quick Reference
@@ -475,7 +635,7 @@ Route preservation of trial error, evidentiary challenges, and appellate strateg
 │   ├── 01 - Jury Instructions & Selection/
 │   ├── 03 - Witnesses/                 ← Impeachment Worksheets filed here
 │   ├── 05 - Evidence/                  ← Bate-stamped, OCR'd docs + A/V
-│   └── 09 - Case Analysis/             ← Reports 2-7, 9
+│   └── 09 - Case Analysis/             ← Reports 2-8
 └── 02 - Pretrial Notebook/
     ├── 01 - Pleadings/
     ├── 02 - Discovery/
@@ -486,14 +646,20 @@ Route preservation of trial error, evidentiary challenges, and appellate strateg
 ```
 
 ### Case Tables.xlsx — Sheet Reference
+The master template in `assets/Case Tables.xlsx` contains all sheets below with pre-formatted headers, column structures, dropdowns, and color coding. Copy it to new case roots; never create sheets from scratch.
+
 | Sheet Name | Contents | Phase Populated |
 |------------|----------|-----------------|
-| Evidence Table | Master discovery index | Phase 1 Step 4 |
-| Timeline Sheet | Chronological case events | Phase 2 Report 1 / Phase 3 Step 1 |
-| Witness Sheet | Witness data table | Phase 2 Report 8 |
-| Witness List - Alpha | Alphabetical witness list | Phase 1 Step 4 → Phase 3 Step 2 |
-| Witness List - Priority | Priority-ranked witness list | Phase 1 Step 4 → Phase 3 Step 2 |
-| Defense Matrix | Charges, responsive verdicts, defenses | Phase 3 Step 3 |
+| Evidence Table | Master discovery index (11 columns) | Phase 1 Step 4 |
+| Timeline Sheet | Chronological case events (10 columns) | Phase 2 Report 1 / Phase 3 Step 1 |
+| Witness List - Alpha | Alphabetical witness list (6 columns) | Phase 1 Step 4 → Phase 3 Step 2 |
+| Witness List - Priority | Priority-ranked witness list (6 columns) | Phase 1 Step 4 → Phase 3 Step 2 |
+| Defense Matrix | Charges, responsive verdicts, defenses (7 columns) | Phase 3 Step 3B |
+| Legal Defenses (Rape) | **Defense Shield template** — sex offense defense catalog (7 columns) | Phase 3 Step 3A (sex offense cases only) |
+| Legal Defenses (Homicide) | **Defense Shield template** — homicide defense catalog (7 columns) | Phase 3 Step 3A (homicide cases only) |
+| Legal Defenses ([Case Type]) | **Defense Shield template** — created for new case types as needed (7 columns) | Phase 3 Step 3A (when no template exists) |
+| Dealing with States Narrative | Counter-narrative strategies — Rape & Homicide applications (6 columns) | Phase 3 Step 3A |
+| Running List | Defenses discovered/refined during each litigation phase (3 columns) | Phase 3 Step 3C → ongoing through trial |
 
 ### Document Naming Convention
 - All documents: `[3-digit prefix] - [Document Name].docx`
@@ -504,4 +670,4 @@ Route preservation of trial error, evidentiary challenges, and appellate strateg
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.0 (April 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.2 (April 2026). Report 8 (Witness Table) removed — witness data is captured in Case Tables.xlsx during Phase 1 Step 4. Former Report 9 renumbered to Report 8. Bundled resources: 8 report prompt templates, output path convention, Case Tables.xlsx master template, Evidence Placeholder template, and generate_placeholders.py script. Update this file whenever the master workflow document is revised.*
