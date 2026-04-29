@@ -58,7 +58,16 @@ This skill handles four categories of suppression, each with distinct constituti
 
 ## Workflow
 
-### STEP 0.5 — Constitutional Red Flag Scan
+### STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any pleading, read `dw-shared-protocols/SKILL.md` and load:
+
+1. `dw-shared-protocols/references/filed-pleading-boilerplate.md` — orchestrator for caption, signature, COS, notice, proposed order, citation style, and filing conventions
+2. `dw-shared-protocols/references/output-path-formula.md` — output path anchored on `CASE_ROOT`
+
+Filed pleadings receive NO work product marking. Follow the boilerplate component sequence in order. Output to the appropriate `01 - Trial Notebook/` motion subfolder per the formula. The Warrant Audit Report (Audit Mode only) is internal work product — mark it per `attorney-work-product-marking.md` as noted in the Warrant Deep-Dive section.
+
+### STEP 0.6 — Constitutional Red Flag Scan
 
 Before proceeding to template selection and motion drafting, conduct a rapid constitutional triage of the case file. This scan identifies whether suppression motions are warranted and which grounds to prioritize.
 
@@ -112,10 +121,6 @@ If a template is selected, preserve the firm's preferred formatting, language, a
 **TextExpander snippets to apply:**
 - `;miranda` — Miranda citation block (for statement suppression)
 - `;draft` — Cowork draft disclaimer
-
-### Step 1.5: Load Shared Protocols
-
-Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
 
 ### Step 2: Gather Case Context
 

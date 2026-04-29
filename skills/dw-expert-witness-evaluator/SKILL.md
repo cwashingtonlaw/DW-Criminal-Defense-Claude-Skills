@@ -27,14 +27,14 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
-## STEP 0.5 — LOAD SHARED PROTOCOLS
+## STEP 0.5 -- LOAD SHARED PROTOCOLS
 
 Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
 
-1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all audit report headers
-2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` -- apply work product marking to all audit report headers
+2. `dw-shared-protocols/references/output-path-formula.md` -- use for all output file paths (anchored on `CASE_ROOT`)
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product -- apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
 

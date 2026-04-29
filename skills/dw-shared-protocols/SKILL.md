@@ -18,9 +18,11 @@ Sibling shared skill: `dw-template-selector` (DEVONthink Template-First search p
 
 ## Reference manifest by document type
 
+> **Filed pleading orchestration:** for any filed pleading (motion, opposition, memo, sentencing memo, proposed order), read `filed-pleading-boilerplate.md` first — it walks through every component reference in the correct order. The table below remains the authoritative source for which component references each document type requires.
+
 | Document type | Required references |
 |---|---|
-| State criminal motion (14th JDC Calcasieu) | `caption-criminal-14thJDC.md`, `attorney-work-product-marking.md`, `signature-block.md`, `certificate-of-service.md`, `notice-of-hearing.md`, `proposed-order.md`, `louisiana-citation-style.md`, `filing-conventions-14thJDC.md`, `output-path-formula.md` |
+| State criminal motion (14th JDC Calcasieu) | `filed-pleading-boilerplate.md`, `caption-criminal-14thJDC.md`, `signature-block.md`, `certificate-of-service.md`, `notice-of-hearing.md`, `proposed-order.md`, `louisiana-citation-style.md`, `filing-conventions-14thJDC.md`, `output-path-formula.md` |
 | State criminal motion (12th JDC Avoyelles) | `caption-criminal-12thJDC-avoyelles.md` + (work-product, signature, COS, notice, order, citation, output-path) |
 | State criminal motion (Orleans CDC) | `caption-criminal-orleans-CDC.md` + (work-product, signature, COS, notice, order, citation, output-path) |
 | State criminal motion (19th JDC EBR) | `caption-criminal-19thJDC-EBR.md` + (work-product, signature, COS, notice, order, citation, output-path) |

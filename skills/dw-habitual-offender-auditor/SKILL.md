@@ -46,6 +46,17 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any pleading, read `dw-shared-protocols/SKILL.md` and load:
+
+1. `dw-shared-protocols/references/filed-pleading-boilerplate.md` — orchestrator for caption, signature, COS, notice, proposed order, citation style, and filing conventions
+2. `dw-shared-protocols/references/output-path-formula.md` — output path anchored on `CASE_ROOT`
+
+Filed pleadings receive NO work product marking. Follow the boilerplate component sequence in order. Output to the appropriate `01 - Trial Notebook/` motion subfolder per the formula. Internal audit deliverables produced by this skill (predicate inventories, vulnerability matrices) follow the work-product marking rule per shared protocols.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before conducting any audit, collect the following in ranked order:
@@ -629,16 +640,6 @@ Common plea negotiation outcomes involving habitual offender bills:
 - **Agreed sentence within the enhanced range** — defendant is adjudicated habitual but receives an agreed-upon sentence at the lower end of the enhanced range
 - **Plea to reduced charge** — defendant pleads to a lesser-included or reduced charge that carries a lower maximum, thereby reducing the enhanced sentencing range even if the habitual bill proceeds
 - **Dismissal of habitual bill upon completion of conditions** — in some jurisdictions, the State may agree to dismiss the habitual bill if the defendant completes certain conditions (drug treatment, cooperation, etc.)
-
----
-
-## STEP 2.5 — Load Shared Protocols (before drafting any filed pleading)
-
-This step applies ONLY to motion-drafting outputs (Output 2: Habitual Offender Bill Response / Challenge Motion; Output 3: Boykinization Challenge Motion; Output 6: Dorthey Excessive Sentence Motion). It does NOT apply to internal audit-report outputs (Outputs 1, 4, 5, 7).
-
-> Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
-
-For internal audit-report deliverables (predicate audit table, cleansing-period timelines, enhancement worksheets, hearing-prep checklist), apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`. Do NOT apply work product marking to filed pleadings.
 
 ---
 

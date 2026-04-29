@@ -57,6 +57,15 @@ Even if the evidence passes all the above tests, it must still survive the La. C
 
 ## Workflow
 
+### STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any pleading, read `dw-shared-protocols/SKILL.md` and load:
+
+1. `dw-shared-protocols/references/filed-pleading-boilerplate.md` — orchestrator for caption, signature, COS, notice, proposed order, citation style, and filing conventions
+2. `dw-shared-protocols/references/output-path-formula.md` — output path anchored on `CASE_ROOT`
+
+Filed pleadings receive NO work product marking. Follow the boilerplate component sequence in order. Output to the appropriate `01 - Trial Notebook/` motion subfolder per the formula.
+
 ### Step 1: Template-First Search
 
 Before drafting, search DEVONthink for firm templates and prior 404(b) filings. This is the firm's Template-First Drafting Rule.
@@ -82,10 +91,6 @@ Key documents known to exist in DEVONthink (404 B - Other Crimes folder):
 **After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
-
-### Step 1.5: Load Shared Protocols
-
-Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
 
 ### Step 2: Gather Case Context
 

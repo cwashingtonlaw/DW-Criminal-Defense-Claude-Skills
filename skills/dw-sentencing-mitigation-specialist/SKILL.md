@@ -48,6 +48,19 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+## STEP 0.5 -- LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` -- apply work product marking to all internal deliverables (sentencing range tables, mitigation narratives, PSI audits, internal sentencing memo drafts)
+2. `dw-shared-protocols/references/output-path-formula.md` -- use for all output file paths (anchored on `CASE_ROOT`)
+
+For FILED sentencing memoranda specifically, also load the references for the "Sentencing memorandum" row in the manifest (caption per parish + signature block + certificate of service + Louisiana citation style + output path). FILED sentencing memoranda receive NO work product marking; INTERNAL drafts do. Always confirm with the attorney which mode is being produced before drafting.
+
+Do not proceed to Step 1 until these protocols are loaded.
+
+---
+
 ## SOURCE CITATION PROTOCOL (Applies to All Outputs)
 
 Every factual claim, data point, date, quote, or assertion in any output produced by this skill must be tied back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.

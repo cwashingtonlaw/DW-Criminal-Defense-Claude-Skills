@@ -61,6 +61,17 @@ Proceed **only** after the user explicitly confirms.
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any pleading, read `dw-shared-protocols/SKILL.md` and load:
+
+1. `dw-shared-protocols/references/filed-pleading-boilerplate.md` — orchestrator for caption, signature, COS, notice, proposed order, citation style, and filing conventions
+2. `dw-shared-protocols/references/output-path-formula.md` — output path anchored on `CASE_ROOT`
+
+Filed pleadings receive NO work product marking. Follow the boilerplate component sequence in order. Output to the appropriate `01 - Trial Notebook/` motion subfolder per the formula. The Pre-Trial Motion Action Plan (Step 2.5) is internal work product and follows the work-product marking rule per shared protocols.
+
+---
+
 ## STEP 1 — Template-First DEVONthink Search
 
 Before drafting any motion, search DEVONthink for firm templates, prior filings, case law, and reference materials. Run searches specific to the motion type requested.
@@ -118,14 +129,6 @@ limit: 5
 **After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.
-
----
-
-## STEP 1.5 — Load Shared Protocols
-
-Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for "State criminal motion (14th JDC Calcasieu)". If the active case is in a different parish, load the references for the corresponding parish row instead. If no row exists for the parish, load `caption-criminal-fill-in.md` and prompt the attorney for the court-specific values.
-
-These shared protocols govern caption, signature block, certificate of service, notice of hearing, proposed order, attorney work-product marking (internal drafts only — filed pleadings get NO marking), Louisiana citation style, 14th JDC filing conventions, and the output path formula. Apply them to every motion, memorandum, and proposed order produced by this skill.
 
 ---
 
