@@ -232,7 +232,7 @@ For each ground identified, produce:
 
 If proceeding with PCR application:
 
-1. **Template selection:** Use template-selection-protocol (read from ../_shared-references/template-selection-protocol.md) to search DEVONthink for prior PCR applications as models
+1. **Template selection:** Use template-selection-protocol (read from ../dw-shared-protocols/references/template-selection-protocol.md) to search DEVONthink for prior PCR applications as models
 2. **Pleading type:**
    - Louisiana PCR: Application for Post-Conviction Relief under Art. 926 (heading, facts, legal argument, conclusion, prayer)
    - Federal Habeas: Petition for Writ of Habeas Corpus under 28 U.S.C. § 2254 (caption, jurisdictional statement, exhaustion certification, factual background, legal argument, relief requested)
@@ -258,7 +258,7 @@ If proceeding with PCR application:
 - **Read from:** dw-sentencing-mitigation-specialist (Dorthey analysis, mitigation data — for excessive sentence and sentence modification claims)
 - **Read from:** dw-habitual-offender-auditor (predicate conviction challenges — for habitual offender PCR claims)
 - **Read from:** dw-brady-giglio-auditor (Brady violation analysis — for undisclosed exculpatory evidence claims)
-- **Read:** ../_shared-references/template-selection-protocol.md (template search)
+- **Read:** ../dw-shared-protocols/references/template-selection-protocol.md (template search)
 - **Feed into:** dw-case-brain (update with PCR status), dw-case-dashboard (deadline tracking)
 - **Use:** docx skill for pleadings generation
 

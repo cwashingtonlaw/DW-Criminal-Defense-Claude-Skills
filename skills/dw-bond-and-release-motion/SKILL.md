@@ -3,7 +3,7 @@ name: dw-bond-and-release-motion
 description: >
   Draft bond reduction and pretrial release motions. ALWAYS invoke for "bond reduction,"
   "reduce bond," "bail hearing," "pretrial release," "PR bond," "ROR," or "excessive bail."
-  Analyzes Art. 316/341 factors. Read ../_shared-references/template-selection-protocol.md before
+  Analyzes Art. 316/341 factors. Read ../dw-shared-protocols/references/template-selection-protocol.md before
   drafting.
 ---
 

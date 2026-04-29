@@ -221,7 +221,7 @@ Before proceeding to the applicable modules, load the reference files needed for
 - Read `references/federal-sentencing-guidelines.md` — USSG calculation, departures, and §3553(a)
 
 **Template selection (before drafting any pleading):**
-- Read `../_shared-references/template-selection-protocol.md` — DEVONthink template search protocol
+- Read `../dw-shared-protocols/references/template-selection-protocol.md` — DEVONthink template search protocol
 
 ### Step 2.5 -- Load Shared Protocols
 

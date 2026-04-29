@@ -4,7 +4,7 @@ description: >
   Oppose other crimes evidence under 404(b). ALWAYS invoke for "404(b)," "Prieur notice,"
   "prior bad acts," "other crimes evidence," "oppose 404(b)," or "kitchen sink notice."
   Produces Opposition + Memorandum in Support. Read
-  ../_shared-references/template-selection-protocol.md before drafting.
+  ../dw-shared-protocols/references/template-selection-protocol.md before drafting.
 ---
 
 # Daniels & Washington — 404(B) Other Crimes Evidence Opposition Generator
