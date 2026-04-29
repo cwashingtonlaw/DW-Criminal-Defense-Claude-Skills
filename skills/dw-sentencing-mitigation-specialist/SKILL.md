@@ -687,7 +687,7 @@ X.    Conclusion
 
 ## SAVE LOCATIONS
 
-Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed sentencing memoranda (motion-form pleadings) go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. Internal mitigation work product goes to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. [CONFIRM WITH ATTORNEY: a dedicated `01 - Trial Notebook/08 - Verdict_Sentencing/` folder may exist or be preferred for sentencing-phase materials — confirm and update once verified.] See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
+Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. All sentencing-phase materials go to `{{CASE_ROOT}}/01 - Trial Notebook/08 - Verdict_Sentencing/`. Filed sentencing memoranda (formal pleadings submitted to the court) additionally go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
 
 After saving, update the Case Brain (`dw-case-brain`) with the filename, date, and document type under COMPANION SKILL OUTPUTS, and save corresponding Obsidian notes to the `Verdict-Sentencing/` folder in the DW-CASE BRAINS vault.
 

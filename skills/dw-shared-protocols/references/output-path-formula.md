@@ -78,7 +78,7 @@ Examples:
 
 ### Sentencing materials
 
-[CONFIRM WITH ATTORNEY: sentencing folder] No sentencing-specific subfolder appears in the firm's existing legacy tree (folders 02, 04, 06, 07 of `01 - Trial Notebook/` are unaccounted for in current SKILL.md evidence). Until confirmed, sentencing memoranda treated as filed pleadings should go to `02 - Pretrial Notebook/01 - Pleadings/`, and internal mitigation work product should go to `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. Likely candidate per attorney preview: `01 - Trial Notebook/08 - Verdict_Sentencing/`.
+All sentencing-phase materials go to `{{CASE_ROOT}}/01 - Trial Notebook/08 - Verdict_Sentencing/`. This includes mitigation memoranda, PSI objections, sentencing letters, and any other sentencing work product. Filed sentencing pleadings (e.g., formal sentencing memoranda submitted to the court) also go to `02 - Pretrial Notebook/01 - Pleadings/`.
 
 ### Case Brain
 
