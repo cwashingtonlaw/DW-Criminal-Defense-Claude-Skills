@@ -46,6 +46,17 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all audit report headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before drafting any audit, collect the following in ranked order:
@@ -447,8 +458,6 @@ Flag any scope violation for suppression motion consideration under La. C.Cr.P. 
 
 ## Guardrails
 
-**Save to:** `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
-
 - **Never fabricate technical claims.** If you do not know whether a specific platform retains a specific data type or for how long, say so and recommend the attorney retain a defense digital evidence expert or issue a targeted subpoena to the platform.
 - **Flag scope limits.** If a technical challenge likely requires expert testimony to establish at trial, mark it: `[EXPERT REQUIRED — retain defense social media / digital forensics examiner]`.
 - **Jurisdictional toggle.** Default to Louisiana / 5th Circuit. If another jurisdiction is specified, adapt authentication standards and discovery rules. Note: the three-way jurisdictional split on social media authentication (pure reasonable juror, exclusionary, and reasonable juror-plus) affects the strength of authentication challenges.
@@ -457,7 +466,7 @@ Flag any scope violation for suppression motion consideration under La. C.Cr.P. 
 - **File intake hard stop.** Never analyze uploaded evidence without first clearing the hard stop in Step 0.
 - **Platform knowledge currency.** Social media platforms change their architecture, data retention policies, and encryption implementations frequently. If the evidence involves events more than 12 months old, flag that platform policies at the time of the events may differ from current policies and recommend verification.
 - **AI-generated content awareness.** From 2025 forward, always consider the possibility that text, images, or video content may be AI-generated. Flag this concern when the content's provenance cannot be independently verified through platform metadata.
-- **Integrate with D&W workflow.** All audit outputs should reference the firm's standard document naming convention and integrate with the Master Evidence Table, issue codes, and cross-exam workflow per the dw-criminal-defense skill.
+- **Integrate with D&W workflow.** All audit outputs follow shared protocols for naming convention and output paths (see Step 0.5). Integrate with the Master Evidence Table, issue codes, and cross-exam workflow per the dw-criminal-defense skill.
 
 ---
 
@@ -539,31 +548,3 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for Phase 2 integration, the dw-mobile-forensic-auditor skill for device extraction analysis, and the dw-cross-exam-architect skill for witness cross-examination preparation.*
 
 
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-social-media-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (social media authentication audit).

@@ -27,6 +27,17 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all audit report headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 -- Information Gathering Protocol
 
 Before drafting any evaluation, collect the following in ranked order:
@@ -505,7 +516,7 @@ If the expert fails Daubert/Foret reliability standards, offer to draft a Motion
 - **Pre-trial vs. trial distinction.** Daubert/Foret challenges are pre-trial motions decided by the judge as gatekeeper. Credential and methodology attacks can also occur during trial cross-examination before the jury. A challenge that fails as a pre-trial exclusion motion can still succeed as a trial credibility attack. Always address both avenues.
 - **Never misrepresent scientific literature.** When citing the PCAST Report, NAS Report, or published error rate studies, represent their findings accurately. Do not overstate what these sources conclude. The most effective expert challenges are grounded in accurate science.
 - **Verify citations.** Flag any case law citations that may need currency verification: `[VERIFY CITATION -- confirm this case has not been overruled or modified]`.
-- **Integrate with D&W workflow.** All evaluation outputs should reference the firm's standard document naming convention and file to appropriate case folder locations per the dw-criminal-defense skill.
+- **Integrate with D&W workflow.** All evaluation outputs follow shared protocols for naming convention and output paths (see Step 0.5).
 
 ---
 

@@ -44,6 +44,17 @@ Proceed **only** after the user explicitly confirms no further uploads.
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all audit report headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before drafting any audit, collect the following:
@@ -267,7 +278,7 @@ These questions establish the examiner's failure to meet professional standards,
 
 ### Output Structure
 
-Produce a structured audit report as a Word document (.docx) following the dw-criminal-defense naming convention. Read the docx skill before generating.
+Produce a structured audit report as a Word document (.docx) following the shared protocols naming convention (see Step 0.5). Read the docx skill before generating.
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -375,15 +386,13 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-archit
 
 ## Guardrails
 
-**Save to:** `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
-
 - **Never fabricate technical claims about database contents.** If you haven't examined the actual WAL file, say what *could* be there based on the database type and WAL size — don't claim specific records exist without evidence.
 - **Distinguish "could contain" from "does contain."** WAL unused space *could* contain deleted messages. Whether it *does* requires actual examination — which is the point. The defense argument is about the examiner's failure to look, not about what's necessarily there.
 - **Flag expert requirements.** If a finding requires hands-on forensic examination to confirm (and most WAL findings do), mark it: `[EXPERT REQUIRED — retain defense digital forensics examiner with SQLite specialization]`.
 - **Jurisdictional toggle.** Default to Louisiana / 5th Circuit. Adapt evidentiary standards for other jurisdictions.
 - **No reverse-engineering guidance.** This skill audits forensic methodology — it does not provide instructions for extracting data from devices or circumventing security.
 - **File intake hard stop.** Never analyze uploaded files without first clearing the hard stop in Step 0.
-- **Integrate with D&W workflow.** All outputs should reference the firm's standard document naming convention per the dw-criminal-defense skill.
+- **Integrate with D&W workflow.** All outputs follow shared protocols for naming convention and output paths (see Step 0.5).
 
 ---
 
@@ -450,31 +459,3 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with dw-mobile-forensic-auditor for extraction-level methodology audit and dw-cross-exam-architect for building examiner cross-examination outlines. For overall case management, see the dw-criminal-defense skill.*
 
 
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-sqlite-recovery/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (recovered records + WAL analysis log).
