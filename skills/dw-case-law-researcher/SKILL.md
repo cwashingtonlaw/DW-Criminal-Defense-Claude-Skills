@@ -23,6 +23,17 @@ version: 1.1.0
 
 This skill finds on-point legal authority across five sources, synthesizes results into a structured research memo, and feeds citations directly into whatever motion or analysis is being drafted. It operates both standalone (attorney asks for research) and as a service layer called by other D&W skills mid-draft.
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## How the Five Sources Work Together
 
 Each source fills a different gap. The skill runs them in a tiered sequence — fast and cheap first, slow and deep last — so the attorney gets useful results quickly and can decide whether to go deeper.

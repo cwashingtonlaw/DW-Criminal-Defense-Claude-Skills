@@ -12,6 +12,17 @@ description: >
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## CRITICAL CASE ORIENTATION
 
 These matters involve allegations of extraordinary gravity. The analysis framework below maintains **zealous advocacy for the constitutional rights of the accused** while acknowledging the serious harm of sexual violence. Both wrongful convictions and sexual violence inflict profound damage. Our duty is to audit evidence rigorously, protect constitutional protections, and ensure the State meets its burden of proof beyond a reasonable doubt.

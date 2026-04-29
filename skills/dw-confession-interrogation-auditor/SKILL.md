@@ -132,6 +132,17 @@ Before drafting any audit, collect the following in ranked order:
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 2 — MODULE A: Miranda Compliance Audit
 
 Analyze every aspect of the Miranda advisement and waiver for constitutional sufficiency.
@@ -527,7 +538,7 @@ For each CRITICAL finding, provide:
 
 - **State's burden awareness.** In Louisiana, the State bears the burden of proving the voluntariness of a confession **beyond a reasonable doubt** at a suppression hearing (*State v. Simmons*, 443 So.2d 512 (La. 1983)). This is a higher burden than the federal preponderance standard. Always note this in the audit when voluntariness is contested.
 
-- **Integrate with D&W workflow.** All audit outputs should reference the firm's standard document naming convention and file to appropriate case folder locations per the dw-criminal-defense skill.
+- **Integrate with D&W workflow.** Follow shared protocols for output paths (see Step 0.5).
 
 ---
 

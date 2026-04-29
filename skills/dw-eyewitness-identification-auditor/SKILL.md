@@ -17,6 +17,17 @@ Eyewitness misidentification is the single greatest contributor to wrongful conv
 
 ---
 
+## STEP 0.5 -- LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` -- apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` -- use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product -- apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 0 -- FILE INTAKE HARD STOP (Always First)
 
 **If the user has uploaded or referenced any photo array packets, lineup forms, showup reports, identification witness statements, body camera footage references, or case documents, do not analyze anything yet.**
@@ -309,7 +320,7 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT -- pass to dw-cross-exam-archite
 - **Attorney confirmation before auditing.** Never skip the information gathering in Step 1. Essential items 1-5 must be collected before any audit begins.
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
 - **Distinguish law from science.** When presenting scientific findings, clearly distinguish between what the science establishes and what the law requires. The science may support a stronger position than current Louisiana case law requires. Present both: the legal standard the court must apply and the scientific standard the court should consider.
-- **Integrate with D&W workflow.** All audit outputs should reference the firm's standard document naming convention and file to appropriate case folder locations per the dw-criminal-defense skill.
+- **Integrate with D&W workflow.** Follow shared protocols for output paths (see Step 0.5).
 
 ---
 

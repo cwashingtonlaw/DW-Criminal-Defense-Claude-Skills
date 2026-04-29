@@ -47,6 +47,17 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before drafting any audit, collect the following in ranked order:
@@ -540,7 +551,7 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-archit
 - **No surveillance facilitation.** This skill audits location evidence — it does not provide instructions for conducting surveillance, deploying tracking devices, or using cell site simulators.
 - **Attorney confirmation before auditing.** Never skip the information gathering in Step 1.
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
-- **Integrate with D&W workflow.** All audit outputs should save to `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` per D&W folder conventions.
+- **Integrate with D&W workflow.** Follow shared protocols for output paths (see Step 0.5).
 - **Evolving law caveat.** The law of location privacy is evolving rapidly post-*Carpenter*. Always recommend that the attorney check for recent developments in the 5th Circuit and Louisiana courts, and flag any legal analysis as reflecting the state of the law at the time of the audit. Mark legal analysis: `[VERIFY CURRENT — location privacy law evolving rapidly post-Carpenter]`.
 
 ---
@@ -617,31 +628,3 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for Phase 2 integration, the dw-cross-exam-architect skill for witness cross-examination preparation, the dw-mobile-forensic-auditor skill for digital evidence from mobile devices, the dw-crime-scene-auditor skill for physical evidence challenges, and the dw-video-evidence-auditor skill for video evidence analysis.*
 
 
----
-
-## Output Location
-
-All file outputs from this skill save to an absolute path under the active client's case folder, never to the Cowork project default directory, `/home/claude`, `/tmp`, or `~/Downloads`.
-
-**Output path:**
-
-`{CASE_ROOT}/Deliverables/Phase-2-Discovery/dw-cell-site-geolocation-auditor/{YYYY-MM-DD}_{descriptive-filename}.{ext}`
-
-**Resolving `{CASE_ROOT}`:**
-
-1. Read from the active `dw-case-brain` session (preferred)
-2. Use an absolute path if present in the attorney's prompt
-3. If neither is available, ask the attorney for the absolute case folder path before writing
-
-**Before writing:**
-
-- Create the full subfolder chain with `Filesystem:create_directory` if it doesn't exist
-- Confirm the path with the attorney if `{CASE_ROOT}` was resolved from the prompt (not from Case Brain)
-
-**After writing, report the path:**
-
-> ✅ Saved
-> `{full absolute path}`
-> Size: [size] | Type: [.docx / .pdf / .md / etc.]
-
-List all files written, including intermediate exports (cell site audit + tower map).
