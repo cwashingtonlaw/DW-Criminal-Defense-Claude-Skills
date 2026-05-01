@@ -1,7 +1,4 @@
 {
   "gmail_to": "cjw@danielswashington.com",
-  "imessage_to": "FILL_ME_IN",
-  "google_chat_webhook_url": "FILL_ME_IN",
-  "clio_access_token": "FILL_ME_IN",
-  "clio_user_id": "FILL_ME_IN"
+  "google_chat_webhook_url": "FILL_ME_IN"
 }

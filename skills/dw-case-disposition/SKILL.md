@@ -1,21 +1,16 @@
 ---
-title: D&W Case Disposition Workflow
-description: Comprehensive case closing workflow for criminal case final dispositions
-trigger:
-  - close the case
-  - case closed
-  - disposition
-  - case resolved
-  - final disposition
-  - archive the case
-  - case outcome
-  - wrap up the case
-  - case is over
-  - verdict entered
-  - plea entered
-  - dismissal
-  - nolle prosequi
-  - case closing checklist
+name: dw-case-disposition
+description: >
+  Comprehensive case closing workflow for criminal case final dispositions. Records
+  disposition outcome in Case Brain, generates final billing narrative, client notification
+  draft, appeal eligibility assessment, and expungement eligibility assessment. Produces
+  closing checklist and archives file while maintaining strict compliance with Louisiana
+  Rules of Professional Conduct. ALWAYS invoke for "close the case," "case closed,"
+  "disposition," "case resolved," "final disposition," "archive the case," "case outcome,"
+  "wrap up the case," "case is over," "verdict entered," "plea entered," "dismissal,"
+  "nolle prosequi," "case closing checklist." Do NOT use for active case management
+  (use dw-criminal-defense), session persistence (use dw-case-brain), or mid-case status
+  updates (use dw-criminal-defense).
 ---
 
 # D&W Case Disposition Workflow

@@ -1,14 +1,37 @@
 ---
 title: DW Skill Workflow Guide
-version: "1.0"
-updated: 2026-04-07
+version: "1.1"
+updated: 2026-04-30
 author: Daniels & Washington / Cowork
 description: Phase-ordered guide to running all D&W criminal defense skills on a case
+changelog:
+  - "Merged dw-lwop-populator into dw-criminal-defense Phase 1 Step 3; deprecated standalone skill"
+  - "Renamed dw-case-tracker-updater to dw-court-jail-tracker; documented dual modes (tracker sweep + event entry)"
+  - "Added dw-witness-threat-matrix as Phase 3 Step 6.5; synthesizes witness rankings with damage/vulnerability scores"
+  - "Documented dw-jury-focus-group as Phase 3 strategy-testing layer for mock jury panels"
+  - "Defined Phase 4 (Trial Execution) and Phase 5 (Post-Trial/Disposition) with skill mappings"
+  - "Added Deployment Status section flagging 11 skills not yet in active manifest; must install from iCloud"
 ---
 
 # DW Skill Workflow Guide
 
 A comprehensive guide to the order and structure for running D&W criminal defense skills (`dw-*`) on a case. Use the cheat sheet for quick reference mid-case. Read the full chapters for onboarding or detailed workflow understanding.
+
+---
+
+## Deployment Status
+
+**CRITICAL ALERT:** Several skills referenced in this guide exist only in iCloud and are not yet deployed to the active plugin manifest. Before using them, you must install them from `/Users/greatelephant82/Library/Mobile Documents/com~apple~CloudDocs/Claude Skills/`.
+
+**Must be installed before first use:**
+- `dw-shared-protocols` (CRITICAL — required by all drafting skills; no trigger phrase)
+- `dw-skill-index`, `dw-data-contracts`
+- `dw-timeline-builder`, `dw-exhibit-manager`, `dw-witness-statement-analyzer`
+- `dw-billing-narrative-generator`, `dw-client-communication-drafter`
+- `dw-case-disposition`, `dw-post-conviction-relief`
+- `dw-drug-offense-specialist`, `dw-dwi-specialist`, `dw-firearms-specialist`
+
+All other skills in this guide are deployed and ready to trigger.
 
 ---
 
@@ -31,7 +54,7 @@ A comprehensive guide to the order and structure for running D&W criminal defens
 | 2b. Bate stamp documents | `dw-criminal-defense` | "run Phase 1" | Organized discovery files |
 | 2e. Transcribe recordings | `dw-transcript-router` | "transcribe the evidence" | Audio/video files uploaded to casedev vault |
 | 2f. Evidence placeholders | `dw-evidence-placeholder` | "evidence placeholders" | Media folders in 05 - Evidence |
-| 3. Generate Case Profile | `dw-criminal-defense` | "run Phase 1" | Organized discovery, court filings |
+| 3. Generate Case Profile & LWOP Worksheet | `dw-criminal-defense` | "run Phase 1" | Organized discovery, court filings |
 | 4. Build Case Tables | `dw-criminal-defense` | "run Phase 1" | Evidence folder, Case Profile |
 
 ### Phase 2 — Case Processing & Analysis
@@ -72,7 +95,9 @@ A comprehensive guide to the order and structure for running D&W criminal defens
 | 4. Discovery version control | `dw-discovery-compliance-monitor` | "update the discovery ledger" | Supplemental productions |
 | 5. Case readiness memo | `dw-criminal-defense` | "run Phase 3" | All reports + analysis |
 | 6. Story development | `dw-criminal-defense` | "run Phase 3" | Reports 4, 6 |
-| 7. Cross-exam prep | `dw-cross-exam-architect` | "build a cross for [witness]" | Impeachment worksheets |
+| 6.5 Witness threat matrix | `dw-witness-threat-matrix` | "witness threat matrix" / "rank the witnesses" | Phase 2 reports, witness dossiers |
+| 6.6 Jury focus group | `dw-jury-focus-group` | "focus group" / "mock jury" / "jury simulation" | Defense strategy, case facts |
+| 7. Cross-exam prep | `dw-cross-exam-architect` | "build a cross for [witness]" | Impeachment worksheets, threat matrix |
 | 8. Direct exam prep | `dw-criminal-defense` | "run Phase 3" | Story worksheet |
 | 9. Opening/closing prep | `dw-criminal-defense` | "run Phase 3" | Reports 4, 6, Story worksheet |
 | 10. Appellate readiness | `dw-appellate-error-monitor` | "preserve error" | Rulings, objections |
@@ -85,7 +110,7 @@ A comprehensive guide to the order and structure for running D&W criminal defens
 | Billing narratives | `dw-billing-narrative-generator` | "log my time" |
 | Client letters | `dw-client-communication-drafter` | "client letter" |
 | Investigator tasks | `dw-defense-investigator-tasking` | "investigator assignment" |
-| Court date tracking | `dw-case-tracker-updater` | "update the tracker" |
+| Court & jail tracking | `dw-court-jail-tracker` (Mode A: tracker sweep; Mode B: event entry) | "update the tracker" / "jail visit" |
 | Compare DMARs | `dw-dmar-synthesizer` | "compare the DMARs" |
 | Pretrial motions | `dw-pretrial-motion-library` | "speedy trial" / "motion to compel" / etc. |
 
@@ -187,8 +212,10 @@ flowchart TD
     VOIR_DIRE --> READINESS
     READINESS[Step 5: Case Readiness Memo]:::cowork
     READINESS --> STORY[Step 6: Story Development]:::cowork
-    STORY --> CROSS_PREP[Step 7: Cross-Exam Prep<br/>dw-cross-exam-architect]:::attorney
-    STORY --> DIRECT_PREP[Step 8: Direct Exam Prep]:::attorney
+    STORY --> THREAT_MATRIX[Step 6.5: Witness Threat Matrix<br/>dw-witness-threat-matrix]:::cowork
+    THREAT_MATRIX --> FOCUS_GROUP[Step 6.6: Jury Focus Group<br/>dw-jury-focus-group]:::cowork
+    FOCUS_GROUP --> CROSS_PREP[Step 7: Cross-Exam Prep<br/>dw-cross-exam-architect]:::attorney
+    FOCUS_GROUP --> DIRECT_PREP[Step 8: Direct Exam Prep]:::attorney
     CROSS_PREP --> OPEN_CLOSE[Step 9: Opening & Closing]:::attorney
     DIRECT_PREP --> OPEN_CLOSE
     OPEN_CLOSE --> APPELLATE[Step 10: Appellate Readiness<br/>dw-appellate-error-monitor]:::cowork
@@ -320,14 +347,15 @@ The most skill-dense step in Phase 1. Converts raw discovery into organized, Bat
 | **Inputs** | Media folders (photos, videos, audio, body cam) in `05 - Evidence` |
 | **Outputs** | One-page placeholder PDF per media folder with file count, type breakdown, and storage path |
 
-### Step 3: Generate Case Profile
+### Step 3: Generate Case Profile & LWOP Worksheet
 
 | | |
 |---|---|
 | **Skill** | `dw-criminal-defense` (continues Phase 1) |
 | **Inputs** | All organized discovery, court filings, Clio intake data |
-| **Outputs** | `000 - Case Profile.docx` saved to `Pretrial Notebook → 03 - Case Analysis & Notes` |
-| **Contains** | Case identification, charges & exposure with La. R.S. citations, arraignment & bail, case-specific defenses grounded in actual evidence, client background (attorney completes), key dates & next steps |
+| **Outputs** | `000 - Case Profile.docx` saved to `Pretrial Notebook → 03 - Case Analysis & Notes`. If applicable (homicide or sex offense with LWOP exposure): LWOP review worksheet auto-populated |
+| **Contains** | Case identification, charges & exposure with La. R.S. citations, arraignment & bail, case-specific defenses grounded in actual evidence, client background (attorney completes), key dates & next steps. **LWOP worksheet:** Eligibility analysis, mitigation factors, statutory requirements (homicide: Art. 30.1; sex offense: La. R.S. 15:567.1) |
+| **Note** | The LWOP functionality previously in `dw-lwop-populator` (deprecated) is now integrated into Phase 1 Step 3. Trigger phrases "LWOP sheet," "LWOP review," "District Defender review," and "life without parole worksheet" all route to `dw-criminal-defense` Phase 1. |
 
 ### Step 4: Build Case Tables
 
@@ -526,6 +554,30 @@ Before advancing to Phase 3, confirm:
 | **Inputs** | Report 4 (Core Defense Narrative), Report 6 (Memorable Theme) |
 | **Outputs** | Discover the Story Worksheet — foundation for all witness examination and trial presentation |
 
+### Step 6.5: Witness Threat Matrix
+
+*Analytical capstone for Phase 3 — synthesizes Phase 2 parallel analysis into ranked witness lists with damage and vulnerability scores.*
+
+| | |
+|---|---|
+| **Skill** | `dw-witness-threat-matrix` |
+| **Trigger** | "witness threat matrix" / "rank the witnesses" / "key witnesses" / "post-cross refresh" |
+| **Inputs** | Phase 2 Reports 8 & 9 (Witness Table and Impeachment Plan), witness dossiers, Brady/Giglio findings |
+| **Outputs** | Top 5 ranked lists by witness type with separate Damage Score (prosecution strength) and Vulnerability Score (defense attack surface) for each witness. Post-Cross Refresh mode available for re-scoring after cross-examinations are completed. |
+| **Routes to** | Feeds directly into `dw-cross-exam-architect` for Step 7 |
+
+### Step 6.6: Jury Focus Group
+
+*Strategy-testing layer distinct from voir dire — predicts juror reactions using demographically accurate Louisiana parish mock panels.*
+
+| | |
+|---|---|
+| **Skill** | `dw-jury-focus-group` |
+| **Trigger** | "focus group" / "mock jury" / "jury simulation" / "test my defense" |
+| **Inputs** | Defense strategy, case facts, key themes |
+| **Outputs** | Mock juror demographic profiles (Louisiana parish accurate), predicted reaction matrix, juror comment synthesis, strategy refinement recommendations |
+| **Distinct from** | `dw-voir-dire-assistant` (real voir dire juror challenge strategy) and `dw-jury-instructions-builder` (jury charges/verdict forms) |
+
 ### Step 7: Cross-Exam Preparation (Per Key Witness)
 
 *Attorney work — Cowork prepopulates templates with available intelligence.*
@@ -590,7 +642,9 @@ Before trial, confirm:
 - [ ] Defense Matrix complete — all charges, responsive verdicts, and defenses
 - [ ] Jury instructions drafted and filed
 - [ ] Voir dire strategy prepared
-- [ ] Cross-Exam materials complete for all Key Witnesses and Top 10 Priority
+- [ ] Witness Threat Matrix completed with damage/vulnerability scores
+- [ ] Jury Focus Group testing completed — strategy refined
+- [ ] Cross-Exam materials complete for all Key Witnesses (threat-ranked) and Top 10 Priority
 - [ ] Direct Exam templates complete for all defense witnesses
 - [ ] Opening/Closing frameworks populated
 - [ ] Appellate error log active
@@ -599,6 +653,83 @@ Before trial, confirm:
 **Available throughout Phase 3:**
 - `dw-billing-narrative-generator` — "log my time"
 - `dw-client-communication-drafter` — "client letter" / "jail mail"
+
+---
+
+## Phase 4 — Trial Execution
+
+*In-trial and real-time support. Light section — flagged as future expansion area.*
+
+### Overview
+
+Phase 4 begins on trial day and concludes with verdict entry (acquittal, conviction, mistrial, or diversion agreement).
+
+### Skills
+
+| Skill | Purpose | Trigger |
+|-------|---------|---------|
+| `dw-appellate-error-monitor` (active mode) | Maintain running error log during trial; flag preservation opportunities | "log error" / "preserve this" (any evidentiary ruling or objection) |
+| `dw-exhibit-manager` | Trial exhibit lifecycle — pre-marking, admission tracking, exhibit lists. **iCloud-only, not deployed.** | "mark exhibits" / "exhibit list" / "admitted" |
+
+### Running the Phase
+
+1. **Before opening statement:** Verify trial notebook indexed and all exhibits listed in exhibit-manager.
+2. **Throughout trial:** Log errors in real-time as they occur (appellate-error-monitor).
+3. **Upon verdict:** Transition to Phase 5.
+
+### Future Expansion
+
+Phase 4 is intentionally minimal. Planned: jury communication skill, courtroom logistics automation, real-time transcript integration. Currently manual attorney work.
+
+---
+
+## Phase 5 — Post-Trial / Disposition
+
+*After verdict, plea entry, or dismissal. Covers case closing, sentencing, appeals, and PCR eligibility.*
+
+### Overview
+
+Phase 5 begins when the trial phase (or Phase 2 plea/dismissal) concludes and extends through final disposition (sentencing, appeal decision, or closure).
+
+### Skills by Outcome
+
+#### Trial Verdict (Conviction or Acquittal)
+
+| Skill | Purpose | Trigger |
+|-------|---------|---------|
+| `dw-case-disposition` | Comprehensive closing — outcome record, final billing, appeal/expungement eligibility | "close the case" / "disposition" / "verdict entered" |
+| `dw-sentencing-mitigation-specialist` (if convicted) | Mitigation package, PSI audit, sentencing memorandum | "sentencing" / "mitigation" / "PSI audit" |
+| `dw-habitual-offender-auditor` (if applicable) | Challenge habitual bill before sentencing | "habitual bill" / "predicate conviction" |
+| `dw-appellate-error-monitor` (post-trial assessment mode) | Finalize error log, identify preserved issues for appeal | "appeal analysis" / "appellate issues" |
+| `dw-post-conviction-relief` | Evaluate PCR, habeas corpus, sentence modification eligibility | "post-conviction" / "PCR" / "ineffective assistance" |
+
+#### Plea Agreement (Any Phase)
+
+| Skill | Purpose | Trigger |
+|-------|---------|---------|
+| `dw-plea-negotiation-analyzer` | Evaluate plea offer against trial exposure | "plea offer" / "analyze the plea" |
+| `dw-case-disposition` | Document plea terms, final billing, Boykin checklist | "plea entered" / "disposition" |
+| `dw-sentencing-mitigation-specialist` (if applicable) | Mitigation before sentencing under agreed terms | "sentencing" / "mitigation" |
+| `dw-post-conviction-relief` | Assess collateral consequences, PCR eligibility | "sentence modification" / "post-conviction" |
+
+#### Dismissal (Any Phase)
+
+| Skill | Purpose | Trigger |
+|-------|---------|---------|
+| `dw-case-disposition` | Final billing, client notification, expungement eligibility | "case dismissed" / "disposition" |
+
+### Phase 5 Quality Gate
+
+Before closing the case, confirm:
+
+- [ ] Disposition record completed (verdict/plea/dismissal + date)
+- [ ] Final billing narratives logged and billed
+- [ ] Client notified of outcome and next steps
+- [ ] Appeal timeline and options clearly documented
+- [ ] Expungement eligibility assessed and filed (if applicable)
+- [ ] All trial error preserved in appellate-error-monitor (if conviction)
+- [ ] Post-conviction relief eligibility evaluated (if sentence > 2 years)
+- [ ] Case marked closed in case-brain
 
 ---
 
@@ -974,14 +1105,15 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 | **Inputs** | Multiple DMAR transcript files |
 | **Outputs** | Consolidated inconsistency matrix, cross-case witness comparison, unified defense intelligence brief |
 
-#### dw-case-tracker-updater
+#### dw-court-jail-tracker
 
 | | |
 |---|---|
-| **Purpose** | Update court date tracking and jail visit records from Defender Data |
-| **Trigger** | "update the tracker" / "check jail visits" / "update court dates" |
-| **Inputs** | Defender Data login, assigned case list |
-| **Outputs** | Updated Excel tracker with docket/section/ADA/charges/court events, overdue jail visits flagged in RED |
+| **Purpose** | Two-mode tracker skill combining court date tracking with Defender Data event entry. **Mode A (Tracker Sweep):** Syncs assigned case list from Defender Data into Excel tracker with current court events and docket info. **Mode B (Event Entry):** Records jail visits, court appearances, and defender data interactions in real-time. |
+| **Trigger** | "update the tracker" / "check jail visits" / "update court dates" / "jail visit log" |
+| **Inputs** | Defender Data login (Mode A), case facts and interaction details (Mode B) |
+| **Outputs** | Mode A: Updated Excel tracker with docket/section/ADA/charges/court events, overdue jail visits flagged in RED. Mode B: Timestamped Defender Data log with interaction summary. |
+| **Note** | Replaces deprecated `dw-case-tracker-updater` (v1.0). Same Mode A functionality; net-new Mode B event entry for real-time logging. |
 
 #### dw-pretrial-motion-library
 
@@ -1041,14 +1173,6 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 | **Inputs** | Habitual bill, prior conviction records, Boykin transcripts |
 | **Outputs** | Predicate validity analysis, cleansing period calculation, enhanced sentencing exposure, Boykin challenge assessment |
 
-#### dw-lwop-populator
-
-| | |
-|---|---|
-| **Purpose** | Auto-populate LWOP review sheets for the District Defender |
-| **Trigger** | "LWOP sheet" / "LWOP review" / "District Defender review" |
-| **Inputs** | Discovery PDFs, sentencing data, eligibility criteria |
-| **Outputs** | Completed LWOP review worksheet (.docx) — Homicide or Sex Offense template |
 
 #### dw-plea-negotiation-analyzer
 
@@ -1061,15 +1185,16 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 
 ---
 
-### Utility Skills (Not Directly Invoked)
+### Utility Skills (Not Directly Invoked or Phase-Integrated)
 
-These skills are consumed by other skills as reference protocols — you do not invoke them directly.
+These skills are consumed by other skills as reference protocols or are phase-specific. You typically do not invoke them directly except as noted.
 
-| Skill | Purpose | Used By |
+| Skill | Purpose | Used By / Invoked During |
 |-------|---------|---------|
 | `dw-data-contracts` | Shared output schema definitions between D&W skills | All skills producing structured deliverables |
-| `dw-exhibit-manager` | Full lifecycle exhibit management — pre-marking through admission | `dw-trial-notebook-builder`, or invoke directly during trial with "exhibit list" / "mark exhibits" |
+| `dw-exhibit-manager` | Full lifecycle exhibit management — pre-marking through admission. **iCloud-only, not deployed.** | Phase 4 (Trial Execution); invoked directly with "exhibit list" / "mark exhibits" |
+| `dw-shared-protocols` | Core protocol library (CRITICAL dependency) — every drafting skill requires it | All drafting skills; install before use |
 
 ---
 
-*DW Skill Workflow Guide v1.0 — Daniels & Washington — April 2026*
+*DW Skill Workflow Guide v1.1 — Daniels & Washington — April 30, 2026*

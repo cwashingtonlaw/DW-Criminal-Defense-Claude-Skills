@@ -4,7 +4,7 @@ description: >
   Build sentencing mitigation packages and audit PSI reports. ALWAYS invoke for
   "sentencing," "mitigation," "sentencing memorandum," "PSI report," "Dorthey challenge,"
   "Art. 894.1," or "excessive sentence." Covers LA and federal sentencing. Read
-  references/template-selection-protocol.md before drafting.
+  ../dw-shared-protocols/references/template-selection-protocol.md before drafting.
 ---
 
 # Sentencing Mitigation Specialist

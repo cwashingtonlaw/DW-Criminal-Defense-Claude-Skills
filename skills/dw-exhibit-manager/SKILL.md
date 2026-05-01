@@ -1,10 +1,17 @@
+---
+name: dw-exhibit-manager
+description: >
+  Manages the full lifecycle of trial exhibits from pre-marking through admission.
+  Tracks both State and Defense exhibits, maintains authentication chains, logs objections
+  and rulings, and produces the clerk's exhibit list. ALWAYS invoke for "exhibit list,"
+  "mark exhibits," "pre-mark exhibits," "exhibit management," "trial exhibits,"
+  "authentication chain," "exhibit log," "admit exhibit," "exhibit objection,"
+  "defense exhibits," "state exhibits," "exhibit tracker," "exhibit binder."
+  Works alongside dw-trial-notebook-builder (assembles the trial notebook) and
+  dw-appellate-error-monitor (tracks evidentiary objection errors for appeal).
+---
+
 # dw-exhibit-manager
-
-**FRONTMATTER TRIGGERS:**
-exhibit list, mark exhibits, pre-mark exhibits, exhibit management, trial exhibits, authentication chain, exhibit log, admit exhibit, exhibit objection, defense exhibits, state exhibits, exhibit tracker, exhibit binder
-
-**DESCRIPTION:**
-Manages the full lifecycle of trial exhibits from pre-marking through admission. Tracks both State and Defense exhibits, maintains authentication chains, logs objections and rulings, and produces the clerk's exhibit list. Works alongside dw-trial-notebook-builder (which assembles the notebook) and dw-appellate-error-monitor (which tracks evidentiary objection errors for appeal).
 
 **CORE PURPOSE:**
 Track every exhibit in the case — both what the defense intends to offer and what the State may offer against your client. Pre-mark all exhibits, document the authentication method for each, anticipate objections with prepared responses, and maintain a complete trial record of what was offered, objected to, and admitted or excluded. Feed every sustained objection to appellate preservation.
