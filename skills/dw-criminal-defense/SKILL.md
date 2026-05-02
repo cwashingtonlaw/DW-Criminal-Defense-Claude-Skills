@@ -5,13 +5,23 @@ description: >
   "run Phase 1/2/3," initial case setup, "fill out the LWOP sheet," "LWOP review,"
   "District Defender review," "life without parole worksheet," or "refresh the Case Profile."
   Do NOT use for loading existing case state — use dw-case-brain. Do NOT use for case
-  status checks — use dw-case-dashboard.
+  status checks — use dw-case-dashboard. Do NOT use for the client-facing first meeting
+  / intake interview — use dw-client-intake-interview (this skill handles the case file
+  side; the intake interview skill handles the live client meeting and feeds into Phase 1).
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.3 | Internal Use Only**
+**Version 5.4 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
+
+**v5.4 changes:**
+- Phase 2 Step 1 expanded with new sub-step **1D — Charge-Type Specialist Routing** dispatching to `dw-drug-offense-specialist`, `dw-dwi-specialist`, `dw-sex-offense-specialist`, `dw-firearms-specialist`, and the new `dw-violent-crime-specialist`.
+- Phase 2 Step 1C now routes jail-call evidence to the new `dw-jail-call-analyzer`.
+- Phase 3 Step 10 (Appellate Readiness) now hands off to the new `dw-appellate-brief-builder` after `dw-appellate-error-monitor` produces the ranked-issue list, with collateral relief routed separately to `dw-post-conviction-relief`.
+- Phase 3 added new **Step 11 — Trial Day Support** routing to the new `dw-trial-day-assistant`; previous Step 11 (Assemble Trial Notebook) renumbered to Step 12.
+- Description updated to disambiguate from `dw-client-intake-interview` (client-facing first meeting) — this skill remains the case-file orchestrator.
+- `dw-expert-witness-evaluator` Module I (Daubert/Foret Hearing Day Package) now noted in 1C routing for hearing-day operational deliverables.
 
 **v5.3 change:** The former `dw-lwop-populator` skill has been merged into Phase 1 Step 3. LWOP review sheets are no longer a separate deliverable — they live as Part 2A (Homicide) or Part 2B (Sex Offense) of the unified `000 - Case Profile.docx`. The populator's field schema and extraction rules are now in `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`. Refresh Mode (Phase 1 Step 3 sub-mode) handles late-discovery updates that previously triggered standalone populator runs.
 
@@ -528,7 +538,19 @@ Classify evidence by type and dispatch to the appropriate specialist skill for e
 - Cell site/location data → **dw-cell-site-geolocation-auditor**
 - Social media evidence → **dw-social-media-auditor**
 - Child forensic interviews → **dw-child-forensic-interview-auditor**
-- Expert witness issues → **dw-expert-witness-evaluator**
+- Expert witness issues → **dw-expert-witness-evaluator** (Module I for Daubert/Foret hearing day package once a hearing is set)
+- Jail call recordings (Securus / GTL/ViaPath / NCIC / IC Solutions) → **dw-jail-call-analyzer** (transcribes via dw-transcript-router; cross-feeds dw-witness-threat-matrix and dw-cross-exam-architect)
+
+**1D — Charge-Type Specialist Routing**
+Identify the charge category and dispatch to the corresponding charge-type specialist for element-by-element defense framework, sentencing exposure analysis, and discipline-specific motions/discovery. Specialists run in parallel with the 8 reports.
+
+- Drug offenses (CDS, distribution, possession with intent) → **dw-drug-offense-specialist**
+- DWI / OWI / vehicular homicide → **dw-dwi-specialist**
+- Sex offenses (incl. SANE-exam audit) → **dw-sex-offense-specialist**
+- Firearms offenses (state and federal) → **dw-firearms-specialist**
+- Violent crimes (homicide, manslaughter, agg battery, agg assault, armed robbery, kidnapping, home invasion) → **dw-violent-crime-specialist**
+
+Cases involving multiple specialist domains (e.g., armed robbery with felon-in-possession enhancement) should dispatch to all applicable specialists.
 
 Save all Step 1 outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` subfolder.
 
@@ -761,7 +783,14 @@ Populate the Mapping the Story templates (Opening and Closing) from: Report 4 (C
 
 Route preservation of trial error, evidentiary challenges, and appellate strategy to **dw-appellate-error-monitor** to ensure all grounds for appeal are documented and preserved for post-conviction review.
 
-### Step 11: Assemble Trial Notebook
+After verdict and sentence, when the appellate record is designated and the ranked-issue output from `dw-appellate-error-monitor` is in hand, route brief drafting to **dw-appellate-brief-builder** for the direct-appeal brief (assignments of error, statement of facts with record cites, per-assignment argument structured as standard of review → preservation → law → application → prejudice, and reply brief). For collateral relief (PCR, federal habeas, sentence modification) instead of direct appeal, route to **dw-post-conviction-relief**.
+
+### Step 11: Trial Day Support
+*During trial — fast-cycle, in-court support.*
+
+Route real-time trial-day support to **dw-trial-day-assistant** for: daily docket, real-time objection log (which feeds upstream to **dw-appellate-error-monitor**), witness scorecards (which feed **dw-cross-exam-architect** for next-day prep), exhibit tracker, juror observation log including Batson tracking, end-of-day recap with overnight tasks, and mid-trial issue spotter (Brady, surprise testimony, mistrial triggers under La. C.Cr.P. Art. 770/771). The trial-day assistant produces short, scannable outputs designed for use during breaks and at counsel table — final polish rolls into the trial notebook via Step 12.
+
+### Step 12: Assemble Trial Notebook
 *Final assembly — triggered when all Phase 3 deliverables are complete.*
 
 Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliverables into the final Trial Notebook. The trial notebook builder scans the case folder for all upstream deliverables, organizes them into the Trial Notebook folder structure, generates a master index, and produces a Trial Readiness Gap Report identifying any missing items.

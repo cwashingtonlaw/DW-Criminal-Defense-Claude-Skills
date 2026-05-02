@@ -10,7 +10,7 @@ description: >
 ---
 
 # Daniels & Washington — Template Selection Protocol
-**Version 1.1 | Internal Reference Protocol — Not a Direct-Trigger Skill**
+**Version 1.2 | Internal Reference Protocol — Not a Direct-Trigger Skill**
 **Attorney Work Product | Confidential**
 
 ---
@@ -140,6 +140,7 @@ This protocol is read by the following D&W pleading skills:
 | `dw-404b-opposition` | Opposition to Prieur / 404(b) notice |
 | `dw-sentencing-mitigation-specialist` | Sentencing memorandum / mitigation |
 | `dw-video-evidence-auditor` | Video evidence audit report (template selection for report output) |
+| `dw-appellate-brief-builder` | Direct-appeal brief / reply brief / writ application (Louisiana 1st-5th Circuits + Sup. Ct.) |
 
 **When any of the above skills loads this file, it should treat this protocol as mandatory — not optional guidance.**
 

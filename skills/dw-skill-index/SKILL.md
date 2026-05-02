@@ -29,12 +29,14 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 
 | I need to... | Use this skill | Say this |
 |-------------|---------------|---------|
+| Run a client intake / first meeting | `dw-client-intake-interview` | "intake" or "new client meeting" |
 | Start a new case | `dw-criminal-defense` | "new case" or "case intake" |
 | Load an existing case | `dw-case-brain` | "load the case" or "open the matter" |
 | Check case status | `dw-case-dashboard` | "where do we stand" or "case status" |
 | Process discovery | `dw-criminal-defense` | "run Phase 1" |
 | Analyze the case | `dw-criminal-defense` | "run Phase 2" |
 | Build trial prep | `dw-criminal-defense` | "run Phase 3" |
+| Support trial day (live, in-court) | `dw-trial-day-assistant` | "trial day" or "log this objection" |
 | Assemble trial notebook | `dw-trial-notebook-builder` | "build the trial notebook" |
 | Triage new discovery | `dw-discovery-orchestrator` | "new discovery arrived" |
 | Transcribe recordings | `dw-transcript-router` | "transcribe the evidence" |
@@ -58,6 +60,8 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Adult interrogation / confession | `dw-confession-interrogation-auditor` | "audit interrogation" |
 | Child forensic interview (CAC) | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
 | Expert witness qualifications | `dw-expert-witness-evaluator` | "evaluate the expert" |
+| Daubert/Foret hearing day package | `dw-expert-witness-evaluator` (Module I) | "Daubert hearing prep" or "Foret hearing" |
+| Jail calls (recordings, logs, transcripts) | `dw-jail-call-analyzer` | "audit jail calls" or "Securus/GTL/ViaPath" |
 
 ---
 
@@ -88,20 +92,36 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Jury selection / voir dire | `dw-voir-dire-assistant` | "prep voir dire" |
 | Track errors for appeal | `dw-appellate-error-monitor` | "preserve error" or "log error" |
+| Real-time trial-day logging (objections, witnesses, exhibits, jurors) | `dw-trial-day-assistant` | "log this objection" or "today's witness" |
 | Generate investigator tasks | `dw-defense-investigator-tasking` | "investigator assignment" |
 | Track discovery compliance | `dw-discovery-compliance-monitor` | "update the discovery ledger" |
 | Brady/Giglio audit | `dw-brady-giglio-auditor` | "run Brady audit" |
 
 ---
 
-## Sentencing & Post-Conviction — "After trial..."
+## Sentencing, Appeal & Post-Conviction — "After trial..."
 
 | Task | Skill | Trigger Phrase |
 |------|-------|---------------|
 | Sentencing mitigation package | `dw-sentencing-mitigation-specialist` | "build sentencing mitigation" |
 | Habitual offender bill audit | `dw-habitual-offender-auditor` | "audit the habitual bill" |
 | Evaluate plea offer | `dw-plea-negotiation-analyzer` | "analyze the plea offer" |
-| Sex offense defense framework | `dw-sex-offense-specialist` | "sex offense" or "SANE exam" |
+| Draft direct-appeal brief (assignments of error, argument, reply) | `dw-appellate-brief-builder` | "appellate brief" or "appeal brief" or "assignments of error" |
+| Post-conviction relief (PCR / habeas / sentence modification) | `dw-post-conviction-relief` | "post-conviction" or "PCR" or "habeas" |
+
+---
+
+## Charge-Type Specialists — "What's the framework for [charge]..."
+
+Each specialist provides charge-specific elements, defenses, sentencing exposure, motions, and discovery checklists. Routed to from `dw-criminal-defense` Phase 2 or directly when the charge type is known.
+
+| Charge Type | Skill | Trigger Phrase |
+|------------|-------|---------------|
+| Drug offenses (CDS, distribution, possession with intent) | `dw-drug-offense-specialist` | "drug case" or "CDS" |
+| DWI / OWI / vehicular homicide | `dw-dwi-specialist` | "DWI" or "DUI" |
+| Sex offenses (incl. SANE exam audits) | `dw-sex-offense-specialist` | "sex offense" or "SANE" |
+| Firearms offenses (state and federal) | `dw-firearms-specialist` | "firearm charge" or "felon in possession" |
+| Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion) | `dw-violent-crime-specialist` | "murder," "manslaughter," "armed robbery," "agg battery," or "self-defense" |
 
 ---
 
@@ -109,10 +129,12 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 
 | Task | Skill | Trigger Phrase |
 |------|-------|---------------|
-| LWOP review sheet | `dw-lwop-populator` | "LWOP sheet" |
+| Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-client-intake-interview` | "intake," "new client," "first meeting" |
 | Evidence folder placeholders | `dw-evidence-placeholder` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
 | PI video scripts | `dw-pi-video-generator` | "PI video" or "make a video" |
+
+*Note: `dw-lwop-populator` was retired in v5.3 — its functionality merged into `dw-criminal-defense` Phase 1 Step 3.*
 
 ---
 
@@ -138,4 +160,6 @@ If none of the above matches:
 
 ---
 
-*D&W Skill Index v1.0 — April 2026*
+*D&W Skill Index v1.1 — May 2026*
+
+*v1.1 changes: added `dw-client-intake-interview`, `dw-jail-call-analyzer`, `dw-trial-day-assistant`, `dw-appellate-brief-builder`, `dw-violent-crime-specialist`; new "Charge-Type Specialists" section consolidating all five specialists; renamed "Sentencing & Post-Conviction" to "Sentencing, Appeal & Post-Conviction"; surfaced Daubert/Foret hearing day package (Module I) inside `dw-expert-witness-evaluator`; removed retired `dw-lwop-populator` row.*
