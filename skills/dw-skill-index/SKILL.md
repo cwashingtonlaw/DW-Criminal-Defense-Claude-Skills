@@ -25,10 +25,12 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 
 ---
 
+<!-- BEGIN AUTOGEN: routing-tables (regen-skill-index.py) -->
+
 ## Quick Lookup — "I need to..."
 
 | I need to... | Use this skill | Say this |
-|-------------|---------------|---------|
+|---|---|---|
 | Run a client intake / first meeting | `dw-client-intake-interview` | "intake" or "new client meeting" |
 | Start a new case | `dw-criminal-defense` | "new case" or "case intake" |
 | Load an existing case | `dw-case-brain` | "load the case" or "open the matter" |
@@ -47,7 +49,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 ## Evidence Auditing — "Audit the..."
 
 | Evidence Type | Skill | Trigger Phrase |
-|--------------|-------|---------------|
+|---|---|---|
 | Phone extraction (HOW it was done) | `dw-mobile-forensic-auditor` | "audit the Cellebrite" |
 | Phone contents (WHAT's on it) | `dw-forensic-dump-analyzer` | "analyze the phone dump" |
 | Body cam / dash cam / CCTV | `dw-video-evidence-auditor` | "audit body cam" |
@@ -68,7 +70,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 ## Motions & Pleadings — "Draft a..."
 
 | Motion Type | Skill | Trigger Phrase |
-|------------|-------|---------------|
+|---|---|---|
 | Suppress evidence (4th/5th Amend.) | `dw-suppression-motion` | "motion to suppress" |
 | Oppose 404(b) / other crimes | `dw-404b-opposition` | "oppose the 404(b)" |
 | Reduce bond / pretrial release | `dw-bond-and-release-motion` | "bond reduction" |
@@ -87,7 +89,7 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 ## Trial Preparation — "Prep for trial..."
 
 | Task | Skill | Trigger Phrase |
-|------|-------|---------------|
+|---|---|---|
 | Cross-examination outlines | `dw-cross-exam-architect` | "build a cross for [witness]" |
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Jury selection / voir dire | `dw-voir-dire-assistant` | "prep voir dire" |
@@ -102,7 +104,7 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 ## Sentencing, Appeal & Post-Conviction — "After trial..."
 
 | Task | Skill | Trigger Phrase |
-|------|-------|---------------|
+|---|---|---|
 | Sentencing mitigation package | `dw-sentencing-mitigation-specialist` | "build sentencing mitigation" |
 | Habitual offender bill audit | `dw-habitual-offender-auditor` | "audit the habitual bill" |
 | Evaluate plea offer | `dw-plea-negotiation-analyzer` | "analyze the plea offer" |
@@ -116,20 +118,20 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 Each specialist provides charge-specific elements, defenses, sentencing exposure, motions, and discovery checklists. Routed to from `dw-criminal-defense` Phase 2 or directly when the charge type is known.
 
 | Charge Type | Skill | Trigger Phrase |
-|------------|-------|---------------|
+|---|---|---|
 | Drug offenses (CDS, distribution, possession with intent) | `dw-drug-offense-specialist` | "drug case" or "CDS" |
 | DWI / OWI / vehicular homicide | `dw-dwi-specialist` | "DWI" or "DUI" |
 | Sex offenses (incl. SANE exam audits) | `dw-sex-offense-specialist` | "sex offense" or "SANE" |
 | Firearms offenses (state and federal) | `dw-firearms-specialist` | "firearm charge" or "felon in possession" |
-| Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion) | `dw-violent-crime-specialist` | "murder," "manslaughter," "armed robbery," "agg battery," or "self-defense" |
+| Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion) | `dw-violent-crime-specialist` | "murder" or "manslaughter" or "armed robbery" or "agg battery" or "self-defense" |
 
 ---
 
 ## Intake & Setup — "Set up..."
 
 | Task | Skill | Trigger Phrase |
-|------|-------|---------------|
-| Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-client-intake-interview` | "intake," "new client," "first meeting" |
+|---|---|---|
+| Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-client-intake-interview` | "intake" or "new client" or "first meeting" |
 | Evidence folder placeholders | `dw-evidence-placeholder` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
 | PI video scripts | `dw-pi-video-generator` | "PI video" or "make a video" |
@@ -143,10 +145,12 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 These skills are read by other skills as reference protocols — you don't invoke them directly:
 
 | Skill | What It Does | Read By |
-|-------|-------------|---------|
+|---|---|---|
 | `dw-template-selector` | DEVONthink template search protocol | All motion/pleading skills |
 | `dw-data-contracts` | Output schema definitions | All skills producing deliverables |
 | `dw-case-brain` | Session persistence (also direct-trigger) | Every skill at session open/close |
+
+<!-- END AUTOGEN: routing-tables (regen-skill-index.py) -->
 
 ---
 

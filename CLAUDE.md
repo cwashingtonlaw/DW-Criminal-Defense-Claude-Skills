@@ -184,8 +184,23 @@ When you change an upstream skill's output, check the consumer skills for breaka
 | Sync skills to ~/.claude/skills | `bin/dw-skill-git.sh sync` |
 | Check sync status | `bin/dw-skill-git.sh status` |
 | Background auto-pull | `bin/auto-pull.sh` |
+| Regenerate `dw-skill-index/SKILL.md` from frontmatter | `bin/regen-skill-index.py` |
+| Check whether the skill index is up to date | `bin/regen-skill-index.py --check` |
 
-The Stop hook in `.claude/settings.json` automatically runs the errors-only lint before every Stop event. If it finds errors, the session is blocked from stopping until they are fixed.
+---
+
+## Hooks
+
+Project-level Claude Code hooks live in `.claude/settings.json`. They activate automatically when a Claude Code session starts in this repo.
+
+| Event | What it does | Blocks? |
+|---|---|---|
+| **SessionStart** | Runs `bin/lint-skills.py` and shows a one-line linter summary banner ("D&W Skill Linter: 62 skill(s) checked — 0 error(s), 0 warning(s).") so issues surface at session start, not at session end. | No — informational only |
+| **Stop** | Runs `bin/lint-skills.py --errors-only`. If errors are present, blocks the Stop event with a `{"decision": "block", "reason": ...}` JSON payload — the model must fix the errors before the session can stop. Warnings do not block. | Yes — on errors only |
+
+To temporarily disable the hooks: rename `.claude/settings.json` to `.claude/settings.json.disabled` (don't commit the rename). To remove permanently: delete the relevant `"Stop"` or `"SessionStart"` block from the `"hooks"` object.
+
+To verify the hook config is valid: `jq -e '.hooks.Stop[0].hooks[0].command' .claude/settings.json` (should print the command and exit 0).
 
 ---
 
