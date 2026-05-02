@@ -1,5 +1,6 @@
 ---
 name: dw-pretrial-motion-library
+category: pleadings
 description: >
   Draft 11 pretrial motion types. ALWAYS invoke for "speedy trial," "701 motion," "bill of
   particulars," "continuance," "motion to compel," "severance," "change of venue,"

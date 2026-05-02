@@ -1,5 +1,6 @@
 ---
 name: dw-transcript-pipeline-calcasieu
+category: transcription
 description: >
   JusticeText-based transcription pipeline for Calcasieu Parish cases at Daniels & Washington.
   ALWAYS invoke for "JusticeText pipeline," "Calcasieu transcription," "upload to JusticeText,"

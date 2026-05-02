@@ -1,5 +1,6 @@
 ---
 name: dw-expert-witness-evaluator
+category: evidence-audit
 description: >
   Evaluate expert witness qualifications and methodology for Daubert/Foret challenges.
   ALWAYS invoke for "evaluate expert," "Daubert challenge," "Foret challenge," "expert

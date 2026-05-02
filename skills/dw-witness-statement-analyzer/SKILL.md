@@ -1,5 +1,6 @@
 ---
 name: dw-witness-statement-analyzer
+category: evidence-audit
 description: >
   Analyze witness statements for key facts, inconsistencies, and credibility issues.
   ALWAYS invoke for "analyze this statement," "witness analysis," "statement comparison,"

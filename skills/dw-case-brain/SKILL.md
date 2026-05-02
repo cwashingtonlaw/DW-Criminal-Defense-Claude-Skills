@@ -1,5 +1,6 @@
 ---
 name: dw-case-brain
+category: core
 description: >
   Session persistence. ALWAYS invoke for "load the case," "open the matter," "pick up where
   we left off," "save the session," "wrap up," or any session start/end. Do NOT use for

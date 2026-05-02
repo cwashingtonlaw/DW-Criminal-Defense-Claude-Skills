@@ -1,5 +1,6 @@
 ---
 name: dw-drug-offense-specialist
+category: offense-specialists
 description: >
   Drug offense defense framework for Louisiana. ALWAYS invoke for "drug charge," "possession,"
   "distribution," "trafficking," "CDS," "controlled dangerous substance," "Schedule I/II/III/IV/V,"

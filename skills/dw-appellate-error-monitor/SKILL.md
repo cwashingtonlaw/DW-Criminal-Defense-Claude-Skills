@@ -1,5 +1,6 @@
 ---
 name: dw-appellate-error-monitor
+category: trial-prep
 description: >
   Track error preservation throughout proceedings. ALWAYS invoke for "error preservation,"
   "log error," "preserve for appeal," "appellate error," "contemporaneous objection,"

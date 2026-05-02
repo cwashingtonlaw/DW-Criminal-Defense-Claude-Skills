@@ -1,5 +1,6 @@
 ---
 name: dw-video-evidence-auditor
+category: evidence-audit
 description: >
   Audit all video evidence: body cam, dash cam, CCTV, interview room, civilian. ALWAYS
   invoke for "audit body cam," "BWC," "dash cam," "surveillance video," "CCTV," "interview

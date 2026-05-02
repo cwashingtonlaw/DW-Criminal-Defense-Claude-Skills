@@ -1,5 +1,6 @@
 ---
 name: dw-confession-interrogation-auditor
+category: evidence-audit
 description: >
   Audit custodial interrogations for Miranda violations, coercion, and false confession
   risk. ALWAYS invoke for "audit interrogation," "Miranda violation," "coerced confession,"

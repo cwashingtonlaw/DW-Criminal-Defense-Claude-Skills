@@ -1,5 +1,6 @@
 ---
 name: dw-evidence-placeholder
+category: ops
 description: >
   Generate placeholder PDFs for media evidence folders. ALWAYS invoke for "evidence
   placeholders," "placeholder PDFs," "catalog the media folders," or "evidence folder

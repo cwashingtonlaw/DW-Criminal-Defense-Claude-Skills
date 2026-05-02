@@ -1,5 +1,6 @@
 ---
 name: dw-appellate-brief-builder
+category: disposition
 description: >
   Draft Louisiana state criminal direct-appeal briefs for the courts of appeal (1st, 2nd, 3rd,
   4th, 5th Circuits) and the Louisiana Supreme Court. ALWAYS invoke for "appellate brief,"

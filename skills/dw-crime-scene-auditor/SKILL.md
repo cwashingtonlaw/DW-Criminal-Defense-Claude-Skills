@@ -1,5 +1,6 @@
 ---
 name: dw-crime-scene-auditor
+category: evidence-audit
 description: >
   Audit crime scene processing and physical evidence collection. ALWAYS invoke for "audit
   crime scene," "evidence collection," "crime scene photos," "latent prints," "blood

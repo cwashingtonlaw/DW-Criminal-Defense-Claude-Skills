@@ -1,5 +1,6 @@
 ---
 name: dw-witness-threat-matrix
+category: trial-prep
 description: "Build a Top 5 witness threat matrix by witness type for a criminal case at Daniels & Washington. ALWAYS invoke for \"witness threat matrix,\" \"key witnesses,\" \"top witnesses,\" \"rank the witnesses,\" \"most dangerous witnesses,\" \"witness priority,\" \"witness damage score,\" \"witness vulnerability,\" \"who do we cross hardest,\" \"witness ranking,\" \"refresh the threat matrix,\" \"update threat matrix after crosses,\" \"post-cross refresh,\" \"crosses are done — update the matrix,\" or \"rescore the witnesses.\" Phase 3 analytical capstone. Synthesizes existing case deliverables into ranked Top 5 lists per witness type with separate Damage and Vulnerability scores, source citations, impeachment hooks, and recommended defense actions. Includes Post-Cross Refresh Mode. Feeds dw-cross-exam-architect. Do NOT use for discovery triage (dw-discovery-orchestrator) or for drafting actual cross outlines (dw-cross-exam-architect)."
 ---
 

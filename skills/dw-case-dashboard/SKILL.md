@@ -1,5 +1,6 @@
 ---
 name: dw-case-dashboard
+category: core
 description: >
   Case status dashboard. ALWAYS invoke for "case status," "where do we stand," "what's
   next," "readiness check," or "what phase am I in." Scans client folder for deliverables

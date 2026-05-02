@@ -1,5 +1,6 @@
 ---
 name: dw-cell-site-geolocation-auditor
+category: evidence-audit
 description: >
   Audit cell site location, GPS, tower dumps, geofence, and Stingray evidence. ALWAYS invoke
   for "cell site," "CSLI," "tower dump," "Stingray," "GPS tracking," "geofence," "cell

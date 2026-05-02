@@ -1,5 +1,6 @@
 ---
 name: dw-transcript-router
+category: transcription
 description: >
   Parish-based transcript pipeline router for Daniels & Washington. ALWAYS invoke for
   "transcribe the evidence," "transcript pipeline," "process audio/video," "transcribe jail

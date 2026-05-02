@@ -1,5 +1,6 @@
 ---
 name: dw-post-conviction-relief
+category: disposition
 description: >
   Evaluate and prepare post-conviction relief applications. ALWAYS invoke for "post-conviction,"
   "PCR," "habeas corpus," "post-conviction relief," "2254 petition," "newly discovered evidence,"

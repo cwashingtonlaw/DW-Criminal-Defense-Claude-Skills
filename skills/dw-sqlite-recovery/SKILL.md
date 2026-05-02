@@ -1,5 +1,6 @@
 ---
 name: dw-sqlite-recovery
+category: evidence-audit
 description: >
   Recover deleted data from SQLite databases and WAL files. ALWAYS invoke for "SQLite
   recovery," "WAL file," "WAL analysis," "deleted messages," "deleted database records," or

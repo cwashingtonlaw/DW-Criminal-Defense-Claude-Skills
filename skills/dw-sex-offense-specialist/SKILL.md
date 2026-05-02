@@ -1,5 +1,6 @@
 ---
 name: dw-sex-offense-specialist
+category: offense-specialists
 description: >
   Sex offense defense framework. ALWAYS invoke for "sex offense," "rape shield," "Art. 412,"
   "SANE exam," "sexual assault," "sexual battery," "indecent behavior," "child molestation,"

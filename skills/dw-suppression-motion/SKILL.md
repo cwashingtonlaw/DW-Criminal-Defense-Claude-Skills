@@ -1,5 +1,6 @@
 ---
 name: dw-suppression-motion
+category: pleadings
 description: >
   Draft suppression motions AND audit search warrants. ALWAYS invoke for "suppress," "motion
   to suppress," "illegal search," "bad warrant," "audit the warrant," "probable cause,"

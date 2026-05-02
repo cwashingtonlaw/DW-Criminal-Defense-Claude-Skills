@@ -1,5 +1,6 @@
 ---
 name: dw-cross-exam-architect
+category: trial-prep
 description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"
   "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Uses firm

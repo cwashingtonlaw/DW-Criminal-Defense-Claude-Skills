@@ -1,5 +1,6 @@
 ---
 name: dw-chain-of-custody-auditor
+category: evidence-audit
 description: >
   Audit evidence handling from collection to courtroom. ALWAYS invoke for "chain of
   custody," "evidence gap," "broken chain," "evidence tampering," "missing evidence,"

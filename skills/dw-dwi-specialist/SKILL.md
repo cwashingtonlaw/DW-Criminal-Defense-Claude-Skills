@@ -1,5 +1,6 @@
 ---
 name: dw-dwi-specialist
+category: offense-specialists
 description: >
   DWI/DUI defense framework for Louisiana. ALWAYS invoke for "DWI," "DUI," "drunk driving,"
   "operating while intoxicated," "OWI," "Intoxilyzer," "breathalyzer," "blood alcohol,"

@@ -1,5 +1,6 @@
 ---
 name: dw-eyewitness-identification-auditor
+category: evidence-audit
 description: >
   Audit photo array, lineup, and showup identification procedures. ALWAYS invoke for "audit
   lineup," "photo array," "suggestive ID," "eyewitness identification," "cross-racial ID,"

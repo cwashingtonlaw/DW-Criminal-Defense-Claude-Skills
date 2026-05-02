@@ -1,5 +1,6 @@
 ---
 name: dw-template-selector
+category: core
 description: >
   Shared template selection protocol for all Daniels & Washington pleading-drafting skills.
   This skill is NOT triggered directly by user prompts — it is read as a reference protocol

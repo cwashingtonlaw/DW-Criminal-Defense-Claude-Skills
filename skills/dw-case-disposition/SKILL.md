@@ -1,5 +1,6 @@
 ---
 name: dw-case-disposition
+category: disposition
 description: >
   Comprehensive case closing workflow for criminal case final dispositions. Records
   disposition outcome in Case Brain, generates final billing narrative, client notification

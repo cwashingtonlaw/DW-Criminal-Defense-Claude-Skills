@@ -1,5 +1,6 @@
 ---
 name: dw-404b-opposition
+category: pleadings
 description: >
   Oppose other crimes evidence under 404(b). ALWAYS invoke for "404(b)," "Prieur notice,"
   "prior bad acts," "other crimes evidence," "oppose 404(b)," or "kitchen sink notice."

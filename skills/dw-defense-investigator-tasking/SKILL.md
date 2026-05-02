@@ -1,5 +1,6 @@
 ---
 name: dw-defense-investigator-tasking
+category: trial-prep
 description: >
   Generate investigation assignments and checklists. ALWAYS invoke for "investigator,"
   "witness interview questionnaire," "scene visit," "canvass assignment," "records request,"

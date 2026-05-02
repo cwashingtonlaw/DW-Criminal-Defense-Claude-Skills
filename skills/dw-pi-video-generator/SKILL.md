@@ -1,5 +1,6 @@
 ---
 name: dw-pi-video-generator
+category: ops
 description: >
   Generate personal injury video scripts and trigger HeyGen avatar video creation for Daniels & Washington.
   ALWAYS invoke for "PI video," "personal injury video," "make a video about," "video script,"

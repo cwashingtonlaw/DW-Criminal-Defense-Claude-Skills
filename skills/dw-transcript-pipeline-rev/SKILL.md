@@ -1,5 +1,6 @@
 ---
 name: dw-transcript-pipeline-rev
+category: transcription
 description: >
   Rev.com-based transcription pipeline for all non-Calcasieu Parish cases at Daniels & Washington.
   ALWAYS invoke for "Rev pipeline," "Rev transcription," "upload to Rev," "transcribe non-Calcasieu

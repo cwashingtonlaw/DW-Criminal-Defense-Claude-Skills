@@ -1,5 +1,6 @@
 ---
 name: dw-exhibit-manager
+category: trial-prep
 description: >
   Manages the full lifecycle of trial exhibits from pre-marking through admission.
   Tracks both State and Defense exhibits, maintains authentication chains, logs objections

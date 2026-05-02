@@ -1,5 +1,6 @@
 ---
 name: dw-firearms-specialist
+category: offense-specialists
 description: >
   Firearms and weapons offense defense framework for Louisiana and federal law. ALWAYS invoke for
   "gun charge," "firearm," "weapon," "felon in possession," "illegal carrying," "concealed weapon,"

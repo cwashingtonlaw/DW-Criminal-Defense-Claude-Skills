@@ -1,5 +1,6 @@
 ---
 name: dw-trial-day-assistant
+category: trial-prep
 description: >
   Real-time, in-trial support for Louisiana criminal defense. ALWAYS invoke for
   "trial day," "trial today," "objection log," "real-time trial," "during trial,"

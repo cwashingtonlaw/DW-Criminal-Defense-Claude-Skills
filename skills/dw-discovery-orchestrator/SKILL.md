@@ -1,5 +1,6 @@
 ---
 name: dw-discovery-orchestrator
+category: discovery
 description: >
   Auto-triage incoming discovery files to specialist auditors. ALWAYS invoke for "new
   discovery," "triage discovery," "discovery arrived," "route discovery," or when a

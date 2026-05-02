@@ -1,5 +1,6 @@
 ---
 name: dw-criminal-defense
+category: core
 description: >
   Master 3-phase criminal defense workflow. ALWAYS invoke for "case intake," "new case,"
   "run Phase 1/2/3," initial case setup, "fill out the LWOP sheet," "LWOP review,"

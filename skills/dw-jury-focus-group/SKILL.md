@@ -1,5 +1,6 @@
 ---
 name: dw-jury-focus-group
+category: trial-prep
 description: >
   Run a criminal defense jury focus group simulation with a demographically accurate mock panel.
   ALWAYS invoke for "focus group," "mock jury," "jury simulation," "test my defense,"

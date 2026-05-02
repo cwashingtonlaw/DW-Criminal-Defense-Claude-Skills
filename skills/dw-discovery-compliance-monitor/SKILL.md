@@ -1,5 +1,6 @@
 ---
 name: dw-discovery-compliance-monitor
+category: discovery
 description: >
   Living discovery ledger tracking demanded vs. produced items. ALWAYS invoke for "discovery
   log," "update the ledger," "what hasn't been produced," "missing discovery," or "late

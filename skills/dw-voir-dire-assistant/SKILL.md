@@ -1,5 +1,6 @@
 ---
 name: dw-voir-dire-assistant
+category: trial-prep
 description: >
   Jury selection support with Batson compliance. ALWAYS invoke for "jury selection," "voir
   dire," "juror questionnaire," "strike list," "peremptory challenge," "cause challenge,"

@@ -1,5 +1,6 @@
 ---
 name: dw-data-contracts
+category: core
 description: >
   Shared data contracts defining output schemas between Daniels & Washington skills.
   This skill is NOT triggered directly — it is a reference document read by skills that

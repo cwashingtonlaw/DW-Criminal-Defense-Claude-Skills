@@ -1,5 +1,6 @@
 ---
 name: dw-case-law-researcher
+category: ops
 description: >
   Multi-source legal research engine for Daniels & Washington criminal defense.
   Searches case.dev (case law + statutes), CourtListener (9M+ cases with semantic search,

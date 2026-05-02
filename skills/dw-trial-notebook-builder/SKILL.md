@@ -1,5 +1,6 @@
 ---
 name: dw-trial-notebook-builder
+category: trial-prep
 description: >
   Assemble the final trial notebook from all upstream deliverables. ALWAYS invoke for
   "build the trial notebook," "assemble trial notebook," "trial notebook," "trial binder,"

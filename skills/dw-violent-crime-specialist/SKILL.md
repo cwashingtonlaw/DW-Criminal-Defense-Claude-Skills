@@ -1,5 +1,6 @@
 ---
 name: dw-violent-crime-specialist
+category: offense-specialists
 description: >
   Violent-crime defense framework for Louisiana state prosecutions. ALWAYS invoke for "homicide,"
   "murder," "first degree murder," "second degree murder," "manslaughter," "negligent homicide,"

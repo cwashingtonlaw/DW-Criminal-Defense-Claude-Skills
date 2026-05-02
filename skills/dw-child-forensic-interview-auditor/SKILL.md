@@ -1,5 +1,6 @@
 ---
 name: dw-child-forensic-interview-auditor
+category: evidence-audit
 description: >
   Audit forensic interviews of CHILD witnesses for protocol violations and suggestibility.
   ALWAYS invoke for "CAC video," "forensic interview of the child," "RATAC," "NICHD," or

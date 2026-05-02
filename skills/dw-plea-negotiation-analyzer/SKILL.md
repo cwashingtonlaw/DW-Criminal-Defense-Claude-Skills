@@ -1,5 +1,6 @@
 ---
 name: dw-plea-negotiation-analyzer
+category: disposition
 description: >
   Evaluate plea offers against trial exposure. ALWAYS invoke for "plea offer," "plea deal,"
   "plea analysis," "trial exposure," "good time calculation," "collateral consequences," or

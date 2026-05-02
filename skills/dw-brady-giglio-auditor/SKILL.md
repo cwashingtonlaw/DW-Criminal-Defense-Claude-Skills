@@ -1,5 +1,6 @@
 ---
 name: dw-brady-giglio-auditor
+category: discovery
 description: >
   Brady/Giglio audit and confidential informant detection. ALWAYS invoke for "Brady audit,"
   "Giglio," "CI audit," "informant," "reveal the deal," "snitch check," "undisclosed

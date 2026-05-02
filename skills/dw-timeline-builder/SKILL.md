@@ -1,5 +1,6 @@
 ---
 name: dw-timeline-builder
+category: trial-prep
 description: >
   Build and maintain the master case timeline from all evidence sources. ALWAYS invoke for
   "build the timeline," "case timeline," "master timeline," "chronology," "sequence of

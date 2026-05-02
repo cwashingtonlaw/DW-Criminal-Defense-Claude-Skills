@@ -1,5 +1,6 @@
 ---
 name: dw-sentencing-mitigation-specialist
+category: disposition
 description: >
   Build sentencing mitigation packages and audit PSI reports. ALWAYS invoke for
   "sentencing," "mitigation," "sentencing memorandum," "PSI report," "Dorthey challenge,"

@@ -1,5 +1,6 @@
 ---
 name: dw-forensic-dump-analyzer
+category: evidence-audit
 description: >
   Mine phone dump CONTENT for defense intelligence. ALWAYS invoke for "analyze the phone
   dump," "review text messages," "call logs," "phone timeline," "alibi evidence in the

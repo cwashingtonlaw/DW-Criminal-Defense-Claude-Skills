@@ -1,5 +1,6 @@
 ---
 name: dw-jury-instructions-builder
+category: trial-prep
 description: >
   Draft proposed jury charges and verdict forms. ALWAYS invoke for "jury instructions,"
   "jury charges," "lesser included offenses," "verdict form," "responsive verdicts,"

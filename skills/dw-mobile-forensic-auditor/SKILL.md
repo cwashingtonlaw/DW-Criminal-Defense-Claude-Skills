@@ -1,5 +1,6 @@
 ---
 name: dw-mobile-forensic-auditor
+category: evidence-audit
 description: >
   Phone extraction METHODOLOGY audit. ALWAYS invoke for "audit the Cellebrite," "phone
   forensics," "UFED," "GrayKey," "extraction report," or "mobile forensics." Challenges HOW

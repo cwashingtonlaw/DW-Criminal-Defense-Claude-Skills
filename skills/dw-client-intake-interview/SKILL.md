@@ -1,5 +1,6 @@
 ---
 name: dw-client-intake-interview
+category: intake
 description: >
   First-contact client intake interview protocol. ALWAYS invoke for "intake," "first
   meeting," "initial consultation," "new client," "client interview," "intake interview,"

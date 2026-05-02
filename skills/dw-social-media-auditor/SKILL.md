@@ -1,5 +1,6 @@
 ---
 name: dw-social-media-auditor
+category: evidence-audit
 description: >
   Audit social media evidence authentication and admissibility. ALWAYS invoke for "audit
   Facebook," "social media screenshots," "Instagram DMs," "Snapchat," "TikTok," "Twitter/X

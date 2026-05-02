@@ -1,5 +1,6 @@
 ---
 name: dw-client-communication-drafter
+category: ops
 description: >
   Draft client correspondence including status updates, jail mail, family letters, and interpreter-ready summaries.
   ALWAYS invoke for "client letter," "jail mail," "update the client," "write to the client," "family update,"

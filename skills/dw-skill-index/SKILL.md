@@ -1,5 +1,6 @@
 ---
 name: dw-skill-index
+category: core
 description: >
   Find the right D&W skill for any task. ALWAYS invoke for "what skills do we have,"
   "which skill handles X," "show me the skills," "skill list," "what can Cowork do,"

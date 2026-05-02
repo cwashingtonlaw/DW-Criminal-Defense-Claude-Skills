@@ -1,5 +1,6 @@
 ---
 name: dw-jail-call-analyzer
+category: evidence-audit
 description: >
   Audit recorded jail calls produced in discovery for damaging admissions, helpful content,
   witness-tampering exposure, and trial-cross fodder at Daniels & Washington. ALWAYS invoke

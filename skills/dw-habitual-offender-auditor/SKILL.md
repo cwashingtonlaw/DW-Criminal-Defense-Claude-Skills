@@ -1,5 +1,6 @@
 ---
 name: dw-habitual-offender-auditor
+category: disposition
 description: >
   Audit habitual offender bills and predicate convictions. ALWAYS invoke for "habitual
   bill," "habitual offender," "predicate conviction," "529.1," "Boykin audit," "cleansing
