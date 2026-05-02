@@ -267,6 +267,9 @@ Use the `docx` skill to produce the Defense Media Analysis Report. **This format
 
 ```
 DEFENSE MEDIA ANALYSIS REPORT
+Schema Version: 1.0                          ← per dw-data-contracts Contract 1
+Date Generated: [ISO-8601 timestamp]         ← per dw-data-contracts Contract 1
+Pipeline: dw-transcript-pipeline-calcasieu   ← per dw-data-contracts Contract 1
 [Client Name] | [Docket #] | [Parish: Calcasieu]
 Transcription Platform: JusticeText
 Analysis Date: [Date]

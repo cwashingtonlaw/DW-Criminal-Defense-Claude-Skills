@@ -36,6 +36,85 @@ The `skills/` directory is the canonical install point — Claude Code reads fro
 
 ---
 
+## Onboarding — first-time setup
+
+Use this section if you are new to the D&W skill collection (joining the firm, setting up a new machine, or onboarding a new attorney).
+
+### 1. Clone the repository
+
+```
+git clone <repo-url> ~/Code/DW-Criminal-Defense-Claude-Skills
+cd ~/Code/DW-Criminal-Defense-Claude-Skills
+```
+
+The actual remote URL is internal to D&W — see your team lead or the firm operations document.
+
+### 2. Link skills into Claude Code's skill directory
+
+Claude Code (CLI, Web, IDE) reads skills from `~/.claude/skills/`. The `bin/dw-skill-git.sh` script keeps the repo's `skills/` and `~/.claude/skills/` in sync:
+
+```
+bin/dw-skill-git.sh status        # show sync state
+bin/dw-skill-git.sh sync          # one-shot sync
+```
+
+### 3. (Optional) Install the auto-pull background agent
+
+Keeps the local repo current with `origin/main` automatically (macOS only — installs a LaunchAgent):
+
+```
+bin/install-agent.sh
+```
+
+Confirm it's running: `launchctl list | grep com.dw.skill-git-pull`. To uninstall: `bin/uninstall-agent.sh`.
+
+### 4. Verify the linter and hooks
+
+```
+bin/lint-skills.py              # should report 0 errors, 0 warnings
+jq -e '.hooks.Stop[0].hooks[0].command' .claude/settings.json   # should print the linter command and exit 0
+```
+
+The Stop hook will block your session from ending if the linter finds errors. The SessionStart hook prints a one-line linter banner each session start. See the **Hooks** section below for details.
+
+### 5. Open a Claude Code session in this repo
+
+The session-start banner will confirm the linter is healthy. Try a discoverability test:
+
+```
+> what skills do we have for evidence audits?
+```
+
+Claude should consult `dw-skill-index` and return the Evidence Auditing routing table. If it doesn't, the skill collection isn't loaded — re-run `bin/dw-skill-git.sh sync`.
+
+### 6. Cowork project setup (Claude on the web)
+
+For the Claude Cowork project (firm-wide criminal-defense workspace), the project instructions are maintained at `docs/DW_Criminal_Defense_Cowork Project_Instructions_1.md`. Paste the contents into the Cowork project's instructions field. Update both this repo and the Cowork project when project instructions change.
+
+### 7. First skill to invoke (typical attorney workflow)
+
+| Situation | Say this | Skill that fires |
+|---|---|---|
+| New client, first meeting | "intake" or "new client meeting" | `dw-client-intake-interview` |
+| New case, file processing | "new case" or "case intake" | `dw-criminal-defense` (Phase 1) |
+| Returning to existing case | "load the case" | `dw-case-brain` |
+| Mid-trial, in court | "log this objection" | `dw-trial-day-assistant` |
+| After verdict, prepping appeal | "preserve error" then later "appellate brief" | `dw-appellate-error-monitor` → `dw-appellate-brief-builder` |
+
+For the full routing table, ask: *"what skills do we have"* (invokes `dw-skill-index`).
+
+### 8. Common troubleshooting
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| Stop hook fires, session won't end | Linter found errors | Run `bin/lint-skills.py --errors-only` to see what's broken; fix and retry stop |
+| SessionStart banner missing | `.claude/settings.json` wasn't present at session start | Run `/hooks` in Claude Code to reload, or restart the session |
+| Skill not invoked when expected | Trigger keywords don't match user's wording | Check `dw-skill-index` for the canonical trigger phrase; rephrase, or update the skill's frontmatter description |
+| `bin/lint-skills.py` reports E4 (broken cross-skill ref) | Skill mentions a `dw-foo` that doesn't exist | Either fix the reference or, if intentional historical mention, add a "former" / "merged into" / "deprecated" marker on the same line so the linter recognizes it as historical |
+| `bin/regen-skill-index.py --check` exits 1 | Index is stale | Run `bin/regen-skill-index.py` to apply, then commit `skills/dw-skill-index/SKILL.md` |
+
+---
+
 ## House rules — non-negotiable
 
 These rules apply to every skill, every reference file, every commit. The linter catches structural violations; the substantive ones depend on you.

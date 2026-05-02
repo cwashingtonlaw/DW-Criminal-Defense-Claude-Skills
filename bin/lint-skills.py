@@ -40,7 +40,7 @@ EXEMPT: dict[str, set[str]] = {
     "dw-skill-index":         {"W1", "W3", "W4"},                       # index/lookup, no file output
     "dw-template-selector":   {"W1", "W2", "W3", "W4", "W5", "W6"},     # shared protocol, not direct-trigger
     "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6"},     # library other skills load specific files from
-    "dw-data-contracts":      {"W1", "W3", "W4", "W6"},                 # schema definitions
+    "dw-data-contracts":      {"W1", "W2", "W3", "W4", "W6"},           # schema definitions; read-only infra, no shared-protocols load
     "dw-criminal-defense":    {"W1", "W2", "W3"},                       # master orchestrator; downstream skills enforce hard stops + citations
     "dw-evidence-placeholder":{"W1", "W3"},                             # utility skill
     "dw-image-filename-stamp":{"W1", "W3", "W4"},                       # utility

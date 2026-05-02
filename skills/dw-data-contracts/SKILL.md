@@ -17,16 +17,7 @@ This document defines the output schemas that D&W skills must follow when produc
 
 **When to read this file:** Before modifying any skill's output format, or when building a new skill that produces deliverables consumed downstream.
 
----
-
-## STEP 0.5 — LOAD SHARED PROTOCOLS
-
-Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
-
-1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
-2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
-
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+This skill is read-only infrastructure — it does not produce attorney deliverables and does not need to load `dw-shared-protocols` (work-product marking, output-path formula). Skills that **consume** these contracts to produce deliverables load shared protocols themselves at their own Step 0.5.
 
 ---
 
@@ -39,7 +30,13 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 `Defense Media Analysis Report — [Client Last Name] [Date].docx`
 
 ### Required Sections (in order)
-1. **Header Block** — Client name, docket number, date generated, parish, platform used
+1. **Header Block** — Must include the following fields, in this order:
+   - `Schema Version: <semver>` (current: `1.0`) — bumped when this contract changes the DMAR shape; downstream consumers should refuse to parse a higher major version they don't recognize
+   - `Date Generated: <ISO-8601>` (e.g., `2026-05-02T14:32:00Z`) — when this DMAR was produced
+   - `Pipeline: <skill-name>` (e.g., `dw-transcript-pipeline-rev`) — which producer skill emitted this DMAR
+   - `Client Name`
+   - `Docket Number`
+   - `Parish`
 2. **Media Inventory** — Table of all media files processed with: filename, duration, file type, speaker count, transcription status
 3. **Transcript Summaries** — Per-file summary with: key statements (with timestamps), speakers identified, topics covered
 4. **Inconsistency Matrix** — Cross-file contradictions: who said what, where it conflicts, timestamp references for both
@@ -258,17 +255,75 @@ Example:
 
 ---
 
+## Contract 7: Jail-Call Tampering-Risk Cross-Feed
+
+**Producer:** `dw-jail-call-analyzer` (Module D)
+**Consumer:** `dw-witness-threat-matrix` (Post-Cross Refresh Mode and initial-build threat scoring)
+
+### Purpose
+
+When `dw-jail-call-analyzer` Module D identifies witness-contact attempts, threats, coaching, or coordination patterns in jail-call recordings, those findings must flow into `dw-witness-threat-matrix` so that affected witnesses' Vulnerability scores are updated and the Top 5 ranks per witness type reflect the new tampering signal.
+
+### Filename Pattern
+
+`Jail-Call Tampering Risk Cross-Feed — [Client Last Name] [Date].md`
+
+Saved alongside the jail-call audit at `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+### Required Header
+
+- `Schema Version: 1.0`
+- `Date Generated: <ISO-8601>`
+- `Producer: dw-jail-call-analyzer`
+- `Consumer Hint: dw-witness-threat-matrix (Refresh Mode)`
+- `Client Name`
+- `Docket Number`
+- `Total Calls Analyzed: <int>` (across all sampling tiers)
+
+### Required Fields per Tampering-Risk Entry
+
+One row per identified witness-contact event:
+
+| Field | Type | Description |
+|---|---|---|
+| `witness_id` | string | Witness identifier matching the entry in `Case Tables.xlsx` Witness List - Alpha |
+| `witness_name` | string | Full witness name (sanity-check field; `witness_id` is authoritative) |
+| `event_timestamp` | ISO-8601 | When the call/event occurred (call start time) |
+| `severity` | enum | `CRITICAL` (direct threat or explicit coaching) / `SIGNIFICANT` (indirect contact attempt or coordinated messaging) / `MODERATE` (third-party message relay) / `MINOR` (mention without contact attempt) |
+| `pattern_type` | enum | `direct-contact` / `indirect-contact-via-relay` / `three-way-call` / `threat` / `coaching` / `coordination` / `intimidation` / `bribery` |
+| `call_id` | string | Source call ID for citation back to recording |
+| `timestamp_range` | string | In-call timestamp range (e.g., `03:24-03:41`) where the event occurred |
+| `quote` | string | Verbatim quote (or summary if not transcribable) |
+| `recommended_action` | enum | `notify-court` / `motion-revoke-bail` / `add-to-witness-protection-request` / `cross-exam-fodder` / `no-action-document-only` |
+
+### Consumer Behavior
+
+`dw-witness-threat-matrix` Post-Cross Refresh Mode (and initial-build mode) must:
+
+1. Match each `witness_id` to its row in the threat matrix
+2. Increase that witness's Vulnerability score by `severity` (CRITICAL=+3, SIGNIFICANT=+2, MODERATE=+1, MINOR=+0.5)
+3. Add the `quote` and `call_id`/`timestamp_range` to the witness's "Tampering Signals" column
+4. If the cumulative tampering score moves the witness across a Top 5 boundary, re-rank
+5. If `recommended_action` is `notify-court` or `motion-revoke-bail`, surface as a HIGH-priority alert in the refresh output
+
+### Schema Drift Policy
+
+Bump Schema Version on any breaking change (renamed/removed required field, changed enum semantics). Consumer skills should refuse to parse a higher major version than they recognize.
+
+---
+
 ## Contract Versioning
 
 | Contract | Version | Last Updated | Breaking Changes |
 |----------|---------|-------------|-----------------|
-| DMAR | 1.0 | April 2026 | Initial |
+| DMAR | 1.0 | April 2026 | Initial — May 2026: required Schema Version + Date Generated + Pipeline fields in Header Block |
 | Auditor Reports | 1.0 | April 2026 | Initial — added "Key Findings for Cross-Examination" section |
 | Cross-Exam Outlines | 1.0 | April 2026 | Initial |
 | Case Tables Sheets | 1.0 | April 2026 | Initial |
 | Case Brain Registration | 1.0 | April 2026 | Initial |
 | Discovery Compliance Ledger | 1.0 | April 2026 | Initial |
+| Jail-Call Tampering Cross-Feed | 1.0 | May 2026 | Initial |
 
 ---
 
-*Version 1.0 — April 2026. Created as part of the D&W skill architecture consolidation.*
+*Version 1.1 — May 2026. Added Contract 7 (jail-call tampering cross-feed) and DMAR Header Block schema-version metadata.*
