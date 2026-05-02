@@ -853,7 +853,7 @@ POST-HEARING
 | *State v. Dorthey* | 623 So.2d 1276 (La. 1993) | Constitutional excessive sentence review applies to mandatory habitual offender sentences |
 | *State v. Baker* | 230 So.3d 207 (La. App. 4th Cir. 2017) | Predicate conviction must be final to serve as a valid predicate |
 | *State v. Shaw* | 969 So.2d 1233 (La. 2007) | Cleansing period computation — what constitutes "completion of sentence" |
-| *State v. Harris* | [VERIFY CITATION] | Challenge to unconstitutional predicate conviction |
+| *State v. Shelton* | 621 So.2d 769 (La. 1993) | Three-part burden-shifting framework for challenging the constitutional sufficiency of a predicate guilty plea |
 | *State v. Johnson* | 709 So.2d 672 (La. 1998) | Heavy burden on defendant to show mandatory minimum is constitutionally excessive; must rebut presumption of legislative reasonableness |
 | *State v. Payton* | 810 So.2d 1127 (La. 2002) | State's burden at habitual offender hearings reaffirmed |
 | *State v. Anderson* | 239 So.3d 950 (La. App. 4th Cir. 2018) | Boilerplate minute entry reciting "Boykinized" may be insufficient to establish constitutional compliance |

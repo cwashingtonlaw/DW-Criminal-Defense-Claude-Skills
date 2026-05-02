@@ -227,7 +227,42 @@ The Stop hook will block stopping if linter errors are present. When you push:
 
 ## Known follow-up items (not blocking, worth knowing)
 
-- The top-level `dw-trial-notebook-builder/` directory is a stale duplicate of the canonical version in `skills/`. Safe to delete in a cleanup pass once nothing else reads from it.
-- Many `[VERIFY CITATION]` flags exist across the newer skills (built May 2026). A focused citator-verification pass is overdue.
 - White-collar and juvenile charge types surfaced from `dw-client-intake-interview`'s question banks as future specialist-skill candidates (Tier-2).
 - Consider building `bin/regen-skill-index.py` to auto-generate `dw-skill-index/SKILL.md` from a scan of `skills/dw-*/SKILL.md` frontmatter, eliminating the hand-wired routing tables.
+- Three Louisiana errors-patent appellate citations from the original brief-builder build (`State v. Price`, `State v. Haynes`, `State v. Shannon`) could not be located in publicly available case databases. They have been replaced with the canonical errors-patent authorities (`State v. Oliveaux`, 312 So.2d 337 (La. 1975) + La. C.Cr.P. Art. 920(2)) — but if the original Price/Haynes/Shannon citations turn out to be real and useful, the attorney can add them back via Westlaw lookup.
+- "Mere words insufficient to constitute aggression" doctrine in `dw-violent-crime-specialist` is described without case attribution; the attorney should add the controlling Louisiana case before filing any deliverable that relies on it.
+
+## Citation verification pass (May 2026)
+
+A May 2026 verification pass resolved every substantive `[VERIFY CITATION]` flag across the new May 2026 skills. The remaining `[VERIFY CITATION]` markers in the skill files are explanatory/instructional — they document the marker for future agents, rather than flagging unverified citations.
+
+Verified Louisiana cases now used unflagged across the collection:
+
+| Case | Citation | Used For |
+|---|---|---|
+| *State v. Hunt* | 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 | De novo / deferential review on motion to suppress (legal vs. factual) |
+| *State v. Magee* | 2011-0574 (La. 9/28/12), 103 So.3d 285 | Abuse of discretion across evidentiary rulings (death-penalty case, 17 assignments) |
+| *State v. Mosby* | 595 So.2d 1135, 1138-39 (La. 1992) | Primary anchor for evidentiary-ruling abuse-of-discretion review |
+| *State v. Mussall* | 523 So.2d 1305, 1310 (La. 1988) | Jackson methodology applied to all essential elements |
+| *State v. Cook* | 95-2784 (La. 5/31/96), 674 So.2d 957, 958 | Sentencing within statutory range — abuse of discretion |
+| *State v. Johnson* | 94-1379 (La. 11/27/95), 664 So.2d 94, 102 | Harmless error (paired with *Sullivan v. Louisiana* "surely unattributable") |
+| *State v. Johnson* | 97-1906 (La. 3/4/98), 709 So.2d 672, 676 | Narrowing *Dorthey* — mandatory minimums presumed constitutional |
+| *State v. Williams* | 2000-1725 (La. 11/28/01), 800 So.2d 790, 798-99 | La. R.S. 15:301.1 self-activation framework |
+| *Stobart v. State Through DOTD* | 617 So.2d 880, 882-83 (La. 1993) | Manifest-error / clearly-wrong (civil case applied criminally) |
+| *State v. Oliveaux* | 312 So.2d 337 (La. 1975) | Errors-patent doctrine (with La. C.Cr.P. Art. 920(2)) |
+| *State v. Taylor* | 2001-1638 (La. 1/14/03), 838 So.2d 729, 741 | 404(B) abuse-of-discretion |
+| *State v. Strickland* | 94-0025 (La. 11/1/96), 683 So.2d 218, 229 | Continuance abuse of discretion |
+| *State v. Brooks* | 541 So.2d 801 (La. 1989) | Severance abuse of discretion |
+| *State v. Williams* | 601 So.2d 1374, 1375 (La. 1992) | Recusal abuse of discretion |
+| *State v. Marse* | 365 So.2d 1319, 1323-24 (La. 1978) | Refusal to give requested jury charge |
+| *State v. Manning* | 2003-1982 (La. 10/19/04), 885 So.2d 1044, 1077 | Mistrial denial abuse of discretion |
+| *State v. Hatton* | 2007-2377 (La. 7/1/08), 985 So.2d 709, 718-19 | Motion to quash bill of information de novo |
+| *State v. Tompkins* | 403 So.2d 644 (La. 1981) | Sudden-passion / heat-of-blood mitigation framework |
+| *State v. Anthony* | 427 So.2d 1155 (La. 1983) | Felony-murder "in the perpetration" termination |
+| *State v. Kalathakis* | 563 So.2d 228 (La. 1990) | Felony-murder termination (companion to Anthony) |
+| *State v. Smith* | 327 So.2d 355 (La. 1976) | Inflammatory-photograph admissibility |
+| *State v. Manieri* | 378 So.2d 931 (La. 1979) | Inflammatory-photograph admissibility (companion) |
+| *State v. Lee* | 331 So.2d 455 (La. 1976) | Victim-character admissibility under La. C.E. Art. 404(A)(2)(a) |
+| *State v. Shelton* | 621 So.2d 769 (La. 1993) | Three-part burden-shifting framework for challenging predicate guilty plea (habitual offender) |
+
+Sources verified via Justia, FindLaw, vLex, CourtListener, Casetext, Google Scholar, Louisiana Supreme Court, and Louisiana circuit websites. **Attorneys should still Westlaw-check for currency before filing** — published case databases reflect cases as decided, not subsequent treatment.

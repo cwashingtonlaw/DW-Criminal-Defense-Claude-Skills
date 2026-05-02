@@ -193,7 +193,7 @@ For non-constitutional errors, La. C.Cr.P. Art. 921 governs.
 
 ### 4.1 The Art. 921 Standard
 
-The error does not warrant reversal unless it "affects substantial rights of the accused." Louisiana courts have construed this as requiring a "reasonable possibility that the error contributed to the verdict." *State v. Johnson*, 664 So.2d 94, 102 (La. 1995) [VERIFY CITATION precise quotation].
+The error does not warrant reversal unless it "affects substantial rights of the accused." Louisiana adopted the federal harmless-error analysis from *Sullivan v. Louisiana*: an error is harmless only when "the guilty verdict actually rendered in this trial was surely unattributable to the error." *Sullivan v. Louisiana*, 508 U.S. 275, 279 (1993); *State v. Johnson*, 94-1379 (La. 11/27/95), 664 So.2d 94, 102.
 
 ### 4.2 Errors subject to Art. 921
 
@@ -211,9 +211,11 @@ The error does not warrant reversal unless it "affects substantial rights of the
 ```
 The error in [admitting / excluding] [evidence] is a non-constitutional
 error subject to La. C.Cr.P. Art. 921. Reversal is required where the
-error "affects substantial rights of the accused" — i.e., where there is
-a reasonable possibility that the error contributed to the verdict. State
-v. Johnson, 664 So.2d 94, 102 (La. 1995) [VERIFY CITATION].
+error "affects substantial rights of the accused." Louisiana courts apply
+the Sullivan framework: an error is harmless only when "the guilty verdict
+actually rendered in this trial was surely unattributable to the error."
+Sullivan v. Louisiana, 508 U.S. 275, 279 (1993); State v. Johnson, 94-1379
+(La. 11/27/95), 664 So.2d 94, 102.
 
 [Walk through the record:]
  - [Centrality of the [evidence] to the contested issue]

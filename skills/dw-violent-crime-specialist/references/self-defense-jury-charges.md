@@ -81,7 +81,7 @@ The Louisiana pattern jury instructions (LPJI Crim. § 7.01 et seq.) provide a s
 
 The State's most common path to defeat self-defense is to brand the defendant the aggressor. Defense counsel must:
 
-- **Identify the inception point.** Who threw the first punch, brandished the first weapon, made the first verbal threat that crossed into a forcible offense? Mere words are not enough to make a person an aggressor. *State v. Brown* [VERIFY CITATION] (mere words insufficient to constitute aggression).
+- **Identify the inception point.** Who threw the first punch, brandished the first weapon, made the first verbal threat that crossed into a forcible offense? Mere words are not enough to make a person an aggressor under settled Louisiana doctrine — confirm a current Louisiana case on the "mere words insufficient" rule before filing.
 - **Police the "bringing on a difficulty" theory.** The State will argue that the defendant created the conditions for the violence (e.g., showing up to a known dispute, returning to the scene). Push back: bringing-on requires conduct that itself constitutes a forcible offense or threat of one.
 - **Document withdrawal.** Verbal disengagement, physical retreat, weapon being lowered, hands up, distance opened — anything that signaled the desire to end the conflict. The withdrawal need only be communicated in a way the adversary "knew or should have known."
 - **Resist State efforts to charge the aggressor doctrine without an evidentiary basis.** The aggressor instruction is not a default; the State must point to evidence supporting it before the court charges it.
@@ -94,7 +94,7 @@ Louisiana applies a hybrid reasonableness test. The defendant's belief must be:
 - **Subjectively held** (the defendant actually believed deadly force was necessary), AND
 - **Objectively reasonable** (a reasonable person in the defendant's position, with the same knowledge and circumstances, would have believed the same).
 
-Defense should request a charge that names both components and reminds the jury that perfect judgment is not the standard. Combat conditions, prior threats, the disparity of force (size, age, weapon possession), and the defendant's knowledge of the victim's history of violence are all relevant. *State v. Tompkins* [VERIFY CITATION] establishes that prior acts of the victim known to the defendant are admissible to show reasonableness.
+Defense should request a charge that names both components and reminds the jury that perfect judgment is not the standard. Combat conditions, prior threats, the disparity of force (size, age, weapon possession), and the defendant's knowledge of the victim's history of violence are all relevant. La. C.E. Art. 404(A)(2)(a) makes the alleged victim's character for violence (and prior acts known to the defendant) admissible when self-defense is at issue; *State v. Lee*, 331 So.2d 455 (La. 1976), is one of the foundational cases on victim-character admissibility under what is now Art. 404(A)(2)(a).
 
 Proportionality is not a separate element — Louisiana's statute speaks of "necessary" force, not "proportionate" force. Object to any State argument or jury charge that imports a strict proportionality requirement.
 

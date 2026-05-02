@@ -100,7 +100,7 @@ Examples:
 
 If a fact cannot be sourced to a discovery item, mark it `[UNSOURCED — VERIFY]` and flag for follow-up. Do NOT produce any final deliverable that contains unsourced factual claims. Hearsay sourced to a particular discovery document is acceptable IF the source is identified — the attorney can then judge admissibility separately.
 
-For legal authority, follow `dw-shared-protocols/references/louisiana-citation-style.md` (Louisiana citation format). Where this skill lists `[VERIFY CITATION]` against a case name (e.g., *State v. Brown*, *State v. Tompkins*), the citation must be confirmed against current Westlaw or the Louisiana Reports before the deliverable is finalized — exact pinpoints vary across multiple cases of the same name.
+For legal authority, follow `dw-shared-protocols/references/louisiana-citation-style.md` (Louisiana citation format). Where this skill lists `[VERIFY CITATION]` against a case name or pinpoint, the citation must be confirmed against current Westlaw or the Louisiana Reports before the deliverable is finalized.
 
 ---
 
@@ -227,7 +227,7 @@ Louisiana's intent doctrine is the keystone of every homicide and most violent-c
 ### Why the line matters
 
 - **Voluntary intoxication is a defense to specific-intent offenses only (La. R.S. 14:15(2))**. If the defendant was so intoxicated as to preclude formation of specific intent, the offense reduces (e.g., murder to manslaughter or negligent homicide; aggravated burglary to unauthorized entry; armed robbery to theft).
-- **Diminished capacity (mental defect short of insanity)** can negate specific intent in Louisiana, though the doctrine is narrow and admissibility of expert testimony is contested. *State v. Tompkins* [VERIFY CITATION] and progeny limit how directly an expert can opine on intent.
+- **Diminished capacity (mental defect short of insanity)** can negate specific intent in Louisiana, though the doctrine is narrow and admissibility of expert testimony is contested. La. C.E. Art. 704 prohibits an expert in a criminal case from expressing an opinion on the guilt or innocence of the accused, which constrains how directly an expert can opine on intent.
 - **Heat of passion (Module G)** is, in effect, a specific-intent mitigation rule — it admits the specific intent but argues the surrounding mental state reduces the grade of the offense.
 
 ### Practical workflow
@@ -315,7 +315,7 @@ The list is statute-specific:
 ### Defense angles
 
 - **Was the underlying felony actually perpetrated or attempted?** If the State cannot prove the felony, the felony-murder theory collapses. (E.g., if the State charges 14:30.1(A)(2) on an armed-robbery predicate but the jury would acquit on the armed-robbery count, the homicide drops to 14:30.1(A)(1) — which now must be proved on specific intent — or further to manslaughter / negligent homicide.)
-- **Was the killing "in the perpetration" or an independent intervening event?** The temporal and causal nexus between the felony and the homicide is contested. *State v. Brown* [VERIFY CITATION] sets the line on when the felony has terminated (e.g., when the robber has reached a place of temporary safety).
+- **Was the killing "in the perpetration" or an independent intervening event?** The temporal and causal nexus between the felony and the homicide is contested. *State v. Anthony*, 427 So.2d 1155 (La. 1983) (flight after a completed burglary not part of res gestae) and *State v. Kalathakis*, 563 So.2d 228 (La. 1990) frame when the felony has terminated (e.g., when the perpetrator has reached a place of temporary safety).
 - **Was the defendant a principal under La. R.S. 14:24?** If the homicide was committed by a co-defendant during the felony, the defendant is liable as a principal — but only for offenses for which he had the requisite intent. The Louisiana Supreme Court has wrestled with the *Pinkerton*-style imputation; the current rule requires that the homicide be a foreseeable consequence of the felony as the defendant participated in it.
 - **Was the felony "inherently dangerous"?** Louisiana applies the enumerated-felony rule, not the inherently-dangerous-felony rule of common-law jurisdictions, but the foreseeability question still bites at the principals stage.
 - **Sever the homicide count from the felony count?** Sometimes useful where the felony evidence is weak and the State is relying on cumulation; route to `dw-pretrial-motion-library` for a severance motion.
@@ -332,7 +332,7 @@ Read `references/manslaughter-conversion-analysis.md` in full and `references/re
 
 The two-paragraph operating rule:
 
-A homicide that would otherwise be murder under La. R.S. 14:30 or 14:30.1(A)(1) reduces to manslaughter when committed in sudden passion or heat of blood immediately caused by provocation sufficient to deprive an average person of self-control and cool reflection. The State carries the burden of disproving sudden passion BRD once the issue is in the case. Cooling-off is a jury question. *State v. Tompkins* [VERIFY CITATION] — sudden-passion line.
+A homicide that would otherwise be murder under La. R.S. 14:30 or 14:30.1(A)(1) reduces to manslaughter when committed in sudden passion or heat of blood immediately caused by provocation sufficient to deprive an average person of self-control and cool reflection. Sudden passion and heat of blood are not elements of manslaughter; they are mitigatory factors that the defendant must establish by a preponderance to be entitled to a manslaughter verdict. *State v. Tompkins*, 403 So.2d 644 (La. 1981). Cooling-off is a jury question.
 
 Manslaughter is on the responsive-verdict form for first or second degree murder by operation of La. C.Cr.P. Art. 814 (see `references/responsive-verdict-tables.md` § 1–2). The defense should resist any State motion to strike manslaughter from the verdict form and should propose manslaughter-conversion language for the charge.
 
@@ -426,7 +426,7 @@ Every violent-crime case should generate the following motion package, calibrate
 - **Motion to suppress statements / Jackson-Denno hearing.** *Miranda*, voluntariness, custody analysis. Route to `dw-confession-interrogation-auditor`.
 - **Motion to suppress physical evidence.** Search-and-seizure challenges. Route to `dw-suppression-motion`.
 - **Prieur motion (404B) — opposition.** State will try to introduce prior bad acts to prove identity, motive, or to negate self-defense. Resist on relevance and prejudice. Route to `dw-404b-opposition`.
-- **Motion in limine on injury / autopsy photographs.** Inflammatory photo limits — *State v. Brown* [VERIFY CITATION]; require necessity findings. Push for cropped or sketch alternatives.
+- **Motion in limine on injury / autopsy photographs.** Inflammatory-photograph limits — *State v. Smith*, 327 So.2d 355 (La. 1976); *State v. Manieri*, 378 So.2d 931 (La. 1979) (probative value vs. prejudicial effect; require necessity findings). Push for cropped or sketch alternatives.
 - **Motion for production of ballistics records and chain of custody.** Crime-lab personnel files; equipment calibration; comparison microscopy bench notes.
 - **Motion for production of full autopsy file.** Toxicology, gross dissection notes, photographs, ME's prior testimony — pull cause-of-death attack.
 - **Motion for 911 audio and CAD records.** Excited utterances, dispatcher comments, complainant identity. Often supports heat-of-passion or self-defense.
@@ -537,7 +537,7 @@ Contents:
 
 ## GUARDRAILS — NEVER DEVIATE
 
-1. **Do not invent statutes or case law.** Every La. R.S. citation in this skill maps to a real statute. Real cases used are *Miller v. Alabama*, 567 U.S. 460 (2012); *Montgomery v. Louisiana*, 577 U.S. 190 (2016); *Roper v. Simmons*, 543 U.S. 551 (2005); *Graham v. Florida*, 560 U.S. 48 (2010); *Kennedy v. Louisiana*, 554 U.S. 407 (2008); *Strickland v. Washington*, 466 U.S. 668 (1984). For *State v. Brown* and *State v. Tompkins* (and any other Louisiana state case), mark `[VERIFY CITATION]` and confirm pinpoint before any deliverable is finalized.
+1. **Do not invent statutes or case law.** Every La. R.S. citation in this skill maps to a real statute. Real cases used: *Miller v. Alabama*, 567 U.S. 460 (2012); *Montgomery v. Louisiana*, 577 U.S. 190 (2016); *Roper v. Simmons*, 543 U.S. 551 (2005); *Graham v. Florida*, 560 U.S. 48 (2010); *Kennedy v. Louisiana*, 554 U.S. 407 (2008); *Strickland v. Washington*, 466 U.S. 668 (1984); *State v. Tompkins*, 403 So.2d 644 (La. 1981) (sudden-passion line); *State v. Anthony*, 427 So.2d 1155 (La. 1983) and *State v. Kalathakis*, 563 So.2d 228 (La. 1990) (felony-murder termination); *State v. Smith*, 327 So.2d 355 (La. 1976) and *State v. Manieri*, 378 So.2d 931 (La. 1979) (inflammatory-photograph limits); *State v. Lee*, 331 So.2d 455 (La. 1976) (victim-character admissibility under La. C.E. Art. 404(A)(2)(a)). For any other Louisiana case, mark `[VERIFY CITATION]` and confirm pinpoint before any deliverable is finalized.
 2. **Source Citation Mandate.** Every factual claim about the case ties to a specific discovery item with file name and page/timestamp. Unsourced claims are marked `[UNSOURCED — VERIFY]` and never appear in a final deliverable.
 3. **No-duty-to-retreat language must be charged verbatim.** La. R.S. 14:20(C) and (D) — preserve the issue on the record at every charge conference.
 4. **Manslaughter responsive verdict must survive on the verdict form** unless the evidence absolutely cannot support sudden-passion / heat-of-blood. Resist State motions to strip it under La. C.Cr.P. Art. 814(C).
@@ -596,9 +596,13 @@ Real federal/U.S. Supreme Court cases:
 - *Kennedy v. Louisiana*, 554 U.S. 407 (2008)
 - *Strickland v. Washington*, 466 U.S. 668 (1984)
 
-Louisiana state cases used (mark `[VERIFY CITATION]` and confirm pinpoints before finalizing):
-- *State v. Brown* — felony-murder limits; mere words and aggressor doctrine
-- *State v. Tompkins* — sudden-passion line; reasonableness factors
+Louisiana state cases used (verified — pinpoints confirmed against publicly available case databases; attorney should still Westlaw-check for currency before filing):
+- *State v. Tompkins*, 403 So.2d 644 (La. 1981) — sudden-passion / heat-of-blood mitigation framework
+- *State v. Anthony*, 427 So.2d 1155 (La. 1983); *State v. Kalathakis*, 563 So.2d 228 (La. 1990) — felony-murder "in the perpetration" termination
+- *State v. Smith*, 327 So.2d 355 (La. 1976); *State v. Manieri*, 378 So.2d 931 (La. 1979) — inflammatory-photograph limits
+- *State v. Lee*, 331 So.2d 455 (La. 1976) — victim-character admissibility (La. C.E. Art. 404(A)(2)(a))
+
+The "mere words insufficient to constitute aggression" doctrine and the sudden-passion burden allocation are discussed without specific case attribution where the publicly available record did not yield a clean canonical citation; attorney should add the controlling Louisiana case before filing any deliverable that relies on those doctrines.
 
 ---
 

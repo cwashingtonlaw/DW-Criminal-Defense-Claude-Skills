@@ -173,7 +173,7 @@ The Fifth Circuit handles appeals from the 24th JDC (Jefferson Parish), 29th JDC
 **Address:** 101 Derbigny St., Gretna, LA 70053
 
 **Local rule highlights [CIRCUIT VERIFY]:**
-- The Fifth Circuit conducts errors-patent review on every criminal appeal per *State v. Price*, 850 So.2d 188 (La. App. 5th Cir. 2003) [VERIFY CITATION]
+- The Fifth Circuit (like every Louisiana circuit) conducts errors-patent review on every criminal appeal per La. C.Cr.P. Art. 920(2); *State v. Oliveaux*, 312 So.2d 337 (La. 1975)
 - Cover-page format is closely scrutinized — verify current local rules
 - E-filing through the Louisiana appellate portal is encouraged
 

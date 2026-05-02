@@ -991,7 +991,7 @@ D. Trial court's written reasons (if any)
 | *State v. Benjamin* | 573 So.2d 528 (La. App. 4th Cir. 1990) | Louisiana Anders/no-merit appeal procedure |
 | *State v. Jyles* | 704 So.2d 241 (La. App. 2d Cir. 1997) | Louisiana Anders brief requirements |
 | *State v. Johnson* | 664 So.2d 94 (La. 1995) | Non-constitutional harmless error standard under Art. 921 |
-| *State v. Snyder* | [VERIFY CITATION] | Plain error review limitations in Louisiana |
+| La. C.Cr.P. Art. 841 + Art. 920 | — | Louisiana's contemporaneous-objection rule + errors-patent doctrine; Louisiana does not generally recognize federal-style "plain error" review outside Art. 920(2)'s errors-patent scope |
 | *State v. Ratcliff* | 416 So.2d 528 (La. 1982) | IAC claim may be considered on direct appeal if record is sufficient |
 | *State v. Broadway* | 753 So.2d 801 (La. 1999) | Proffer must demonstrate what excluded evidence would have established |
 | *State v. Magee* | 936 So.2d 226 (La. App. 2d Cir. 2006) | Failure to proffer excluded evidence waives issue on appeal |

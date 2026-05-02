@@ -158,12 +158,12 @@ Before drafting any assignment of error, map each assigned issue to its standard
 |---|---|---|
 | Sufficiency of evidence | *Jackson v. Virginia* — rational trier could find each element BRD | *Jackson v. Virginia*, 443 U.S. 307 (1979); *State v. Captville*, 448 So.2d 676 (La. 1984) |
 | Constitutional rulings (4th/5th/6th Am.) | De novo on legal questions; deferential on credibility findings | *Ornelas v. United States*, 517 U.S. 690 (1996) |
-| Evidentiary rulings (relevance, hearsay, 404(b)) | Abuse of discretion | *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 [VERIFY CITATION] |
+| Evidentiary rulings (relevance, hearsay, 404(b)) | Abuse of discretion | *State v. Mosby*, 595 So.2d 1135, 1138-39 (La. 1992); *State v. Taylor*, 2001-1638 (La. 1/14/03), 838 So.2d 729, 741 (404(B)) |
 | Sentencing — constitutional excessiveness | Manifest abuse of discretion | La. Const. Art. I, § 20; *State v. Bonanno*, 384 So.2d 355 (La. 1980) |
-| Motion to suppress | De novo on legal/mixed questions; abuse on credibility | *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746 [VERIFY CITATION] |
+| Motion to suppress | De novo on legal/mixed questions; deferential on credibility | *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 |
 | Jury instruction errors | De novo on the instruction; harmless-error analysis | *Neder v. United States*, 527 U.S. 1 (1999) |
 | Batson challenges | Mixed — clear error on factual findings; de novo on legal framework | *Snyder v. Louisiana*, 552 U.S. 472 (2008) |
-| Factual findings | Manifest error / clearly wrong | *Stobart v. State*, 617 So.2d 880 (La. 1993) [VERIFY CITATION — civil case applied criminally] |
+| Factual findings | Manifest error / clearly wrong | *Stobart v. State Through DOTD*, 617 So.2d 880, 882-83 (La. 1993) (civil case; same formulation applied criminally) |
 
 For every assignment, identify the standard, name it in the Argument's Standard-of-Review subsection, and cite the controlling authority.
 
@@ -309,9 +309,9 @@ One paragraph restating the assignment of error in question form, with a one-sen
 
 State the applicable standard of review and cite the controlling authority. Use the chart in `references/standards-of-review-by-issue.md`. Examples:
 
-- "The trial court's legal conclusions on a motion to suppress are reviewed de novo. *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746 [VERIFY CITATION]. Factual findings supporting credibility determinations are reviewed for abuse of discretion. *Id.*"
+- "The trial court's legal conclusions on a motion to suppress are reviewed de novo. *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751. Factual findings and credibility determinations are entitled to deference and will not be disturbed unless clearly contrary to the evidence. *Id.*"
 - "Sufficiency of the evidence is reviewed under *Jackson v. Virginia*: viewing the evidence in the light most favorable to the prosecution, whether any rational trier of fact could have found the essential elements of the offense beyond a reasonable doubt. *Jackson v. Virginia*, 443 U.S. 307, 319 (1979); *State v. Captville*, 448 So.2d 676, 678 (La. 1984)."
-- "Evidentiary rulings under La. C.E. Art. 404(B) are reviewed for abuse of discretion. *State v. [VERIFY CITATION]*. The legal predicates for admission — notice and a permissible non-character purpose — are reviewed de novo."
+- "Evidentiary rulings under La. C.E. Art. 404(B) are reviewed for abuse of discretion. *State v. Taylor*, 2001-1638 (La. 1/14/03), 838 So.2d 729, 741. The legal predicates for admission — notice and a permissible non-character purpose — are reviewed de novo."
 
 #### D.3 — Preservation
 
@@ -320,7 +320,7 @@ Cite the place in the record where the issue was preserved. This is critical: th
 Source from `dw-appellate-error-monitor` Module A (objection log) — the exact transcript page/line where the defense objected with specific grounds, and the trial court's ruling. Examples:
 
 - "Defense counsel objected to the introduction of Mr. Smith's statement at trial on Confrontation Clause and Miranda grounds, with specific reference to the post-invocation questioning. (Trial Tr. Vol. III, p. 412, ll. 8-21.) The trial court overruled the objection. (Id. at p. 413, ll. 1-3.) The objection was renewed in the motion for new trial. (Defense Mot. for New Trial, R. Vol. I, p. 134, para. 4.) The issue is preserved for appeal under La. C.Cr.P. Art. 841."
-- "Errors patent are reviewable under La. C.Cr.P. Art. 920 without contemporaneous objection. *State v. Price*, 850 So.2d 188 (La. App. 5th Cir. 2003) [VERIFY CITATION]."
+- "Errors patent are reviewable under La. C.Cr.P. Art. 920(2) without contemporaneous objection. *State v. Oliveaux*, 312 So.2d 337 (La. 1975)."
 
 #### D.4 — Statement of the Law
 
@@ -515,7 +515,7 @@ III. CONCLUSION
 
 ### Reply brief rules
 
-1. **No new arguments.** A new argument raised for the first time in a reply brief is generally waived. *State v. [VERIFY CITATION]*.
+1. **No new arguments.** A new argument raised for the first time in a reply brief is generally waived. Louisiana practice grounds this rule in the Uniform Rules of Louisiana Courts of Appeal, Rule 2-12.6 (reply briefs strictly confined to rebuttal of points urged in the appellee's brief). No single canonical case states the rule for criminal appeals; cite Rule 2-12.6 directly.
 2. **No new assignments of error.** Stick to the assignments raised in the original brief.
 3. **Length.** Typically half the original brief or less; the Uniform Rules' page/word limit for replies is lower than for original briefs.
 4. **Cite the State's brief by page.** "(State Br. p. 15)." This anchors the reply to specific State arguments.

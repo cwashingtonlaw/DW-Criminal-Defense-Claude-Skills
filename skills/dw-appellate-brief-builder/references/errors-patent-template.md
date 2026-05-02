@@ -33,10 +33,11 @@ Things that are NOT on the face of the record (and thus not errors-patent review
 - Evidentiary rulings during trial
 
 **Key Louisiana authority:**
-- *State v. Haynes*, 792 So.2d 58 (La. App. 2d Cir. 2001) [VERIFY CITATION] — errors-patent review limited to face of record
-- *State v. Price*, 850 So.2d 188 (La. App. 5th Cir. 2003) [VERIFY CITATION] — illegal sentence reviewable as errors patent
+- La. C.Cr.P. Art. 920(2) — errors-patent review of "any error that is discoverable by a mere inspection of the pleadings and proceedings and without inspection of the evidence"
+- *State v. Oliveaux*, 312 So.2d 337 (La. 1975) — defines the scope of the "record" reviewable for errors patent
 - *State v. Augustine*, 555 So.2d 1331 (La. 1990) — Art. 873 sentencing-delay violation is errors patent
-- *State v. Shannon*, 768 So.2d 583 (La. App. 3d Cir. 2000) [VERIFY CITATION] — failure to observe Art. 873 delay is errors patent
+- La. C.Cr.P. Art. 882 — illegal sentences may be corrected at any time
+- *State v. Williams*, 2000-1725 (La. 11/28/01), 800 So.2d 790, 798-99 — La. R.S. 15:301.1 self-activation framework for statutory restrictions on parole/probation/suspension
 
 ---
 
@@ -55,8 +56,8 @@ A sentence is "illegal" when it (a) exceeds the statutory maximum, (b) falls bel
 
 **Authority:**
 - La. C.Cr.P. Art. 882 — illegal sentences may be corrected at any time, by the court that imposed it or by an appellate court on review
-- *State v. Price*, 850 So.2d 188 (La. App. 5th Cir. 2003) [VERIFY CITATION]
-- *State v. Williams*, 800 So.2d 790 (La. 2001) [VERIFY CITATION] — improper restriction of benefits
+- La. C.Cr.P. Art. 920(2) — illegal sentence reviewable as errors patent without contemporaneous objection
+- *State v. Williams*, 2000-1725 (La. 11/28/01), 800 So.2d 790, 798-99 — La. R.S. 15:301.1 self-activates statutory benefit-restrictions, eliminating need for remand on illegally lenient sentences in many cases (note: Williams is more accurately read as the self-activation framework, not as authority for "improper restriction of benefits" per se — confirm framing before relying)
 
 **Template paragraph:**
 
@@ -70,8 +71,9 @@ or suspension of sentence." (Sentencing Tr., p. [X], ll. [X-X]; Commitment
 Order, R. Vol. [X], p. [X].) However, La. R.S. [statute citation] authorizes
 restriction of [only specific benefit(s)], not all three. The sentence is
 therefore illegal under Art. 882 and must be vacated and the case remanded
-for resentencing within the statutory limits. State v. Williams, 800 So.2d
-790 (La. 2001) [VERIFY CITATION].
+for resentencing within the statutory limits. See State v. Williams,
+2000-1725 (La. 11/28/01), 800 So.2d 790, 798-99 (framework for statutory
+restrictions on parole/probation/suspension under La. R.S. 15:301.1).
 ```
 
 ---

@@ -402,12 +402,13 @@ B.  Standard of Review.
 
     The trial court's legal conclusions on a motion to suppress are
     reviewed de novo. State v. Hunt, 2009-1589 (La. 12/1/09), 25 So.3d
-    746 [VERIFY CITATION]; Ornelas v. United States, 517 U.S. 690, 699
-    (1996). The trial court's subsidiary factual findings, including
-    credibility determinations, are reviewed for abuse of discretion.
-    State v. Hunt, supra. Whether [Defendant]'s statement to officers
-    constituted an unambiguous invocation under Davis v. United States,
-    512 U.S. 452 (1994), is a legal question reviewed de novo.
+    746, 751; Ornelas v. United States, 517 U.S. 690, 699 (1996). The
+    trial court's subsidiary factual findings, including credibility
+    determinations, are entitled to deference and will not be disturbed
+    unless clearly contrary to the evidence. State v. Hunt, supra.
+    Whether [Defendant]'s statement to officers constituted an
+    unambiguous invocation under Davis v. United States, 512 U.S. 452
+    (1994), is a legal question reviewed de novo.
 
 C.  Preservation.
 

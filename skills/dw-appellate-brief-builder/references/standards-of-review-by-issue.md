@@ -11,17 +11,20 @@ For every assignment of error in the brief, identify the standard, name it expli
 | Issue Type | Standard of Review | Anchor Authority |
 |---|---|---|
 | **Sufficiency of evidence** | *Jackson v. Virginia* — viewing evidence in light most favorable to prosecution, whether any rational trier could find each element BRD | *Jackson v. Virginia*, 443 U.S. 307 (1979); *State v. Captville*, 448 So.2d 676 (La. 1984) |
-| **Pure constitutional ruling** (legal question) | De novo | *Ornelas v. United States*, 517 U.S. 690 (1996); *State v. Hampton*, 750 So.2d 867 (La. 1999) [VERIFY CITATION] |
-| **Statutory interpretation** | De novo | *State v. Williams*, [VERIFY CITATION] |
-| **Mixed legal/factual — motion to suppress** | De novo on legal/mixed; abuse of discretion (or clear error) on credibility findings | *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746 [VERIFY CITATION]; *Ornelas* |
-| **Evidentiary rulings — relevance, hearsay, 404(b), Daubert** | Abuse of discretion | *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 [VERIFY CITATION] |
-| **Continuance, severance, recusal, discovery** | Abuse of discretion | *State v. Strickland*, [VERIFY CITATION] |
-| **Sentencing — within statutory range** | Abuse of discretion / manifest abuse | *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957 [VERIFY CITATION] |
+| **Pure constitutional ruling** (legal question) | De novo | *Ornelas v. United States*, 517 U.S. 690 (1996); *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 |
+| **Statutory interpretation** | De novo | Uncontroversial under Louisiana law; cite a recent Sup. Ct. case on point [VERIFY CITATION — no single canonical case identified] |
+| **Mixed legal/factual — motion to suppress** | De novo on legal/mixed; deferential / great weight on factual & credibility findings | *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751; *Ornelas* |
+| **Evidentiary rulings — relevance, hearsay, 404(b), Daubert** | Abuse of discretion | *State v. Mosby*, 595 So.2d 1135, 1138-39 (La. 1992); *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 |
+| **404(B) / Prieur — other-crimes evidence** | Abuse of discretion | *State v. Taylor*, 2001-1638 (La. 1/14/03), 838 So.2d 729, 741 |
+| **Continuance** | Abuse of discretion | *State v. Strickland*, 94-0025 (La. 11/1/96), 683 So.2d 218, 229 |
+| **Severance of counts / defendants** | Abuse of discretion | *State v. Brooks*, 541 So.2d 801 (La. 1989) |
+| **Discovery rulings** | Abuse of discretion | *State v. Roy*, 496 So.2d 583, 593 (La. App. 1st Cir. 1986) [VERIFY CITATION — discovery has no single canonical Sup. Ct. case] |
+| **Sentencing — within statutory range** | Abuse of discretion / manifest abuse | *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957, 958 |
 | **Sentencing — constitutional excessiveness** | Manifest abuse of discretion | La. Const. Art. I, § 20; *State v. Bonanno*, 384 So.2d 355 (La. 1980) |
-| **Sentencing — illegal sentence** | De novo (errors-patent) | La. C.Cr.P. Art. 882; *State v. Price*, 850 So.2d 188 (La. App. 5th Cir. 2003) [VERIFY CITATION] |
-| **Sentencing — mandatory minimum challenge (downward)** | Abuse of discretion under *Dorthey* framework | *State v. Dorthey*, 623 So.2d 1276 (La. 1993) |
+| **Sentencing — illegal sentence** | De novo (errors-patent) | La. C.Cr.P. Art. 882, Art. 920(2); *State v. Oliveaux*, 312 So.2d 337 (La. 1975) |
+| **Sentencing — mandatory minimum challenge (downward)** | Abuse of discretion under *Dorthey* framework | *State v. Dorthey*, 623 So.2d 1276 (La. 1993); narrowed by *State v. Johnson*, 97-1906 (La. 3/4/98), 709 So.2d 672, 676 |
 | **Jury instruction — legal correctness** | De novo | *Neder v. United States*, 527 U.S. 1 (1999) |
-| **Jury instruction — refusal to give requested charge** | De novo on legal correctness; abuse of discretion on form/wording | *State v. Hill*, [VERIFY CITATION] |
+| **Jury instruction — refusal to give requested charge** | De novo on legal correctness; abuse of discretion on form/wording | *State v. Marse*, 365 So.2d 1319, 1323-24 (La. 1978) |
 | **Batson challenge** | Mixed — clear error on factual findings; de novo on legal framework | *Snyder v. Louisiana*, 552 U.S. 472 (2008); *Hernandez v. New York*, 500 U.S. 352 (1991) |
 | **Confrontation Clause / Crawford** | De novo | *Crawford v. Washington*, 541 U.S. 36 (2004) |
 | **Miranda — invocation of rights** | De novo | *Davis v. United States*, 512 U.S. 452 (1994) |
@@ -29,13 +32,13 @@ For every assignment of error in the brief, identify the standard, name it expli
 | **Speedy trial** | De novo | *Barker v. Wingo*, 407 U.S. 514 (1972) |
 | **Double Jeopardy** | De novo | *Blockburger v. United States*, 284 U.S. 299 (1932) |
 | **Prosecutorial misconduct (closing argument, Brady)** | De novo on Brady materiality; abuse of discretion on mistrial denial | *Brady v. Maryland*, 373 U.S. 83 (1963); *Kyles v. Whitley*, 514 U.S. 419 (1995) |
-| **Bench-trial factual findings** | Manifest error / clearly wrong | *Stobart v. State*, 617 So.2d 880 (La. 1993) [VERIFY CITATION — civil standard often applied criminally] |
-| **Trial-court credibility findings** | Manifest error / great deference | *Rosell v. ESCO*, 549 So.2d 840 (La. 1989) [VERIFY — civil case] |
-| **Mistrial denial / motion for mistrial** | Abuse of discretion | *State v. Bates*, [VERIFY CITATION] |
-| **Recusal denial** | Abuse of discretion | La. C.Cr.P. Art. 671 |
+| **Bench-trial factual findings** | Manifest error / clearly wrong | *Stobart v. State Through DOTD*, 617 So.2d 880, 882-83 (La. 1993) [civil case; criminal courts apply the same manifest-error formulation — pair with a criminal manifest-error opinion when filing] |
+| **Trial-court credibility findings** | Manifest error / great deference | *Rosell v. ESCO*, 549 So.2d 840 (La. 1989) [civil case] |
+| **Mistrial denial / motion for mistrial** | Abuse of discretion | *State v. Manning*, 2003-1982 (La. 10/19/04), 885 So.2d 1044, 1077; *State v. Bates*, 495 So.2d 1262, 1273 (La. 1986) |
+| **Recusal denial** | Abuse of discretion | La. C.Cr.P. Art. 671; *State v. Williams*, 601 So.2d 1374, 1375 (La. 1992) |
 | **Right-to-counsel waiver (Faretta)** | De novo | *Faretta v. California*, 422 U.S. 806 (1975) |
 | **IAC on direct appeal (record sufficient)** | De novo | *State v. Ratcliff*, 416 So.2d 528 (La. 1982); *Strickland v. Washington*, 466 U.S. 668 (1984) |
-| **Motion to quash bill of information** | De novo on legal question | *State v. Schmolke*, [VERIFY CITATION] |
+| **Motion to quash bill of information** | De novo on legal question | *State v. Hatton*, 2007-2377 (La. 7/1/08), 985 So.2d 709, 718-19 |
 | **Habitual-offender adjudication** | De novo on legal predicates; manifest error on factual findings | La. R.S. 15:529.1; *State v. Shelton*, 621 So.2d 769 (La. 1993) |
 | **Restitution** | De novo on authority; abuse of discretion on amount | La. C.Cr.P. Art. 883.2 |
 
@@ -49,7 +52,7 @@ For every assignment of error in the brief, identify the standard, name it expli
 
 **Louisiana application:**
 - *State v. Captville*, 448 So.2d 676, 678 (La. 1984) — adopting *Jackson* as the Louisiana standard
-- *State v. Mussall*, 523 So.2d 1305 (La. 1988) [VERIFY CITATION] — Jackson applies to all elements of the offense
+- *State v. Mussall*, 523 So.2d 1305, 1310 (La. 1988) — Jackson methodology applies to all essential elements; appellate court does not substitute its own credibility findings for the trier of fact's
 - For circumstantial evidence: La. R.S. 15:438 — every reasonable hypothesis of innocence must be excluded; in Louisiana, this is treated as a component of *Jackson* sufficiency review
 
 **Drafting language:**
@@ -76,7 +79,7 @@ For every assignment of error in the brief, identify the standard, name it expli
 
 **Drafting language:**
 
-> "Whether [trial court ruling] violates the [constitutional provision] is a question of law reviewed de novo. *Ornelas v. United States*, 517 U.S. 690, 699 (1996); *State v. [Louisiana case]*, [citation] [VERIFY CITATION]."
+> "Whether [trial court ruling] violates the [constitutional provision] is a question of law reviewed de novo. *Ornelas v. United States*, 517 U.S. 690, 699 (1996); *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 (legal conclusions on suppression de novo)."
 
 **Mixed-question caveat:** Most constitutional questions in criminal appeals are mixed questions of law and fact (e.g., whether the totality of circumstances on a Miranda waiver shows voluntariness). The legal framework is reviewed de novo; subsidiary factual findings (e.g., what officer X said to defendant Y) are reviewed deferentially. State the bifurcation explicitly:
 
@@ -89,12 +92,13 @@ For every assignment of error in the brief, identify the standard, name it expli
 **Standard:** Trial court's evidentiary rulings — relevance (Art. 401), prejudice (Art. 403), hearsay (Art. 802), other-acts evidence (Art. 404(B)), expert qualification and methodology (Art. 702 / *Daubert*), demonstrative evidence — are reviewed for **abuse of discretion**.
 
 **Anchor:**
-- *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 [VERIFY CITATION]
-- *State v. Mosby*, 595 So.2d 1135 (La. 1992) [VERIFY CITATION] — abuse of discretion standard for evidentiary rulings
+- *State v. Mosby*, 595 So.2d 1135, 1138-39 (La. 1992) — abuse of discretion standard for evidentiary rulings (relevancy and admissibility determinations)
+- *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 — abuse of discretion applied across multiple evidentiary rulings
+- For 404(B) specifically: *State v. Taylor*, 2001-1638 (La. 1/14/03), 838 So.2d 729, 741
 
 **Drafting language:**
 
-> "Evidentiary rulings under La. C.E. Art. [X] are reviewed for abuse of discretion. *State v. Magee*, 2011-0574 (La. 9/28/12), 103 So.3d 285 [VERIFY CITATION]. The legal predicates for admission — [identify, e.g., notice for 404(B), foundation for chain of custody] — are reviewed de novo."
+> "Evidentiary rulings under La. C.E. Art. [X] are reviewed for abuse of discretion. *State v. Mosby*, 595 So.2d 1135, 1138-39 (La. 1992). The legal predicates for admission — [identify, e.g., notice for 404(B), foundation for chain of custody] — are reviewed de novo."
 
 **Caveat:** The *legal predicate* for an evidentiary ruling (e.g., whether Crawford bars admission of testimonial hearsay; whether the State gave statutory 404(B) notice) is reviewed de novo, not for abuse of discretion. Bifurcate.
 
@@ -109,14 +113,14 @@ For every assignment of error in the brief, identify the standard, name it expli
 **Anchor:**
 - La. Const. Art. I, § 20 (Louisiana excessive-punishment clause — broader than 8th Amendment)
 - *State v. Bonanno*, 384 So.2d 355, 358 (La. 1980)
-- *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957 [VERIFY CITATION]
+- *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957, 958 — wide trial-court discretion in sentencing within statutory limits; sentence not set aside as excessive absent manifest abuse of discretion
 
 **Prerequisites:**
 - A motion to reconsider sentence under La. C.Cr.P. Art. 881.1 must have been filed within 30 days of sentencing. *State v. Mims*, 619 So.2d 1059 (La. 1993). Without the motion, the issue is waived (unless the sentence is illegal — errors patent).
 
 **Drafting language:**
 
-> "A sentence is constitutionally excessive under La. Const. Art. I, § 20 if it is grossly disproportionate to the severity of the crime or amounts to the purposeless and needless imposition of pain and suffering. *State v. Bonanno*, 384 So.2d 355, 358 (La. 1980). Review is for manifest abuse of discretion. *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957 [VERIFY CITATION]. [DEFENDANT] preserved this issue by timely motion to reconsider sentence under La. C.Cr.P. Art. 881.1, filed [date]. *State v. Mims*, 619 So.2d 1059 (La. 1993)."
+> "A sentence is constitutionally excessive under La. Const. Art. I, § 20 if it is grossly disproportionate to the severity of the crime or amounts to the purposeless and needless imposition of pain and suffering. *State v. Bonanno*, 384 So.2d 355, 358 (La. 1980). Review is for manifest abuse of discretion. *State v. Cook*, 95-2784 (La. 5/31/96), 674 So.2d 957, 958. [DEFENDANT] preserved this issue by timely motion to reconsider sentence under La. C.Cr.P. Art. 881.1, filed [date]. *State v. Mims*, 619 So.2d 1059 (La. 1993)."
 
 #### 4b. Mandatory-Minimum Downward Departure — *Dorthey*
 
@@ -126,7 +130,7 @@ The reviewing court evaluates the trial court's *Dorthey* analysis (or refusal t
 
 **Anchor:**
 - *State v. Dorthey*, 623 So.2d 1276 (La. 1993)
-- *State v. Johnson*, 97-1906 (La. 3/4/98), 709 So.2d 672 [VERIFY CITATION] — narrowing *Dorthey*
+- *State v. Johnson*, 97-1906 (La. 3/4/98), 709 So.2d 672, 676 — narrowing *Dorthey*; mandatory minimums presumed constitutional, departure requires clear and convincing evidence rebutting the presumption
 
 #### 4c. Illegal Sentence — Errors Patent
 
@@ -141,12 +145,12 @@ The reviewing court evaluates the trial court's *Dorthey* analysis (or refusal t
 - **Subsidiary credibility findings** (e.g., whether the officer's testimony about defendant's consent is credible) — abuse of discretion / clearly wrong.
 
 **Anchor:**
-- *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746 [VERIFY CITATION]
+- *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 — legal findings de novo; factual/credibility findings entitled to deference unless clearly contrary to the evidence
 - *Ornelas v. United States*, 517 U.S. 690 (1996)
 
 **Drafting language:**
 
-> "On a motion to suppress, the trial court's legal conclusions are reviewed de novo. *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746 [VERIFY CITATION]. Subsidiary findings of fact, including credibility determinations, are reviewed for abuse of discretion. *Id.*; *Ornelas v. United States*, 517 U.S. 690 (1996)."
+> "On a motion to suppress, the trial court's legal conclusions are reviewed de novo. *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751. Subsidiary findings of fact, including credibility determinations, are entitled to deference and will not be disturbed unless clearly contrary to the evidence. *Id.*; *Ornelas v. United States*, 517 U.S. 690 (1996)."
 
 ---
 

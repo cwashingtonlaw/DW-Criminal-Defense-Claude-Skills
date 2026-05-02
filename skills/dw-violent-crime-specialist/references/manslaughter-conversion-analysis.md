@@ -33,7 +33,7 @@ Manslaughter is parole-eligible (subject to general La. R.S. 15:574.4 rules) and
 
 ## 2. The Burden Architecture
 
-The defendant does NOT bear the burden of proving heat of passion. The Louisiana Supreme Court has long held that sudden passion and heat of blood are mitigating factors that reduce the grade of the offense — they are not affirmative defenses. Once the issue is raised by the evidence (whether by the defense, the State, or both), the State must prove beyond a reasonable doubt that the defendant did NOT act in sudden passion or heat of blood. *State v. Tompkins* [VERIFY CITATION].
+The defendant does NOT bear the burden of proving heat of passion. The Louisiana Supreme Court has long held that sudden passion and heat of blood are mitigating factors that reduce the grade of the offense — they are not affirmative defenses. *State v. Tompkins*, 403 So.2d 644 (La. 1981) (sudden passion and heat of blood "are mitigatory factors in the nature of a defense which exhibit a degree of culpability less than that present when the homicide is committed without them"). Once the defendant produces evidence sufficient to put sudden passion in the case (preponderance), Louisiana caselaw places on the State the burden of disproving sudden passion beyond a reasonable doubt as part of its proof of murder — but the precise burden allocation has been refined; **confirm current Louisiana Supreme Court burden-of-proof framing before filing.**
 
 Practical consequence: the defense can argue manslaughter even from a "not guilty" defense posture. The defense doesn't have to admit the killing — it argues self-defense (Module D) for full acquittal AND argues heat-of-passion manslaughter as the responsive verdict floor if the jury rejects self-defense. This stacked strategy is standard practice and survives charge-conference scrutiny.
 
@@ -47,7 +47,7 @@ Practical consequence: the defense can argue manslaughter even from a "not guilt
 - **Discovery of serious infidelity in real time** (not by hearsay or after the fact).
 - **Mutual combat that escalates beyond what the defendant provoked.**
 - **Serious physical attack on the defendant or a close family member.**
-- **Sustained verbal abuse paired with physical menace** (mere words alone are usually insufficient under Louisiana law, but words PLUS conduct can suffice — *State v. Brown* [VERIFY CITATION]).
+- **Sustained verbal abuse paired with physical menace** (mere words alone are usually insufficient under Louisiana law, but words PLUS conduct can suffice; the "mere words insufficient" rule is well-settled doctrine — confirm a current Louisiana case on point before filing).
 - **Sudden discovery of grave bodily injury to a child or close relative committed by the victim.**
 
 ### What does NOT qualify (typical State arguments)
@@ -99,7 +99,7 @@ It usually does NOT. Self-defense and manslaughter coexist:
 - Primary theory: self-defense → not guilty.
 - Fallback theory: if the jury rejects self-defense, the killing was at least committed in sudden passion / heat of blood from the same provocative conduct → manslaughter, not murder.
 
-Some judges and prosecutors will resist the stacking, but it is doctrinally correct. *State v. Brown* [VERIFY CITATION] supports overlapping theories where the evidence permits.
+Some judges and prosecutors will resist the stacking, but it is doctrinally correct — the responsive verdict structure under La. C.Cr.P. Art. 814 itself contemplates the jury rejecting one theory and finding another. Pair the stacking argument with a current Louisiana Supreme Court decision on responsive verdicts before the charge conference.
 
 ---
 
