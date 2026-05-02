@@ -426,7 +426,7 @@ Create a .docx checklist with the following items. Attorney verifies each item a
 - [ ] Billing/accounting department notified of case closure
 
 **Special Case Types (if applicable)**
-- [ ] LWOP case: LWOP review sheet completed (reference **dw-lwop-populator**)
+- [ ] LWOP case: LWOP review sheet completed (now Part 2A/2B of `000 - Case Profile.docx` per **dw-criminal-defense** Phase 1 Step 3)
 - [ ] Sex offense case: Registration requirements documented and explained to client
 - [ ] Habitual offender case: Habitual offender audit completed (reference **dw-habitual-offender-auditor**)
 - [ ] Juvenile case (transferred): Transition documentation completed
@@ -532,7 +532,7 @@ If case files are stored in DEVONthink, apply the following tags:
 - **dw-appellate-error-monitor** (Step 4): Optional appeal viability assessment
 - **dw-sentencing-mitigation-specialist** (Step 3): Custody client good-time calculations
 - **dw-pretrial-motion-library** (Step 5): Optional expungement motion draft
-- **dw-lwop-populator** (Step 6): LWOP review sheet completion (if applicable)
+- **dw-criminal-defense** (Step 6, Phase 1 Step 3): LWOP review sheet completion via `000 - Case Profile.docx` Part 2A (Homicide) or 2B (Sex Offense), if applicable — formerly the dw-lwop-populator skill, merged into the master workflow in v5.3
 - **dw-habitual-offender-auditor** (Step 6): Habitual offender audit (if applicable)
 - **docx** skill: Case closing checklist generation
 - **xlsx** skill: Final billing summary workbook

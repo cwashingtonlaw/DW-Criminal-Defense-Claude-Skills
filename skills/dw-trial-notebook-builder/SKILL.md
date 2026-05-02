@@ -86,23 +86,22 @@ live in the Pretrial Notebook but feed into trial preparation.
 
 ### 1A — Trial Notebook Folder Scan
 
-Scan each standard Trial Notebook subfolder and catalog every file found:
+The D&W Trial Notebook uses this 9-tab structure:
 
 | Tab | Folder Path | What to Look For |
 |-----|-------------|------------------|
-| Tab 1 | `01 - Trial Notebook/01 - Jury Instructions & Selection/` | Proposed jury charges, verdict forms, responsive verdict analysis, Art 814 documents, voir dire materials, juror questionnaires, strike lists, Batson tracking |
-| Tab 2 | `01 - Trial Notebook/02 - Opening & Closing/` | Opening statement outlines, closing argument outlines, Mapping the Story worksheets, memorable theme documents |
-| Tab 3 | `01 - Trial Notebook/03 - Witnesses/` | Cross-exam outlines (.docx), source catalogs (.pdf), combined source documents (.pdf), impeachment worksheets, witness battle cards, direct exam templates, witness dossiers. Check both `Prosecution Witnesses/` and `Defense Witnesses/` subfolders |
-| Tab 4 | `01 - Trial Notebook/04 - Exhibit List/` | Master exhibit list, exhibit authentication tracker, stipulated exhibits list |
-| Tab 5 | `01 - Trial Notebook/05 - Evidence/` | Bate-stamped documents, digital evidence placeholders, transcripts, media files |
-| Tab 6 | `01 - Trial Notebook/06 - Motions in Limine/` | Filed motions in limine, 404(b) oppositions, Prieur notice responses |
-| Tab 7 | `01 - Trial Notebook/07 - Legal Research/` | Legal memoranda, statutory compilations, case law printouts |
-| Tab 8 | `01 - Trial Notebook/08 - Jury Selection Notes/` | Voir dire question outlines, juror analysis cards, panel composition tracking |
-| Tab 9 | `01 - Trial Notebook/09 - Case Analysis/` | All 9 case analysis reports, Cowork parallel analysis outputs, missing discovery demands |
+| Tab 1 | `01 - Trial Notebook/01 - Jury Instructions & Selection/` | Proposed jury charges, verdict forms, responsive verdict analysis, Art 814 documents, voir dire question outlines, juror questionnaires, strike lists, Batson tracking |
+| Tab 2 | `01 - Trial Notebook/02 - Opening Statement/` | Opening statement outlines, Mapping the Story — Opening worksheet, case theme documents |
+| Tab 3 | `01 - Trial Notebook/03 - Witnesses/` | Cross-exam outlines (.docx), source catalogs (.pdf), combined source documents (.pdf), impeachment worksheets, witness battle cards, direct exam templates, witness dossiers. Check `Prosecution Witnesses/`, `Defense Witnesses/`, and `Expert Witnesses/` subfolders |
+| Tab 4 | `01 - Trial Notebook/04 - Closing Argument/` | Closing argument outlines, Mapping the Story — Closing worksheet, exhibit reference lists for closing, jury charge tie-in notes |
+| Tab 5 | `01 - Trial Notebook/05 - Evidence/` | Bate-stamped documents, digital evidence placeholders, transcripts, media files, exhibit list |
+| Tab 6 | `01 - Trial Notebook/06 - Pleadings/` | Motions in limine, suppression motions, 404(b) oppositions, Prieur notice responses, all filed trial-phase pleadings and court rulings |
+| Tab 7 | `01 - Trial Notebook/07 - PT Orders_Law/` | Pretrial orders, court rulings on motions, legal memoranda, statutory compilations, case law research |
+| Tab 8 | `01 - Trial Notebook/08 - Verdict_Sentencing/` | Verdict forms, responsive verdict worksheets, sentencing memoranda, mitigation materials, PSI reports/corrections, post-trial motions, Dorthey briefs |
+| Tab 9 | `01 - Trial Notebook/09 - Case Analysis/` | All 9 case analysis reports, Cowork parallel analysis outputs, missing discovery demands, defense strategy notes |
 
-**Note:** Not every case folder uses these exact tab numbers — some folders have slight
-variations. Adapt to the folder structure you find, but flag any non-standard organization
-in the gap report.
+**Note:** Some case folders may have slight naming variations. Adapt to the folder structure
+you find, but flag any non-standard organization in the gap report.
 
 ### 1B — Pretrial Notebook Scan
 
@@ -110,8 +109,8 @@ Also scan the Pretrial Notebook for trial-relevant items:
 
 | Folder | What to Look For |
 |--------|------------------|
-| `02 - Pretrial Notebook/01 - Pleadings/` | Suppression motions, bond motions, discovery motions, pretrial rulings |
-| `02 - Pretrial Notebook/02 - Discovery/` | Raw discovery productions, State's index |
+| `02 - Pretrial Notebook/01 - Pleadings/` | Pretrial motions, bond motions, discovery motions, arraignment filings |
+| `02 - Pretrial Notebook/02 - Discovery/` | Raw discovery productions, State's index, discovery compliance ledger |
 | `02 - Pretrial Notebook/03 - Case Analysis & Notes/` | Initial Case Profile, LWOP Worksheet, Criminal Defense Cover, attorney notes |
 
 ### 1C — Case Tables Audit
@@ -140,7 +139,7 @@ Compile a complete inventory as a structured table:
 | # | Deliverable | Expected Location | Status | File Name | Notes |
 |---|------------|-------------------|--------|-----------|-------|
 | 1 | Jury Instructions Package | Tab 1 | FOUND / MISSING / PARTIAL | [filename] | [any issues] |
-| 2 | Verdict Form | Tab 1 | ... | ... | ... |
+| 2 | Verdict Form | Tab 8 | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 
 Use the full deliverable checklist in `references/deliverable-map.md` to ensure nothing
@@ -217,7 +216,9 @@ With the inventory complete, organize the Trial Notebook folder:
 Move or copy any misplaced files to their correct Trial Notebook tab:
 - Cross-exam outlines → Tab 3 (Witnesses)
 - Jury instructions → Tab 1
-- Motions in limine → Tab 6
+- Motions in limine / suppression motions → Tab 6 (Pleadings)
+- Pretrial orders and court rulings → Tab 7 (PT Orders_Law)
+- Verdict forms and sentencing materials → Tab 8 (Verdict_Sentencing)
 - Case analysis reports → Tab 9
 
 **Ask before moving files that are ambiguous.** Never silently relocate a file the attorney
@@ -225,22 +226,57 @@ may have intentionally placed somewhere.
 
 ### 3B — Create Missing Standard Subfolders
 
-If any standard Trial Notebook tab folder is missing, create it. The standard structure is:
+If any standard Trial Notebook tab folder or subfolder is missing, create it. The standard
+structure with recommended subfolders is:
 
 ```
 01 - Trial Notebook/
 ├── 01 - Jury Instructions & Selection/
-├── 02 - Opening & Closing/
+│   ├── Defense Proposed Instructions/
+│   ├── State Proposed Instructions/
+│   ├── Court's Charge Packet/
+│   └── Voir Dire/
+│       ├── Question Outlines/
+│       ├── Juror Questionnaires/
+│       └── Strike Tracking/
+├── 02 - Opening Statement/
+│   ├── Drafts/
+│   └── Mapping the Story/
 ├── 03 - Witnesses/
 │   ├── Prosecution Witnesses/
-│   └── Defense Witnesses/
-├── 04 - Exhibit List/
+│   ├── Defense Witnesses/
+│   ├── Expert Witnesses/
+│   └── Subpoenas/
+├── 04 - Closing Argument/
+│   ├── Drafts/
+│   ├── Mapping the Story/
+│   └── Exhibit References/
 ├── 05 - Evidence/
-├── 06 - Motions in Limine/
-├── 07 - Legal Research/
-├── 08 - Jury Selection Notes/
+│   ├── Documents/
+│   ├── Audio-Video/
+│   ├── Photos/
+│   ├── Digital Evidence Placeholders/
+│   └── Transcripts/
+├── 06 - Pleadings/
+│   ├── Motions in Limine/
+│   ├── Suppression Motions/
+│   ├── Other Trial Motions/
+│   └── Court Rulings/
+├── 07 - PT Orders_Law/
+│   ├── Pretrial Orders/
+│   ├── Legal Memoranda/
+│   ├── Statutory Research/
+│   └── Case Law/
+├── 08 - Verdict_Sentencing/
+│   ├── Verdict Forms/
+│   ├── Sentencing Memoranda/
+│   ├── Mitigation Materials/
+│   ├── PSI Reports/
+│   └── Post-Trial Motions/
 └── 09 - Case Analysis/
-    └── Cowork Analysis/
+    ├── Cowork Analysis/
+    ├── Reports/
+    └── Defense Strategy/
 ```
 
 ### 3C — Naming Convention Audit
@@ -288,7 +324,7 @@ Generated: [Date] | Readiness: [READY / NEAR-READY / etc.]
 
 **After all tabs, include:**
 - **Pretrial Notebook Cross-References** — links to key pretrial items that inform trial
-  (suppression rulings, discovery motions, pretrial orders)
+  (arraignment filings, discovery motions, pretrial orders)
 - **Case Tables Link** — direct `file://` link to `Case Tables.xlsx`
 - **Case Brain Link** — if the Case Brain is in the Obsidian vault, link to it
 
@@ -497,7 +533,7 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 | Investigation tasks | `dw-defense-investigator-tasking` | "generate investigator tasks" |
 | Habitual offender audit | `dw-habitual-offender-auditor` | "audit the habitual bill" |
 | Transcripts (audio/video) | `dw-transcript-router` | "transcribe the evidence" |
-| LWOP Part 2A / 2B population | `dw-criminal-defense` (Phase 1 Step 3) | "LWOP sheet," "District Defender review," "refresh the Case Profile" |
+| LWOP worksheet | `dw-criminal-defense` (Phase 1 Step 3, Part 2A/2B of `000 - Case Profile.docx`) | "LWOP sheet" |
 | Confession/interrogation audit | `dw-confession-interrogation-auditor` | "audit interrogation" |
 | Child forensic interview audit | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
 | Cell site / CSLI audit | `dw-cell-site-geolocation-auditor` | "audit cell site" |
@@ -509,6 +545,17 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 ---
 
 ## Changelog
+
+### v1.1 (April 2026)
+- **FIX:** Corrected Trial Notebook folder structure to match actual D&W tab layout
+  - Tab 2: "Opening Statement" (not "Opening & Closing")
+  - Tab 4: "Closing Argument" (not "Exhibit List")
+  - Tab 6: "Pleadings" (not "Motions in Limine")
+  - Tab 7: "PT Orders_Law" (not "Legal Research")
+  - Tab 8: "Verdict_Sentencing" (not "Jury Selection Notes")
+- Added recommended subfolder structure for all 9 tabs (Step 3B)
+- Reassigned deliverables to correct tabs (verdict forms → Tab 8, motions → Tab 6, etc.)
+- Updated deliverable-map.md to match corrected structure
 
 ### v1.0 (April 2026)
 - Initial skill version

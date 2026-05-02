@@ -105,7 +105,7 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 
 **Content indicators:** Timestamp, interviewer/suspect names, duration, recording quality notes, Miranda warning mention, admission language
 
-**Auditor Route:** `dw-transcript-pipeline` (for transcription if raw audio) → `dw-confession-interrogation-auditor` (for interrogation analysis and suppression issues)
+**Auditor Route:** `dw-transcript-router` (parish-based dispatch to `dw-transcript-pipeline-calcasieu` or `dw-transcript-pipeline-rev`) → `dw-confession-interrogation-auditor` (for interrogation analysis and suppression issues)
 
 **Priority:** HIGH
 
@@ -561,8 +561,9 @@ Output location for all auditor findings: `[Case Root] / 01 - Trial Notebook / 0
    - No → Continue
 
 3. **Does file contain audio (interrogation, jail call, interview, 911)?**
-   - Yes → `dw-transcript-pipeline` (transcription) → then route transcript:
+   - Yes → `dw-transcript-router` (transcription via parish-based dispatch) → then route transcript:
      - Interrogation/confession → `dw-confession-interrogation-auditor`
+     - Jail calls → `dw-jail-call-analyzer`
      - Other audio → `dw-cross-exam-architect`
    - No → Continue
 

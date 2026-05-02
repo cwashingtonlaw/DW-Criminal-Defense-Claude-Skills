@@ -99,7 +99,6 @@ Use the D&W Skill-to-LEDES Code Mapping table below to assign each work item to 
 | dw-client-communication-drafter | L100 | Case Management |
 | dw-defense-investigator-tasking | L110 | Investigation |
 | dw-transcript-router | L140 | Transcripts |
-| dw-lwop-populator | L500 | Sentencing |
 #### Criminal Defense Sub-Codes Reference
 
 Use these sub-codes for additional granularity and to distinguish specific activity types within main LEDES categories:
