@@ -43,6 +43,25 @@ Do not proceed to Phase 1 until these protocols are loaded. All deliverables fro
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the Discovery Triage Report must trace back to a specific file in the discovery production. The triage report drives downstream auditor routing, Brady/Giglio sweeps, and the discovery ledger; misclassifying a file or referencing a file that doesn't exist breaks the auditor pipeline and risks missing constitutional issues.
+
+**Citation format:** Cite the file path and any internal page/section. Examples:
+- `(Discovery File — "LCPD Incident Report 2026-00456.pdf", p. 1)`
+- `(Discovery File — "Cellebrite Extraction Report — Samsung S22.pdf", p. 3, "Deleted Items")`
+- `(Discovery Production, Bates #00145-00148)`
+- `(Discovery Folder — "BWC Footage", File "Officer Smith — 2026-03-15.mp4", Timestamp 00:05:32)`
+- `(Lab Report — Sample #2026-001, p. 1)`
+
+**Multiple-source rule:** When more than one file confirms a classification or routing decision, cite all of them — e.g., `(Discovery File — "LCPD Report 2026-00456.pdf", p. 2; Discovery File — "Officer Smith Affidavit.pdf", p. 1)`.
+
+**Unsourced assertions:** If a triage classification cannot be tied to a specific file in the production, mark it `[UNSOURCED — VERIFY DISCOVERY INDEX]` so the attorney knows to confirm before invoking downstream auditors.
+
+**Where sourcing applies:** All factual content — file classifications, evidence-type assignments, routing recommendations, Bates range references, completeness gap notes. Procedural standards and auditor-skill descriptions follow normal narrative format.
+
+---
+
 ## PHASE 1 — FILE CLASSIFICATION
 
 Once intake is complete, scan **every file and folder** in the discovery upload. Classify each using the heuristics below.

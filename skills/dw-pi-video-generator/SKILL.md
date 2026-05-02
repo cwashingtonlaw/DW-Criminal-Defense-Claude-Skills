@@ -19,6 +19,48 @@ multi-platform social posting (TikTok, Instagram Reels, YouTube Shorts, Facebook
 
 ---
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any video assets, scripts, client photos, case fact sheets, or PI imagery, do not start scripting yet.**
+
+Your only response must be:
+
+> *"Before I begin — are you uploading any additional video assets, scripts, client photos, case fact sheets, or PI imagery? I'll start the script and caption generation only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads, including b-roll references and brand-style guides sent mid-session, and to batch-mode runs where the attorney is feeding multiple topics at once.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before generating any script or caption, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — final published video content is firm marketing (public-facing), not work product, but pre-publication script drafts kept in the case/marketing folder are internal until approved; mark drafts accordingly.
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths. PI marketing content is not anchored to a single criminal defense case; this skill writes to the firm's marketing folder rather than `{{CASE_ROOT}}`. Where a single client case is the source for a video (e.g., a specific verdict or a redacted client story), the source-fact citations anchor to that `{{CASE_ROOT}}`.
+
+Do not proceed to Step 1 until these protocols are loaded. Output paths for this skill follow the Marketing-Content formula (see "Output Paths" section below) — they are NOT under a per-case `{{CASE_ROOT}}` because PI marketing scripts are firm-wide content, but any case-derived facts in a script must trace back to that case's `{{CASE_ROOT}}`.
+
+---
+
+## Source Citation Mandate
+
+Every factual or legal claim made in a PI video script must trace back to a specific source. The firm's name and reputation ride on every avatar video — a misstated prescriptive period, an outdated rule on direct action, or a fabricated statistic creates LSBA advertising-rule exposure and erodes consumer trust.
+
+**Citation format (in script comments / production notes, not in the on-screen narration):** Cite the statute, code article, dataset, or firm document. Examples:
+- `(La. C.C. art. 3492 — one-year prescription, personal injury)`
+- `(La. R.S. 22:1269 — direct action statute)`
+- `(LA Highway Safety Research Group, 2024 Annual Report, p. 12)`
+- `(Firm intake data, Q1 2026 — prepared by [staff], on file with marketing)`
+- `(Firm verdict — [Case Name, Year], settlement [REDACTED])`
+
+**Multiple-source rule:** When a legal claim has both a statutory and a case-law foundation, cite both — `(La. C.C. art. 2315 + Pierre v. Allstate, 2023 La.)`.
+
+**Unsourced assertions:** If a claim cannot be sourced to statute, code, regulation, peer-reviewed data, or firm-verified records, mark it `[UNSOURCED — VERIFY]` in the production notes and exclude from the script until resolved. Do NOT generate scripts containing unsourced legal claims about Louisiana law — the compliance check in Step 4 must catch these.
+
+**Where sourcing applies:** Every legal claim in the body (prescription, comparative fault, direct action, insurance coverage, liability standards), every statistic cited, and any reference to firm performance. Generic safety advice ("buckle up") and pure pathos ("we know it's a hard time") do not require citation.
+
+---
+
 ## When to Use This Skill
 
 **Use this skill whenever anyone asks:**
@@ -172,6 +214,21 @@ This skill serves **two purposes**:
 Both paths use identical script structure and compliance rules. This skill ensures
 consistency whether the attorney is working interactively or the pipeline is running
 unattended.
+
+---
+
+## Output Paths
+
+PI marketing content is firm-wide and is not anchored to a per-criminal-case `{{CASE_ROOT}}`. Apply the output-path formula from `dw-shared-protocols/references/output-path-formula.md` against the firm's marketing folder root:
+
+```
+{{FIRM_MARKETING_ROOT}}/PI Video Pipeline/Scripts/[YYYY-MM-DD] - [Topic Slug] - Script.docx
+{{FIRM_MARKETING_ROOT}}/PI Video Pipeline/Captions/[YYYY-MM-DD] - [Topic Slug] - Captions.md
+```
+
+If a script is sourced from a specific client case (e.g., a verdict story with consent), the production notes must include a citation line that points back to that case's `{{CASE_ROOT}}` — for example: `Source case: {{CASE_ROOT}} (verdict file at 08 - Verdict_Sentencing/...)`. Apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md` to script drafts until the attorney approves them for publication; published captions and on-air scripts get NO marking.
+
+If `{{FIRM_MARKETING_ROOT}}` is not set, fall back to the active session's outputs directory and tell the attorney where the file landed.
 
 ---
 

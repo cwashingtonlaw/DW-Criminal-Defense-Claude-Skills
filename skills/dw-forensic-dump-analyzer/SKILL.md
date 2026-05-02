@@ -64,6 +64,37 @@ Proceed **only** after the user explicitly confirms. This hard stop applies to e
 
 ---
 
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Defense Intelligence Report — phone-data findings, timeline events, location inferences, communication patterns, pattern-of-life analysis, and critical-window analysis — must trace back to a specific source artifact in the extraction. Forensic dump conclusions are evidentiary; unsourced claims undermine the report's credibility at suppression, trial, or expert challenge.
+
+**Citation format:** Cite the data category, file/table, and timestamp or row identifier. Examples:
+- `(Cellebrite UFDR, Messages table, Row 14823, 2026-04-12 15:32:18 UTC)`
+- `(Extraction, Calls.csv, Row 472, Duration 00:04:17)`
+- `(Extraction, Locations.kml, Point 89, 2026-04-12 15:30 UTC)`
+- `(Browser History, Chrome.sqlite, Visit ID 8842)`
+- `(Photo Metadata, IMG_2047.heic, EXIF capture 2026-04-12 15:31)`
+- `(Cellebrite Reader, Analytics — Top Contacts, Row 3)`
+
+**Multiple-source rule:** When more than one artifact corroborates a finding, cite all of them — e.g., `(Messages, Row 14823; Locations.kml, Point 89; Photo IMG_2047 EXIF)`.
+
+**Unsourced assertions:** If a claim cannot be tied to a specific extraction artifact, mark it `[UNSOURCED — VERIFY EXTRACTION]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — message contents, call records, locations, app activity, photo metadata, search history, contact relationships, baseline patterns, and critical-window findings. Methodological observations and limitations follow normal exposition format.
+
+---
+
 ## STEP 1 — Information Gathering (with Quick-Start Recognition)
 
 ### Quick-Start Fast Path
@@ -92,6 +123,8 @@ Do NOT force a checklist when the attorney already gave you what you need.
 ## STEP 1.5 — Size Assessment & Scope Decision
 
 Assess total data volume BEFORE loading any file contents. Run `scripts/preprocessing.py` for the size assessment utility.
+
+**Reference:** Read `references/size-assessment-gate.md` for the standalone decision-gate card and assessment workflow.
 
 ### Decision Gate
 
@@ -137,7 +170,7 @@ Run `scripts/preprocessing.py` or apply these steps manually in order:
 
 ### Authentication Chain — Extraction Level
 
-Establish the auth chain ONCE for the entire extraction:
+Establish the auth chain ONCE for the entire extraction. **Reference:** Read `references/extraction-auth-chain-template.md` for the standalone template card and required-field definitions.
 
 ```
 EXTRACTION AUTHENTICATION
@@ -153,6 +186,8 @@ Chain of Custody: [Documented / Gap: specify]
 This covers all findings from this extraction. Only note per-finding auth exceptions where a specific finding has a different or weaker chain (e.g., WAL recovery not hash-verified, data from a second extraction with a different tool).
 
 ### Cloud vs. Local Data Provenance
+
+**Reference:** Read `references/cloud-vs-local-provenance.md` for the standalone provenance classification card.
 
 When parsing the extraction, classify each data source as LOCAL (on-device flash storage) or CLOUD (pulled from iCloud, Google account, Samsung Cloud, or third-party cloud backups during extraction):
 
@@ -183,6 +218,8 @@ When parsing the extraction, classify each data source as LOCAL (on-device flash
 
 ### UFDR File Intake
 
+**Reference:** Read `references/ufdr-file-format.md` for the UFDR container structure card and extraction instructions.
+
 If the attorney uploads a `.ufdr` file (Cellebrite's native export container), extract it before analysis. A UFDR is a renamed ZIP archive containing:
 - `report.html` or `report.xml` — the structured data export
 - `files/` directory — extracted media files (photos, videos, audio, documents)
@@ -206,7 +243,7 @@ After extraction, inventory the contents and proceed with normal format handling
 
 ### Selective Reference Loading
 
-Read ONLY the sections of `references/defense-analysis-framework.md` that match the data categories actually present in the upload. Use the Table of Contents to jump to relevant sections:
+Read ONLY the sections of `references/defense-analysis-framework.md` that match the data categories actually present in the upload. **Reference:** Read `references/data-category-reference-index.md` for the standalone selective-loading lookup card. Use the Table of Contents to jump to relevant sections:
 
 | If data includes... | Read section... |
 |---------------------|----------------|
@@ -263,7 +300,7 @@ If nothing helps the defense, report honestly: what was found, why it's unhelpfu
 
 **Build the baseline AFTER the critical window analysis, then use it to contextualize and strengthen the findings already identified.**
 
-Build a 2-week behavioral baseline from outside the critical window (2–4 weeks before the alleged offense). Read `references/defense-analysis-framework.md` Section 10 for the methodology.
+Build a 2-week behavioral baseline from outside the critical window (2–4 weeks before the alleged offense). Read `references/defense-analysis-framework.md` Section 10 for the methodology. **Reference:** Read `references/baseline-template.md` for the standalone baseline-format card and required-field definitions.
 
 ```
 PATTERN OF LIFE BASELINE — [Phone Owner]
@@ -314,6 +351,8 @@ Handoff formats are in the previous version — use the same templates.
 
 ### Quick Brief Format
 
+**Reference:** Read `references/quick-brief-template.md` for the standalone Quick Brief format card with section-by-section field definitions and usage criteria.
+
 ```
 ━━━━━ QUICK BRIEF — PHONE DATA ANALYSIS ━━━━━
 [Case Name / Docket No.] | [Date]
@@ -362,6 +401,8 @@ Auth chain status: reference the extraction-level auth established in Step 2. On
 
 ## Quick Reference — Data Category Priorities by Charge Type
 
+**Reference:** Read `references/charge-type-priorities.md` for the standalone charge-type-to-lens-depth lookup card.
+
 | Charge Type | Priority Data Categories | Primary Lenses (Full Depth) | Secondary Lenses (Scan) | Chunk Override |
 |-------------|------------------------|---------------------------|----------------------|---------------|
 | Homicide / Manslaughter | Timeline, location, victim comms, videos, third-party | Alibi, Self-Defense, Third-Party, Contradictions | State of Mind, Victim Cred, Gaps | Location → T1 |
@@ -375,6 +416,8 @@ Auth chain status: reference the extraction-level auth established in Step 2. On
 ---
 
 ## Quick Reference — Companion Skill Integration
+
+**Reference:** Read `references/companion-skills-routing.md` for the standalone companion-skill routing matrix with trigger descriptions.
 
 | When You Find... | Hand Off To... |
 |-----------------|---------------|

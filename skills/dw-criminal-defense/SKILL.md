@@ -122,6 +122,7 @@ If the attorney reports the change is missing:
 ### Step 1: Folder Setup
 
 - Read `references/output-path-convention.md` to resolve `CASE_ROOT` (checks Case Brain session → attorney prompt → Cowork project mapping → asks attorney).
+- Read `references/folder-structure-and-naming.md` for the full standard folder layout (including Exhibit List, Billing, and Case Closing locations) and the master document/audio/video naming conventions.
 - Confirm all standard subfolders exist: `01 - Trial Notebook` (all sub-tabs) and `02 - Pretrial Notebook` (all sub-tabs).
 - Locate `Case Tables.xlsx` at the root of the case folder. If this is a new case and no `Case Tables.xlsx` exists, copy the master template from `assets/Case Tables.xlsx` into the case root.
 - Do not create new folders unless a standard subfolder is missing.
@@ -449,6 +450,8 @@ For Refresh Mode, replace step 1 with reading the existing file, and apply the m
 
 Populate three sheets in `Case Tables.xlsx`. Do not create new sheets — use the existing ones. Maintain all existing color coding, dropdown lists, and formatting. The Case Profile (Step 3) provides the charge and defense context needed for accurate assessment of all columns.
 
+**Reference:** Read `references/color-coding.md` for the firm's full header and dropdown color specs (hex values for every column, evidence type, witness type, review priority, defense relevance, and timeline tag). Use the `xlsx` skill to apply formatting per those specs.
+
 ⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
 
 **4a — Evidence Table**
@@ -577,6 +580,8 @@ Note: The former "Report 8 — Witness Table" has been removed because witness d
 *Triggered immediately upon filing Report 7.*
 
 **Output:** `Missing Discovery Demand — [Date].docx` → save to `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
+
+**Reference:** Read `references/textexpander-snippets.md` for the firm's standard boilerplate (Case Caption, Signature Block, Certificate of Service, Discovery Citations, Cowork Draft Disclaimer). Use these exact text blocks — do not paraphrase the firm's standard language.
 
 - Extract every item listed in Report 7's data table.
 - Draft a formal demand letter addressed to the prosecution citing Brady/Giglio obligations.

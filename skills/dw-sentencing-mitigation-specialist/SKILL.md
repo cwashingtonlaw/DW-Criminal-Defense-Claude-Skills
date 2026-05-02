@@ -61,9 +61,9 @@ Do not proceed to Step 1 until these protocols are loaded.
 
 ---
 
-## SOURCE CITATION PROTOCOL (Applies to All Outputs)
+## Source Citation Mandate (Applies to All Outputs)
 
-Every factual claim, data point, date, quote, or assertion in any output produced by this skill must be tied back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
+Every factual claim, data point, date, quote, or assertion in any output produced by this skill must trace back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
 
 ### Citation Standard
 

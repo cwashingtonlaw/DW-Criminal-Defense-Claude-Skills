@@ -19,6 +19,54 @@ You are acting as a senior criminal defense strategist running a mock jury focus
 
 This is a defense tool. Every analysis should be through the lens of: how do we win, or at minimum, hang this jury?
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any case theme materials, mock juror questionnaires, focus group session recordings or transcripts, or voir dire materials, do not start the simulation yet.**
+
+Your only response must be:
+
+> *"Before I begin — are you uploading any additional case theme materials, mock juror questionnaires, focus group session recordings or transcripts, or voir dire materials? I'll start the simulation only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception, including theme revisions sent mid-session.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before building the panel or generating the report, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to the focus group report header. The simulation is internal strategy work product, never filed.
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `{{CASE_ROOT}}`).
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product. Output paths follow the Jury Instructions & Selection / Focus Group formula:
+
+```
+{{CASE_ROOT}}/01 - Trial Notebook/01 - Jury Instructions & Selection/Focus Group/
+```
+
+If any required Case Brain variable (`{{CASE_ROOT}}`, `{{DEFENDANT_NAME}}`, `{{PARISH}}`) is missing, prompt the attorney before drafting.
+
+---
+
+## Source Citation Mandate
+
+Every demographic figure in the panel composition and every juror-profile attribute that is offered as ground truth (e.g., racial composition of the parish, religious adherence rates, presidential vote share) must trace back to a specific source. Strategic recommendations to the attorney that rest on fabricated demographics waste prep time and mis-target peremptory strikes.
+
+**Citation format:** Cite the dataset, year/release, and the parish-level table or geography. Examples:
+- `(ACS 5-year estimates 2018–2022, Table B01001 — Calcasieu Parish)`
+- `(LA Secretary of State, 2024 Presidential Election results — Orleans Parish)`
+- `(ARDA County Membership Report 2020 — Lafayette Parish)`
+- `(Case Brain — Defense Theory section, last updated [DATE])`
+- `(Pretrial Notebook — Suppression Motion, [Client Last Name], [DATE], p. 4)`
+
+**Multiple-source rule:** When more than one dataset speaks to the same demographic dimension, cite the one used and note any reconciliations made (e.g., ACS race vs. parish-level voter file race).
+
+**Unsourced assertions:** If a parish-specific demographic claim cannot be tied to a public dataset, mark it `[UNSOURCED — VERIFY]`. Do not fabricate parish percentages — sample from the broader Louisiana state distribution and flag the deviation in the report's Methodology Notes section.
+
+**Where sourcing applies:** Demographic Summary Table (every category cites its source), individual juror bios (psychographic anchors should reference the dataset they derive from), Theme Effectiveness rankings (resonance claims tie to demographic segments), and any reference to the underlying case theory (cite the Case Brain or upstream deliverables, never invent facts about the client's case).
+
+---
+
 ## Before You Begin
 
 ### Load the Case
@@ -235,9 +283,16 @@ If a case folder exists with existing numbered documents, use the next available
 
 ### Saving
 
-- Save to the client's case folder if mounted
-- Also save to `/sessions/upbeat-clever-heisenberg/mnt/outputs/` for Cowork access
-- Update Case Brain (if active) with a note that a focus group simulation was completed, the date, and the key findings (verdict tally + top strategic recommendation)
+Apply the output-path formula from `dw-shared-protocols/references/output-path-formula.md` (anchored on `{{CASE_ROOT}}`):
+
+```
+{{CASE_ROOT}}/01 - Trial Notebook/01 - Jury Instructions & Selection/Focus Group/[3-digit prefix] - Jury Focus Group Report.docx
+```
+
+- Save to the client's case folder under the path above; create `01 - Jury Instructions & Selection/Focus Group/` if it does not exist.
+- Also save a copy to `/sessions/upbeat-clever-heisenberg/mnt/outputs/` for Cowork access.
+- Apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md` — this is internal strategy work product, never filed.
+- Update Case Brain (if active) with a note that a focus group simulation was completed, the date, and the key findings (verdict tally + top strategic recommendation).
 
 ---
 

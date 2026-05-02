@@ -37,7 +37,52 @@ Phase 4 outputs ─┘
 
 ---
 
-## STEP 0 — LOAD CASE CONTEXT
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+This skill consumes **finished deliverables** (jury charges, witness materials, exhibit lists, motions, case analysis reports) — not raw discovery. Before scanning the case folder or generating any index, confirm that no further deliverables are inbound.
+
+**If the user has uploaded or referenced any trial notebook deliverables (jury charges, witness materials, exhibit lists, motions, case analysis reports) or pretrial notebook contents, do not start the assembly yet.**
+
+Your only response must be:
+
+> *"Before I begin assembling the trial notebook — are you uploading any additional trial notebook deliverables (jury charges, witness materials, exhibit lists, motions, case analysis reports) or pretrial notebook contents? I'll start the scan and Master Index build only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop is especially important for this skill because the Master Index and Gap Report are point-in-time snapshots — adding deliverables mid-build produces a stale index.
+
+Once the user confirms, proceed to Step 0.5.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before scanning the case folder or producing the Master Index, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to the Trial Readiness Gap Report, Master Trial Index, and the three attorney checklists (all internal deliverables).
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `{{CASE_ROOT}}`).
+
+Do not proceed to Step 1 until these protocols are loaded. The Master Index, Gap Report, and Checklists are internal work product. Trial Notebook Builder writes directly into the trial notebook itself — its outputs anchor on `{{CASE_ROOT}}/01 - Trial Notebook/` (Master Index, Gap Report, and Checklists save to `{{CASE_ROOT}}/` at the case root, alongside `Case Tables.xlsx`). See the "Output Paths" section near the bottom of this skill for the full path table.
+
+---
+
+## Source Citation Mandate
+
+Every "FOUND," "MISSING," or "PARTIAL" entry in the Inventory Table, every gap callout in the Gap Report, and every link in the Master Trial Index must trace back to a specific source — either a verified file path on disk or a Case Brain entry. The Master Index is the attorney's single courtroom entry point; a fabricated or stale link here is worse than no link at all.
+
+**Citation format:**
+- Inventory entries: `(Found at: {{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/[filename], modified [YYYY-MM-DD])`
+- Gap entries: `(Expected at: {{CASE_ROOT}}/[expected path]; not present in folder scan or Case Brain COMPANION SKILL OUTPUTS)`
+- Case Brain entries: `(Case Brain — COMPANION SKILL OUTPUTS, entry dated [YYYY-MM-DD])`
+- Case Tables entries: `(Case Tables.xlsx — [Sheet name], Row [N])`
+
+**Multiple-source rule:** When the folder scan and the Case Brain disagree (deliverable in folder but not in Brain, or vice versa), surface both in the Case Brain Sync Issues section of the Gap Report — never silently pick one.
+
+**Unsourced assertions:** If a "FOUND" status cannot be tied to an actually-readable file on disk, mark it `[UNSOURCED — VERIFY]` and downgrade to PARTIAL/MISSING for the Gap Report. Verify every `file://` link target exists before adding it to the Master Index — a dead link is worse than a flagged gap.
+
+**Where sourcing applies:** All inventory rows, all Gap Report entries, all Master Index links, and any "Cross Prepared?" or "Status" entry in the Witness Schedule and Exhibit Authentication checklists. Boilerplate checklist items (e.g., "Arrive early") do not require citation.
+
+---
+
+## STEP 0.6 — LOAD CASE CONTEXT
 
 The Trial Notebook Builder requires case context to function. It needs to know where the
 case folder is and what the case brain says about deliverables already produced.
@@ -541,6 +586,23 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 | Crime scene audit | `dw-crime-scene-auditor` | "audit crime scene" |
 | Social media audit | `dw-social-media-auditor` | "audit social media" |
 | Pretrial motions (various) | `dw-pretrial-motion-library` | "speedy trial motion" or type-specific |
+
+---
+
+## Output Paths
+
+Apply the output-path formula from `dw-shared-protocols/references/output-path-formula.md` (anchored on `{{CASE_ROOT}}`). Trial Notebook Builder is unique in the D&W skill ecosystem because it writes directly into the trial notebook itself — its outputs anchor on `{{CASE_ROOT}}/01 - Trial Notebook/` and the case root.
+
+| Deliverable | Path |
+|---|---|
+| Master Trial Index | `{{CASE_ROOT}}/MASTER TRIAL INDEX — [Client Last Name] [Date].docx` |
+| Trial Readiness Gap Report | `{{CASE_ROOT}}/Trial Readiness Gap Report — [Client Last Name] [Date].docx` |
+| Day of Trial Checklist | `{{CASE_ROOT}}/Day of Trial Checklist — [Client Last Name].docx` |
+| Exhibit Authentication Checklist | `{{CASE_ROOT}}/Exhibit Authentication Checklist — [Client Last Name].docx` |
+| Witness Schedule Worksheet | `{{CASE_ROOT}}/Witness Schedule — [Client Last Name].docx` |
+| Folder organization edits | Within `{{CASE_ROOT}}/01 - Trial Notebook/` per the 9-tab structure (Step 1A) |
+
+All five generated documents are internal work product — apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`. The trial notebook itself contains a mix of filed pleadings (Tabs 6 and 7 — no marking) and internal materials (Tabs 1, 2, 3, 4, 8, 9 — marked); Trial Notebook Builder does not change the marking on existing files, only on the new deliverables it generates.
 
 ---
 

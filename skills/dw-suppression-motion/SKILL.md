@@ -22,6 +22,21 @@ Both modes read discovery files to extract facts, search firm databases for temp
 
 **Cowork drafts; attorney approves.** Every output is a draft for attorney review. The attorney verifies facts, confirms legal arguments, signs, and files.
 
+---
+
+## STEP 0 -- FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any search warrants, affidavits, arrest reports, body-worn camera footage, interrogation recordings, statements, or other discovery, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin -- are you uploading any additional search warrants, affidavits, returns on warrants, arrest reports, BWC footage, interrogation recordings, Miranda waiver forms, witness statements, or other case documents? I'll start the audit/motion only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-analysis discovery of an additional warrant, a body camera recording of the search execution, or an interrogation recording would require complete re-evaluation of probable cause, particularity, execution compliance, Franks viability, and any companion 5th/6th Amendment suppression theory.
+
+---
+
 ### Source Citation Mandate
 
 Every factual assertion in the Warrant Audit Report, Motion to Suppress, and Memorandum in Support must trace back to a specific source document. Suppression hearings are fact-intensive — the court evaluates probable cause, warrant particularity, and execution compliance based on the documented record. Unsourced claims about what officers did or didn't do carry no weight.

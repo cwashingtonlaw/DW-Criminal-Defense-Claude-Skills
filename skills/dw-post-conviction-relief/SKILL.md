@@ -40,6 +40,28 @@ Proceed **only** after the user explicitly confirms no further uploads. This har
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the post-conviction relief analysis and application — conviction details, finality dates, ineffective assistance allegations, newly discovered evidence claims, and actual innocence gateway findings — must trace back to a specific source document. PCR proceedings are records-driven: the trial transcript, sentencing record, and appellate opinion define what was preserved, what was waived, and what remains available for collateral review. Unsourced claims about counsel's performance, witness availability, or new evidence will not survive the State's procedural-default response.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Trial Transcript, Vol. III, p. 245, lines 8-22)`
+- `(Sentencing Transcript, p. 18, lines 5-12)`
+- `(Appellate Opinion — State v. Doe, 14-1234 (La. App. 1 Cir. 06/12/2015), p. 4)`
+- `(Bill of Information, Counts 1-2, p. 1)`
+- `(Prior PCR Application, filed 09/15/2018, Ground #3)`
+- `(Plea Colloquy Transcript, p. 12, lines 5-18)`
+- `(New Witness Affidavit — [Name], dated 03/15/2026, para. 4)`
+- `(DNA Test Results — Sample #2026-001, p. 1)`
+
+**Multiple-source rule:** When more than one document confirms a fact, cite all of them — e.g., `(Trial Transcript, Vol. III, p. 245; Trial Counsel Affidavit, dated 03/15/2026, para. 3)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/RECORD]` so the attorney knows to confirm or remove it before filing the PCR application.
+
+**Where sourcing applies:** All factual content — conviction dates, sentence terms, finality calculations, trial counsel performance allegations, newly discovered evidence chronology, AEDPA exhaustion. Statutory citations (Art. 924-930.10, 28 U.S.C. § 2254, § 2244(d)) and case law (*Strickland*, *Schlup*, *House*) follow normal legal citation format.
+
+---
+
 ## STEP 1 — Information Gathering Protocol
 
 Before conducting any PCR analysis, collect the following in ranked order:

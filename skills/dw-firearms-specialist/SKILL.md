@@ -23,6 +23,28 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the firearms-offense analysis — weapon identification, possession theory, search circumstances, predicate conviction details, ACCA exposure, and § 924(c) findings — must trace back to a specific source document. Firearms cases turn on the documented record: the seizure location, the chain of custody, and the predicate conviction certificates determine charge viability and exposure. Unsourced claims about possession, predicate offenses, or weapon characteristics carry no weight at suppression hearings or in plea negotiations.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Arrest Report — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Search Warrant Affidavit, p. 2, para. 4)`
+- `(Officer Smith BWC — Vehicle Stop, Timestamp 00:05:32)`
+- `(ATF Trace Report — Serial #12345678, dated 03/15/2026, p. 1)`
+- `(Predicate Conviction Minute Entry — Docket #2018-CR-0123, dated 06/12/2018)`
+- `(NCIC/Pen Pack — Defendant Criminal History, p. 2)`
+- `(Ballistics Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the weapon, predicate, or seizure, cite all of them — e.g., `(Arrest Report, p. 3; ATF Trace Report, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — weapon type and serial, seizure location and method, predicate conviction details, ACCA classification, § 924(c) underlying offense, dual-jurisdiction posture. Statutory citations (R.S. 14:95.1, 18 U.S.C. § 922(g), § 924(c), § 924(e)) and case law (*Bruen*, *Rahimi*) follow normal legal citation format.
+
+---
+
 ## WORKFLOW OVERVIEW
 
 This skill systematically analyzes firearms and weapons charges under Louisiana and federal law, with emphasis on:

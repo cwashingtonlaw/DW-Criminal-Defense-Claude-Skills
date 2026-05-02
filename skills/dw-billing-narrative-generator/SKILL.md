@@ -12,6 +12,37 @@ Converts a session's work output into discoverable-safe, attorney-reviewed billi
 
 ---
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any time entries, billing logs, session activity exports, prior billing narratives, or case activity records, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional time entries, billing logs, session activity exports, prior billing narratives, or case activity records? I'll start narrative generation only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-narrative discovery of an additional session log, a missed Case Brain update, or a co-counsel's parallel time entries would require complete re-deduplication and re-mapping to LEDES codes.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the billing narratives must trace back to a specific source — a session log, document timestamp, Case Brain entry, or attorney-supplied note. Billing narratives are discoverable in fee disputes and may be reviewed by judges in fee-shifting motions; unsourced time claims undermine the credibility of the billing record.
+
+**Citation format:** Cite the underlying work product or activity log. Examples:
+- `(Session Log — 2026-04-15, dw-suppression-motion invocation)`
+- `(Case Brain Update — 2026-04-15, Suppression Motion drafted)`
+- `(Document Modified — Motion to Suppress.docx, 2026-04-15 14:32)`
+- `(Attorney Note — Phone call with client, 2026-04-15)`
+
+**Multiple-source rule:** When more than one source confirms the work performed, cite all of them — e.g., `(Session Log — 2026-04-15; Document Modified — Motion to Suppress.docx, 2026-04-15)`.
+
+**Unsourced assertions:** If a time entry cannot be tied to a documented activity, mark it `[UNSOURCED — VERIFY WITH ATTORNEY]` so the attorney can confirm or remove it before submission to the billing system.
+
+**Where sourcing applies:** All factual content in narratives — task descriptions, durations, deliverables produced. Narratives must accurately describe work actually performed; do not invent activities to fill time blocks.
+
+---
+
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 
 Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:

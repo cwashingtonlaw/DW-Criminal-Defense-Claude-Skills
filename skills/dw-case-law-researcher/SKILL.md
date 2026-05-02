@@ -23,6 +23,42 @@ version: 1.1.0
 
 This skill finds on-point legal authority across five sources, synthesizes results into a structured research memo, and feeds citations directly into whatever motion or analysis is being drafted. It operates both standalone (attorney asks for research) and as a service layer called by other D&W skills mid-draft.
 
+---
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any research questions, case briefs, prior research memos, draft motions, or discovery materials that frame the research scope, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional research questions, case briefs, prior research memos, draft motions, opposing authority, or discovery materials that frame the research scope? I'll start the multi-source search only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-research discovery of an additional issue, a controlling case the attorney already located, or an opposing brief's authorities would change search strategy and may render Tier 1 results stale.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the research memo — case holdings, statutory language, factual analogies, KeyCite/Bad Law flags, judge backgrounds, and empirical findings — must trace back to a verifiable source. Legal research feeds directly into motions and briefs; an unverified citation or paraphrased holding can mislead the court and expose the attorney to a Rule 11 / La. C.C.P. Art. 863 sanction risk.
+
+**Citation format:** Cite the source database, opinion, statute, or article with full identifying information. Examples:
+- `(State v. Prieur, 277 So.2d 126, 130 (La. 1973))`
+- `(La. C.E. Art. 404(B)(1))`
+- `(CourtListener Citation Verification — opinion ID 2123456, retrieved 2026-04-15)`
+- `(case.dev search result — query "traffic stop drug dog Rodriguez", returned 2026-04-15)`
+- `(DEVONthink — Prior Suppression Memo, Case File "Smith 2024", saved 2024-09-12)`
+- `(Consensus search — false confession + juvenile, study DOI 10.xxxx, 2023)`
+- `(Westlaw KeyCite — State v. Doe, 123 So.3d 456, retrieved 2026-04-15, no negative treatment)`
+
+**Multiple-source rule:** When more than one source confirms a holding or factual claim, cite all of them — e.g., `(State v. Doe, 123 So.3d 456 (La. 2020); CourtListener Citation Verification — opinion ID 7891011, retrieved 2026-04-15)`.
+
+**Unverified citations:** If a citation cannot be verified through CourtListener, case.dev, or Westlaw KeyCite, mark it `[UNVERIFIED — VERIFY BEFORE FILING]`. Never include an unverified citation in the memo without that flag.
+
+**Where sourcing applies:** All cited authority — case law, statutes, constitutional provisions, secondary sources, empirical studies, and prior firm work product. Synthesis and analysis follow normal narrative format but must be traceable to the cited authorities.
+
+---
+
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 
 Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:

@@ -32,6 +32,27 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the DWI defense analysis — BAC reading, test methodology, SFST observations, arrest circumstances, prior offense dates, and aggravating factor findings — must trace back to a specific source document. DWI cases are document-driven: the Intoxilyzer printout establishes the BAC, the SFST report establishes the field test results, and the arrest report establishes the stop justification. Unsourced claims about the BAC, test timing, or refusal are not defensible at suppression hearings or trial.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Intoxilyzer 9000 Printout, Test #2026-001, dated 03/15/2026)`
+- `(Blood Draw Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(SFST Report — Trooper Smith, p. 2, para. 3)`
+- `(Arrest Report — LSP Case #2026-00456, p. 1, para. 2)`
+- `(Officer Smith BWC — Traffic Stop, Timestamp 00:05:32)`
+- `(Implied Consent Form, signed 03/15/2026)`
+- `(Prior Conviction Minute Entry — Docket #2018-CR-0123, dated 06/12/2018)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the stop, test, or arrest, cite all of them — e.g., `(Intoxilyzer Printout, Test #2026-001; Officer Smith BWC, Timestamp 00:25:18)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — BAC values, test methodology, calibration records, SFST clue counts, stop justification, accident details, prior conviction dates and cleansing-period calculations. Legal standards, R.S. 14:98 statutory citations, and case law follow normal legal citation format.
+
+---
+
 ## STEP 0: HARD STOP — Confirm DWI Case Type
 
 **Do NOT proceed without establishing:**

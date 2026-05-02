@@ -29,6 +29,39 @@ Track every exhibit in the case — both what the defense intends to offer and w
 
 ---
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any exhibit lists, evidence inventories, exhibit physical/digital files, prior trial exhibit packages, or court orders setting exhibit protocols, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional exhibit lists, evidence inventories, exhibit files, prior trial exhibit packages, court orders setting exhibit protocols, or discovery materials that may become exhibits? I'll start exhibit-management work only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-process discovery of an additional State exhibit, a missing authentication source, or a court order setting exhibit-marking conventions would require complete re-numbering, re-authentication mapping, and re-objection planning.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the exhibit log, authentication chain, and objection record must trace back to a specific source document. Trial exhibits are admitted (or excluded) based on the documented foundation — chain of custody, authentication witness, business-record certification, or discovery production source. Unsourced claims about an exhibit's origin or authenticity will not survive an objection.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Discovery Production, Bates #00145-00148)`
+- `(Lab Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Custodian Affidavit — Verizon Wireless, dated 03/15/2026)`
+- `(Officer Smith BWC — Vehicle Stop, Timestamp 00:05:32)`
+- `(Subpoena Return — St. Elizabeth's Medical Records, dated 03/15/2026)`
+- `(Defense Investigator Report — Witness Interview Smith, 04/02/2026, p. 2)`
+
+**Multiple-source rule:** When more than one document supports an exhibit's authentication, cite all of them — e.g., `(Custodian Affidavit — Verizon Wireless; Subpoena Return, dated 03/15/2026, p. 1)`.
+
+**Unsourced assertions:** If an exhibit's source or authentication method cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH ATTORNEY/DISCOVERY]` so the team knows to confirm before pre-marking or offering at trial.
+
+**Where sourcing applies:** All factual content — exhibit origin, chain-of-custody history, authentication witness identification, discovery Bates references. Evidentiary rules (La. C.E. Art. 901, 902, 803) and objection grounds follow normal legal citation format.
+
+---
+
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 
 Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
@@ -42,7 +75,7 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## WORKFLOW STEPS
 
-### STEP 0 — LOAD CASE AND TRIAL CONTEXT
+### STEP 0.6 — LOAD CASE AND TRIAL CONTEXT
 
 **Hard Stop Gate:** Before proceeding, establish foundational case data.
 

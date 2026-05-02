@@ -2,14 +2,15 @@
 name: dw-transcript-pipeline-rev
 description: >
   Rev.com-based transcription pipeline for all non-Calcasieu Parish cases at Daniels & Washington.
-  Handles the full workflow: folder scan → Rev upload → transcription → TranscriptPad import →
-  Defense Media Analysis Report. Adds MirandaAI-equivalent defense analysis features (Miranda rights
-  detection, Reid technique identification, leading question flagging, coercion indicators, key
-  event detection, interrogation technique analysis) via Claude analysis layer on top of Rev
-  transcripts. Produces a standardized Defense Media Analysis Report (.docx) identical in schema
-  to dw-transcript-pipeline-calcasieu output. This skill is invoked by dw-transcript-router for
-  all non-Calcasieu cases. Direct triggers: "Rev pipeline," "Rev transcription," "upload to Rev,"
-  or when dw-transcript-router routes a non-Calcasieu case here.
+  ALWAYS invoke for "Rev pipeline," "Rev transcription," "upload to Rev," "transcribe non-Calcasieu
+  media," "Rev DMAR," or when dw-transcript-router routes a non-Calcasieu case here. Handles the
+  full workflow: folder scan → Rev upload → transcription → TranscriptPad import → Defense Media
+  Analysis Report. Adds MirandaAI-equivalent defense analysis features (Miranda rights detection,
+  Reid technique identification, leading question flagging, coercion indicators, key event
+  detection, interrogation technique analysis) via Claude analysis layer on top of Rev transcripts.
+  Produces a standardized Defense Media Analysis Report (.docx) identical in schema to
+  dw-transcript-pipeline-calcasieu output. This skill is invoked by dw-transcript-router for all
+  non-Calcasieu cases.
 ---
 
 # DW Transcript Pipeline — All Parishes Except Calcasieu (Rev.com)
@@ -17,6 +18,17 @@ description: >
 **Platform**: Rev.com (rev.com)
 **Parishes**: All except Calcasieu (routed by dw-transcript-router)
 **Output**: Defense Media Analysis Report (.docx) + TranscriptPad case
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any audio or video files for transcription (interrogations, jail calls, interviews, body-worn camera, dashcam, 911 calls, civilian video), do not begin upload to Rev yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional media for this batch? I'll start the Rev upload only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. Mid-batch additions cause partial uploads, duplicate billing on Rev, and broken DMAR ordering when the late files come back out of sequence.
+
+---
 
 ### Source Citation Mandate
 

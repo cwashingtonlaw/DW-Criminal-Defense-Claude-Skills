@@ -37,13 +37,14 @@ SKILLS_DIR = REPO_ROOT / "skills"
 # represent real structural problems.
 
 EXEMPT: dict[str, set[str]] = {
-    "dw-skill-index":         {"W1", "W3", "W4"},  # index/lookup, no file output
-    "dw-template-selector":   {"W1", "W3", "W4", "W6"},  # shared protocol, not direct-trigger
-    "dw-shared-protocols":    {"W1", "W3", "W4"},  # the protocols themselves
-    "dw-data-contracts":      {"W1", "W3", "W4"},  # schema definitions
-    "dw-evidence-placeholder":{"W1", "W3"},        # utility skill
-    "dw-image-filename-stamp":{"W1", "W3", "W4"},  # utility
-    "dw-case-brain":          {"W1"},              # session persistence
+    "dw-skill-index":         {"W1", "W3", "W4"},                       # index/lookup, no file output
+    "dw-template-selector":   {"W1", "W2", "W3", "W4", "W5", "W6"},     # shared protocol, not direct-trigger
+    "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6"},     # library other skills load specific files from
+    "dw-data-contracts":      {"W1", "W3", "W4", "W6"},                 # schema definitions
+    "dw-criminal-defense":    {"W1", "W2", "W3"},                       # master orchestrator; downstream skills enforce hard stops + citations
+    "dw-evidence-placeholder":{"W1", "W3"},                             # utility skill
+    "dw-image-filename-stamp":{"W1", "W3", "W4"},                       # utility
+    "dw-case-brain":          {"W1", "W2", "W3", "W4"},                 # session persistence — internal brain.md, no attorney deliverables
     "dw-criminal-defense.skill": {"W1", "W2", "W3", "W4", "W5", "W6"},  # legacy plugin shape
 }
 
@@ -146,7 +147,10 @@ RE_CITATION = re.compile(
     r"source\s*citation\s*mandate|citation\s*mandate|every\s+factual\s+\w+\s+must\s+(trace|cite)",
     re.IGNORECASE,
 )
-RE_OUTPUT_PATH = re.compile(r"\{\{\s*CASE_ROOT\s*\}\}|output-path-formula", re.IGNORECASE)
+RE_OUTPUT_PATH = re.compile(
+    r"\{\{\s*CASE_ROOT\s*\}\}|\bCASE_ROOT\b|output-path-formula|output-path-convention",
+    re.IGNORECASE,
+)
 RE_TRIGGERS = re.compile(
     r"ALWAYS\s+invoke|invoke\s+for|trigger\s+(?:phrase|keyword)",
     re.IGNORECASE,
@@ -222,15 +226,22 @@ def lint_skill(skill_dir: Path, all_skill_names: set[str]) -> SkillReport:
                 continue
             rpt.add("E3", f"references/{ref}")
 
-    # W5 — orphaned reference files
+    # W5 — orphaned reference files. A file counts as referenced if its full
+    # path (`references/X.md`) appears OR its bare filename appears in any
+    # markdown-emphasis or code-span style (e.g., `**X.md**`, `\`X.md\``,
+    # bullet-list filename mentions in a Quick References section).
     if refs_dir.exists():
         for f in refs_dir.iterdir():
             if not f.is_file() or f.suffix != ".md":
                 continue
             if f.name == "README.md":
                 continue
-            if f.name not in referenced_files:
-                rpt.add("W5", f"references/{f.name}")
+            if f.name in referenced_files:
+                continue
+            # Fallback: bare filename appears anywhere in the SKILL.md
+            if f.name in text:
+                continue
+            rpt.add("W5", f"references/{f.name}")
 
     # E4 — cross-skill references must resolve. Skip:
     #   - Self-references

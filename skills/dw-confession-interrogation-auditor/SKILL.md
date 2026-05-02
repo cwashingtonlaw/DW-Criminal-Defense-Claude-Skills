@@ -143,6 +143,27 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the Confession & Interrogation Audit Report must trace back to a specific source document. Jackson v. Denno hearings and La. C.Cr.P. Art. 703 suppression hearings turn on the documented record of what occurred during the interrogation — voluntariness, Miranda compliance, and false confession risk are all evaluated against the recording, transcript, and rights advisement materials. Unsourced claims about what the interrogator said, when warnings were administered, or how long the questioning lasted carry no weight.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Interrogation Recording — Session 1, Timestamp 00:14:32)`
+- `(Interrogation Transcript, p. 8, lines 12-18)`
+- `(Miranda Waiver Form, signed 03/15/2026)`
+- `(Booking Video, Timestamp 02:11:05)`
+- `(Officer Smith BWC — Pre-Interrogation, Timestamp 00:03:18)`
+- `(Detective Notes — LCPD Case #2026-00456, p. 2, para. 3)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the interrogation, cite all of them — e.g., `(Interrogation Recording, Timestamp 00:14:32; Interrogation Transcript, p. 8, lines 12-18)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it at a Jackson v. Denno or Art. 703 hearing.
+
+**Where sourcing applies:** All factual content — Miranda timing, waiver execution, technique identification, voluntariness factors, recording compliance, juvenile protections. Legal standards and case law follow normal legal citation format.
+
+---
+
 ## STEP 2 — MODULE A: Miranda Compliance Audit
 
 Analyze every aspect of the Miranda advisement and waiver for constitutional sufficiency.

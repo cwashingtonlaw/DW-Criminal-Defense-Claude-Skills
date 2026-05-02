@@ -61,6 +61,21 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+## STEP 0.6 -- LOAD LOUISIANA APPELLATE FRAMEWORK
+
+Before conducting any error preservation analysis, read `references/01-Louisiana-Appellate-Framework.md`. This is the foundational legal framework that every output of this skill applies. It contains:
+
+- **Constitutional foundations:** La. Const. Art. I, Sec. 19; La. Const. Art. V, Sec. 10; U.S. Const. Amend. XIV due process and federal habeas exhaustion
+- **Contemporaneous objection rule (La. C.Cr.P. Art. 841):** timeliness, specificity, and ruling requirements; key jurisprudence (*Arvie*, *Taylor*, *Wessinger*, *Thomas*); narrow exceptions
+- **Proffer requirement (La. C.E. Art. 103):** narrative vs. testimonial proffers; *Magee*, *Broadway*
+- **Errors patent (La. C.Cr.P. Art. 920):** illegal sentences, Boykin deficiencies, Art. 873 delay, defective charging instruments, unauthorized multiple punishment
+- **Post-trial motion practice and appeal-deadline calculation**
+- **Harmless error and structural error doctrine**
+
+Every preservation finding, every waiver assessment, and every appellate-issue ranking produced by this skill must apply the standards documented in this reference. Do not proceed to Step 1 until this framework is loaded.
+
+---
+
 ## STEP 1 -- Information Gathering Protocol
 
 Before conducting any error preservation analysis, collect the following in ranked order:

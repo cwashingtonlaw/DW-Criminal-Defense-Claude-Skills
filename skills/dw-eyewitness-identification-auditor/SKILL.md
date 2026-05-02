@@ -39,6 +39,26 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the Eyewitness Identification Audit Report must trace back to a specific source document. Identification suppression hearings under *Manson v. Brathwaite*, *Neil v. Biggers*, and *State v. Henderson* are evaluated against the documented record of the procedure -- the photo array packet, the witness's recorded responses, the administrator's notes, and any recording of the procedure itself. Unsourced claims about how the identification was conducted, what the witness said, or what filler photos looked like will not survive cross-examination at a suppression hearing.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Photo Array Packet -- LCPD Case #2026-00456, p. 1, Filler #3)`
+- `(Lineup Administrator Notes, dated 03/15/2026, p. 2, para. 4)`
+- `(Witness Statement -- [Name], 03/15/2026, p. 2)`
+- `(BWC -- Detective Smith Identification Procedure, Timestamp 00:05:32)`
+- `(Initial 911 Call Transcript, p. 1, Line 8)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the procedure or witness response, cite all of them -- e.g., `(Lineup Administrator Notes, p. 2; BWC -- Detective Smith, Timestamp 00:08:14)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED -- VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it at a suppression or in-court identification hearing.
+
+**Where sourcing applies:** All factual content -- procedure type, administrator identity, instructions given, filler composition, witness selection and confidence, viewing conditions, post-event information exposure. Legal standards (*Manson*, *Biggers*, *Henderson*) and scientific authorities (NAS 2014 Report, IACP guidelines) follow normal citation format.
+
+---
+
 ## STEP 1 -- Information Gathering Protocol
 
 Before drafting any audit, collect the following in ranked order:
@@ -321,6 +341,12 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT -- pass to dw-cross-exam-archite
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
 - **Distinguish law from science.** When presenting scientific findings, clearly distinguish between what the science establishes and what the law requires. The science may support a stronger position than current Louisiana case law requires. Present both: the legal standard the court must apply and the scientific standard the court should consider.
 - **Integrate with D&W workflow.** Follow shared protocols for output paths (see Step 0.5).
+
+---
+
+## Reference Navigation
+
+For a complete navigation guide to all reference materials in this skill — modules A-I, legal frameworks, scientific literature, discovery demands, cross-exam frameworks, jury instructions, and prosecution arguments — read `references/INDEX.md`.
 
 ---
 

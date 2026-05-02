@@ -57,6 +57,27 @@ These matters involve allegations of extraordinary gravity. The analysis framewo
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the sex-offense analysis — alleged conduct, victim and accused statements, SANE findings, forensic interview content, DNA results, and corroborating or contradicting evidence — must trace back to a specific source document. These cases turn on the documented record: the SANE exam report establishes physical findings, the forensic interview establishes the disclosure narrative, and the lab report establishes biological evidence. Unsourced claims about what was alleged, what was found, or how the disclosure unfolded carry no weight at suppression hearings, rape-shield (Art. 412) hearings, or trial.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(SANE Exam Report — [Hospital], dated 03/15/2026, p. 2, "Findings")`
+- `(Forensic Interview — [Center], 03/16/2026, Timestamp 00:14:32)`
+- `(Lab Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Detective Narrative — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Initial Disclosure — Witness Statement, p. 1, Line 8)`
+- `(Bill of Information, Counts 1-2, p. 1)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact, cite all of them — e.g., `(SANE Report, p. 2; Lab Report, Sample #2026-001, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — alleged conduct, disclosure timing, SANE findings, forensic interview methodology, DNA mixture interpretations, prior consistent/inconsistent statements. Statutory citations (La. R.S. 14:42 series, La. C.E. Art. 412), case law, and SORNA references follow normal legal citation format. Maintain dignity in all references to the alleged victim — sourcing requirements never authorize gratuitous detail.
+
+---
+
 ## STEP 1 — INFORMATION GATHERING PROTOCOL
 
 ### ESSENTIAL INFORMATION (Non-negotiable)

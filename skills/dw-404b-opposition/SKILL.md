@@ -16,6 +16,38 @@ This skill generates complete, ready-to-edit filings to oppose the State's intro
 
 ---
 
+## STEP 0 -- FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any 404(b) notices, Prieur notices, prior conviction records, prior bad acts evidence, witness statements, or case discovery, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin -- are you uploading any additional 404(b)/Prieur notices, prior conviction records, prior bad acts evidence, witness statements, police reports, or other case documents? I'll start analysis only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-analysis discovery of an additional prior bad act, a missing exhibit referenced in the State's notice, or a co-defendant's similar 404(b) ruling would require complete re-evaluation of the opposition's relevance, prejudice, and Prieur compliance arguments.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Opposition and Memorandum in Support must trace back to a specific source document. 404(b) litigation is fact-intensive — the court evaluates whether each prior act qualifies under an enumerated exception based on the documented record. Unsourced claims about what the defendant allegedly did, when, or in what context carry no weight at a Prieur hearing.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(State's 404(B) Notice, p. 2, para. 3)`
+- `(Prior Conviction Minute Entry — Docket #2018-CR-0456, p. 1)`
+- `(Prior Police Report — LCPD Case #2018-00123, p. 4, para. 5)`
+- `(Witness Statement — [Name], 03/15/2026, p. 2)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about a prior act, cite all of them — e.g., `(Prior Police Report, p. 4, para. 5; Booking Record, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before filing.
+
+**Where sourcing applies:** All factual content about prior acts, the State's proffered exception, the defense theory, and prejudice analysis. Legal standards and case law follow normal legal citation format.
+
+---
+
 ## Filing Types
 
 This skill generates two types of filings depending on the posture:

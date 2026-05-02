@@ -7,6 +7,55 @@ description: "Build a Top 5 witness threat matrix by witness type for a criminal
 
 Phase 3 capstone that ranks the State's witnesses by threat level so the defense knows where to spend cross-exam prep time. Synthesis-only — does NOT re-read raw discovery.
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any witness statements, threat assessments, jail call recordings, social media posts, prior criminal records, or BWC of witness contacts, do not analyze anything yet.**
+
+Your only response must be:
+
+> *"Before I begin — are you uploading any additional witness statements, threat assessments, jail call recordings, social media posts, prior criminal records, or BWC of witness contacts? I'll start the threat matrix analysis only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception, including post-cross refresh runs where new impeachment material is being added.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before drafting the threat matrix, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to the threat matrix header. The matrix is internal work product, never a filed pleading.
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `{{CASE_ROOT}}`).
+
+Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product. Output paths follow the Cowork Analysis / Witnesses formula:
+
+```
+{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/
+```
+
+with the threat matrix `.docx` saved at `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Witness Threat Matrix - [Last Name] - [YYYY-MM-DD].docx`. If any required Case Brain variable (`{{CASE_ROOT}}`, `{{DEFENDANT_NAME}}`, `{{DOCKET}}`) is missing, prompt the attorney before drafting.
+
+---
+
+## Source Citation Mandate
+
+Every harmful-content claim and impeachment hook in the threat matrix must trace back to a specific source document. The matrix drives cross-exam prep priority and resource allocation — an unsourced "Damage 9" rating sends the defense down the wrong road and wastes prep time on the wrong witness.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Witness Statement — Smith, 03/15/2026, p. 2, para. 4)`
+- `(BWC — Officer Jones, Timestamp 00:05:32)`
+- `(DMAR Report, Section 3, p. 7)`
+- `(Jail Call — Client to Mother, 02/14/2026, 04:18)`
+- `(Brady/Giglio Audit, p. 12, Cooperator Deal Section)`
+- `(Discovery Production, Bates #00145)`
+
+**Multiple-source rule:** When more than one document confirms a fact about a witness, cite all of them — e.g., `(Witness Statement — Smith, p. 2; BWC — Officer Jones, Timestamp 00:05:32)`.
+
+**Unsourced assertions:** If a Damage or Vulnerability claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY]` so the attorney knows to confirm before relying on it. Do NOT score a witness CRITICAL without at least one cited source for the damage claim.
+
+**Where sourcing applies:** All harmful-content entries, impeachment hooks, prior-inconsistency callouts, and bias/deal/motive findings. Witness type classification and scoring rationale must reference upstream deliverables (DMAR, Brady/Giglio audit, eyewitness audit, etc.) by name.
+
+---
+
 ## Inputs
 
 - `CASE_ROOT` — absolute path to client case folder
@@ -81,13 +130,15 @@ Cross Outline Status comes from actually scanning `Trial Notebook/Witnesses/`: "
 8. Recommended Next Steps — ordered list of skills to run next, by priority
 9. Score Change Log (REFRESH MODE only)
 
-## Output location (HARDCODED)
+## Output location
+
+Apply the output-path formula from `dw-shared-protocols/references/output-path-formula.md` (anchored on `{{CASE_ROOT}}`):
 
 ```
-{CASE_ROOT}/Trial Notebook/Witnesses/Witness Threat Matrix - [Last Name] - [YYYY-MM-DD].docx
+{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Witness Threat Matrix - [Last Name] - [YYYY-MM-DD].docx
 ```
 
-Create `Trial Notebook/Witnesses/` if it does not exist.
+Create `01 - Trial Notebook/03 - Witnesses/` if it does not exist. Apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md` — the matrix is an internal deliverable, never filed.
 
 ## Run modes
 

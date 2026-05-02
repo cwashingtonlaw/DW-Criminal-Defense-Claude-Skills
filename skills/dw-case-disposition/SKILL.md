@@ -40,6 +40,26 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the closing workflow deliverables — disposition record, final billing narrative, client notification, appeal eligibility memo, expungement eligibility assessment, and closing checklist — must trace back to a specific source document. Case closure is irreversible; unsourced disposition data, sentence terms, or eligibility conclusions can mislead the client about appellate deadlines, expungement timing, and post-disposition obligations.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Minute Entry — Disposition, Docket #2026-CR-0456, dated 03/15/2026)`
+- `(Plea Colloquy Transcript, p. 12, lines 5-18)`
+- `(Sentencing Order, p. 1, para. 2)`
+- `(Bill of Information, Count 1, p. 1)`
+- `(Case Brain — Disposition Entry, 2026-04-15)`
+- `(Court Docket — Verdict Entry, dated 03/15/2026)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the disposition, sentence, or charge resolution, cite all of them — e.g., `(Minute Entry — Disposition; Sentencing Order, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH ATTORNEY/COURT RECORD]` so the attorney knows to confirm or remove it before notifying the client or archiving the file.
+
+**Where sourcing applies:** All factual content — disposition type and date, sentence terms, charges resolved or remaining, appeal triggers, expungement waiting periods. Legal standards, Louisiana RPC obligations, and procedural deadlines follow normal legal citation format.
+
+---
+
 ## STEP 0: DISPOSITION CONFIRMATION HARD STOP
 
 **This is a mandatory gate. Do not proceed without attorney approval of all items below.**

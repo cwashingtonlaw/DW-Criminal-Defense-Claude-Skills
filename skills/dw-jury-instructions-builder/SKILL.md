@@ -83,6 +83,27 @@ Ask:
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the proposed jury charges and verdict forms must trace back to a specific source — the charging document, the controlling statute, the Louisiana pattern jury instruction, or the controlling appellate authority. Jury instructions are the jury's roadmap; an instruction that misstates an element, omits a responsive verdict, or fails to cite controlling authority risks reversible error and undermines appellate preservation.
+
+**Citation format:** Cite the document title, page number, paragraph, statute, or case. Examples:
+- `(Bill of Information — Counts 1-3, p. 1)`
+- `(La. R.S. 14:30 — First Degree Murder)`
+- `(La. C.Cr.P. Art. 814 — Responsive Verdicts)`
+- `(LA Pattern Jury Instructions — Criminal, § 3.05 (Self-Defense))`
+- `(State v. Bell, 2022-1106 (La. 4/13/23), 359 So.3d 962)`
+- `(State's Proposed Instructions, filed 03/15/2026, p. 4, Instruction No. 7)`
+- `(Defense Theory Memo, p. 2, "Self-Defense Theory")`
+
+**Multiple-source rule:** When more than one authority supports an instruction, cite all of them — e.g., `(La. R.S. 14:20; State v. Patterson, 295 So.3d 1154 (La. 2020))`.
+
+**Unsourced assertions:** If a proposed instruction's factual predicate or legal authority cannot be verified, mark it `[UNSOURCED — VERIFY BEFORE FILING]` so the attorney knows to confirm before submitting to the court.
+
+**Where sourcing applies:** All factual content — charges, defense theory, evidentiary predicates triggering specific instructions, panel-size determinations, and prior procedural rulings. Statutory and case-law citations follow normal Bluebook / Louisiana citation format.
+
+---
+
 ## STEP 1 -- INFORMATION GATHERING PROTOCOL
 
 Once you have the charging documents and defense theory, organize your

@@ -5,6 +5,45 @@ description: Refresh the Calcasieu Public Defender Court & Jail Visit Tracker fo
 
 # DW Court & Jail Visit Tracker
 
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any docket sheets, jail rosters, court orders, or scraped tracker exports, do not run the tracker pipeline yet.**
+
+Your only response must be:
+
+> *"Before I begin — are you uploading any additional docket sheets, jail rosters, court orders, or scraped tracker exports? I'll start the tracker refresh only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception, including ad-hoc runs that augment the JusticeWorks scrape with manually attached records.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before running the pipeline, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — the visit list email/chat digest is internal work product directed to assigned counsel; mark internal exports accordingly.
+2. `dw-shared-protocols/references/output-path-formula.md` — use for output file paths when an export is anchored on a case folder. Tracker-wide artifacts live under `~/.dw-tracker/` (config, scrape JSON, backups) — the user-home convention is preserved here as established by this skill, but any per-case export (e.g., a single-client visit report) follows `{{CASE_ROOT}}` anchored on the firm's case folder.
+
+Do not proceed to Step 1 until these protocols are loaded. The tracker spreadsheet path is a firm-shared Google Drive location (see Constants table); the per-run scrape JSON, backups, and config live under `~/.dw-tracker/`.
+
+---
+
+## Source Citation Mandate
+
+Every overdue-visit, court-soon, or trial-soon entry surfaced by this tracker must trace back to a specific source — the JusticeWorks scrape row, the firm Excel tracker cell, or a manually attached docket sheet. Visit reminders that are not tied to verifiable source data risk sending Chris to the wrong jail or missing a real overdue visit.
+
+**Citation format for every visit-list entry:**
+- `(JusticeWorks scrape — YYYY-MM-DD, docket [DOCKET#])`
+- `(Tracker xlsx, Row [N], JAIL VISIT column, last visit [DATE])`
+- `(Court Order — [DOCKET#], filed [DATE], page [N])`
+- `(Docket Sheet — [Court], pulled [DATE])`
+
+**Multiple-source rule:** When the scrape and the tracker disagree about a court date or trial setting, surface both — `(JusticeWorks 2026-04-27 says 2026-05-15; Tracker xlsx Row 14 says 2026-05-22)` — and route to Chris for resolution. Never silently pick one.
+
+**Unsourced assertions:** If an overdue flag cannot be backed by a tracker row or scrape row, mark `[UNSOURCED — VERIFY]` and exclude from the visit list digest until resolved.
+
+---
+
 This skill keeps Chris Washington's weekly visit list current. It runs end-to-end:
 
 1. **Scrape** the Calcasieu PDO JusticeWorks portal for his assigned Open + Awaiting-Bill cases.
@@ -23,10 +62,12 @@ dw-court-jail-tracker/
 │   ├── update_tracker.py             ← merges scraped rows into the xlsx
 │   ├── compute_visit_list.py         ← decides who needs to be seen
 │   ├── post_google_chat.py           ← POSTs the digest to a Chat webhook
+│   ├── create_clio_tasks.py          ← creates one Clio Manage task per overdue jail visit
 │   └── config.py                     ← loads credentials from ~/.dw-tracker/config.json
 ├── references/
 │   ├── justiceworks_navigation.md    ← exact selectors / page flow for the portal
-│   └── google_chat_webhook_setup.md  ← how to create the incoming-webhook URL
+│   ├── google_chat_webhook_setup.md  ← how to create the incoming-webhook URL
+│   └── clio_api_setup.md             ← how to mint a Clio Manage access token + find your user id
 └── assets/
     ├── config.example.json           ← template for ~/.dw-tracker/config.json
     └── visit_email_template.html     ← Gmail body template
@@ -53,8 +94,9 @@ Read `~/.dw-tracker/config.json`. If it doesn't exist, copy `assets/config.examp
 
 - `gmail_to` — his email (default: cjw@danielswashington.com)
 - `google_chat_webhook_url` — incoming webhook URL (see `references/google_chat_webhook_setup.md`)
+- `clio_access_token` and `clio_user_id` — Clio Manage Bearer token + numeric user id (see `references/clio_api_setup.md`)
 
-If `google_chat_webhook_url` is still the placeholder string (`"FILL_ME_IN"`), skip Google Chat for this run and tell Chris at the end. Don't block the whole run on a missing webhook — the email always works because Gmail is already authenticated.
+If `google_chat_webhook_url` is still the placeholder string (`"FILL_ME_IN"`), skip Google Chat for this run and tell Chris at the end. Same rule for `clio_access_token` — placeholder means skip the Clio channel and report at the end. Don't block the whole run on a missing webhook or Clio token — the email always works because Gmail is already authenticated.
 
 ### Step 2 — Scrape the portal via Chrome MCP
 
@@ -131,6 +173,21 @@ python /path/to/dw-court-jail-tracker/scripts/post_google_chat.py \
 
 Posts a Card-formatted message with collapsible sections per bucket.
 
+#### 5c. Clio Manage tasks (optional)
+
+If `clio_access_token` is set in config (not the placeholder), run:
+
+```bash
+python /path/to/dw-court-jail-tracker/scripts/create_clio_tasks.py \
+  --visit-list <path-to-Step-4-output> \
+  --token "$(jq -r .clio_access_token ~/.dw-tracker/config.json)" \
+  --user-id "$(jq -r .clio_user_id ~/.dw-tracker/config.json)"
+```
+
+This creates one Clio Manage task per overdue jail visit, assigned to Chris's Clio user id, scoped to the matching matter where one is found by docket # or client name. The script de-dupes against tasks created in the last 14 days so the same client doesn't get double-tasked across runs. See `references/clio_api_setup.md` for token minting and refresh.
+
+If the token has expired (HTTP 401), surface the error and tell Chris to refresh per `references/clio_api_setup.md`. Do not silently skip — the next Sunday run would otherwise miss tasks.
+
 ### Step 6 — Report back
 
 Post a one-screen summary to Chris in the chat:
@@ -145,10 +202,10 @@ Visit list this week:
   • 2 trials within 30 days
   • 7 new cases since last Sunday
 
-Notifications sent: ✅ email  ✅ Google Chat
+Notifications sent: ✅ email  ✅ Google Chat  ✅ Clio tasks
 ```
 
-If a notification channel was skipped (placeholder config) or failed, replace the ✅ with ⏭ or ❌ and one-line the reason.
+If a notification channel was skipped (placeholder config) or failed, replace the ✅ with ⏭ or ❌ and one-line the reason. Clio is optional — if `clio_access_token` is the `FILL_ME_IN` placeholder, the Clio line shows ⏭ "no token configured."
 
 ## Triggering this skill from a schedule
 
@@ -171,3 +228,5 @@ The schedule is set up via `mcp__scheduled-tasks__create_scheduled_task` separat
 | Gmail MCP returns 401 | OAuth expired | Suggest reconnecting via `mcp-registry__suggest_connectors` for Gmail |
 | Google Chat webhook returns 404 | Webhook URL was rotated/deleted | Have him generate a new one and update config |
 | Scraped JSON has 0 rows | Portal filter not applied or selectors changed | Re-read `references/justiceworks_navigation.md` and the portal page; update selectors |
+| `create_clio_tasks.py` returns 401 | Clio access token expired (~7 day lifetime) | Refresh per `references/clio_api_setup.md` (refresh-token flow), update `clio_access_token` in `~/.dw-tracker/config.json`, re-run Step 5c |
+| Clio task created against wrong matter | Docket # not in any Clio matter; fell back to client-name match | Open the matter in Clio, set the Custom Field "Docket #," then re-run; future runs will match by docket |

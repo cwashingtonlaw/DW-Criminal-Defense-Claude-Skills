@@ -38,6 +38,27 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the Expert Witness Evaluation -- credential analysis, methodology critique, prior-testimony impeachment material, fee analysis, and Daubert/Foret challenge findings -- must trace back to a specific source document. Daubert/Foret hearings are evidentiary proceedings; the court evaluates qualifications and methodology against the documented record. Unsourced claims about an expert's credentials, prior testimony, or laboratory practices will not survive cross-examination by the State.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Expert CV -- Dr. Jane Smith, p. 3, "Publications")`
+- `(Expert Report -- Dr. Jane Smith, dated 03/15/2026, p. 2, para. 4)`
+- `(Prior Testimony Transcript -- State v. Doe, 14th JDC, 06/12/2024, p. 87, lines 3-18)`
+- `(Lab Bench Notes -- Sample #2026-001, p. 1)`
+- `(ASCLD/LAB Accreditation Certificate, dated 01/01/2025)`
+- `(State's Art. 719 Disclosure, p. 2, para. 3)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the expert or methodology, cite all of them -- e.g., `(Expert CV, p. 3; Prior Testimony -- State v. Doe, p. 87, lines 3-18)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED -- VERIFY WITH ATTORNEY/DISCOVERY]` so the attorney knows to confirm or remove it before filing the Daubert/Foret motion.
+
+**Where sourcing applies:** All factual content -- expert credentials, methodology, error rates, prior testimony, fee structures, accreditation status. Scientific standards, legal authorities (Daubert, Foret, La. C.E. Art. 702), and case law follow normal legal citation format.
+
+---
+
 ## STEP 1 -- Information Gathering Protocol
 
 Before drafting any evaluation, collect the following in ranked order:
