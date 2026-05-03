@@ -94,7 +94,7 @@ A comprehensive, current-state guide to the order, structure, and trigger phrase
 | Investigator tasks | `dw-defense-investigator-tasking` | "investigator assignment" |
 | Cross-case DMAR review | `dw-dmar-synthesizer` | "compare the DMARs" |
 | Pretrial motions (any type) | `dw-pretrial-motion-library` | See Chapter 8 trigger list |
-| PI marketing video | `dw-pi-video-generator` | "PI video" / "TikTok script" / "personal injury video" |
+| ~~PI marketing video~~ | *Relocated to sibling repo `DW-PI-Marketing-Claude-Skills` (May 2026)* | — |
 
 ---
 
@@ -1005,8 +1005,8 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 | **Offense-Specific** (1) | `dw-sex-offense-specialist` |
 | **Appellate** (1) | `dw-appellate-error-monitor` |
 | **Final Assembly** (1) | `dw-trial-notebook-builder` |
-| **Marketing** (1) | `dw-pi-video-generator` |
-| **TOTAL** | **43 skills** |
+| ~~**Marketing** (1)~~ | *`dw-pi-video-generator` relocated to sibling repo `DW-PI-Marketing-Claude-Skills` (May 2026)* |
+| **TOTAL** | **43 skills** *(this v2.0 snapshot; current count is in `dw-skill-index/SKILL.md`)* |
 
 ---
 

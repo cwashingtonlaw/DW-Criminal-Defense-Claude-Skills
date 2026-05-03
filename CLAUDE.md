@@ -150,7 +150,7 @@ All deliverable file paths follow the formula in `dw-shared-protocols/references
 
 with sub-folders for specific phases. Two known special-case anchors:
 
-- `{{FIRM_MARKETING_ROOT}}` — used by `dw-pi-video-generator` for marketing-folder outputs (case-derived facts in the same skill still cite `{{CASE_ROOT}}`)
+- `{{FIRM_MARKETING_ROOT}}` — used by PI marketing skills (now in the sibling `DW-PI-Marketing-Claude-Skills` repo) for marketing-folder outputs; case-derived facts still cite `{{CASE_ROOT}}` if those skills consume case data
 - `~/.dw-tracker/` — local tracker artifacts (`dw-court-jail-tracker`)
 
 ### 4. Every deliverable carries attorney work-product marking

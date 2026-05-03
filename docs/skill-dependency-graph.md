@@ -316,7 +316,6 @@ All five (`dw-drug-offense-specialist`, `dw-dwi-specialist`, `dw-sex-offense-spe
 | `dw-case-law-researcher` | Research questions | Legal memoranda |
 | `dw-evidence-placeholder` | Media folder structure | One-page placeholder PDFs for media folders |
 | `dw-image-filename-stamp` | Image batches | Bates-style or descriptive renames |
-| `dw-pi-video-generator` | PI video assets + scripts + case-derived facts | PI marketing videos (PI-side, marketing-folder outputs) |
 
 ---
 

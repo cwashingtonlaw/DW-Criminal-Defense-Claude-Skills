@@ -207,9 +207,6 @@ intake_setup:
     label: "Medical chronology (PI)"
     trigger: "medical chronology or med chron"
     external: true
-  - skill: dw-pi-video-generator
-    label: "PI video scripts"
-    trigger: "PI video or make a video"
 
 shared_references:
   - skill: dw-template-selector

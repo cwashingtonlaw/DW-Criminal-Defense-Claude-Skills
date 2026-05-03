@@ -135,7 +135,6 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 | Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-client-intake-interview` | "intake" or "new client" or "first meeting" |
 | Evidence folder placeholders | `dw-evidence-placeholder` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
-| PI video scripts | `dw-pi-video-generator` | "PI video" or "make a video" |
 
 *Note: `dw-lwop-populator` was retired in v5.3 — its functionality merged into `dw-criminal-defense` Phase 1 Step 3.*
 

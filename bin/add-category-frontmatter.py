@@ -83,7 +83,6 @@ OVERRIDES: dict[str, str] = {
     "dw-court-jail-tracker":            "ops",
     "dw-image-filename-stamp":          "ops",
     "dw-evidence-placeholder":          "ops",
-    "dw-pi-video-generator":            "ops",
 }
 
 
