@@ -61,498 +61,102 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
-## Pipeline Phases
+## Pipeline Phases — Overview
+
+| Phase | Purpose | Reference |
+|-------|---------|-----------|
+| 1 | Folder scan, duplicate detection, evidence-type classification | `references/phase-1-folder-scan.md` |
+| 2 | Rev.com tier selection, upload, monitoring, download | `references/phase-2-rev-upload.md` |
+| 2.5 | Transcript review and speaker labeling (attorney action) | `references/phase-2-rev-upload.md` |
+| 3 | TranscriptPad import (.tracase database) | `references/phase-3-transcriptpad-import.md` |
+| 4 | Defense Media Analysis (Modules A–I) | This file (module list) + per-module references |
+| 5 | Generate the DMAR (.docx) and update Case Brain | `references/dmar-structure.md` |
+
+---
 
 ### Phase 1: Folder Scan
 
-Identical to Calcasieu pipeline Phase 1.
+Identical to the Calcasieu pipeline Phase 1, with an additional evidence-classification step that drives downstream analysis modules.
 
-#### Step 1.1 — Get the target folder
-Attorney should have client folder selected. Folder name follows `lastname, firstname` convention.
-
-#### Step 1.2 — Scan for media files
-Recursively scan all subfolders. Collect files with these extensions (case-insensitive):
-
-- **Video**: `.mp4`, `.mov`, `.avi`, `.wmv`, `.mkv`, `.flv`, `.webm`, `.m4v`, `.mpg`, `.mpeg`, `.3gp`, `.ts`, `.vob`
-- **Audio**: `.mp3`, `.wav`, `.aac`, `.m4a`, `.ogg`, `.flac`, `.wma`, `.aiff`, `.aif`, `.opus`, `.amr`
-
-**Skip files whose name ends with `_TRANSCRIBED`.** These were processed in a prior run.
-
-#### Step 1.3 — Detect duplicates
-Flag files with same base name across different paths or sizes. Present and ask attorney which to include.
-
-#### Step 1.4 — Present file list and confirm
-Show summary table. Confirm before proceeding. Stop if zero unprocessed files.
-
-#### Step 1.5 — Classify evidence types
-Before upload, classify each file for downstream analysis:
-
-| Classification | Examples | Analysis Modules Triggered |
-|----------------|----------|---------------------------|
-| `INTERROGATION` | Custodial interviews, detective questioning | E (MirandaAI), F (Interrogation) |
-| `BODY_CAM` | BWC footage, officer-worn cameras | G (Key Events), H (Use of Force) |
-| `DASH_CAM` | In-car camera footage | G (Key Events) |
-| `JAIL_CALL` | Inmate phone recordings | I (Jail Call) |
-| `911_CALL` | Emergency dispatch recordings | G (Key Events) |
-| `WITNESS_INTERVIEW` | Non-custodial witness statements | E (partial), D (Speaker) |
-| `SURVEILLANCE` | CCTV, security camera footage | C (Timeline) |
-| `OTHER` | Miscellaneous audio/video | C (Timeline), D (Speaker) |
-
-Classification is based on filename patterns, subfolder names, and attorney input. Ask if uncertain.
+Read `references/phase-1-folder-scan.md` for the full procedure: file extensions to scan, the `_TRANSCRIBED` skip rule, duplicate handling, and the classification table mapping each evidence type (`INTERROGATION`, `BODY_CAM`, `DASH_CAM`, `JAIL_CALL`, `911_CALL`, `WITNESS_INTERVIEW`, `SURVEILLANCE`, `OTHER`) to the analysis modules it triggers.
 
 ---
 
 ### Phase 2: Rev.com Upload & Transcription
 
-#### Step 2.1 — Determine transcription tier
+Read `references/phase-2-rev-upload.md` for the full procedure. Summary:
 
-Ask the attorney:
-
-> I've scanned [N] media files. Which Rev transcription tier should I use?
->
-> - **AI Transcription** ($0.25/min) — 96%+ accuracy, results in ~5 minutes. Good for initial review.
-> - **Human Transcription** ($1.99/min) — 99%+ accuracy, 12-hour turnaround. Better for court-critical recordings.
-> - **Ready to Certify** — 99.6% accuracy, court-formatted with jurisdiction cover page. Use for transcripts you'll file.
-> - **Mixed** — AI for bulk, Human for the [N] most critical files. (Recommended for most cases.)
-
-If attorney chooses "Mixed," ask which files should get human transcription.
-
-#### Step 2.2 — Navigate to Rev.com
-Navigate to `https://www.rev.com`. Confirm attorney is logged in. If not, ask them to log in.
-
-#### Step 2.3 — Upload media files (ATTORNEY ACTION)
-
-> Please upload the [N] media files to Rev:
->
-> 1. Go to **rev.com** → **Order Transcription** (or "New Order" if on dashboard)
-> 2. Select **[AI Transcription / Human Transcription / Ready to Certify]** as discussed
-> 3. Click **Upload Files** and select from:
->    - **Google Drive**: Navigate to **Shared drives → [PARISH] PDO Files → [client folder] → 01 - Trial Notebook → 05 - Evidence**
->    - **Local/NAS**: Browse to the evidence folder
-> 4. Upload these files:
->
-> [List files from Phase 1, grouped by subfolder]
->
-> **For Human/Ready to Certify orders**: Select **Verbatim** transcription style and enable **Timestamps** (every 2 minutes or speaker change).
->
-> Let me know when upload is complete and you have the order confirmation.
-
-Wait for attorney confirmation.
-
-#### Step 2.4 — Monitor transcription status
-
-- **AI transcription**: Check back in 5–15 minutes
-- **Human transcription**: Check back in 2–12 hours depending on rush tier
-- **Ready to Certify**: Check back in 1–3 business days
-
-Ask attorney to share the Rev order/project URL so Claude can check status via Chrome.
-
-#### Step 2.5 — Download transcripts
-
-Once transcription is complete:
-1. Download all transcripts in **DOCX** and **TXT** format (both needed)
-2. For AI transcripts, also download **JSON** if available (contains word-level timestamps and confidence scores)
-3. Place transcripts alongside source media in the evidence folder
-4. Verify download sizes (flag any under 1KB)
-
----
+- **Step 2.1** — Ask the attorney to choose a transcription tier: AI ($0.25/min), Human ($1.99/min), Ready to Certify, or Mixed (recommended).
+- **Step 2.2** — Navigate to `https://www.rev.com` and confirm login.
+- **Step 2.3** — Attorney uploads media via Google Drive picker or local browse. Verbatim mode + timestamps required for Human/Ready to Certify orders.
+- **Step 2.4** — Monitor transcription status (5–15 min for AI, 2–12 hr for Human, 1–3 days for Ready to Certify).
+- **Step 2.5** — Download transcripts (DOCX + TXT, plus JSON when available). Verify file sizes (flag <1KB).
 
 ### Phase 2.5: Transcript Review & Speaker Labeling
 
-Rev's speaker diarization uses "Speaker 1," "Speaker 2" labels by default. The attorney must relabel:
-
-> Transcription is complete for all [N] files. Before I run analysis, please review the transcripts:
->
-> 1. **Open each transcript** in Rev's editor (click the transcript in your Rev dashboard)
-> 2. **Label speakers** — Click on "Speaker 1" labels and assign real names
-> 3. **Fix errors** — Correct any transcription mistakes, especially names, addresses, dates
-> 4. **Re-download** the corrected transcripts (DOCX + TXT)
->
-> For Human/Ready to Certify transcripts, the speakers may already be labeled if you provided a speaker list with the order.
-
-Wait for confirmation and updated transcript files.
+Rev's diarization defaults to "Speaker 1," "Speaker 2." Attorney must relabel speakers and correct names/addresses/dates in Rev's editor before re-downloading. See `references/phase-2-rev-upload.md` for the attorney-action script.
 
 ---
 
 ### Phase 3: TranscriptPad Import
 
-Identical to Calcasieu pipeline Phase 4:
-1. Find or create TranscriptPad case
-2. Back up `.tracase` package
-3. Stage transcripts in Inbox
-4. Import via Add menu
-5. Copy media into case and link in database (SQLite)
-6. Fix timestamps (Python + SQLite — adjust regex for Rev's timestamp format)
-7. Sync both case locations
-8. Rename originals with `_TRANSCRIBED` suffix
+Identical to the Calcasieu pipeline Phase 4, with a Rev-specific timestamp regex. Read `references/phase-3-transcriptpad-import.md` for:
 
-**Rev Timestamp Format Note**: Rev TXT exports use `[HH:MM:SS]` or `(HH:MM:SS)` format depending on settings. The timestamp fix script regex should handle both Rev and JusticeText formats:
-```
-\[?(\d{1,2}:\d{2}(?::\d{2})?)\]?\s+(.+?):\s*\n(.*?)(?=\n\[?\d{1,2}:\d{2}|\Z)
-```
+- The 8-step import sequence (find/create case, back up `.tracase`, stage in Inbox, import via Add menu, copy media + link in SQLite, fix timestamps, sync both case locations, rename originals with `_TRANSCRIBED`).
+- The combined Rev/JusticeText timestamp regex used by `transcriptpad-timestamp-fix.py`.
 
 ---
 
 ### Phase 4: Defense Media Analysis Report (MirandaAI-Equivalent Features)
 
-This phase adds MirandaAI-equivalent criminal defense analysis capabilities to Rev transcripts using Claude's analytical layer. **Claude reads all downloaded TXT transcripts and performs the analysis modules below.**
+This phase adds MirandaAI-equivalent criminal defense analysis capabilities to Rev transcripts using Claude's analytical layer. **Claude reads all downloaded TXT transcripts and runs the analysis modules below.**
 
 The output is a standardized **Defense Media Analysis Report (DMAR)** — identical in structure to the DMAR produced by `dw-transcript-pipeline-calcasieu`.
 
----
+#### Module Map
 
-#### Module A — Multi-File Cross-Reference Analysis
+| Module | Purpose | Runs On | Reference |
+|--------|---------|---------|-----------|
+| A — Multi-File Cross-Reference | Find contradictions, corroborations, gaps, sequence conflicts across files | All transcripts | `references/modules-cross-ref-timeline-speaker.md` |
+| B — Document-vs-Media Comparison | Compare written reports against transcript content | All transcripts (when reports exist) | `references/modules-cross-ref-timeline-speaker.md` |
+| C — Chronological Master Timeline | Unified timeline across all sources | All transcripts | `references/modules-cross-ref-timeline-speaker.md` |
+| D — Speaker Behavior Analysis | Speech patterns, emotional shifts, consistency, power dynamics | All transcripts | `references/modules-cross-ref-timeline-speaker.md` |
+| E — Miranda & Constitutional Events | Miranda warnings, invocations, custody markers (3 sub-modules) | All; detailed for `INTERROGATION` and `WITNESS_INTERVIEW` | `references/module-e-miranda-detection.md` |
+| F — Interrogation Technique Analysis | Reid technique, coercion indicators, false-confession risk (3 sub-modules) | `INTERROGATION` only | `references/module-f-interrogation-techniques.md` |
+| G — Key Event Detection | Auto-detect traffic stops, arrests, searches, force, sobriety tests, etc. | All file types | `references/module-g-key-event-detection.md` |
+| H — Use of Force Analysis | Force-sequence mapping, recording-gap detection | `BODY_CAM`, `DASH_CAM` (when force detected) | `references/modules-cross-ref-timeline-speaker.md` |
+| I — Jail Call Analysis | Privilege flagging, state-of-mind, admissions vs. context | `JAIL_CALL` only | `references/modules-cross-ref-timeline-speaker.md` |
 
-For each transcript, extract and compare:
-1. **Named entities**: Officers, witnesses, locations, vehicles, weapons, drugs, amounts
-2. **Temporal references**: Dates, times, durations, sequences
-3. **Factual claims**: What each speaker says happened, in what order
-
-Cross-reference across all transcripts to identify:
-- **Contradictions**: Where accounts conflict about the same event
-- **Corroborations**: Where multiple sources confirm the same fact
-- **Gaps**: Events referenced but not covered by any recording
-- **Sequence conflicts**: Where chronological order differs between accounts
-
-Output format (DMAR Section 3):
-```
-CROSS-REFERENCE FINDING [CR-001]
-Files: [File 1 name] @ [timestamp] vs. [File 2 name] @ [timestamp]
-Type: CONTRADICTION / CORROBORATION / GAP / SEQUENCE CONFLICT
-Speaker 1: [Name] — "[quoted claim]"
-Speaker 2: [Name] — "[quoted claim]"
-Defense Significance: [How this helps the defense]
-Cross-Exam Seed: [One-line question this finding supports]
-```
-
----
-
-#### Module B — Document-vs-Media Comparison
-
-If police reports, incident reports, or other written documents exist in the client folder:
-1. Read written reports (PDF/DOCX via file reading skills)
-2. Compare factual claims against transcript content
-3. Flag every discrepancy
-
-Output format (DMAR Section 4):
-```
-REPORT-VS-RECORDING DISCREPANCY [RR-001]
-Document: [Report name, page, paragraph]
-Recording: [File name] @ [timestamp]
-Report says: "[quoted from report]"
-Recording shows: "[quoted from transcript]"
-Severity: CRITICAL / SIGNIFICANT / MINOR
-Defense Use: [Impeachment, suppression, Brady, etc.]
-```
-
----
-
-#### Module C — Chronological Master Timeline
-
-Build unified timeline from ALL transcripts and documents:
-1. Extract every timestamped event
-2. Normalize to single clock
-3. Interleave into one chronological sequence
-4. Flag gaps and overlapping contradictions
-
-Output format (DMAR Section 5):
-```
-TIME | SOURCE | EVENT | NOTES
-[HH:MM:SS] | [File name] @ [media timestamp] | [What happened] | [Flags]
-```
-
----
-
-#### Module D — Speaker Behavior Analysis
-
-For each identified speaker:
-1. **Speech patterns**: Hesitation, corrections, evasions
-2. **Emotional shifts**: Changes described by context
-3. **Consistency**: Does account stay consistent across recordings?
-4. **Power dynamics**: Who controls conversation? Interruptions, redirections
-
-Output as narrative paragraphs in DMAR Section 6.
-
----
-
-#### Module E — Miranda Rights & Constitutional Events Detection
-*REPLICATES MirandaAI's core Miranda detection capability*
-
-**This module runs on ALL transcripts but produces detailed output only for files classified as `INTERROGATION` or `WITNESS_INTERVIEW`.**
-
-Scan every transcript for the following constitutional event categories:
-
-##### E.1 — Miranda Rights Analysis
-
-Search for any variation of Miranda warnings. Flag:
-
-| Finding | What to Look For | Severity |
-|---------|-----------------|----------|
-| `MIRANDA-COMPLETE` | All four warnings given clearly | INFO |
-| `MIRANDA-PARTIAL` | Some warnings given, others omitted | CRITICAL |
-| `MIRANDA-ABSENT` | No Miranda warnings in custodial interrogation | CRITICAL |
-| `MIRANDA-TIMING` | Warnings given AFTER substantive questioning began | CRITICAL |
-| `MIRANDA-WAIVER-ORAL` | Verbal waiver without written form | SIGNIFICANT |
-| `MIRANDA-WAIVER-EQUIVOCAL` | Ambiguous waiver ("I guess," "sure, whatever") | CRITICAL |
-| `MIRANDA-INVOCATION` | Suspect invokes right to silence or counsel | CRITICAL |
-| `MIRANDA-INVOCATION-IGNORED` | Questioning continues after invocation | CRITICAL |
-| `MIRANDA-RE-INITIATION` | Police re-approach after invocation | SIGNIFICANT |
-
-The four Miranda components to check:
-1. Right to remain silent
-2. Anything said can be used against you
-3. Right to an attorney
-4. If you cannot afford an attorney, one will be appointed
-
-For each finding, record:
-```
-MIRANDA EVENT [ME-001]
-File: [name] @ [timestamp]
-Type: [from table above]
-Speaker: [who gave/received warnings]
-Verbatim: "[exact words from transcript]"
-Analysis: [What's missing, ambiguous, or problematic]
-Legal Significance: [Which Miranda prong is affected]
-Suppress?: [Yes/No/Maybe — with brief reasoning]
-```
-
-##### E.2 — Right to Counsel Invocations
-
-Specifically scan for any statement that could constitute an invocation of the right to counsel, including ambiguous statements. MirandaAI's key insight is that invocations are often subtle:
-
-**Clear invocations**: "I want a lawyer," "I need to talk to my attorney," "Get me a lawyer"
-**Ambiguous invocations** (Edwards v. Arizona analysis required):
-- "Maybe I should talk to a lawyer"
-- "Do I need a lawyer?"
-- "Can I call my attorney?"
-- "I think I want a lawyer"
-- "My mama told me to get a lawyer"
-- "How do I get a public defender?"
-
-Flag ALL of these. For ambiguous invocations, note that under Edwards v. Arizona and Louisiana jurisprudence, police should have stopped questioning and clarified.
-
-##### E.3 — Custody Determination Markers
-
-Flag statements and circumstances indicating whether the suspect was "in custody" for Miranda purposes:
-- Told they are free to leave (or not told)
-- Door locked/unlocked
-- Handcuffs on/off
-- Transport in police vehicle
-- Location (police station, home, street, vehicle)
-- Duration of encounter
-- Number of officers present
-- Tone of questioning (accusatory vs. investigative)
-
----
-
-#### Module F — Interrogation Technique Analysis
-*REPLICATES MirandaAI's Reid Technique and coercion detection*
-
-**Runs only on files classified as `INTERROGATION`.**
-
-Scan for the following interrogation techniques and flag each instance:
-
-##### F.1 — Reid Technique Components
-
-| Technique | What to Look For | Flag Level |
-|-----------|-----------------|------------|
-| **Positive Confrontation** | "We know you did this," "The evidence shows..." | SIGNIFICANT |
-| **Theme Development** | Minimizing moral blame, offering justifications | SIGNIFICANT |
-| **Handling Denials** | Cutting off denials, not allowing suspect to speak | CRITICAL |
-| **Overcoming Objections** | Dismissing suspect's reasons for innocence | SIGNIFICANT |
-| **Retention of Attention** | Physical proximity, eye contact demands, touching | SIGNIFICANT |
-| **Handling Passive Mood** | Crying, withdrawal — detective intensifies | SIGNIFICANT |
-| **Alternative Question** | Offering two choices, both incriminating | CRITICAL |
-| **Oral Confession Development** | Leading suspect to provide details | SIGNIFICANT |
-| **Written Confession** | Moving to written/recorded statement | INFO |
-
-##### F.2 — Coercion Indicators
-
-| Indicator | What to Look For | Flag Level |
-|-----------|-----------------|------------|
-| **False Evidence Ploy** | "Your fingerprints were found," "Your DNA matched" (if potentially false) | CRITICAL |
-| **Implicit Promises** | "Things will go better if you cooperate," "Help yourself out" | CRITICAL |
-| **Explicit Promises** | "I'll talk to the DA," "You'll go home tonight" | CRITICAL |
-| **Threats** | "You'll never see your kids," "You're looking at life" | CRITICAL |
-| **Minimization** | "It was an accident," "Anyone would have done the same" | SIGNIFICANT |
-| **Maximization** | "This is the worst thing I've ever seen," "You're going down for murder" | SIGNIFICANT |
-| **Sleep/Food/Bathroom Deprivation** | Long duration without breaks, requests denied | CRITICAL |
-| **Isolation Pressure** | "Nobody can help you but yourself," "Your co-defendant is talking" | SIGNIFICANT |
-| **Deception About Law** | Misrepresenting charges, penalties, or legal rights | CRITICAL |
-| **Fatigue Exploitation** | Increased pressure during late hours or after long wait | SIGNIFICANT |
-
-##### F.3 — False Confession Risk Factors
-
-Flag the presence of any recognized false confession risk factors:
-- Juvenile suspect (under 18)
-- Intellectual disability indicators (comprehension problems, acquiescence)
-- Mental illness indicators (delusions, confusion, disorientation)
-- Substance intoxication/withdrawal
-- Interrogation duration exceeding 2 hours (flag), 4 hours (critical), 6+ hours (extreme)
-- Suspect provides details that were fed by detective (contamination)
-- Statement contains implausible or impossible claims
-- Suspect changes story to match detective's theory
-
-For each finding:
-```
-INTERROGATION TECHNIQUE [IT-001]
-File: [name] @ [timestamp range]
-Category: REID TECHNIQUE / COERCION / FALSE CONFESSION RISK
-Specific Technique: [from tables above]
-Flag Level: CRITICAL / SIGNIFICANT / INFO
-Detective: [name if known]
-Verbatim Exchange:
-  DETECTIVE @ [timestamp]: "[what detective said]"
-  SUSPECT @ [timestamp]: "[suspect's response]"
-Analysis: [Why this is significant]
-Legal Framework: [Relevant case law — e.g., State v. Blank, Edwards, etc.]
-Suppress?: [Yes/No/Maybe]
-Cross-Exam Seed: [One-line impeachment question for this detective]
-```
-
----
-
-#### Module G — Key Event Detection
-*REPLICATES MirandaAI's automatic key event flagging*
-
-**Runs on all file types.** Automatically detect and timestamp these event categories:
-
-| Event Type | Detection Patterns |
-|------------|-------------------|
-| **Traffic Stop** | "License and registration," "Do you know why I pulled you over," engine/siren sounds described |
-| **Arrest** | "You're under arrest," "Turn around," "Hands behind your back," handcuff sounds |
-| **Search** | "Mind if I search," "Consent to search," "Step out of the vehicle," "What's in your pocket" |
-| **Use of Force** | "Stop resisting," "Get on the ground," "Taser," physical altercation, screaming |
-| **Pursuit** | Running, "Stop," "He's running," heavy breathing |
-| **Sobriety Test** | "Walk heel to toe," "Follow my finger," "Breathalyzer," "Blow into this" |
-| **Weapon Discovery** | "Gun," "knife," "weapon found," "What is this" |
-| **Drug Discovery** | "What's this substance," "Is this yours," field test references |
-| **Medical Event** | "Are you hurt," "Call an ambulance," "He's bleeding," medical complaint |
-| **Witness Contact** | "Did you see what happened," "Can you tell me," witness statements |
-| **911 Content** | Caller description, reported crime, location, suspect description |
-
-For each detected event:
-```
-KEY EVENT [KE-001]
-File: [name] @ [timestamp]
-Type: [from table above]
-Description: [What happened in 1–2 sentences]
-Speakers Involved: [list]
-Defense Relevance: [Why this matters — e.g., "No consent given before search"]
-```
-
----
-
-#### Module H — Use of Force Analysis
-*Runs only on `BODY_CAM` and `DASH_CAM` files where force events are detected*
-
-If Module G detects use of force events:
-1. Map the complete force sequence (what led up to it, the force itself, aftermath)
-2. Identify what the officer says vs. what the transcript/audio reveals
-3. Flag gaps in recording (camera turned off, muted, obstructed) during force events
-4. Note whether force warnings were given before force was used
-5. Note suspect's verbal compliance or non-compliance
-
----
-
-#### Module I — Jail Call Analysis
-*Runs only on `JAIL_CALL` files*
-
-Jail calls require special handling:
-1. **Identify parties**: Who is the inmate speaking with?
-2. **Flag privileged communications**: If the call appears to be with an attorney, flag immediately — this should NOT have been recorded/disclosed
-3. **State-of-mind evidence**: Statements showing remorse, lack of knowledge, alibi references
-4. **Admissions vs. context**: Distinguish actual admissions from contextual statements
-5. **Third-party suspect references**: Any mention of other people involved
-6. **Coercion/threats**: Is anyone pressuring the inmate to say specific things?
+Read each referenced file for the per-module detection patterns, severity tables, output schemas, and verbatim-quote formats.
 
 ---
 
 ### Phase 5: Generate the DMAR (.docx)
 
-Use the `docx` skill to produce the Defense Media Analysis Report. **This format is identical to the DMAR produced by dw-transcript-pipeline-calcasieu.**
+Use the `docx` skill to produce the Defense Media Analysis Report. **The format is identical to the DMAR produced by `dw-transcript-pipeline-calcasieu`.**
 
-#### DMAR Structure
+Read `references/dmar-structure.md` for the full Header Block + Section 1–7 + Appendix A/B template, the filename pattern (`DMAR — [LastName, FirstName] — [Date].docx`), and the Case Brain update entry.
 
-```
-DEFENSE MEDIA ANALYSIS REPORT
-Schema Version: 1.0                       ← per dw-data-contracts Contract 1
-Date Generated: [ISO-8601 timestamp]      ← per dw-data-contracts Contract 1
-Pipeline: dw-transcript-pipeline-rev      ← per dw-data-contracts Contract 1
-[Client Name] | [Docket #] | [Parish]
-Transcription Platform: Rev.com ([AI/Human/Ready to Certify])
-Analysis Date: [Date]
-Prepared by: Claude AI — Attorney Work Product / Privileged
+**Header Block fields required by `dw-data-contracts` Contract 1:**
 
-SECTION 1: EVIDENCE INVENTORY
-  1.1 Media Files Processed (table: filename, type, duration, source folder, classification)
-  1.2 Written Documents Reviewed (table: filename, type, pages, source)
-  1.3 Processing Summary (total files, total duration, transcription platform, tier)
+- `Schema Version: 1.0`
+- `Date Generated: <ISO-8601 timestamp>`
+- `Pipeline: dw-transcript-pipeline-rev`
 
-SECTION 2: TRANSCRIPT SUMMARIES
-  For each transcript:
-    2.X.1 File: [name] | Duration: [time] | Speakers: [list] | Classification: [type]
-    2.X.2 Synopsis (3–5 sentence summary)
-    2.X.3 Key Moments (timestamp + event + defense relevance)
-    2.X.4 Miranda/Rights Events (all ME-### findings from Module E)
-    2.X.5 Interrogation Technique Flags (all IT-### findings from Module F)
-    2.X.6 Key Events Detected (all KE-### findings from Module G)
-
-SECTION 3: CROSS-REFERENCE ANALYSIS
-  All CR-### findings from Module A
-
-SECTION 4: REPORT-VS-RECORDING DISCREPANCIES
-  All RR-### findings from Module B
-
-SECTION 5: MASTER TIMELINE
-  Unified chronological timeline from Module C
-
-SECTION 6: SPEAKER BEHAVIOR ANALYSIS
-  Narrative from Module D + Use of Force analysis from Module H + Jail Call analysis from Module I
-
-SECTION 7: DEFENSE INTELLIGENCE SUMMARY
-  7.1 Strongest Defense Findings (ranked by impact)
-  7.2 Recommended Skill Invocations:
-      - "Run dw-confession-interrogation-auditor on [file]" (if interrogation flags found)
-      - "Run dw-video-evidence-auditor on [file]" (if BWC/video gaps found)
-      - "Run dw-suppression-motion for [issue]" (if Miranda/search violations found)
-      - "Build cross-exam for [officer] using DMAR findings"
-  7.3 Outstanding Questions
-  7.4 Potential Brady/Giglio Issues
-
-APPENDIX A: FILE HASH LOG
-  SHA-256 hash of each source media file
-
-APPENDIX B: ANALYSIS METHODOLOGY
-  Claude AI analysis on Rev.com transcripts.
-  Attorney verification required before any filing or client communication.
-  Louisiana Act 250 / ABA Opinion 512 compliance note.
-```
-
-Save to client's evidence folder as:
-`DMAR — [LastName, FirstName] — [Date].docx`
-
-#### Update Case Brain
-
-Write to `dw-case-brain`:
-> Transcription pipeline ([Parish]/Rev) completed for [client name]: [N] media files processed.
-> DMAR generated with [X] cross-reference findings, [Y] report discrepancies, [Z] Miranda events,
-> [W] interrogation technique flags, [V] key events. Recommended follow-up: [list skill invocations].
+These three fields must appear in the Header Block exactly as shown — downstream consumers (`dw-confession-interrogation-auditor`, `dw-video-evidence-auditor`, `dw-cross-exam-architect`, `dw-dmar-synthesizer`, `dw-case-brain`) parse them and may refuse a higher major version they don't recognize.
 
 ---
 
-## Rev-Native Features (Use Directly, Don't Replicate)
+## Rev-Native Features & Error Handling
 
-These Rev features should be used natively within the Rev platform:
+Read `references/error-handling-and-rev-features.md` for:
 
-- **Multi-File Insights** (beta): If attorney has Rev Pro/Unlimited, they can use this within Rev for additional cross-file analysis. Claude's Module A provides equivalent capability.
-- **SmartDepo**: Use for deposition transcription and summary. Not part of the evidence pipeline.
-- **Custom Vocabulary**: Before uploading to Rev, ask attorney for case-specific terms (officer names, street names, medical terms) to add to Rev's custom vocabulary for better accuracy.
-- **Verbatim Mode**: Always enable for legal transcriptions — captures "um," "uh," false starts, and overlapping speech that are critical for interrogation analysis.
+- **Rev-Native Features (Use Directly, Don't Replicate)** — Multi-File Insights, SmartDepo, Custom Vocabulary, Verbatim Mode.
+- **Error Handling** — AI accuracy degradation, empty transcripts, missing speaker labels, no written reports, long recordings, mixed tiers, order delays, JSON unavailability.
 
 ---
 
-## Quick Reference
+## Quick Reference — Who Does What
 
 | Step | Platform | Method | Who |
 |------|----------|--------|-----|
@@ -568,20 +172,20 @@ These Rev features should be used natively within the Rev platform:
 | Update Case Brain | DEVONthink | dw-case-brain | **Claude** |
 | Verify rendering | TranscriptPad | Manual click-through | **Attorney** |
 
+Follow shared protocols for output paths (see Step 0.5).
+
 ---
 
-## Error Handling
+## Quick References
 
-Inherits general error handling from original pipeline, plus:
+This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **Rev AI accuracy issues**: If AI transcript has obvious errors (garbled sections, [inaudible] markers > 5% of content), recommend attorney re-order those files as Human transcription
-- **Empty transcripts**: Flag and exclude from DMAR analysis
-- **Missing speaker labels**: Warn that DMAR analysis (especially Modules E and F) will be degraded without proper speaker identification
-- **No written reports**: Module B produces empty section — normal for early discovery
-- **Extremely long recordings (4+ hours)**: Chunk DMAR analysis by hour, then synthesize
-- **Mixed transcription tiers**: Track which files used AI vs. Human in DMAR Section 1.3 so attorney knows confidence level for each
-- **Rev order delays**: Human transcription can take 12+ hours. If attorney is time-pressed, recommend AI transcription for immediate DMAR analysis with Human re-order for court-filing versions later
-- **JSON unavailable**: If Rev JSON download isn't available (Human transcription orders), word-level timestamps won't be available — DMAR analysis proceeds using TXT timestamps only
-
-
-Follow shared protocols for output paths (see Step 0.5).
+- **phase-1-folder-scan.md** — Folder-scan procedure, supported media extensions, duplicate detection, and the evidence-type classification table that drives downstream module selection
+- **phase-2-rev-upload.md** — Rev.com tier selection, attorney upload script, transcription monitoring windows, download checklist, and the Phase 2.5 speaker-labeling protocol
+- **phase-3-transcriptpad-import.md** — TranscriptPad `.tracase` import sequence and the combined Rev/JusticeText timestamp regex
+- **module-e-miranda-detection.md** — Module E (Miranda Rights & Constitutional Events): the nine MIRANDA-* finding types, the four-component check, ambiguous-invocation list (Edwards v. Arizona), and custody-determination markers
+- **module-f-interrogation-techniques.md** — Module F (Interrogation Technique Analysis): Reid Technique components, coercion indicators, false-confession risk factors, and the IT-### output schema
+- **module-g-key-event-detection.md** — Module G (Key Event Detection): the eleven auto-detected event types with detection-pattern table and the KE-### output schema
+- **modules-cross-ref-timeline-speaker.md** — Modules A, B, C, D, H, and I: cross-reference findings, document-vs-media comparison, master timeline, speaker behavior, use-of-force analysis, and jail-call analysis
+- **dmar-structure.md** — Full Defense Media Analysis Report template (Header Block per `dw-data-contracts` Contract 1, Sections 1–7, Appendices A/B), filename pattern, and Case Brain update entry
+- **error-handling-and-rev-features.md** — Rev-native features to use directly (Multi-File Insights, SmartDepo, Custom Vocabulary, Verbatim Mode) and Rev-specific error-handling rules

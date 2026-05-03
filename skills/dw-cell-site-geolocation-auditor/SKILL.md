@@ -113,238 +113,74 @@ When the charge type strongly implies location evidence should exist but does no
 
 ## MODULE A — Historical CSLI Audit
 
-Historical CSLI is the most common form of cell site evidence in criminal cases and the most frequently overstated. A CSLI record shows which cell tower and sector a phone connected to — it does not show where the phone was located within that sector's coverage area.
+Historical CSLI is the most common form of cell site evidence and the most frequently overstated. A CSLI record places the phone within the coverage area of a sector — not at a specific point. Audit data integrity (CDR completeness, time zone, granularity), analysis methodology (azimuth-only mapping vs. propagation analysis, "first and last" tower fallacies, overlapping coverage), and prosecution overstatements (the gap between "the phone was at the crime scene" and what the records actually show).
 
-### Understanding CSLI Records
+**Top precision overstatements to challenge:**
+- "The phone was at the crime scene" — actually places the phone within a sector that may include the defendant's home or workplace
+- "First and last tower" travel-direction inferences — notoriously unreliable
+- Narrow azimuth wedges drawn on maps without propagation modeling
 
-**What the records contain:**
-- **Call Detail Records (CDRs):** date/time of each call, text, or data session; the cell tower (identified by a Cell Global Identity / CGI, or LAC/CID) and sector the phone connected to at the start (and sometimes end) of the communication; call duration; called/calling number
-- **Cell site information:** the physical location (latitude/longitude) of each tower referenced in the CDRs, and the azimuth (compass direction) of each sector antenna
-
-**What the records do NOT contain:**
-- The phone's actual geographic coordinates
-- The distance between the phone and the tower
-- Whether the phone was stationary or moving
-- Why the phone connected to a particular tower (proximity is one factor, but not the only one)
-
-### The Precision Problem
-
-This is the single most important issue in CSLI evidence. The defense must understand and communicate that **a CSLI record places the phone within the coverage area of a sector — not at a specific point.**
-
-**Sector coverage areas vary enormously:**
-- Urban areas with dense tower deployment: sectors may cover a few hundred meters to a mile
-- Suburban areas: sectors may cover 1-3 miles
-- Rural areas: sectors may cover 5-20+ miles
-- Terrain, building density, foliage, weather, and network load all affect coverage
-
-**The state's analyst will often present a map with the tower location and the sector's azimuth, drawing a narrow wedge on the map. This is misleading because:**
-- The wedge represents the antenna's boresight direction, not the actual coverage area
-- Sector antennas have a beamwidth (typically 65° to 120°), and signal propagates beyond the nominal beamwidth through sidelobes
-- A phone can connect to a sector antenna from behind or beside the antenna (backlobe reception), especially at close range
-- RF propagation is not a clean wedge — it is affected by terrain, buildings, foliage, atmospheric conditions, and interference
-- The map does not show the outer boundary of the sector's coverage, which is where the phone might actually be
-
-**What to demand:**
-- RF propagation analysis (drive testing or propagation modeling) for the specific towers at issue — not just a wedge drawn on a map
-- Documentation of the analyst's methodology for determining coverage boundaries
-- Acknowledgment that the phone could have been anywhere within the sector's coverage area, not just within the drawn wedge
-
-### CSLI Audit Checklist
-
-**Data Integrity:**
-- [ ] Are the CDRs complete — do they cover the full requested time period?
-- [ ] Are timestamps in a consistent and identified time zone? (Carriers may use UTC, billing address time zone, or local time — and this is not always documented)
-- [ ] Do the CDRs include both call and data session records? (Data sessions are more frequent and provide more granular connection data)
-- [ ] Are cell site coordinates provided by the carrier, or did the analyst geocode them independently? (Analyst-geocoded tower locations may contain errors)
-- [ ] For each referenced tower, is the sector number, azimuth, and technology type (2G/3G/4G/5G) documented?
-
-**Analysis Methodology:**
-- [ ] Did the analyst rely solely on azimuth wedge mapping, or did they perform actual coverage analysis (drive testing, propagation modeling)?
-- [ ] Did the analyst account for the possibility that the phone could connect to a non-nearest tower?
-- [ ] Did the analyst acknowledge that sector coverage areas overlap and that tower selection depends on load balancing, signal strength, and other factors — not just proximity?
-- [ ] Did the analyst consider and address alternative tower connections that would be consistent with the phone being at a different location than the crime scene?
-- [ ] Was "first and last" tower analysis used? (If so, this is notoriously unreliable — the tower at the start of a call and the tower at the end of a call do not necessarily indicate the direction of travel)
-
-**Granularity and Limitations:**
-- [ ] What network technology was in use — 2G (GSM/CDMA), 3G (UMTS/EVDO), 4G LTE, or 5G? (Each has different tower density, sector configuration, and connection behavior)
-- [ ] Were small cells or distributed antenna systems (DAS) present in the area? (These complicate the relationship between tower ID and geographic location — DAS nodes may share a single tower ID but span a large building or campus)
-- [ ] For 5G networks: was mmWave (very short range, high precision) or sub-6 GHz (similar to 4G coverage) in use?
-- [ ] Did the analyst assess whether the phone was in an area with overlapping coverage from multiple towers, which would make tower selection less deterministic?
-
-### Common Prosecution Overstatements to Challenge
-
-| What the Analyst Says | What the Data Actually Shows | Challenge |
-|-----------------------|------------------------------|-----------|
-| "The phone was at the crime scene" | The phone connected to a tower whose coverage area includes the crime scene — and also includes the defendant's home, workplace, or other locations | Demand acknowledgment of full coverage area |
-| "The phone traveled from location A to location B" | The phone's tower connections changed in a sequence that is *consistent with* but does not *prove* that route — other routes connecting to the same towers are possible | Demand mapping of all possible paths connecting those towers |
-| "The phone was not at the defendant's claimed location" | If the defendant's claimed location is within the same sector's coverage area, the data does not exclude it | Demand the analyst map the defendant's claimed location relative to coverage |
-| "The phone's location is accurate to within X meters" | CSLI records contain no distance measurement — this claim has no basis in the data itself | Demand the scientific basis for the precision claim |
-| "This tower is the closest tower to the crime scene" | Closest tower is irrelevant — phones do not always connect to the closest tower. Load balancing, signal strength, terrain, and network optimization all affect tower selection | Demand documentation of when and why phones connect to non-nearest towers |
+**Reference:** Read `references/module-a-historical-csli.md` for the CDR contents-vs-omissions framework, the Precision Problem with sector coverage details, the full Data Integrity / Analysis Methodology / Granularity audit checklist, and the Common Prosecution Overstatements challenge table.
 
 ---
 
 ## MODULE B — Tower Dump Audit
 
-A tower dump is a request for all devices that connected to a specific cell tower during a specific time window. It produces a massive list of innocent people's phone identifiers alongside the suspect's.
+A tower dump is a request for all devices that connected to a specific cell tower during a specific time window. It produces a massive list of innocent people's phone identifiers alongside the suspect's. Audit the scope of the dump, the narrowing methodology, the false-positive risk, the over-inclusion of towers and time windows, and the legal authorization (warrant vs. lesser order).
 
-### Tower Dump Methodology Audit
+**Legal landscape:** Tower dumps exist in a legal gray area post-*Carpenter*. The Supreme Court did not explicitly address tower dumps; various district courts have applied *Carpenter* to require warrants for tower dumps. The 5th Circuit has not definitively resolved this — monitor for recent developments. Even if a warrant was obtained, challenge particularity for dragnet captures.
 
-- **Scope of the dump:** How many towers were queried? What time window? How many unique devices were captured?
-- **Narrowing methodology:** How did the analyst narrow the dump results to identify the suspect? What filtering criteria were applied, and in what order?
-- **False positive risk:** How many innocent people's location data was captured and reviewed to identify one suspect? Were the privacy implications addressed in the warrant application?
-- **Over-inclusion:** Was the time window broader than necessary? Were more towers included than the crime scene would require?
-- **Legal authorization:** Was a warrant obtained for the tower dump, or a lesser court order? Post-*Carpenter*, the warrant requirement for tower dumps is still being litigated in many circuits — but the privacy interests are arguably even greater than historical CSLI because tower dumps are dragnet surveillance.
-
-### Tower Dump Legal Landscape
-
-Tower dumps exist in a legal gray area post-*Carpenter*. The Supreme Court held that obtaining 7 days of historical CSLI requires a warrant, but did not explicitly address tower dumps. Key cases to know:
-
-- *In re Search of Information Associated with Cellular Towers*, various district courts have applied *Carpenter* to require warrants for tower dumps
-- The 5th Circuit has not definitively resolved whether *Carpenter* extends to tower dumps — monitor for recent developments
-- Even if the government obtained a warrant, challenge the particularity: did the warrant authorize a dump of all towers in a wide radius, capturing the location data of thousands of innocent people?
+**Reference:** Read `references/module-b-tower-dump.md` for the full Tower Dump Methodology Audit checklist and the Tower Dump Legal Landscape commentary.
 
 ---
 
 ## MODULE C — Cell Site Simulator (CSS) Audit
 
-Cell site simulators (marketed as Stingray, Hailstorm, Crossbow, DRTBox, Jugular, etc.) are devices that impersonate a cell tower to force nearby phones to connect, allowing law enforcement to determine a target phone's location with much greater precision than passive CSLI analysis.
+Cell site simulators (Stingray, Hailstorm, Crossbow, DRTBox, Jugular) impersonate a cell tower to force nearby phones to connect, allowing law enforcement to locate the target phone to within a building or room. Because CSS use is often concealed via NDAs and parallel construction, look for indicators in discovery (vague "investigative means" descriptions, pen register orders rather than warrants, FBI/U.S. Marshals technical assistance, suspect located inside a building without independent basis).
 
-### How CSS Devices Work
+**Top legal challenges:**
+- Warrant requirement — *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016); *United States v. Lambis*, 197 F. Supp. 3d 606 (S.D.N.Y. 2016) (pen register order insufficient)
+- Concealment / parallel construction — *Brady v. Maryland* requires disclosure of the actual investigative method
+- Dragnet capture of all phones in the area — challenge scope and absence of minimization
 
-A CSS broadcasts as a cell tower with a strong signal, causing phones in the vicinity to connect to it. By measuring the signal strength from the target phone, and by physically moving the device (or using directional antennas), the operator can locate the target phone to within a building or room.
-
-**The problem for the defense — and the reason CSS evidence is often concealed:**
-- CSS devices capture ALL phones in the area, not just the target — this is dragnet surveillance
-- Federal agencies (particularly the FBI and U.S. Marshals) have historically required local law enforcement to sign non-disclosure agreements (NDAs) prohibiting them from revealing CSS use in court
-- Law enforcement may use "parallel construction" — using the CSS to locate the suspect, then manufacturing an alternative explanation for how they found the person (e.g., a "confidential informant tip")
-- Some agencies have dismissed cases rather than disclose CSS use
-
-### CSS Detection Indicators
-
-Because CSS use is often concealed, look for these indicators in the discovery:
-
-| Indicator | What It Suggests |
-|-----------|-----------------|
-| Vague description of how suspect was located ("through investigative means") | Possible parallel construction concealing CSS use |
-| Pen register / trap-and-trace order instead of a search warrant | CSS often deployed under pen register authority — which is legally inadequate post-*Carpenter* |
-| Reference to "technical assistance" from FBI, U.S. Marshals, or a regional task force | These agencies operate CSS programs and loan devices to local agencies |
-| Suspect located in a building with no independent basis for knowing they were inside | CSS can locate to building-level; passive CSLI cannot |
-| Discovery references to "cell phone tracking" without specifying the method | May be concealing whether tracking was active (CSS) or passive (carrier records) |
-| Non-disclosure agreement or NDA referenced in agency records | Direct evidence of CSS use with a concealment agreement |
-
-### CSS Legal Challenges
-
-- **Warrant requirement:** Many courts now require a warrant for CSS use. *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016) — warrant required. *United States v. Lambis*, 197 F. Supp. 3d 606 (S.D.N.Y. 2016) — pen register order insufficient.
-- **Non-disclosure and parallel construction:** If CSS use was concealed through parallel construction, the defendant's rights to full discovery, confrontation, and due process are implicated. *Brady v. Maryland* requires disclosure of the actual investigative method.
-- **Dragnet capture:** CSS devices capture all phones in the area — challenge the scope of the intrusion and the absence of minimization procedures.
-- **5th Circuit:** Monitor for circuit-specific CSS rulings.
+**Reference:** Read `references/module-c-cell-site-simulator.md` for the How CSS Devices Work explanation, the full CSS Detection Indicators table, and the CSS Legal Challenges framework.
 
 ---
 
 ## MODULE D — GPS / Vehicle Tracking Audit
 
-GPS tracking evidence comes from dedicated tracking devices placed on vehicles, phone GPS data (from apps or carrier-assisted GPS), or court-ordered monitoring devices (ankle monitors).
+GPS tracking evidence comes from dedicated vehicle trackers, phone GPS data (apps or carrier-assisted GPS), or court-ordered monitoring (ankle monitors). Audit accuracy and limitations (3-5m open sky; degrades indoors, in urban canyons, under tree cover; multipath errors; A-GPS reliability; altitude unreliability), tracking-device authorization (*United States v. Jones*, 565 U.S. 400 (2012) — warrant required for physical GPS trackers), data integrity (recording interval, signal-loss handling, raw NMEA vs. processed reports, accuracy indicators preserved), and phone GPS data sources (carrier records, Google Location History, Apple Significant Locations — beware blended GPS/Wi-Fi/cell positioning presented as "GPS").
 
-### GPS Technical Audit
-
-**Accuracy and Limitations:**
-- Standard civilian GPS is accurate to approximately 3-5 meters in open sky conditions
-- Accuracy degrades significantly indoors, in urban canyons (tall buildings), under heavy tree cover, and in parking garages
-- Multipath errors (signal bouncing off buildings) can shift apparent position by tens of meters
-- A-GPS (Assisted GPS, used by phones) uses cell tower data to speed up positioning but can produce less accurate fixes when satellite coverage is poor
-- GPS altitude data is significantly less accurate than horizontal position — do not rely on floor-level claims in multi-story buildings
-
-**GPS Tracking Device Audit:**
-- [ ] Was a warrant obtained before placing the tracking device? (*United States v. Jones*, 565 U.S. 400 (2012) — warrant required for physical GPS trackers)
-- [ ] When was the device installed and when was it removed? Does the monitoring period exceed the warrant's authorization?
-- [ ] What is the device's recording interval? (Every 30 seconds? Every 5 minutes? Less frequent intervals create gaps in the track)
-- [ ] How does the device handle lost satellite signal? (Does it record the last known position, or does it leave a gap?)
-- [ ] Was the raw GPS data provided, or only a processed report? (Demand the raw NMEA data or equivalent — processed reports may omit fixes with poor accuracy indicators)
-- [ ] Were accuracy indicators (HDOP, number of satellites, fix quality) preserved in the data?
-
-**Phone GPS Data Audit:**
-- [ ] What was the source of the phone GPS data — carrier records, Google Location History, Apple Significant Locations, an app's location logs?
-- [ ] Was the data truly GPS-derived, or was it Wi-Fi- or cell-tower-assisted positioning presented as "GPS"? (Google Location History, for example, blends GPS, Wi-Fi, and cell data without always distinguishing them)
-- [ ] What was the accuracy estimate for each data point? (Google Location History includes an accuracy radius — points with large radii are unreliable)
-- [ ] How frequently were location fixes recorded? (Continuous tracking vs. periodic check-ins produce very different data quality)
+**Reference:** Read `references/module-d-gps-tracking.md` for the full GPS Technical Audit (accuracy/limitations), GPS Tracking Device Audit checklist, and Phone GPS Data Audit checklist.
 
 ---
 
 ## MODULE E — Geofence Warrant Audit
 
-Geofence warrants (also called "reverse location warrants") are a relatively new investigative technique where law enforcement asks a technology company (most commonly Google) to identify all devices present within a defined geographic area during a defined time window.
+Geofence warrants ("reverse location warrants") ask a technology company (most commonly Google) to identify all devices present within a defined geographic area during a defined time window. Google's Sensorvault implementation follows a three-step process (anonymized return → narrowing → de-anonymization). Audit scope and particularity (geofence size, time window, devices captured, narrowing criteria objectivity), data source and accuracy (GPS/Wi-Fi/cell/Bluetooth blend; accuracy radii; devices outside the geofence appearing inside), and constitutional challenges.
 
-### How Geofence Warrants Work (Google / Sensorvault)
+**Top legal challenges:**
+- Particularity / general warrant — captures all devices in an area
+- ***United States v. Chatrie***, 590 F. Supp. 3d 901 (E.D. Va. 2022) — found unconstitutional general search but applied good-faith exception; the analysis is highly useful even where suppression was denied
+- 5th Circuit and state-law developments — monitor
 
-Google's implementation is the most common and follows a three-step process:
-
-1. **Step 1:** Law enforcement defines the geographic area (geofence) and time window. Google searches its Sensorvault database and returns anonymized device identifiers and location data points for all devices within the geofence.
-2. **Step 2:** Law enforcement reviews the anonymized data and narrows the list, requesting additional location data (expanded time window or travel patterns) for specific anonymized devices.
-3. **Step 3:** Law enforcement identifies specific devices of interest and requests de-anonymization — Google provides the account holder's identifying information.
-
-### Geofence Warrant Audit Points
-
-**Scope and Particularity:**
-- [ ] How large was the geographic area defined in the geofence? (A geofence encompassing a city block in a dense area may capture hundreds of devices)
-- [ ] How long was the time window? (Broader windows capture more innocent users)
-- [ ] Was the geofence drawn to match the crime scene, or was it expanded to include surrounding areas?
-- [ ] How many total devices were captured in the initial return?
-- [ ] What criteria were used to narrow from Step 1 to Step 2, and from Step 2 to Step 3? Were these criteria objective or subjective?
-
-**Data Source and Accuracy:**
-- [ ] What data sources contributed to the location points? (Google Location History uses a blend of GPS, Wi-Fi, cell, and Bluetooth — accuracy varies by source)
-- [ ] Does each data point include an accuracy estimate? Were points with large accuracy radii (50+ meters) used to place a device within the geofence?
-- [ ] Could a device physically outside the geofence appear inside it due to location estimation error?
-- [ ] Were any devices excluded that should have been included, or vice versa?
-
-**Legal Challenges:**
-Geofence warrants face serious constitutional challenges, and the law is still developing:
-
-- **Particularity:** The 4th Amendment requires warrants to particularly describe the place to be searched and the persons or things to be seized. A geofence warrant that captures all devices in an area is arguably a "general warrant" — the very thing the 4th Amendment was designed to prevent.
-- ***United States v. Chatrie***, 590 F. Supp. 3d 901 (E.D. Va. 2022) — the most comprehensive judicial analysis of geofence warrants to date. The court found the geofence warrant was an unconstitutional general search but applied the good-faith exception. The analysis is highly useful even where the result was not suppression.
-- **5th Circuit:** Monitor for circuit-specific geofence rulings. Several state courts have begun addressing geofence warrants.
-- **State law:** Some states have enacted legislation specifically addressing geofence warrants — check whether Louisiana has done so.
+**Reference:** Read `references/module-e-geofence-warrant.md` for the full How Geofence Warrants Work walkthrough, the Scope and Particularity / Data Source and Accuracy audit points, and the Legal Challenges commentary.
 
 ---
 
 ## MODULE F — Wi-Fi Positioning Audit
 
-Wi-Fi positioning determines a device's location based on the Wi-Fi networks the device can detect or has connected to.
+Wi-Fi positioning determines a device's location based on Wi-Fi networks the device can detect or has connected to. Typical accuracy is 15-40 meters but depends entirely on the accuracy of crowdsourced access-point location databases (Google, Apple). Access-point movement, range overestimation (a device detecting a network is not necessarily close to it), and database errors all undermine reliability.
 
-### Technical Limitations
-
-- **Accuracy:** Typically 15-40 meters, but depends entirely on the accuracy of the Wi-Fi access point location database (maintained by Google, Apple, and others). If the database has an incorrect location for an access point, the position estimate will be wrong.
-- **Access point movement:** If a Wi-Fi router is moved (e.g., a user moves to a new home but the database still shows the old address), the positioning system may place the device at the router's old location.
-- **Range:** Wi-Fi signals propagate approximately 50-100 meters indoors, further outdoors. A device detecting a Wi-Fi network is not necessarily close to it.
-- **Crowdsourced databases:** The location databases used by Google and Apple are built from crowdsourced data — they contain errors, outdated entries, and imprecise coordinates.
-
-### Wi-Fi Evidence Audit Checklist
-- [ ] Was the location derived from a Wi-Fi connection or merely from Wi-Fi scanning (detecting nearby networks)?
-- [ ] Was the access point location verified in the field, or was a database lookup used?
-- [ ] Was the access point location current at the time of the alleged offense, or could it have changed?
-- [ ] What was the reported accuracy estimate for the Wi-Fi-derived location?
+**Reference:** Read `references/module-f-wifi-positioning.md` for the full Technical Limitations explanation and Wi-Fi Evidence Audit Checklist.
 
 ---
 
 ## MODULE G — IP Geolocation Audit
 
-IP geolocation attempts to determine a device's physical location from its IP address.
+IP geolocation attempts to determine a device's physical location from its IP address. It is almost always unreliable — accurate to the city level at best, often worse. Dynamic IP assignment, VPNs/proxies, mobile network carrier pools, and CGNAT (hundreds or thousands of users sharing one public IP) all compound the unreliability.
 
-### Why IP Geolocation Is Almost Always Unreliable
-
-- **Accuracy:** IP geolocation databases (MaxMind, IP2Location, etc.) are accurate to the **city level at best**, and often not even that. They determine location based on IP address block registration data, which may reflect the ISP's headquarters or a regional hub — not the user's location.
-- **Dynamic IP assignment:** Most residential ISPs assign IP addresses dynamically. The same IP may be assigned to different users at different times.
-- **VPNs and proxies:** VPN usage assigns the VPN server's IP address to the user's traffic — the geolocation will show the server's location, not the user's.
-- **Mobile networks:** Cellular IP addresses are assigned from carrier pools that may geolocate to a city-level aggregation point, not the user's physical location.
-- **Shared IPs (CGNAT):** Many carriers use Carrier-Grade NAT, where hundreds or thousands of users share a single public IP address.
-
-### IP Geolocation Audit Checklist
-- [ ] What geolocation database or service was used?
-- [ ] What is the stated accuracy of that database for the IP address in question?
-- [ ] Was the IP address static or dynamically assigned?
-- [ ] Was the IP address verified as assigned to the defendant's account at the specific time (not just the same day or week)?
-- [ ] Were VPN, proxy, or CGNAT possibilities investigated?
-- [ ] Was the geolocation result independently verified against any other evidence?
+**Reference:** Read `references/module-g-ip-geolocation.md` for the full Why IP Geolocation Is Almost Always Unreliable commentary and the IP Geolocation Audit Checklist.
 
 ---
 
@@ -352,194 +188,41 @@ IP geolocation attempts to determine a device's physical location from its IP ad
 
 Cell site evidence is inherently spatial — juries need to see coverage areas, tower locations, and the relationship between the data and the prosecution's claims. While this skill does not generate maps directly, it provides guidance for creating effective defense visual exhibits.
 
-### Defense Mapping Exhibit Checklist
+**The defense map should show:**
+- The full coverage area of the relevant sector (not just an azimuth wedge)
+- The defendant's claimed location plotted relative to the same coverage area
+- All towers the phone connected to during the relevant period
+- Overlap zones demonstrating that tower selection is not deterministic
+- For tower dumps: the geographic area captured with innocent-device counts highlighted
+- For geofence warrants: the boundary with accuracy radii overlaid
 
-**What the prosecution's map probably shows (and why it's misleading):**
-- A tower icon at the site location with a narrow wedge pointing in the sector's azimuth direction
-- The crime scene marked within the wedge
-- An implied conclusion that the phone was "at" the crime scene
-
-**What the defense map should show:**
-- [ ] The **full coverage area** of the relevant sector — not just the azimuth direction, but the realistic RF coverage footprint (request this from a defense RF expert or use propagation modeling tools)
-- [ ] The defendant's claimed location (home, work, etc.) plotted relative to the same sector coverage area — if it falls within the same coverage area, the CSLI data does not distinguish between the two locations
-- [ ] **All towers** the phone connected to during the relevant period, with coverage areas shown — this provides context and may show the phone connecting to towers inconsistent with the prosecution's claimed location
-- [ ] Overlap zones where multiple sectors or towers cover the same area — demonstrating that tower selection is not deterministic
-- [ ] For tower dumps: the geographic area captured by the dump, with the number of innocent devices highlighted
-- [ ] For geofence warrants: the geofence boundary with the accuracy radii of captured data points overlaid — showing that some devices "inside" the geofence may actually have been outside it
-
-### Recommended Defense Expert Types
-
-| Evidence Type | Expert Discipline | What They Provide |
-|--------------|-------------------|-------------------|
-| Historical CSLI | RF engineer / Cell site analyst | Propagation analysis, drive testing, coverage mapping, rebuttal of prosecution analyst |
-| Tower dump | RF engineer + data analyst | Coverage area analysis, statistical context for innocent device capture |
-| Cell site simulator | RF engineer + surveillance technology expert | CSS detection, methodology challenge, NDA/parallel construction exposure |
-| GPS tracking | GPS/GNSS engineer | Accuracy assessment, multipath analysis, data integrity review |
-| Geofence warrant | Digital forensics expert + location data analyst | Data source analysis, accuracy assessment, scope challenge |
-| Wi-Fi positioning | Network engineer | Access point verification, database accuracy assessment |
+**Reference:** Read `references/mapping-visualization.md` for the full Defense Mapping Exhibit Checklist and the Recommended Defense Expert Types table (RF engineer, GPS/GNSS engineer, digital forensics expert, network engineer per evidence type).
 
 ---
 
 ## STEP 4 — Generate the Geolocation Audit Report
 
-### Output Format
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions.
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed ten-section structure (Executive Summary, Location Evidence Inventory, Legal Authorization Audit, Methodology Audit, Prosecution Claims vs. Data Reality, Mapping & Visualization Recommendations, Admissibility Challenges, Cross-Examination Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Legal Standards Reference Table, Cross-Exam Chapter Seeds, Technical Glossary).
 
-### Report Structure
+Tag every finding with a severity level: **CRITICAL** (directly undermines reliability or admissibility — supports suppression, *Daubert*, or substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (technical irregularity affecting weight only).
 
-```
-CELL SITE LOCATION & GEOLOCATION AUDIT
-Daniels & Washington | [Case Name / Docket No.]
-
-CASE INFORMATION
-Defendant:      [Name]
-Charges:        [All counts with La. R.S. citations]
-Offense Date:   [Date]
-Offense Location: [Address / area the state alleges]
-Carrier(s):     [Name(s)]
-Network Type:   [2G/3G/4G LTE/5G]
-State's Analyst: [Name / Agency / Credentials]
-
-SECTION 1: EXECUTIVE SUMMARY
-[One-page overview: types of location evidence audited,
-critical findings count, overall assessment of whether
-the location data actually supports the state's placement
-claim, top 3 defense opportunities]
-
-SECTION 2: LOCATION EVIDENCE INVENTORY & CLASSIFICATION
-[Complete inventory of all geolocation evidence with
-source classification per the Evidence Category Matrix]
-
-SECTION 3: LEGAL AUTHORIZATION AUDIT
-[For each location evidence type:
- - What legal process was used to obtain it
- - Whether the authorization satisfies Carpenter and
-   applicable circuit/state law
- - Particularity and scope analysis
- - Timeliness (was the data request within the
-   authorization period?)
- - Suppression recommendation if warranted]
-
-SECTION 4: METHODOLOGY AUDIT
-[Per applicable Module (A through G):
- - Data integrity assessment
- - Analysis methodology evaluation
- - Precision and accuracy claims vs. reality
- - Coverage area analysis
- - Alternative location explanations
- - Each finding tagged: CRITICAL / SIGNIFICANT / MINOR]
-
-SECTION 5: PROSECUTION CLAIMS vs. DATA REALITY
-[The core of the audit — for each specific placement
-claim the prosecution makes:
- - What the prosecution says the data shows
- - What the data actually shows
- - The gap between the claim and the data
- - Alternative explanations consistent with the data
- - Whether the data is equally consistent with innocence]
-
-SECTION 6: MAPPING & VISUALIZATION RECOMMENDATIONS
-[What defense exhibits should be created, what they
-should show, and what expert is needed to create them]
-
-SECTION 7: ADMISSIBILITY CHALLENGES
-[For each critical finding:
- - The deficiency
- - Legal basis for challenge
- - Recommended motion type
- - Supporting case law]
-
-SECTION 8: CROSS-EXAMINATION QUESTIONS
-[Organized by witness type:
- - Cell Site Analyst / Location Witness
- - Law Enforcement (who obtained the data)
- - Carrier Records Custodian (if testifying)
- Each question with:
-  - The precision overstatement or methodology flaw it targets
-  - Source document and page/Bate stamp reference
-  - Expected response and follow-up
-  - Impeachment note if applicable]
-
-SECTION 9: DEFENSE ACTION ITEMS
-[Prioritized:
- - Motions to file (suppress, Daubert, compel)
- - Missing Discovery Demand items
- - Defense expert needs (RF engineer, data analyst)
- - Independent analysis requests
- - Items for Cross-Exam Architect skill]
-
-SECTION 10: DISCOVERY GAP REPORT
-[Expected location documentation not provided:
- Each with: what's missing, why it matters,
- recommended action]
-
-APPENDIX A: LEGAL STANDARDS REFERENCE TABLE
-[All standards cited in the audit with full citations]
-
-APPENDIX B: CROSS-EXAM CHAPTER SEEDS
-[Formatted for dw-cross-exam-architect integration]
-
-APPENDIX C: TECHNICAL GLOSSARY
-[Key terms defined for attorney and jury use]
-```
-
-### Severity Classification
-Tag every finding:
-
-- **CRITICAL:** Directly undermines the reliability or admissibility of the location evidence, or reveals that the data does not actually support the state's placement claim. Supports a motion to suppress, Daubert challenge, or creates substantial reasonable doubt. Example: the sector coverage area that the state says proves presence at the crime scene also covers the defendant's home; CSS use was concealed through parallel construction; geofence warrant lacked particularity.
-- **SIGNIFICANT:** Weakens the evidentiary value and provides strong cross-examination material. Example: analyst used azimuth-only mapping without propagation analysis; tower dump captured 3,000 devices; GPS data points have large accuracy radii.
-- **MINOR:** Technical irregularity that may affect weight but does not independently undermine the evidence. Example: CDR time zone not explicitly documented but inferable; analyst credentials lack specific training in the technology at issue.
+**Reference:** Read `references/audit-report-structure.md` for the full ten-section + appendix template, the case-information header fields, and the severity-classification examples.
 
 ---
 
 ## STEP 5 — Cross-Examination Integration
 
-For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect** skill.
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect** skill. The cross of a cell site analyst is the most important cross in a location evidence case — establish the gap between what the analyst claims and what the data supports systematically, through concessions the analyst cannot deny. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect skill]`.
 
-### Cell Site Analyst Cross
-
-The cross of a cell site analyst is the most important cross in a location evidence case. The goal is to establish the gap between what the analyst claims and what the data supports — systematically, without hostility, through concessions the analyst cannot deny.
-
-```
-CROSS CHAPTER SEED — [Finding Title]
-Witness Type: Expert (Cell Site Analyst / Location Witness)
-Chapter Goal: [What this chapter must establish — e.g., "Establish that the sector
-              coverage area includes the defendant's home, not just the crime scene"]
-Key Questions:
-  Q1: [Question establishing the analyst's methodology — locking them into their approach]
-  Q2: [Question establishing a technical limitation the analyst must concede]
-  Q3: [Question applying that limitation to this specific case]
-  Q4: [Question demonstrating that the data is equally consistent with innocence]
-  Q5: [The closing question that summarizes the gap between claim and data]
-Source: [CDR page/Bate stamp + analyst report reference]
-Impeachment Note: [If the analyst's testimony exceeds what the data supports, or contradicts
-                   published standards (e.g., FBI CAST training materials that acknowledge coverage
-                   area limitations)]
-Legal Authority: [Daubert / La. C.E. Art. 702 / specific case law on CSLI testimony limits]
-```
-
-Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect skill]`
+**Reference:** Read `references/cross-exam-seeds.md` for the Cell Site Analyst Cross philosophy and the full Cross Chapter Seed template (witness type, chapter goal, Q1-Q5 architecture, source, impeachment note, legal authority).
 
 ---
 
 ## STEP 6 — Admissibility & Legal Challenge Framework
 
-### Location-Specific Challenges
+Match each CRITICAL finding to the appropriate motion and authority. Twelve canonical challenge types span warrantless historical CSLI (*Carpenter*), warrant defects (4th Amendment; La. C.Cr.P. Art. 162), tower dump overbreadth, CSS without warrant (*Patrick*; *Lambis*), CSS concealment (*Brady*), GPS trackers (*Jones*), geofence warrants (*Chatrie*), analyst overstatements (*Daubert* / La. C.E. Art. 702), discovery violations (*Brady*; La. C.Cr.P. Art. 718-722), spoliation (*Youngblood*), authentication (La. C.E. Art. 803(6) / 901(B)(9)), and good-faith exception challenges (*Davis*).
 
-| Challenge Type | Motion | Authority |
-|---------------|--------|-----------|
-| Historical CSLI obtained without a warrant | Motion to Suppress | *Carpenter v. United States*, 585 U.S. 296 (2018); 4th Amendment |
-| Warrant lacking probable cause or particularity | Motion to Suppress | 4th Amendment; La. C.Cr.P. Art. 162 |
-| Tower dump — general warrant / overbreadth | Motion to Suppress | 4th Amendment; *Carpenter* principles; *In re Search Warrant* (various) |
-| Cell site simulator use without warrant | Motion to Suppress | *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016); *United States v. Lambis* |
-| CSS use concealed / parallel construction | Motion to Compel + Motion to Suppress | *Brady v. Maryland*; due process |
-| GPS tracker without warrant | Motion to Suppress | *United States v. Jones*, 565 U.S. 400 (2012) |
-| Geofence warrant — general warrant challenge | Motion to Suppress | 4th Amendment; *United States v. Chatrie*, 590 F. Supp. 3d 901 (E.D. Va. 2022) |
-| Analyst testimony overstates data precision | Daubert challenge / Motion in Limine | La. C.E. Art. 702; *Daubert v. Merrell Dow*, 509 U.S. 579 (1993) |
-| CSLI data not disclosed timely | Motion to Compel / Brady motion | *Brady v. Maryland*; La. C.Cr.P. Art. 718-722 |
-| Location data destroyed or not preserved | Spoliation argument | *Arizona v. Youngblood*, 488 U.S. 51 (1988) |
-| Carrier records authentication | Foundation objection | La. C.E. Art. 803(6) (business records); La. C.E. Art. 901(B)(9) |
-| Good-faith exception applicability | Opposition to good-faith exception | *Davis v. United States*, 564 U.S. 229 (2011); argue *Carpenter* was clearly established |
+**Reference:** Read `references/admissibility-challenges.md` for the full Location-Specific Challenges table mapping challenge type to motion type and supporting authority.
 
 ---
 
@@ -554,41 +237,6 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-archit
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
 - **Integrate with D&W workflow.** Follow shared protocols for output paths (see Step 0.5).
 - **Evolving law caveat.** The law of location privacy is evolving rapidly post-*Carpenter*. Always recommend that the attorney check for recent developments in the 5th Circuit and Louisiana courts, and flag any legal analysis as reflecting the state of the law at the time of the audit. Mark legal analysis: `[VERIFY CURRENT — location privacy law evolving rapidly post-Carpenter]`.
-
----
-
-## Quick Reference — Legal Standards for Location Evidence
-
-| Situation | Authority |
-|-----------|-----------|
-| Historical CSLI — warrant required | *Carpenter v. United States*, 585 U.S. 296 (2018) |
-| GPS tracker — warrant required | *United States v. Jones*, 565 U.S. 400 (2012) |
-| Third-party doctrine (pre-Carpenter) | *Smith v. Maryland*, 442 U.S. 735 (1979) — limited by *Carpenter* |
-| Cell site simulator — warrant required | *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016); *United States v. Lambis*, 197 F. Supp. 3d 606 (S.D.N.Y. 2016) |
-| Geofence warrant — particularity | *United States v. Chatrie*, 590 F. Supp. 3d 901 (E.D. Va. 2022) |
-| Good-faith exception | *Davis v. United States*, 564 U.S. 229 (2011) |
-| Stored Communications Act | 18 U.S.C. §§ 2701-2712 |
-| Pen Register Act | 18 U.S.C. §§ 3121-3127 |
-| Expert testimony reliability | La. C.E. Art. 702; *Daubert v. Merrell Dow*, 509 U.S. 579 (1993) |
-| Business records (carrier CDRs) | La. C.E. Art. 803(6); Fed. R. Evid. 803(6) |
-| Suppression of illegally obtained evidence | La. C.Cr.P. Art. 703; 4th Amendment |
-| Brady obligations (undisclosed location data) | *Brady v. Maryland*, 373 U.S. 83 (1963) |
-| Spoliation / destroyed location data | *Arizona v. Youngblood*, 488 U.S. 51 (1988) |
-| La. warrant requirements | La. C.Cr.P. Art. 162 |
-| La. electronic surveillance | La. R.S. 15:1301 et seq. |
-
----
-
-## Quick Reference — Carrier-Specific CSLI Notes
-
-| Carrier | CDR Format Notes | Known Defense Concerns |
-|---------|-----------------|----------------------|
-| AT&T | CDRs typically include LACCI (Location Area Code / Cell ID); may use UTC timestamps | AT&T sector azimuths may not reflect actual mechanical or electrical tilt — demand antenna configuration data |
-| T-Mobile | CDRs may include CGI format; data session records may be more granular than voice | T-Mobile's 5G deployment uses a mix of mmWave and sub-6 GHz — coverage characteristics differ dramatically |
-| Verizon | CDRs typically include switch-level records; may report sector differently than GSM carriers | Verizon's CDMA legacy network handled tower selection differently from GSM-based carriers — handoff behavior matters |
-| Sprint (now T-Mobile) | Legacy Sprint records may use different formats; historical cases may reference Sprint infrastructure | Sprint infrastructure is being integrated into T-Mobile — tower IDs and configurations may have changed between the offense date and the analyst's review |
-
----
 
 ---
 
@@ -626,6 +274,25 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 ---
 
+## Quick References
+
+The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
+
+| File | Purpose | Loaded At |
+|------|---------|-----------|
+| `references/module-a-historical-csli.md` | CDR contents-vs-omissions, the Precision Problem (sector coverage), full audit checklist (Data Integrity / Methodology / Granularity), Common Prosecution Overstatements challenge table | Module A |
+| `references/module-b-tower-dump.md` | Tower Dump Methodology Audit checklist + Tower Dump Legal Landscape (post-*Carpenter* gray area, 5th Circuit posture) | Module B |
+| `references/module-c-cell-site-simulator.md` | How CSS Devices Work + CSS Detection Indicators table + CSS Legal Challenges (*Patrick*, *Lambis*, *Brady*, dragnet) | Module C |
+| `references/module-d-gps-tracking.md` | GPS Technical Audit (accuracy/limitations) + GPS Tracking Device Audit + Phone GPS Data Audit | Module D |
+| `references/module-e-geofence-warrant.md` | How Geofence Warrants Work (Google/Sensorvault three-step) + Scope/Particularity + Data Source/Accuracy + Legal Challenges (*Chatrie*) | Module E |
+| `references/module-f-wifi-positioning.md` | Wi-Fi Positioning Technical Limitations + Wi-Fi Evidence Audit Checklist | Module F |
+| `references/module-g-ip-geolocation.md` | Why IP Geolocation Is Almost Always Unreliable + IP Geolocation Audit Checklist | Module G |
+| `references/mapping-visualization.md` | Defense Mapping Exhibit Checklist + Recommended Defense Expert Types table | Step 3 |
+| `references/audit-report-structure.md` | Ten-section audit report template + three appendices + severity classification | Step 4 |
+| `references/cross-exam-seeds.md` | Cell Site Analyst Cross philosophy + Cross Chapter Seed template | Step 5 |
+| `references/admissibility-challenges.md` | Location-Specific Challenges table mapping challenge type to motion and authority | Step 6 |
+| `references/quick-reference-tables.md` | Legal Standards for Location Evidence + Carrier-Specific CSLI Notes (AT&T / T-Mobile / Verizon / Sprint) | Reference throughout |
+
+---
+
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense skill for Phase 2 integration, the dw-cross-exam-architect skill for witness cross-examination preparation, the dw-mobile-forensic-auditor skill for digital evidence from mobile devices, the dw-crime-scene-auditor skill for physical evidence challenges, and the dw-video-evidence-auditor skill for video evidence analysis.*
-
-
