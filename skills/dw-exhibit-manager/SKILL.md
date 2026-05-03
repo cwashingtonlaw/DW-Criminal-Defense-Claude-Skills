@@ -13,6 +13,7 @@ description: >
 ---
 
 # dw-exhibit-manager
+**Daniels & Washington | Criminal Defense | Louisiana / 5th Circuit Default**
 
 **CORE PURPOSE:**
 Track every exhibit in the case — both what the defense intends to offer and what the State may offer against your client. Pre-mark all exhibits, document the authentication method for each, anticipate objections with prepared responses, and maintain a complete trial record of what was offered, objected to, and admitted or excluded. Feed every sustained objection to appellate preservation.
@@ -104,261 +105,50 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ### STEP 1 — EXHIBIT INVENTORY
 
-Scan case folder for all potential exhibits and classify by type:
+Scan the case folder for all potential exhibits and classify by type — documentary, visual, digital, expert, defense investigation, and demonstrative (non-admitted). Cross-reference with **dw-discovery-compliance-monitor** for authentication issues, chain of custody gaps, or Brady/Giglio concerns.
 
-**Documentary Evidence:**
-- Police reports, supplemental reports, incident reports
-- Lab reports (toxicology, DNA, drug analysis, ballistics)
-- Medical records, autopsy reports, ME reports
-- Business records (phone records, bank records, surveillance system logs)
-- Subpoenaed records (school records, employment records, hospital records)
-- Text messages, email printouts, chat logs
-- Prior statements (defendant statements, witness statements, recorded calls)
-
-**Visual Evidence:**
-- Photographs of crime scene, physical evidence, persons
-- Video evidence (body-worn camera, dash cam, surveillance video, jail calls)
-- Audio evidence (911 calls, recorded interviews, intercepted communications)
-
-**Digital Evidence:**
-- Phone dumps, social media screenshots, digital forensics reports
-- GPS tracking data, cell site location information
-- Metadata extraction (creation dates, modification dates, geolocation)
-
-**Expert Evidence:**
-- Expert reports, CVs, qualifications summaries
-- Demonstrative exhibits created by experts (diagrams, models, animations)
-
-**Defense Investigation:**
-- Defense investigator reports, photographs, witness statements
-- Interview recordings, charts, timelines
-
-**Demonstrative Exhibits (Non-Admitted):**
-- Timelines, maps, diagrams, organizational charts, financial charts
-- Note: These aid jury understanding but are NOT admitted into evidence
-
-Cross-reference with **dw-discovery-compliance-monitor** for authentication issues, chain of custody gaps, or Brady/Giglio concerns.
+**Reference:** Read `references/step-1-exhibit-inventory-categories.md` for the full per-type item lists (documentary, visual, digital, expert, defense investigation, demonstratives).
 
 
 ### STEP 2 — PRE-MARK EXHIBITS
 
-Assign exhibit numbers following court convention:
-- **Defense exhibits:** D-1, D-2, D-3... (or "Defense Exhibit 1" per court preference)
-- **State exhibits:** S-1, S-2, S-3... (from State's exhibit list if provided)
-- **Joint exhibits:** J-1, J-2... (stipulated items both parties agree to admit)
+Assign exhibit numbers following court convention — Defense (D-1, D-2…), State (S-1, S-2…), Joint (J-1, J-2…) — and create an Exhibit Card for each. The card captures every field needed to track the exhibit from pre-marking through trial-day ruling: description, type, source, Bates number, authentication method, authenticating witness, foundation elements, anticipated objections, prepared responses, offering context, status, and the separated pre-trial vs. trial status fields (never overwrite the pre-trial plan).
 
-For each exhibit, create an **Exhibit Card** with the following fields:
-
-| Field | Content |
-|-------|---------|
-| Exhibit # | D-1, S-1, J-1, etc. |
-| Description | Short, clear description of the exhibit |
-| Type | Document / Photo / Audio / Video / Physical / Digital / Demonstrative |
-| Source | Discovery production, defense investigation, subpoena, stipulation |
-| Bate Number | If Bates-stamped (e.g., "State-001234") |
-| Authentication Method | Witness testimony, business records certification (La. C.E. Art. 803(6)), self-authenticating (La. C.E. Art. 902), stipulation |
-| Authenticating Witness | Which witness will lay the foundation |
-| Foundation Elements | Chain of custody, author identification, business records custodian, expert methodology, etc. |
-| Anticipated Objections | Hearsay, relevance, authentication, best evidence, unfair prejudice (Art. 403), Confrontation, expert methodology |
-| Response to Objections | Prepared responses citing La. C.E. articles and applicable case law |
-| Offered During | Which witness's testimony, which trial phase (guilt/penalty) |
-| Status | Pre-marked / Offered / Objected / Admitted / Excluded / Withdrawn |
-| Pre-Trial Status | What we planned pre-trial (DO NOT overwrite during trial) |
-| Trial Status | What actually happened at trial |
+**Reference:** Read `references/step-2-exhibit-card-schema.md` for the full Exhibit Card field table and numbering conventions.
 
 
 ### STEP 3 — AUTHENTICATION CHAIN TRACKING
 
-For each exhibit requiring testimonial authentication:
+For each exhibit requiring testimonial authentication, list foundation questions, identify the authenticating witness, note hearsay exceptions (La. C.E. Art. 803, 804), flag Art. 901 issues, and cross-reference with **dw-cross-exam-architect** for impeachment vulnerabilities of the authenticating witness. For self-authenticating exhibits, apply La. C.E. Art. 902 (certified public records, official publications, business records with proper certification) — but remember even self-authenticating exhibits remain subject to relevance and hearsay objections.
 
-1. **List foundation questions:**
-   - Who observed the exhibit? When? Where?
-   - How was it created, collected, or obtained?
-   - What is its condition now versus when created?
-   - Has there been any gap in chain of custody?
-
-2. **Identify the authenticating witness:**
-   - Police officer, detective, lab technician, business records custodian, defendant, bystander
-   - Note: Not every witness can authenticate every exhibit
-
-3. **Note hearsay exceptions if needed** (La. C.E. Art. 803, 804):
-   - Business records (803(6)): Requires custodian or preparer
-   - Public records (803(8)): Lab reports, police records
-   - Excited utterances (803(2)): 911 calls, bystander statements
-   - State of mind (803(3)): Diary entries, threat statements
-   - Confrontation Clause issues: Davidison v. Prince (La. 2017) — lab reports without analyst testimony
-
-4. **Flag Art. 901 issues:**
-   - Authentication requirements — circuit court must be satisfied exhibit is what it claims to be
-   - For demonstratives: Must be authenticated as fair and accurate representation
-
-5. **Cross-reference with dw-cross-exam-architect:**
-   - If the authenticating witness is cross-examined, note impeachment opportunities
-   - Prepare direct examination to prevent cross-examination impeachment
-
-**For self-authenticating exhibits (La. C.E. Art. 902):**
-- Certified copies of public records
-- Official publications, government seals
-- Business records with proper certification
-- Note: Even self-authenticating exhibits subject to relevance and hearsay objections
+**Reference:** Read `references/step-3-authentication-chain.md` for the full foundation-question framework, the hearsay-exception checklist, and the Art. 901/902 self-authentication categories.
 
 
 ### STEP 4 — LIVE TRIAL TRACKING
 
-During trial, update exhibit status in real-time as attorney reports offers and rulings. Use exact timestamped language:
+During trial, update exhibit status in real-time as the attorney reports offers and rulings. Use exact timestamped language for each event: Offered, Objection Lodged (basis + objecting party + attorney name), Ruling Made (Sustained/Overruled with judge's exact language), Limiting Instruction (record verbatim for appellate purposes), Withdrawn (with reason if disclosed). Every excluded exhibit (Sustained ruling) AUTOMATICALLY flags to **dw-appellate-error-monitor**.
 
-**Exhibit Offered:**
-- "D-1 offered" → Status: Offered | Time: [HH:MM] | During: [witness name]
-- Record which witness testimony context
-
-**Objection Lodged:**
-- "D-1 objection — hearsay" → Log in Objection Log
-- Objecting party: State / Defense
-- Basis: Hearsay, authentication, relevance, unfair prejudice, best evidence, Confrontation, expert methodology, etc.
-- Objecting attorney name
-
-**Ruling Made:**
-- "D-1 objection overruled, admitted" → Status: Admitted | Ruling: Overruled | Time: [HH:MM]
-- "D-1 objection sustained, excluded" → Status: Excluded | Ruling: Sustained | Time: [HH:MM]
-- Record judge's exact ruling language if possible
-
-**Limiting Instruction:**
-- If court gives limiting instruction ("Exhibit D-1 admitted only for [specific purpose], not for [excluded purpose]")
-- Record exact language for appellate purposes
-
-**Automatic Appellate Flag:**
-- Every excluded exhibit (Ruling: Sustained) → AUTOMATICALLY flag to **dw-appellate-error-monitor**
-  - "Exhibit [#] excluded — [basis] — trial date [date] — Judge [name] — Preserve for appeal"
-
-**Withdrawn:**
-- If attorney withdraws exhibit offer before ruling: Status: Withdrawn | Time: [HH:MM]
-- Note reason if disclosed (e.g., authentication foundation missing, opposing counsel made record objection)
+**Reference:** Read `references/step-4-live-trial-tracking.md` for the full status-update language templates and the automatic appellate flag format.
 
 
 ### STEP 5 — OBJECTION LOG
 
-Maintain a running objection log for ALL evidentiary objections encountered at trial (not just exhibit objections):
+Maintain a running objection log for ALL evidentiary objections encountered at trial — not just exhibit objections. The log captures # / Exhibit / Party Offering / Objecting Party / Basis / Court's Ruling / Limiting Instruction / Appeal Flag. Every sustained objection to a defense exhibit (or State exhibit admitted over defense objection) automatically feeds **dw-appellate-error-monitor** with full ruling context.
 
-| # | Exhibit | Party Offering | Objecting Party | Basis | Court's Ruling | Limiting Instruction | Appeal Flag |
-|---|---------|---------------|-----------------|-------|-----------------|---------------------|-------------|
-| 1 | D-1 | Defense | State | Hearsay - not exception | Sustained | N/A | YES - Preserve |
-| 2 | S-3 | State | Defense | Relevance - unfair prejudice 403 | Overruled | Limited to [purpose] | NO |
-| 3 | D-5 | Defense | State | Authentication - chain gap | Sustained | N/A | YES - Preserve |
-
-**Common Louisiana Evidentiary Objections:**
-- **Hearsay (Art. 802):** Out-of-court statement offered for truth — identify exception if applicable (Art. 803, 804)
-- **Relevance (Art. 401/402):** Not probative of material fact OR probative value substantially outweighed by unfair prejudice (Art. 403)
-- **Unfair Prejudice (Art. 403):** Probative but unduly prejudicial to party (e.g., gruesome photos, prior bad acts)
-- **Authentication (Art. 901):** Insufficient foundation that exhibit is what it claims to be
-- **Best Evidence (Art. 1002):** Original writing/recording required (exception for duplicate or oral testimony)
-- **Confrontation Clause (Crawford v. Washington, 541 U.S. 36):** Testimonial hearsay against criminal defendant without cross-opportunity
-- **Privilege (Art. 505-514):** Attorney-client, spousal, clergy, physician-patient, psychotherapist, etc.
-- **Character Evidence (Art. 404/405):** Character evidence generally inadmissible except limited exceptions
-- **Other Crimes (Art. 404(b)):** Evidence of other bad acts not admissible to prove character or propensity
-- **Expert Methodology (Art. 702 / Daubert-Foret):** Expert methodology unreliable or not sufficient basis for opinion
-
-**Feed sustained objections to appellate preservation:**
-Every time the court sustains an objection to a defense exhibit or allows State evidence against objection, automatically flag to **dw-appellate-error-monitor** with:
-- Exhibit number or statement
-- Objection basis
-- Ruling (Sustained / Overruled)
-- Judge's exact language if available
-- Trial date and judge name
+**Reference:** Read `references/step-5-objection-log.md` for the objection log table template, the catalog of common Louisiana evidentiary objections (Art. 802 hearsay, 401/402 relevance, 403 unfair prejudice, 901 authentication, 1002 best evidence, Crawford Confrontation, 505-514 privilege, 404/405 character, 404(b) other crimes, 702/Daubert-Foret expert methodology), and the appellate-feed schema.
 
 
 ### STEP 6 — OUTPUTS
 
 All outputs saved to: `<case-root>/03 - Trial Notebook/01 - Exhibit List/`
 
-**6A. Master Exhibit List (.xlsx)**
+Four deliverables:
+- **6A. Master Exhibit List (.xlsx)** — full exhibit tracker with separate sheets for Defense / State / Joint / Excluded
+- **6B. Clerk's Exhibit List (.docx)** — formatted document for filing with clerk of court (post-trial)
+- **6C. Objection Log (.xlsx)** — complete record of all evidentiary objections with appeal-flag filter for dw-appellate-error-monitor
+- **6D. Authentication Checklist (.docx)** — per-exhibit authentication script for attorney use at counsel table
 
-File name: `[ClientLastName] - Master Exhibit List - [TrialDate].xlsx`
-
-Spreadsheet with full exhibit tracker. Columns:
-- Exhibit #
-- Description
-- Type
-- Source
-- Bate Number
-- Authentication Method
-- Authenticating Witness
-- Foundation Elements
-- Anticipated Objections
-- Response to Objections
-- Offered During
-- Pre-Trial Status
-- Trial Status (actual ruling)
-
-Separate sheets:
-- Defense Exhibits (D-1, D-2, etc.)
-- State Exhibits (S-1, S-2, etc.)
-- Joint Exhibits (J-1, J-2, etc.)
-- Excluded Exhibits (all exhibits ruled inadmissible)
-
-**6B. Clerk's Exhibit List (.docx)**
-
-File name: `[ClientLastName] - Clerk Exhibit List - [TrialDate].docx`
-
-Formatted document for filing with clerk of court (post-trial). Columns:
-- Exhibit #
-- Description
-- Party Offering
-- Date Offered
-- Court's Ruling (Admitted / Excluded)
-- Ruling Language (if applicable)
-
-Include cover letter with case name, docket number, trial judge, trial date.
-
-
-**6C. Objection Log (.xlsx)**
-
-File name: `[ClientLastName] - Objection Log - [TrialDate].xlsx`
-
-Complete record of all evidentiary objections for appellate preservation. Columns:
-- #
-- Exhibit / Statement
-- Party Offering
-- Objecting Party
-- Objection Basis
-- Court's Ruling (Sustained / Overruled)
-- Limiting Instruction (if any)
-- Appeal Flag (YES / NO)
-- Judge Name
-- Trial Date
-- Notes
-
-Filter for "Appeal Flag: YES" to generate the list for dw-appellate-error-monitor.
-
-**6D. Authentication Checklist (.docx)**
-
-File name: `[ClientLastName] - Authentication Checklist - [TrialDate].docx`
-
-Per-exhibit authentication requirements for attorney use at counsel table during trial. Format:
-
-```
-EXHIBIT D-1: [Brief Description]
-Authenticating Witness: [Name, title]
-Foundation Elements:
-  1. Who created / obtained / observed?
-  2. When?
-  3. Where?
-  4. How was it handled since creation?
-  5. Chain of custody breaks?
-
-Key Foundation Questions:
-  Q: [Foundation question 1]
-  Q: [Foundation question 2]
-  [etc.]
-
-Anticipated Objections & Responses:
-  Objection: Hearsay
-  Response: Not offered for truth; or falls under [exception], La. C.E. Art. [###]
-  
-  Objection: Authentication
-  Response: [witness name] will testify he/she [foundation]
-```
-
-Use dw-cross-exam-architect output to identify cross-examination vulnerabilities.
+**Reference:** Read `references/step-6-output-specifications.md` for the full file-naming conventions, column lists for each spreadsheet, and the per-exhibit Authentication Checklist format block.
 
 
 ---
@@ -390,123 +180,20 @@ Use dw-cross-exam-architect output to identify cross-examination vulnerabilities
 
 ## SPECIAL SITUATIONS
 
-**Demonstrative Exhibits (Non-Admitted)**
+This skill addresses ten recurring exhibit categories that demand specialized handling:
 
-Demonstrative exhibits (timelines, diagrams, organizational charts, financial charts, maps) are used to aid jury understanding but are NOT admitted into evidence. Track these separately:
-- Mark as Type: "Demonstrative"
-- Status: "Used for illustration" (not "Admitted")
-- No court ruling on admissibility required
-- Cannot cite as fact to jury; used only to illustrate testimony
-- Store separately in Trial Notebook (not in admitted exhibits)
+- **Demonstrative Exhibits (Non-Admitted)** — track separately; aid jury but never admitted into evidence
+- **Art. 404(b) Other Crimes Evidence** — flag and route to dw-404b-opposition; prepare for bifurcated ruling
+- **State's Exhibits (Adverse Evidence)** — same pre-trial rigor; prepare objections in advance
+- **Confrontation Clause Issues (Crawford)** — testimonial hearsay analysis; lab reports without analyst (Davidison v. Prince)
+- **Prior Statements (Impeachment vs. Substantive)** — La. C.E. Art. 607, 613 distinction
+- **Expert Reports & CVs** — Daubert/Foret reliability; cross-reference dw-expert-witness-evaluator
+- **Audio/Video Evidence** — BWC, dash cam, surveillance; cross-reference dw-video-evidence-auditor
+- **Digital Evidence (Phone Dumps, Social Media, Metadata)** — extraction methodology; cross-reference dw-forensic-dump-analyzer and dw-social-media-auditor
+- **Business Records (La. C.E. Art. 803(6))** — custodian certification vs. live testimony
+- **Physical Evidence** — chain of custody scrutiny; cross-reference dw-chain-of-custody-auditor
 
-
-**Art. 404(b) Other Crimes Evidence**
-
-If any exhibit references other crimes, bad acts, or uncharged conduct:
-1. Flag as "Art. 404(b) Concern" in exhibit card
-2. Cross-reference immediately with **dw-404b-opposition** for objection strategy
-3. Prepare for bifurcated ruling (court may rule outside jury's presence)
-4. Note if evidence is offered by State — prepare affirmative objection
-5. If Defense uses such evidence (rare), ensure it passes Art. 404(b) test:
-   - Offered for permissible purpose (not character/propensity)
-   - Probative of that purpose
-   - Not unduly prejudicial (Art. 403)
-
-**State's Exhibits (Adverse Evidence)**
-
-Track State's exhibits with same rigor as Defense exhibits:
-- Pre-trial: Obtain State's exhibit list (discovery obligation)
-- Analyze each State exhibit for authentication gaps, chain of custody breaks, hearsay problems
-- Prepare objections pre-trial and assign objection strategy to attorney
-- At trial: Log State's offers and track objections (both State objections and Defense objections)
-- Post-trial: Analyze excluded State exhibits for potential appeal
-
-**Confrontation Clause Issues (Crawford v. Washington)**
-
-For any testimonial hearsay offered against defendant (lab reports, statements by unavailable witnesses):
-1. Identify if it's testimonial (created with primary purpose of proving defendant committed crime)
-2. Determine if witness unavailable and defendant had prior opportunity to cross
-3. If both true: Confrontation problem — prepare Art. 901(b) objection or demand live testimony
-4. Examples: Lab reports without analyst (Davidison v. Prince), police reports offered for truth, victim statements
-5. Flag for dw-appellate-error-monitor if court overrules Confrontation objection
-
-**Prior Statements (Impeachment vs. Substantive)**
-
-If offering a witness's prior inconsistent statement (La. C.E. Art. 607, 613):
-1. Determine if offered for impeachment only OR substantive use
-2. If impeachment: Lay foundation (confrontation about statement)
-3. If substantive: Must fall under exception (excited utterance, state of mind, etc.)
-4. Track separately in exhibit list with authentication method clearly noted
-5. Mark anticipated objection: "Hearsay — if offered substantively"
-
-
-**Expert Reports & CVs**
-
-Expert reports and curriculum vitae exhibit cards:
-1. Report itself: Authenticating witness is the expert; foundation is expert's personal knowledge
-2. CV: Self-authenticating or offered through expert's testimony
-3. Authentication method: Expert testimony (Daubert / Foret reliability challenge)
-4. Anticipated objections:
-   - Hearsay (if factual bases contain hearsay, note exception)
-   - Expert methodology (Art. 702, Daubert-Foret standard)
-   - Relevance (expert's opinion on ultimate issue limited)
-5. Cross-reference with **dw-expert-witness-evaluator** for methodology vulnerabilities
-
-**Audio/Video Evidence**
-
-For BWC, dash cam, surveillance video, jail calls, recorded interviews:
-1. Authentication method: Officer/videographer testimony + chain of custody
-2. Foundation: Who recorded, when, where, equipment used, no alterations, accurate depiction
-3. Anticipated objection: Entire video is not offered — identify clips/segments
-4. If edited/redacted: Flag that court may require unedited version for inspection
-5. Best Evidence rule: Original recording or certified copy required (La. C.E. Art. 1002)
-6. Cross-reference with **dw-video-evidence-auditor** for technical authentication issues
-
-**Digital Evidence (Phone Dumps, Social Media, Metadata)**
-
-For phone extractions, social media screenshots, metadata:
-1. Chain of custody: Who extracted, what tool used, forensic certification
-2. Authentication: Expert testimony on extraction methodology + relevance
-3. Screenshots vs. native files: Native files more reliable
-4. Anticipated objections:
-   - Authentication (sufficient foundation for digital extraction)
-   - Relevance (social media relevance often marginal)
-   - Hearsay (social media posts are statements by third parties)
-5. Cross-reference with **dw-forensic-dump-analyzer** and **dw-social-media-auditor** for content analysis
-
-
-**Business Records (La. C.E. Art. 803(6))**
-
-For business records (phone records, bank statements, hospital records, police reports):
-1. Authentication method: Business records certification OR custodian testimony
-2. Foundation elements required:
-   - Record made in regular course of business
-   - Kept in course of regularly conducted activity
-   - Made at or near time of occurrence
-   - Habit or routine practice
-   - Absence of circumstances suggesting lack of trustworthiness
-3. Custodian certification (preferred):
-   - Custodian prepares affidavit/certificate
-   - Affidavit authenticated by notary (self-authenticating, La. C.E. Art. 902)
-   - No live testimony required unless challenged
-4. If no certification: Custodian must testify live to foundation
-5. Anticipated objections:
-   - Hearsay (if document contains statements by third parties — separate objection)
-   - Authenticity (if certification lacking or incomplete)
-   - Relevance (records may be voluminous — prepare to offer only relevant portions)
-
-**Physical Evidence**
-
-Physical evidence (weapon, drug evidence, clothing, personal items):
-1. Chain of custody: Every person who handled must be identified and testify
-2. Authentication: Identifying characteristics (photo, description, serial number, markings)
-3. Foundation: Where found, who found, condition, handling, no contamination/alteration
-4. Anticipated objections:
-   - Chain of custody (gaps or breaks)
-   - Authentication (not clearly identified)
-   - Unfair prejudice (gruesome items, weapons)
-5. Note: Some physical evidence inadmissible if prejudicial outweighs probative value (Art. 403)
-6. Cross-reference with **dw-chain-of-custody-auditor** for custody gaps before trial
+**Reference:** Read `references/special-situations.md` for the full handling protocol for each category (foundation elements, anticipated objections, cross-references).
 
 
 ---
@@ -553,90 +240,25 @@ Use this checklist to ensure complete exhibit management:
 
 ## JUDGE-SPECIFIC PREFERENCES
 
-Exhibit marking conventions vary by judge. Confirm before pre-marking:
+Exhibit marking conventions vary by judge. Some prefer shorthand (D-1, D-2), some prefer spelled-out ("Defense Exhibit 1"); some courts use civil-style Plaintiff/Defense even in criminal. Other preferences vary on pre-trial submission, joint exhibit lists, marking timing, binder organization, and Bates numbering. **Always ask attorney or check local rules / prior cases before this judge.**
 
-**Common Preferences:**
-- Some judges prefer: D-1, D-2, D-3 (shorthand)
-- Other judges prefer: "Defense Exhibit 1," "Defense Exhibit 2" (spelled out)
-- Some courts use: Plaintiff/Defense (civil-style) even in criminal
-- Louisiana state court conventions often vary by parish and judge
-
-**Other Judge Preferences:**
-- Some judges require pre-trial submission of exhibit list (order to show compliance)
-- Some judges require joint exhibit list agreed by both parties
-- Some judges allow exhibits only on testimony, others allow pre-trial marking
-- Some judges require exhibit binders organized by exhibit number
-- Some judges require Bates numbering on all exhibits
-
-**Action:** Always ask attorney or check local rules / prior cases before this judge.
+**Reference:** Read `references/judge-preferences.md` for the full preference catalog and pre-flight checklist.
 
 ---
 
 ## COMMON OBJECTION RESPONSES (LOUISIANA EVIDENTIARY RULES)
 
-Quick reference for prepared responses to common objections:
+Quick-deployment bank of prepared responses to the seven most common objections at trial: Hearsay, Authentication, Relevance, Best Evidence, Unfair Prejudice (Art. 403), Confrontation Clause (Crawford), and Expert Methodology (Art. 702 / Daubert-Foret). Each objection has 3-6 templated response patterns ready to be tailored to the specific exhibit and witness.
 
-**Hearsay Objection → Responses:**
-- "Not offered for truth; offered to show [specific non-hearsay use]"
-- "Falls under La. C.E. Art. 803(6) business records exception"
-- "Falls under La. C.E. Art. 803(2) excited utterance; witness will testify circumstances"
-- "Falls under La. C.E. Art. 803(3) state of mind; relevant to defendant's knowledge"
-- "Stipulated hearsay exception per agreement of the parties"
-- "Witness will be available for cross-examination; no Confrontation problem"
-
-**Authentication Objection → Responses:**
-- "[Witness name] will testify he/she [personal knowledge / created / observed]"
-- "Self-authenticating under La. C.E. Art. 902 [specify category]"
-- "Certified business record under La. C.E. Art. 803(6); certification attached"
-- "Exhibit bears identifying characteristics [describe]; foundation will be established"
-
-**Relevance Objection → Responses:**
-- "Probative of [specific element]; relevant under La. C.E. Art. 401"
-- "Not unduly prejudicial; probative value substantially outweighs unfair prejudice (Art. 403)"
-- "Relevant to credibility / bias of witness"
-- "Relevant to [specific theory of defense]"
-
-**Best Evidence Objection → Responses:**
-- "Original exhibit provided; not a duplicate"
-- "Certified copy under La. C.E. Art. 1002 — acceptable substitute"
-- "Oral testimony of contents permissible under [exception]"
-- "Witness will authenticate original before exhibit is offered"
-
-
-**Unfair Prejudice Objection (Art. 403) → Responses:**
-- "Probative value substantially outweighs unfair prejudice; essential to [theory]"
-- "Court can give limiting instruction to mitigate prejudice"
-- "[Gruesome photo / weapon] is necessary to establish [specific element]; no less prejudicial alternative"
-- "Prejudicial impact is to elements we must prove; not improper character evidence"
-
-**Confrontation Clause Objection (Crawford) → Responses:**
-- "Witness will testify live; defendant has opportunity to cross-examine"
-- "Not testimonial in nature; offered for [non-testimonial purpose]"
-- "Business record exception satisfies Confrontation; not 'accusatory' statement"
-- "Prior Davidison v. Prince / State v. [case] objection — [specific response to precedent]"
-
-**Expert Methodology Objection (Art. 702 / Daubert-Foret) → Responses:**
-- "Expert will testify regarding methodology, peer review, acceptance in field"
-- "Methodology reliable under Foret standard; [specific reliability factors]"
-- "Court previously admitted similar expert testimony in [prior case]"
-- "Foundation for expert opinion will be established through direct examination"
+**Reference:** Read `references/objection-responses-bank.md` for the full prepared-response bank organized by objection type.
 
 ---
 
 ## ERROR PRESERVATION FOR APPEAL
 
-Every excluded exhibit and every sustained objection must be flagged to **dw-appellate-error-monitor** with:
+Every excluded exhibit and every sustained objection must be flagged to **dw-appellate-error-monitor** with the eight-field appellate package (Exhibit/Statement, Objection Basis, Ruling, Judge's Language, Trial Date, Judge Name, Preservation Method, Significance). Every sustained objection to Defense exhibit OR every State exhibit admitted over Defense objection automatically triggers a dw-appellate-error-monitor entry.
 
-1. **Exhibit / Statement:** D-1, S-5, or narrative description
-2. **Objection Basis:** Exact basis (hearsay, authentication, relevance, etc.)
-3. **Ruling:** Sustained / Overruled / Excluded / Admitted
-4. **Judge's Language:** Exact ruling language if available
-5. **Trial Date:** Date of trial
-6. **Judge Name:** Judge who ruled
-7. **Preservation:** How was error preserved at trial (objection made, offer of proof, cross-examination)
-8. **Significance:** Why this error is appellable (State's key evidence excluded affecting guilt; Defense exculpatory evidence excluded)
-
-**Automatic Feed:** Every sustained objection to Defense exhibit or every State exhibit admitted over Defense objection should trigger dw-appellate-error-monitor entry.
+**Reference:** Read `references/appellate-error-preservation.md` for the full eight-field appellate-feed schema.
 
 ---
 
@@ -711,3 +333,22 @@ Before beginning:
 8. Should we object to any State exhibits pre-trial, or prepare for live objections?
 9. Is there an existing trial notebook exhibit list to import?
 10. Will the clerk require a filed Clerk's Exhibit List post-trial?
+
+---
+
+## Quick References
+
+The references directory contains the detailed exhibit-management content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or section:
+
+| File | Purpose | Loaded At |
+|------|---------|-----------|
+| `references/step-1-exhibit-inventory-categories.md` | Per-type exhibit item lists (documentary, visual, digital, expert, defense investigation, demonstratives) | Step 1 |
+| `references/step-2-exhibit-card-schema.md` | Exhibit Card field table + Defense/State/Joint numbering conventions | Step 2 |
+| `references/step-3-authentication-chain.md` | Foundation-question framework, hearsay exceptions (Art. 803/804), Art. 901/902 self-authentication | Step 3 |
+| `references/step-4-live-trial-tracking.md` | Real-time status-update language templates (Offered / Objection / Ruling / Limiting / Withdrawn) + automatic appellate flag | Step 4 |
+| `references/step-5-objection-log.md` | Objection log table template + Louisiana evidentiary objection catalog + appellate feed schema | Step 5 |
+| `references/step-6-output-specifications.md` | Master Exhibit List, Clerk's Exhibit List, Objection Log, Authentication Checklist — file naming, columns, format blocks | Step 6 |
+| `references/special-situations.md` | Demonstratives, 404(b), State exhibits, Crawford, prior statements, expert reports, A/V, digital, business records, physical evidence | Special Situations |
+| `references/judge-preferences.md` | Judge marking-preference catalog and pre-flight checklist | Judge-Specific Preferences |
+| `references/objection-responses-bank.md` | Prepared-response bank for Hearsay, Authentication, Relevance, Best Evidence, Unfair Prejudice, Confrontation, Expert Methodology | Common Objection Responses |
+| `references/appellate-error-preservation.md` | Eight-field appellate-feed schema for dw-appellate-error-monitor | Error Preservation for Appeal |
