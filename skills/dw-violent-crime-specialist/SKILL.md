@@ -626,3 +626,14 @@ The "mere words insufficient to constitute aggression" doctrine and the sudden-p
 - [ ] Cross-skill routing complete (firearms-specialist, mitigation-specialist, jury-instructions-builder, cross-exam-architect, plea-negotiation-analyzer as applicable).
 - [ ] Source-citation appendix populated; no `[UNSOURCED]` items remain in final deliverable.
 - [ ] All `[VERIFY CITATION]` flags resolved or carried forward with attorney sign-off.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **manslaughter-conversion-analysis.md** — Heat-of-passion manslaughter conversion playbook (La. R.S. 14:31(A)(1)) as responsive verdict to first/second-degree murder; statutory mechanics, doctrinal lines, and trial strategy
+- **responsive-verdict-tables.md** — Responsive verdicts under La. C.Cr.P. Art. 814 for homicide, battery, kidnapping, robbery, and burglary offenses; verdict-form planning
+- **self-defense-jury-charges.md** — Louisiana self-defense and defense-of-others jury charges with the controlling no-duty-to-retreat point under La. R.S. 14:20(C); pattern instruction language
+- **sentencing-exposure-matrix.md** — Sentencing exposure matrix: mandatory minimums, statutory maximums, parole/probation eligibility, La. R.S. 14:64.3 firearm enhancement, and La. R.S. 15:529.1 habitual-offender multiplier

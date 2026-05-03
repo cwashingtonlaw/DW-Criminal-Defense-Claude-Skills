@@ -26,10 +26,20 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
+import importlib.util as _importlib_util
+
 # ── Repo layout ─────────────────────────────────────────────────────────────
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
+
+# ── Import helpers from add-category-frontmatter.py (hyphenated filename) ───
+
+_add_cat_path = REPO_ROOT / "bin" / "add-category-frontmatter.py"
+_spec = _importlib_util.spec_from_file_location("add_category_frontmatter", _add_cat_path)
+_add_cat = _importlib_util.module_from_spec(_spec)
+_spec.loader.exec_module(_add_cat)
+CATEGORIES_YML = REPO_ROOT / "bin" / "skill-index-categories.yml"
 
 # ── Exemptions ──────────────────────────────────────────────────────────────
 # Some skills legitimately diverge from the standard pattern. List the warning
@@ -37,15 +47,15 @@ SKILLS_DIR = REPO_ROOT / "skills"
 # represent real structural problems.
 
 EXEMPT: dict[str, set[str]] = {
-    "dw-skill-index":         {"W1", "W3", "W4"},                       # index/lookup, no file output
-    "dw-template-selector":   {"W1", "W2", "W3", "W4", "W5", "W6"},     # shared protocol, not direct-trigger
-    "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6"},     # library other skills load specific files from
-    "dw-data-contracts":      {"W1", "W2", "W3", "W4", "W6"},           # schema definitions; read-only infra, no shared-protocols load
-    "dw-criminal-defense":    {"W1", "W2", "W3"},                       # master orchestrator; downstream skills enforce hard stops + citations
-    "dw-evidence-placeholder":{"W1", "W3"},                             # utility skill
-    "dw-image-filename-stamp":{"W1", "W3", "W4"},                       # utility
-    "dw-case-brain":          {"W1", "W2", "W3", "W4"},                 # session persistence — internal brain.md, no attorney deliverables
-    "dw-criminal-defense.skill": {"W1", "W2", "W3", "W4", "W5", "W6"},  # legacy plugin shape
+    "dw-skill-index":         {"W1", "W3", "W4", "W7"},                       # index/lookup, no file output
+    "dw-template-selector":   {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # shared protocol, not direct-trigger
+    "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # library other skills load specific files from
+    "dw-data-contracts":      {"W1", "W2", "W3", "W4", "W6", "W7"},           # schema definitions; read-only infra, no shared-protocols load
+    "dw-criminal-defense":    {"W1", "W2", "W3"},                             # master orchestrator; downstream skills enforce hard stops + citations
+    "dw-evidence-placeholder":{"W1", "W3", "W7"},                             # utility skill
+    "dw-image-filename-stamp":{"W1", "W3", "W4", "W7"},                       # utility
+    "dw-case-brain":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
+    "dw-criminal-defense.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }
 
 # ── Issue codes ─────────────────────────────────────────────────────────────
@@ -61,6 +71,8 @@ ISSUE_DESCRIPTIONS = {
     "W4": "No output-path reference ({{CASE_ROOT}} or output-path-formula) found",
     "W5": "Reference file in references/ not mentioned in SKILL.md (orphaned)",
     "W6": "Frontmatter description has no explicit trigger keywords (e.g., 'ALWAYS invoke')",
+    "W7": "References directory has files but no Quick References section in SKILL.md",
+    "W8": "Frontmatter `category:` disagrees with skill-index-categories.yml + OVERRIDES",
 }
 
 # ── Issue model ─────────────────────────────────────────────────────────────
@@ -155,6 +167,10 @@ RE_TRIGGERS = re.compile(
     r"ALWAYS\s+invoke|invoke\s+for|trigger\s+(?:phrase|keyword)",
     re.IGNORECASE,
 )
+RE_QUICK_REFERENCES = re.compile(
+    r"##\s*Quick\s*References|##\s*Reference\s*Files",
+    re.IGNORECASE,
+)
 
 # Find file references like `references/foo.md`, `dw-foo/references/bar.md`.
 RE_REF_FILE = re.compile(r"`?(?:[\w./-]*?/)?references/([\w.-]+\.md)`?")
@@ -242,6 +258,23 @@ def lint_skill(skill_dir: Path, all_skill_names: set[str]) -> SkillReport:
             if f.name in text:
                 continue
             rpt.add("W5", f"references/{f.name}")
+
+    # W7 — Quick References section missing when references/ has non-README .md files
+    if refs_dir.exists():
+        ref_files = [
+            f for f in refs_dir.iterdir()
+            if f.is_file() and f.suffix == ".md" and f.name != "README.md"
+        ]
+        if ref_files and not RE_QUICK_REFERENCES.search(text):
+            rpt.add("W7", f"references/ has {len(ref_files)} file(s) but no Quick References section")
+
+    # W8 — frontmatter category must match expected from categories config + OVERRIDES
+    fm_category = (fm.get("category", "") or "").strip() if fm else ""
+    if fm_category:
+        sections = _add_cat.parse_categories_yml(CATEGORIES_YML.read_text(encoding="utf-8"))
+        expected = _add_cat.determine_category(skill_dir.name, sections)
+        if expected and fm_category != expected:
+            rpt.add("W8", f"frontmatter category='{fm_category}' but expected '{expected}'")
 
     # E4 — cross-skill references must resolve. Skip:
     #   - Self-references

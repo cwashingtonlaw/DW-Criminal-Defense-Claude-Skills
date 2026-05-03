@@ -309,3 +309,15 @@ All documents saved to: `<case-root>/02 - Pretrial Notebook/03 - Case Analysis &
 5. Begin drafting suppression motion if Fourth Amendment issues identified
 6. Retain toxicology expert if rising BAC defense viable
 7. Evaluate plea negotiation options via dw-plea-negotiation-analyzer
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **breath-blood-testing-standards.md** — Breath (Intoxilyzer 9000) and blood testing standards for systematic audit of test methodology and admissibility challenges
+- **dwi-diversion-alternatives.md** — Louisiana DWI diversionary programs and alternative dispositions (parish-by-parish, first-offense and beyond) to minimize criminal exposure
+- **dwi-penalty-ladder.md** — La. R.S. 14:98 enhancement ladder: penalty escalation by prior convictions (10-year cleansing), BAC level, child passenger, and accident with injury
+- **rising-bac-defense.md** — Rising BAC and retrograde extrapolation defense: BAC at testing does not equal BAC at driving; absorption-phase analysis
+- **sfst-protocol-standards.md** — NHTSA Standardized Field Sobriety Test protocol standards, clues, and validation rates for systematic SFST audit

@@ -875,4 +875,18 @@ The master template in `assets/Case Tables.xlsx` contains all sheets below with 
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **case-analysis-prompts.md** — Eight report prompt templates used in Phase 2 Step 2 (Case Timeline, Prosecution's Case Summary, Red Flags, etc.) with shared analytical framework and source-citation standards
+- **color-coding.md** — Daniels & Washington standard color-coding scheme for Case Tables.xlsx (headers, dropdowns, cell fills)
+- **folder-structure-and-naming.md** — Standard case folder structure and file-naming conventions (Case Tables.xlsx and the 01 - Trial Notebook tree)
+- **lwop-extraction-patterns.md** — Document-recognition patterns for Calcasieu Parish discovery and how to extract structured data from each document type
+- **lwop-field-maps.md** — LWOP review-sheet field maps: every field in both review-sheet templates and how to extract data for each (mandatory completeness checklist)
+- **output-path-convention.md** — Standard output-path convention for any D&W skill that writes a file (anchors to active case folder, never to Cowork default or temp directories)
+- **textexpander-snippets.md** — Standard boilerplate snippets (Caption, Signature, Certificate of Service, Discovery Citations, Draft Disclaimer) for use in motion drafting
+
+---
+
 *This skill reflects Daniels & Washington Cowork Workflow Version 5.3 (April 2026). Update this file whenever the master workflow document is revised.*

@@ -451,4 +451,26 @@ If timeline contradictions are found, flag for dw-criminal-defense Phase 2 timel
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **baseline-template.md** — Pattern-of-life baseline template for building a 2-week behavioral baseline from the period outside the critical window
+- **cellebrite-reader-guide.md** — Cellebrite Reader application reference mapping its data architecture (UFDR, CSV/HTML exports) to defense analysis workflows
+- **charge-type-priorities.md** — Charge-type to data-category and lens-depth mapping (homicide, sexual offense, etc.) with chunk priority overrides
+- **chunking-protocol.md** — Protocol for handling large forensic dumps that exceed a single context window (chunk sizing, Session State Block, surfacing high-value findings)
+- **cloud-vs-local-provenance.md** — Classification table for LOCAL vs. CLOUD data provenance and the authentication/defense impact of each
+- **common-misinterpretations.md** — Catalog of prosecution misinterpretations of phone data with defense counter-arguments and supporting authority
+- **companion-skills-routing.md** — Quick-reference matrix for routing findings to companion skills (geolocation, mobile forensic auditor, cross-exam architect, etc.)
+- **cross-reference-guide.md** — Detailed methodology for cross-referencing phone dump contents against police reports, witness statements, and the State's timeline
+- **data-category-reference-index.md** — Selective-loading index pointing to the relevant sections of `defense-analysis-framework.md` for the data categories actually present
+- **defense-analysis-framework.md** — Detailed analytical checklist for each data category, organized by the eight defense lenses
+- **extraction-auth-chain-template.md** — Structured template for establishing the extraction's authentication chain once at Step 2
+- **quick-brief-template.md** — Quick Brief output format for 1–2 categories or targeted scope analysis (alternative to the full report)
+- **report-template.md** — Structure and formatting for the Full Report (29 mandatory sections) and Quick Brief output modes
+- **size-assessment-gate.md** — Decision matrix for assessing total data volume and choosing single-pass vs. chunked analysis mode
+- **ufdr-file-format.md** — UFDR container structure (renamed ZIP) and extraction instructions for Cellebrite-native exports
+
+---
+
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Content-analysis companion to dw-mobile-forensic-auditor. Feeds intelligence to dw-cross-exam-architect, dw-cell-site-geolocation-auditor, and the Phase 2 case analysis workflow.*

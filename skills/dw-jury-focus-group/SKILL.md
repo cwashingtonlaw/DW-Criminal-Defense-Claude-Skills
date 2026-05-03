@@ -304,3 +304,11 @@ Apply the output-path formula from `dw-shared-protocols/references/output-path-f
 - **Defense perspective throughout.** Every analysis should serve the defense. The question is always: how do we use this information to help our client?
 - **Source your demographic data.** When presenting the panel composition, cite the specific ACS table numbers, election year, and ARDA dataset used.
 - **Connect to the D&W ecosystem.** If the analysis surfaces issues that other skills can address (e.g., a suppression motion that would remove damaging evidence, a cross-examination angle on a key witness), flag them and recommend the appropriate skill.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **demographic-methodology.md** — Methodology for building a statistically representative 36-person mock jury panel for a Louisiana parish using ACS, election, and ARDA data sources

@@ -1150,6 +1150,14 @@ OUTPUTS: Generate applicable outputs based on case needs:
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **01-Louisiana-Appellate-Framework.md** — Louisiana appellate framework: constitutional foundations (La. Const. Art. I Sec. 19, Art. V Sec. 10, U.S. Const. Amend. XIV) and the procedural backbone of error preservation and appellate jurisdiction
+
+---
+
 *This skill reflects Daniels & Washington Appellate Error Preservation Monitor Version 1.0 (March 2026). Update whenever Louisiana Code of Criminal Procedure, Code of Evidence, appellate jurisprudence, or firm procedures change.*
 
 

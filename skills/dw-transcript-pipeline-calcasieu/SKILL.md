@@ -371,3 +371,12 @@ Inherits all error handling from the original dw-transcript-pipeline, plus:
 
 
 Follow shared protocols for output paths (see Step 0.5).
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **justicetext-architecture.md** — Technical analysis of JusticeText's auth, upload, and API patterns; documents potential automation surfaces for the upload step
+- **transcriptpad-database.md** — Technical reference for the TranscriptPad `.tracase` SQLite Core Data database; documented from analysis of working cases (Perry, Joseph and Taraba)

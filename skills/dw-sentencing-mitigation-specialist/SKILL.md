@@ -758,4 +758,21 @@ This skill integrates with the broader Daniels & Washington criminal defense ski
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **art-894-1-sentencing-factors.md** — Art. 894.1 sentencing-factor analysis: factors favoring imprisonment vs. mitigation, with defense-response language for each factor
+- **dorthey-excessive-sentence-framework.md** — *State v. Dorthey* framework for challenging mandatory minimums as constitutionally excessive under La. Const. Art. I, § 20
+- **federal-sentencing-guidelines.md** — Federal Sentencing Guidelines (USSG) and 5th Circuit framework post-*Booker*/*Gall*/*Kimbrough* for federal sentencing work
+- **good-time-parole-eligibility.md** — Louisiana good-time credit rates (La. R.S. 15:571.3) and parole-eligibility calculator by offense category
+- **habitual-offender-reference.md** — La. R.S. 15:529.1 habitual-offender enhancement quick reference (second/third/fourth offender ranges)
+- **juvenile-sentencing-framework.md** — Juvenile sentencing constitutional framework: *Miller*, *Montgomery*, and applicable U.S. Supreme Court holdings
+- **louisiana-sentencing-statutes.md** — Hand-curated lookup table of Louisiana sentencing statutes most commonly cited (procedure, post-conviction motions, sentencing provisions)
+- **mitigation-factor-catalog.md** — Catalog of mitigation factors with ACE assessment categories: childhood and family history, substance abuse, trauma, etc.
+- **psi-audit-protocol.md** — PSI report audit protocol under La. C.Cr.P. Art. 875 (contents, accuracy review, objections)
+- **sentencing-case-law-index.md** — Quick-reference index of key Louisiana sentencing cases (*Dorthey*, *Johnson*, *Barling*, *Smith*, etc.) with citation and principle
+
+---
+
 *This skill reflects Daniels & Washington sentencing mitigation practice standards as of March 2026. Update this file whenever Louisiana sentencing statutes, good time credit rules, parole eligibility standards, or controlling case law are amended. All statutory citations and case law should be verified against current authority before filing any document with the court.*

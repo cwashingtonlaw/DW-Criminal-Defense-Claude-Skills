@@ -704,4 +704,16 @@ OUTPUT: {{CASE_ROOT}}/05 - Appellate/01 - Direct Appeal/Brief Drafts/
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **brief-section-templates.md** — Boilerplate skeleton for every section of a Louisiana criminal direct-appeal brief, ordered per Uniform Rules Courts of Appeal Rule 2-12.4
+- **circuit-formatting-rules.md** — Formatting rules governing criminal appellate briefs filed in the Louisiana courts of appeal (1st-5th Circuits) and Louisiana Supreme Court (Rule X)
+- **errors-patent-template.md** — La. C.Cr.P. Art. 920 errors-patent doctrine: catalog of qualifying error categories with template language for raising them in the brief
+- **harmless-error-framework.md** — The three harmless-error frameworks (structural error, *Chapman* federal-constitutional, Art. 921 non-constitutional) with per-issue prejudice templates
+- **standards-of-review-by-issue.md** — Master standards-of-review chart with controlling authority for every common appellate issue (sufficiency, constitutional, statutory, evidentiary, sentencing)
+
+---
+
 *This skill reflects Daniels & Washington Appellate Brief Builder Version 1.0 (May 2026). Direct-appeal briefs only — Louisiana state criminal direct appeals to the courts of appeal (1st, 2nd, 3rd, 4th, 5th Circuits) and the Louisiana Supreme Court. Update whenever Louisiana appellate jurisprudence, the Uniform Rules — Courts of Appeal, or per-circuit local rules change.*

@@ -429,3 +429,12 @@ If you are a D&W skill invoking this researcher:
 3. **Flag what you already have**: If you've already found authority in DEVONthink templates, tell the researcher so it doesn't duplicate effort.
 
 4. **Use the output**: The Research Memo's citation blocks are formatted for direct insertion into a memorandum in support. The parentheticals are drafted in legal citation style. All citations include CourtListener verification status.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **courtlistener-api-reference.md** — Practical reference for the CourtListener REST API endpoints most relevant to Louisiana criminal defense research (auth, rate limits, endpoint patterns)
+- **search-strategies.md** — Tailored CourtListener search queries by motion type, with semantic/keyword/Boolean patterns and Louisiana court filters

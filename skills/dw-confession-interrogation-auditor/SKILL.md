@@ -603,3 +603,18 @@ For each CRITICAL finding, provide:
 - **dw-cross-exam-architect:** Transfer cross-examination seeds from Module H to build interrogating officer cross-examination outline
 - **dw-suppression-motion:** Use CRITICAL and SIGNIFICANT findings to draft La. C.Cr.P. Art. 703 motion
 - **dw-criminal-defense:** Place audit report in case file per standard D&W naming and organization protocol
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **constitutional-louisiana-law-reference.md** — Constitutional and Louisiana confession-law quick-reference (federal due-process standards + La. C.Cr.P. Art. 703 + La. R.S. 15:451-452 + La. Ch.C. Art. 808)
+- **miranda-standards.md** — Substantive Miranda framework: Four Warnings, custody/interrogation tests, timing matrix, waiver validity, invocation rules, Red Flag Matrix
+- **false-confession-research.md** — Research authorities (Kassin, Drizin & Leo, Gudjonsson, Frenda, Grisso, Leo & Ofshe, Innocence Project) with key findings and applications
+- **false-confession-risk-factors.md** — False-confession taxonomy and per-suspect risk-factor scoring
+- **reid-technique-and-coercion-tactics.md** — Reid Technique nine-step framework + coercion-tactic identification
+- **technique-coercion-levels.md** — Interrogation-technique coercion-level matrix with false-confession risk per technique
+- **suppression-motion-checklist.md** — Operational checklist for assembling La. C.Cr.P. Art. 703 motion to suppress confession
+- **timestamp-analysis-template.md** — Chronological event-log template for time-anchoring audit findings to recording timestamps

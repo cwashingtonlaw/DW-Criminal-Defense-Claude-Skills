@@ -631,3 +631,11 @@ All five generated documents are internal work product — apply attorney work-p
 
 *Read `references/deliverable-map.md` for the complete deliverable checklist with expected
 locations, producing skills, and criticality ratings.*
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **deliverable-map.md** — Complete reference of every deliverable the Trial Notebook Builder scans for, organized by Trial Notebook tab, with expected location, producing skill, phase, and criticality rating

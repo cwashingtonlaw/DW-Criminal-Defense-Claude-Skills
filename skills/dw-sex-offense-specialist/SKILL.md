@@ -399,4 +399,23 @@ Analyze evidence by severity level to prioritize resources and identify case dis
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **cross-examination-seeds.md** — Cross-examination chapter seeds (SANE nurse, forensic interviewer, complaining witness, expert) for integration with `dw-cross-exam-architect`
+- **defense-strategy-reference-guide.md** — Defense strategy reference: consent defense framework, elements prosecution must disprove, and available defense theories
+- **dna-analysis-methodology-reference.md** — DNA analysis methodology and chain-of-custody checklist (LADOJ kit collection protocols, contamination audit points)
+- **expert-witness-framework.md** — Expert witness framework including CSAAS (Child Sexual Abuse Accommodation Syndrome) admissibility status in Louisiana
+- **forensic-interview-challenge-standards.md** — Forensic interview challenge standards: interviewer qualifications audit and protocol-compliance checklist
+- **louisiana-case-law-authority.md** — Louisiana case-law authority for sex-offense defense (*State v. Kennedy*, death-penalty context, current statutory framework)
+- **louisiana-sex-offense-statutes.md** — Louisiana sex offense statutes (R.S. 14:42 through 14:43.1 etc.): elements, penalties, registration tier in matrix form
+- **quick-reference-tables.md** — Statute comparison matrix tables across Louisiana sex offenses (degree, force, age threshold, registration)
+- **rape-shield-law-framework.md** — La. C.E. Art. 412 rape-shield framework: general prohibition, defense-use exceptions, and procedural mechanics
+- **sane-exam-audit-protocols.md** — SANE exam audit protocols: examiner-qualifications audit and exam-protocol challenge points
+- **severity-classification-matrix.md** — Severity classification matrix for case-dispositive (CRITICAL) and significant findings in sex-offense audits
+- **sorna-tier-classification-matrix.md** — Louisiana SORNA tier classification matrix (R.S. 15:540 et seq.): Tier 1/2/3 offenses, duration, and notification requirements
+
+---
+
 *This skill reflects Louisiana criminal procedure, evidence code, and sex offense statutes current as of March 2026. Case law and statutes subject to change. Always verify current law before filing motions or trial preparation.*

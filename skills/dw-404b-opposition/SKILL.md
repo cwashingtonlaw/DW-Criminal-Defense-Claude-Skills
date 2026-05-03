@@ -456,3 +456,11 @@ These are the most effective lines of attack organized by the exception the Stat
 ## Output Location
 
 Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **404b-citations.md** — 404(B) citation library: Louisiana opposition authority (Prieur framework foundational cases) with DEVONthink links to firm copies; cite-check before filing

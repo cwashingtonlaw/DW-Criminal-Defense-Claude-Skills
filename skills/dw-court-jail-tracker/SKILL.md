@@ -231,3 +231,13 @@ The schedule is set up via `mcp__scheduled-tasks__create_scheduled_task` separat
 | Scraped JSON has 0 rows | Portal filter not applied or selectors changed | Re-read `references/justiceworks_navigation.md` and the portal page; update selectors |
 | `create_clio_tasks.py` returns 401 | Clio access token expired (~7 day lifetime) | Refresh per `references/clio_api_setup.md` (refresh-token flow), update `clio_access_token` in `~/.dw-tracker/config.json`, re-run Step 5c |
 | Clio task created against wrong matter | Docket # not in any Clio matter; fell back to client-name match | Open the matter in Clio, set the Custom Field "Docket #," then re-run; future runs will match by docket |
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **clio_api_setup.md** — One-time setup for minting a Clio Manage API access token (developer app / OAuth) and locating the numeric Clio user id for task assignment
+- **google_chat_webhook_setup.md** — One-time setup for creating a Google Chat incoming webhook URL the skill posts the weekly visit list to
+- **justiceworks_navigation.md** — Pre-scraping reference for the JusticeWorks DD7 portal: login flow, "My Cases" navigation, DOM selectors, and fallback text-content matching

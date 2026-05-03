@@ -240,3 +240,12 @@ If `{{FIRM_MARKETING_ROOT}}` is not set, fall back to the active session's outpu
 - Opus Clip clipping or repurposing (separate workflow)
 - Post directly to social media (Make.com pipeline handles this)
 - File LSBA advertising compliance paperwork (manual process)
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **compliance-rules.md** — Louisiana attorney advertising compliance rules (RPC 7.1–7.10, LSBA Handbook) and mandatory script elements for every PI video
+- **topic-list.md** — 35 PI video topics organized by category (car accidents, etc.) for topic suggestions and batch generation

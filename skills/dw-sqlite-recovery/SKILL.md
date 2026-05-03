@@ -457,6 +457,14 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **wal-technical-reference.md** — Defense-forensics deep dive on SQLite WAL: file format, transaction history, recovery of deleted records, tool-by-tool failure modes, and expert-witness preparation material
+
+---
+
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with dw-mobile-forensic-auditor for extraction-level methodology audit and dw-cross-exam-architect for building examiner cross-examination outlines. For overall case management, see the dw-criminal-defense skill.*
 
 

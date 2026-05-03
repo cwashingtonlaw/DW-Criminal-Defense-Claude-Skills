@@ -508,4 +508,12 @@ Use the output path formula from `dw-shared-protocols/references/output-path-for
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **suppression-citations.md** — Layer-1 citation library for suppression motions: federal and Louisiana authority organized by suppression category (4th Amendment search & seizure, 5th Amendment statements, 14th Amendment identification, *Wong Sun* fruit of the poisonous tree), keyed to firm DEVONthink template groups
+
+---
+
 *This skill reflects Daniels & Washington Suppression Motion & Warrant Auditor Version 2.0 (March 2026). It incorporates the former dw-search-warrant-auditor skill — all warrant auditing is now integrated here. Update whenever suppression case law or firm procedures change.*

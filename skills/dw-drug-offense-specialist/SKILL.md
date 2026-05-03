@@ -648,3 +648,15 @@ Location: `<case-root>/02 - Pretrial Notebook/06 - Negotiations & Plea/`
 - [ ] Output files generated and filed in case notebook
 - [ ] Integration tasks assigned (suppression motion, plea negotiation, trial prep)
 
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **constructive-possession-framework.md** — Louisiana case-law analysis of constructive possession; the four-element *State v. Harris*, 472 So.2d 576 (La. 1985) test the State must prove beyond reasonable doubt
+- **drug-diversion-programs.md** — Louisiana Art. 893, Art. 890, drug court, and pre-trial diversion programs; eligibility assessment to be completed before committing to trial strategy
+- **drug-lab-methodology.md** — Field testing vs. confirmatory laboratory analysis: distinguishing preliminary screening from conclusive evidence of drug identity
+- **drug-schedule-penalties.md** — Louisiana Controlled Dangerous Substances Act (R.S. 40:964-970) schedule-by-schedule substances and penalties (including marijuana special rules)
+- **intent-to-distribute-factors.md** — Intent-to-distribute analysis framework: prosecution factors and defense counters; possession of large quantity is not automatic intent to distribute
+

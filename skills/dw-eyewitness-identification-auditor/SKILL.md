@@ -399,4 +399,26 @@ If identification procedure is suggestive, offer to route to dw-suppression-moti
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **INDEX.md** — Quick navigation guide to all eyewitness-identification reference materials, organized by audit framework module
+- **discovery-demands.md** — Discovery-demands quick reference: items to demand from the State when identification is at issue, with rationale for each
+- **jury-instructions.md** — Step 4 jury-instruction proposals: special-instruction framework for evaluating identification testimony reliability factors
+- **legal-standards.md** — Constitutional and Louisiana legal standards (*Manson*, *Biggers*, *Stovall*, *Wade*, *Ash*, *Kirby*) for identification challenges
+- **manson-biggers-framework.md** — Module F: *Manson v. Brathwaite* / *Neil v. Biggers* two-step due process challenge framework with the five reliability factors
+- **module-a-photo-array-lineup.md** — Module A: photo array and live lineup procedure audit (double-blind administration, composition, instructions)
+- **module-b-showup.md** — Module B: showup procedure audit (necessity, justification, temporal proximity)
+- **module-c-system-variables.md** — Module C: system-variable analysis (factors under law-enforcement control), per *State v. Henderson*
+- **module-d-estimator-variables.md** — Module D: estimator-variable analysis (perception, encoding conditions, witness factors)
+- **module-e-suggestiveness.md** — Module E: suggestiveness assessment — procedural, conduct-based, and totality-of-circumstances sources
+- **module-h-cross-examination.md** — Module H: cross-examination chapter seeds, formatted for use by `dw-cross-exam-architect`
+- **module-i-expert-witness.md** — Module I: expert-witness need assessment (when to recommend an eyewitness identification expert)
+- **prosecution-arguments.md** — Common prosecution arguments and defense responses for eyewitness identification challenges
+- **scientific-literature.md** — Key scientific literature (NAS Report 2014, Innocence Project, Wells & Bradfield, Steblay, Meissner & Brigham, Deffenbacher) with applications
+- **suppression-motion-framework.md** — Module G: motion to suppress out-of-court identification — structural framework for the motion
+
+---
+
 *This skill is part of the Daniels & Washington criminal defense toolkit. Pair with the dw-criminal-defense skill for case phase integration, the dw-cross-exam-architect skill for witness cross-examination preparation, the dw-expert-witness-evaluator skill for challenging or retaining eyewitness experts, and the dw-crime-scene-auditor skill for auditing the physical evidence alongside the identification evidence.*

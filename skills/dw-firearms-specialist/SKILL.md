@@ -683,3 +683,13 @@ Firearms_Case_Analysis_[DefendantName]_[Date].docx
 | **Forum** | Louisiana state court | U.S. District Court |
 | **Jury** | Louisiana jury (parish-specific) | Federal jury (diverse district) |
 
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **federal-firearms-framework.md** — 18 U.S.C. § 922(g) prohibited-persons categories, penalties (post-Bipartisan Safer Communities Act), and federal firearms-charge framework
+- **louisiana-firearms-statutes.md** — Louisiana firearms statutes (R.S. 14:95 et seq.): definitions, prohibited conduct, and per-statute elements/penalties
+- **second-amendment-post-bruen.md** — Second Amendment challenges post-*Bruen*: rapidly-evolving area; framework for current 5th Circuit precedent and verification steps before filing
+- **state-federal-firearms-matrix.md** — State-vs-federal firearms prosecution matrix: side-by-side statute comparison to inform forum-selection strategy
