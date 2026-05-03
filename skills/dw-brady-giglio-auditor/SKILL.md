@@ -63,43 +63,19 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## STEP 1 — Information Gathering Protocol
 
-Before conducting any audit, collect the following. The more complete the picture, the more gaps you can identify.
+Before conducting any audit, collect documents in ranked tiers. The more complete the picture, the more gaps you can identify.
 
-### Essential (must have before auditing)
-1. **Discovery Production(s):** All discovery received from the State — the actual documents, not just an index
-2. **Charges:** All counts with statutory citations — charge severity determines materiality thresholds
-3. **Bill of Information / Indictment:** The formal charging instrument
-4. **Police Reports / Incident Reports:** Narrative reports from all responding and investigating officers
-5. **Witness List:** Names of all known prosecution witnesses (even if informal)
+| Tier | Purpose | Examples |
+|---|---|---|
+| **Essential** (must have) | Foundation for any audit | Discovery production(s), all charges with statutory cites, bill of information / indictment, all police reports, prosecution witness list |
+| **Critical for Cross-Referencing** | Where Brady items are buried | Witness statements/interviews, arrest reports w/ PC affidavits, supplemental/follow-up reports, lab/forensic results, 911/CAD logs |
+| **Impeachment-Specific (Giglio)** | Witness credibility material | Plea/cooperation agreements, witness criminal histories, prior testimony, IA/disciplinary records, CI files |
+| **CI Detection-Specific** (always request) | Surfacing undisclosed informants | Co-defendant docket info, wiretap/surveillance applications, DEA-6/ATF/federal reports, "reliable source" warrant affidavits, sealed/in camera proceedings, attorney's CI suspicion trigger |
+| **Contextual** | Frames the audit | Defense theory, prior discovery motions/orders, case timeline (offense → trial date) |
 
-### Critical for Cross-Referencing
-6. **Witness Statements / Interviews:** Recorded or written statements from any witness — prosecution or defense
-7. **Arrest Reports:** Including probable cause affidavits
-8. **Supplemental / Follow-Up Reports:** Often contain leads that were abandoned or contradictory information that never surfaces in the primary reports
-9. **Lab Reports / Forensic Results:** DNA, toxicology, ballistics, digital forensics — anything with scientific conclusions
-10. **911 Call Records / CAD Logs:** Computer-Aided Dispatch logs showing all calls, units dispatched, and timestamps
+**Present missing info as a ranked checklist.** If essential items are incomplete, flag what's missing but proceed with what you have — partial audits still catch violations. Note at the top of the report which documents were available and which were not.
 
-### Impeachment-Specific (Giglio)
-11. **Plea Agreements / Cooperation Agreements:** Any deals between the State and its witnesses
-12. **Witness Criminal Histories:** RAP sheets for prosecution witnesses
-13. **Prior Testimony:** Any prior testimony by prosecution witnesses in other proceedings
-14. **Internal Affairs / Disciplinary Records:** For law enforcement witnesses
-15. **Confidential Informant Files:** CI agreements, payment records, reliability histories
-
-### CI Detection-Specific (always request)
-16. **Co-defendants:** Names, case numbers, current status — cooperation deals surface in co-defendant dockets first
-17. **Wiretap / surveillance applications:** Title III or state wiretap affidavits often contain clearest CI references
-18. **DEA-6s, ATF reports, or federal agency reports:** different CI documentation conventions
-19. **Search warrant affidavits with "reliable source" or "confidential source" language**
-20. **Sealed proceedings or in camera hearings referenced in the docket**
-21. **CI suspicion trigger (if applicable):** Why does the attorney suspect informant involvement?
-
-### Contextual
-16. **Defense Theory:** What happened from the defense perspective — helps identify what exculpatory evidence should exist
-17. **Prior Discovery Motions / Court Orders:** Any existing Brady demands or court orders to disclose
-18. **Case Timeline:** Key dates — offense, arrest, first appearance, discovery cutoffs, trial date
-
-**Present missing info as a ranked checklist.** If essential items 1–5 are incomplete, flag what's missing but proceed with what you have — partial audits still catch violations. Note at the top of the report which documents were available and which were not.
+**Reference:** Read `references/information-gathering-checklist.md` for the full numbered checklist (items 1–21+) with the specific document descriptions in each tier.
 
 ---
 
@@ -107,41 +83,19 @@ Before conducting any audit, collect the following. The more complete the pictur
 
 Brady material is any evidence in the government's possession that is favorable to the accused and material to either guilt or punishment. *Brady v. Maryland*, 373 U.S. 83 (1963). The prosecution's duty extends to evidence known to police and other government actors, even if the individual prosecutor is unaware. *Kyles v. Whitley*, 514 U.S. 419 (1995).
 
-### Categories to Audit
+Systematically scan every document for evidence in three categories:
 
-Systematically scan every available document for evidence falling into these categories, then check whether that evidence appears in the State's discovery production:
+| Category | Scope | Examples |
+|---|---|---|
+| **A — Innocence** | Evidence tending to show defendant did not commit the offense | Alternative suspects, contradictory physical evidence, alibi support, recantations, exculpatory test results |
+| **B — Undermines State Theory** | Evidence weakening prosecution narrative even if not exculpatory | Inconsistent timelines, missing-but-expected evidence, abandoned leads, witness contradictions |
+| **C — Mitigating Punishment** | Evidence relevant to sentencing | Victim provocation, defendant mental health / cognitive limitations, minor role, youth/trauma (*Miller v. Alabama*) |
 
-#### A. Evidence Tending to Show Innocence
-- **Alternative suspects:** Any reference in police reports, witness statements, or investigative notes to other individuals suspected, investigated, or mentioned in connection with the offense
-- **Contradictory physical evidence:** Forensic results inconsistent with the State's theory (DNA excluding defendant, ballistics not matching, fingerprints belonging to others)
-- **Alibi-supporting evidence:** Surveillance footage, cell-site records, electronic records, witness accounts placing defendant elsewhere
-- **Recantations or wavering:** Any witness who changed their story, expressed doubt, or recanted — even informally (noted in detective's notes, recorded calls, etc.)
-- **Exculpatory test results:** Tests that came back negative or inconclusive (drug tests, gunshot residue, sexual assault kits)
+**Cross-reference method:** for each item identified — (1) flag the Brady category; (2) check whether disclosed; (3) if disclosed, note date; (4) if undisclosed, flag as **POTENTIAL BRADY VIOLATION** at severity **CRITICAL** (directly exculpatory or outcome-determinative), **SIGNIFICANT** (materially favorable; affects case theory or witness credibility), or **NOTABLE** (favorable but limited independent impact; may gain significance cumulatively).
 
-#### B. Evidence Undermining the State's Theory
-- **Inconsistent timelines:** Timestamps, dispatch logs, or surveillance footage that contradicts the State's proposed sequence of events
-- **Missing evidence:** Evidence that should exist if the State's theory is correct but does not (no blood where there should be, no digital communication where there should be, no surveillance footage from cameras that were operational)
-- **Abandoned leads:** Investigative threads in supplemental reports that were opened then dropped without explanation
-- **Contradictions between witnesses:** Where State witnesses give materially different accounts of the same event
+Under *Kyles*, the cumulative effect of individually minor pieces of undisclosed evidence can be material even when no single item is. Track everything, not just the obvious violations.
 
-#### C. Evidence Mitigating Punishment
-- **Victim provocation or culpability:** Evidence that the victim initiated contact, was the aggressor, or was engaged in illegal conduct
-- **Defendant's mental health or cognitive limitations:** Records suggesting diminished capacity, intellectual disability, or severe mental illness
-- **Defendant's minor role:** Evidence suggesting others were more culpable
-- **Youth, background, or trauma history:** Relevant to sentencing under *Miller v. Alabama* and its progeny
-
-### Cross-Reference Method
-
-For each item identified above:
-1. **Flag it** with the Brady category (A, B, or C)
-2. **Check the discovery production** — was this specific item turned over?
-3. **If disclosed:** Note it as compliant with the date disclosed
-4. **If NOT disclosed:** Flag as a **POTENTIAL BRADY VIOLATION** and classify severity:
-   - **CRITICAL** — Directly exculpatory or outcome-determinative
-   - **SIGNIFICANT** — Materially favorable, affects case theory or witness credibility
-   - **NOTABLE** — Favorable but with limited independent impact; may gain significance in combination with other undisclosed material
-
-Remember: under *Kyles*, the cumulative effect of individually minor pieces of undisclosed evidence can be material even when no single item is. Track everything, not just the obvious violations.
+**Reference:** Read `references/brady-material-identification.md` for the full Category A/B/C item lists with all bullets and the complete cross-reference method commentary.
 
 ---
 
@@ -149,323 +103,90 @@ Remember: under *Kyles*, the cumulative effect of individually minor pieces of u
 
 Giglio material is evidence that could be used to impeach the credibility of prosecution witnesses. *Giglio v. United States*, 405 U.S. 150 (1972). The State must disclose impeachment material regardless of whether the defense requests it. *United States v. Bagley*, 473 U.S. 667 (1985).
 
-### For Each Prosecution Witness, Audit:
+For each prosecution witness, audit four categories:
 
-#### Deals and Benefits
-- [ ] Any plea agreement, cooperation agreement, immunity (formal or informal)
-- [ ] Promises of leniency, sentence reduction, or charge reduction — including verbal promises memorialized nowhere
-- [ ] Payment as a confidential informant or cooperating witness
-- [ ] Immigration benefits (S-visa, U-visa applications, deferred action)
-- [ ] Relocation assistance, housing, or other tangible benefits
-- [ ] Pending charges in other jurisdictions that could create leverage
-- [ ] Charges dropped or reduced before or after the witness agreed to cooperate
+| Category | Applies To | Key Items |
+|---|---|---|
+| **Deals & Benefits** | All witnesses | Plea agreements, cooperation, immunity (formal/informal), CI payments, immigration benefits (S/U-visa), relocation/housing, pending charges as leverage, charges dropped pre/post-cooperation |
+| **Credibility & Character** | All witnesses | Criminal history, dishonesty (fraud/perjury/false reports), prior inconsistent statements, substance abuse, mental health affecting perception/memory, bias, financial interest in outcome |
+| **Law Enforcement** | Officer witnesses | IA complaints (sustained AND unsustained — *Milke v. Ryan*), discipline, prior dishonesty findings, **Brady list / do-not-call list status**, § 1983 lawsuits, pattern-and-practice findings, prior testimony found not credible |
+| **Expert Witnesses** | Forensic / opinion witnesses | Fee arrangement and total prosecution compensation, prosecution-vs-defense testimony rate, prior contradicted opinions, sanctions/license issues, prior *Daubert*/La. C.E. Art. 702 disqualification |
 
-#### Credibility and Character
-- [ ] Criminal history (convictions, arrests, pending charges)
-- [ ] History of dishonesty (fraud, perjury, false reports, identity theft)
-- [ ] Prior inconsistent statements about this case or similar events
-- [ ] Substance abuse at the time of the events or testimony
-- [ ] Mental health conditions affecting perception or memory
-- [ ] Personal relationship with victim or defendant (bias, motive)
-- [ ] Financial interest in the outcome (civil suit, insurance claim, inheritance)
+**Brady-list note:** If the State has not affirmatively disclosed Brady-list/do-not-call-list status for every law enforcement witness, flag it as a potential Giglio gap and demand disclosure — even when the jurisdiction does not maintain a formal list.
 
-#### Law Enforcement Witnesses
-- [ ] Internal affairs complaints (sustained AND unsustained — *see Milke v. Ryan*, 711 F.3d 998 (9th Cir. 2013))
-- [ ] Disciplinary actions (reprimands, suspensions, demotions, terminations)
-- [ ] Prior findings of dishonesty or misconduct in other cases
-- [ ] **Membership on a "Brady list" or "do-not-call list"** maintained by the DA's office — Many prosecutors' offices maintain a list of officers with credibility issues who should not be called as witnesses or whose Brady/Giglio material must be disclosed automatically. If a law enforcement witness in the case appears on such a list, the State is obligated to disclose that fact. Always ask: "Is this officer on the DA's Brady list?" If the State has not affirmatively disclosed Brady list status for every law enforcement witness, flag it as a potential Giglio gap and demand disclosure. Even if the jurisdiction does not maintain a formal list, demand disclosure of any internal tracking of officer credibility concerns.
-- [ ] Federal civil rights complaints (42 U.S.C. 1983 lawsuits)
-- [ ] Pattern-and-practice findings against the officer's department
-- [ ] Prior testimony found not credible by a court
+**Cross-reference method:** Same as Step 2 — for each Giglio item, check whether disclosed, note the date if so, and flag as a **POTENTIAL GIGLIO VIOLATION** at the same severity scale (Critical / Significant / Notable).
 
-#### Expert Witnesses
-- [ ] Fee arrangement and total compensation from prosecution in this and other cases
-- [ ] Rate of testimony for prosecution vs. defense (showing bias)
-- [ ] Prior opinions contradicted by peer review or appellate courts
-- [ ] Sanctions, license issues, or professional disciplinary actions
-- [ ] Prior disqualification under Daubert/La. C.E. Art. 702
-
-### Cross-Reference Method
-
-Same as Step 2: for each Giglio item identified, check whether it was disclosed, note the date if so, and flag as a **POTENTIAL GIGLIO VIOLATION** if not. Use the same severity scale (Critical / Significant / Notable).
+**Reference:** Read `references/giglio-impeachment-checklist.md` for the full per-witness checklist bullets (Deals & Benefits / Credibility & Character / Law Enforcement / Expert).
 
 ---
 
 ## STEP 3B — Confidential Informant & Cooperation Detection Module
 
-This module runs automatically as part of every Brady/Giglio audit. CI involvement is a primary source of undisclosed Giglio material. Even when the attorney does not specifically request a CI audit, run this scan.
+This module runs automatically as part of every Brady/Giglio audit. CI involvement is a primary source of undisclosed Giglio material. Even when the attorney does not specifically request a CI audit, run this scan. When triggered by CI-specific language ("CI audit," "informant check," "reveal the deal," etc.), run this module as the primary focus.
 
-When triggered by CI-specific language ("CI audit," "informant check," "reveal the deal," etc.), run this module as the primary focus.
+### CI Indicator Scan — four categories
 
-### CI Indicator Scan
+| Category | What to look for |
+|---|---|
+| **A — Direct CI Language** | High-confidence: "confidential informant"/"CI", "reliable source", "cooperating individual"/"CW", "controlled buy/purchase", "the CI was searched/debriefed/provided buy money". Medium-confidence: "information was received", "acting on information", "anonymous tip", "investigators developed information that…", "the investigation revealed" (passive, no source) |
+| **B — Timeline & Procedural Red Flags** | Surveillance without explanation; arrest-to-cooperation gaps; charge asymmetry between co-defendants; reactive-to-proactive investigation jump; sealed proceedings/in camera reviews; improbable pre-arrest specificity; "buy-walk" patterns; federal adoption/cross-designation |
+| **C — Cooperation Indicators** | Proffer / queen-for-a-day agreements; 5K1.1 (federal) or La. C.Cr.P. Art. 894.1 departures; plea-timing anomalies; co-defendant testimony when own charges pending; immunity/non-prosecution agreements; witness relocation/protection; co-defendant grand jury testimony |
+| **D — Document Gaps** | No CI file despite CI language; redacted names in "source" sections; missing audio/video of described controlled buys; no handler notes despite debriefing references; no background check or reliability history for source |
 
-Read every document and flag instances of these indicators with exact quote, document name, page, and Bate stamp.
+### Roviaro Balancing (undisclosed CI identity)
 
-#### Category A — Direct CI Language
+Apply **Roviaro v. United States**, 353 U.S. 53 (1957) — Louisiana: **State v. Broadway**, 96-2659 (La. 10/19/99), 753 So.2d 801 — weighing (1) seriousness of the crime, (2) possible defenses (CI participation/witness status weighs heavily for disclosure), and (3) significance of CI testimony to reasonable doubt.
 
-**High-confidence:** "confidential informant"/"CI"/"confidential source"/"CS", "reliable source"/"reliable informant"/"credible source"/"source of proven reliability", "cooperating individual"/"cooperating witness"/"CW", "information was received from a confidential source", "controlled purchase"/"controlled buy"/"controlled delivery", "the source made contact with the target", "CI was searched prior to and after the transaction", "the CI was provided with [pre-recorded funds / buy money / recording device]", "the CI was debriefed after the operation"
+### Module deliverables
 
-**Medium-confidence:** "information was received" (no source), "based on information received"/"acting on information", "a concerned citizen"/"anonymous tip", "through investigation it was learned" (passive voice), "investigators developed information that..."/"based on intelligence gathered", "the investigation revealed" (no explanation of how)
+The module then builds a Per-CI/Cooperator Checklist (CI identity disclosed? benefits disclosed? reliability history? prior false info? cooperation agreement produced? cooperator criminal history?), identifies five CI cross-examination attack vectors (Motive & Bias / Reliability / Deal's Fine Print / Investigative Integrity / Constitutional — *Massiah*, *Moulton*, *Jacobson*, La. R.S. 14:17), and triggers CI-specific motions (Motion to Reveal the Deal, Motion to Reveal CI Identity, Supplemental Discovery Demand, Motion for In Camera Review under La. C.Cr.P. Art. 723, Motion to Suppress for CI-tainted evidence).
 
-#### Category B — Timeline & Procedural Red Flags
+**Federal note:** For federal charges, federal adoption, or federal-agency involvement, also cite U.S.S.G. § 5K1.1, 18 U.S.C. § 3553(e), and Fed. R. Crim. P. 16.
 
-- **Surveillance without explanation:** Officers knew where/when to be but report doesn't explain how
-- **Arrest-to-cooperation gap:** Co-defendant arrested, charges dropped/reduced without explanation
-- **Charge asymmetry:** Co-defendants with same conduct get dramatically different treatment
-- **Proactive investigation jump:** Case shifts reactive to proactive without explanation
-- **Sealed proceedings:** Sealed hearings, in camera reviews, ex parte communications
-- **Pre-arrest surveillance specificity:** Improbable detail about habits, routines, quantities
-- **"Buy-walk" pattern:** Controlled buy but seller not immediately arrested
-- **Federal adoption or cross-designation:** State case moves to federal or federal agents join
-
-#### Category C — Cooperation Indicators
-
-- Proffer/queen-for-a-day agreements; 5K1.1 motions (federal) or La. C.Cr.P. Art. 894.1 departures (state)
-- Plea timing anomalies; testimony from co-defendant facing/recently resolving own charges
-- Immunity or non-prosecution agreements; witness relocation/protection; grand jury testimony by co-defendant
-
-#### Category D — Document Gaps
-
-- No CI file despite CI language; redacted names in "source" sections
-- Missing audio/video of described controlled buys; no handler notes despite debriefing references
-- Incomplete investigative chain; no background check/reliability history for source
-
-### Roviaro Balancing Test (undisclosed CI identity)
-
-Apply **Roviaro v. United States**, 353 U.S. 53 (1957):
-1. **Crime charged** — more serious = stronger defense right to disclosure
-2. **Possible defenses** — CI participated in/witnessed charged conduct = disclosure heavily favored
-3. **Significance of CI testimony** — would it help establish reasonable doubt?
-
-Apply Louisiana: **State v. Broadway**, 96-2659 (La. 10/19/99), 753 So.2d 801.
-
-### Per-CI/Cooperator Checklist
-
-| Item | Status | Source | Action |
-|------|--------|--------|--------|
-| CI identity disclosed? | Yes/No/Partial | [Doc, page] | Motion to Reveal |
-| Benefits disclosed? | Yes/No/Unknown | [Doc, page] | Brady demand |
-| Reliability history disclosed? | Yes/No/Unknown | [Doc, page] | Brady demand |
-| Prior false info? | Yes/No/Unknown | [Doc, page] | Giglio material |
-| Cooperation agreement produced? | Yes/No/N/A | [Doc, page] | Discovery demand |
-| Cooperator criminal history? | Yes/No/Unknown | [Doc, page] | Giglio demand |
-
-### CI Cross-Examination Attack Vectors
-
-1. **Motive & Bias** — Benefits received, years avoided, charges dropped, money paid, ongoing leverage
-2. **Reliability** — Times used, reliability rate, agency management, decertification history
-3. **Deal's Fine Print** — Written/oral, deliverables, who decides "substantial assistance," outcome-contingent benefits
-4. **Investigative Integrity** — CI taint, government agent status, entrapment, missing management docs
-5. **Constitutional** — 6th Amend (*Massiah*; *Moulton*): post-counsel elicitation? Entrapment (*Jacobson*; La. R.S. 14:17)? 4th Amend: unauthorized CI searches?
-
-### CI-Specific Motions (add to Section 5 when CI detected)
-
-- **Motion to Reveal the Deal** — La. C.Cr.P. Art. 716-729; Brady; Giglio
-- **Motion to Reveal CI Identity** — Roviaro; State v. Broadway + balancing analysis
-- **Supplemental Discovery Demand** — CI management records, agreements, payments, handler notes
-- **Motion for In Camera Review** — La. C.Cr.P. Art. 723 (if State claims privilege)
-- **Motion to Suppress** — if CI taints evidence (4th/5th/6th Amendment)
-
-**Federal note:** For federal charges/adoption/agency involvement, also cite U.S.S.G. § 5K1.1, 18 U.S.C. § 3553(e), Fed. R. Crim. P. 16.
+**Reference:** Read `references/ci-detection-module.md` for the full four-category indicator phrase lists, the Roviaro balancing application, the Per-CI/Cooperator Checklist table with status/source/action columns, the five attack vector elaborations, and the full CI-specific motion list with authority citations.
 
 ---
 
 ## STEP 4 — Disclosure Timeline & Tracking Log
 
-Build a chronological ledger of the State's disclosure obligations and performance. This becomes a living document that the attorney updates as the case progresses.
+Build a chronological ledger of the State's disclosure obligations and performance — a living document that the attorney updates as the case progresses. For each discovery production received, record date, set #, description, Brady/Giglio items contained, items still outstanding, late-disclosure flag, and days before trial.
 
-### Tracking Log Structure
+Louisiana imposes a continuing duty to disclose. La. C.Cr.P. Art. 722. Apply the four-tier timeliness analysis to every disclosure:
 
-For each discovery production received, record:
+| Tier | Definition | Consequence |
+|---|---|---|
+| **Timely** | Disclosed with sufficient time for defense to investigate and use at trial | Compliant |
+| **Late but remediable** | Disclosed late; continuance or other relief could cure prejudice | Request relief; preserve objection |
+| **Late and prejudicial** | Disclosed so close to trial (or during trial) that defense was materially prejudiced | Brady remedy + La. C.Cr.P. Art. 729.3 sanctions analysis |
+| **Never disclosed** | Not in the discovery production at all | Potential suppression / Brady motion |
 
-| Date Received | Discovery Set # | Description | Brady/Giglio Items Contained | Items Still Outstanding | Late Disclosure? | Days Before Trial |
-|---|---|---|---|---|---|---|
+**Pattern detection:** Look across the entire disclosure history for systemic patterns — consistently late categories, supplemental reports / lab results / witness statements held to the last minute, "open file" claims that exclude entire categories (police personnel files, CI files, pending cases against witnesses), and any privilege invocations (work product, informant privilege, law enforcement privilege). Patterns establish that violations are systemic rather than inadvertent, which matters for remedies.
 
-### Timeliness Analysis
-
-Louisiana imposes a continuing duty to disclose. La. C.Cr.P. Art. 722. Assess timeliness of each disclosure:
-
-- **Timely:** Disclosed with sufficient time for defense to investigate and use at trial
-- **Late but remediable:** Disclosed late but continuance or other relief could cure prejudice
-- **Late and prejudicial:** Disclosed so close to trial (or during trial) that the defense was materially prejudiced — this triggers both a potential Brady remedy and a La. C.Cr.P. Art. 729.3 sanctions analysis
-- **Never disclosed:** Not in the discovery production at all — potential suppression
-
-### Pattern Detection
-
-Look across the entire disclosure history for patterns:
-- Is the State consistently late with certain categories of evidence?
-- Are supplemental reports, lab results, or witness statements systematically withheld until the last minute?
-- Is there a pattern of "open file" claims that exclude entire categories (police personnel files, CI files, pending cases against witnesses)?
-- Has the State invoked any privilege (work product, informant privilege, law enforcement privilege) to withhold material?
-
-Flag any pattern for inclusion in a Brady/Giglio motion — patterns establish that violations are systemic rather than inadvertent, which matters for remedies.
+**Reference:** Read `references/disclosure-timeline-tracking.md` for the full Tracking Log column structure, the timeliness-analysis commentary, and the complete Pattern Detection prompts.
 
 ---
 
 ## STEP 5 — Generate the Brady/Giglio Compliance Audit Report
 
-### Pre-Draft Confirmation
+Produce the audit as a **Word document (.docx)** using the docx skill. Begin with a Pre-Draft Confirmation summarizing total Brady items, Giglio concerns by witness, and disclosure-timeline patterns before generating. The report follows a fixed six-section structure (Executive Summary, Section 1 Brady Material, Section 2 Giglio Material, Section 3 Disclosure Timeline & Tracking Log, Section 4 Cumulative Materiality Analysis, Section 5 Recommended Defense Actions, Section 6 Outstanding Discovery Demands) plus two appendices (Document Inventory, Legal Authority Reference).
 
-Before generating the report, present a summary of findings to the attorney:
-
-> *"Here's what I've found so far:*
-> *- [X] potential Brady items identified, [Y] appear undisclosed*
-> *- [Z] Giglio concerns across [N] witnesses, [W] appear undisclosed*
-> *- Disclosure timeline shows [pattern summary]*
->
-> *Should I generate the full audit report as a Word document, or would you like to adjust the scope first?"*
-
-### Output: Word Document (.docx)
-
-Use the **docx skill** to generate a professional Word document. The report follows this structure:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BRADY / GIGLIO COMPLIANCE AUDIT
-Daniels & Washington | [Case Name / Docket No.]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CLIENT:           [Name]
-CHARGES:          [All counts with La. R.S. citations]
-PROSECUTOR:       [Name / Office]
-TRIAL DATE:       [Date or "Not yet set"]
-AUDIT DATE:       [Today's date]
-DOCUMENTS REVIEWED: [Count and brief description of universe]
-AUDITOR NOTE:     Preliminary — attorney review required
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-EXECUTIVE SUMMARY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[2-3 paragraph overview: total findings, severity
-breakdown, most critical undisclosed items, recommended
-immediate actions. This section should give a busy
-attorney the full picture in 60 seconds.]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 1: BRADY MATERIAL — EXCULPATORY EVIDENCE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[For each identified item:
- - Description of the evidence
- - Source document and page/paragraph
- - Brady category (A: Innocence / B: Undermines Theory /
-   C: Mitigation)
- - Disclosure status: DISCLOSED (date) / NOT DISCLOSED
- - Severity: CRITICAL / SIGNIFICANT / NOTABLE
- - Why it matters to the defense
- - Applicable authority]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 2: GIGLIO MATERIAL — IMPEACHMENT EVIDENCE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Organized by witness. For each prosecution witness:
- - Witness name and role
- - Impeachment items identified (deals, criminal
-   history, inconsistencies, bias, etc.)
- - Disclosure status for each item
- - Severity rating
- - Cross-exam implications]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 3: DISCLOSURE TIMELINE & TRACKING LOG
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Chronological table of all discovery productions.
- Late disclosures flagged with prejudice assessment.
- Pattern analysis included.]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 4: CUMULATIVE MATERIALITY ANALYSIS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Under Kyles v. Whitley, materiality is assessed by the
-cumulative effect of all suppressed evidence. This
-section aggregates all undisclosed items and analyzes
-whether, taken together, they undermine confidence in
-the verdict. This is the section that ties individual
-findings into a Brady motion narrative.]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 5: RECOMMENDED DEFENSE ACTIONS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Prioritized list of next steps:
- - Motion to Compel (specific items with La. C.Cr.P.
-   Art. 718-729 citations)
- - Brady/Giglio Motion (if violations are established)
- - Request for In Camera Review (when State claims
-   privilege over potentially favorable material)
- - Sanctions under La. C.Cr.P. Art. 729.3
- - Items for follow-up investigation by defense
- - Items to raise at next status conference
- - Items for Cross-Exam Architect skill]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 6: OUTSTANDING DISCOVERY DEMANDS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Specific items to demand in a supplemental discovery
-motion. Each item tied to the Brady/Giglio obligation
-it implicates. Formatted as a ready-to-use demand list
-that the attorney can drop into a motion.]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-APPENDIX A: DOCUMENT INVENTORY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Complete list of documents reviewed for this audit
-with source and date]
-
-APPENDIX B: LEGAL AUTHORITY REFERENCE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Full citations for all legal authority referenced
-in the report — Louisiana, 5th Circuit, and U.S.
-Supreme Court]
-```
-
-### File Naming & Location
-- **Filename:** `[3-digit prefix] - Brady-Giglio Compliance Audit.docx`
-- **Location:** Per `dw-shared-protocols` output path formula
-- Also save the Disclosure Tracking Log as a separate companion document: `[3-digit prefix] - Brady-Giglio Disclosure Tracking Log.docx`
+**Reference:** Read `references/audit-report-structure.md` for the full six-section + appendix template, the case-information header fields, the Pre-Draft Confirmation script, and the file naming/location convention (with companion Disclosure Tracking Log file).
 
 ---
 
 ## STEP 6 — Integration with D&W Workflow
 
-### Cross-Exam Architect Integration
-For each Critical or Significant Giglio finding, generate a cross-examination chapter seed:
+For each Critical or Significant Giglio finding, generate a cross-examination chapter seed for **dw-cross-exam-architect**. When Critical violations are identified, flag for the **motion-writer** skill (Motion to Compel under La. C.Cr.P. Art. 718-729, Brady/Giglio Motion with *Kyles* cumulative analysis, Motion for Sanctions under La. C.Cr.P. Art. 729.3 for willful or repeated violations). Feed audit findings into the broader case analysis: update the Master Evidence Table, flag items for the Discovery Gap Report, and note items affecting witness credibility assessments.
 
-```
-CROSS CHAPTER SEED — [Witness Name]: [Finding Title]
-Witness Type: [Law Enforcement / Civilian / Expert]
-Chapter Goal: [What this chapter must establish]
-Key Questions:
-  Q1: [Question targeting the undisclosed material]
-  Q2: [Follow-up locking in the gap]
-  Q3: [Question establishing prejudice from non-disclosure]
-Source: [Document / page reference]
-Impeachment Note: [How this undermines the witness]
-Legal Authority: [Applicable Brady/Giglio case]
-```
+After the audit report is generated, build a **Brady/Giglio Audit Action Plan** that translates findings into specific Discovery Demands, Suppression Opportunities (route CI-tainted evidence and undisclosed-deal credibility issues to **dw-suppression-motion**), Strategic Prioritization by trial impact, and CI-Specific Discovery (CI agreements, criminal history, payment records, handler notes, communications).
 
-Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect skill]`
+**Cross-skill handoffs (preserved inline):**
+- **dw-discovery-compliance-monitor** — parallel ledger of State's discovery obligations; the Disclosure Timeline (Step 4) cross-feeds with this skill's compliance ledger
+- **dw-witness-statement-analyzer** — feed witness inconsistencies and recantations identified in Brady Category A
+- **dw-cross-exam-architect** — receives Critical/Significant Giglio findings as chapter seeds
+- **dw-suppression-motion** — receives CI-taint and undisclosed-deal credibility issues for motion drafting
 
-### Motion Writer Integration
-When Critical violations are identified, flag for the **motion-writer** skill:
-- Motion to Compel Discovery (La. C.Cr.P. Art. 718-729)
-- Brady/Giglio Motion (with specific items and Kyles cumulative analysis)
-- Motion for Sanctions (La. C.Cr.P. Art. 729.3) when violations are willful or repeated
-
-### Case Analysis Integration
-Feed audit findings back into the broader case analysis:
-- Update the Master Evidence Table with any newly identified favorable evidence
-- Flag items for the Discovery Gap Report
-- Note any items that affect witness credibility assessments
-
-### Brady/Giglio Audit Action Plan
-
-After the audit report is generated (STEP 5), translate findings into strategic next steps using this framework:
-
-1. **Discovery Demands:** For each identified category of undisclosed Brady/Giglio material, generate a specific discovery demand citing the item, the legal basis for disclosure, and the deadline.
-2. **Suppression Opportunities:** If a CI taints evidence or an undisclosed deal undermines witness credibility, identify suppression opportunities and route to **dw-suppression-motion**.
-3. **Strategic Prioritization:** Rank Brady/Giglio items by trial impact: which undisclosed items, if obtained, would most change the jury's assessment? Focus demand letters and motion practice on these items first.
-4. **CI-Specific Discovery:** If the CI Detection Module (STEP 3B) identified confidential informants, generate specific demands for: CI agreements, CI criminal history, CI payment records, CI handler notes, and all communications between CI and law enforcement.
-
-This action plan transforms the audit's findings into executable litigation steps. The attorney reviews the plan and approves which demands and motions to pursue.
+**Reference:** Read `references/cross-exam-and-motion-integration.md` for the full Cross Chapter Seed template, the Motion Writer flag list, the Case Analysis integration steps, and the four-step Brady/Giglio Audit Action Plan.
 
 ---
 
@@ -478,46 +199,6 @@ This action plan transforms the audit's findings into executable litigation step
 - **Jurisdictional toggle.** Default to Louisiana / 5th Circuit. If another jurisdiction is specified, adapt discovery rules and case authority accordingly.
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
 - **Continuing duty.** Remind the attorney that this audit reflects a point-in-time snapshot. As new discovery arrives, the audit should be updated. Under La. C.Cr.P. Art. 722, the State's duty to disclose is continuous.
-
----
-
-## Quick Reference — Legal Authority
-
-| Principle | Authority |
-|-----------|-----------|
-| Prosecution must disclose exculpatory evidence | *Brady v. Maryland*, 373 U.S. 83 (1963) |
-| Prosecution must disclose impeachment evidence | *Giglio v. United States*, 405 U.S. 150 (1972) |
-| Materiality assessed by cumulative effect | *Kyles v. Whitley*, 514 U.S. 419 (1995) |
-| Duty exists regardless of good/bad faith | *Brady v. Maryland*; *Strickler v. Greene*, 527 U.S. 263 (1999) |
-| Impeachment evidence is Brady material | *United States v. Bagley*, 473 U.S. 667 (1985) |
-| Knowledge of police imputed to prosecution | *Kyles v. Whitley*; La. C.Cr.P. Art. 718 |
-| Continuing duty to disclose | La. C.Cr.P. Art. 722 |
-| State's discovery obligations | La. C.Cr.P. Art. 718-729 |
-| Sanctions for non-compliance | La. C.Cr.P. Art. 729.3 |
-| Remedy includes new trial | *Connick v. Thompson*, 563 U.S. 51 (2011) (discussing Brady standards) |
-| Three-part Brady test | *Strickler v. Greene*: (1) favorable, (2) suppressed, (3) material |
-| CI identity disclosure | *Roviaro v. United States*, 353 U.S. 53 (1957) |
-| Louisiana Roviaro | *State v. Broadway*, 96-2659 (La. 10/19/99), 753 So.2d 801 |
-| CI as government agent | *Massiah v. United States*, 377 U.S. 201 (1964) |
-| CI and right to counsel | *Maine v. Moulton*, 474 U.S. 159 (1985) |
-| Entrapment | *Jacobson v. United States*, 503 U.S. 540 (1992); La. R.S. 14:17 |
-| Federal cooperation departures | U.S.S.G. § 5K1.1; 18 U.S.C. § 3553(e) |
-| Motion to Reveal the Deal | Brady; Giglio; La. C.Cr.P. Art. 718, 722 |
-| In camera CI file review | La. C.Cr.P. Art. 723; Roviaro |
-| Plea context — Brady applies | *United States v. Ruiz*, 536 U.S. 622 (2002) (impeachment evidence before guilty plea) |
-
-### Louisiana-Specific Discovery Articles
-
-| Article | Scope |
-|---------|-------|
-| La. C.Cr.P. Art. 718 | State's general discovery obligation — statements, documents, tangible objects |
-| La. C.Cr.P. Art. 719 | Exculpatory evidence — State must disclose evidence favorable to defendant |
-| La. C.Cr.P. Art. 720 | Reports and results of scientific tests |
-| La. C.Cr.P. Art. 721 | List of witnesses and prior criminal records of witnesses |
-| La. C.Cr.P. Art. 722 | Continuing duty to disclose |
-| La. C.Cr.P. Art. 723 | Discovery depositions |
-| La. C.Cr.P. Art. 729.3 | Sanctions for failure to comply — court may order disclosure, grant continuance, prohibit introduction of evidence, or dismiss |
-| La. C.Cr.P. Art. 729.5 | Protective orders limiting discovery |
 
 ---
 
@@ -536,6 +217,23 @@ After generating any deliverable, check if a case session is active (i.e., if `d
 3. **Update NEXT STEPS** if the audit output changes the recommended case strategy.
 
 If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard` and `dw-trial-notebook-builder` during their folder scans.
+
+---
+
+## Quick References
+
+The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
+
+| File | Purpose | Loaded At |
+|------|---------|-----------|
+| `references/information-gathering-checklist.md` | Ranked Essential / Critical / Impeachment-Specific / CI Detection-Specific / Contextual document checklist (items 1–21+) | Step 1 |
+| `references/brady-material-identification.md` | Brady Categories A (Innocence) / B (Undermines Theory) / C (Mitigation) item lists + cross-reference method + Critical/Significant/Notable severity rubric | Step 2 |
+| `references/giglio-impeachment-checklist.md` | Per-witness Giglio checklists (Deals & Benefits / Credibility & Character / Law Enforcement / Expert) including Brady-list / do-not-call list disclosure | Step 3 |
+| `references/ci-detection-module.md` | Four-category CI Indicator Scan (Direct Language / Timeline Red Flags / Cooperation Indicators / Document Gaps) + Roviaro balancing + Per-CI Checklist + five attack vectors + CI-specific motion list + federal note | Step 3B |
+| `references/disclosure-timeline-tracking.md` | Tracking Log Structure + four-tier Timeliness Analysis (Timely / Late-but-remediable / Late-and-prejudicial / Never disclosed) + Pattern Detection prompts | Step 4 |
+| `references/audit-report-structure.md` | Pre-Draft Confirmation script + six-section audit report template + two appendices + file naming/location convention with companion Disclosure Tracking Log | Step 5 |
+| `references/cross-exam-and-motion-integration.md` | Cross Chapter Seed template + Motion Writer flag list + Case Analysis integration steps + four-step Brady/Giglio Audit Action Plan | Step 6 |
+| `references/legal-authority-quick-reference.md` | Brady / Giglio / CI Authority Table + Louisiana-Specific Discovery Articles (La. C.Cr.P. Art. 718–729.5) | Reference throughout |
 
 ---
 
