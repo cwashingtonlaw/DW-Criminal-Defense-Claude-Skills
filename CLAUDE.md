@@ -265,6 +265,20 @@ When you change an upstream skill's output, check the consumer skills for breaka
 | Background auto-pull | `bin/auto-pull.sh` |
 | Regenerate `dw-skill-index/SKILL.md` from frontmatter | `bin/regen-skill-index.py` |
 | Check whether the skill index is up to date | `bin/regen-skill-index.py --check` |
+| Add `category:` frontmatter to all skills | `bin/add-category-frontmatter.py` |
+| Package each skill as a `.skill` zip for Cowork import | `bin/dw-skill-git.sh export-cowork` |
+
+### Cowork export packaging
+
+`bin/dw-skill-git.sh export-cowork` packages each `skills/dw-*/` directory into a single `.skill` zip and writes them to `_cowork-exports/` (gitignored — generated artifact, not version-controlled). The packaging is incremental: only skills whose contents are newer than their existing `.skill` file are re-zipped.
+
+The `.skill` files are consumed by the Cowork project on Claude.ai when uploading skills via the project's settings UI. Workflow:
+
+1. Run `bin/dw-skill-git.sh export-cowork` after committing skill changes
+2. Open the Cowork project on Claude.ai → Settings → Skills
+3. Upload the affected `.skill` files
+
+The directory `_cowork-exports/` is gitignored (see `.gitignore`); never commit `.skill` files.
 
 ---
 
@@ -279,7 +293,36 @@ Project-level Claude Code hooks live in `.claude/settings.json`. They activate a
 
 To temporarily disable the hooks: rename `.claude/settings.json` to `.claude/settings.json.disabled` (don't commit the rename). To remove permanently: delete the relevant `"Stop"` or `"SessionStart"` block from the `"hooks"` object.
 
-To verify the hook config is valid: `jq -e '.hooks.Stop[0].hooks[0].command' .claude/settings.json` (should print the command and exit 0).
+### Testing hooks locally
+
+The hooks fire automatically when Claude Code starts a session in this repo (or when triggered by Stop). To verify they work without a full session round-trip, pipe-test the commands directly:
+
+**Validate hook JSON shape:**
+```
+jq -e '.hooks.Stop[0].hooks[0].command' .claude/settings.json
+jq -e '.hooks.SessionStart[0].hooks[0].command' .claude/settings.json
+```
+Each should print the command string and exit 0. Invalid JSON in `.claude/settings.json` silently disables ALL settings from that file — fix any pre-existing malformation if `jq -e` exits non-zero.
+
+**Pipe-test the SessionStart hook (clean path, expected behavior):**
+```
+echo '{"session_id":"test"}' | bash -c 'summary=$(bin/lint-skills.py 2>&1 | tail -1); jq -nc --arg s "$summary" "{systemMessage: (\"D&W Skill Linter: \" + \$s)}"'
+```
+Expected output: a single JSON line like `{"systemMessage":"D&W Skill Linter: 62 skill(s) checked — 0 error(s), 0 warning(s)."}`.
+
+**Pipe-test the Stop hook (clean path):**
+```
+echo '{"session_id":"test"}' | bash -c 'output=$(bin/lint-skills.py --errors-only 2>&1) || jq -nc --arg out "$output" "{decision: \"block\", reason: (\"Skill-pattern linter found errors. Fix before stopping:\\n\\n\" + \$out)}"'
+```
+Expected output (clean): silent (no output, exit 0). The hook only emits JSON when there are errors.
+
+**Pipe-test the Stop hook (error path):**
+1. Introduce a temporary error: `echo "broken-ref to references/totally-missing-file.md" >> skills/dw-jail-call-analyzer/SKILL.md`
+2. Run the same pipe-test command above
+3. Expected output: a JSON line `{"decision":"block","reason":"Skill-pattern linter found errors. Fix before stopping:\n\n\n=== dw-jail-call-analyzer ...\n  ERROR E3: Referenced file does not exist on disk — references/totally-missing-file.md\n\n62 skill(s) checked — 1 error(s), 0 warning(s)."}`
+4. Revert: `git checkout skills/dw-jail-call-analyzer/SKILL.md`
+
+**Common gotcha — settings watcher:** Claude Code's settings watcher only watches directories that had a `.claude/settings.json` at session start. If you ADD `.claude/settings.json` mid-session, the hooks won't fire in that session. Run `/hooks` to reload, or restart the session.
 
 ---
 
