@@ -176,7 +176,7 @@ Based on Phase 0–3 status:
 
 ### Step 6B: Scan Issue Code Status
 
-Check `Case Tables.xlsx` for an `Issue Codes` sheet (maintained by `dw-issue-code-tracker`).
+Check `Case Tables.xlsx` for an `Issue Codes` sheet (maintained by `dw-issue-code-tracker` v2.0). The v2.0 taxonomy is 33 codes total — 14 Universal + 8 Homicide + 11 Rape/Sexual Assault — with no gaps in numbering.
 
 **If the sheet does NOT exist:**
 - In the dashboard output, render this notice in place of the Issue Code Status block: "⚠️ Issue ledger not yet initialized. Run `dw-issue-code-tracker` to set up."
@@ -343,40 +343,49 @@ Based on current phase and gaps, recommend the exact next skill to invoke:
 
 ## Issue Code Status
 
-**Source:** `Case Tables.xlsx → Issue Codes` sheet (maintained by `dw-issue-code-tracker`)
+**Source:** Case Tables.xlsx → `Issue Codes` sheet (maintained by `dw-issue-code-tracker` v2.0)
 
+If the `Issue Codes` sheet does not exist, display:
 > ⚠️ Issue ledger not yet initialized. Run `dw-issue-code-tracker` to set up.
-> _(Render this notice instead of the block below if the `Issue Codes` sheet does not exist.)_
+
+Otherwise, render this block:
 
 ### Counts
 
 | Status | Count |
 |--------|-------|
-| Open | [N] |
-| Addressed | [N] |
-| N/A | [N] |
-| **Total** | **[N]** |
+| Open | {N_open} |
+| Addressed | {N_addressed} |
+| N/A | {N_na} |
+| **Total** | **{N_total}** |
 
 ### Open Issues by Category
 
-#### Universal ([N] open)
-- [U-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+#### Universal ({N_open_universal} open)
+- [U-XX] Issue Name {⚠️ if stale}
 - ...
 
-#### Homicide ([N] open) — _omit this category if zero open codes_
-- [H-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+#### Homicide ({N_open_homicide} open)  _[only if applicable]_
+- [H-XX] Issue Name {⚠️ if stale}
 - ...
 
-#### Rape/Sexual Assault ([N] open) — _omit this category if zero open codes_
-- [R-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+#### Rape/Sexual Assault ({N_open_rape} open)  _[only if applicable]_
+- [R-XX] Issue Name {⚠️ if stale}
 - ...
+
+### Stale Flag Logic
+
+For each row in the `Issue Codes` sheet:
+- If `Status` = `Open` AND (today − `Last Updated`) > 30 days → append ⚠️ STALE marker
+- If no Open codes are stale, omit the stale section entirely
 
 ### Stale Issues Summary
-_(Render this sub-block only if at least one Open code has been Open more than 30 days. Otherwise omit entirely.)_
 
-> ⚠️ **[N] issue(s) have been Open more than 30 days.** Review whether they are still actively being worked or should be reclassified.
+If any stale codes exist, display:
+> ⚠️ **{N_stale} issue(s) have been Open more than 30 days.** Review whether they are still actively being worked or should be reclassified.
 
-- [U-XX] Issue Name — Open since YYYY-MM-DD ([X] days)
+List each stale code with its `Last Updated` date:
+- [U-07] Eyewitness Identification — Open since 2026-03-15 ({X} days)
 - ...
 
 ---
@@ -511,6 +520,7 @@ If the case has other charges only, note LWOP as "Not Applicable" in Phase 0 sta
 ---
 
 ## Version
+Dashboard Skill v1.2 — Aligned Issue Code Status section with `dw-issue-code-tracker` v2.0 (taxonomy v2 — 14 Universal + 8 Homicide + 11 Rape/Sexual Assault, no code-number gaps) (May 2026)
 Dashboard Skill v1.1 — Added Issue Code Status section reading from `dw-issue-code-tracker` ledger (May 2026)
 Dashboard Skill v1.0 — Aligned with dw-criminal-defense SKILL.md (February 2026)
 
