@@ -174,6 +174,32 @@ Based on Phase 0–3 status:
 - **Phase 2 complete, Phase 3 not complete** → Case is in **Trial Prep**
 - **Phase 3 complete** → Case is **Trial-Ready**
 
+### Step 6B: Scan Issue Code Status
+
+Check `Case Tables.xlsx` for an `Issue Codes` sheet (maintained by `dw-issue-code-tracker`).
+
+**If the sheet does NOT exist:**
+- In the dashboard output, render this notice in place of the Issue Code Status block: "⚠️ Issue ledger not yet initialized. Run `dw-issue-code-tracker` to set up."
+- Skip the rest of this step. Do not error out — graceful degradation.
+
+**If the sheet exists:**
+1. **Count rows by `Status`** column: Open, Addressed, N/A, and total.
+2. **Group all rows where `Status = Open`** by category (the prefix of the `Code` column):
+   - **Universal** — codes prefixed `U-` (always render this category)
+   - **Homicide** — codes prefixed `H-` (render only if at least one homicide code is Open)
+   - **Rape/Sexual Assault** — codes prefixed `R-` (render only if at least one R-code is Open)
+3. **Within each category, sort Open codes ascending by code number** (so `U-01, U-02, U-03...` reads naturally).
+4. **Compute the stale flag for each Open code:**
+   - Stale = `Status = Open` AND `(today − Last Updated) > 30 days`
+   - Use the user's local timezone.
+   - Append `⚠️ STALE` to stale codes in the Open list.
+5. **If any stale codes exist**, also render a "Stale Issues Summary" sub-block listing each stale code with its `Last Updated` date and the day count since.
+6. **If no Open codes are stale**, omit the stale summary entirely.
+
+**Read-only.** This step never modifies the `Issue Codes` sheet. Updates to the ledger are the job of `dw-issue-code-tracker` exclusively.
+
+**No auto-routing.** Do not auto-suggest running a code's linked skill, even for stale codes. Surface the data; the attorney decides.
+
 ### Step 7: Flag Workflow Gaps
 
 Check for and flag any of the following:
@@ -315,6 +341,46 @@ Based on current phase and gaps, recommend the exact next skill to invoke:
 
 ---
 
+## Issue Code Status
+
+**Source:** `Case Tables.xlsx → Issue Codes` sheet (maintained by `dw-issue-code-tracker`)
+
+> ⚠️ Issue ledger not yet initialized. Run `dw-issue-code-tracker` to set up.
+> _(Render this notice instead of the block below if the `Issue Codes` sheet does not exist.)_
+
+### Counts
+
+| Status | Count |
+|--------|-------|
+| Open | [N] |
+| Addressed | [N] |
+| N/A | [N] |
+| **Total** | **[N]** |
+
+### Open Issues by Category
+
+#### Universal ([N] open)
+- [U-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+- ...
+
+#### Homicide ([N] open) — _omit this category if zero open codes_
+- [H-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+- ...
+
+#### Rape/Sexual Assault ([N] open) — _omit this category if zero open codes_
+- [R-XX] Issue Name  _(append ⚠️ STALE if applicable)_
+- ...
+
+### Stale Issues Summary
+_(Render this sub-block only if at least one Open code has been Open more than 30 days. Otherwise omit entirely.)_
+
+> ⚠️ **[N] issue(s) have been Open more than 30 days.** Review whether they are still actively being worked or should be reclassified.
+
+- [U-XX] Issue Name — Open since YYYY-MM-DD ([X] days)
+- ...
+
+---
+
 ## Workflow Gaps & Flags ⚠
 - ✗ [Gap description] — impacts [Phase] — recommend [action]
 - ✗ [Gap description]
@@ -435,6 +501,7 @@ If the case has other charges only, note LWOP as "Not Applicable" in Phase 0 sta
 
 - **dw-criminal-defense** — Execute any phase of the 4-phase workflow
 - **dw-case-brain** — Load/save persistent case context across sessions
+- **dw-issue-code-tracker** — Maintain the case-level issue code ledger (Open/Addressed/N/A). The dashboard reads this ledger read-only; only the tracker writes to it.
 - **dw-cross-exam-architect** — Generate cross-examination outlines for witnesses
 - **dw-discovery-orchestrator** — Triage and route incoming discovery to auditor skills
 - **dw-discovery-compliance-monitor** — Track prosecution disclosure obligations
@@ -444,6 +511,7 @@ If the case has other charges only, note LWOP as "Not Applicable" in Phase 0 sta
 ---
 
 ## Version
+Dashboard Skill v1.1 — Added Issue Code Status section reading from `dw-issue-code-tracker` ledger (May 2026)
 Dashboard Skill v1.0 — Aligned with dw-criminal-defense SKILL.md (February 2026)
 
 
