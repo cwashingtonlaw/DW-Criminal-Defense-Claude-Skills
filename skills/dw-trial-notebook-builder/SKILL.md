@@ -208,6 +208,129 @@ Non-critical but valuable:
 
 ---
 
+## STEP 2.5 — ISSUE LEDGER GAP REPORT (Front Matter)
+
+A second, complementary gap analysis driven by the Issue Code Ledger maintained by
+`dw-issue-code-tracker` (taxonomy v2.0). Where Step 2 asks "what *deliverables* are
+missing," this step asks "what *legal issues* are still flagged Open." Both reports go
+in the trial notebook. This one becomes the first analytical document the attorney reads.
+
+**Generate this BEFORE finalizing the rest of the trial notebook** so the attorney can
+close any open issues before locking down witness order, exhibits, and motions.
+
+### 2.5A — Source Data
+
+Read `Case Tables.xlsx` → `Issue Codes` sheet (created by `dw-issue-code-tracker` v2.0).
+
+**If the sheet does not exist:** Generate a one-page placeholder reading:
+
+> ⚠️ Issue ledger was not maintained for this case. Trial readiness cannot be assessed
+> against the issue code taxonomy. Recommend running `dw-issue-code-tracker` retroactively
+> to identify any unaddressed issues before trial.
+
+Save the placeholder and continue with the rest of the workflow — do not abort.
+
+### 2.5B — Output Location
+
+Save the Gap Report to the front of the trial notebook:
+
+`{CASE_ROOT}/01 - Trial Notebook/00-Trial-Readiness-Gap-Report.docx`
+
+The `00-` prefix ensures it sorts to the top alphabetically and signals "read this first."
+
+### 2.5C — Document Structure
+
+Use the `docx` skill. Mark every page **Attorney Work Product — Privileged**.
+
+**Header**
+
+```
+TRIAL READINESS GAP REPORT
+Daniels & Washington — Attorney Work Product — Privileged
+
+Case:           State v. [Client Name]
+Case Number:    [Number]
+Trial Date:     [Date]
+Report Date:    [YYYY-MM-DD]
+Days to Trial:  [N]
+```
+
+**Section 1 — Executive Summary**
+
+Status counts by category in a single table:
+
+| Category | Total Codes | Addressed | Open | N/A |
+|----------|-------------|-----------|------|-----|
+| Universal | 14 | [N] | [N] | [N] |
+| Homicide | 8 (if applicable) | [N] | [N] | [N] |
+| Rape/Sexual Assault | 11 (if applicable) | [N] | [N] | [N] |
+| **TOTAL** | **[N]** | **[N]** | **[N]** | **[N]** |
+
+**Readiness Score:** Addressed / (Addressed + Open) = **[X]%**
+
+**Section 2 — ⚠️ Critical Gaps (Open Issues)**
+
+For each Open code, grouped by category in this order — Universal, then Homicide
+(if applicable), then Rape/Sexual Assault (if applicable):
+
+#### [U-XX] [Issue Name]
+
+- **Status:** Open since [Last Updated] ([X] days)
+- **Linked Skill:** [Linked Skill from skill-routing-map.md, if available]
+- **Notes:** [Notes from Excel sheet, if any]
+- **Recommended Action:**
+  - If notes are blank → "No work product on file. Recommend running [Linked Skill]
+    or marking N/A if not applicable."
+  - If notes describe partial work → "Review whether the existing work product is
+    sufficient for trial. If yes, mark Addressed."
+  - If stale (>30 days since Last Updated) → "⚠️ STALE — Open more than 30 days.
+    Review whether this is still an active issue."
+
+Apply the same per-code structure for Homicide (H-XX) and Rape/Sexual Assault (R-XX) codes.
+
+**Section 3 — Addressed Issues Summary**
+
+Informational list confirming the ledger is current and showing the attorney's preserved
+record:
+
+- [Code] [Issue Name] — [Notes from Excel sheet]
+- ...
+
+**Section 4 — N/A Issues**
+
+Codes determined Not Applicable to this case:
+
+- [Code] [Issue Name] — [Notes from Excel sheet]
+- ...
+
+**Section 5 — Attorney Sign-Off**
+
+```
+Before trial, attorney should review this report and confirm:
+
+[ ] All Open issues have been reviewed
+[ ] Stale issues have been triaged (still Open, now Addressed, or now N/A)
+[ ] Where Open issues will not be addressed, the strategic reason is documented
+    in the Notes column of the Issue Codes sheet
+[ ] Issue ledger is current as of [Trial Date − 7 days]
+
+Signature: _________________________  Date: _____________
+```
+
+### 2.5D — Stale Logic
+
+A code is **STALE** if its `Last Updated` date is more than 30 days before today AND its
+status is still `Open`. Apply the ⚠️ STALE flag in Section 2 for any such code. This
+mirrors the same threshold used in `dw-case-dashboard`.
+
+### 2.5E — Routing Discipline
+
+The Gap Report lists `Linked Skill` as a *recommendation only*. Do **NOT** auto-invoke any
+specialist skill from this report. The attorney decides which gaps to close and when —
+consistent with the design choice of `dw-issue-code-tracker`.
+
+---
+
 ## STEP 3 — ORGANIZE THE TRIAL NOTEBOOK
 
 With the inventory complete, organize the Trial Notebook folder:
@@ -229,6 +352,7 @@ If any standard Trial Notebook tab folder is missing, create it. The standard st
 
 ```
 01 - Trial Notebook/
+├── 00-Trial-Readiness-Gap-Report.docx          ← Issue Ledger Gap Report (Front Matter, Step 2.5)
 ├── 01 - Jury Instructions & Selection/
 ├── 02 - Opening & Closing/
 ├── 03 - Witnesses/
@@ -239,8 +363,10 @@ If any standard Trial Notebook tab folder is missing, create it. The standard st
 ├── 06 - Motions in Limine/
 ├── 07 - Legal Research/
 ├── 08 - Jury Selection Notes/
-└── 09 - Case Analysis/
-    └── Cowork Analysis/
+├── 09 - Case Analysis/
+│   └── Cowork Analysis/
+└── 99-Issue-Code-Ledger-Appendix/              ← Issue Ledger Snapshot (Back Appendix, Step 5.5)
+    └── [YYYY-MM-DD]_Issue-Ledger-Snapshot.docx
 ```
 
 ### 3C — Naming Convention Audit
@@ -286,11 +412,17 @@ Generated: [Date] | Readiness: [READY / NEAR-READY / etc.]
 
 3. **Gap callouts** for any missing items in that tab (red text or bold flag)
 
+**Before any tab section, include a Front Matter section:**
+- **00 — Trial Readiness Gap Report (Issue Ledger)** — link to
+  `00-Trial-Readiness-Gap-Report.docx` from Step 2.5. Label it "READ FIRST."
+
 **After all tabs, include:**
 - **Pretrial Notebook Cross-References** — links to key pretrial items that inform trial
   (suppression rulings, discovery motions, pretrial orders)
 - **Case Tables Link** — direct `file://` link to `Case Tables.xlsx`
 - **Case Brain Link** — if the Case Brain is in the Obsidian vault, link to it
+- **99 — Issue Code Ledger Appendix** — link to the snapshot `.docx` produced in
+  Step 5.5. Label it "Reference / Record."
 
 ### Constructing file:// Links
 
@@ -390,16 +522,87 @@ Leave Contact Info and Subpoena Status for attorney/staff completion.
 
 ---
 
+## STEP 5.5 — ISSUE LEDGER APPENDIX (Back Appendix)
+
+Generate a point-in-time snapshot of the Issue Code Ledger as a back-of-notebook appendix.
+This document captures the ledger's state at the moment the trial notebook was assembled
+and serves as the attorney's preserved record.
+
+**Run this LAST**, after every other Trial Notebook output is produced, so the snapshot
+reflects every status update made during this build session.
+
+### 5.5A — Source Data
+
+Read `Case Tables.xlsx` → `Issue Codes` sheet (same source as Step 2.5).
+
+**If the sheet does not exist:** Generate a one-page placeholder noting the ledger was
+not maintained, mirroring the Step 2.5 placeholder language. Continue without aborting.
+
+### 5.5B — Output Location
+
+`{CASE_ROOT}/01 - Trial Notebook/99-Issue-Code-Ledger-Appendix/[YYYY-MM-DD]_Issue-Ledger-Snapshot.docx`
+
+The `99-` prefix ensures the appendix sorts to the bottom of the trial notebook tabs.
+
+### 5.5C — Document Structure
+
+Use the `docx` skill. Mark every page **Attorney Work Product — Privileged**.
+
+**Header**
+
+```
+ISSUE CODE LEDGER — TRIAL APPENDIX
+Daniels & Washington — Attorney Work Product — Privileged
+
+Case:             State v. [Client Name]
+Case Number:      [Number]
+Snapshot Date:    [YYYY-MM-DD]
+Total Codes:      [N]
+Taxonomy Version: 2.0
+
+This appendix is a point-in-time snapshot of the issue ledger as of the date above.
+The live ledger is maintained in Case Tables.xlsx → Issue Codes sheet by
+dw-issue-code-tracker.
+```
+
+**Body — Full Ledger Table**
+
+Reproduce every row from the `Issue Codes` sheet, sorted by Code ascending:
+
+| Code | Category | Issue Name | Status | Last Updated | Notes | Linked Skill |
+|------|----------|------------|--------|--------------|-------|--------------|
+| U-01 | Universal | ... | Addressed | 2026-04-12 | ... | ... |
+| ... | ... | ... | ... | ... | ... | ... |
+
+**Audit Trail**
+
+Read the `Issue Ledger Audit Trail` section from `Case-Brain.md` (Obsidian vault) and
+append it to the appendix. This gives the trial notebook the full history of status
+changes alongside the current snapshot.
+
+If the Case Brain has no `Issue Ledger Audit Trail` section, note that fact in the
+appendix and continue.
+
+### 5.5D — Relationship to Step 2.5
+
+The front-matter Gap Report (Step 2.5) is *analytical* — it filters to Open issues and
+recommends action. This appendix is *archival* — every code, every status, full notes,
+plus the audit trail. Both have a place in the trial notebook.
+
+---
+
 ## STEP 6 — UPDATE THE CASE BRAIN
 
 After generating all outputs, update the Case Brain:
 
 1. Add all new deliverables to `COMPANION SKILL OUTPUTS`:
    - Master Trial Index (date, location)
-   - Trial Readiness Gap Report (date, readiness score)
+   - Trial Readiness Gap Report — Deliverable-based (date, readiness score)
+   - Trial Readiness Gap Report — Issue Ledger / Front Matter (date, readiness %, count of Open issues)
    - Day of Trial Checklist (date)
    - Exhibit Authentication Checklist (date)
    - Witness Schedule Worksheet (date)
+   - Issue Code Ledger Appendix (date, snapshot of codes by status)
 
 2. Update `CURRENT STATUS` to reflect the trial readiness assessment.
 
@@ -430,10 +633,12 @@ Non-Critical Gaps: [N]
 
 GENERATED FILES:
 • Master Trial Index ➜ [file name]
-• Trial Readiness Gap Report ➜ [file name]
+• Trial Readiness Gap Report (Deliverable-based) ➜ [file name]
+• Trial Readiness Gap Report (Issue Ledger, Front Matter) ➜ [file name]
 • Day of Trial Checklist ➜ [file name]
 • Exhibit Authentication Checklist ➜ [file name]
 • Witness Schedule ➜ [file name]
+• Issue Code Ledger Appendix ➜ [file name]
 
 TOP 3 GAPS TO CLOSE:
 1. [Gap] → run [skill trigger phrase]
@@ -509,6 +714,22 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 ---
 
 ## Changelog
+
+### v1.1 (May 2026)
+- Added integration with `dw-issue-code-tracker` (taxonomy v2.0).
+- New Step 2.5: generates `00-Trial-Readiness-Gap-Report.docx` as front matter — an
+  issue-code-driven gap analysis that complements the existing deliverable-based Gap
+  Report at Step 2.
+- New Step 5.5: generates `99-Issue-Code-Ledger-Appendix/[YYYY-MM-DD]_Issue-Ledger-Snapshot.docx`
+  — a point-in-time snapshot of the Issue Codes sheet plus the Audit Trail from the
+  Case Brain.
+- Updated trial notebook folder structure diagram to show `00-` front matter and `99-`
+  appendix.
+- Updated Master Index to reference both new documents (Front Matter + Appendices).
+- Graceful degradation: if the `Issue Codes` sheet doesn't exist, both new outputs emit
+  a one-page placeholder noting the ledger was not maintained.
+- No auto-routing — `Linked Skill` recommendations are listed but not auto-invoked,
+  consistent with `dw-issue-code-tracker`'s design.
 
 ### v1.0 (April 2026)
 - Initial skill version
