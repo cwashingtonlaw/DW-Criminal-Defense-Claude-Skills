@@ -1,10 +1,11 @@
 ---
 name: dw-issue-code-tracker
-description: Maintains a living issue-code ledger for any criminal case at Daniels & Washington using the firm's 34-code taxonomy (14 Universal + 9 Homicide + 11 Rape/Sex Assault). ALWAYS invoke for "issue codes," "issue ledger," "issue tracker," "what issues are open," "what's been addressed," "set up issue codes," "initialize the issue ledger," "update the issue tracker," "mark issue as addressed," "issue code status," "what issues apply to this case," "show me the open issues," "issue code report," or "refresh the issue ledger." Initializes a per-case ledger, tracks status (N/A | Open | Addressed) for each applicable code, and produces both an Obsidian narrative section and an Excel sheet view. Does NOT auto-route to specialist skills — the attorney decides when to invoke dw-suppression-motion, dw-eyewitness-identification-auditor, etc. Do NOT use for case status dashboards (use dw-case-dashboard) or session persistence (use dw-case-brain).
+description: Maintains a living issue-code ledger for any criminal case at Daniels & Washington using the firm's 33-code taxonomy v2.0 (14 Universal + 8 Homicide + 11 Rape/Sex Assault). ALWAYS invoke for "issue codes," "issue ledger," "issue tracker," "what issues are open," "what's been addressed," "set up issue codes," "initialize the issue ledger," "update the issue tracker," "mark issue as addressed," "issue code status," "what issues apply to this case," "show me the open issues," "issue code report," or "refresh the issue ledger." Initializes a per-case ledger, tracks status (N/A | Open | Addressed) for each applicable code, and produces both an Obsidian narrative section and an Excel sheet view. Does NOT auto-route to specialist skills — the attorney decides when to invoke dw-suppression-motion, dw-eyewitness-identification-auditor, etc. Do NOT use for case status dashboards (use dw-case-dashboard) or session persistence (use dw-case-brain).
 ---
 
 # DW Issue Code Tracker
 
+**Version:** 2.0 (33-code taxonomy, renumbered with no gaps)
 **Phase:** 2 (Case Analysis) — also runs in Phase 3 and Phase 4 as a refresh skill
 **Capstone Aggregator:** No — feeds into dw-case-dashboard and dw-trial-notebook-builder
 **Output Location:** `{CASE_ROOT}/Deliverables/Phase-2-Analysis/Issue-Code-Tracker/{YYYY-MM-DD}_Issue-Ledger.{ext}`
@@ -33,7 +34,7 @@ Read `../dw-shared-protocols/SKILL.md` for:
 
 ## What This Skill Does
 
-Maintains a **living issue-code ledger** per case using the D&W 34-code taxonomy. Three operations:
+Maintains a **living issue-code ledger** per case using the D&W 33-code taxonomy v2.0. Three operations:
 
 1. **INITIALIZE** — first run on a case. Creates the ledger in both Obsidian and Case Tables.xlsx with all applicable codes pre-loaded based on case type.
 2. **UPDATE** — flip a code's status (N/A → Open → Addressed) as work progresses.
@@ -46,53 +47,52 @@ Maintains a **living issue-code ledger** per case using the D&W 34-code taxonomy
 
 ---
 
-## The 34-Code Taxonomy
+## The 33-Code Taxonomy (v2.0)
 
 ### Universal — 14 codes (apply to ALL cases)
 | Code | Name |
 |------|------|
 | U-01 | Charges |
-| U-02 | Criminal History |
+| U-02 | Criminal History (Defendant) |
 | U-03 | Crime Scene |
-| U-04 | Evidence - Physical |
-| U-05 | Evidence - Exculpatory |
-| U-06 | Evidence - Incriminating |
-| U-07 | Witnesses/Credibility |
-| U-08 | Eyewitness Identification |
-| U-09 | Interrogation/Statements |
-| U-10 | Expert Testimony/Forensic |
-| U-11 | Timeline/Alibi |
-| U-12 | Electronic Communication |
-| U-13 | Deficient Investigation |
-| U-14 | Search & Seizure / 4th Amendment |
+| U-04 | Evidence - Physical (Chain & Handling) |
+| U-05 | Evidence - Exculpatory (Brady/Giglio) |
+| U-06 | Witnesses/Credibility (State Witnesses) |
+| U-07 | Eyewitness Identification |
+| U-08 | Interrogation/Statements (Defendant) |
+| U-09 | Expert Reliability (Daubert/Foret) |
+| U-10 | Timeline/Alibi |
+| U-11 | Electronic Communication & Digital Evidence |
+| U-12 | Deficient Investigation |
+| U-13 | Search & Seizure / 4th Amendment |
+| U-14 | CSLI/Geolocation Evidence |
 
-### Homicide — 9 codes (apply if case type = Homicide)
+### Homicide — 8 codes (apply if case type = Homicide)
 | Code | Name |
 |------|------|
 | H-01 | Forensic - Ballistics |
-| H-02 | Forensic - Blood/DNA |
+| H-02 | Forensic - DNA |
 | H-03 | Forensic - Fingerprints |
-| H-04 | Medical Examiner/COD |
-| H-05 | CSLI/Geolocation |
-| H-06 | Premeditation/Deliberation |
-| H-07 | Malice/Intent to Kill |
-| H-08 | Felony Murder |
-| H-09 | Self-Defense/Justification |
+| H-04 | Medical Examiner / Cause of Death |
+| H-05 | Specific Intent & Premeditation Indicators |
+| H-06 | Verdict Ladder & Lesser-Included Strategy |
+| H-07 | Felony Murder |
+| H-08 | Self-Defense / Justification |
 
 ### Rape/Sexual Assault — 11 codes (apply if case type = Rape-Sexual Assault)
 | Code | Name |
 |------|------|
 | R-01 | SANE Examination |
-| R-02 | Sexual Assault Kit/DNA |
+| R-02 | Sexual Assault Kit / DNA |
 | R-03 | Consent Defense |
 | R-04 | Rape Shield (Art. 412) |
 | R-05 | Delayed Disclosure |
 | R-06 | Medical Evidence |
-| R-07 | Incapacity/Inability to Consent |
+| R-07 | Incapacity / Inability to Consent |
 | R-08 | Victim Credibility |
-| R-09 | Trauma-Informed Interviewing |
-| R-10 | Physical Evidence/Scene |
-| R-11 | Pattern/Prior Allegations |
+| R-09 | Child Forensic Interviewing |
+| R-10 | Physical Evidence / Scene (Sex Offense) |
+| R-11 | Prior False Allegations (Art. 608) |
 
 Full descriptions in `references/issue-code-taxonomy.md`.
 
@@ -105,35 +105,18 @@ Full descriptions in `references/issue-code-taxonomy.md`.
 **Steps:**
 
 1. **Confirm case type** with attorney:
-   - Homicide → load Universal (14) + Homicide (9) = 23 codes
+   - Homicide → load Universal (14) + Homicide (8) = 22 codes
    - Rape/Sexual Assault → load Universal (14) + Rape (11) = 25 codes
    - Other Felony → load Universal (14) only = 14 codes
-   - Multiple (e.g., homicide + sex offense) → load all applicable
+   - Multiple (e.g., homicide + sex offense) → load all applicable, up to 33 codes
 
 2. **Set initial status for each code:**
    - Default: `Open`
    - If a code is clearly inapplicable on intake (e.g., no eyewitness ID issue in a paper-fraud case), mark `N/A` with a one-line reason
 
-3. **Write to Obsidian Case Brain.** Append a new section to `{CASE_ROOT}/Case-Brain.md`:
-   ```markdown
-   ## Issue Code Ledger
-   _Last updated: {YYYY-MM-DD}_
+3. **Write to Obsidian Case Brain.** Append a new section to `{CASE_ROOT}/Case-Brain.md` per the template in `references/obsidian-ledger-template.md`.
 
-   ### Universal Issues
-   - **[U-01] Charges** — Open
-   - **[U-02] Criminal History** — Open
-   - ...
-
-   ### Homicide-Specific Issues
-   - **[H-01] Forensic - Ballistics** — Open
-   - ...
-   ```
-
-4. **Write to Case Tables.xlsx.** Add a new sheet named `Issue Codes` with columns:
-   | Code | Category | Issue Name | Status | Last Updated | Notes | Linked Skill |
-   |------|----------|------------|--------|--------------|-------|--------------|
-
-   Pre-populate the `Linked Skill` column from `references/skill-routing-map.md` so the attorney can see which D&W skill maps to each code (reference only — no auto-routing).
+4. **Write to Case Tables.xlsx.** Add a new sheet named `Issue Codes` per the schema in `references/excel-sheet-schema.md`.
 
 5. **Save deliverable copy** to:
    `{CASE_ROOT}/Deliverables/Phase-2-Analysis/Issue-Code-Tracker/{YYYY-MM-DD}_Issue-Ledger-Init.docx`
@@ -150,12 +133,12 @@ Full descriptions in `references/issue-code-taxonomy.md`.
 **Steps:**
 
 1. **Identify the code.** Accept either:
-   - Code ID (e.g., "U-08")
+   - Code ID (e.g., "U-07")
    - Issue name (e.g., "eyewitness ID")
    - Fuzzy match if obvious
 
 2. **Confirm the status change** with attorney before writing:
-   > Marking [U-08] Eyewitness Identification as Addressed. Add notes? (y/n)
+   > Marking [U-07] Eyewitness Identification as Addressed. Add notes? (y/n)
 
 3. **Update both locations atomically:**
    - Obsidian Case Brain: replace the bullet
@@ -164,7 +147,7 @@ Full descriptions in `references/issue-code-taxonomy.md`.
 4. **Append to Case Brain audit trail:**
    ```markdown
    ### Issue Ledger Audit Trail
-   - {YYYY-MM-DD}: [U-08] Eyewitness ID flipped Open → Addressed (notes: "Cross outline drafted; impeachment hooks identified.")
+   - {YYYY-MM-DD}: [U-07] Eyewitness ID flipped Open → Addressed (notes: "Cross outline drafted; impeachment hooks identified.")
    ```
 
 ---
@@ -188,17 +171,17 @@ Full descriptions in `references/issue-code-taxonomy.md`.
 
    OPEN ([N]):
    - [U-03] Crime Scene
-   - [U-08] Eyewitness Identification
-   - [H-04] Medical Examiner/COD
+   - [U-07] Eyewitness Identification
+   - [H-04] Medical Examiner / Cause of Death
    ...
 
    ADDRESSED ([N]):
    - [U-01] Charges (briefed in motion to quash, 2026-04-15)
-   - [U-09] Interrogation/Statements (suppression motion filed, 2026-04-22)
+   - [U-08] Interrogation/Statements (suppression motion filed, 2026-04-22)
    ...
 
    N/A ([N]):
-   - [H-08] Felony Murder (no underlying felony charged)
+   - [H-07] Felony Murder (no underlying felony charged)
    ...
    ```
 
@@ -237,3 +220,10 @@ All deliverables follow `dw-data-contracts`:
 - Format: .docx via the `docx` skill
 - Header: ATTORNEY WORK PRODUCT — PRIVILEGED
 - Footer: Daniels & Washington, LLC | {Client Name} | {Case Number}
+
+---
+
+## Version History
+
+- **v2.0 (2026-05-06):** Renumbered taxonomy with no gaps. 33 active codes. Former U-06 retired (Evidence-Incriminating, deleted as inventory-not-issue). Former H-05 promoted to U-14 (CSLI/Geolocation, applies across case types). All cross-references updated. Refined descriptions throughout with statutory anchors, "Addressed" definitions, attack-surface enumerations, and N/A guidance.
+- **v1.0 (initial):** 34-code taxonomy (14 Universal + 9 Homicide + 11 Rape).

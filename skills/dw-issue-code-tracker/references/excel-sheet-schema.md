@@ -1,5 +1,7 @@
 # Case Tables.xlsx — Issue Codes Sheet Schema
 
+**Version:** 2.0 (renumbered, no gaps)
+
 Sheet name: **`Issue Codes`**
 
 ## Columns
@@ -28,11 +30,12 @@ Sheet name: **`Issue Codes`**
 ## Data Validation
 
 - Column D (Status): dropdown limited to `Open` / `Addressed` / `N/A`
-- Column A (Code): regex `^[UHR]-\d{2}$` (e.g., U-01, H-09, R-11)
+- Column A (Code): regex `^[UHR]-\d{2}$` (e.g., U-01, H-08, R-11)
+- Column A valid ranges: U-01 through U-14, H-01 through H-08, R-01 through R-11
 
 ## Sort Order on Initialize
 
-Sort ascending by Code (A → Z), so Universal codes appear first, then Homicide, then Rape.
+Sort ascending by Code (A → Z), so Universal codes appear first (U-01 to U-14), then Homicide (H-01 to H-08), then Rape (R-01 to R-11).
 
 ---
 
@@ -40,9 +43,9 @@ Sort ascending by Code (A → Z), so Universal codes appear first, then Homicide
 
 The skill writes one row per applicable code based on case type:
 - **Other Felony:** 14 rows (Universal only)
-- **Homicide:** 23 rows (Universal + Homicide)
+- **Homicide:** 22 rows (Universal + Homicide)
 - **Rape/Sexual Assault:** 25 rows (Universal + Rape)
-- **Multiple:** up to 34 rows (all categories)
+- **Multiple (e.g., homicide + sex offense):** up to 33 rows (all categories)
 
 All rows initialize with:
 - `Status` = `Open`
