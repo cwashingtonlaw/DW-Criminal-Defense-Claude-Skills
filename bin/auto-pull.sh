@@ -22,11 +22,18 @@ notify_failure() {
 }
 
 # --- Step 1: Reverse-sync ~/.claude/skills/ → repo (capture Claude edits) ---
+# IMPORTANT: --delete is intentionally omitted. Using --delete here would destroy
+# any file in the repo that doesn't exist in ~/.claude/skills/ yet, including
+# new content that arrived from origin/main via push from another machine or
+# from the GitHub web UI. The trade-off is that file deletions in ~/.claude/skills/
+# do not propagate to the repo automatically — to delete a file from the skill
+# library, remove it from the repo directly and let the forward-sync (Step 4)
+# carry the deletion into ~/.claude/skills/.
 if [ -d "$SKILLS_DST" ] && [ -d "$SKILLS_SRC" ]; then
     for skill_dir in "$SKILLS_SRC"/*/; do
         skill_name=$(basename "$skill_dir")
         if [ -d "$SKILLS_DST/$skill_name" ]; then
-            rsync -a --delete "$SKILLS_DST/$skill_name/" "$SKILLS_SRC/$skill_name/"
+            rsync -a "$SKILLS_DST/$skill_name/" "$SKILLS_SRC/$skill_name/"
         fi
     done
 fi
