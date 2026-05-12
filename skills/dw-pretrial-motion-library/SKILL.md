@@ -33,7 +33,7 @@ This skill handles the "bread and butter" motions — the ones filed in nearly e
 | `dw-404b-opposition` | Hand off 404(b) issues |
 | `dw-bond-and-release-motion` | Hand off bond issues |
 | `docx` | Document generation |
-| `assets/templates/` (bundled) | Firm template exemplars for 11 pretrial filings — see `assets/templates/README.md` for the full inventory and routing notes |
+| `assets/templates/` (bundled) | Firm template exemplars for 7 pretrial filings — see `assets/templates/README.md` for the full inventory. Bond, new trial, and appeal templates have been moved to `dw-bond-and-release-motion` and `dw-appellate-error-monitor` respectively |
 | `references/caselaw-citations.md` (bundled) | Consolidated caselaw inventory extracted from the bundled templates, organized by module with verification flags for known typos and stale cites |
 
 ### Source Citation Mandate
@@ -142,11 +142,13 @@ If a template is selected, preserve the firm's preferred formatting and legal po
 
 In parallel with the DEVONthink search, consult the skill's bundled assets and references:
 
-**Bundled templates** (`assets/templates/`) — 11 firm template exemplars covering speedy trial (Art. 701), preliminary exam, initial discovery, omnibus pretrial, self-defense notice, Melendez-Diaz objection, and several out-of-scope motions kept for cross-reference. Read `assets/templates/README.md` first for the full inventory, module mapping, and caption-variant guide. The templates are real prior firm filings — they show D&W's preferred paragraph numbering, signature block format, certificate of service style, and proposed-order conventions. When using one:
+**Bundled templates** (`assets/templates/`) — 7 firm template exemplars covering speedy trial (Art. 701), preliminary exam, initial discovery, omnibus pretrial, self-defense notice, Melendez-Diaz objection, and motion to enroll (admin boilerplate). Read `assets/templates/README.md` first for the full inventory, module mapping, and caption-variant guide. The templates are real prior firm filings — they show D&W's preferred paragraph numbering, signature block format, certificate of service style, and proposed-order conventions. When using one:
 
 1. Strip ALL case-specific content (client name, docket number, parish, judge, facts, dates).
-2. Replace the caption using `dw-shared-protocols/references/filed-pleading-boilerplate.md` for the actual filing parish. Of the 11 bundled templates, only `motion_for_speedy_trial_701.docx` uses the 14th JDC Calcasieu caption (D&W's primary venue) — the other 10 use other parishes, so reset the caption rather than copy it forward.
+2. Replace the caption using `dw-shared-protocols/references/filed-pleading-boilerplate.md` for the actual filing parish. Of the 7 bundled templates, only `motion_for_speedy_trial_701.docx` uses the 14th JDC Calcasieu caption (D&W's primary venue) — the other 6 use 2nd JDC, 19th JDC, or Orleans Parish, so reset the caption rather than copy it forward.
 3. Verify every citation against the bundled caselaw reference (next section).
+
+**Note on bond / new trial / appeal:** Templates for those motion types previously bundled here have been relocated to `dw-bond-and-release-motion` and `dw-appellate-error-monitor`. Drafting must be invoked through those skills directly — this skill does not draft bond, new trial, or appeal motions.
 
 **Caselaw reference** (`references/caselaw-citations.md`) — a consolidated, topic-organized inventory of every citation appearing in the bundled templates, with verification flags for known typos, year errors, and reporter inconsistencies. Use it as a checklist when porting citations from a template into a new draft. Each module below points to the relevant section of this file.
 
@@ -723,9 +725,9 @@ Apply caption, signature block, certificate of service, notice of hearing, propo
 - **Attorney work product.** All outputs are drafts requiring attorney review.
 - **Louisiana default.** Apply Louisiana statutes and 5th Circuit standards.
 - **Template-First.** Always search DEVONthink before drafting from scratch. Bundled templates in `assets/templates/` are secondary — use when DEVONthink returns nothing useful or to cross-check formatting consistency. DEVONthink reflects the firm's most recent filings; bundled templates are static.
-- **Reset the caption.** Bundled templates use 2nd JDC, 14th JDC, 19th JDC, 22nd JDC, 24th JDC, 32nd JDC, and Orleans Parish CDC captions. Only `motion_for_speedy_trial_701.docx` uses 14th JDC (D&W's primary venue) — for any other filing, pull caption boilerplate from `dw-shared-protocols/references/filed-pleading-boilerplate.md` rather than copying a template's caption forward.
-- **Article renumbering.** La. C.Cr.P. articles have been renumbered (e.g., the old Art. 334 bail factors are now Art. 316). Older bundled templates may cite superseded article numbers — always verify against the current code.
-- **Route specialized motions correctly.** Suppression → `dw-suppression-motion`. 404(b) → `dw-404b-opposition`. Bond → `dw-bond-and-release-motion`. New trial → `dw-post-conviction-relief`. Appeal → `dw-appellate-error-monitor`. Don't draft these yourself, even when a bundled template for them exists in `assets/templates/` (the out-of-scope templates are stored for cross-reference only).
+- **Reset the caption.** Bundled templates use 2nd JDC, 14th JDC, 19th JDC, and Orleans Parish CDC captions. Only `motion_for_speedy_trial_701.docx` uses 14th JDC (D&W's primary venue) — for any other filing, pull caption boilerplate from `dw-shared-protocols/references/filed-pleading-boilerplate.md` rather than copying a template's caption forward.
+- **Article renumbering.** La. C.Cr.P. articles have been renumbered (e.g., the old Art. 334 bail factors are now Art. 316). Always verify against the current code.
+- **Route specialized motions correctly.** Suppression → `dw-suppression-motion`. 404(b) → `dw-404b-opposition`. Bond → `dw-bond-and-release-motion`. New trial → `dw-appellate-error-monitor` MODULE E. Appeal → `dw-appellate-error-monitor` MODULE E. Don't draft these from this skill.
 - **File intake hard stop.** Never skip Step 0.
 
 ---
