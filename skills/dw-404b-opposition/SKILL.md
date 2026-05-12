@@ -88,7 +88,7 @@ Key documents known to exist in DEVONthink (404 B - Other Crimes folder):
 - `Louisiana supreme court reigns in 404 b` — analysis of Louisiana Supreme Court restrictions
 - `State v. Jones, 285 So.3d 1074` — recent case law
 
-**After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
+**After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
 

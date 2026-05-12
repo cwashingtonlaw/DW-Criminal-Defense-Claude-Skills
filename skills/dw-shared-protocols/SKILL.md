@@ -14,7 +14,7 @@ If you are a D&W file-writing skill, your SKILL.md should include a step near th
 
 > Before drafting, read `dw-shared-protocols/SKILL.md` and load the references listed for your document type below. Then continue with the substance of your skill.
 
-Sibling shared skill: `dw-template-selector` (DEVONthink Template-First search protocol). Read both before drafting any pleading.
+Template selection: the DEVONthink Template-First search protocol now lives in this skill's `references/template-selection-protocol.md`. Read it before drafting any pleading.
 
 ## Reference manifest by document type
 
@@ -59,5 +59,5 @@ If any required variable is missing, the consuming skill must prompt the attorne
 
 ## Migration notes
 
-- v1.0.0 — initial build. Sibling to `dw-template-selector`. Captions: 14th JDC, 12th JDC Avoyelles, Orleans CDC, 19th JDC EBR, Federal WDLA, fill-in template.
+- v1.0.0 — initial build. Template selection protocol now lives in this skill's `references/template-selection-protocol.md`. Captions: 14th JDC, 12th JDC Avoyelles, Orleans CDC, 19th JDC EBR, Federal WDLA, fill-in template.
 - Future: add 15th JDC, 16th JDC, 9th JDC, civil captions, post-conviction captions as needed.
