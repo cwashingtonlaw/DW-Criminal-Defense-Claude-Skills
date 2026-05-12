@@ -913,7 +913,7 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 | **Purpose** | Draft 11 standard pretrial motion types — "bread and butter" defense practice |
 | **Trigger** | "speedy trial" / "701 motion" / "bill of particulars" / "continuance" / "motion to compel" / "severance" / "change of venue" / "recusal" / "quash" / "competency evaluation" / "reveal the deal" |
 | **Inputs** | Case facts, relevant statutory basis, court/judge information |
-| **Outputs** | Draft motion with memorandum in support, using firm templates (searched via `dw-template-selector` in DEVONthink) |
+| **Outputs** | Draft motion with memorandum in support, using firm templates (searched via the template selection protocol in `dw-shared-protocols/references/template-selection-protocol.md`) |
 | **Not for** | Suppression (use `dw-suppression-motion`), 404(b) (use `dw-404b-opposition`), bond (use `dw-bond-and-release-motion`) |
 
 ---
@@ -972,9 +972,9 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 
 ---
 
-### Utility Skill (Not Directly Invoked)
+### Shared Reference Protocol (Not a Skill)
 
-#### dw-template-selector
+#### template-selection-protocol.md (in dw-shared-protocols/references/)
 
 | | |
 |---|---|
@@ -988,7 +988,7 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 
 | Category | Skills (count) |
 |----------|----------------|
-| **Session & Infrastructure** (3) | `dw-case-brain`, `dw-case-dashboard`, `dw-template-selector` |
+| **Session & Infrastructure** (2) | `dw-case-brain`, `dw-case-dashboard` |
 | **Master Orchestrators** (2) | `dw-criminal-defense`, `dw-transcript-router` |
 | **Discovery Triage & Prep** (4) | `dw-discovery-orchestrator`, `dw-discovery-compliance-monitor`, `dw-evidence-placeholder`, `dw-image-filename-stamp` |
 | **Transcription Pipelines** (3) | `dw-transcript-pipeline-calcasieu`, `dw-transcript-pipeline-rev`, `dw-dmar-synthesizer` |

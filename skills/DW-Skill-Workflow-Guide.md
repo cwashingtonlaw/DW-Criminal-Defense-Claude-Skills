@@ -1122,7 +1122,7 @@ Skills that are not tied to a specific phase. Invoke at any point during casewor
 | **Purpose** | Draft standard pretrial motions — 11 motion types covering "bread and butter" defense practice |
 | **Trigger** | "speedy trial" / "bill of particulars" / "motion to compel" / "continuance" / "severance" / "change of venue" / "recusal" / "reveal the deal" / "quash" / "competency evaluation" / "701 motion" |
 | **Inputs** | Case facts, relevant statutory basis, court/judge information |
-| **Outputs** | Draft motion with memorandum in support, using firm templates (searched via `dw-template-selector` in DEVONthink) |
+| **Outputs** | Draft motion with memorandum in support, using firm templates (searched via the template selection protocol in `dw-shared-protocols/references/template-selection-protocol.md`) |
 
 #### dw-witness-statement-analyzer
 

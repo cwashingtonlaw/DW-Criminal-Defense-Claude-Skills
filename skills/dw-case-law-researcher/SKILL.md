@@ -13,7 +13,8 @@ description: >
   "who is the judge," "verify this citation," or any request for legal authority during motion
   drafting. Also auto-invoked by other D&W skills (suppression, 404(b), bond, sentencing, etc.)
   when they need on-point authority beyond DEVONthink templates. Do NOT use for template selection
-  (use dw-template-selector) or for general web search unrelated to legal authority.
+  (use the template selection protocol in dw-shared-protocols/references/template-selection-protocol.md)
+  or for general web search unrelated to legal authority.
 version: 1.1.0
 ---
 
