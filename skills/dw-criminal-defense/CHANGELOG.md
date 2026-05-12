@@ -1,12 +1,5 @@
 # dw-criminal-defense — Changelog
 
-## v5.8 (May 2026)
-
-Asset/reference categorization cleanup — one file moved, no behavioral change.
-
-- **`Evidence_Placeholder_Template.md` moved from `assets/` to `references/`.** The skill-creator rubric defines `assets/` as files used *in* the deliverable (templates, icons, fonts) and `references/` as docs Claude loads into context. The Evidence Placeholder template is a layout *specification* — the actual PDF is generated programmatically by `scripts/generate_placeholders.py`, and the script's layout is hardcoded, not read from the .md file at runtime. The file's only function is as a human-readable spec for Claude (and future maintainers) to understand the expected output format. That makes it a reference, not an asset. SKILL.md updated in two places: the bundled-resources tree (top of file) and the Phase 1 Step 2f inline path.
-- **`assets/` is now correctly limited to the two true templates** (`CASE PROFILE.docx` and `Case Tables.xlsx`) — both of which are copied into the case folder and become the working deliverables.
-
 ## v5.7 (May 2026)
 
 Closes the v5.5 follow-up backlog — three coordinated changes to `references/case-profile-procedure.md` and `assets/CASE PROFILE.docx`.

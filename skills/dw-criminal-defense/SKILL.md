@@ -9,7 +9,7 @@ description: >
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.8 | Internal Use Only**
+**Version 5.7 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
 
@@ -35,11 +35,11 @@ dw-criminal-defense/
 │   ├── lwop-extraction-patterns.md       ← How to extract each LWOP field from discovery
 │   ├── color-coding.md                   ← Spreadsheet color specs for all Case Tables sheets
 │   ├── folder-structure-and-naming.md    ← Standard case folder structure + document naming conventions
-│   ├── quick-reference.md                ← Cowork action types, sheet index, phase quick map, specialist skill routing
-│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs (read by Claude; script hardcodes layout)
+│   └── quick-reference.md                ← Cowork action types, sheet index, phase quick map, specialist skill routing
 ├── assets/
 │   ├── CASE PROFILE.docx                 ← Master Case Profile template (Part 1 + case-type Parts 2A/2B/2C)
-│   └── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
+│   ├── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
+│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs
 └── scripts/
     └── generate_placeholders.py          ← Generates one-page placeholder PDFs for media evidence folders
 ```
@@ -135,7 +135,7 @@ python3 <skill-directory>/scripts/generate_placeholders.py \
   [--folders "folder1" "folder2" ...]  # optional: specific folders only
 ```
 
-If `--folders` is omitted, the script processes all subfolders automatically. The script scans each subfolder for file counts, types, and size; classifies contents by media type (Audio, Photo/Image, Video, Other Data); generates a one-page PDF placeholder matching the firm's template layout (defined in `references/Evidence_Placeholder_Template.md`); and names each PDF identically to its source folder.
+If `--folders` is omitted, the script processes all subfolders automatically. The script scans each subfolder for file counts, types, and size; classifies contents by media type (Audio, Photo/Image, Video, Other Data); generates a one-page PDF placeholder matching the firm's template layout (defined in `assets/Evidence_Placeholder_Template.md`); and names each PDF identically to its source folder.
 
 **Workflow:**
 - Identify every subfolder in `05 - Evidence` that contains media files
@@ -472,4 +472,4 @@ Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliv
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.8 (May 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.7 (May 2026). Update this file whenever the master workflow document is revised.*
