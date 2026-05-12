@@ -62,7 +62,7 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## Contract 2: Auditor Skill Reports
 
-**Producers:** All `dw-*-auditor` skills (mobile-forensic, video-evidence, crime-scene, chain-of-custody, cell-site-geolocation, social-media, eyewitness-identification, confession-interrogation, child-forensic-interview, expert-witness-evaluator)
+**Producers:** All `dw-*-auditor` skills (mobile-forensic, video-evidence, crime-scene, chain-of-custody, cell-site-geolocation, social-media, eyewitness-identification, confession-interrogation, child-forensic-interview, expert-witness-evaluator, dna-forensic-biology, crime-lab)
 **Consumers:** `dw-cross-exam-architect`, `dw-trial-notebook-builder`, `dw-case-dashboard`, `dw-case-brain`
 
 ### Filename Pattern
@@ -72,6 +72,8 @@ Examples:
 - `Mobile Forensic Extraction Audit — Cole 2026-04-01.docx`
 - `Video Evidence Audit — Tezeno 2026-03-15.docx`
 - `Chain of Custody Audit — Nicholas 2026-03-20.docx`
+- `DNA Audit Report — Cole 2026-05-10.docx`
+- `Crime Lab Audit Report — Cole 2026-05-10.docx`
 
 ### Required Sections (all auditor reports must include)
 1. **Executive Summary** — 2-3 paragraph overview of findings and significance
@@ -122,6 +124,92 @@ The outline uses the firm's chapter-based template format:
 
 ### Output Location
 `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` or `Defense Witnesses/`
+
+---
+
+## Contract 3A: Direct-Examination Outlines
+
+**Producer:** `dw-direct-exam-architect`
+**Consumers:** `dw-trial-notebook-builder`, `dw-case-brain`
+
+### Three Deliverables per Defense Witness
+
+| # | Deliverable | Format | Filename Pattern |
+|---|------------|--------|-----------------|
+| 1 | Direct-Examination Outline | .docx | `Direct-Examination — [Witness Name].docx` |
+| 2 | Source/Exhibit Document Catalog | .pdf | `Source Catalog — [Witness Name] Direct.pdf` |
+| 3 | Combined Source Documents | .pdf | `Combined Sources — [Witness Name] Direct.pdf` |
+
+### Direct-Examination Outline Required Structure
+The outline uses the firm's chapter-based template format with an 8-column structure. The Direct-Exam template mirrors the Cross-Exam template with one substitution — "Impeachment Hooks" → "Anticipated Cross-Attack Vectors":
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| Chapter Title | Topic area for this line of questioning | Yes |
+| Page | Reference page in source documents | Yes |
+| Witness | Full name of the witness | Yes |
+| Goals | What this chapter aims to establish | Yes |
+| Source | Bate stamp or document reference | Yes |
+| Questions | Specific questions in non-leading form (Who/What/When/Where/Why/How/Describe/Tell) | Yes |
+| Anticipated Cross-Attack Vectors | Predicted state cross attacks on this material with rebuttal preparation | Yes |
+| Notes | Attorney notes, evidentiary flags, foundation requirements | Optional |
+
+### Output Location
+`01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`
+
+---
+
+## Contract 3B: Trial Narrative Deliverables (Opening + Closing)
+
+**Producer:** `dw-trial-narrative-builder`
+**Consumers:** `dw-trial-notebook-builder`, `dw-case-brain`, `dw-appellate-error-monitor`
+
+### Four Deliverables (built in pairs — opening and closing built together for theme coherence)
+
+| # | Deliverable | Format | Filename Pattern |
+|---|------------|--------|-----------------|
+| 1 | Opening Statement | .docx | `Opening Statement — [Client Last Name] [YYYY-MM-DD].docx` |
+| 2 | Closing Argument | .docx | `Closing Argument — [Client Last Name] [YYYY-MM-DD].docx` |
+| 3 | Theme Tracker | .xlsx | `Theme Tracker — [Client Last Name] [YYYY-MM-DD].xlsx` |
+| 4 | Rebuttal Anticipation Memo | .docx | `Rebuttal Anticipation Memo — [Client Last Name] [YYYY-MM-DD].docx` |
+
+### Opening Statement Required Sections
+1. Hook / Opening Line — memorable first sentence
+2. Defense Story-Arc Preview (situation → conflict → defense theory) — preview, not argument (La. C.Cr.P. Art. 765/774)
+3. Burden Framing — what the State must prove and the reasonable-doubt anchor
+4. Theme Registration (3-5 themes, verbatim phrases) — these are tagged in the Theme Tracker for callback in closing
+5. Exhibit Foreshadowing — 3-5 exhibits the jury will see
+6. Closing Line — memorable image the jury carries into the State's case
+
+### Closing Argument Required Sections
+1. Theme Callback to Opening — verbatim phrase repetition from opening themes
+2. Burden Hammer — reasonable doubt, presumption of innocence, State's burden
+3. Jury Instruction Walk-Through — reasonable doubt definition (Cage v. Louisiana / In re Winship), lesser-included responsive verdicts, affirmative-defense burden if applicable
+4. Evidence-Keyed Defense Story — each piece of defense evidence mapped to its supporting theme
+5. State Rebuttal Anticipation Block — predicted state rebuttal points with woven pre-rebuttal lines (see Rebuttal Anticipation Memo)
+6. Closing Line — defense theme final image
+
+### Theme Tracker (.xlsx) Required Columns
+
+| Column | Type | Required |
+|--------|------|----------|
+| Theme # | Integer | Yes |
+| Theme Text | Text (3-7 words, verbatim phrase) | Yes |
+| Opening Registration | Text (page/section reference in opening) | Yes |
+| Mid-Trial Reinforcement | Text (witness/exhibit/cross moment) | Optional |
+| Closing Callback | Text (section reference in closing) | Yes |
+| Status | Dropdown (Registered / Reinforced / Dropped) | Yes |
+| Notes | Text | No |
+
+### Rebuttal Anticipation Memo Required Sections
+For each predicted state rebuttal point:
+1. What the State will likely say (predicted language)
+2. Why it's wrong (legal or factual rebuttal)
+3. Pre-rebuttal line woven into defense closing (verbatim)
+4. Fallback objection if state rebuttal exceeds scope (La. C.Cr.P. Art. 774 grounds)
+
+### Output Location
+`01 - Trial Notebook/02 - Opening & Closing/`
 
 ---
 
@@ -262,12 +350,15 @@ Example:
 | Contract | Version | Last Updated | Breaking Changes |
 |----------|---------|-------------|-----------------|
 | DMAR | 1.0 | April 2026 | Initial |
-| Auditor Reports | 1.0 | April 2026 | Initial — added "Key Findings for Cross-Examination" section |
+| Auditor Reports | 1.1 | May 2026 | Producer list expanded to include `dw-dna-forensic-biology-auditor` and `dw-crime-lab-auditor` |
 | Cross-Exam Outlines | 1.0 | April 2026 | Initial |
+| Direct-Exam Outlines (3A) | 1.0 | May 2026 | Initial — mirrors Cross-Exam with 8-column structure; "Impeachment Hooks" → "Anticipated Cross-Attack Vectors" |
+| Trial Narrative Deliverables (3B) | 1.0 | May 2026 | Initial — Opening Statement, Closing Argument, Theme Tracker, Rebuttal Anticipation Memo |
 | Case Tables Sheets | 1.0 | April 2026 | Initial |
 | Case Brain Registration | 1.0 | April 2026 | Initial |
 | Discovery Compliance Ledger | 1.0 | April 2026 | Initial |
 
 ---
 
+*Version 1.1 — May 2026. Added Contracts 3A (Direct-Exam Outlines from `dw-direct-exam-architect`) and 3B (Trial Narrative Deliverables from `dw-trial-narrative-builder`). Updated Contract 2 producer list to include the new `dw-dna-forensic-biology-auditor` and `dw-crime-lab-auditor` skills.*
 *Version 1.0 — April 2026. Created as part of the D&W skill architecture consolidation.*
