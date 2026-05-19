@@ -35,11 +35,11 @@ dw-criminal-defense/
 │   ├── lwop-extraction-patterns.md       ← How to extract each LWOP field from discovery
 │   ├── color-coding.md                   ← Spreadsheet color specs for all Case Tables sheets
 │   ├── folder-structure-and-naming.md    ← Standard case folder structure + document naming conventions
-│   ├── quick-reference.md                ← Cowork action types, sheet index, phase quick map, specialist skill routing
-│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs (read by Claude; script hardcodes layout)
+│   └── quick-reference.md                ← Cowork action types, sheet index, phase quick map, specialist skill routing
 ├── assets/
 │   ├── CASE PROFILE.docx                 ← Master Case Profile template (Part 1 + case-type Parts 2A/2B/2C)
-│   └── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
+│   ├── Case Tables.xlsx                  ← Master spreadsheet template (copy to new case roots)
+│   └── Evidence_Placeholder_Template.md  ← Layout spec for digital evidence placeholder PDFs
 └── scripts/
     └── generate_placeholders.py          ← Generates one-page placeholder PDFs for media evidence folders
 ```
@@ -135,7 +135,7 @@ python3 <skill-directory>/scripts/generate_placeholders.py \
   [--folders "folder1" "folder2" ...]  # optional: specific folders only
 ```
 
-If `--folders` is omitted, the script processes all subfolders automatically. The script scans each subfolder for file counts, types, and size; classifies contents by media type (Audio, Photo/Image, Video, Other Data); generates a one-page PDF placeholder matching the firm's template layout (defined in `references/Evidence_Placeholder_Template.md`); and names each PDF identically to its source folder.
+If `--folders` is omitted, the script processes all subfolders automatically. The script scans each subfolder for file counts, types, and size; classifies contents by media type (Audio, Photo/Image, Video, Other Data); generates a one-page PDF placeholder matching the firm's template layout (defined in `assets/Evidence_Placeholder_Template.md`); and names each PDF identically to its source folder.
 
 **Workflow:**
 - Identify every subfolder in `05 - Evidence` that contains media files
@@ -159,7 +159,7 @@ If `--folders` is omitted, the script processes all subfolders automatically. Th
 
 Read **`references/case-profile-procedure.md`** for the full operating manual. That file covers:
 - The two operating modes (Initial Generation vs. Refresh)
-- Part 1 (always populated) — six sections of Case Identification, Charges, Arraignment, Defenses, Background, Key Dates
+- Part 1 (always populated) — ten sections covering Case Identification (with case classification and next court date), Probation/Parole Status, Charges, Arraignment & Bail History, Court Appearance Log, Case-Specific Defenses, Client Background, Plea Discussions Log, Family/Friends Contact List, and Key Dates & Next Steps
 - Part 2 (case-type specific) — 2A LWOP Homicide, 2B LWOP Sex Offense, or 2C Other Felony
 - LWOP population workflow with extraction priority order, sourcing rules, and formatting conventions
 - Attorney-only field handling (red font preservation)
@@ -172,7 +172,7 @@ For LWOP cases (Part 2A or 2B in scope), also read `references/lwop-field-maps.m
 **✓ Step 3 Check:**
 - [ ] Operating mode selected (Initial Generation or Refresh)
 - [ ] `000 - Case Profile.docx` saved to `Pretrial Notebook → 03 - Case Analysis & Notes`
-- [ ] Part 1 sections 1–6 populated (Initial Generation) OR existing Part 1 preserved (Refresh)
+- [ ] Part 1 sections 1–10 populated (Initial Generation) OR existing Part 1 preserved with Next Court Date refreshed (Refresh)
 - [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges
 - [ ] If LWOP: every field in `lwop-field-maps.md` for the active branch is present (field-completeness checklist run)
 - [ ] All `[ATTORNEY]` fields preserved in red
