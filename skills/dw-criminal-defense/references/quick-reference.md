@@ -66,6 +66,7 @@ The master template in `assets/Case Tables.xlsx` contains all sheets below with 
 | Child forensic interviews (CAC) | `dw-child-forensic-interview-auditor` |
 | Expert witness Daubert/Foret challenges | `dw-expert-witness-evaluator` |
 | Chain of custody | `dw-chain-of-custody-auditor` |
+| Investigator tasking, scene canvass, witness vetting | `dw-defense-investigator-tasking` |
 | Other crimes evidence (404(b), Prieur) | `dw-404b-opposition` |
 | Habitual offender bills, predicate convictions | `dw-habitual-offender-auditor` |
 | Sentencing memos, mitigation, PSI audit | `dw-sentencing-mitigation-specialist` |

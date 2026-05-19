@@ -18,7 +18,7 @@ The `Case Tables.xlsx` template contains **Defense Shield templates** — compre
 
 2. **Evaluate every defense row against the actual case facts.** For each potential defense, ask:
    - Does the discovery contain evidence supporting this defense?
-   - Does the Case Profile (Section 4 — Case-Specific Defenses) flag facts relevant to this defense?
+   - Does the Case Profile (Section 6 — Case-Specific Defenses) flag facts relevant to this defense?
    - Do the 8 Case Analysis Reports identify weaknesses in the State's case that this defense exploits?
 
 3. **Populate only the applicable defenses.** For each defense that has factual support in this case:

@@ -17,7 +17,7 @@ This single document replaces the former Initial Case Profile, Criminal Defense 
 
 The template has two parts:
 
-- **Part 1 — Case Profile** (six sections). Populate for **every** case.
+- **Part 1 — Case Profile** (ten sections). Populate for **every** case.
 - **Part 2 — Case-Type Specific Review Sheet.** Populate **exactly one** of Part 2A, 2B, or 2C based on the charges:
   - **Part 2A — LWOP Homicide** — for cases with LWOP exposure on a homicide charge (La. R.S. 14:30, 14:30.1). Submit to the District Defender per Calcasieu PDO requirements.
   - **Part 2B — LWOP Sex Offense** — for cases with LWOP exposure on a sex offense charge (La. R.S. 14:42, 14:42.1, 14:43, 14:43.1, 14:81.2). Submit to the District Defender 30 days after appointment and every consecutive 30 days.
@@ -33,14 +33,17 @@ Step 3 has two operating modes. Pick the right one before starting.
 
 **Initial Generation Mode** — runs as part of Phase 1 intake when no `000 - Case Profile.docx` exists yet on the case file. Populates the entire document end-to-end.
 
-**Refresh Mode** — runs when `000 - Case Profile.docx` already exists and new discovery has arrived. Updates Part 2A/2B fields from the new discovery only. **Never** overwrites attorney-entered content. **Never** re-touches Part 1 Sections 1–6 unless the attorney explicitly says "rebuild the Case Profile."
+**Refresh Mode** — runs when `000 - Case Profile.docx` already exists and new discovery, new court appearances, new plea offers, or other new artifacts have arrived. Updates fields from the new artifacts only. **Never** overwrites attorney-entered content. **Never** re-touches Part 1 sections 1–10 wholesale unless the attorney explicitly says "rebuild the Case Profile." Refresh Mode appends rows to multi-row tables (Court Appearance Log, Plea Discussions Log, Arraignment History, Family/Friends Contact List, Key Dates, High Priority Next Steps) when genuinely new data arrives, and updates the **Next Court Date** highlighted cell at the top of § 1 from the courtroom calendar.
 
 Triggers for Refresh Mode:
 - "Update the LWOP review"
 - "Refresh the Case Profile"
 - "New discovery came in — update Part 2A"
 - "Re-pull the LWOP fields"
-- The case folder already contains `000 - Case Profile.docx` AND new discovery has been added since its last modification
+- "New court date — update the cover"
+- "Log the plea offer"
+- "Log today's court appearance"
+- The case folder already contains `000 - Case Profile.docx` AND new discovery / minute entries / plea correspondence / appearance entries have been added since its last modification
 
 Initial Generation Mode is the default. If unclear which mode applies, ask the attorney.
 
@@ -48,22 +51,37 @@ Initial Generation Mode is the default. If unclear which mode applies, ask the a
 
 ## Part 1 — Case Profile (always completed)
 
+Part 1 contains ten sections. Sections marked **[NEW v5.8]** were added to capture fields that previously lived only on the firm's legacy Criminal Defense Cover Sheet; they are now native to the Case Profile and obviate the need for any separate cover artifact.
+
 **Section 1 — Case Identification**
+
+***Case Classification*** **[NEW v5.8]**
+A four-checkbox row at the very top of § 1: ☐ MISDEMEANOR ☐ FELONY ☐ STATE ☐ FEDERAL. Quick visual triage cue for the attorney and for staff routing.
+
+**Sourcing:** Bill of Information / Indictment header (state vs. federal forum); statute classification (felony vs. misdemeanor under La. R.S. 14:2 / Title 14 / Title 40); for dual state-federal exposure (e.g., 922(g) stacked on R.S. 14:95.1), mark both STATE and FEDERAL and add a Section 1 note flagging the dual prosecution.
+
+***Next Court Date*** **[NEW v5.8]**
+A single highlighted row (yellow label, soft-red value cell) immediately below Case Classification. This is the *current* next court date — the attorney's at-a-glance answer to "when is this case back in court?" Refresh Mode updates this cell every time a new appearance is set or rescheduled. The full forward-looking procedural calendar still lives in § 10 Key Dates; the Next Court Date row is a pointer to whichever § 10 row is closest to today.
+
+**Sourcing:** Court minute entries, scheduling orders, JusticeWorks portal, Google Calendar entry for the case, or attorney/staff verbal update. Format as `MM-DD-YYYY @ HH:MM — [Appearance Type] — [Courtroom/Division]`.
 
 ***Defendant***
 - Name | DOB | Place of Birth | Race/Sex | Physical Description
 - SS# | Immigration Status
 - Address | Phone | Email
 
-**Sourcing for the new Defendant fields:** Place of Birth and Race/Sex → booking record or NCIC / RAP sheet. Physical Description → booking record or incident report narrative (height, weight, build, distinguishing marks, tattoos, scars). Immigration Status → client interview, jail intake screening sheet, or any ICE detainer or A-file reference in discovery. If the client is a non-citizen, flag the case for collateral-consequences review and route plea analysis to **dw-plea-negotiation-analyzer** with the immigration impact noted.
+**Sourcing for the Defendant fields:** Place of Birth and Race/Sex → booking record or NCIC / RAP sheet. Physical Description → booking record or incident report narrative (height, weight, build, distinguishing marks, tattoos, scars). Immigration Status → client interview, jail intake screening sheet, or any ICE detainer or A-file reference in discovery. If the client is a non-citizen, flag the case for collateral-consequences review and route plea analysis to **dw-plea-negotiation-analyzer** with the immigration impact noted.
 
 ***Complaining Witness / Victim*** *(if applicable; if multiple complainants/victims, list each)*
 - Name | DOB | Race/Sex | Address
 
 ***Court & Case Numbers***
-- Docket # | Court | Division | Judge
+- Docket # | Docket # (Companion / Related) **[NEW v5.8]** | Bill / Indictment Date **[NEW v5.8]**
+- Court | Division | Judge
 - Date of Offense | Date of Arrest | Date of Hire
 - Co-Defendant(s) (if any)
+
+**Sourcing for Bill/Indictment Date:** date stamp on the Bill of Information or grand jury Indictment as filed. Distinct from Date of Arrest (which can precede the bill by weeks or months). Companion / Related docket numbers capture severed counts, parallel magistrate-court dockets, related civil proceedings (protective orders, custody actions), or co-defendant dockets — anything the attorney needs to cross-reference for conflict, discovery, or scheduling.
 
 ***Investigative / Prosecution Personnel***
 - Case Detective
@@ -96,9 +114,37 @@ Table of every phone, tablet, computer, hard drive, USB device, vehicle, weapon,
 
 **Suppression trigger:** any device or item that appears in discovery without a corresponding warrant, consent record, or arrest-incident inventory entry → flag in red and route to **dw-suppression-motion**.
 
-**Cowork populates** Defendant identifying fields, Complaining Witness / Victim identifying fields, Court & Case Numbers, the Investigative / Prosecution Personnel block, and the Seized Property / Devices table from charging instruments, police reports, search and arrest warrants, property receipts and evidence inventories, lab reports, SANE reports, and court filings where available. **Staff/Attorney completes** remaining demographic fields after client and family interviews. If the complaining witness is a minor, redact identifying details in any externally distributed copy.
+**Cowork populates** Case Classification (best inference from charges; attorney confirms), Defendant identifying fields, Complaining Witness / Victim identifying fields, Court & Case Numbers (including Bill/Indictment Date and any Companion Docket #), the Investigative / Prosecution Personnel block, and the Seized Property / Devices table from charging instruments, police reports, search and arrest warrants, property receipts and evidence inventories, lab reports, SANE reports, and court filings where available. **Staff/Attorney completes** remaining demographic fields after client and family interviews. Next Court Date is updated by Cowork on every Refresh from court minutes / scheduling orders. If the complaining witness is a minor, redact identifying details in any externally distributed copy.
 
-**Section 2 — Charges & Exposure**
+---
+
+**Section 2 — Probation/Parole Status** **[NEW v5.8]**
+
+Populate **only** if the client is currently on probation, parole, drug court, diversion, or any form of court supervision (state or federal) at the time of the new arrest. A probation/parole hold can override bond reduction and is often the gating issue for pretrial release; failure to capture this on intake is the single most common cause of an unwinnable bond hearing.
+
+Twelve fields in a 2-column label/value table:
+- On Probation or Parole? (Y/N)
+- Type (Probation / Parole / Drug Court / Diversion / Other)
+- Parole / Probation Officer
+- Officer Phone / Email
+- Supervising Court / Parish
+- Underlying Conviction / Docket #
+- Supervision Start Date
+- Supervision Expiration Date
+- Sentence Eligibility / Time Remaining
+- Detainer / Hold Active? (Y/N — flag in red if Y)
+- Special Conditions (drug testing, GPS, no-contact, curfew)
+- Notes / Revocation Exposure `[ATTORNEY]`
+
+**Sourcing:** Client interview, NCIC / RAP sheet, prior PSI, parole certificate or supervision agreement, P/P officer direct contact, or jail intake screening (which often surfaces an active detainer). Federal supervision data lives on the federal PACER docket; state supervision data is usually accessible through the DOC inmate locator or by direct call to the supervising officer.
+
+**Routing:** Active detainer → **dw-bond-and-release-motion** with the revocation-versus-new-charge sequencing strategy noted. Pending revocation hearing → flag in § 10 High Priority Next Steps. If the new charges are likely to trigger revocation regardless of disposition, route plea analysis to **dw-plea-negotiation-analyzer** so the global-resolution math is correct.
+
+If the client is **not** on supervision, mark the first row "N" and leave the rest blank. Do not delete the section.
+
+---
+
+**Section 3 — Charges & Exposure**
 
 ***Charges (per count)***
 
@@ -125,14 +171,59 @@ Cross-cutting analysis under La. R.S. 15:529.1. Capture in a single narrative ce
 
 Route to **dw-habitual-offender-auditor** for the full audit.
 
-**Section 3 — Arraignment & Bail**
-- Arraignment: Date | Charges Read | Prosecutor | Judge
-- Plea entered
-- Bail status: ROR / REMAND / BAIL SET — record bond amounts
-- Conditions of release
-- **Populate from court filings when available; leave blank fields for attorney completion.**
+---
 
-**Section 4 — Case-Specific Defenses**
+**Section 4 — Arraignment & Bail History**
+
+***Arraignment History*** **[EXPANDED v5.8]** *(one row per arraignment or re-arraignment)*
+
+Six-column multi-row table — captures every arraignment proceeding. The initial arraignment is row 1; any re-arraignment after an amended bill, a superseding indictment, or a habitual offender bill arraignment is a new row.
+
+| Date | Charges Read | Prosecutor | Judge | Plea Entered | Notes |
+|---|---|---|---|---|---|
+
+***Bail / Bond***
+
+Seven-field label/value table — the State of the Bail. Distinct from § 5 Court Appearance Log, which captures every appearance; this block captures only the bail/bond posture and its modifications.
+
+- Bail Status (ROR / REMAND / BAIL SET / EXAM ORDERED)
+- Bond Amount — Total
+- Bond Type (Commercial Surety / Cash / Property / Personal Recognizance)
+- Cash Bond Amount (if posted) **[NEW v5.8]** — the actual cash posted, distinct from total bond. Material when source-of-funds disputes arise (R.S. 15:85.1) or when refundability of bond is at issue.
+- Bail Set / Hearing Date
+- Conditions of Release (GPS, no-contact, drug testing, curfew, travel restrictions)
+- Bail Notes (history of bond hearings, modifications, source-of-funds disputes) **[NEW v5.8]**
+
+**Sourcing:** Bond order, court minute entries, surety affidavit, bond receipt, conditions-of-release form. The "Bail Notes" cell is the free-text history of every bail modification — Cowork populates the chronology; attorney annotates strategy.
+
+**Populate from court filings when available; leave blank fields for attorney completion.**
+
+---
+
+**Section 5 — Court Appearance Log** **[NEW v5.8]**
+
+Backward-looking chronological record of every court appearance after the initial arraignment — status conferences, motion hearings, pre-trial conferences, calendar calls. **Distinct from § 10 Key Dates**, which is forward-looking statutory deadlines and upcoming procedural milestones. This section answers "what's happened so far"; § 10 answers "what's coming."
+
+Six-column multi-row table:
+
+| Date | Appearance Type | ADA | Judge | Bail Status | Notes / Rulings |
+|---|---|---|---|---|---|
+
+- **Date:** MM-DD-YYYY.
+- **Appearance Type:** Status / Motion Hearing / Pretrial Conference / Calendar Call / Continuance / Rule to Show Cause / Other.
+- **ADA:** name of prosecutor who appeared (often differs from the Prosecuting ADA of record).
+- **Judge:** name of judge who took the bench (often a duty judge differing from the assigned judge).
+- **Bail Status:** ROR / REMAND / Bond Continued at $X / Bond Modified to $X. Captures any change to bail at that appearance.
+- **Notes / Rulings:** rulings made, continuances granted (and to what date), motions ore tenus, what was discussed off-the-record at sidebar, any preservation-of-error issues — route preservation issues to **dw-appellate-error-monitor**.
+
+**Sourcing:** court minute entries, attorney post-court notes (Plaud recordings, Apple Notes session bookends in Case Brain), staff intake from clerk's office.
+
+**Refresh Mode:** append-only — never modify existing rows. New appearances become new rows in chronological order. Update Next Court Date in § 1 from the most recent appearance's continuance ruling.
+
+---
+
+**Section 6 — Case-Specific Defenses** *(Repeat for each defense)*
+
 Review all available case file materials — arrest reports, police narratives, witness statements, evidence logs, bodycam summaries, transcripts, and any other intake documents. Identify defenses grounded in what the case file actually contains. This is not a list of generic defenses.
 
 For each potential defense, include:
@@ -143,7 +234,9 @@ For each potential defense, include:
 - Affirmative defenses supported by the facts
 - Recommendation for attorney investigation
 
-**Section 5 — Client Background** *(Attorney completes after client interview)*
+---
+
+**Section 7 — Client Background** *(Attorney completes after client interview)*
 - Prior Criminal History
   - **Format guidance for LWOP cases (Part 2A or 2B applies):** Use structured list `MM-DD-YYYY — Offense Name (Disposition)`, one prior per line. The District Defender expects rap-sheet-style summaries on submitted forms. Pull from the client's NCIC printout / RAP sheet. Include dispositions where available.
   - **Format guidance for non-LWOP cases:** Narrative form is acceptable.
@@ -151,9 +244,59 @@ For each potential defense, include:
 - Educational History
 - Employment History
 - Medical / Mental Health
+- Substance Abuse History **[NEW v5.8]** — separated from Medical/Mental Health because it drives different doctrine (R.S. 13:5304 drug court eligibility, federal safety-valve under 18 U.S.C. § 3553(f), and several mitigation pathways). Capture history of use, history of treatment (inpatient/outpatient/Medication-Assisted Treatment), current sobriety status, any substance-related prior convictions.
 - Military Service (if applicable)
+- Other Relevant Info **[NEW v5.8]** — anything that informs case theory or mitigation that doesn't fit the named buckets above. Examples: TBI history, foster care background, victimization history, immigration status nuance (separate from § 1 Defendant field), language proficiency, learning disabilities, financial dependents, custodial obligations.
 
-**Section 6 — Key Dates & Next Steps**
+---
+
+**Section 8 — Plea Discussions Log** **[NEW v5.8]**
+
+Every plea offer extended by the State, every counter-offer made by the defense, and every conveyance to the client. Rule 1.4 of the Louisiana Rules of Professional Conduct requires that material decisions — including plea offers — be communicated to the client; this log is the firm's contemporaneous record of compliance. For formal trial-exposure analysis of any specific offer, route to **dw-plea-negotiation-analyzer** (this log captures the existence and conveyance; the analyzer captures the math).
+
+Six-column multi-row table:
+
+| Date | Plea Offer / Counter | Source (ADA / Court / Email) | Conveyed to Client (Y/N + Date) | Client Response | Notes |
+|---|---|---|---|---|---|
+
+- **Date:** date the offer was made or received.
+- **Plea Offer / Counter:** terms in concrete form (e.g., "Plead to Ct. 1 as charged, dismiss Cts. 2-3, joint recommendation 15 yrs DOC w/ first 5 w/o benefits"). Counter-offers in the same row when made same-day; otherwise new row.
+- **Source:** named ADA + medium (email / in-chambers / on the record / phone call) + court date if on-record. Email source → save to case folder and cite the Bates or filename.
+- **Conveyed to Client (Y/N + Date):** Rule 1.4 trigger. If conveyed in person at jail, note jail visit date; if by mail, note send date; if by phone, note call date. If conveyance is pending, note "Pending — set for [date]."
+- **Client Response:** Accept / Reject / Counter / Take Time to Consider. Echo back specific language where consequential ("client says 'absolutely not' to any sex offender registration").
+- **Notes:** strategic context (was this offered before or after the suppression ruling? before or after the State got the lab report?).
+
+**Sourcing:** ADA emails, court minute entries reflecting in-court offers, attorney post-court notes, Plaud recordings of client jail visits, dw-case-brain session entries.
+
+**Refresh Mode:** append-only — never modify existing rows. Conveyance updates may add a new row if a conveyance occurred after the row was first created and the original row left "Conveyed = No"; otherwise the original row's Conveyance cell is updated in place (the only field allowed to be modified in Refresh Mode for this table) and a note added in the Notes cell.
+
+---
+
+**Section 9 — Family / Friends Contact List** **[NEW v5.8]**
+
+The client's support network — the universe of non-client people who matter for the case. Used for sentencing mitigation, character witnesses, bond co-signers, jail visit coordination, family-status updates, and humanizing the client at trial. A potential character witness must be vetted before being committed to; a bond co-signer must be qualified before being offered to the State. This list is the working roster; vetting and qualifying happen separately.
+
+Six-column multi-row table:
+
+| Person | Relation | Phone / Email / Address | Role (Mitigation / Character / Bond / Support) | Vetted? | Notes |
+|---|---|---|---|---|---|
+
+- **Person:** full legal name. Nicknames go in Notes.
+- **Relation:** Mother / Father / Spouse / Partner / Sibling / Aunt-Uncle / Cousin / Grandparent / Child / Coworker / Pastor / Coach / Mentor / Employer / Friend / Other.
+- **Phone / Email / Address:** at least one durable contact method. Mark "Best to reach" in Notes if ambiguous.
+- **Role:** primary intended role (Mitigation = sentencing letter / PSI interview / hearing testimony; Character = trial character witness; Bond = potential co-signer / property pledge; Support = jail visits, fund transfers, family liaison). Multi-role people get the highest-stakes role here and the rest in Notes.
+- **Vetted?** Y / N / Pending. Vetting for Character witness means CCAP / background check + interview; for Bond means property ownership + credit verification; for Mitigation means readiness interview with attorney or investigator. **dw-defense-investigator-tasking** routes the vetting work.
+- **Notes:** known criminal history (disqualifies for Bond), prior cooperation with law enforcement on the client's case (disqualifies for Character), strained relationship (use carefully for Mitigation), language preferences, work-schedule constraints on jail visits.
+
+**Sourcing:** client interview (Section 7 prompts cover most of this — Cowork pre-populates from any names the client has volunteered in earlier sessions or in jail-call transcripts), jail intake visitor list, social-media public connections (LinkedIn / Facebook public profile — never DM-based outreach), Plaud recordings.
+
+**Privacy note:** This list is attorney work product. Never share externally without the named person's consent. Redact when producing the Case Profile to anyone outside the firm.
+
+**Refresh Mode:** append-only. New names become new rows. Vetting status updates in place.
+
+---
+
+**Section 10 — Key Dates & Next Steps**
 
 ***Key Dates***
 
@@ -162,7 +305,11 @@ The attorney's at-a-glance procedural calendar — court dates, statutory deadli
 | Date | Event Description | Source |
 |---|---|---|
 
-**Boundary with `Case Tables.xlsx — Timeline Sheet`:** Section 6 Key Dates holds *procedural* milestones — the courtroom calendar the attorney works off of. The Timeline Sheet, populated in Phase 3 Step 1 from the 8 case analysis reports, holds the comprehensive *evidentiary* timeline (every event, every source, conflict-flagged). Different audiences, different lifecycles. Do not sync the two; keep them deliberately separate.
+**Boundary with `Case Tables.xlsx — Timeline Sheet`:** § 10 Key Dates holds *procedural* milestones — the courtroom calendar the attorney works off of. The Timeline Sheet, populated in Phase 3 Step 1 from the 8 case analysis reports, holds the comprehensive *evidentiary* timeline (every event, every source, conflict-flagged). Different audiences, different lifecycles. Do not sync the two; keep them deliberately separate.
+
+**Boundary with § 5 Court Appearance Log:** § 5 is backward-looking (every appearance that has happened, with its rulings); § 10 Key Dates is forward-looking (every deadline and appearance that's coming, plus the past procedural milestones that anchor the case's calendar — date of arrest, bill filing, arraignment).
+
+**Boundary with § 1 Next Court Date:** The Next Court Date row in § 1 is a single highlighted cell pointing at whichever § 10 Key Dates row is closest to today. § 10 is the system of record; § 1 is the visual cue.
 
 Populate with both past and upcoming procedural events. Past events stay in the table — do not delete them; together they show the case's procedural posture at a glance.
 
@@ -202,16 +349,18 @@ Cowork-prepopulated, attorney-finalized list of the highest-priority case action
 
 Common high-priority steps Cowork should consider:
 - File written discovery demand and Brady/Giglio request → **dw-pretrial-motion-library**
-- File motion to suppress (any item flagged in Section 1 Seized Property without warrant/consent, or any Phase 2 Report 3 red flag) → **dw-suppression-motion**
+- File motion to suppress (any item flagged in § 1 Seized Property without warrant/consent, or any Phase 2 Report 3 red flag) → **dw-suppression-motion**
 - File bond reduction (if client in custody) → **dw-bond-and-release-motion**
 - File Art. 701 motion for release on lack of indictment / lack of trial → **dw-pretrial-motion-library**
 - File bill of particulars and motion to quash issues → **dw-pretrial-motion-library**
 - Send investigator on early scene visit, business canvass, witness locate → **dw-defense-investigator-tasking**
+- Vet § 9 contact-list names for Bond / Character / Mitigation roles → **dw-defense-investigator-tasking**
 - Retain experts (SANE, child psych, mobile forensics, ballistics) — name the expert(s) needed and the issue
-- Complete full client interview to populate Section 5 Background
+- Complete full client interview to populate § 7 Background and § 9 Family/Friends list
 - Order missing records (school, IEP, medical, mental health, military, employment)
 - Subpoena third-party records (phone subscriber records, surveillance footage, GPS/CSLI, EMS run reports)
 - Forensic extraction review on any device with Extraction Status = Complete → **dw-forensic-dump-analyzer**
+- If § 2 Probation/Parole shows active supervision: confirm detainer status and sequence revocation hearing strategy → **dw-bond-and-release-motion** + **dw-plea-negotiation-analyzer**
 
 Rank each step **High / Medium / Low** by the combination of deadline urgency and strategic impact. Cowork proposes the ranking; **attorney finalizes**. The combination of Status + Target Date gives the attorney a single-glance view of what's open, what's in flight, what's overdue, and what's been completed — without rows ever leaving the table.
 
@@ -224,122 +373,54 @@ Populate exactly one of Part 2A, 2B, or 2C. None of these fields duplicate Part 
 **Common to 2A / 2B / 2C** (every case-type branch contains these nine sections):
 1. **Key Dates (LWOP/case-specific):** Age at Time of Offense | Discovery Filed (date) | Discovery Received (date) | Trial Date
 2. **Co-Defendant Details:** Separately Charged? | Plea Status | Cooperating with State?
-3. **Case Specifics** — *differs per case type, see below*
+3. **Case Specifics** — *differs per case type, see lwop-field-maps.md*
 4. **Defendant Statement:** substance + voluntariness flags
 5. **Suppression Analysis:** Miranda advised/invoked, Voluntary, Reid technique, Confession, Statements credible, Against client's interest, Suppression motion Y/N + Why + basis
 6. **Motions:** Discovery, Bill of Particulars, Suppression(s), In Limine, Reveal the Deal, Bond Reduction (filed?, date filed, original amount, post-hearing amount), Speedy Trial, Other Motions, Reports Checklist, Prescription, Defendant testify? [ATTORNEY]
 7. **Investigation:** Investigator Assigned | Request Form Completed On | Requested by Attorney | Results
-8. **Evidence Inventory** — *differs per case type, see below*
+8. **Evidence Inventory** — *differs per case type, see lwop-field-maps.md*
 9. **Records & Authorizations:** HIPAA Y/N, Date Signed, Date Requested, Date Received, School Records, IEP, Date Records Requested, Date IEP Requested
 
-**Part 2A — LWOP Homicide-specific fields (Sections 3 and 8 only):**
-- Section 3: Alleged Victim(s) (* by name of any deceased) | Aggravating Factors (La. C.Cr.P. art. 905.4) | Theory of the Case — Initial [ATTORNEY] | Theory of the Case — Trial [ATTORNEY] | Witnesses (numbered list) | Witness Statements (numbered list) | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
-- Section 8: standard evidence inventory PLUS **Autopsy — Performed by**, **Autopsy — Date first read by attorney**, and lab column **Deceased** (alongside Client / Co-Defendant / Witness)
-- Footer: "Submission: To be submitted to the District Defender."
-
-**Part 2B — LWOP Sex Offense-specific fields (Sections 3 and 8 only):**
-- Section 3: Alleged Victim(s) (include ages & DOBs) | Aggravating Factors (focus on age of victim, relationship to defendant, use of force, threats, position of trust/authority) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
-- Section 8: standard evidence inventory PLUS **SANE Exam — Performed by**, **SANE Exam — Date first read by attorney**, **CAC Video — Is it viewable?**, **CAC Video — Date first viewed by attorney**, and lab column **Accuser** (alongside Client / Co-Defendant / Witness)
-- Footer: "Submission: To be submitted to the District Defender 30 days after appointment and again every consecutive 30 days."
-
-**Part 2C — Other Felony-specific fields (Sections 3 and 8 only):**
-- Section 3: Alleged Victim(s) / Complainant(s) (if applicable) | Charging Instrument Attached (Indictment or Bill of Information — Y/N) | Theory — Initial [ATTORNEY] | Theory — Trial [ATTORNEY] | Witnesses | Witness Statements | Police Report Summary | Possible Defense Witnesses [ATTORNEY]
-- Section 8: standard evidence inventory PLUS **Physical Evidence Inventory** (weapons, drugs, paraphernalia, clothing, etc.), **Lab type** (DNA, toxicology, ballistics, drug analysis, digital forensics), and lab column **Victim/Complainant** (alongside Client / Co-Defendant / Witness). No autopsy, SANE, or CAC fields.
-- No District Defender submission footer.
+(See `lwop-field-maps.md` for full Part 2A / 2B field schemas and `lwop-extraction-patterns.md` for sourcing rules per field. Part 2 was untouched by the v5.8 changes.)
 
 ---
 
-## Attorney-only fields
+## Refresh Mode — Detailed Merge Rules
 
-Every field marked `[ATTORNEY]` (Theory of the Case — Initial, Theory of the Case — Trial, Possible Defense Witnesses, Does Defendant want to testify?, and any Section 4 — Defenses entries that require client communication or strategic judgment) is rendered in **red font** with `[ATTORNEY]` placeholder text. Cowork leaves these blank.
+Refresh Mode runs when new evidence or events arrive after the Case Profile is already built. The merge logic differs by table type.
 
-In the XML, apply red font by setting `<w:color w:val="FF0000"/>` inside the `<w:rPr>` run properties for the relevant text runs.
+**For label/value tables (most of Part 1 § 1, § 2, § 4 Bail/Bond, § 7 Client Background, and all of Part 2):**
 
-Any content flagged for attorney review (conflicts between sources, preliminary assessments, items needing verification) should also be rendered in red font so the attorney can spot it at a glance.
-
----
-
-## LWOP Population (Part 2A / 2B)
-
-When the case has LWOP exposure (Part 2A or 2B is in scope), populate Part 2A or 2B of `000 - Case Profile.docx` directly from discovery using the field schema in `lwop-field-maps.md` and the extraction rules in `lwop-extraction-patterns.md`.
-
-**Extraction priority order (read documents in this sequence):**
-
-1. Charging Instrument (Indictment / Bill of Information) — establishes charges, docket, defendant name, victim names
-2. Police / Incident Report — core facts, witnesses, timeline, officer names
-3. Defendant Statement — Miranda status, confession/denial, voluntariness
-4. Witness Statements — corroboration or inconsistency with police report
-5. Autopsy Report (Homicide) / SANE Report (Sex Offense) — forensic evidence
-6. Lab Reports — toxicology, DNA, ballistics
-7. CAC Interview (Sex Offense) — victim's account
-8. Criminal History (RAP sheet) — prior convictions for Part 1 Section 5
-9. Medical Records — HIPAA-related records
-10. Investigator Reports — defense investigation results
-11. Filed Motions — motions section data
-12. Bond Documents — bond reduction data
-
-For each field, follow the source-priority and extraction notes in `lwop-field-maps.md`. Critical sourcing rules:
-
-| Field | Source | Notes |
-|---|---|---|
-| Indictment Date | Date printed on the Grand Jury Indictment / Bill of Information | The filing date on the instrument itself, not the offense date |
-| Age at Time of Offense | Calculated from client DOB (booking/RAP) vs. offense date | If DOB unavailable, note approximate age from documents |
-| Indictment Attached | Always mark **Yes** | If we have the case folder and are filling Part 2A/2B, the indictment is presumed present |
-| Prior Convictions | Client's RAP sheet / NCIC printout | Format MM-DD-YYYY — Offense Name (Disposition); pull into Part 1 Section 5 |
-
-**Formatting conventions:**
-- **Witnesses:** Numbered list. Each entry: number, bolded name, then relationship in parentheses (e.g., "1. **Det. John Smith** (lead detective)"; "2. **Maria Garcia** (eyewitness, neighbor)").
-- **Witness Statements:** Numbered list. Each entry: number, bolded witness name, who took the statement, date/time, summary with direct quotes bolded. Note inconsistencies between witnesses.
-- **Charges:** Include the Louisiana statute number (e.g., "14:42 First Degree Rape").
-- **Aggravating Factors:** Include specific alleged acts, not just legal categories.
-- **Police Report Summary:** Specific times, locations, officer actions, dispatch/arrival times.
-- Direct quotes are **bolded**.
-
-**Field-completeness checklist (mandatory before saving):**
-Walk every field listed for the active case-type branch in `lwop-field-maps.md`. For each field:
-1. Confirm the field label exists in the output document
-2. Confirm the data cell is present (populated or blank — but the cell exists)
-3. If a field is missing, stop and add it before proceeding
-
-Log any fields left blank and the reason (missing discovery, attorney-only field, etc.) in the completion notes.
-
-**Completion notes (after generating the document):**
-Provide a brief summary including:
-1. Fields populated — which fields were filled and from which source documents
-2. Fields left blank — which fields could not be populated and why
-3. Conflicts found — contradictions between sources the attorney should review (rendered in red in the document)
-4. Missing discovery — documents referenced in police reports but absent from the folder
-5. Suppression flags — Miranda/search/seizure issues identified during extraction
-
----
-
-## Refresh Mode (Part 2A / 2B update from new discovery)
-
-When `000 - Case Profile.docx` already exists and new discovery has been added since its last modification:
-
-1. **Read the existing `000 - Case Profile.docx` in full.** Identify which case-type branch is populated (Part 2A, 2B, or 2C). If multiple branches are populated (rare — both 2A and 2B for cases with both homicide and sex-offense LWOP exposure), refresh both.
-2. **Identify the new discovery.** Either the attorney has named it explicitly, or compare the case folder's file timestamps against the existing Case Profile's last-modified date. List the new items.
-3. **Re-extract using `lwop-extraction-patterns.md`** against the new discovery only (not the full case file — that would re-do work already in the document).
-4. **Apply updates field-by-field** using these merge rules:
+1. Find the existing field by its label.
+2. Apply updates field-by-field using these merge rules:
 
 | Existing cell state | Action |
 |---|---|
-| Blank | Populate from new discovery |
+| Blank | Populate from new source |
 | Cowork-extracted black-text content | Update if newer source contradicts; preserve if newer source is silent |
 | Black-text content matching attorney handwriting / additions | **Do not touch** unless attorney explicitly says "re-pull everything" |
 | Red `[ATTORNEY]` placeholder | **Never touch** |
 | Red attorney-flagged content | **Never touch** |
 
-5. **Append a Refresh Log entry** at the bottom of Part 2A or 2B (under Section 9 — Records & Authorizations):
+3. Update the **Next Court Date** highlighted cell in § 1 from the most recent court minute or scheduling order — this is the **one** § 1 field Cowork actively refreshes on every run.
+
+**For multi-row data tables (§ 1 Seized Property, § 4 Arraignment History, § 5 Court Appearance Log, § 8 Plea Discussions Log, § 9 Family/Friends Contact List, § 10 Key Dates, § 10 High Priority Next Steps):**
+
+Append-only. Existing rows are never modified or deleted. New data becomes new rows. Two narrow exceptions:
+- § 8 Plea Discussions Log "Conveyed to Client" cell may be updated in place when conveyance happens after the row was first created.
+- § 10 High Priority Next Steps "Status" cell updates in place from Open → In-Progress → Done as work progresses.
+
+**Append a Refresh Log entry** at the bottom of the document (under Part 2 Section 9 — Records & Authorizations, or at the end of Part 1 § 10 if Part 2 is not yet populated):
 ```
 REFRESH LOG — [YYYY-MM-DD]
-New discovery processed: [list Bates ranges or file names]
-Fields updated: [list field names]
+New sources processed: [list Bates ranges, minute-entry dates, email senders, file names]
+Fields updated: [list field names — usually Next Court Date and any label/value updates]
+Rows appended: [Court Appearance Log: N rows | Plea Discussions Log: N rows | etc.]
 Attorney-only fields preserved: [list field names left untouched]
 Conflicts flagged for attorney review (red text added in fields): [list field names]
 ```
-6. **Run the field-completeness checklist** as in Initial Generation Mode.
-7. **Save** as `000 - Case Profile.docx` (same filename — overwrite the existing file).
+
+Then run the field-completeness checklist as in Initial Generation Mode and save as `000 - Case Profile.docx` (same filename — overwrite the existing file).
 
 **Save the output for both modes** to:
 `Pretrial Notebook → 03 - Case Analysis & Notes/000 - Case Profile.docx`
@@ -362,7 +443,7 @@ python <docx-skill-path>/scripts/office/unpack.py "<output-path>" working/unpack
 
 ### Step 2A — Label/Value Tables (existing pattern)
 
-For every field that lives in a 2-column label/value table — **Defendant**, **Complaining Witness / Victim**, **Court & Case Numbers**, **Investigative / Prosecution Personnel**, all of Sections 2/3/4/5, and all of Part 2A/2B/2C's section fields — use the label-find-and-fill pattern:
+For every field that lives in a 2-column label/value table — **Defendant**, **Complaining Witness / Victim**, **Court & Case Numbers**, **Investigative / Prosecution Personnel**, all of § 2 Probation/Parole Status, § 4 Bail/Bond, § 6 Defenses, § 7 Client Background, and all of Part 2A/2B/2C's section fields — use the label-find-and-fill pattern:
 
 1. Find the cell containing the label text (e.g., `<w:t>Place of Birth</w:t>`)
 2. Locate the adjacent right-side cell in the same `<w:tr>` (the empty data cell, which contains a single `<w:p/>`)
@@ -382,19 +463,30 @@ For every field that lives in a 2-column label/value table — **Defendant**, **
 
 For multi-line content, repeat the `<w:p>...</w:p>` block once per line within the same cell. Preserve all `<w:tcPr>` (width, shading) and the cell's outer `<w:tc>...</w:tc>` boundary unchanged.
 
-### Step 2B — Multi-Row Data Tables (added in v5.5)
+### Step 2B — Multi-Row Data Tables (added in v5.5, expanded in v5.8)
 
-Three Part 1 tables have a header row followed by empty starter rows; each starter row holds one record:
+Seven Part 1 tables have a header row followed by empty starter rows; each starter row holds one record:
 
 | Table | Sub-header anchor text | Columns | Starter rows |
 |---|---|---|---|
 | Seized Property / Devices | `Seized Property / Devices` | 7 — Item, Owner, Seized From, Date Seized, Warrant # / Bate, Extraction Status, Notes | 6 |
+| Arraignment History **[NEW v5.8]** | `Arraignment History (one row per arraignment or re-arraignment)` | 6 — Date, Charges Read, Prosecutor, Judge, Plea Entered, Notes | 4 |
+| Court Appearance Log **[NEW v5.8]** | (table directly under `Section 5 — Court Appearance Log` banner) | 6 — Date, Appearance Type, ADA, Judge, Bail Status, Notes / Rulings | 8 |
+| Plea Discussions Log **[NEW v5.8]** | (table directly under `Section 8 — Plea Discussions Log` banner) | 6 — Date, Plea Offer / Counter, Source, Conveyed to Client (Y/N + Date), Client Response, Notes | 6 |
+| Family / Friends Contact List **[NEW v5.8]** | (table directly under `Section 9 — Family / Friends Contact List` banner) | 6 — Person, Relation, Phone / Email / Address, Role, Vetted?, Notes | 10 |
 | Key Dates | `Key Dates` | 3 — Date, Event Description, Source | 10 |
-| High Priority Next Steps | `High Priority Next Steps` | 5 — Step, Why High Priority, Owner, Routing, Target Date | 8 |
+| High Priority Next Steps | `High Priority Next Steps` | 6 — Step, Why High Priority, Owner, Routing, Target Date, Status | 8 |
+
+There is also one **single-row visual block** in § 1 that follows neither the label/value nor the multi-row pattern:
+
+| Block | Anchor text | Cells | Notes |
+|---|---|---|---|
+| Case Classification | `Case Classification` | 4 (checkbox row) | Edit by checking ☒ next to the correct cell(s); leave the others as ☐. Multi-check allowed for State+Federal dual exposure. |
+| Next Court Date | `Next Court Date` / `NEXT COURT DATE` | 2 (yellow label, soft-red value) | Single-row K/V. The value cell is the only field actively refreshed on every Refresh Mode run. |
 
 **Locate the target table:**
 
-1. Find the sub-header paragraph by its exact text (e.g., `<w:t>Seized Property / Devices</w:t>`).
+1. Find the sub-header paragraph by its exact text (e.g., `<w:t>Seized Property / Devices</w:t>`), or the section header banner for tables that sit directly under their section header (Court Appearance Log, Plea Discussions Log, Family/Friends Contact List).
 2. Walk forward to the next `<w:tbl>` opening. That is the target table.
 3. The first `<w:tr>` is the bold-centered header row — **never modify it**.
 4. The remaining `<w:tr>` blocks are empty starter rows. Each cell's content is just `<w:p/>`; the surrounding `<w:tcPr>` carries width, borders, and white shading.
@@ -413,7 +505,7 @@ For each starter row you fill, replace each of its cells' `<w:p/>` with the para
 
 This preserves column widths and the cell-border block automatically, since you are cloning known-good XML.
 
-**Refresh Mode rule for these tables:** never modify or remove existing rows; only append new rows, and only for genuinely new data not already represented in the table.
+**Refresh Mode rule for these tables:** append-only. Never modify or remove existing rows except in the two narrow cases documented above (§ 8 "Conveyed to Client" cell, § 10 High Priority "Status" cell).
 
 ### Step 3 — Apply red font for attorney-only and flagged content
 
@@ -447,9 +539,19 @@ For Refresh Mode, the merge rules from the Refresh Mode subsection above apply t
 ## Step 3 Quality Check
 
 - [ ] `assets/CASE PROFILE.docx` copied into `Pretrial Notebook → 03 - Case Analysis & Notes` as `000 - Case Profile.docx` (Initial Generation Mode) OR existing file read in full (Refresh Mode)
-- [ ] Part 1 sections 1–6 populated from available sources (Initial Generation only)
+- [ ] § 1 Case Classification checkbox marked (Misd / Felony / State / Federal)
+- [ ] § 1 Next Court Date populated (or marked "TBD — awaiting scheduling order")
+- [ ] § 1 Court & Case Numbers includes Bill/Indictment Date and any Companion / Related dockets
+- [ ] § 2 Probation/Parole Status populated (or first-row "N" if client not on supervision)
+- [ ] Part 1 § 1–§ 10 populated from available sources (Initial Generation only)
+- [ ] § 4 Arraignment History row 1 captures initial arraignment; § 4 Bail/Bond block includes Cash Bond and Bail Notes
+- [ ] § 5 Court Appearance Log seeded with any post-arraignment appearances already in the file
+- [ ] § 7 Client Background includes Substance Abuse History and Other Relevant Info rows (blank is acceptable; the rows must exist)
+- [ ] § 8 Plea Discussions Log seeded if any plea offers have already been made
+- [ ] § 9 Family/Friends Contact List seeded with any names volunteered in client interviews to date
+- [ ] § 10 Key Dates and § 10 High Priority Next Steps populated; Next Court Date in § 1 reconciled with the closest § 10 row
 - [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges; the other two parts left blank or removed
 - [ ] If LWOP exposure is present (Part 2A or 2B): every field listed in `lwop-field-maps.md` for that branch is present in the output (field-completeness checklist run)
 - [ ] All `[ATTORNEY]` fields preserved in red for attorney completion
 - [ ] In Refresh Mode: all attorney-entered content preserved untouched; Refresh Log entry appended
-- [ ] Completion notes generated (fields populated, fields blank with reasons, conflicts, missing discovery, suppression flags)
+- [ ] Completion notes generated (fields populated, fields blank with reasons, conflicts, missing discovery, suppression flags, probation/parole hold flags)
