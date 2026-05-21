@@ -62,7 +62,7 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## Contract 2: Auditor Skill Reports
 
-**Producers:** All `dw-*-auditor` skills (mobile-forensic, video-evidence, crime-scene, chain-of-custody, cell-site-geolocation, social-media, eyewitness-identification, confession-interrogation, child-forensic-interview, expert-witness-evaluator)
+**Producers:** All `dw-*-auditor` skills (mobile-forensic, video-evidence, crime-scene, chain-of-custody, cell-site-geolocation, social-media, eyewitness-identification, confession-interrogation, child-forensic-interview, expert-witness-evaluator, dna-forensic-biology, crime-lab)
 **Consumers:** `dw-cross-exam-architect`, `dw-trial-notebook-builder`, `dw-case-dashboard`, `dw-case-brain`
 
 ### Filename Pattern
@@ -72,6 +72,8 @@ Examples:
 - `Mobile Forensic Extraction Audit — Cole 2026-04-01.docx`
 - `Video Evidence Audit — Tezeno 2026-03-15.docx`
 - `Chain of Custody Audit — Nicholas 2026-03-20.docx`
+- `DNA Forensic Biology Audit — Tezeno 2026-04-12.docx`
+- `Crime Lab Audit — Nicholas 2026-04-12.docx`
 
 ### Required Sections (all auditor reports must include)
 1. **Executive Summary** — 2-3 paragraph overview of findings and significance
@@ -122,6 +124,170 @@ The outline uses the firm's chapter-based template format:
 
 ### Output Location
 `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` or `Defense Witnesses/`
+
+---
+
+## Contract 3A: Direct-Examination Outlines
+
+**Producer:** `dw-direct-exam-architect`
+**Consumers:** `dw-trial-notebook-builder`, `dw-trial-narrative-builder`, `dw-case-brain`
+
+### Two Deliverables per Defense Witness
+
+| # | Deliverable | Format | Filename Pattern |
+|---|------------|--------|-----------------|
+| 1 | Direct-Examination Outline | .docx | `Direct-Examination — [Witness Name].docx` |
+| 2 | Source / Exhibit Document Catalog | .pdf | `Source Catalog — [Witness Name] (Direct).pdf` |
+
+### Direct-Examination Outline Required Structure
+
+The outline uses an open-ended chapter format (not leading questions) appropriate for direct examination:
+
+| Field | Description | Required |
+|-------|-------------|----------|
+| Chapter Title | Topic area for this line of questioning | Yes |
+| Witness | Full name of the witness | Yes |
+| Witness Role | Defense witness, character witness, alibi, expert, etc. | Yes |
+| Goals | What this chapter aims to establish for the defense theory | Yes |
+| Foundation Required | Predicate facts, qualifications, or admissibility predicates that must be laid first | Yes |
+| Questions | Open-ended, non-leading questions (who/what/when/where/how/why/describe/explain) | Yes |
+| Anticipated Answers | Expected substance of the witness's testimony, drawn from witness interviews | Yes |
+| Exhibits to Introduce | Exhibit numbers and authentication method (cross-reference Exhibit List) | Optional |
+| Source | Bate stamp, witness interview memo, or document reference | Yes |
+| Anticipated Cross / Redirect Notes | Vulnerabilities to address on direct; topics to reserve for redirect | Optional |
+| Notes | Attorney notes, witness preparation flags, demeanor cues | Optional |
+
+### Output Location
+
+`01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`
+
+---
+
+## Contract 3B: Trial Narrative Deliverables
+
+**Producer:** `dw-trial-narrative-builder`
+**Consumers:** `dw-trial-notebook-builder`, `dw-voir-dire-assistant`, `dw-cross-exam-architect`, `dw-direct-exam-architect`, `dw-jury-focus-group`, `dw-case-brain`
+
+The trial-narrative-builder produces four interlocking deliverables that share a common case theme.
+
+### Four Deliverables
+
+| # | Deliverable | Format | Filename Pattern |
+|---|------------|--------|-----------------|
+| 1 | Opening Statement Outline | .docx | `Opening Statement — [Client Last Name] [Date].docx` |
+| 2 | Closing Argument Outline | .docx | `Closing Argument — [Client Last Name] [Date].docx` |
+| 3 | Theme Tracker | .docx | `Theme Tracker — [Client Last Name] [Date].docx` |
+| 4 | Rebuttal Anticipation Memo | .docx | `Rebuttal Anticipation Memo — [Client Last Name] [Date].docx` |
+
+### Opening Statement Outline — Required Sections
+
+1. **Header Block** — Case caption, docket, charges, trial date, lead attorney, defense theme (one line)
+2. **Hook / Primacy Opener** — First 60 seconds, theme-driven
+3. **Story of the Case** — Defense narrative in chronological or thematic order, no argument
+4. **Introduction of Defendant** — Humanizing facts admissible in opening
+5. **Roadmap of the Evidence** — Witnesses the jury will hear, exhibits they will see
+6. **Burden of Proof Reminder** — Reasonable doubt framing
+7. **Promise to the Jury / Ask** — What the verdict should be and why
+8. **Objection Risk Notes** — Argument vs. statement, vouching, future-evidence pledges
+9. **Theme References** — Cross-reference to Theme Tracker entries
+
+### Closing Argument Outline — Required Sections
+
+1. **Header Block** — Same as Opening
+2. **Theme Restatement** — Tie back to opening theme
+3. **Burden and Reasonable Doubt** — Jury instruction quotations
+4. **Element-by-Element Walk** — Each charged element, the State's proof, the gap, the defense response (cross-reference Defense Matrix)
+5. **Witness Credibility** — Per-witness impeachment summary (cross-reference Cross-Examination outlines)
+6. **Exhibit Highlights** — Key exhibits the jury should re-examine in deliberation
+7. **Anticipated State Rebuttal Responses** — Cross-reference Rebuttal Anticipation Memo
+8. **Verdict Form Walk-Through** — Walk the jury through the verdict form (cross-reference Jury Instructions / Verdict Form)
+9. **Closing Ask** — Specific verdict requested, charge-by-charge
+
+### Theme Tracker — Required Structure
+
+A living document that records every place the case theme is reinforced across the trial file.
+
+| Column | Type | Required |
+|--------|------|----------|
+| Theme Element | Text (short phrase, e.g., "Rushed investigation") | Yes |
+| Source | Text (witness, exhibit, motion, voir dire question) | Yes |
+| Bate Stamp / Reference | Text | Yes |
+| Used In | Text (Opening / Cross of [Witness] / Direct of [Witness] / Closing / Voir Dire) | Yes |
+| Notes | Text | No |
+
+### Rebuttal Anticipation Memo — Required Sections
+
+1. **Header Block** — Same as Opening
+2. **Predicted State Themes** — What the prosecutor is likely to argue
+3. **Predicted State Rebuttal Points** — Anticipated responses to defense closing
+4. **Defense Counter-Points** — Pre-drafted responses, with sources and exhibit references
+5. **Improper-Argument Triggers** — Golden Rule, vouching, burden-shifting, Bossier-style errors — and preserved-objection language
+6. **Appellate Preservation Flags** — Cross-reference to `dw-appellate-error-monitor`
+
+### Output Location
+
+All four deliverables: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
+
+The Opening Statement and Closing Argument outlines may also be mirrored to `01 - Trial Notebook/02 - Opening & Closing/` for courtroom-ready access; the Cowork Analysis copy is the canonical work-product version.
+
+---
+
+## Contract 3C: DNA / Forensic Biology Audit Report
+
+**Producer:** `dw-dna-forensic-biology-auditor`
+**Consumers:** `dw-cross-exam-architect`, `dw-trial-notebook-builder`, `dw-expert-witness-evaluator`, `dw-brady-giglio-auditor`, `dw-case-brain`
+
+### Filename Pattern
+
+`DNA Forensic Biology Audit — [Client Last Name] [Date].docx`
+
+### Required Sections
+
+Inherits the Contract 2 (Auditor Skill Reports) structure (Executive Summary, Evidence Examined, Methodology, Findings, Defense Implications, Key Findings for Cross-Examination, Recommendations, Case Brain Registration), with these DNA-specific additions:
+
+1. **Evidence Inventory** — Per-item table: item number, source (swab/cutting/reference), collection date, collector, lab item number
+2. **Testing Methodology Audit** — Extraction method, quantification platform, amplification kit (Identifiler/Fusion/GlobalFiler), capillary electrophoresis instrument, allele-calling thresholds
+3. **Mixture Interpretation** — Number of contributors, deconvolution method, probabilistic genotyping software (STRmix / TrueAllele / EuroForMix), version, validation status, parameter set used
+4. **Statistical Calculations** — Likelihood ratio or RMP, propositions tested, reference population database used, sub-population correction (theta)
+5. **CODIS / Database Hit Audit** — If applicable: hit confirmation, moderate/high stringency, candidate match procedure
+6. **Standards Compliance Check** — SWGDAM, ISO/IEC 17025, lab accreditation body (ANAB / A2LA), validation studies
+7. **Chain of Custody Cross-Reference** — Cross-reference to `dw-chain-of-custody-auditor` findings for the same items
+8. **Analyst Credentials & Discipline History** — Cross-reference to `dw-expert-witness-evaluator`
+9. **Cross-Examination Seeds** — Mixture interpretation challenges, stochastic threshold issues, drop-in / drop-out assumptions, contamination indicators
+
+### Output Location
+
+`01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
+
+---
+
+## Contract 3D: Crime Lab Audit Report (Drug Lab / Toxicology / R.S. 15:499)
+
+**Producer:** `dw-crime-lab-auditor`
+**Consumers:** `dw-cross-exam-architect`, `dw-trial-notebook-builder`, `dw-expert-witness-evaluator`, `dw-suppression-motion`, `dw-drug-offense-specialist`, `dw-dwi-specialist`, `dw-brady-giglio-auditor`, `dw-case-brain`
+
+### Filename Pattern
+
+`Crime Lab Audit — [Client Last Name] [Date].docx`
+
+### Required Sections
+
+Inherits the Contract 2 (Auditor Skill Reports) structure with these crime-lab-specific additions:
+
+1. **Report Inventory** — Per-report table: lab name, report date, evidence item numbers, analyst, test type (controlled substance / blood alcohol / urine toxicology / breath alcohol)
+2. **R.S. 15:499 Certificate Audit** — Whether a Certificate of Analysis under La. R.S. 15:499 was issued, whether the State filed a notice of intent to use it under La. R.S. 15:501, whether the defense filed a timely demand for the analyst to testify under La. R.S. 15:501(B), and the resulting confrontation posture under *Melendez-Diaz* / *Bullcoming*
+3. **Testing Methodology Audit** — For controlled substances: presumptive vs. confirmatory testing, GC-MS / FTIR / Raman / microcrystalline; for toxicology: GC headspace, enzymatic, immunoassay vs. confirmatory; for breath: Intoxilyzer model, calibration interval, simulator solution lot
+4. **Standards Compliance Check** — SWGDRUG (drugs), SOFT/ANSI (tox), NHTSA (DUI), ISO/IEC 17025 accreditation, lab accreditation body
+5. **Quality Control Audit** — Blanks, positive controls, duplicates, calibration verification, batch QC review, instrument maintenance log
+6. **Quantity / Weight Audit** — Net vs. gross weight, packaging weight subtracted, balance calibration, statutory threshold proximity (for tiered offenses)
+7. **Chain of Custody Cross-Reference** — Cross-reference to `dw-chain-of-custody-auditor`
+8. **Analyst Credentials & Discipline History** — Cross-reference to `dw-expert-witness-evaluator`; flag any *Brady*/*Giglio* impeachment material for routing to `dw-brady-giglio-auditor`
+9. **Confrontation Clause Posture** — Sixth Amendment / La. Const. Art. I § 16 analysis of who must testify at trial
+10. **Cross-Examination Seeds** — Methodology gaps, QC failures, R.S. 15:499 notice/demand timing, calibration / maintenance, analyst bias
+
+### Output Location
+
+`01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 
 ---
 
@@ -264,6 +430,10 @@ Example:
 | DMAR | 1.0 | April 2026 | Initial |
 | Auditor Reports | 1.0 | April 2026 | Initial — added "Key Findings for Cross-Examination" section |
 | Cross-Exam Outlines | 1.0 | April 2026 | Initial |
+| Direct-Exam Outlines (3A) | 1.0 | May 2026 | Initial — added for `dw-direct-exam-architect` |
+| Trial Narrative Deliverables (3B) | 1.0 | May 2026 | Initial — Opening, Closing, Theme Tracker, Rebuttal Anticipation Memo for `dw-trial-narrative-builder` |
+| DNA / Forensic Biology Audit Report (3C) | 1.0 | May 2026 | Initial — added for `dw-dna-forensic-biology-auditor` |
+| Crime Lab Audit Report (3D) | 1.0 | May 2026 | Initial — added for `dw-crime-lab-auditor` |
 | Case Tables Sheets | 1.0 | April 2026 | Initial |
 | Case Brain Registration | 1.0 | April 2026 | Initial |
 | Discovery Compliance Ledger | 1.0 | April 2026 | Initial |

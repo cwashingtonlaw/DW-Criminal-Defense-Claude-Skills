@@ -133,7 +133,11 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 
 **Content indicators:** Lab name, case number, evidence item numbers, testing methodology, results tables, analyst name, accreditation info, quality control notes, comparison results (DNA match/exclusion, ballistics match)
 
-**Auditor Route:** `dw-crime-scene-auditor` (for lab methodology audit) + `dw-chain-of-custody-auditor` (for evidence handling from collection through lab)
+**Auditor Route (by subtype):**
+- **DNA / forensic biology** (keywords: dna, str, y-str, mitochondrial, serology, blood, semen, saliva, touch dna, mixture, likelihood ratio, codis, probabilistic genotyping, strmix, truallele) → `dw-dna-forensic-biology-auditor` (primary) + `dw-chain-of-custody-auditor`
+- **Drug lab / controlled-substance analysis / toxicology** (keywords: drug analysis, controlled substance, schedule i/ii/iii/iv/v, gc-ms, fid, marijuana, thc, cocaine, methamphetamine, fentanyl, opiate, ethanol, blood alcohol, bac, urinalysis, hgn, R.S. 15:499, certificate of analysis, notice of intent to use certificate) → `dw-crime-lab-auditor` (primary) + `dw-chain-of-custody-auditor`
+- **Firearms / ballistics / trace evidence** → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
+- **Lab reports of indeterminate type** → default to `dw-crime-scene-auditor` and flag for attorney review
 
 **Priority:** HIGH
 
@@ -578,8 +582,10 @@ Output location for all auditor findings: `[Case Root] / 01 - Trial Notebook / 0
    - Yes → `dw-crime-scene-auditor`
    - No → Continue
 
-7. **Does filename mention lab, DNA, toxicology, firearms?**
-   - Yes → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
+7. **Does filename mention lab, DNA, toxicology, firearms, R.S. 15:499, certificate of analysis?**
+   - DNA / forensic biology (DNA, STR, Y-STR, serology, mixture, CODIS, STRmix, TrueAllele) → `dw-dna-forensic-biology-auditor` + `dw-chain-of-custody-auditor`
+   - Drug lab / toxicology / R.S. 15:499 certificate (controlled substance, GC-MS, blood alcohol, BAC, fentanyl, marijuana, certificate of analysis, notice of intent) → `dw-crime-lab-auditor` + `dw-chain-of-custody-auditor`
+   - Firearms / ballistics / trace evidence (or lab report of indeterminate type) → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
    - No → Continue
 
 8. **Does filename mention SANE, rape kit, sexual assault exam?**

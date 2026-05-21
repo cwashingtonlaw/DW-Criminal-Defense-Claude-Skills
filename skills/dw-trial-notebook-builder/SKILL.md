@@ -93,12 +93,14 @@ Scan each standard Trial Notebook subfolder and catalog every file found:
 | Tab 1 | `01 - Trial Notebook/01 - Jury Instructions & Selection/` | Proposed jury charges, verdict forms, responsive verdict analysis, Art 814 documents, voir dire materials, juror questionnaires, strike lists, Batson tracking |
 | Tab 2 | `01 - Trial Notebook/02 - Opening & Closing/` | Opening statement outlines, closing argument outlines, Mapping the Story worksheets, memorable theme documents |
 | Tab 3 | `01 - Trial Notebook/03 - Witnesses/` | Cross-exam outlines (.docx), source catalogs (.pdf), combined source documents (.pdf), impeachment worksheets, witness battle cards, direct exam templates, witness dossiers. Check both `Prosecution Witnesses/` and `Defense Witnesses/` subfolders |
+| Tab 3 (Defense) | `01 - Trial Notebook/03 - Witnesses/Defense Witnesses/` | Direct-Examination outlines (.docx) and Source Catalogs (.pdf) produced by `dw-direct-exam-architect`; defense witness dossiers; subpoena returns |
 | Tab 4 | `01 - Trial Notebook/04 - Exhibit List/` | Master exhibit list, exhibit authentication tracker, stipulated exhibits list |
 | Tab 5 | `01 - Trial Notebook/05 - Evidence/` | Bate-stamped documents, digital evidence placeholders, transcripts, media files |
 | Tab 6 | `01 - Trial Notebook/06 - Motions in Limine/` | Filed motions in limine, 404(b) oppositions, Prieur notice responses |
 | Tab 7 | `01 - Trial Notebook/07 - Legal Research/` | Legal memoranda, statutory compilations, case law printouts |
 | Tab 8 | `01 - Trial Notebook/08 - Jury Selection Notes/` | Voir dire question outlines, juror analysis cards, panel composition tracking |
 | Tab 9 | `01 - Trial Notebook/09 - Case Analysis/` | All 9 case analysis reports, Cowork parallel analysis outputs, missing discovery demands |
+| Tab 9 (Cowork) | `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` | Opening Statement outline, Closing Argument outline, Theme Tracker, Rebuttal Anticipation Memo (from `dw-trial-narrative-builder`); DNA / Forensic Biology Audit Report (from `dw-dna-forensic-biology-auditor`); Crime Lab Audit Report (from `dw-crime-lab-auditor`); plus all other auditor findings and Cowork parallel analyses |
 
 **Note:** Not every case folder uses these exact tab numbers — some folders have slight
 variations. Adapt to the folder structure you find, but flag any non-standard organization
@@ -681,6 +683,10 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 | Missing Deliverable | Skill to Run | Trigger Phrase |
 |---------------------|-------------|----------------|
 | Cross-examination outline | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Direct-examination outline (defense witness) | `dw-direct-exam-architect` | "build a direct for [witness]" |
+| Opening statement / Closing argument / Theme tracker / Rebuttal memo | `dw-trial-narrative-builder` | "draft opening statement," "draft closing argument," "build theme tracker," "rebuttal memo" |
+| DNA / forensic biology audit | `dw-dna-forensic-biology-auditor` | "audit the DNA report" |
+| Drug lab / toxicology / R.S. 15:499 audit | `dw-crime-lab-auditor` | "audit the crime lab report" |
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Verdict form | `dw-jury-instructions-builder` | "build the verdict form" |
 | Voir dire materials | `dw-voir-dire-assistant` | "prep voir dire" |

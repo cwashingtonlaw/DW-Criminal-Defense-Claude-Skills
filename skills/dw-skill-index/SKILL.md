@@ -58,6 +58,8 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Adult interrogation / confession | `dw-confession-interrogation-auditor` | "audit interrogation" |
 | Child forensic interview (CAC) | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
 | Expert witness qualifications | `dw-expert-witness-evaluator` | "evaluate the expert" |
+| DNA / forensic biology report | `dw-dna-forensic-biology-auditor` | "audit the DNA report" or "audit forensic biology" |
+| Drug lab / toxicology / R.S. 15:499 | `dw-crime-lab-auditor` | "audit the crime lab report" or "audit the drug lab" |
 
 ---
 
@@ -85,6 +87,8 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 | Task | Skill | Trigger Phrase |
 |------|-------|---------------|
 | Cross-examination outlines | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Direct-examination outlines | `dw-direct-exam-architect` | "build a direct for [witness]" or "draft direct exam" |
+| Opening / Closing / Theme / Rebuttal | `dw-trial-narrative-builder` | "draft opening statement," "draft closing argument," "build theme tracker," "rebuttal memo" |
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Jury selection / voir dire | `dw-voir-dire-assistant` | "prep voir dire" |
 | Track errors for appeal | `dw-appellate-error-monitor` | "preserve error" or "log error" |
