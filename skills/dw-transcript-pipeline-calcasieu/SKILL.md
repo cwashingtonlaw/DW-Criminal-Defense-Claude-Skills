@@ -1,15 +1,17 @@
 ---
 name: dw-transcript-pipeline-calcasieu
+category: transcription
 description: >
   JusticeText-based transcription pipeline for Calcasieu Parish cases at Daniels & Washington.
-  Handles the full workflow: folder scan → JusticeText upload → transcription → TranscriptPad
-  import → Defense Media Analysis Report. Adds Rev-equivalent AI analysis features (multi-file
-  cross-referencing, inconsistency detection, chronological timeline construction, document-vs-media
-  comparison) via Claude analysis layer on top of JusticeText transcripts. Produces a standardized
-  Defense Media Analysis Report (.docx) identical in schema to dw-transcript-pipeline-rev output.
-  This skill is invoked by dw-transcript-router for Calcasieu Parish cases. Direct triggers:
-  "JusticeText pipeline," "Calcasieu transcription," "upload to JusticeText," or when
-  dw-transcript-router routes a Calcasieu case here.
+  ALWAYS invoke for "JusticeText pipeline," "Calcasieu transcription," "upload to JusticeText,"
+  "transcribe Calcasieu media," "Calcasieu DMAR," or when dw-transcript-router routes a Calcasieu
+  case here. Handles the full workflow: folder scan → JusticeText upload → transcription →
+  TranscriptPad import → Defense Media Analysis Report. Adds Rev-equivalent AI analysis features
+  (multi-file cross-referencing, inconsistency detection, chronological timeline construction,
+  document-vs-media comparison) via Claude analysis layer on top of JusticeText transcripts.
+  Produces a standardized Defense Media Analysis Report (.docx) identical in schema to
+  dw-transcript-pipeline-rev output. This skill is invoked by dw-transcript-router for Calcasieu
+  Parish cases.
 ---
 
 # DW Transcript Pipeline — Calcasieu Parish (JusticeText)
@@ -17,6 +19,17 @@ description: >
 **Platform**: JusticeText (platform.justicetext.com)
 **Parish**: Calcasieu only (routed by dw-transcript-router)
 **Output**: Defense Media Analysis Report (.docx) + TranscriptPad case
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any audio or video files for transcription (interrogations, jail calls, interviews, body-worn camera, dashcam, 911 calls, civilian video), do not begin upload to JusticeText yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional media for this batch? I'll start the JusticeText upload only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. Mid-batch additions cause partial uploads, broken case-tab ordering on JusticeText, and DMAR sequencing issues when the late files come back out of order.
+
+---
 
 ### Source Citation Mandate
 
@@ -254,6 +267,9 @@ Use the `docx` skill to produce the Defense Media Analysis Report. **This format
 
 ```
 DEFENSE MEDIA ANALYSIS REPORT
+Schema Version: 1.0                          ← per dw-data-contracts Contract 1
+Date Generated: [ISO-8601 timestamp]         ← per dw-data-contracts Contract 1
+Pipeline: dw-transcript-pipeline-calcasieu   ← per dw-data-contracts Contract 1
 [Client Name] | [Docket #] | [Parish: Calcasieu]
 Transcription Platform: JusticeText
 Analysis Date: [Date]
@@ -355,3 +371,12 @@ Inherits all error handling from the original dw-transcript-pipeline, plus:
 
 
 Follow shared protocols for output paths (see Step 0.5).
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **justicetext-architecture.md** — Technical analysis of JusticeText's auth, upload, and API patterns; documents potential automation surfaces for the upload step
+- **transcriptpad-database.md** — Technical reference for the TranscriptPad `.tracase` SQLite Core Data database; documented from analysis of working cases (Perry, Joseph and Taraba)

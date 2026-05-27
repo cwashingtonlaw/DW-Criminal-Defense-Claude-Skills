@@ -1,5 +1,6 @@
 ---
 name: dw-eyewitness-identification-auditor
+category: evidence-audit
 description: >
   Audit photo array, lineup, and showup identification procedures. ALWAYS invoke for "audit
   lineup," "photo array," "suggestive ID," "eyewitness identification," "cross-racial ID,"
@@ -36,6 +37,26 @@ Your only response must be:
 > *"Before I begin -- are you uploading any additional identification procedure documentation, witness statements, body camera footage, photo array packets, lineup forms, or case documents? I'll start analysis only after you confirm: 'No more uploads now.'"*
 
 Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Eyewitness Identification Audit Report must trace back to a specific source document. Identification suppression hearings under *Manson v. Brathwaite*, *Neil v. Biggers*, and *State v. Henderson* are evaluated against the documented record of the procedure -- the photo array packet, the witness's recorded responses, the administrator's notes, and any recording of the procedure itself. Unsourced claims about how the identification was conducted, what the witness said, or what filler photos looked like will not survive cross-examination at a suppression hearing.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Photo Array Packet -- LCPD Case #2026-00456, p. 1, Filler #3)`
+- `(Lineup Administrator Notes, dated 03/15/2026, p. 2, para. 4)`
+- `(Witness Statement -- [Name], 03/15/2026, p. 2)`
+- `(BWC -- Detective Smith Identification Procedure, Timestamp 00:05:32)`
+- `(Initial 911 Call Transcript, p. 1, Line 8)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the procedure or witness response, cite all of them -- e.g., `(Lineup Administrator Notes, p. 2; BWC -- Detective Smith, Timestamp 00:08:14)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED -- VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it at a suppression or in-court identification hearing.
+
+**Where sourcing applies:** All factual content -- procedure type, administrator identity, instructions given, filler composition, witness selection and confidence, viewing conditions, post-event information exposure. Legal standards (*Manson*, *Biggers*, *Henderson*) and scientific authorities (NAS 2014 Report, IACP guidelines) follow normal citation format.
 
 ---
 
@@ -324,6 +345,12 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT -- pass to dw-cross-exam-archite
 
 ---
 
+## Reference Navigation
+
+For a complete navigation guide to all reference materials in this skill — modules A-I, legal frameworks, scientific literature, discovery demands, cross-exam frameworks, jury instructions, and prosecution arguments — read `references/INDEX.md`.
+
+---
+
 ## Quick Reference -- Constitutional & Louisiana Legal Standards
 
 **For the complete table of legal authorities, holdings, and Louisiana/5th Circuit case law governing identifications, read `references/legal-standards.md`**
@@ -369,6 +396,28 @@ If yes, invoke **dw-cross-exam-architect** and pass:
 
 **Additional downstream routing:**
 If identification procedure is suggestive, offer to route to dw-suppression-motion (Identification category) for a motion to suppress the identification. If expert testimony on eyewitness reliability is needed, flag for dw-expert-witness-evaluator.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **INDEX.md** — Quick navigation guide to all eyewitness-identification reference materials, organized by audit framework module
+- **discovery-demands.md** — Discovery-demands quick reference: items to demand from the State when identification is at issue, with rationale for each
+- **jury-instructions.md** — Step 4 jury-instruction proposals: special-instruction framework for evaluating identification testimony reliability factors
+- **legal-standards.md** — Constitutional and Louisiana legal standards (*Manson*, *Biggers*, *Stovall*, *Wade*, *Ash*, *Kirby*) for identification challenges
+- **manson-biggers-framework.md** — Module F: *Manson v. Brathwaite* / *Neil v. Biggers* two-step due process challenge framework with the five reliability factors
+- **module-a-photo-array-lineup.md** — Module A: photo array and live lineup procedure audit (double-blind administration, composition, instructions)
+- **module-b-showup.md** — Module B: showup procedure audit (necessity, justification, temporal proximity)
+- **module-c-system-variables.md** — Module C: system-variable analysis (factors under law-enforcement control), per *State v. Henderson*
+- **module-d-estimator-variables.md** — Module D: estimator-variable analysis (perception, encoding conditions, witness factors)
+- **module-e-suggestiveness.md** — Module E: suggestiveness assessment — procedural, conduct-based, and totality-of-circumstances sources
+- **module-h-cross-examination.md** — Module H: cross-examination chapter seeds, formatted for use by `dw-cross-exam-architect`
+- **module-i-expert-witness.md** — Module I: expert-witness need assessment (when to recommend an eyewitness identification expert)
+- **prosecution-arguments.md** — Common prosecution arguments and defense responses for eyewitness identification challenges
+- **scientific-literature.md** — Key scientific literature (NAS Report 2014, Innocence Project, Wells & Bradfield, Steblay, Meissner & Brigham, Deffenbacher) with applications
+- **suppression-motion-framework.md** — Module G: motion to suppress out-of-court identification — structural framework for the motion
 
 ---
 

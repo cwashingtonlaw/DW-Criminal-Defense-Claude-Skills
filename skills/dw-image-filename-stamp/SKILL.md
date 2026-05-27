@@ -1,5 +1,6 @@
 ---
 name: dw-image-filename-stamp
+category: ops
 description: >
   Stamp image files with their own filenames (no extension) in the bottom-right corner.
   ALWAYS invoke for "stamp the images," "stamp photos with filenames," "add filename

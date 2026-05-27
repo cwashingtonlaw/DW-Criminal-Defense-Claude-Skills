@@ -1,0 +1,242 @@
+# skill-index-categories.yml
+# -----------------------------------------------------------------------------
+# Maps each `skills/dw-*` skill to a section of `dw-skill-index/SKILL.md`.
+# Read by `bin/regen-skill-index.py` to regenerate the routing tables.
+#
+# Format (a tiny subset of YAML — hand-parsed by regen-skill-index.py):
+#
+#   <section-id>:
+#     - skill: dw-<name>
+#       label: "Human-readable role / what-it-handles"   # column 1 of the table
+#       trigger: "exact trigger phrase to suggest"        # column 3 of the table
+#       # Optional. If omitted, the script extracts the first ALWAYS-invoke
+#       # phrase from the skill's frontmatter description.
+#
+# When you add a new skill, add a row in the right section.
+# When a skill's frontmatter description changes, the trigger-phrase column
+# auto-refreshes (unless `trigger:` is set explicitly here, in which case the
+# config wins).
+#
+# Section IDs map to markdown headings in dw-skill-index/SKILL.md — see the
+# SECTIONS table at the top of regen-skill-index.py.
+# -----------------------------------------------------------------------------
+
+quick_lookup:
+  - skill: dw-client-intake-interview
+    label: "Run a client intake / first meeting"
+    trigger: "intake or new client meeting"
+  - skill: dw-criminal-defense
+    label: "Start a new case"
+    trigger: "new case or case intake"
+  - skill: dw-case-brain
+    label: "Load an existing case"
+    trigger: "load the case or open the matter"
+  - skill: dw-case-dashboard
+    label: "Check case status"
+    trigger: "where do we stand or case status"
+  - skill: dw-criminal-defense
+    label: "Process discovery"
+    trigger: "run Phase 1"
+  - skill: dw-criminal-defense
+    label: "Analyze the case"
+    trigger: "run Phase 2"
+  - skill: dw-criminal-defense
+    label: "Build trial prep"
+    trigger: "run Phase 3"
+  - skill: dw-trial-day-assistant
+    label: "Support trial day (live, in-court)"
+    trigger: "trial day or log this objection"
+  - skill: dw-trial-notebook-builder
+    label: "Assemble trial notebook"
+    trigger: "build the trial notebook"
+  - skill: dw-discovery-orchestrator
+    label: "Triage new discovery"
+    trigger: "new discovery arrived"
+  - skill: dw-transcript-router
+    label: "Transcribe recordings"
+    trigger: "transcribe the evidence"
+  - skill: dw-dmar-synthesizer
+    label: "Compare transcripts across cases"
+    trigger: "compare the DMARs"
+
+evidence_auditing:
+  - skill: dw-mobile-forensic-auditor
+    label: "Phone extraction (HOW it was done)"
+    trigger: "audit the Cellebrite"
+  - skill: dw-forensic-dump-analyzer
+    label: "Phone contents (WHAT's on it)"
+    trigger: "analyze the phone dump"
+  - skill: dw-video-evidence-auditor
+    label: "Body cam / dash cam / CCTV"
+    trigger: "audit body cam"
+  - skill: dw-crime-scene-auditor
+    label: "Crime scene processing"
+    trigger: "audit crime scene"
+  - skill: dw-chain-of-custody-auditor
+    label: "Evidence chain of custody"
+    trigger: "audit chain of custody"
+  - skill: dw-cell-site-geolocation-auditor
+    label: "Cell tower / GPS / location"
+    trigger: "audit cell site"
+  - skill: dw-social-media-auditor
+    label: "Social media screenshots/DMs"
+    trigger: "audit Facebook or social media"
+  - skill: dw-eyewitness-identification-auditor
+    label: "Photo array / lineup"
+    trigger: "audit the lineup"
+  - skill: dw-sqlite-recovery
+    label: "Deleted phone data / SQLite"
+    trigger: "recover deleted messages"
+  - skill: dw-confession-interrogation-auditor
+    label: "Adult interrogation / confession"
+    trigger: "audit interrogation"
+  - skill: dw-child-forensic-interview-auditor
+    label: "Child forensic interview (CAC)"
+    trigger: "audit the CAC video"
+  - skill: dw-expert-witness-evaluator
+    label: "Expert witness qualifications"
+    trigger: "evaluate the expert"
+  - skill: dw-expert-witness-evaluator
+    label: "Daubert/Foret hearing day package"
+    trigger: "Daubert hearing prep or Foret hearing"
+    label_suffix: " (Module I)"
+  - skill: dw-jail-call-analyzer
+    label: "Jail calls (recordings, logs, transcripts)"
+    trigger: "audit jail calls or Securus/GTL/ViaPath"
+
+motions_pleadings:
+  - skill: dw-suppression-motion
+    label: "Suppress evidence (4th/5th Amend.)"
+    trigger: "motion to suppress"
+  - skill: dw-404b-opposition
+    label: "Oppose 404(b) / other crimes"
+    trigger: "oppose the 404(b)"
+  - skill: dw-bond-and-release-motion
+    label: "Reduce bond / pretrial release"
+    trigger: "bond reduction"
+  - skill: dw-pretrial-motion-library
+    label: "Speedy trial"
+    trigger: "speedy trial motion"
+  - skill: dw-pretrial-motion-library
+    label: "Bill of particulars"
+    trigger: "bill of particulars"
+  - skill: dw-pretrial-motion-library
+    label: "Motion to compel discovery"
+    trigger: "motion to compel"
+  - skill: dw-pretrial-motion-library
+    label: "Severance / change of venue"
+    trigger: "severance or change of venue"
+  - skill: dw-pretrial-motion-library
+    label: "Reveal the deal"
+    trigger: "reveal the deal"
+  - skill: dw-pretrial-motion-library
+    label: "Recusal"
+    trigger: "recusal"
+  - skill: dw-pretrial-motion-library
+    label: "Continuance"
+    trigger: "continuance"
+
+trial_preparation:
+  - skill: dw-cross-exam-architect
+    label: "Cross-examination outlines"
+    trigger: "build a cross for [witness]"
+  - skill: dw-jury-instructions-builder
+    label: "Jury instructions / charges"
+    trigger: "draft jury instructions"
+  - skill: dw-voir-dire-assistant
+    label: "Jury selection / voir dire"
+    trigger: "prep voir dire"
+  - skill: dw-appellate-error-monitor
+    label: "Track errors for appeal"
+    trigger: "preserve error or log error"
+  - skill: dw-trial-day-assistant
+    label: "Real-time trial-day logging (objections, witnesses, exhibits, jurors)"
+    trigger: "log this objection or today's witness"
+  - skill: dw-defense-investigator-tasking
+    label: "Generate investigator tasks"
+    trigger: "investigator assignment"
+  - skill: dw-discovery-compliance-monitor
+    label: "Track discovery compliance"
+    trigger: "update the discovery ledger"
+  - skill: dw-brady-giglio-auditor
+    label: "Brady/Giglio audit"
+    trigger: "run Brady audit"
+
+sentencing_appeal_pcr:
+  - skill: dw-sentencing-mitigation-specialist
+    label: "Sentencing mitigation package"
+    trigger: "build sentencing mitigation"
+  - skill: dw-habitual-offender-auditor
+    label: "Habitual offender bill audit"
+    trigger: "audit the habitual bill"
+  - skill: dw-plea-negotiation-analyzer
+    label: "Evaluate plea offer"
+    trigger: "analyze the plea offer"
+  - skill: dw-appellate-brief-builder
+    label: "Draft direct-appeal brief (assignments of error, argument, reply)"
+    trigger: "appellate brief or appeal brief or assignments of error"
+  - skill: dw-post-conviction-relief
+    label: "Post-conviction relief (PCR / habeas / sentence modification)"
+    trigger: "post-conviction or PCR or habeas"
+
+charge_specialists:
+  - skill: dw-drug-offense-specialist
+    label: "Drug offenses (CDS, distribution, possession with intent)"
+    trigger: "drug case or CDS"
+  - skill: dw-dwi-specialist
+    label: "DWI / OWI / vehicular homicide"
+    trigger: "DWI or DUI"
+  - skill: dw-sex-offense-specialist
+    label: "Sex offenses (incl. SANE exam audits)"
+    trigger: "sex offense or SANE"
+  - skill: dw-firearms-specialist
+    label: "Firearms offenses (state and federal)"
+    trigger: "firearm charge or felon in possession"
+  - skill: dw-violent-crime-specialist
+    label: "Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion)"
+    trigger: "murder, manslaughter, armed robbery, agg battery, or self-defense"
+
+intake_setup:
+  - skill: dw-client-intake-interview
+    label: "Client intake interview (first meeting, conflict check, immediate-action triage)"
+    trigger: "intake, new client, first meeting"
+  - skill: dw-evidence-placeholder
+    label: "Evidence folder placeholders"
+    trigger: "evidence placeholders"
+  - skill: medical-chronology
+    label: "Medical chronology (PI)"
+    trigger: "medical chronology or med chron"
+    external: true
+
+shared_references:
+  - skill: dw-template-selector
+    label: "DEVONthink template search protocol"
+    read_by: "All motion/pleading skills"
+  - skill: dw-data-contracts
+    label: "Output schema definitions"
+    read_by: "All skills producing deliverables"
+  - skill: dw-case-brain
+    label: "Session persistence (also direct-trigger)"
+    read_by: "Every skill at session open/close"
+
+# -----------------------------------------------------------------------------
+# Skills intentionally NOT in the routing tables (e.g., utility skills with no
+# user-facing trigger). Listed here so the script doesn't warn about them.
+# -----------------------------------------------------------------------------
+
+uncategorized:
+  - skill: dw-skill-index            # the index itself
+  - skill: dw-shared-protocols       # library, loaded by other skills
+  - skill: dw-billing-narrative-generator   # internal billing pipeline
+  - skill: dw-case-disposition       # case-closing workflow
+  - skill: dw-case-law-researcher    # auto-invoked by other skills
+  - skill: dw-client-communication-drafter  # client correspondence drafter
+  - skill: dw-court-jail-tracker     # weekly case-sweep automation
+  - skill: dw-exhibit-manager        # trial-day adjacent; covered indirectly
+  - skill: dw-image-filename-stamp   # utility skill
+  - skill: dw-jury-focus-group       # focus-group simulator
+  - skill: dw-timeline-builder       # timeline aggregator
+  - skill: dw-transcript-pipeline-calcasieu  # invoked by dw-transcript-router
+  - skill: dw-transcript-pipeline-rev        # invoked by dw-transcript-router
+  - skill: dw-witness-statement-analyzer     # statement analyzer
+  - skill: dw-witness-threat-matrix          # Phase 3 capstone

@@ -1,5 +1,6 @@
 ---
 name: dw-timeline-builder
+category: trial-prep
 description: >
   Build and maintain the master case timeline from all evidence sources. ALWAYS invoke for
   "build the timeline," "case timeline," "master timeline," "chronology," "sequence of
@@ -14,6 +15,42 @@ description: >
 **Daniels & Washington | Criminal Defense Case Automation | Version 1.0**
 
 Master chronological timeline skill. Aggregates all timestamped evidence from every source into a unified, conflict-flagged timeline with source citations. Serves as the forensic backbone for cross-examination, impeachment, and defense strategy.
+
+---
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any discovery documents, witness statements, BWC footage, CAD logs, cell records, jail call transcripts, or other timeline source materials, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional discovery documents, incident reports, BWC footage, dash cam, 911/CAD logs, cell records, CSLI data, jail call transcripts, witness statements, surveillance footage, forensic reports, or other timeline source materials? I'll start the timeline build only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-build discovery of an additional source — a CSLI report, a previously unproduced BWC clip, or a witness statement — would require complete re-extraction, re-conflict-flagging, and re-validation across the existing timeline.
+
+---
+
+### Source Citation Mandate
+
+Every event in the master timeline must trace back to a specific source document. The timeline is the forensic backbone for cross-examination, impeachment, suppression hearings, and trial narrative; an unsourced event undermines impeachment leverage and introduces error into every downstream filing.
+
+**Citation format:** Cite the document title, page/section, and timestamp or paragraph. Examples:
+- `(911 CAD Log — LCPD Case #2026-00456, p. 1, "Call Received")`
+- `(Officer Smith BWC, Timestamp 00:05:32)`
+- `(Incident Report — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Cell Records — Verizon, Subscriber 504-555-0100, Row #145)`
+- `(CSLI Report — Sprint, Tower #ABC123, Ping 14:23:00 UTC)`
+- `(Jail Call Transcript — Call ID #2026-7890, Timestamp 00:14:32)`
+- `(Surveillance Footage — Convenience Store, 2026-03-15, Timestamp 14:31:00)`
+
+**Multiple-source rule:** When more than one source confirms an event timestamp, cite all of them — e.g., `(911 CAD Log, p. 1; Officer Smith BWC, Timestamp 00:00:08)`.
+
+**Conflict flagging:** When sources disagree on timing, log every source with its timestamp and flag the conflict in the Timeline sheet. Do not silently pick one; the conflict itself may be impeachment material.
+
+**Unsourced assertions:** If an event cannot be tied to a specific source, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows the event is provisional and not yet ready for cross-examination use.
+
+**Where sourcing applies:** Every row of the Timeline sheet — timestamp, event description, conflict notes. Confidence-tier assignments and timezone-conversion methodology follow the Tier 1/2/3 rubric documented below.
 
 ---
 

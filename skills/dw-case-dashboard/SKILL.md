@@ -1,5 +1,6 @@
 ---
 name: dw-case-dashboard
+category: core
 description: >
   Case status dashboard. ALWAYS invoke for "case status," "where do we stand," "what's
   next," "readiness check," or "what phase am I in." Scans client folder for deliverables
@@ -25,6 +26,37 @@ Quickly assess where a case stands in the 4-phase workflow, identify completed d
 - "What deliverables do we have?"
 
 This skill is the **team status check** — attorneys use it before strategy calls, staff uses it to plan the next sprint, and the client-facing team uses it to track progress.
+
+---
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any case files, status updates, deadline calendars, or new deliverables to be reflected in the dashboard, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional case files, status updates, court orders setting new deadlines, or completed deliverables to factor into the dashboard? I'll start the readiness scan only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-scan discovery of a newly served motion, a recently issued scheduling order, or an updated deliverable would change phase completion logic and next-step recommendations.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the dashboard must trace back to a specific file or folder in the case root. The dashboard guides decision-making about phase progression and next steps; unsourced or speculative status claims lead to missed deadlines and skipped deliverables.
+
+**Citation format:** Cite the file path or location relative to `CASE_ROOT`. Examples:
+- `(02 - Pretrial Notebook/03 - Case Analysis & Notes/000 - Initial Case Profile.docx)`
+- `(Case Tables.xlsx — Evidence Table, row count: 47)`
+- `(01 - Trial Notebook/05 - Evidence/, 12 files present)`
+- `(Court Order — Scheduling Order, filed 03/15/2026, p. 1)`
+
+**Multiple-source rule:** When more than one location confirms a status fact, cite all of them — e.g., `(Case Tables.xlsx — Witness Table; 01 - Trial Notebook/03 - Witnesses/, 8 files)`.
+
+**Unsourced assertions:** If a status claim cannot be tied to a documented file or location, mark it `[UNSOURCED — VERIFY WITH ATTORNEY]` so the team knows the dashboard reflects an assumption rather than a confirmed deliverable.
+
+**Where sourcing applies:** All factual content — phase status, deliverable completion, deadline tracking, gap identification. Strategic recommendations and procedural standards follow normal narrative format.
 
 ---
 

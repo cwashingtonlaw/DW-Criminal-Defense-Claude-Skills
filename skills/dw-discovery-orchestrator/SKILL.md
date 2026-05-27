@@ -1,5 +1,6 @@
 ---
 name: dw-discovery-orchestrator
+category: discovery
 description: >
   Auto-triage incoming discovery files to specialist auditors. ALWAYS invoke for "new
   discovery," "triage discovery," "discovery arrived," "route discovery," or when a
@@ -43,420 +44,76 @@ Do not proceed to Phase 1 until these protocols are loaded. All deliverables fro
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the Discovery Triage Report must trace back to a specific file in the discovery production. The triage report drives downstream auditor routing, Brady/Giglio sweeps, and the discovery ledger; misclassifying a file or referencing a file that doesn't exist breaks the auditor pipeline and risks missing constitutional issues.
+
+**Citation format:** Cite the file path and any internal page/section. Examples:
+- `(Discovery File — "LCPD Incident Report 2026-00456.pdf", p. 1)`
+- `(Discovery File — "Cellebrite Extraction Report — Samsung S22.pdf", p. 3, "Deleted Items")`
+- `(Discovery Production, Bates #00145-00148)`
+- `(Discovery Folder — "BWC Footage", File "Officer Smith — 2026-03-15.mp4", Timestamp 00:05:32)`
+- `(Lab Report — Sample #2026-001, p. 1)`
+
+**Multiple-source rule:** When more than one file confirms a classification or routing decision, cite all of them — e.g., `(Discovery File — "LCPD Report 2026-00456.pdf", p. 2; Discovery File — "Officer Smith Affidavit.pdf", p. 1)`.
+
+**Unsourced assertions:** If a triage classification cannot be tied to a specific file in the production, mark it `[UNSOURCED — VERIFY DISCOVERY INDEX]` so the attorney knows to confirm before invoking downstream auditors.
+
+**Where sourcing applies:** All factual content — file classifications, evidence-type assignments, routing recommendations, Bates range references, completeness gap notes. Procedural standards and auditor-skill descriptions follow normal narrative format.
+
+---
+
 ## PHASE 1 — FILE CLASSIFICATION
 
-Once intake is complete, scan **every file and folder** in the discovery upload. Classify each using the heuristics below.
+Once intake is complete, scan **every file and folder** in the discovery upload. Classify each using the heuristics in the classification engine.
 
 ### Classification Engine
 
 Classify files by **filename keywords**, **file extension**, **content patterns**, and **folder structure**. Use all three methods in combination.
 
-#### A. Police Reports & Incident Reports
-
-**Keywords:** report, incident, narrative, police, officer statement, supplemental, investigation, summary, offense, complaint, booking
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Witness statements, officer observations, scene description, narrative of events, case number, victim name, suspect name, charges
-
-**Auditor Route:** `dw-crime-scene-auditor` + `dw-suppression-motion` (constitutional scan for 4th Amendment seizure/search issues)
-
-**Priority:** HIGH
-
----
-
-#### B. Cell Phone Extractions (Cellebrite/UFED/GrayKey)
-
-**Keywords:** cellebrite, ufed, graykey, mobile extraction, phone dump, forensic extraction, ios extract, android extract, logical extraction, physical extraction, secure enclave
-
-**Extensions:** .pdf (extraction report), .txt, .xml, .bin, .img (raw forensic dumps)
-
-**Content indicators:** Device model (iPhone, Samsung, Google Pixel), extraction method (logical/physical), UFED report header, Cellebrite case report, deleted data sections, file listings, application data
-
-**Auditor Route:** `dw-mobile-forensic-auditor` → `dw-forensic-dump-analyzer` (for detailed deleted data / file system analysis)
-
-**Secondary Route:** `dw-cell-site-geolocation-auditor` (if location data extracted)
-
-**Priority:** HIGH
-
----
-
-#### C. Video Evidence (Body Cam, Dash Cam, Surveillance)
-
-**Keywords:** video, body cam, bwc, bodycam, dash cam, dashcam, surveillance, cctv, interview room, cell video, civilian video, officer footage, activation
-
-**Extensions:** .mp4, .avi, .mov, .mkv, .wmv, .flv, .m4v, .3gp, .dav, .264, .sec (video files) + .pdf (activation reports, video logs)
-
-**Content indicators:** Timestamp data, camera ID, activation times, duration, frame rate, resolution, audio presence, metadata fields
-
-**Auditor Route:** `dw-video-evidence-auditor`
-
-**Secondary Route:** `dw-suppression-motion` (if video shows constitutional violations)
-
-**Priority:** HIGH
-
----
-
-#### D. Audio Recordings (Interrogations, Jail Calls, Interviews)
-
-**Keywords:** audio, recording, interview, interrogation, confession, call, jail call, phone call, wiretap, oral statement, conversation, transcript
-
-**Extensions:** .wav, .mp3, .aac, .flac, .m4a, .wma (audio files) + .pdf, .docx (transcripts)
-
-**Content indicators:** Timestamp, interviewer/suspect names, duration, recording quality notes, Miranda warning mention, admission language
-
-**Auditor Route:** `dw-transcript-pipeline` (for transcription if raw audio) → `dw-confession-interrogation-auditor` (for interrogation analysis and suppression issues)
-
-**Priority:** HIGH
-
----
-
-#### E. Photo Arrays & Eyewitness Identification Materials
-
-**Keywords:** photo array, lineup, identification, six-pack, photographic lineup, identification procedures, witness id, suggestive procedures, rdp, filler photos
-
-**Extensions:** .pdf, .jpg, .jpeg, .png (array images or array documentation), .docx
-
-**Content indicators:** Suspect photo + filler photos, array sequence, witness instructions, witness response sheet, identification confirmation, date of procedure, witness name
-
-**Auditor Route:** `dw-eyewitness-identification-auditor`
-
-**Priority:** HIGH
-
----
-
-#### F. Lab Reports (DNA / Forensic Biology)
-
-**Keywords:** dna, str, mixture, strmix, trueallele, probabilistic genotyping, electropherogram, epg, random match probability, rmp, likelihood ratio, ldr, y-str, mitochondrial, mtdna, touch dna, transfer dna, low copy number, lcn, low template, codis, igg, investigative genetic genealogy, gedmatch, kinship
-
-**Extensions:** .pdf, .docx (lab report); raw EPG data files (.fsa, .hid, .csv) if produced
-
-**Content indicators:** DNA profile tables, allele calls at STR loci, mixture deconvolution language, probabilistic genotyping software output, RMP / LR / LDR statistics, CODIS hit notice, IGG investigative lead language
-
-**Auditor Route:** `dw-dna-forensic-biology-auditor` (deep methodology audit — STR, probabilistic genotyping, mixture interpretation, statistical challenges, contamination, IGG/databases, Daubert/Foret challenges) + `dw-chain-of-custody-auditor` (collection through lab)
-
-**Priority:** HIGH
-
----
-
-#### F2. Lab Reports (Drug ID, Toxicology, General Crime Lab — NOT DNA)
-
-**Keywords:** lab, laboratory, toxicology, drug analysis, gc/ms, gc-ms, gas chromatography, ftir, color test, spot test, presumptive test, confirmatory test, blood alcohol, bac, immunoassay, elisa, criminalist certificate, r.s. 15:499, melendez-diaz, controlled substance, cocaine, methamphetamine, heroin, fentanyl, marijuana, thc, oxycodone, alprazolam, firearms, ballistics, serology, trace evidence
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Lab name, case number, evidence item numbers, testing methodology (presumptive vs. confirmatory, GC/MS, FTIR, immunoassay), results tables, analyst name, accreditation info (ANAB / ASCLD-LAB / ISO 17025), quality control notes, R.S. 15:499 certificate language, Bullcoming/Melendez-Diaz disclosures, ballistics comparison results
-
-**Auditor Route (by subtype):**
-- **DNA / forensic biology** (keywords: dna, str, y-str, mitochondrial, serology, blood, semen, saliva, touch dna, mixture, likelihood ratio, codis, probabilistic genotyping, strmix, truallele) → `dw-dna-forensic-biology-auditor` (primary) + `dw-chain-of-custody-auditor`
-- **Drug lab / controlled-substance analysis / toxicology** (keywords: drug analysis, controlled substance, schedule i/ii/iii/iv/v, gc-ms, fid, marijuana, thc, cocaine, methamphetamine, fentanyl, opiate, ethanol, blood alcohol, bac, urinalysis, hgn, R.S. 15:499, certificate of analysis, notice of intent to use certificate) → `dw-crime-lab-auditor` (primary) + `dw-chain-of-custody-auditor`
-- **Firearms / ballistics / trace evidence** → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
-- **Lab reports of indeterminate type** → default to `dw-crime-scene-auditor` and flag for attorney review
-
-**Priority:** HIGH
-
----
-
-#### G. Medical Records
-
-**Keywords:** medical, hospital, healthcare, emergency room, er, physician, nurse, medical exam, treatment, diagnosis, injury, medical history, sane exam, sane kit
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Provider name, patient ID, admission date, diagnoses, injuries, medications, treatment notes, discharge summary, consent forms
-
-**Auditor Route:** `medical-chronology` (to build medical timeline and injury assessment)
-
-**Priority:** MEDIUM
-
----
-
-#### H. Witness Statements
-
-**Keywords:** statement, witness, sworn statement, affidavit, statement of, interview notes, narrative witness statement, witness signed
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Witness name, signature, date, statement of what witness saw/heard, reference to time/location, cross-reference to police report
-
-**Auditor Route:** `dw-witness-statement-analyzer` → `dw-cross-exam-architect` + `dw-brady-giglio-auditor`
-
-**Processing Note:** Run dw-witness-statement-analyzer first to produce Witness Analysis Cards (key facts, inconsistencies, credibility indicators), which then feed into dw-cross-exam-architect for cross-examination outline building.
-
-**Priority:** MEDIUM
-
----
-
-#### I. Cell Tower Location Records (CSLI / Cell Site Location Info)
-
-**Keywords:** cell site, csli, cell location, tower, location records, cellular location, ping records, triangulation, location data, cdma location, lte location
-
-**Extensions:** .pdf, .csv, .xlsx, .docx
-
-**Content indicators:** Carrier name (AT&T, Verizon, T-Mobile, Sprint), phone number, date range, tower ID, latitude/longitude, distance from cell site, signal strength, sectors
-
-**Auditor Route:** `dw-cell-site-geolocation-auditor`
-
-**Secondary Route:** `dw-brady-giglio-auditor` (to flag if location data contradicts prosecution timeline)
-
-**Priority:** HIGH
-
----
-
-#### J. Social Media Printouts
-
-**Keywords:** facebook, twitter, instagram, snapchat, tiktok, social media, screenshot, post, message, dm, direct message, social network, web page print
-
-**Extensions:** .pdf, .jpg, .jpeg, .png, .docx
-
-**Content indicators:** Username, profile name, timestamp, message text, hashtags, likes/shares, user ID, platform name, URL
-
-**Auditor Route:** `dw-social-media-auditor`
-
-**Secondary Route:** `dw-brady-giglio-auditor` (if social media shows inconsistency with prosecution narrative)
-
-**Priority:** MEDIUM
-
----
-
-#### K. Search Warrants & Affidavits
-
-**Keywords:** search warrant, warrant affidavit, probable cause affidavit, affidavit, warrant application, judicial authorization, warrant return, items seized
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Judge name, affiant name, probable cause statement, items to be searched, specific items to seize, return of warrant, items actually seized vs authorized
-
-**Auditor Route:** `dw-suppression-motion` (warrant audit mode: probable cause adequacy, particularity, execution compliance)
-
-**Priority:** HIGH
-
----
-
-#### L. Forensic Interview Recordings (Child Abuse Cases)
-
-**Keywords:** forensic interview, child advocacy center, cac, child interview, forensic interviewer, abuse disclosure, cac video
-
-**Extensions:** .mp4, .mov, .avi (video) + .pdf, .docx (interview report/transcript)
-
-**Content indicators:** Child name, age, interviewer name, facility name, time/date, allegation type, disclosure language, leading questions flag
-
-**Auditor Route:** `dw-child-forensic-interview-auditor` (for interview methodology and suggestiveness analysis)
-
-**Priority:** HIGH
-
----
-
-#### M. Expert Reports & Curricula Vitae
-
-**Keywords:** expert, report, cv, curriculum vitae, affidavit, expert analysis, opinion, expert witness, qualification, credentials, expert declaration
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Expert name, qualifications, prior testimony, opinion statement, basis for opinion, method/methodology, expert credentials section, case references
-
-**Auditor Route:** `dw-expert-witness-evaluator` (to assess expert reliability, bias, and cross-examination vulnerabilities)
-
-**Priority:** MEDIUM
-
----
-
-#### N. Prior Conviction Records
-
-**Keywords:** prior, conviction, criminal history, record, prior conviction, sentencing, judgment, guilty plea, adjudication, habitual offender, habitual, repeat offender
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Defendant name, date of conviction, charge, jurisdiction, disposition, sentence, case number
-
-**Auditor Route:** `dw-habitual-offender-auditor` (to assess habitual offender exposure and prior conviction admissibility)
-
-**Priority:** MEDIUM
-
----
-
-#### O. Plea Agreements & Cooperation Agreements
-
-**Keywords:** plea, plea agreement, cooperation agreement, plea deal, coop agreement, guilty plea, plea and disposition, sentencing recommendation, plea facts, plea allocution, 5k1, substantial assistance
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** Defendant name, charges, terms of agreement, cooperation language, immunity clause, sentencing recommendation, prosecutor signature, judge approval, factual admission
-
-**Auditor Route:** `dw-brady-giglio-auditor` (to flag undisclosed cooperation deals and Giglio impeachment material)
-
-**Priority:** HIGH
-
----
-
-#### P. SANE Exam Reports & Sex Offense Evidence
-
-**Keywords:** sane, sane exam, sexual assault, rape kit, sexual assault kit, forensic exam, nurse examiner, sane nurse, sexual battery, indecent behavior, molestation, sex offense, sexual abuse
-
-**Extensions:** .pdf, .docx
-
-**Content indicators:** SANE nurse name, exam findings, injury documentation, forensic exam collection log, DNA reference samples, toxicology, patient history, chain of custody for kit components
-
-**Auditor Route:** `dw-sex-offense-specialist` (comprehensive sex offense analysis including SANE audit, DNA mixture interpretation, rape shield, delayed disclosure research)
-
-**Secondary Route:** `dw-chain-of-custody-auditor` (for kit handling from collection through lab) + `dw-child-forensic-interview-auditor` (if victim is a minor and forensic interview also in discovery)
-
-**Priority:** HIGH
-
----
-
-#### Q. Raw Database Files (SQLite / WAL)
-
-**Keywords:** database, sqlite, .db, .wal, .shm, journal, wal file, write-ahead log, freelist, deleted records
-
-**Extensions:** .db, .sqlite, .sqlite3, .sqlitedb, -wal, -shm, -journal
-
-**Content indicators:** Companion -wal/-shm files alongside a .db, file sizes suggesting active WAL (>0 bytes), database filenames matching known iOS/Android app databases (sms.db, ChatStorage.sqlite, msgstore.db, call_history.db)
-
-**Auditor Route:** `dw-sqlite-recovery` (WAL sequencing analysis, deleted data recovery audit, forensic standard-of-care assessment)
-
-**Note:** These files are typically produced alongside a phone extraction (Category B). If the extraction report is also present, route the extraction report to `dw-mobile-forensic-auditor` first, then raw database files to `dw-sqlite-recovery`. The SQLite auditor evaluates what the extraction tool missed.
-
-**Priority:** HIGH (if case-critical databases like messaging or location are present)
-
----
-
-#### R. Cross-Cutting: Timeline Assembly
-
-**Secondary route applied to ALL timestamped evidence across categories.**
-
-Any file classified under Categories A (Police Reports), C (Video Evidence), D (Audio Recordings), I (Cell Tower Records), or B (Phone Extractions) should ALSO be routed to `dw-timeline-builder` as a secondary auditor.
-
-**Auditor Route (Secondary):** `dw-timeline-builder`
-
-**Purpose:** After primary auditors process these files, dw-timeline-builder aggregates all extracted timestamps into the master case timeline with conflict detection and source reliability scoring.
-
-**Processing Note:** Run dw-timeline-builder AFTER Priority 2 forensic audits complete, using all timestamped evidence to assemble the unified chronology. This runs parallel to Priority 3 witness audits.
-
----
+Read `references/classification-engine.md` for the full per-evidence-type catalog. The 18 categories with keywords, extensions, content indicators, primary auditor routes, secondary routes, and priority levels are:
+
+| Cat. | Evidence Type | Primary Auditor | Priority |
+|------|---------------|-----------------|----------|
+| A | Police Reports & Incident Reports | `dw-crime-scene-auditor` + `dw-suppression-motion` | HIGH |
+| B | Cell Phone Extractions (Cellebrite/UFED/GrayKey) | `dw-mobile-forensic-auditor` → `dw-forensic-dump-analyzer` | HIGH |
+| C | Video Evidence (Body Cam, Dash Cam, Surveillance) | `dw-video-evidence-auditor` | HIGH |
+| D | Audio Recordings (Interrogations, Jail Calls, Interviews) | `dw-transcript-router` → `dw-confession-interrogation-auditor` | HIGH |
+| E | Photo Arrays & Eyewitness Identification | `dw-eyewitness-identification-auditor` | HIGH |
+| F | Lab Reports (DNA, Toxicology, Firearms, Trace) | `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor` | HIGH |
+| G | Medical Records | `medical-chronology` | MEDIUM |
+| H | Witness Statements | `dw-witness-statement-analyzer` → `dw-cross-exam-architect` + `dw-brady-giglio-auditor` | MEDIUM |
+| I | Cell Tower Location Records (CSLI) | `dw-cell-site-geolocation-auditor` | HIGH |
+| J | Social Media Printouts | `dw-social-media-auditor` | MEDIUM |
+| K | Search Warrants & Affidavits | `dw-suppression-motion` (warrant audit mode) | HIGH |
+| L | Forensic Interview Recordings (Child Abuse) | `dw-child-forensic-interview-auditor` | HIGH |
+| M | Expert Reports & CVs | `dw-expert-witness-evaluator` | MEDIUM |
+| N | Prior Conviction Records | `dw-habitual-offender-auditor` | MEDIUM |
+| O | Plea Agreements & Cooperation Agreements | `dw-brady-giglio-auditor` | HIGH |
+| P | SANE Exam Reports & Sex Offense Evidence | `dw-sex-offense-specialist` (+ `dw-chain-of-custody-auditor`, `dw-child-forensic-interview-auditor` if minor) | HIGH |
+| Q | Raw Database Files (SQLite / WAL) | `dw-sqlite-recovery` | HIGH |
+| R | Cross-Cutting Timeline Assembly (secondary) | `dw-timeline-builder` | — |
+
+Always consult `references/classification-engine.md` for the full keywords/extensions/content-indicators per category before classifying — the table above is a routing summary, not a substitute for the heuristics.
 
 ### Unclassified Files
 
-Files that do not match the above patterns:
-- Administrative documents (cover letters, routing slips, binders)
-- Miscellaneous forms with unclear content
-- Encrypted or corrupted files
-- Files with no discernible extension or metadata
-
-**Handling:** Flag in Triage Report under "Manual Review Required." List filename, size, upload date, and reason for non-classification.
+Files that do not match any pattern (administrative documents, miscellaneous unclear forms, encrypted/corrupted files, files with no discernible extension or metadata) are flagged in the Triage Report under "Manual Review Required." List filename, size, upload date, and reason for non-classification. See `references/classification-engine.md` for handling detail.
 
 ---
 
 ## PHASE 2 — DISCOVERY TRIAGE REPORT
 
-After classifying **every file**, generate the **Discovery Triage Report** with the following structure:
+After classifying **every file**, generate the **Discovery Triage Report**. The full template — header fields, file classification summary table, recommended processing order, classified-files-by-auditor groupings, unclassified-files table, and workflow-execution-plan options A/B/C — lives in `references/triage-report-template.md`. Read it and follow its structure exactly.
 
-### Report Header
-- Case Name
-- Case Number / Docket Number
-- Attorney Name
-- Report Generation Date & Time
-- Total Files Processed
-- Total Files Classified vs Unclassified
+The report has five sections:
+1. **File Classification Summary** — table of every file with extension, evidence type, assigned auditor(s), priority
+2. **Recommended Processing Order** — five priority tiers (Constitutional → Forensic → Witness → Brady/Giglio sweep → Compliance update)
+3. **Classified Files by Auditor** — files grouped by destination auditor with workload estimates
+4. **Unclassified Files Requiring Manual Review** — table of files needing attorney triage
+5. **Workflow Execution Plan** — Options A (Full Automated Orchestration), B (Attorney-Selected Subset), C (Manual Selection)
 
-### Section 1: File Classification Summary
-
-| File Name | Extension | Evidence Type | Assigned Auditor(s) | Priority |
-|-----------|-----------|----------------|-------------------|----------|
-| [filename] | .pdf | Police Report | dw-crime-scene-auditor, dw-suppression-motion | HIGH |
-| [filename] | .mp4 | Body Cam Video | dw-video-evidence-auditor | HIGH |
-| (all files listed) | | | | |
-
-**Legend:**
-- ⭐ = Constitutional concern flagged
-- 🔒 = Brady/Giglio exposure flagged
-- ⚠️ = Chain of custody issue flagged
-- 📋 = Administrative (low priority)
-
-### Section 2: Recommended Processing Order
-
-Based on discovery priority and workflow logic, list auditor skills in recommended execution order:
-
-**Priority 1 — Constitutional Issues (Must Run First):**
-1. `dw-suppression-motion` — Search warrant audit, seizure/interrogation analysis
-2. Files: [list]
-3. Estimated runtime: [estimate based on file count]
-
-**Priority 2 — Forensic Audits (Parallel Execution):**
-1. `dw-mobile-forensic-auditor` — Phone extractions audit
-2. Files: [list]
-3. Estimated runtime: [estimate]
-
-[Repeat for each forensic/evidence auditor needed]
-
-**Priority 3 — Witness & Procedural Audits:**
-1. `dw-eyewitness-identification-auditor` — Photo array procedures
-2. Files: [list]
-3. Estimated runtime: [estimate]
-
-[Repeat for witness-related auditors]
-
-**Priority 4 — Brady/Giglio Final Sweep (Always Last):**
-1. `dw-brady-giglio-auditor` — Comprehensive discovery compliance audit across all files
-2. Files: [all discovery files]
-3. Estimated runtime: [estimate]
-
-**Priority 5 — Compliance Update (Final Step):**
-1. `dw-discovery-compliance-monitor` — Update discovery ledger with processed files and findings
-2. Estimated runtime: [estimate]
-
-### Section 3: Classified Files by Auditor
-
-Group all classified files by their assigned auditor skill:
-
-```
-## dw-crime-scene-auditor
-- 010 - Incident Report.pdf (Police Report)
-- 042 - Lab DNA Report.pdf (DNA Lab Report)
-- Estimated files: 3
-- Estimated auditor workload: 2–3 hours
-
-## dw-video-evidence-auditor
-- 025 - Body Camera Footage/ (folder with 4 video files)
-- 031 - Surveillance Video.mp4
-- Estimated files: 5
-- Estimated auditor workload: 2–3 hours
-
-## dw-mobile-forensic-auditor
-- 015 - Cellebrite Extraction Report.pdf
-- Estimated files: 1
-- Estimated auditor workload: 1–2 hours
-
-[Continue for each auditor]
-```
-
-### Section 4: Unclassified Files Requiring Manual Review
-
-| File Name | Size | Upload Date | Reason for Non-Classification |
-|-----------|------|-------------|-------------------------------|
-| MiscDoc_001.docx | 145 KB | [date] | Content unclear; appears to be administrative routing slip |
-| IMG_8374.jpg | 3.2 MB | [date] | Image appears to be crime scene photo but lacks context/metadata |
-
-**Recommendation:** Attorney review to determine proper classification or discard.
-
-### Section 5: Workflow Execution Plan
-
-**Option A — Full Automated Orchestration (Recommended)**
-- I will execute all auditor skills in the recommended order
-- Each auditor will process assigned files and generate findings
-- Final Brady/Giglio sweep will cross-reference all auditor outputs
-- Estimated total workflow time: [sum of all estimates]
-
-**Option B — Attorney-Selected Subset**
-- You choose which auditors to run now (e.g., Priority 1–2)
-- Defer others to later sessions
-- I will execute selected skills only
-
-**Option C — Manual Selection**
-- You review the triage report and tell me which specific auditors to invoke
-- I will route specific files to those auditors
-
-**Which option do you prefer?**
+End the report by asking the attorney which execution option they prefer.
 
 ---
 
@@ -473,34 +130,13 @@ Once the attorney confirms execution preference (Full, Subset, or Manual), orche
 
 ### Per-Auditor Handoff
 
-For each auditor skill invocation:
-- **List all assigned files** (by filename and path)
-- **Provide context** (case name, docket number, attorney name)
-- **Set execution expectation** (e.g., "Audit for constitutional violations and chain-of-custody breaks")
-- **Specify output location** (follow shared protocols for output paths; see Step 0.5)
+For each auditor skill invocation, provide:
+- **All assigned files** (by filename and path)
+- **Context** (case name, docket number, attorney name)
+- **Execution expectation** (e.g., "Audit for constitutional violations and chain-of-custody breaks")
+- **Output location** (follow shared protocols for output paths; see Step 0.5)
 
-### Example Handoff to dw-crime-scene-auditor
-
-```
-CASE: State v. Marcus Johnson | Docket: 2024-CR-00847
-ATTORNEY: Sarah Chen
-FILES ASSIGNED:
-  - 010 - Incident Report.pdf
-  - 042 - Lab DNA Report.pdf
-  - 055 - Evidence Collection Log.xlsx
-
-EXECUTION CONTEXT:
-  Audit all three files for:
-  - Crime scene processing methodology compliance
-  - DNA lab methodology and chain of custody integrity
-  - Evidence collection and preservation deficiencies
-  - Contamination risks
-
-OUTPUT LOCATION:
-  [Case Root] / 01 - Trial Notebook / 09 - Case Analysis
-
-READY TO BEGIN? [Awaiting your confirmation before auditing]
-```
+Read `references/auditor-handoff-template.md` for the canonical handoff block format and a worked example (handoff to `dw-crime-scene-auditor`).
 
 ---
 
@@ -543,112 +179,19 @@ After all auditors complete, generate a **Findings Summary** listing:
 
 ## ORCHESTRATOR REFERENCE: D&W Folder Structure
 
-When specifying output locations, use this standard structure:
+When specifying output locations, use the standard D&W case-folder structure documented in `references/folder-structure-reference.md`. Output location for all auditor findings is:
 
 ```
-[Case Root]/
-├── Case Tables.xlsx                    (Master data file)
-├── 01 - Trial Notebook/
-│   ├── 01 - Jury Instructions & Selection/
-│   ├── 03 - Witnesses/
-│   ├── 05 - Evidence/                  (Bate-stamped docs, A/V)
-│   └── 09 - Case Analysis/
-└── 02 - Pretrial Notebook/
-    ├── 01 - Pleadings/
-    ├── 02 - Discovery/
-    ├── 03 - Case Analysis & Notes/
-    │   ├── Cowork Analysis/            (Auditor findings saved here)
-    │   ├── 000 - Initial Case Profile.docx
-    │   ├── 001 - LWOP Worksheet.docx
-    │   └── 002 - Criminal Defense Cover.docx
-    └── 06 - Law & Research/
+[Case Root] / 01 - Trial Notebook / 09 - Case Analysis / Cowork Analysis/
 ```
-
-Output location for all auditor findings: `[Case Root] / 01 - Trial Notebook / 09 - Case Analysis / Cowork Analysis/`
 
 ---
 
 ## CLASSIFICATION FLOWCHART (Quick Reference)
 
-1. **Does file contain or reference forensic interview of a child (CAC, child advocacy)?**
-   - Yes → `dw-child-forensic-interview-auditor`
-   - No → Continue
+For fast decision-tree classification of a single file, walk the 19-step flowchart in `references/classification-flowchart.md`. The flowchart progresses from most-specific evidence types (CAC interviews, video, audio) through forensic categories, warrant materials, plea/cooperation, expert reports, and witness statements, ending with the timeline-builder secondary route and the "unclassified" fallback.
 
-2. **Does file contain video (body cam, dash cam, surveillance, interview room)?**
-   - Yes → `dw-video-evidence-auditor`
-   - No → Continue
-
-3. **Does file contain audio (interrogation, jail call, interview, 911)?**
-   - Yes → `dw-transcript-pipeline` (transcription) → then route transcript:
-     - Interrogation/confession → `dw-confession-interrogation-auditor`
-     - Other audio → `dw-cross-exam-architect`
-   - No → Continue
-
-4. **Does filename mention phone, Cellebrite, UFED, GrayKey?**
-   - Yes → `dw-mobile-forensic-auditor` → `dw-forensic-dump-analyzer`
-   - No → Continue
-
-5. **Is the file a raw database (.db, .sqlite, -wal, -shm)?**
-   - Yes → `dw-sqlite-recovery`
-   - No → Continue
-
-6. **Does filename mention report, incident, police, crime scene?**
-   - Yes → `dw-crime-scene-auditor`
-   - No → Continue
-
-7. **Does filename or content reference DNA, STR, mixture, STRmix, TrueAllele, EPG, electropherogram, Y-STR, mtDNA, touch DNA, CODIS, IGG, GEDmatch, or kinship?**
-   - Yes → `dw-dna-forensic-biology-auditor` + `dw-chain-of-custody-auditor`
-   - No → Continue
-
-7a. **Does filename or content reference drug analysis (GC/MS, FTIR, presumptive/confirmatory test), toxicology (immunoassay, ELISA, blood alcohol lab analysis), criminalist certificate / R.S. 15:499, Melendez-Diaz, lab accreditation (ANAB / ASCLD-LAB / ISO 17025), or general crime lab methodology (firearms, ballistics, serology, trace evidence — non-DNA)?**
-   - Yes → `dw-crime-lab-auditor` + `dw-chain-of-custody-auditor`
-   - No → Continue
-
-8. **Does filename mention SANE, rape kit, sexual assault exam?**
-   - Yes → `dw-sex-offense-specialist` + `dw-chain-of-custody-auditor`
-   - No → Continue
-
-9. **Does filename mention photo array, lineup, identification, six-pack?**
-   - Yes → `dw-eyewitness-identification-auditor`
-   - No → Continue
-
-10. **Does filename mention cell site, csli, tower, location?**
-    - Yes → `dw-cell-site-geolocation-auditor`
-    - No → Continue
-
-11. **Does filename mention search warrant, affidavit, warrant?**
-    - Yes → `dw-suppression-motion`
-    - No → Continue
-
-12. **Does filename mention plea, cooperation, agreement, deal?**
-    - Yes → `dw-brady-giglio-auditor`
-    - No → Continue
-
-13. **Does filename mention expert, cv, opinion, qualifications?**
-    - Yes → `dw-expert-witness-evaluator`
-    - No → Continue
-
-14. **Does filename mention prior, conviction, habitual, record?**
-    - Yes → `dw-habitual-offender-auditor`
-    - No → Continue
-
-15. **Does filename mention medical, hospital, healthcare?**
-    - Yes → `medical-chronology`
-    - No → Continue
-
-16. **Does filename mention statement, witness, affidavit?**
-    - Yes → `dw-witness-statement-analyzer` → `dw-cross-exam-architect` + `dw-brady-giglio-auditor`
-    - No → Continue
-
-17. **Does file contain timestamps, times, dates, or temporal references?**
-    - Yes → Also route to `dw-timeline-builder` (secondary, in addition to primary auditor)
-    - No → Continue
-
-18. **Does filename mention social media, facebook, twitter, instagram?**
-    - Yes → `dw-social-media-auditor`
-    - No → Continue
-
-19. **If none match:** Flag as "Unclassified — Manual Review Required"
+The full classification-engine catalog (`references/classification-engine.md`) supersedes the flowchart when keyword and content evidence conflict — the flowchart is for quick triage, the engine is for definitive routing.
 
 ---
 
@@ -666,3 +209,15 @@ Your job is to be the gatekeeper between raw discovery and expert auditors. Get 
 Be thorough. Use all three classification methods (filename, extension, content). When in doubt, ask. When you find an unclassified file, escalate it. Speed comes after accuracy.
 
 **Ready to begin discovery intake?**
+
+---
+
+## Quick References
+
+Files in `references/` (load on demand during the relevant phase):
+
+- `classification-engine.md` — The full 18-category catalog (A–R) with keywords, extensions, content indicators, primary and secondary auditor routes, priority levels, and processing notes. Authoritative source for Phase 1 classification decisions.
+- `classification-flowchart.md` — The 19-step decision tree for fast single-file triage. Use as a quick-reference complement to the classification engine.
+- `triage-report-template.md` — The full Phase 2 Discovery Triage Report structure: header, five sections (Classification Summary, Processing Order, Files by Auditor, Unclassified Files, Workflow Execution Plan), tables, and the Option A/B/C execution prompt.
+- `auditor-handoff-template.md` — Canonical Phase 3 per-auditor handoff block format with a worked example (handoff to `dw-crime-scene-auditor`).
+- `folder-structure-reference.md` — D&W standard case-folder map showing where Cowork Analysis findings are saved relative to the case root.

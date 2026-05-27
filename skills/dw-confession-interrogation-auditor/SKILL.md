@@ -1,5 +1,6 @@
 ---
 name: dw-confession-interrogation-auditor
+category: evidence-audit
 description: >
   Audit custodial interrogations for Miranda violations, coercion, and false confession
   risk. ALWAYS invoke for "audit interrogation," "Miranda violation," "coerced confession,"
@@ -140,6 +141,27 @@ Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load th
 2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
 
 Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Confession & Interrogation Audit Report must trace back to a specific source document. Jackson v. Denno hearings and La. C.Cr.P. Art. 703 suppression hearings turn on the documented record of what occurred during the interrogation — voluntariness, Miranda compliance, and false confession risk are all evaluated against the recording, transcript, and rights advisement materials. Unsourced claims about what the interrogator said, when warnings were administered, or how long the questioning lasted carry no weight.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Interrogation Recording — Session 1, Timestamp 00:14:32)`
+- `(Interrogation Transcript, p. 8, lines 12-18)`
+- `(Miranda Waiver Form, signed 03/15/2026)`
+- `(Booking Video, Timestamp 02:11:05)`
+- `(Officer Smith BWC — Pre-Interrogation, Timestamp 00:03:18)`
+- `(Detective Notes — LCPD Case #2026-00456, p. 2, para. 3)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the interrogation, cite all of them — e.g., `(Interrogation Recording, Timestamp 00:14:32; Interrogation Transcript, p. 8, lines 12-18)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it at a Jackson v. Denno or Art. 703 hearing.
+
+**Where sourcing applies:** All factual content — Miranda timing, waiver execution, technique identification, voluntariness factors, recording compliance, juvenile protections. Legal standards and case law follow normal legal citation format.
 
 ---
 
@@ -581,3 +603,18 @@ For each CRITICAL finding, provide:
 - **dw-cross-exam-architect:** Transfer cross-examination seeds from Module H to build interrogating officer cross-examination outline
 - **dw-suppression-motion:** Use CRITICAL and SIGNIFICANT findings to draft La. C.Cr.P. Art. 703 motion
 - **dw-criminal-defense:** Place audit report in case file per standard D&W naming and organization protocol
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **constitutional-louisiana-law-reference.md** — Constitutional and Louisiana confession-law quick-reference (federal due-process standards + La. C.Cr.P. Art. 703 + La. R.S. 15:451-452 + La. Ch.C. Art. 808)
+- **miranda-standards.md** — Substantive Miranda framework: Four Warnings, custody/interrogation tests, timing matrix, waiver validity, invocation rules, Red Flag Matrix
+- **false-confession-research.md** — Research authorities (Kassin, Drizin & Leo, Gudjonsson, Frenda, Grisso, Leo & Ofshe, Innocence Project) with key findings and applications
+- **false-confession-risk-factors.md** — False-confession taxonomy and per-suspect risk-factor scoring
+- **reid-technique-and-coercion-tactics.md** — Reid Technique nine-step framework + coercion-tactic identification
+- **technique-coercion-levels.md** — Interrogation-technique coercion-level matrix with false-confession risk per technique
+- **suppression-motion-checklist.md** — Operational checklist for assembling La. C.Cr.P. Art. 703 motion to suppress confession
+- **timestamp-analysis-template.md** — Chronological event-log template for time-anchoring audit findings to recording timestamps

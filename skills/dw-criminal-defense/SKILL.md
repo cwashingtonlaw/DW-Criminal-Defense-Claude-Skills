@@ -1,11 +1,14 @@
 ---
 name: dw-criminal-defense
+category: core
 description: >
   Master 3-phase criminal defense workflow. ALWAYS invoke for "case intake," "new case,"
   "run Phase 1/2/3," initial case setup, "fill out the LWOP sheet," "LWOP review,"
   "District Defender review," "life without parole worksheet," or "refresh the Case Profile."
   Do NOT use for loading existing case state — use dw-case-brain. Do NOT use for case
-  status checks — use dw-case-dashboard.
+  status checks — use dw-case-dashboard. Do NOT use for the client-facing first meeting
+  / intake interview — use dw-client-intake-interview (this skill handles the case file
+  side; the intake interview skill handles the live client meeting and feeds into Phase 1).
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
@@ -76,7 +79,8 @@ dw-criminal-defense/
 ### Step 1: Folder Setup
 
 - Read `references/output-path-convention.md` to resolve `CASE_ROOT` (checks Case Brain session → attorney prompt → Cowork project mapping → asks attorney).
-- Confirm all standard subfolders exist per `references/folder-structure-and-naming.md` — `01 - Trial Notebook` (all sub-tabs) and `02 - Pretrial Notebook` (all sub-tabs).
+- Read `references/folder-structure-and-naming.md` for the full standard folder layout (including Exhibit List, Billing, and Case Closing locations) and the master document/audio/video naming conventions.
+- Confirm all standard subfolders exist: `01 - Trial Notebook` (all sub-tabs) and `02 - Pretrial Notebook` (all sub-tabs).
 - Locate `Case Tables.xlsx` at the root of the case folder. If this is a new case and no `Case Tables.xlsx` exists, copy the master template from `assets/Case Tables.xlsx` into the case root.
 - Do not create new folders unless a standard subfolder is missing.
 
@@ -183,7 +187,9 @@ For LWOP cases (Part 2A or 2B in scope), also read `references/lwop-field-maps.m
 
 ⚠ **Follow the Case Tables Write Protocol before modifying this file.** See `references/case-tables-write-protocol.md`.
 
-Populate three sheets in `Case Tables.xlsx`. Do not create new sheets — use the existing ones. Maintain all existing color coding, dropdown lists, and formatting per `references/color-coding.md`. The Case Profile (Step 3) provides the charge and defense context needed for accurate assessment of all columns.
+**Reference:** Read `references/color-coding.md` for the firm's full header and dropdown color specs (hex values for every column, evidence type, witness type, review priority, defense relevance, and timeline tag). Use the `xlsx` skill to apply formatting per those specs.
+
+⚠ **Follow the Case Tables Write Protocol before modifying this file.** See "Case Tables Write Protocol" section above.
 
 **4a — Evidence Table**
 Populate the **Evidence Table Sheet** with the full discovery catalog, including analysis columns.
@@ -272,7 +278,19 @@ Classify evidence by type and dispatch to the appropriate specialist skill for e
 - Cell site/location data → **dw-cell-site-geolocation-auditor**
 - Social media evidence → **dw-social-media-auditor**
 - Child forensic interviews → **dw-child-forensic-interview-auditor**
-- Expert witness issues → **dw-expert-witness-evaluator**
+- Expert witness issues → **dw-expert-witness-evaluator** (Module I for Daubert/Foret hearing day package once a hearing is set)
+- Jail call recordings (Securus / GTL/ViaPath / NCIC / IC Solutions) → **dw-jail-call-analyzer** (transcribes via dw-transcript-router; cross-feeds dw-witness-threat-matrix and dw-cross-exam-architect)
+
+**1D — Charge-Type Specialist Routing**
+Identify the charge category and dispatch to the corresponding charge-type specialist for element-by-element defense framework, sentencing exposure analysis, and discipline-specific motions/discovery. Specialists run in parallel with the 8 reports.
+
+- Drug offenses (CDS, distribution, possession with intent) → **dw-drug-offense-specialist**
+- DWI / OWI / vehicular homicide → **dw-dwi-specialist**
+- Sex offenses (incl. SANE-exam audit) → **dw-sex-offense-specialist**
+- Firearms offenses (state and federal) → **dw-firearms-specialist**
+- Violent crimes (homicide, manslaughter, agg battery, agg assault, armed robbery, kidnapping, home invasion) → **dw-violent-crime-specialist**
+
+Cases involving multiple specialist domains (e.g., armed robbery with felon-in-possession enhancement) should dispatch to all applicable specialists.
 
 Save all Step 1 outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` subfolder.
 
@@ -297,6 +315,8 @@ Read `references/case-analysis-prompts.md` for the exact prompt template for eac
 *Triggered immediately upon filing Report 7.*
 
 **Output:** `Missing Discovery Demand — [Date].docx` → save to `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
+
+**Reference:** Read `references/textexpander-snippets.md` for the firm's standard boilerplate (Case Caption, Signature Block, Certificate of Service, Discovery Citations, Cowork Draft Disclaimer). Use these exact text blocks — do not paraphrase the firm's standard language.
 
 - Extract every item listed in Report 7's data table.
 - Draft a formal demand letter addressed to the prosecution citing Brady/Giglio obligations.
@@ -456,7 +476,14 @@ Populate the Mapping the Story templates (Opening and Closing) from: Report 4 (C
 
 Route preservation of trial error, evidentiary challenges, and appellate strategy to **dw-appellate-error-monitor** to ensure all grounds for appeal are documented and preserved for post-conviction review.
 
-### Step 11: Assemble Trial Notebook
+After verdict and sentence, when the appellate record is designated and the ranked-issue output from `dw-appellate-error-monitor` is in hand, route brief drafting to **dw-appellate-brief-builder** for the direct-appeal brief (assignments of error, statement of facts with record cites, per-assignment argument structured as standard of review → preservation → law → application → prejudice, and reply brief). For collateral relief (PCR, federal habeas, sentence modification) instead of direct appeal, route to **dw-post-conviction-relief**.
+
+### Step 11: Trial Day Support
+*During trial — fast-cycle, in-court support.*
+
+Route real-time trial-day support to **dw-trial-day-assistant** for: daily docket, real-time objection log (which feeds upstream to **dw-appellate-error-monitor**), witness scorecards (which feed **dw-cross-exam-architect** for next-day prep), exhibit tracker, juror observation log including Batson tracking, end-of-day recap with overnight tasks, and mid-trial issue spotter (Brady, surprise testimony, mistrial triggers under La. C.Cr.P. Art. 770/771). The trial-day assistant produces short, scannable outputs designed for use during breaks and at counsel table — final polish rolls into the trial notebook via Step 12.
+
+### Step 12: Assemble Trial Notebook
 *Final assembly — triggered when all Phase 3 deliverables are complete.*
 
 Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliverables into the final Trial Notebook. The trial notebook builder scans the case folder for all upstream deliverables, organizes them into the Trial Notebook folder structure, generates a master index, and produces a Trial Readiness Gap Report identifying any missing items.
@@ -473,3 +500,38 @@ Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliv
 ---
 
 *This skill reflects Daniels & Washington Cowork Workflow Version 5.8 (May 2026). Update this file whenever the master workflow document is revised.*
+## Changelog
+
+### v5.3 (April 2026)
+- **MERGED:** `dw-lwop-populator` is now part of this skill. The standalone populator skill has been retired.
+- **NEW reference files:** `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md` (both moved from the populator's `references/` folder).
+- **NEW assets/legacy/ folder:** archives the two original Calcasieu PDO standalone templates (`LWOP Homicide Review Sheet - FOR TYPING.docx`, `LWOP Sex Offense Review Sheet - FOR TYPING.docx`) for reference. They are no longer used as the output substrate.
+- **Phase 1 Step 3 expanded:** absorbs the populator's full workflow — extraction priority order, source-priority rules, formatting conventions, attorney-only field handling, field-completeness checklist, completion notes.
+- **NEW: Refresh Mode** added as a sub-mode of Phase 1 Step 3. Handles late-discovery updates that previously triggered standalone populator runs. Strict merge rules preserve all attorney-entered content; Refresh Log entry appended to the document on each refresh.
+- **Trigger phrases added** to skill description: "fill out the LWOP sheet," "LWOP review," "District Defender review," "life without parole worksheet," "refresh the Case Profile."
+- **Documentation patch** for Part 1 Section 5 (Prior Criminal History): explicit format guidance for LWOP cases (`MM-DD-YYYY — Offense Name (Disposition)`) vs. non-LWOP narrative form.
+- **HIPAA spelling normalized** throughout (legacy templates retained "HIPPA" typo; v5.3 references and unified template use "HIPAA").
+
+### v5.2 (April 2026)
+- Consolidated former Initial Case Profile, Criminal Defense Cover, and standalone LWOP review sheet into single `000 - Case Profile.docx` with Part 1 + Part 2A/2B/2C.
+- Report 8 (Witness Table) removed — witness data is captured in Case Tables.xlsx during Phase 1 Step 4.
+- Former Report 9 renumbered to Report 8.
+- Bundled resources: 8 report prompt templates, output path convention, Case Tables.xlsx master template, Evidence Placeholder template, generate_placeholders.py script.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **case-analysis-prompts.md** — Eight report prompt templates used in Phase 2 Step 2 (Case Timeline, Prosecution's Case Summary, Red Flags, etc.) with shared analytical framework and source-citation standards
+- **color-coding.md** — Daniels & Washington standard color-coding scheme for Case Tables.xlsx (headers, dropdowns, cell fills)
+- **folder-structure-and-naming.md** — Standard case folder structure and file-naming conventions (Case Tables.xlsx and the 01 - Trial Notebook tree)
+- **lwop-extraction-patterns.md** — Document-recognition patterns for Calcasieu Parish discovery and how to extract structured data from each document type
+- **lwop-field-maps.md** — LWOP review-sheet field maps: every field in both review-sheet templates and how to extract data for each (mandatory completeness checklist)
+- **output-path-convention.md** — Standard output-path convention for any D&W skill that writes a file (anchors to active case folder, never to Cowork default or temp directories)
+- **textexpander-snippets.md** — Standard boilerplate snippets (Caption, Signature, Certificate of Service, Discovery Citations, Draft Disclaimer) for use in motion drafting
+
+---
+
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.3 (April 2026). Update this file whenever the master workflow document is revised.*

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "summary=$(bin/lint-skills.py 2>&1 | tail -1); jq -nc --arg s \"$summary\" '{systemMessage: (\"D&W Skill Linter: \" + $s)}'",
+            "timeout": 30,
+            "statusMessage": "Checking D&W skill linter status"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "output=$(bin/lint-skills.py --errors-only 2>&1) || jq -nc --arg out \"$output\" '{decision: \"block\", reason: (\"Skill-pattern linter found errors. Fix before stopping:\\n\\n\" + $out)}'",
+            "timeout": 30,
+            "statusMessage": "Linting D&W skills"
+          }
+        ]
+      }
+    ]
+  }
+}

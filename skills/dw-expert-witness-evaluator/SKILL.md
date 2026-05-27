@@ -1,5 +1,6 @@
 ---
 name: dw-expert-witness-evaluator
+category: evidence-audit
 description: >
   Evaluate expert witness qualifications and methodology for Daubert/Foret challenges.
   ALWAYS invoke for "evaluate expert," "Daubert challenge," "Foret challenge," "expert
@@ -35,6 +36,27 @@ Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load th
 2. `dw-shared-protocols/references/output-path-formula.md` -- use for all output file paths (anchored on `CASE_ROOT`)
 
 Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product -- apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Expert Witness Evaluation -- credential analysis, methodology critique, prior-testimony impeachment material, fee analysis, and Daubert/Foret challenge findings -- must trace back to a specific source document. Daubert/Foret hearings are evidentiary proceedings; the court evaluates qualifications and methodology against the documented record. Unsourced claims about an expert's credentials, prior testimony, or laboratory practices will not survive cross-examination by the State.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Expert CV -- Dr. Jane Smith, p. 3, "Publications")`
+- `(Expert Report -- Dr. Jane Smith, dated 03/15/2026, p. 2, para. 4)`
+- `(Prior Testimony Transcript -- State v. Doe, 14th JDC, 06/12/2024, p. 87, lines 3-18)`
+- `(Lab Bench Notes -- Sample #2026-001, p. 1)`
+- `(ASCLD/LAB Accreditation Certificate, dated 01/01/2025)`
+- `(State's Art. 719 Disclosure, p. 2, para. 3)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the expert or methodology, cite all of them -- e.g., `(Expert CV, p. 3; Prior Testimony -- State v. Doe, p. 87, lines 3-18)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED -- VERIFY WITH ATTORNEY/DISCOVERY]` so the attorney knows to confirm or remove it before filing the Daubert/Foret motion.
+
+**Where sourcing applies:** All factual content -- expert credentials, methodology, error rates, prior testimony, fee structures, accreditation status. Scientific standards, legal authorities (Daubert, Foret, La. C.E. Art. 702), and case law follow normal legal citation format.
 
 ---
 
@@ -77,7 +99,8 @@ Identify the type of evaluation needed and which modules apply. Not every case r
 | Evaluation Type | When It Applies | Primary Modules |
 |----------------|----------------|-----------------|
 | **Full Prosecution Expert Challenge** | Attorney wants comprehensive evaluation of a State's expert | A + B + C + D + E + G |
-| **Daubert/Foret Hearing Preparation** | Motion to exclude expert testimony pending or contemplated | B + C + E + G |
+| **Daubert/Foret Motion Drafting** | Motion to exclude expert testimony pending or contemplated; need motion-stage analysis | B + C + E + G |
+| **Daubert/Foret Hearing Day Package** | Hearing has been set; need witness order, exhibit list, hearing-cross outline, FOF/COL, oral argument | B + C + E + G + I |
 | **Cross-Examination Preparation** | Expert will testify; attorney needs cross-exam material | A + D + E + G |
 | **Defense Expert Retention** | Attorney needs guidance on retaining a defense expert | F |
 | **Expert Report Audit** | Expert report received in discovery; need reliability assessment | A + C + E |
@@ -412,7 +435,79 @@ Each discipline section includes:
 | **Excessive certainty** | Expert claims certainty beyond what the science supports | High |
 | **Consistent with requesting party** | Expert's conclusions always align with the retaining party | Medium |
 | **Refusal to concede obvious points** | Expert will not acknowledge well-established limitations | High |
-| **Case context awareness** | Expert knew the prosecution theory before conducting analysis | Medium |---
+| **Case context awareness** | Expert knew the prosecution theory before conducting analysis | Medium |
+
+---
+
+## MODULE I -- Daubert/Foret Hearing Day Package
+
+**When to invoke this module:** Use after the motion to exclude has been filed and a hearing has been set. Modules B (challenge builder), C (methodology audit), E (report audit), and G (cross-examination seeds) feed this module — Module I converts those analytical outputs into the operational documents needed to actually litigate the hearing.
+
+**Reference**: Read `references/hearing-day-package.md` for full operational templates and `references/la-daubert-hearing-procedure.md` for Louisiana-specific procedural rules (burden, standard, timing, ruling format, appellate posture).
+
+### Burden and Standard at the Hearing
+
+The proponent of the testimony bears the burden of establishing admissibility by a preponderance of the evidence. In a criminal case where the State seeks to introduce expert testimony, the State carries this burden. *See Daubert*, 509 U.S. at 592 n.10; La. C.E. Art. 104(A); *Bourjaily v. United States*, 483 U.S. 171, 175-76 (1987).
+
+The defense's role at the hearing is therefore not to "prove unreliability" but to test whether the State has carried its burden. Frame every cross-examination question and every argument with that framing.
+
+### Six Hearing Day Deliverables
+
+The Hearing Day Package consists of six discrete deliverables, each generated from the prior module outputs:
+
+| # | Deliverable | Source Modules | Filename |
+|---|------------|----------------|----------|
+| 1 | **Witness order plan** with sequencing, time budgets, and sequestration strategy | A + F | `Daubert Hearing - Witness Order - [Expert].docx` |
+| 2 | **Hearing exhibit list** with foundation hierarchy and Notice of Intent to Use Learned Treatises | E + G | `Daubert Hearing - Exhibit List - [Expert].docx` |
+| 3 | **Hearing-specific cross-examination outline** structured factor-by-factor (distinct from trial cross seeds in Module G) | B + C + D + G | `Daubert Hearing - Cross Outline - [Expert].docx` |
+| 4 | **Reply brief** responding to State's opposition point-by-point | B + C | `Daubert Hearing - Reply Brief - [Expert].docx` |
+| 5 | **Oral argument outline** (10-20 minute roadmap) with verbatim cross quotes inserted post-hearing | All applicable modules | `Daubert Hearing - Oral Argument - [Expert].docx` |
+| 6 | **Proposed Findings of Fact and Conclusions of Law** factor-by-factor | All applicable modules | `Daubert Hearing - Proposed FOF-COL - [Expert].docx` |
+
+Optional seventh deliverable: **post-hearing brief** if the court takes the matter under advisement.
+
+### Hearing Cross vs. Trial Cross — Critical Distinction
+
+Hearing cross is **not** the same as trial cross. The audiences, goals, question forms, and topical scope all differ:
+
+| Dimension | Hearing Cross (Module I) | Trial Cross (Module G) |
+|-----------|-------------------------|-----------------------|
+| **Audience** | Judge as gatekeeper | Jury as factfinder |
+| **Goal** | Extract factor-by-factor concessions to defeat admissibility | Establish credibility-undermining concessions for closing argument |
+| **Length** | Detailed; judges expect thorough factor analysis | Tight; juror attention is finite |
+| **Question form** | Closed leading + occasional treatise-anchored open questions | Closed leading only |
+| **Topical scope** | Daubert factors 1-5 + analytical gap + DOJ Uniform Language | Discipline-specific seeds, methodology errors, bias |
+| **Demeanor / personality** | Reserved; do not burn at hearing | Available for impeachment at trial |
+
+**Rule:** Reserve discipline-specific cross-examination chapters from `cross-exam-seeds.md` for trial. Do not preview those at the hearing — once previewed, the State will prepare the expert to neutralize them at trial.
+
+### Building the Appellate Record at the Hearing
+
+Although La. C.E. Art. 104(A) relaxes evidentiary rules at preliminary admissibility hearings, the appellate court reviews the ruling on the record made. Therefore:
+
+1. **Authenticate exhibits anyway** when feasible (stipulation, self-authentication under Art. 902, or expert recognition under Art. 803(18))
+2. **Make every objection on the record** even when the court is likely to overrule
+3. **Request specific findings on each Daubert factor** before the court rules — a general "motion denied" is harder to appeal than a ruling that engages each factor
+4. **Order the hearing transcript** promptly after the hearing
+5. **Submit Proposed FOF/COL** even if the court has not requested them — adoption shapes the appellate record
+
+For the standards of review on direct appeal, supervisory writ, and federal habeas, see `references/la-daubert-hearing-procedure.md`.
+
+### Hearing Day Logistics Checklist
+
+Run through the logistics checklist in `references/hearing-day-package.md` (Section 8) at least 48 hours before the hearing. Common items: subpoenas, sequestration motion, pre-marked exhibits, court reporter, defense rebuttal expert prep, ruling-form drafts (limiting order and exclusion order skeletons), post-hearing brief deadline calendaring, trial date confirmation.
+
+### Output Path
+
+All Module I deliverables save to:
+
+```
+{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/
+```
+
+with the filename suffixes shown in the deliverables table above. All deliverables receive attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`.
+
+---
 
 ## STEP 3 -- Generate the Expert Witness Evaluation Report
 
@@ -464,7 +559,10 @@ VIII. CROSS-EXAMINATION STRATEGY (MODULE G)
 
 IX. DAUBERT MOTION ASSESSMENT
    [Viability of exclusion vs. limitation motion, anticipated State
-    arguments, rebuttal strategy]
+    arguments, rebuttal strategy. If a hearing has been set, hand
+    off to MODULE I for the Hearing Day Package: witness order,
+    exhibit list, hearing-cross outline, reply brief, oral argument
+    outline, and proposed FOF/COL.]
 
 X. DEFENSE EXPERT RECOMMENDATION (MODULE F)
    [If applicable: recommend retention of defense expert, profile,
@@ -528,8 +626,10 @@ This skill uses the following reference materials, available in the `references/
 - **scientific-reports.md**: Key scientific reports on forensic reliability (NAS, PCAST, DOJ, FBI, Ames, Miami-Dade), error rates by discipline
 - **discipline-standards.md**: Discipline-specific standards bodies, certification standards, and qualification requirements by forensic field
 - **daubert-foret-framework.md**: Complete Daubert/Foret reliability framework, five-factor analysis, and motion framework
-- **cross-exam-seeds.md**: Discipline-specific cross-examination templates for all major forensic disciplines
+- **cross-exam-seeds.md**: Discipline-specific cross-examination templates for all major forensic disciplines (use at trial, not at hearing)
 - **evaluation-checklists.md**: Daubert viability checklist, motion structure template, and expert discovery demands checklist
+- **hearing-day-package.md**: Operational templates for the Daubert/Foret hearing — witness order, exhibit list, hearing-specific cross outline, reply brief, oral argument outline, proposed FOF/COL, post-hearing brief, and logistics checklist
+- **la-daubert-hearing-procedure.md**: Louisiana procedural rules for Daubert/Foret hearings — burden, standard of proof, Art. 104(A) evidentiary rules, ruling format, findings on the record, standards of review on direct appeal / supervisory writ / federal habeas, discipline-specific judicial posture
 
 When working on an evaluation, reference these files as needed for:
 - Legal citations and case law authority

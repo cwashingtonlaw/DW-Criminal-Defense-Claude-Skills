@@ -1,5 +1,6 @@
 ---
 name: dw-firearms-specialist
+category: offense-specialists
 description: >
   Firearms and weapons offense defense framework for Louisiana and federal law. ALWAYS invoke for
   "gun charge," "firearm," "weapon," "felon in possession," "illegal carrying," "concealed weapon,"
@@ -20,6 +21,28 @@ Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load th
 2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
 
 Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the firearms-offense analysis — weapon identification, possession theory, search circumstances, predicate conviction details, ACCA exposure, and § 924(c) findings — must trace back to a specific source document. Firearms cases turn on the documented record: the seizure location, the chain of custody, and the predicate conviction certificates determine charge viability and exposure. Unsourced claims about possession, predicate offenses, or weapon characteristics carry no weight at suppression hearings or in plea negotiations.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Arrest Report — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Search Warrant Affidavit, p. 2, para. 4)`
+- `(Officer Smith BWC — Vehicle Stop, Timestamp 00:05:32)`
+- `(ATF Trace Report — Serial #12345678, dated 03/15/2026, p. 1)`
+- `(Predicate Conviction Minute Entry — Docket #2018-CR-0123, dated 06/12/2018)`
+- `(NCIC/Pen Pack — Defendant Criminal History, p. 2)`
+- `(Ballistics Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the weapon, predicate, or seizure, cite all of them — e.g., `(Arrest Report, p. 3; ATF Trace Report, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — weapon type and serial, seizure location and method, predicate conviction details, ACCA classification, § 924(c) underlying offense, dual-jurisdiction posture. Statutory citations (R.S. 14:95.1, 18 U.S.C. § 922(g), § 924(c), § 924(e)) and case law (*Bruen*, *Rahimi*) follow normal legal citation format.
 
 ---
 
@@ -660,3 +683,13 @@ Firearms_Case_Analysis_[DefendantName]_[Date].docx
 | **Forum** | Louisiana state court | U.S. District Court |
 | **Jury** | Louisiana jury (parish-specific) | Federal jury (diverse district) |
 
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **federal-firearms-framework.md** — 18 U.S.C. § 922(g) prohibited-persons categories, penalties (post-Bipartisan Safer Communities Act), and federal firearms-charge framework
+- **louisiana-firearms-statutes.md** — Louisiana firearms statutes (R.S. 14:95 et seq.): definitions, prohibited conduct, and per-statute elements/penalties
+- **second-amendment-post-bruen.md** — Second Amendment challenges post-*Bruen*: rapidly-evolving area; framework for current 5th Circuit precedent and verification steps before filing
+- **state-federal-firearms-matrix.md** — State-vs-federal firearms prosecution matrix: side-by-side statute comparison to inform forum-selection strategy

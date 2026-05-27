@@ -1,5 +1,6 @@
 ---
 name: dw-sqlite-recovery
+category: evidence-audit
 description: >
   Recover deleted data from SQLite databases and WAL files. ALWAYS invoke for "SQLite
   recovery," "WAL file," "WAL analysis," "deleted messages," "deleted database records," or
@@ -453,6 +454,14 @@ After generating any deliverable, check if a case session is active (i.e., if `d
 3. **Update NEXT STEPS** if the recovery output changes the recommended case strategy.
 
 If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard` and `dw-trial-notebook-builder` during their folder scans.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **wal-technical-reference.md** — Defense-forensics deep dive on SQLite WAL: file format, transaction history, recovery of deleted records, tool-by-tool failure modes, and expert-witness preparation material
 
 ---
 

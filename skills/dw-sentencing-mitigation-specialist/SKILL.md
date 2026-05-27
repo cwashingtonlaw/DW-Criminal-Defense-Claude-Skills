@@ -1,5 +1,6 @@
 ---
 name: dw-sentencing-mitigation-specialist
+category: disposition
 description: >
   Build sentencing mitigation packages and audit PSI reports. ALWAYS invoke for
   "sentencing," "mitigation," "sentencing memorandum," "PSI report," "Dorthey challenge,"
@@ -61,9 +62,9 @@ Do not proceed to Step 1 until these protocols are loaded.
 
 ---
 
-## SOURCE CITATION PROTOCOL (Applies to All Outputs)
+## Source Citation Mandate (Applies to All Outputs)
 
-Every factual claim, data point, date, quote, or assertion in any output produced by this skill must be tied back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
+Every factual claim, data point, date, quote, or assertion in any output produced by this skill must trace back to its source document(s). The attorney's credibility with the court depends on the ability to verify every statement in a sentencing memorandum, mitigation narrative, or any other deliverable. Unsourced claims are useless at best and dangerous at worst — a judge who cannot verify a mitigation fact will discount it, and opposing counsel will attack it.
 
 ### Citation Standard
 
@@ -754,6 +755,23 @@ This skill integrates with the broader Daniels & Washington criminal defense ski
 | **dw-404b-opposition** | Prior bad acts evidence at sentencing |
 | **dw-discovery-compliance-monitor** | Ensure all discovery relevant to sentencing has been produced |
 | **dw-voir-dire-assistant** | Penalty-phase jury selection in capital and LWOP cases |
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **art-894-1-sentencing-factors.md** — Art. 894.1 sentencing-factor analysis: factors favoring imprisonment vs. mitigation, with defense-response language for each factor
+- **dorthey-excessive-sentence-framework.md** — *State v. Dorthey* framework for challenging mandatory minimums as constitutionally excessive under La. Const. Art. I, § 20
+- **federal-sentencing-guidelines.md** — Federal Sentencing Guidelines (USSG) and 5th Circuit framework post-*Booker*/*Gall*/*Kimbrough* for federal sentencing work
+- **good-time-parole-eligibility.md** — Louisiana good-time credit rates (La. R.S. 15:571.3) and parole-eligibility calculator by offense category
+- **habitual-offender-reference.md** — La. R.S. 15:529.1 habitual-offender enhancement quick reference (second/third/fourth offender ranges)
+- **juvenile-sentencing-framework.md** — Juvenile sentencing constitutional framework: *Miller*, *Montgomery*, and applicable U.S. Supreme Court holdings
+- **louisiana-sentencing-statutes.md** — Hand-curated lookup table of Louisiana sentencing statutes most commonly cited (procedure, post-conviction motions, sentencing provisions)
+- **mitigation-factor-catalog.md** — Catalog of mitigation factors with ACE assessment categories: childhood and family history, substance abuse, trauma, etc.
+- **psi-audit-protocol.md** — PSI report audit protocol under La. C.Cr.P. Art. 875 (contents, accuracy review, objections)
+- **sentencing-case-law-index.md** — Quick-reference index of key Louisiana sentencing cases (*Dorthey*, *Johnson*, *Barling*, *Smith*, etc.) with citation and principle
 
 ---
 

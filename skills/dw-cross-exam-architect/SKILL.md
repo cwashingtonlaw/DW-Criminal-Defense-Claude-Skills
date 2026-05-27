@@ -1,5 +1,6 @@
 ---
 name: dw-cross-exam-architect
+category: trial-prep
 description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"
   "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Uses firm
@@ -66,69 +67,13 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## STEP 0.6 — Witness Prioritization & Impeachment Audit
 
-**Before any outline drafting begins, conduct a systematic audit of all prosecution witnesses.**
+Before any outline drafting begins, conduct a systematic audit of all prosecution witnesses. For the top 10 prosecution witnesses identified in discovery, identify and rank impeachment vulnerabilities across four categories: **Internal Contradictions**, **External Contradictions**, **Omissions**, and **Credibility Issues**. Every impeachment point must cite source documents with page/paragraph/timestamp. The deliverable is a **Ranked Witness Impeachment Report** that drives the cross-examination priority sequence.
 
-### Scope & Objective
+**Pre-check:** If dw-witness-statement-analyzer has already produced Witness Analysis Cards and a Conflict Matrix for this case, import those findings directly — they accelerate this audit substantially.
 
-**Pre-check:** If dw-witness-statement-analyzer has already produced Witness Analysis Cards and a Conflict Matrix for this case, import those findings directly. The Analysis Cards contain pre-identified inconsistencies, credibility indicators, and defense utility assessments that map directly to the impeachment categories below. This can significantly accelerate the Witness Prioritization audit.
+**Reference:** Read `references/witness-prioritization-audit.md` for the impeachment-analysis framework, the citation mandate, and the ranked-report table template.
 
-For the top 10 prosecution witnesses identified in discovery, systematically identify and rank impeachment vulnerabilities. This audit produces the witness triage necessary to sequence cross-examination strategy and identify which witnesses present the highest-value targets for impeachment before STEP 1 outline building begins.
-
-### Impeachment Analysis Framework
-
-For each prosecution witness, identify and document:
-
-**1. Internal Contradictions** — Witness contradicts themselves
-- Within the same statement: e.g., "The door was locked" vs. "I entered without forced entry"
-- Across different statements: e.g., Report A says "Suspect fled" but Preliminary Hearing testimony says "Suspect complied"
-- Within testimony: prior statement vs. trial testimony inconsistency
-
-**2. External Contradictions** — Witness A contradicts Witness B
-- Competing witness accounts of the same event
-- Officer A's report vs. Officer B's report (cross-agency discrepancy)
-- Witness statement vs. physical evidence location/timing conflict
-
-**3. Omissions** — What standard procedure requires but is absent from reports
-- Missing BWC footage for incident type
-- Missing supplemental reports after initial incident report
-- Missing chain of custody documentation
-- Missing lab reports, evidence photographs, or investigative follow-up
-- Absence of standard investigative steps (interviews, measurements, photos, drawings)
-
-**4. Credibility Issues** — Bias, motive to fabricate, or prior dishonesty
-- Financial interest in outcome (expert paid by one party, officer facing discipline if credibility damaged)
-- Relationship bias (family, romantic, professional loyalty affecting objectivity)
-- Prior dishonesty, impeachment convictions, or pattern of credibility issues
-- Motive to fabricate (covering up own error, protecting superior, securing case closure)
-
-### Citation Mandate
-
-**Every impeachment point must cite source documents with page/paragraph/timestamp.** If you cannot point to a specific document, it cannot be included in the audit output.
-
-**Format for each impeachment finding:**
-> **[Witness Name]** — [Impeachment Category]
-> - Contradiction: [Quote from Source A] vs. [Quote from Source B]
-> - Source A: [(1) Document Title, p. ___, para. ___ / timestamp ___]
-> - Source B: [(2) Document Title, p. ___, para. ___ / timestamp ___]
-> - Strength Assessment: [High / Medium / Low] — [1-2 sentence explanation]
-
-### Deliverable: Ranked Witness Impeachment Report
-
-Output a table ranked by impeachment strength (highest risk to prosecution first):
-
-| Rank | Witness Name | Type | Primary Impeachment | Source(s) | Strength | Preliminary Cross Strategy |
-|------|--------------|------|-------------------|-----------|----------|---------------------------|
-| 1 | [Name] | [LE/Expert/Civilian] | [Internal/External/Omission/Credibility] | [(N) Docs cited] | High/Med/Low | [One-sentence strategy] |
-| 2 | ... | ... | ... | ... | ... | ... |
-
-**Preliminary Cross Strategy** for each witness must:
-- Identify the single most damaging impeachment point
-- Describe how to sequence the cross to establish foundation before revealing contradiction
-- Flag any evidentiary or procedural concerns (La. C.E. Art. 613 foundation for prior statements, witness availability, etc.)
-
-### When to Begin STEP 1
-
-Proceed to STEP 1 (Information Gathering) **only after** this Witness Prioritization audit is complete and shared with the attorney. The audit informs which specific witnesses to focus on and determines the cross-examination priority sequence.
+Proceed to STEP 1 only after this audit is complete and shared with the attorney.
 
 ---
 
@@ -162,68 +107,11 @@ Before drafting any outline, collect the following in ranked order:
 
 ## STEP 1.A — Master Witness Table Generation
 
-**Generate a comprehensive witness inventory immediately after STEP 1 information gathering.**
+Generate a comprehensive 5-column witness inventory immediately after STEP 1 information gathering: **Contact Info | Witness Type & Page Refs | Association with Case | Source Documents | Trial Exam Status**. This table becomes the backbone of all cross-examination outline sequencing.
 
-This table becomes the backbone of all cross-examination outline sequencing. Every witness appearing in any cross-examination outline must have a corresponding row in this master table.
+**Critical Rule:** Every witness who appears in any cross-examination outline MUST have a corresponding entry in the Master Witness Table — by name, with complete contact info, type, association notes, sources, and trial status. The table is refreshed every time a new outline is generated.
 
-### Master Witness Table Structure
-
-Create a 5-column inventory table with the following columns:
-
-| Column 1: Contact Info | Column 2: Witness Type & Page Refs | Column 3: Association with Case | Column 4: Source Documents | Column 5: Trial Exam Status |
-|---|---|---|---|---|
-| Name, Address, Phone (from discovery) | Type (Eyewitness, Fact, Expert, LEO, Fact Witness, Complainant, etc.) + page numbers in discovery where witness identified | Who/What/When: Who is this witness? What will they testify to? Reasons to call vs. not call? Anticipated demeanor/credibility issues? | Precise document citations: List every source document (report, statement, deposition, etc.) where this witness appears, with page/Bates/timestamp | Direct/Cross status? Yes/No in final trial? Witness #? (if sequenced) |
-
-### Rules for Master Table Completion
-
-1. **Complete contact information:** Name, address, phone number pulled directly from discovery materials (reports, witness lists, interviews)
-
-2. **Witness type classification:** Use precise categories:
-   - Eyewitness (observed key event)
-   - Fact Witness (observed non-key facts, transactions, communications)
-   - Expert Witness (forensic, medical, scientific opinion)
-   - Law Enforcement / Officer (police, detective, agent, investigator)
-   - Complainant (crime victim or report maker)
-   - Co-defendant / Accomplice Witness
-   - Character Witness
-   - Document Custodian / Business Records
-   - Other [specify]
-
-3. **Association with Case column:** For each witness, note:
-   - Who are they? (relationship to defendant, victim, crime scene, evidence)
-   - What will they testify to? (key assertions on direct)
-   - Reasons to call them in your case? (if applicable)
-   - Reasons NOT to call them? (credibility risk, weak testimony, harmful admissions)
-   - Anticipated demeanor / credibility profile (confident/defensive, truthful/evasive, articulate/rambling, biased/neutral)
-
-4. **Source Documents column:** List every source where the witness appears:
-   - Format: `(N) Document Title, page/Bates/timestamp`
-   - Use the source register numbering scheme if already established
-   - Include: police reports, witness statements, interviews, depositions, preliminary hearing transcripts, recordings, social media, email, text messages, search warrant returns
-   - Note any omissions (missing statement, missing interview, expected document not produced)
-
-5. **Trial Exam Status column:**
-   - **Direct / Cross?** (Will this be a prosecution or defense witness?)
-   - **Yes / No?** (Is this witness definitely being called, or tentatively on the list?)
-   - **Witness #?** (Sequential position in trial order, if set; otherwise "TBD")
-
-### Integration with Cross-Examination Outline
-
-**Critical Rule:** Every witness who appears in any cross-examination outline MUST have a corresponding entry in the Master Witness Table. If a cross-exam outline covers Witness A, Witness A must be findable in the master table by name and must have complete contact info, type, association notes, sources, and trial status.
-
-**Purpose:** The master table is your discovery-to-trial tracking tool. It ensures:
-- No witness contact info is missing (critical for subpoena drafting)
-- Witness sequences are consistent across all outlines
-- Source documents are tracked consistently (matching the source register in each outline)
-- Strategic decisions about whom to call/challenge are documented
-- Cross-examination priorities are aligned with the Witness Prioritization audit (Step 0.6)
-
-### Output Format
-
-Present the Master Witness Table as:
-- A formatted table (Excel, Google Sheets, or markdown table)
-- Sortable by: Witness Type, Trial Status, Impeachment Strength (linked to Step 0.6 findings), or Trial Sequence
-- Refreshed and updated every time a new cross-examination outline is generated (to track cumulative witness coverage)
+**Reference:** Read `references/master-witness-table.md` for the full column specification, the witness-type classification list, the rules for completing each column, and the integration rules with cross-examination outlines.
 
 ---
 
@@ -250,148 +138,19 @@ Do not draft until the attorney responds.
 
 ## STEP 3 — Witness-Specific Module
 
-Apply the correct module based on witness type:
+Apply the correct module based on witness type. Each module specifies the appropriate **tone**, **focus areas**, **auto-flag triggers** for missing materials, and (for LE witnesses) the **Impact / Fragility chapter scoring** required in the Chapter Goals section. All witness types use the **short-question sequencing** technique — 3–5 leading questions per impeachment point, locking the witness into the precondition before revealing the contradiction.
 
-### Law Enforcement Witnesses
-- **Tone:** Sharp, clipped, tactical, relentless. Short declarative questions. No speeches.
-- **Focus:** Contamination, perception/memory limits, report vs. video inconsistencies, SOP violations, credibility gaps, critical omissions, chain of custody flaws, failure to collect/preserve evidence.
-- **Special Rule:** If contamination issues exist, auto-include a chapter titled **"Scene Control & Contamination."**
-- **Chapter Scoring:** Every chapter must include **Impact (1–3)** and **Fragility (1–3)** ratings in the Chapter Goals section.
-  - Impact: 1 = minor concession | 2 = meaningful damage | 3 = potential case-winner
-  - Fragility: 1 = officer likely to concede | 2 = may resist | 3 = will fight hard
-- **Auto-flag:** No bodycam, no dash cam, no dispatch recording, no supplemental report, chain of custody log gaps.
-
-### Expert Witnesses
-- **Tone:** Respectful but firm. Methodical deconstruction.
-- **Focus:** Qualifications limits, methodology reliability, error rates, lab/instrument calibration, bias (who's paying them), alternative interpretations of the same data, precision of report vs. breadth of testimony.
-- **Auto-flag:** No curriculum vitae, no lab accreditation records, no error rate data, no raw data provided.
-
-### Civilian Witnesses (Eyewitness, Complainant, Character)
-- **Tone:** Patient, methodical. Build rapport before attacking credibility.
-- **Focus:** Perception conditions (lighting, distance, stress, time duration), memory fallibility and post-event contamination, motive to fabricate, relationship to parties, prior inconsistent statements, character for truthfulness (when allowed under La. C.E. Art. 607–609).
-- **Auto-flag:** No recorded statement, no prior sworn testimony, no medical/mental health records (when relevant), no timeline corroboration.
-
-### Short-Question Sequencing Tactics (All Witness Types)
-
-Structure cross-examination questions in **"short-question sequences"** — each question building incrementally toward the impeachment point. This technique:
-
-1. **Locks the witness into their prior statement or established fact** before revealing the contradiction or omission
-2. **Prevents evasion and reframing** by forcing binary or narrow answers
-3. **Preserves impeachment power** when the contradiction is finally revealed
-4. **Applies to all impeachment categories:** internal contradictions, external contradictions, omissions, and credibility issues
-
-**Implementation:**
-
-- Extract each impeachment hook from the Witness Prioritization audit (STEP 0.6)
-- Frame the impeachment as a sequence of **3–5 leading questions** that:
-  - Q1: Establish the context or precondition (unchallengeable)
-  - Q2–4: Lock in each specific element of the prior statement or expected standard procedure
-  - Q5: Reveal the contradiction, omission, or inconsistency
-- Keep each question short (one sentence, ideally one clause)
-- Use leading form (answer: "yes," "no," or specific detail) — avoid open-ended responses
-- Never telegraph the contradiction in advance; let the sequence unfold
-
-**Example (Law Enforcement Witness — SOP Omission):**
-
-Witness claims in report: "Subject complied with all commands. Scene was secure."
-
-Sequence of short questions:
-1. "Officer, in your training on scene security, you've learned that the first officer on scene must document all persons present at arrival — correct?" [Yes]
-2. "And that documentation goes in the initial incident report under 'Persons Present' or 'Occupants'?" [Yes]
-3. "Your report from this incident is [cite source register #, page], and you prepared this report on [date], correct?" [Yes]
-4. "Looking at the 'Persons Present' field in that report, I'm reading... [blank]. There are no names listed — is that right?" [Witness struggles to explain]
-5. "Yet in Detective Smith's supplemental report [cite source register #, page], she identified three subjects present at the scene. Do you recall those three individuals?" [Locked into omission]
-
-**Where to Apply in Outline:**
-
-For each chapter with an impeachment point:
-- In the SOURCE/EXHIBIT column: cite the source establishing the baseline or standard
-- In the QUESTIONS column: lay out the 3–5 question sequence
-- In the NOTES column: flag the revelation point and expected witness reaction
-
-This prevents the witness from ducking the contradiction and makes the attorney's exhibit strategy bulletproof.
+**Reference:** Read `references/witness-type-modules.md` for the full Law Enforcement, Expert, and Civilian module specifications, the LE Impact/Fragility scoring rubric, and the short-question sequencing tactics with a worked example.
 
 ---
 
 ## STEP 4 — Build the Source Register & Generate the Cross-Examination Outline
 
-### Source Register (Mandatory — Build Before Drafting Any Chapter)
+Build a **Source Register** before drafting any chapter — a numbered master list of every source document that will be cited. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. Use the D&W Cross Exam Template (one chapter per page block, with CHAPTER TITLE, CHAPTER GOALS, and a three-column SOURCE/EXHIBIT | QUESTIONS | NOTES table). Every citation in the SOURCE/EXHIBIT column MUST begin with the `(N)` source register prefix.
 
-Before writing any chapter, build a **Source Register** — a numbered master list of every source document that will be cited in the cross-examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE/EXHIBIT cell throughout the outline. This register also drives the companion deliverables produced in Steps 7 and 8.
+Default chapter sequencing: (1) establish the favorable, (2) perception/memory or scene/report conditions, (3) inconsistencies and omissions, (4) SOP / methodology flaws, (5) prior inconsistent statements, (6) Scene Control & Contamination (LE if applicable), (7) closing concession. The case theme must appear in at least one chapter title and be referenced in every substantive chapter's goals.
 
-**Source Register format:**
-
-| # | Short Name | Evidence Item | Bates / Reference | Date |
-|---|-----------|---------------|-------------------|------|
-| (1) | [Short name used in outline] | [Evidence item # or filing description] | [Bates range or N/A] | [Date of document] |
-| (2) | ... | ... | ... | ... |
-
-**Rules for Source Register numbering:**
-- Assign numbers in the order sources are first expected to appear in the outline
-- Once a source number is assigned, it never changes — it persists across all chapters, the catalog, and the combined PDF
-- Every source document cited anywhere in the outline MUST have an entry in the register
-- Civil filings, transcripts, and non-Bates-stamped items receive numbers just like evidence items
-- The Source Register is printed as a reference table on the second page of the cross-examination outline (after the cover page, before Chapter 1)
-
-### Template Structure
-Every cross-examination outline uses the D&W Cross Exam Template — one chapter per page block. Do not deviate from this structure.
-
-Each chapter follows this exact layout:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CHAPTER TITLE: [Title tied to case theme]          Page ___ of ___
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Witness: [Name / Role]
-
-CHAPTER GOALS:
-• Goal 1 — what this chapter must establish
-• Goal 2
-• Goal 3
-[Law Enforcement only: Impact: _/3 | Fragility: _/3]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SOURCE/EXHIBIT          | QUESTIONS                | NOTES/IMPEACHMENT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-(N) [Short name, ref]   | Q: [Question text]       | [Impeachment note /
-                        |                          |  prior inconsistent
-                        |                          |  statement ref]
-(N) [Short name, ref]   | Q: [Question text]       | [Expected answer /
-                        |                          |  follow-up if denied]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NOTES:
-[Strategic notes, scope concerns, evidentiary flags, attorney action items]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### Source/Exhibit Citation Rule — `(N)` Prefix Format (MANDATORY)
-
-**Every citation in the SOURCE/EXHIBIT column MUST begin with the source register number in parentheses**, followed by the short name, then the specific page, Bates number, or timestamp reference. This format applies to ALL rows without exception — standard question rows AND impeachment rows.
-
-**Format:** `(N) Short Name, [page/Bates/timestamp]`
-
-**Examples:**
-- `(1) Benoit Interview, 00:57` — source 1 (recorded interview), timestamp 00:57
-- `(2) SANE Records, Bates 0042` — source 2 (SANE records), Bates page 0042
-- `(3) Lambert Initial, Bates 0033` — source 3, Bates page 0033
-- `(5) Arrest Affidavit, Bates 0013` — source 5, Bates page 0013
-- `(7) TRO Mar 11, p. 3` — source 7 (civil filing), page 3
-- `Compare: (1) vs. (2) vs. (5)` — impeachment row comparing multiple sources
-
-**Never omit the `(N)` prefix.** Never cite a document without its source register number. If page is unknown, flag it: `(N) [Short Name], [PAGE UNCONFIRMED — verify before trial]`.
-
-### Chapter Sequencing
-Default chapter order (adjust based on strategy):
-1. Establish the favorable — lock in concessions the witness must give
-2. Perception/memory conditions (civilian) OR scene/report conditions (LE)
-3. Inconsistencies and omissions
-4. SOP violations or methodology flaws (LE/Expert)
-5. Prior inconsistent statements (impeachment)
-6. Scene Control & Contamination (LE — if applicable)
-7. Closing concession — end on your best point
-
-### Case Theme Integration
-The case theme must appear in at least one chapter title per outline and be referenced in the Chapter Goals of every substantive chapter. Example: if the theme is *"shortcuts and sloppy police work,"* a chapter might be titled **"The Shortcuts That Contaminated This Scene."**
+**Reference:** Read `references/source-register-and-template.md` for the Source Register format and numbering rules, the full chapter template layout, the `(N)` prefix citation rule with examples, the chapter sequencing framework, and case-theme integration.
 
 ---
 
@@ -423,60 +182,17 @@ At the end of every outline, append a **Discovery Gap Report** listing all mater
 
 ## STEP 7 — Source/Exhibit Document Catalog (PDF)
 
-**This step is MANDATORY. Every cross-examination outline must be accompanied by a Source/Exhibit Document Catalog.**
+**MANDATORY.** After completing the cross-examination outline, generate a standalone PDF catalog of every source document in the Source Register. The catalog includes a cover page, table of contents, per-source detail sheets (with metadata table and key-references list), a Missing Discovery table, and a Cross-Reference Matrix grid. File name: `Source Exhibit Catalog - [Witness Name] Cross.pdf`.
 
-After completing the cross-examination outline, generate a standalone PDF catalog of every source document in the Source Register. This catalog serves as the attorney's quick-reference index to all materials cited in the cross.
-
-### Catalog Structure
-
-The PDF must contain:
-
-1. **Cover Page** — Firm name, "SOURCE / EXHIBIT DOCUMENT CATALOG," witness name, case caption, summary statistics (total sources, Bates range, date range, evidence items, civil filings)
-
-2. **Table of Contents** — One row per source: source number, title, evidence item, Bates range, chapters referenced
-
-3. **Source Detail Sheets** — One entry per source document containing:
-   - Source number and title (dark header bar)
-   - Metadata table: Evidence Item, Bates Range, Date, Custodian, Case Reference, File Location, Cross-Exam Chapters Referenced
-   - Description paragraph
-   - Bulleted list of every key reference cited in the cross-examination (with timestamps, Bates pages, or page numbers)
-
-4. **Missing Discovery Table** — Mirrors the Discovery Gap Report from Step 6 in tabular format (Missing Item | Significance | Action Required)
-
-5. **Cross-Reference Matrix** — A grid showing which sources are cited in which chapters (sources on rows, chapters on columns, checkmarks for citations)
-
-### Catalog Output
-- **Format:** PDF (using reportlab or equivalent)
-- **File name:** `Source Exhibit Catalog - [Witness Name] Cross.pdf`
-- **Location:** Same folder as the cross-examination outline (typically `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`)
-- **Header/footer:** ATTORNEY WORK PRODUCT — PRIVILEGED & CONFIDENTIAL + case caption
+**Reference:** Read `references/source-exhibit-catalog.md` for the full catalog structure, output format specifications, and file-naming/header conventions.
 
 ---
 
 ## STEP 8 — Combined Source Documents (PDF)
 
-**This step is MANDATORY. Every cross-examination outline must be accompanied by a Combined Source Documents PDF.**
+**MANDATORY.** After the catalog, merge all source document PDFs into a single combined file with professional divider pages. Each source gets a divider page (dark banner with source number and metadata) followed by all pages of the original PDF. File name: `Source Documents - [Witness Name] Cross.pdf`.
 
-After completing the catalog, merge all source document PDFs into a single combined file with professional divider pages.
-
-### Combined PDF Structure
-
-1. **Cover Page** — Firm name, "SOURCE DOCUMENTS," witness name, case caption, table of contents listing all sources with Bates ranges
-
-2. **For each source in Source Register order:**
-   - **Divider Page** — Dark banner with source number and title, metadata (evidence item, Bates range, date, file name, page count, cross-exam chapters referenced), and a note indicating the document follows
-   - **Actual Source Document** — All pages of the original PDF appended immediately after the divider
-
-### Combined PDF Output
-- **Format:** PDF (using pypdf to merge + reportlab for divider pages)
-- **File name:** `Source Documents - [Witness Name] Cross.pdf`
-- **Location:** Same folder as the cross-examination outline
-- **Header on divider pages:** ATTORNEY WORK PRODUCT — PRIVILEGED & CONFIDENTIAL
-
-### Handling Non-PDF Sources
-- If a source is an audio/video recording with a transcript PDF placeholder, include the placeholder PDF
-- If a source has no PDF in the case file (e.g., a document referenced but not yet produced), include only the divider page with a note: `[DOCUMENT NOT IN FILE — flagged in Discovery Gap Report]`
-- If a source is a civil filing stored outside the evidence folder, locate it in the case root or Pretrial Notebook
+**Reference:** Read `references/combined-source-documents.md` for the combined-PDF structure, output format, and rules for handling non-PDF sources and missing documents.
 
 ---
 
@@ -502,26 +218,23 @@ All three files are saved to the same folder. Present all three links to the att
 - **Cite every fact.** Every question grounded in a document must have a source citation in the Source/Exhibit column with the `(N)` prefix.
 - **Attorney confirmation before drafting.** Never skip the pre-draft confirmation in Step 2.
 - **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
-- **No default formatting.** Output is always in the D&W Cross Exam Template structure above — never use a generic format.
+- **No default formatting.** Output is always in the D&W Cross Exam Template structure — never use a generic format.
 - **Three deliverables mandatory.** Never deliver a cross-examination outline without also producing the Source/Exhibit Document Catalog and Combined Source Documents PDF.
 - **Source numbering is sacred.** Once a source number is assigned in the Source Register, it never changes across any deliverable.
 
 ---
 
-## Quick Reference — Louisiana Evidence Rules for Cross
+## Quick References
 
-| Situation | Rule |
-|-----------|------|
-| Prior inconsistent statement — foundation | La. C.E. Art. 613 |
-| Character for truthfulness | La. C.E. Art. 607–608 |
-| Prior convictions | La. C.E. Art. 609 |
-| Hearsay exceptions | La. C.E. Art. 801–804 |
-| Expert opinion scope | La. C.E. Art. 702–705 |
-| Brady/Giglio material | U.S. v. Bagley; Giglio v. U.S. |
-| Scope of cross | La. C.Cr.P. Art. 761; La. C.E. Art. 611 |
-| 4th Amendment suppression | La. C.Cr.P. Art. 703 |
+This skill uses the following reference materials, available in the `references/` subdirectory:
 
-*Adapt all rules when jurisdiction toggle is set to federal or another state.*
+- **witness-prioritization-audit.md** — Step 0.6 audit framework: four impeachment categories (internal/external contradictions, omissions, credibility), citation mandate, and the Ranked Witness Impeachment Report table
+- **master-witness-table.md** — Step 1.A 5-column witness inventory: contact info, witness-type classification list, association-with-case prompts, source documents, trial exam status, and integration rules
+- **witness-type-modules.md** — Step 3 witness-specific modules (Law Enforcement / Expert / Civilian) with tone, focus, auto-flags, LE Impact/Fragility scoring, and short-question sequencing tactics with a worked LE-SOP example
+- **source-register-and-template.md** — Step 4 Source Register numbering rules, the full D&W Cross Exam Template chapter layout, the `(N)` prefix citation rule with examples, default chapter sequencing, and case-theme integration
+- **source-exhibit-catalog.md** — Step 7 mandatory PDF catalog: cover page, table of contents, per-source detail sheets, Missing Discovery table, and Cross-Reference Matrix grid
+- **combined-source-documents.md** — Step 8 mandatory merged PDF: cover page, per-source divider pages with metadata, original document pages, and rules for non-PDF / missing sources
+- **quick-reference-tables.md** — Louisiana Code of Evidence cross-examination quick-reference (Arts. 607–613, 702–705, 801–804; La. C.Cr.P. Arts. 703, 761; Bagley/Giglio Brady authorities)
 
 ---
 

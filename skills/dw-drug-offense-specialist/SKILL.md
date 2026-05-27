@@ -1,5 +1,6 @@
 ---
 name: dw-drug-offense-specialist
+category: offense-specialists
 description: >
   Drug offense defense framework for Louisiana. ALWAYS invoke for "drug charge," "possession,"
   "distribution," "trafficking," "CDS," "controlled dangerous substance," "Schedule I/II/III/IV/V,"
@@ -10,6 +11,19 @@ description: >
 ---
 
 # D&W Drug Offense Specialist
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any lab reports, charging documents, search warrants, witness statements, defendant statements, or case discovery, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional lab reports, field test reports, charging documents, search warrants, affidavits, body-worn camera footage, witness statements, defendant statements, or other case documents? I'll start analysis only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-analysis discovery of an additional confirmatory lab result, a missing search warrant affidavit, or a body camera recording showing the search would require complete re-evaluation of charge classification, possession theory, lab audit, and search & seizure analysis.
+
+---
 
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 
@@ -22,11 +36,32 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in the drug-offense analysis — substance identification, weight, possession theory, search circumstances, intent indicators, and enhancement eligibility — must trace back to a specific source document. Drug cases are fact-driven: the lab result establishes the substance, the police report establishes the arrest circumstances, and the search warrant affidavit establishes constitutional posture. Unsourced claims about weight, schedule, or possession theory carry no weight at suppression hearings, plea negotiations, or trial.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Lab Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Field Test Report — LCPD Case #2026-00456, p. 1)`
+- `(Search Warrant Affidavit, p. 2, para. 4)`
+- `(Arrest Report — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Officer Smith BWC — Vehicle Stop, Timestamp 00:05:32)`
+- `(Bill of Information, Count 1, p. 1)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact about the substance, weight, or arrest, cite all of them — e.g., `(Lab Report, Sample #2026-001, p. 1; Arrest Report, p. 3, para. 2)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — substance identification, weight, possession location, search authority, intent indicators (cash, scales, packaging), prior conviction status, lab chain of custody. Legal standards, statutory citations (R.S. 40:966-970), and case law follow normal legal citation format.
+
+---
+
 ## ENTRY POINT: HARD STOP — CONFIRM DRUG OFFENSE CASE
 
 Before proceeding, confirm the following elements are present:
 
-**STEP 0 — CASE TYPE VERIFICATION:**
+**STEP 0.6 — CASE TYPE VERIFICATION:**
 
 - Substance(s) involved (marijuana, cocaine, methamphetamine, fentanyl, heroin, synthetic opioid, ecstasy, LSD, prescription medications, etc.)
 - Quantity/weight of substance seized (grams, ounces, pounds, or weight unknown)
@@ -612,4 +647,16 @@ Location: `<case-root>/02 - Pretrial Notebook/06 - Negotiations & Plea/`
 - [ ] Expert needs identified (lab analyst, toxicology, drug dog, CI reliability)
 - [ ] Output files generated and filed in case notebook
 - [ ] Integration tasks assigned (suppression motion, plea negotiation, trial prep)
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **constructive-possession-framework.md** — Louisiana case-law analysis of constructive possession; the four-element *State v. Harris*, 472 So.2d 576 (La. 1985) test the State must prove beyond reasonable doubt
+- **drug-diversion-programs.md** — Louisiana Art. 893, Art. 890, drug court, and pre-trial diversion programs; eligibility assessment to be completed before committing to trial strategy
+- **drug-lab-methodology.md** — Field testing vs. confirmatory laboratory analysis: distinguishing preliminary screening from conclusive evidence of drug identity
+- **drug-schedule-penalties.md** — Louisiana Controlled Dangerous Substances Act (R.S. 40:964-970) schedule-by-schedule substances and penalties (including marijuana special rules)
+- **intent-to-distribute-factors.md** — Intent-to-distribute analysis framework: prosecution factors and defense counters; possession of large quantity is not automatic intent to distribute
 

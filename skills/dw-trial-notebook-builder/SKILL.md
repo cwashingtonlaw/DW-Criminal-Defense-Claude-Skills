@@ -1,5 +1,6 @@
 ---
 name: dw-trial-notebook-builder
+category: trial-prep
 description: >
   Assemble the final trial notebook from all upstream deliverables. ALWAYS invoke for
   "build the trial notebook," "assemble trial notebook," "trial notebook," "trial binder,"
@@ -37,7 +38,52 @@ Phase 4 outputs ─┘
 
 ---
 
-## STEP 0 — LOAD CASE CONTEXT
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+This skill consumes **finished deliverables** (jury charges, witness materials, exhibit lists, motions, case analysis reports) — not raw discovery. Before scanning the case folder or generating any index, confirm that no further deliverables are inbound.
+
+**If the user has uploaded or referenced any trial notebook deliverables (jury charges, witness materials, exhibit lists, motions, case analysis reports) or pretrial notebook contents, do not start the assembly yet.**
+
+Your only response must be:
+
+> *"Before I begin assembling the trial notebook — are you uploading any additional trial notebook deliverables (jury charges, witness materials, exhibit lists, motions, case analysis reports) or pretrial notebook contents? I'll start the scan and Master Index build only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop is especially important for this skill because the Master Index and Gap Report are point-in-time snapshots — adding deliverables mid-build produces a stale index.
+
+Once the user confirms, proceed to Step 0.5.
+
+---
+
+## STEP 0.5 — LOAD SHARED PROTOCOLS
+
+Before scanning the case folder or producing the Master Index, read `dw-shared-protocols/SKILL.md` and load these references:
+
+1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to the Trial Readiness Gap Report, Master Trial Index, and the three attorney checklists (all internal deliverables).
+2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `{{CASE_ROOT}}`).
+
+Do not proceed to Step 1 until these protocols are loaded. The Master Index, Gap Report, and Checklists are internal work product. Trial Notebook Builder writes directly into the trial notebook itself — its outputs anchor on `{{CASE_ROOT}}/01 - Trial Notebook/` (Master Index, Gap Report, and Checklists save to `{{CASE_ROOT}}/` at the case root, alongside `Case Tables.xlsx`). See the "Output Paths" section near the bottom of this skill for the full path table.
+
+---
+
+## Source Citation Mandate
+
+Every "FOUND," "MISSING," or "PARTIAL" entry in the Inventory Table, every gap callout in the Gap Report, and every link in the Master Trial Index must trace back to a specific source — either a verified file path on disk or a Case Brain entry. The Master Index is the attorney's single courtroom entry point; a fabricated or stale link here is worse than no link at all.
+
+**Citation format:**
+- Inventory entries: `(Found at: {{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/[filename], modified [YYYY-MM-DD])`
+- Gap entries: `(Expected at: {{CASE_ROOT}}/[expected path]; not present in folder scan or Case Brain COMPANION SKILL OUTPUTS)`
+- Case Brain entries: `(Case Brain — COMPANION SKILL OUTPUTS, entry dated [YYYY-MM-DD])`
+- Case Tables entries: `(Case Tables.xlsx — [Sheet name], Row [N])`
+
+**Multiple-source rule:** When the folder scan and the Case Brain disagree (deliverable in folder but not in Brain, or vice versa), surface both in the Case Brain Sync Issues section of the Gap Report — never silently pick one.
+
+**Unsourced assertions:** If a "FOUND" status cannot be tied to an actually-readable file on disk, mark it `[UNSOURCED — VERIFY]` and downgrade to PARTIAL/MISSING for the Gap Report. Verify every `file://` link target exists before adding it to the Master Index — a dead link is worse than a flagged gap.
+
+**Where sourcing applies:** All inventory rows, all Gap Report entries, all Master Index links, and any "Cross Prepared?" or "Status" entry in the Witness Schedule and Exhibit Authentication checklists. Boilerplate checklist items (e.g., "Arrive early") do not require citation.
+
+---
+
+## STEP 0.6 — LOAD CASE CONTEXT
 
 The Trial Notebook Builder requires case context to function. It needs to know where the
 case folder is and what the case brain says about deliverables already produced.
@@ -86,7 +132,7 @@ live in the Pretrial Notebook but feed into trial preparation.
 
 ### 1A — Trial Notebook Folder Scan
 
-Scan each standard Trial Notebook subfolder and catalog every file found:
+The D&W Trial Notebook uses this 9-tab structure:
 
 | Tab | Folder Path | What to Look For |
 |-----|-------------|------------------|
@@ -101,9 +147,8 @@ Scan each standard Trial Notebook subfolder and catalog every file found:
 | Tab 9 | `01 - Trial Notebook/09 - Case Analysis/` | All 9 case analysis reports, Cowork parallel analysis outputs, missing discovery demands |
 | Tab 9 (Cowork) | `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` | Opening Statement outline, Closing Argument outline, Theme Tracker, Rebuttal Anticipation Memo (from `dw-trial-narrative-builder`); DNA / Forensic Biology Audit Report (from `dw-dna-forensic-biology-auditor`); Crime Lab Audit Report (from `dw-crime-lab-auditor`); plus all other auditor findings and Cowork parallel analyses |
 
-**Note:** Not every case folder uses these exact tab numbers — some folders have slight
-variations. Adapt to the folder structure you find, but flag any non-standard organization
-in the gap report.
+**Note:** Some case folders may have slight naming variations. Adapt to the folder structure
+you find, but flag any non-standard organization in the gap report.
 
 ### 1B — Pretrial Notebook Scan
 
@@ -111,8 +156,8 @@ Also scan the Pretrial Notebook for trial-relevant items:
 
 | Folder | What to Look For |
 |--------|------------------|
-| `02 - Pretrial Notebook/01 - Pleadings/` | Suppression motions, bond motions, discovery motions, pretrial rulings |
-| `02 - Pretrial Notebook/02 - Discovery/` | Raw discovery productions, State's index |
+| `02 - Pretrial Notebook/01 - Pleadings/` | Pretrial motions, bond motions, discovery motions, arraignment filings |
+| `02 - Pretrial Notebook/02 - Discovery/` | Raw discovery productions, State's index, discovery compliance ledger |
 | `02 - Pretrial Notebook/03 - Case Analysis & Notes/` | Initial Case Profile, LWOP Worksheet, Criminal Defense Cover, attorney notes |
 
 ### 1C — Case Tables Audit
@@ -141,7 +186,7 @@ Compile a complete inventory as a structured table:
 | # | Deliverable | Expected Location | Status | File Name | Notes |
 |---|------------|-------------------|--------|-----------|-------|
 | 1 | Jury Instructions Package | Tab 1 | FOUND / MISSING / PARTIAL | [filename] | [any issues] |
-| 2 | Verdict Form | Tab 1 | ... | ... | ... |
+| 2 | Verdict Form | Tab 8 | ... | ... | ... |
 | ... | ... | ... | ... | ... | ... |
 
 Use the full deliverable checklist in `references/deliverable-map.md` to ensure nothing
@@ -346,7 +391,9 @@ With the inventory complete, organize the Trial Notebook folder:
 Move or copy any misplaced files to their correct Trial Notebook tab:
 - Cross-exam outlines → Tab 3 (Witnesses)
 - Jury instructions → Tab 1
-- Motions in limine → Tab 6
+- Motions in limine / suppression motions → Tab 6 (Pleadings)
+- Pretrial orders and court rulings → Tab 7 (PT Orders_Law)
+- Verdict forms and sentencing materials → Tab 8 (Verdict_Sentencing)
 - Case analysis reports → Tab 9
 
 **Ask before moving files that are ambiguous.** Never silently relocate a file the attorney
@@ -354,25 +401,58 @@ may have intentionally placed somewhere.
 
 ### 3B — Create Missing Standard Subfolders
 
-If any standard Trial Notebook tab folder is missing, create it. The standard structure is:
+If any standard Trial Notebook tab folder or subfolder is missing, create it. The standard
+structure with recommended subfolders is:
 
 ```
 01 - Trial Notebook/
 ├── 00-Trial-Readiness-Gap-Report.docx          ← Issue Ledger Gap Report (Front Matter, Step 2.5)
 ├── 01 - Jury Instructions & Selection/
-├── 02 - Opening & Closing/
+│   ├── Defense Proposed Instructions/
+│   ├── State Proposed Instructions/
+│   ├── Court's Charge Packet/
+│   └── Voir Dire/
+│       ├── Question Outlines/
+│       ├── Juror Questionnaires/
+│       └── Strike Tracking/
+├── 02 - Opening Statement/
+│   ├── Drafts/
+│   └── Mapping the Story/
 ├── 03 - Witnesses/
 │   ├── Prosecution Witnesses/
-│   └── Defense Witnesses/
-├── 04 - Exhibit List/
+│   ├── Defense Witnesses/
+│   ├── Expert Witnesses/
+│   └── Subpoenas/
+├── 04 - Closing Argument/
+│   ├── Drafts/
+│   ├── Mapping the Story/
+│   └── Exhibit References/
 ├── 05 - Evidence/
-├── 06 - Motions in Limine/
-├── 07 - Legal Research/
-├── 08 - Jury Selection Notes/
-├── 09 - Case Analysis/
-│   └── Cowork Analysis/
-└── 99-Issue-Code-Ledger-Appendix/              ← Issue Ledger Snapshot (Back Appendix, Step 5.5)
-    └── [YYYY-MM-DD]_Issue-Ledger-Snapshot.docx
+│   ├── Documents/
+│   ├── Audio-Video/
+│   ├── Photos/
+│   ├── Digital Evidence Placeholders/
+│   └── Transcripts/
+├── 06 - Pleadings/
+│   ├── Motions in Limine/
+│   ├── Suppression Motions/
+│   ├── Other Trial Motions/
+│   └── Court Rulings/
+├── 07 - PT Orders_Law/
+│   ├── Pretrial Orders/
+│   ├── Legal Memoranda/
+│   ├── Statutory Research/
+│   └── Case Law/
+├── 08 - Verdict_Sentencing/
+│   ├── Verdict Forms/
+│   ├── Sentencing Memoranda/
+│   ├── Mitigation Materials/
+│   ├── PSI Reports/
+│   └── Post-Trial Motions/
+└── 09 - Case Analysis/
+    ├── Cowork Analysis/
+    ├── Reports/
+    └── Defense Strategy/
 ```
 
 ### 3C — Naming Convention Audit
@@ -424,7 +504,7 @@ Generated: [Date] | Readiness: [READY / NEAR-READY / etc.]
 
 **After all tabs, include:**
 - **Pretrial Notebook Cross-References** — links to key pretrial items that inform trial
-  (suppression rulings, discovery motions, pretrial orders)
+  (arraignment filings, discovery motions, pretrial orders)
 - **Case Tables Link** — direct `file://` link to `Case Tables.xlsx`
 - **Case Brain Link** — if the Case Brain is in the Obsidian vault, link to it
 - **99 — Issue Code Ledger Appendix** — link to the snapshot `.docx` produced in
@@ -715,7 +795,7 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 | Investigation tasks | `dw-defense-investigator-tasking` | "generate investigator tasks" |
 | Habitual offender audit | `dw-habitual-offender-auditor` | "audit the habitual bill" |
 | Transcripts (audio/video) | `dw-transcript-router` | "transcribe the evidence" |
-| LWOP Part 2A / 2B population | `dw-criminal-defense` (Phase 1 Step 3) | "LWOP sheet," "District Defender review," "refresh the Case Profile" |
+| LWOP worksheet | `dw-criminal-defense` (Phase 1 Step 3, Part 2A/2B of `000 - Case Profile.docx`) | "LWOP sheet" |
 | Confession/interrogation audit | `dw-confession-interrogation-auditor` | "audit interrogation" |
 | Child forensic interview audit | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
 | Cell site / CSLI audit | `dw-cell-site-geolocation-auditor` | "audit cell site" |
@@ -723,6 +803,23 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 | Crime scene audit | `dw-crime-scene-auditor` | "audit crime scene" |
 | Social media audit | `dw-social-media-auditor` | "audit social media" |
 | Pretrial motions (various) | `dw-pretrial-motion-library` | "speedy trial motion" or type-specific |
+
+---
+
+## Output Paths
+
+Apply the output-path formula from `dw-shared-protocols/references/output-path-formula.md` (anchored on `{{CASE_ROOT}}`). Trial Notebook Builder is unique in the D&W skill ecosystem because it writes directly into the trial notebook itself — its outputs anchor on `{{CASE_ROOT}}/01 - Trial Notebook/` and the case root.
+
+| Deliverable | Path |
+|---|---|
+| Master Trial Index | `{{CASE_ROOT}}/MASTER TRIAL INDEX — [Client Last Name] [Date].docx` |
+| Trial Readiness Gap Report | `{{CASE_ROOT}}/Trial Readiness Gap Report — [Client Last Name] [Date].docx` |
+| Day of Trial Checklist | `{{CASE_ROOT}}/Day of Trial Checklist — [Client Last Name].docx` |
+| Exhibit Authentication Checklist | `{{CASE_ROOT}}/Exhibit Authentication Checklist — [Client Last Name].docx` |
+| Witness Schedule Worksheet | `{{CASE_ROOT}}/Witness Schedule — [Client Last Name].docx` |
+| Folder organization edits | Within `{{CASE_ROOT}}/01 - Trial Notebook/` per the 9-tab structure (Step 1A) |
+
+All five generated documents are internal work product — apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`. The trial notebook itself contains a mix of filed pleadings (Tabs 6 and 7 — no marking) and internal materials (Tabs 1, 2, 3, 4, 8, 9 — marked); Trial Notebook Builder does not change the marking on existing files, only on the new deliverables it generates.
 
 ---
 
@@ -743,6 +840,16 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
   a one-page placeholder noting the ledger was not maintained.
 - No auto-routing — `Linked Skill` recommendations are listed but not auto-invoked,
   consistent with `dw-issue-code-tracker`'s design.
+### v1.1 (April 2026)
+- **FIX:** Corrected Trial Notebook folder structure to match actual D&W tab layout
+  - Tab 2: "Opening Statement" (not "Opening & Closing")
+  - Tab 4: "Closing Argument" (not "Exhibit List")
+  - Tab 6: "Pleadings" (not "Motions in Limine")
+  - Tab 7: "PT Orders_Law" (not "Legal Research")
+  - Tab 8: "Verdict_Sentencing" (not "Jury Selection Notes")
+- Added recommended subfolder structure for all 9 tabs (Step 3B)
+- Reassigned deliverables to correct tabs (verdict forms → Tab 8, motions → Tab 6, etc.)
+- Updated deliverable-map.md to match corrected structure
 
 ### v1.0 (April 2026)
 - Initial skill version
@@ -755,3 +862,11 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 
 *Read `references/deliverable-map.md` for the complete deliverable checklist with expected
 locations, producing skills, and criticality ratings.*
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **deliverable-map.md** — Complete reference of every deliverable the Trial Notebook Builder scans for, organized by Trial Notebook tab, with expected location, producing skill, phase, and criticality rating

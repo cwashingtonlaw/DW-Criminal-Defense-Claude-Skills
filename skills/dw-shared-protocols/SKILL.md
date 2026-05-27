@@ -1,5 +1,6 @@
 ---
 name: dw-shared-protocols
+category: core
 description: Shared boilerplate protocol library for all Daniels & Washington file-writing skills. This skill is NOT triggered directly by user prompts — it is read as a reference protocol by other D&W skills before they generate any document deliverable. Provides standardized captions (14th JDC Calcasieu, 12th JDC Avoyelles, Orleans CDC, 19th JDC EBR, Federal WDLA, plus fill-in for other courts), attorney work product marking, signature block, certificate of service, notice of hearing, proposed order, Louisiana citation style, 14th JDC filing conventions, and the CASE_ROOT-anchored output path formula. If you are a file-writing skill and your SKILL.md says to read this protocol, read it now and follow it before producing output.
 version: 1.0.0
 ---

@@ -1,5 +1,6 @@
 ---
 name: dw-dmar-synthesizer
+category: transcription
 description: >
   Cross-case DMAR synthesizer for Daniels & Washington. Ingests multiple Defense Media Analysis
   Reports and produces a consolidated inconsistency matrix, cross-case witness comparison, and

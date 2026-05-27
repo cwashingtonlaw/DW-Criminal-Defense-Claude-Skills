@@ -1,5 +1,6 @@
 ---
 name: dw-suppression-motion
+category: pleadings
 description: >
   Draft suppression motions AND audit search warrants. ALWAYS invoke for "suppress," "motion
   to suppress," "illegal search," "bad warrant," "audit the warrant," "probable cause,"
@@ -21,6 +22,21 @@ Both modes read discovery files to extract facts, search firm databases for temp
 **Mode Selection:** If the attorney says "audit the warrant," "review the affidavit," "look at this warrant," or "anything wrong with this search" → start in **Audit Mode**. If the attorney says "suppress," "motion to suppress," "file a motion" → start in **Motion Mode**. After an audit, always offer: *"Want me to draft the suppression motion based on these findings?"*
 
 **Cowork drafts; attorney approves.** Every output is a draft for attorney review. The attorney verifies facts, confirms legal arguments, signs, and files.
+
+---
+
+## STEP 0 -- FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any search warrants, affidavits, arrest reports, body-worn camera footage, interrogation recordings, statements, or other discovery, do not analyze anything yet.**
+
+Your only response must be:
+> *"Before I begin -- are you uploading any additional search warrants, affidavits, returns on warrants, arrest reports, BWC footage, interrogation recordings, Miranda waiver forms, witness statements, or other case documents? I'll start the audit/motion only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
+
+**Rationale:** Mid-analysis discovery of an additional warrant, a body camera recording of the search execution, or an interrogation recording would require complete re-evaluation of probable cause, particularity, execution compliance, Franks viability, and any companion 5th/6th Amendment suppression theory.
+
+---
 
 ### Source Citation Mandate
 
@@ -488,6 +504,14 @@ This chronological approach is persuasive because it tells a story: one illegal 
 ## Output Location
 
 Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`; warrant audit reports go to `{{CASE_ROOT}}/02 - Pretrial Notebook/03 - Case Analysis & Notes/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **suppression-citations.md** — Layer-1 citation library for suppression motions: federal and Louisiana authority organized by suppression category (4th Amendment search & seizure, 5th Amendment statements, 14th Amendment identification, *Wong Sun* fruit of the poisonous tree), keyed to firm DEVONthink template groups
 
 ---
 

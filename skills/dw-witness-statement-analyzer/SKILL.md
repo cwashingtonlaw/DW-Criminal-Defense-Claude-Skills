@@ -1,5 +1,6 @@
 ---
 name: dw-witness-statement-analyzer
+category: evidence-audit
 description: >
   Analyze witness statements for key facts, inconsistencies, and credibility issues.
   ALWAYS invoke for "analyze this statement," "witness analysis," "statement comparison,"
@@ -35,6 +36,30 @@ Your only response must be:
 > *"Before I begin — are you uploading any additional witness statements or documents? I'll start analysis only after you confirm: 'No more uploads now.'"*
 
 Proceed **only** after the user explicitly confirms no further uploads. This hard stop applies to every new batch of uploads without exception.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the Witness Analysis Card and Statement Comparison Report must trace back to a specific source document. Witness analysis feeds directly into impeachment material, cross-examination outlines, and Brady/Giglio review; an unsourced or mis-cited witness fact undermines impeachment leverage and may violate the duty of candor when introduced at trial.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(Witness Statement — [Name], 03/15/2026, p. 2, para. 3)`
+- `(Police Report — LCPD Case #2026-00456, p. 4, "Witness Smith Narrative")`
+- `(Defense Investigator Interview Memo — [Name], dated 04/02/2026, p. 1)`
+- `(Grand Jury Transcript — [Name], 03/20/2026, p. 18, lines 4-12)`
+- `(Preliminary Hearing Transcript, p. 24, lines 8-22)`
+- `(Witness Recorded Statement — File "Smith_2026-03-15.mp3", Timestamp 00:14:32)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one source confirms a witness's account, cite all of them — e.g., `(Witness Statement, p. 2; Grand Jury Transcript, p. 18, lines 4-12)`.
+
+**Inconsistency flagging:** When a witness provides inconsistent accounts across statements, cite each statement and quote the inconsistent passages directly. This is the impeachment-grade output the cross-exam architect relies upon.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH ATTORNEY/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it for impeachment.
+
+**Where sourcing applies:** All factual content — witness identity and role, statement contents, internal consistency, cross-witness conflicts, prior inconsistent statements, bias indicators. Legal standards (La. C.E. Art. 607, 608, 613) and case law follow normal legal citation format.
+
 ---
 
 ## STEP 1 — Witness Statement Intake

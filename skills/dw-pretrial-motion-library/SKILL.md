@@ -1,5 +1,6 @@
 ---
 name: dw-pretrial-motion-library
+category: pleadings
 description: >
   Draft 15 pretrial motion types. ALWAYS invoke for "speedy trial," "701 motion," "bill of
   particulars," "continuance," "motion to compel," "motion for discovery," "initial discovery
@@ -79,61 +80,15 @@ Filed pleadings receive NO work product marking. Follow the boilerplate componen
 
 ## STEP 1 — Template-First DEVONthink Search
 
-Before drafting any motion, search DEVONthink for firm templates, prior filings, case law, and reference materials. Run searches specific to the motion type requested.
+Before drafting any motion, search DEVONthink for firm templates, prior filings, case law, and reference materials. Run searches specific to the motion type requested. **This is the firm's Template-First Drafting Rule** — never draft from scratch when a firm template exists.
 
-**General searches (run for every motion type):**
-
-```
-devonthink:search
-query: "[motion type keywords]"
-databaseName: Law Library-Criminal
-groupPath: /Motions/General Motions
-limit: 15
-```
-
-```
-devonthink:search
-query: "[motion type keywords]"
-databaseName: Law Library-Criminal
-groupPath: /Motions
-limit: 15
-```
-
-```
-devonthink:search
-query: "[motion type keywords]"
-databaseName: Law Library-Criminal
-groupPath: /Reference Materials/LA Criminal Trial Practice Formulary
-limit: 10
-```
-
-**Known key resources in DEVONthink:**
-- `Motions Practice OVERVIEW OUTLINE` — comprehensive motions practice guide (General Motions group)
-- `CRIMINAL PLEADING INDEX` — index of all criminal pleading forms (root level)
-- `Complete Manual to Criminal Forms` — reference manual (Reference Materials)
-- `Louisiana Criminal Trial Practice Formulary` — LA-specific forms (Reference Materials)
-- `Criminal Procedure Handbook` — procedure reference (Reference Materials)
-
-**Also search seminar/CLE materials:**
-```
-devonthink:search
-query: "[motion topic]"
-databaseName: Law Library-Criminal
-groupPath: /NACDL CLE Materials
-limit: 5
-```
-
-```
-devonthink:search
-query: "[motion topic]"
-databaseName: Law Library-Criminal
-groupPath: /LACDL All That Jazz
-limit: 5
-```
+Read `references/devonthink-search-protocol.md` for the general search query templates, the catalog of known DEVONthink resources (Motions Practice OVERVIEW OUTLINE, CRIMINAL PLEADING INDEX, Complete Manual to Criminal Forms, Louisiana Criminal Trial Practice Formulary, Criminal Procedure Handbook), the seminar/CLE searches (NACDL, LACDL), and the Template Selection Protocol handoff.
 
 **After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.
+
+Each MODULE below also lists its motion-specific DEVONthink search queries and known prior filings. Run those in addition to the general searches in `references/devonthink-search-protocol.md`.
 
 ---
 
@@ -172,343 +127,87 @@ In parallel with the DEVONthink search, consult the skill's bundled assets and r
 
 ## MOTION MODULES
 
----
-
-### MODULE 1: SPEEDY TRIAL / 701 MOTION
-
-**Bundled template:** `assets/templates/motion_for_speedy_trial_701.docx` (Harrison, 14th JDC Calcasieu Parish, Second Degree Murder) — short-form Art. 701(D)(1) motion paired with the required defense counsel affidavit certifying readiness to proceed within the statutory delays. This is the ONLY bundled template that uses D&W's primary 14th JDC caption, so it is also a useful caption-and-signature reference for other 14th JDC filings (note the Public Defenders' Office signature block variant — 120 West Pujo Street, P.O. Box 3757, Lake Charles).
-
-**Bundled caselaw:** See `references/caselaw-citations.md` § "Speedy Trial / Art. 701 (Module 1)" for the statutory framework, Louisiana caselaw, and a drafting note distinguishing the statutory Art. 701 framework from constitutional-speedy-trial *Barker v. Wingo* analysis.
-
-**Critical drafting note:** Art. 701(D)(1) motions are INVALID without the accompanying counsel affidavit. Always file the motion and affidavit together. Do not file a 701 motion if defense is not actually ready to proceed within 120 days (in-custody felony) or 180 days (on-bond felony) — the affidavit is a sworn certification.
-
-**DEVONthink search:**
-```
-devonthink:search
-query: "701" OR "speedy trial" OR "dismiss for delay"
-databaseName: Law Library-Criminal
-groupPath: /Motions/701 Motion
-limit: 10
-```
-
-**Known DEVONthink documents (701 Motion group):**
-- `State v Varmall` — 701 case law
-- `State v Chaney` — 701 case law
-- `State v Delatte` — 701 case law
-- `State v Girard` — 701 case law
-- `Westlaw Precision - Westlaw AI-Assisted Research - 09-04-2025` — recent 701 research
-- `Westlaw AI-Assisted Research - 701 Motion - 09-04-2025` — AI-assisted 701 research
-
-**Also search:**
-```
-devonthink:search
-query: "Motion for Speedy Trial or Dismissal of Pending Charges"
-databaseName: Law Library-Criminal
-groupPath: /Motions/General Motions
-limit: 5
-```
-
-**Module-specific intake:**
-- Date of institution of prosecution (Bill of Information / Indictment filed)
-- All continuances granted (dates, who requested, reasons)
-- Time computation: total days elapsed, excludable time, net time against limit
-- Whether defendant is incarcerated or on bond
-
-**Louisiana Speedy Trial Framework (La. C.Cr.P. Art. 701):**
-
-| Charge Level | Time Limit | From |
-|-------------|-----------|------|
-| Misdemeanor | 30 days (incarcerated) / 60 days (on bond) | Institution of prosecution |
-| Felony (non-capital) | 120 days (incarcerated) / 150 days (on bond) | Institution of prosecution |
-| Capital | 2 years | Institution of prosecution |
-
-**Excludable time under Art. 701(B):**
-- Continuances granted on defendant's motion or with defendant's consent
-- Defendant's absence or unavailability
-- Mental incompetency proceedings
-- Time during which defendant is jointly charged with another defendant not yet apprehended
-- Periods of suspension authorized by other articles
-
-**Argument structure:**
-1. Calculate total elapsed time from institution of prosecution
-2. Identify and subtract all legitimately excludable delays
-3. Show net time exceeds the statutory limit
-4. Address any State arguments for additional excludable time
-5. Demand dismissal under Art. 701(D)(1)
-
-**Key authority:** La. C.Cr.P. Art. 701; *State v. Reaves*, 569 So.2d 650 (La. App. 2d Cir. 1990); *State v. Rome*, 93-1221 (La. 1/14/94), 630 So.2d 1284.
+Each module below summarizes the motion type, its statutory anchor, and points to a reference file with the full DEVONthink search queries, module-specific intake checklist, argument structure, and key authority. Read the corresponding reference file before drafting that motion.
 
 ---
 
-### MODULE 2: BILL OF PARTICULARS
+### MODULE 1: Speedy Trial / 701 Motion
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "bill of particulars"
-databaseName: Law Library-Criminal
-groupPath: /Motions/Bill of Particulars
-limit: 10
-```
+Dismissal-or-trial motion under La. C.Cr.P. Art. 701 when the State exceeds the statutory time limits (30/60 days for misdemeanors, 120/150 days for felonies, 2 years for capital). Requires precise time computation — total elapsed time minus excludable delays under Art. 701(B).
 
-```
-devonthink:search
-query: "bill of particulars"
-databaseName: Law Library-Criminal
-groupPath: /Motions
-limit: 10
-```
-
-**Module-specific intake:**
-- The charging instrument (Bill of Information / Indictment) — what does it currently say?
-- What information is missing that the defense needs to prepare?
-- Specific defenses that require more particularity (alibi, identity, timeline)
-
-**Argument structure:**
-1. The charging instrument fails to provide sufficient detail for the defendant to prepare a defense
-2. The defendant is entitled to know [specific facts: date, time, location, manner, co-participants, specific acts alleged]
-3. Without this information, the defendant cannot adequately investigate, prepare an alibi, or avoid unfair surprise at trial
-4. The State's failure to particularize the charge violates due process
-
-**Key authority:** La. C.Cr.P. Art. 484-485; *State v. DeJesus*, 631 So.2d 462 (La. App. 4th Cir. 1993).
+**Read** `references/module-1-speedy-trial-701.md` for the time-limit table, excludable-time list, argument structure, and authorities (*State v. Reaves*, *State v. Rome*).
 
 ---
 
-### MODULE 3: CONTINUANCE
+### MODULE 2: Bill of Particulars
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "continuance" OR "continue trial"
-databaseName: Law Library-Criminal
-limit: 10
-```
+Demand for greater specificity in the charging instrument when the Bill of Information / Indictment leaves the defense unable to prepare (alibi, identity, timeline). Due-process grounding under La. C.Cr.P. Art. 484-485.
 
-**Known DEVONthink document:**
-- `Motion for Continuance Until Critical Evidence Is Disclosed and Produced` (General Motions)
-
-**Module-specific intake:**
-- Current trial date
-- Reason for continuance (pending discovery, witness unavailability, expert retention, attorney conflict, new charges, new evidence, complexity)
-- Prior continuances (how many, who requested)
-- Whether client consents to the continuance
-
-**Argument structure depends on grounds:**
-- **Discovery not complete:** State's continuing duty under La. C.Cr.P. Art. 722; due process requires adequate time to review and investigate new material
-- **Witness unavailability:** Diligent efforts to secure witness; testimony is material and non-cumulative
-- **Expert needs time:** Recently retained, still reviewing materials, report not yet complete
-- **New evidence/charges:** Fundamental fairness requires time to address
-
-**Key authority:** La. C.Cr.P. Art. 707-714; *State v. Simpson*, 551 So.2d 1303 (La. 1989) (abuse of discretion standard).
+**Read** `references/module-2-bill-of-particulars.md` for the intake checklist, argument structure, and *State v. DeJesus* authority.
 
 ---
 
-### MODULE 4: MOTION TO COMPEL DISCOVERY
+### MODULE 3: Continuance
 
-**Bundled template:** `assets/templates/motion_for_discovery_initial.docx` (Simmons, 19th JDC EBR) — comprehensive Art. 716-723 initial discovery demand including Brady, Giglio, expert disclosures, witness records, and Henderson victim records. Use as the starting structure for either an initial discovery motion OR a motion to compel — for compel, add a recitation of prior unanswered demands and a request for sanctions under Art. 729.3.
+Trial-date continuance under La. C.Cr.P. Art. 707-714 on grounds of incomplete discovery, witness unavailability, expert preparation time, or new evidence/charges. Argument structure depends on the specific ground asserted.
 
-**Bundled caselaw:** See `references/caselaw-citations.md` § "Discovery / Motion to Compel."
-
-**DEVONthink search:**
-```
-devonthink:search
-query: "compel discovery" OR "motion to compel" OR "discovery violation"
-databaseName: Law Library-Criminal
-groupPath: /Motions/Brady Issues and Motions
-limit: 10
-```
-
-```
-devonthink:search
-query: "discovery" OR "disclosure"
-databaseName: Law Library-Criminal
-groupPath: /Motions
-limit: 10
-```
-
-**Module-specific intake:**
-- What specific items are missing from discovery
-- What discovery demands have already been made (and when)
-- State's response (or non-response) to prior demands
-- How the missing items are material to the defense
-- Whether a prior order to produce exists
-
-**Argument structure:**
-1. The defense demanded [specific items] on [date]
-2. The State has failed to produce [itemized list]
-3. Each item is material to the defense because [specific reason per item]
-4. The State's obligations under La. C.Cr.P. Art. 718-729 are clear and continuing (Art. 722)
-5. The Court should order production and impose sanctions if appropriate under Art. 729.3
-
-**Integration:** This module feeds from and feeds back to `dw-brady-giglio-auditor` — if the Brady audit identified missing items, use its findings as the factual basis for this motion. Reference Report 7 (Table of Missing Discovery) from Phase 2.
-
-**Key authority:** La. C.Cr.P. Art. 716-729, 729.3; *Brady v. Maryland*, 373 U.S. 83 (1963); *Kyles v. Whitley*, 514 U.S. 419 (1995).
+**Read** `references/module-3-continuance.md` for the four ground-specific argument templates and the *State v. Simpson* abuse-of-discretion standard.
 
 ---
 
-### MODULE 5: SEVERANCE OF OFFENSES
+### MODULE 4: Motion to Compel Discovery
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "severance" OR "sever offenses" OR "sever counts"
-databaseName: Law Library-Criminal
-limit: 10
-```
+Motion to compel production under La. C.Cr.P. Art. 716-729 when the State has failed to respond to discovery demands. Identifies specific missing items, materiality per item, and requests sanctions under Art. 729.3 if appropriate. Feeds from `dw-brady-giglio-auditor` Report 7 (Table of Missing Discovery).
 
-**Known DEVONthink documents:**
-- `Motion for Severance - US v King` (General Motions)
-- `Motion for Severance - US v Kozina` (General Motions)
-
-**Module-specific intake:**
-- All charges (which counts should be severed from which)
-- Why joinder is prejudicial (spillover effect, disparate evidence, antagonistic defenses)
-- Whether the offenses are of the same or similar character, or based on the same transaction
-
-**Key authority:** La. C.Cr.P. Art. 495.1; *State v. Brooks*, 541 So.2d 801 (La. 1989).
+**Read** `references/module-4-motion-to-compel.md` for the intake checklist, five-element argument structure, *Brady* / *Kyles* authorities, and the Brady-Giglio integration note.
 
 ---
 
-### MODULE 6: SEVERANCE OF DEFENDANTS
+### MODULES 5 & 6: Severance (Offenses and Defendants)
 
-**DEVONthink search:** Same as Module 5 searches.
+Severance under La. C.Cr.P. Art. 495.1 (offenses) or Art. 495.1 / 704 (defendants). Module 5 addresses prejudicial joinder of counts (spillover, disparate evidence). Module 6 addresses prejudicial joint trials (antagonistic defenses, *Bruton* issues, co-defendant statements).
 
-**Module-specific intake:**
-- Co-defendants and their charges
-- Why joint trial is prejudicial (antagonistic defenses, Bruton issues, spillover from co-defendant's evidence)
-- Whether co-defendant's statements implicate the client
-
-**Key authority:** La. C.Cr.P. Art. 495.1, 704; *Bruton v. United States*, 391 U.S. 123 (1968); *Zafiro v. United States*, 506 U.S. 534 (1993).
+**Read** `references/module-5-6-severance.md` for both modules' intake checklists and authorities (*State v. Brooks*, *Bruton v. United States*, *Zafiro v. United States*).
 
 ---
 
-### MODULE 7: CHANGE OF VENUE
+### MODULE 7: Change of Venue
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "change of venue" OR "venue"
-databaseName: Law Library-Criminal
-limit: 10
-```
+Venue change under La. C.Cr.P. Art. 622 based on pretrial publicity, community sentiment, victim prominence, and jury-pool size. Authorities: *State v. David*, *Skilling v. United States*.
 
-**Known DEVONthink document:**
-- `Motion for Change Of Venue And Incorporated Memorandum Of Law` (General Motions)
-
-**Module-specific intake:**
-- Nature and extent of pretrial publicity (news articles, social media, TV coverage)
-- Community sentiment indicators
-- Whether the victim is prominent in the community
-- Size of the jury pool
-- Proposed alternative venue
-
-**Key authority:** La. C.Cr.P. Art. 622; *State v. David*, 468 So.2d 1126 (La. 1985); *Skilling v. United States*, 561 U.S. 358 (2010).
+**Read** `references/module-7-change-of-venue.md` for the intake checklist and authorities.
 
 ---
 
-### MODULE 8: RECUSAL OF JUDGE
+### MODULE 8: Recusal of Judge
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "recusal" OR "recuse" OR "disqualify judge"
-databaseName: Law Library-Criminal
-limit: 10
-```
+Judicial recusal under La. C.Cr.P. Art. 671-674 and La. Code Jud. Conduct Canon 3 on grounds of personal bias, prior involvement, financial interest, or relationship to a party. Mandatory vs. discretionary recusal distinction.
 
-**Known DEVONthink document:**
-- `Emergency Motion to Disqualify` (General Motions)
-
-**Module-specific intake:**
-- Specific grounds for recusal (personal bias, prior involvement, financial interest, relationship to party)
-- Factual basis — specific instances demonstrating bias or conflict
-- Whether mandatory or discretionary recusal
-
-**Key authority:** La. C.Cr.P. Art. 671-674; La. Code Jud. Conduct Canon 3; *Liteky v. United States*, 510 U.S. 540 (1994).
+**Read** `references/module-8-recusal.md` for the intake checklist and authorities (*Liteky v. United States*).
 
 ---
 
-### MODULE 9: QUASH INDICTMENT / BILL OF INFORMATION
+### MODULE 9: Quash Indictment / Bill of Information
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "quash" OR "dismiss indictment" OR "dismiss bill"
-databaseName: Law Library-Criminal
-limit: 10
-```
+Motion to quash under La. C.Cr.P. Art. 485, 532 on grounds of defective indictment, prescription (Art. 571-576), double jeopardy, failure to charge an offense, grand-jury irregularities, or perjured testimony. Includes prescription-period table (no prescription for life/death felonies; 6 years for felonies at hard labor; 4 years for non-hard-labor felonies; 2 years for misdemeanors).
 
-**Known DEVONthink documents:**
-- `Motion to Quash Indictment Obtained via Perjured Testimony` (General Motions)
-- `Motion to Dismiss the Bill of Information for the State's Willful and Intentional Violation` (Motions root)
-
-**Module-specific intake:**
-- Grounds for quashing: defective indictment, prescription, double jeopardy, failure to charge an offense, grand jury irregularities, perjured testimony
-- Date of offense vs. date of charge (for prescription analysis)
-- Any prior prosecutions for the same offense (double jeopardy)
-
-**Prescription calculation (La. C.Cr.P. Art. 571-576):**
-| Offense Level | Prescriptive Period |
-|--------------|-------------------|
-| Felony punishable by death or life | No prescription |
-| Felony punishable by hard labor | 6 years |
-| Felony not necessarily punishable by hard labor | 4 years |
-| Misdemeanor | 2 years |
-
-**Key authority:** La. C.Cr.P. Art. 485, 532, 571-576; *State v. Byrd*, 708 So.2d 401 (La. 1998).
+**Read** `references/module-9-quash-bill.md` for the prescription table, intake checklist, and *State v. Byrd* authority.
 
 ---
 
-### MODULE 10: COMPETENCY EVALUATION
+### MODULE 10: Competency Evaluation
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "competency" OR "sanity commission" OR "mental capacity"
-databaseName: Law Library-Criminal
-groupPath: /Motions/Mental Health
-limit: 10
-```
+Sanity commission / competency evaluation under La. C.Cr.P. Art. 641-649 when client cannot communicate with counsel, presents disorientation, has psychiatric history, or is on psychotropic medication. Authorities: *Drope v. Missouri*, *Dusky v. United States*.
 
-```
-devonthink:search
-query: "competency" OR "capacity to proceed"
-databaseName: Law Library-Criminal
-groupPath: /Insanity Proceedings - Title XXI
-limit: 10
-```
-
-**Module-specific intake:**
-- Specific observations suggesting incompetency (inability to communicate with counsel, disorientation, psychiatric history, medication)
-- Whether client has been previously evaluated
-- Whether client is currently on psychotropic medication
-- Whether the defense seeks appointment of a sanity commission or an independent expert
-
-**Key authority:** La. C.Cr.P. Art. 641-649; *Drope v. Missouri*, 420 U.S. 162 (1975); *Dusky v. United States*, 362 U.S. 402 (1960).
+**Read** `references/module-10-competency-evaluation.md` for the intake checklist and authorities.
 
 ---
 
-### MODULE 11: MOTION TO REVEAL THE DEAL
+### MODULE 11: Motion to Reveal the Deal
 
-**DEVONthink search:**
-```
-devonthink:search
-query: "reveal the deal" OR "reveal informant" OR "cooperation agreement" OR "snitch"
-databaseName: Law Library-Criminal
-groupPath: /Motions
-limit: 15
-```
+Brady-progeny disclosure of cooperation agreements, informant deals, and benefits to State witnesses. Works closely with `dw-brady-giglio-auditor` (which includes the CI detection module) — uses its findings as the factual basis.
 
-**Known DEVONthink documents (Motions root and subgroups):**
-- `Motion to exclude snitch.doc` — motion to exclude informant testimony
-- `Prevent Creation of Snitch[3]` — prevent witness coaching
-- `Prevent Snitch Testimony` — exclude snitch testimony
-- `Memo in Support Snitch Mtns` — memorandum supporting snitch motions
-- `Memo on Deal and Snitch 7-5-16 (Final)` — comprehensive deal/snitch memo
-
-**Integration note:** This module works closely with `dw-brady-giglio-auditor` (which now includes the CI detection module). If the Brady/Giglio audit identified suspected cooperating witnesses, use those findings as the factual basis.
-
-**Key authority:** *Brady v. Maryland*; *Giglio v. United States*; *Roviaro v. United States*; La. C.Cr.P. Art. 716-729; *State v. Broadway*.
+**Read** `references/module-11-reveal-the-deal.md` for the DEVONthink snitch/cooperation document catalog and authorities (*Brady*, *Giglio*, *Roviaro*, *State v. Broadway*).
 
 ---
 
@@ -668,53 +367,25 @@ limit: 10
 
 ## STEP 2.5 — Pre-Trial Motion Action Plan Report
 
-Before drafting any individual motion, generate a consolidated Pre-Trial Motion Action Plan. This report provides the attorney with a strategic overview of all potential motions and their likelihood of success, enabling prioritization.
+Before drafting any individual motion, generate a consolidated Pre-Trial Motion Action Plan giving the attorney a strategic overview of all potential motions and their likelihood of success (HIGH / MEDIUM / LOW), enabling prioritization. The attorney selects which motions to pursue, then Cowork drafts each selected motion using the appropriate MODULE above.
 
-For each potential motion (suppress, exclude, limine, dismiss, compel, sever, change venue, continuance, recusal, quash, competency, preliminary exam, omnibus, self-defense notice, Melendez-Diaz objection, reveal the deal):
-
-- **Motion Type:** Name and legal basis
-- **Specific Evidence/Constitutional Violation:** The exact facts or evidence triggering this motion, with source document citations (document title, page, paragraph/timestamp)
-- **Likelihood of Success:** HIGH / MEDIUM / LOW — based on the strength of the legal argument, available evidence, and likely judicial reception
-- **Assessment:** 1-3 sentences explaining the legal basis and strategic value
-
-This report is concise by design — it gives the attorney a motion roadmap before committing resources to full drafting. The attorney selects which motions to pursue, then Cowork drafts each selected motion using the appropriate MODULE above.
-
-**Output:** `Pre-Trial Motion Action Plan - [Client Name] - [Date].docx`. This is internal analysis (not a filed pleading) — save to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` per the shared-protocols output path formula in `dw-shared-protocols/references/output-path-formula.md`. Apply attorney work product marking per `dw-shared-protocols/references/attorney-work-product-marking.md`.
-
-**Source Citation Mandate applies:** Every factual assertion in the action plan must cite the specific source document.
+**Read** `references/pretrial-motion-action-plan.md` for the per-motion report fields, output filename and save-path conventions, and the Source Citation Mandate application.
 
 ---
 
 ## STEP 3 — Draft the Motion and Memorandum
 
-For each motion type, generate two .docx files following the `docx` skill conventions:
+For each motion type, generate two .docx files (Motion + Memorandum in Support) following the `docx` skill conventions and the shared-protocols boilerplate component sequence.
 
-1. **Motion** (2-3 pages): Short-form filing with facts and prayer for relief
-2. **Memorandum in Support** (5-20 pages depending on complexity): Full legal argument
-
-Apply caption, signature block, certificate of service, notice of hearing, proposed order, formatting, and filename conventions per shared protocols (see Step 1.5 — `dw-shared-protocols`).
+**Read** `references/drafting-and-review.md` for the document structure (Motion 2-3 pages, Memorandum 5-20 pages), filing conventions, and the cross-reference back to shared protocols.
 
 ---
 
 ## STEP 4 — Attorney Review & Integration
 
-**Review flags:**
-- `[VERIFY — confirm this fact with client/discovery]`
-- `[RESEARCH — confirm current validity of this citation]`
-- `[ATTORNEY TO COMPLETE]` — signature, bar number, specific dates
-- `[STRATEGIC DECISION]` — which arguments to include/exclude
+Apply the standard review flags (`[VERIFY]`, `[RESEARCH]`, `[ATTORNEY TO COMPLETE]`, `[STRATEGIC DECISION]`), save filed motions to the Pretrial Notebook, create the Clio review-and-file task, and update Case Brain with motion status. Hand off to companion skills for specialized motions.
 
-**Save location:** Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`.
-
-- Create Clio task: *"Review and File [Motion Type] — [Client Name]"*
-- Update Case Brain with motion status
-
-**Companion skill handoffs:**
-- Report 3 Red Flags → trigger specific motion modules
-- Report 7 Missing Discovery → trigger Module 4 (Motion to Compel)
-- Brady/Giglio CI findings → trigger Module 11 (Reveal the Deal)
-- Suppression issues → hand off to `dw-suppression-motion`
-- 404(b) issues → hand off to `dw-404b-opposition`
+**Read** `references/drafting-and-review.md` (Attorney Review section) for the full review-flag list, save locations, Clio task language, and companion skill handoff matrix.
 
 ---
 
@@ -734,3 +405,23 @@ Apply caption, signature block, certificate of service, notice of hearing, propo
 ## Output Location
 
 Use the output path formula from `dw-shared-protocols/references/output-path-formula.md`. Filed motions go to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`. The Pre-Trial Motion Action Plan (internal analysis, Step 2.5) goes to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. See shared protocols for CASE_ROOT resolution, filename conventions, and post-write reporting format.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **devonthink-search-protocol.md** — General DEVONthink search queries (Motions / General Motions / Reference Materials / NACDL / LACDL groups), catalog of known firm resources (Motions Practice OVERVIEW OUTLINE, CRIMINAL PLEADING INDEX, Complete Manual to Criminal Forms, LA Criminal Trial Practice Formulary, Criminal Procedure Handbook), and the Template Selection Protocol handoff
+- **module-1-speedy-trial-701.md** — La. C.Cr.P. Art. 701 time-limits table, excludable-time list under Art. 701(B), five-step argument structure, and authorities (*State v. Reaves*, *State v. Rome*)
+- **module-2-bill-of-particulars.md** — La. C.Cr.P. Art. 484-485 intake checklist, four-step argument structure, and *State v. DeJesus* authority
+- **module-3-continuance.md** — La. C.Cr.P. Art. 707-714 ground-specific argument templates (discovery / witness / expert / new evidence) and *State v. Simpson* abuse-of-discretion standard
+- **module-4-motion-to-compel.md** — La. C.Cr.P. Art. 716-729 / 729.3 intake checklist, five-element argument structure, *Brady* / *Kyles* authorities, and `dw-brady-giglio-auditor` Report 7 integration
+- **module-5-6-severance.md** — La. C.Cr.P. Art. 495.1 / 704 (offenses + defendants), *State v. Brooks*, *Bruton v. United States*, *Zafiro v. United States* authorities
+- **module-7-change-of-venue.md** — La. C.Cr.P. Art. 622 intake checklist (publicity, community sentiment, victim prominence, pool size), *State v. David*, *Skilling v. United States* authorities
+- **module-8-recusal.md** — La. C.Cr.P. Art. 671-674 / La. Code Jud. Conduct Canon 3 intake checklist, mandatory vs. discretionary distinction, *Liteky v. United States* authority
+- **module-9-quash-bill.md** — La. C.Cr.P. Art. 485 / 532 / 571-576 grounds list, prescription-period table (no prescription / 6 / 4 / 2 years), and *State v. Byrd* authority
+- **module-10-competency-evaluation.md** — La. C.Cr.P. Art. 641-649 sanity-commission intake checklist and *Drope v. Missouri* / *Dusky v. United States* authorities
+- **module-11-reveal-the-deal.md** — DEVONthink snitch/cooperation document catalog, `dw-brady-giglio-auditor` integration note, and authorities (*Brady*, *Giglio*, *Roviaro*, *State v. Broadway*)
+- **pretrial-motion-action-plan.md** — Per-motion report fields (Motion Type, Specific Evidence, Likelihood, Assessment), output filename and save-path conventions, Source Citation Mandate application
+- **drafting-and-review.md** — Motion + Memorandum drafting structure, full review-flag list, save locations, Clio task language, companion skill handoff matrix, and output-location summary

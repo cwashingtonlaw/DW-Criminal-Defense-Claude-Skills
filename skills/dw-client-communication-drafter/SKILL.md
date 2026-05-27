@@ -1,5 +1,6 @@
 ---
 name: dw-client-communication-drafter
+category: ops
 description: >
   Draft client correspondence including status updates, jail mail, family letters, and interpreter-ready summaries.
   ALWAYS invoke for "client letter," "jail mail," "update the client," "write to the client," "family update,"
@@ -75,6 +76,26 @@ Invoke `dw-case-brain` and request:
 **ALWAYS confirm with the attorney:** "Case Brain shows next court date as [DATE]. Is this still accurate?"
 
 This ensures no out-of-date data enters the communication.
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in client correspondence — court dates, custody status, charges, bond terms, plea status, next steps — must trace back to a specific source document or Case Brain entry. Client letters are read literally; an inaccurate court date, misstated bond condition, or wrong charge count damages trust and may interfere with the client's ability to make informed decisions.
+
+**Citation format (for the internal work product file, not the client-facing letter):** Cite the source document or Case Brain entry beneath the draft. Examples:
+- `(Case Brain — Custody Status, updated 2026-04-15)`
+- `(Court Docket — Hearing Notice, dated 03/15/2026)`
+- `(Bill of Information, Counts 1-3)`
+- `(Bond Order — 14th JDC, signed 03/15/2026, p. 1)`
+- `(Plea Form, signed 03/15/2026, para. 4)`
+- `(Attorney Note — Phone call with client, 2026-04-15)`
+
+**Multiple-source rule:** When more than one source confirms a fact about the case posture, cite all of them — e.g., `(Case Brain — Next Court Date; Court Docket — Hearing Notice, dated 03/15/2026)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a documented source, mark it `[UNSOURCED — VERIFY WITH ATTORNEY]` in the internal draft so the attorney knows to confirm before signing or mailing the letter.
+
+**Where sourcing applies:** All factual content — court dates, charges, plea status, bond terms, custody location, sentencing exposure references, next steps. Tone, plain-language phrasing, and emotional support follow normal narrative drafting. Never include legal strategy, attorney work product, or privileged analysis in client correspondence.
 
 ---
 

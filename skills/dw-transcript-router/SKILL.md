@@ -1,22 +1,48 @@
 ---
 name: dw-transcript-router
+category: transcription
 description: >
-  Parish-based transcript pipeline router for Daniels & Washington. Determines which
+  Parish-based transcript pipeline router for Daniels & Washington. ALWAYS invoke for
+  "transcribe the evidence," "transcript pipeline," "process audio/video," "transcribe jail
+  calls," "transcribe body cam," "transcribe the interview," "process the recordings,"
+  "run the transcript pipeline," "process the [client] folder," "transcribe the [client]
+  evidence," "new evidence recordings," "upload recordings," or any reference to transcription,
+  media processing, or a client folder containing media discovery files. Determines which
   transcription platform (JusticeText or Rev) to use based on case parish, then invokes
   the correct pipeline skill. Calcasieu Parish cases route to dw-transcript-pipeline-calcasieu
-  (JusticeText). All other parishes route to dw-transcript-pipeline-rev (Rev.com). Triggers:
-  "transcribe the evidence," "transcript pipeline," "process audio/video," "transcribe jail
-  calls," "transcribe body cam," "transcribe the interview," "process the recordings," or any
-  reference to transcription, media processing, or a client folder containing media discovery
-  files. Also triggers on: "run the transcript pipeline," "process the [client] folder,"
-  "transcribe the [client] evidence," "new evidence recordings," or "upload recordings."
-  This skill replaces the former dw-transcript-pipeline as the single entry point for all
-  transcription workflows.
+  (JusticeText). All other parishes route to dw-transcript-pipeline-rev (Rev.com). This skill
+  replaces the former dw-transcript-pipeline as the single entry point for all transcription
+  workflows.
 ---
 
 # DW Transcript Router
 
 Parish-based routing layer for the D&W dual-platform transcription system.
+
+## STEP 0 — FILE INTAKE HARD STOP (Always First)
+
+**If the user has uploaded or referenced any audio or video files (interrogations, jail calls, interviews, body-worn camera, dashcam, 911 calls, civilian video, or any media requiring transcription), do not begin routing yet.**
+
+Your only response must be:
+> *"Before I begin — are you uploading any additional audio or video files for transcription? I'll start routing only after you confirm: 'No more uploads now.'"*
+
+Proceed **only** after the user explicitly confirms no further uploads. Routing the wrong batch to the wrong pipeline (Calcasieu/JusticeText vs. Rev.com) creates re-work and billing complications.
+
+---
+
+### Source Citation Mandate
+
+Every factual claim in routing memos, parish determinations, or pipeline-selection rationale must trace back to a specific source — typically the case file's parish-of-prosecution designation in `Case Brain` or the case-tables spreadsheet. Routing decisions feed billing (different platforms have different cost structures) and downstream analysis (transcript format and DMAR schema differ by pipeline), so the basis for routing must be auditable.
+
+**Citation format:** Cite the source of the parish determination. Examples:
+- `(Case Brain — Parish: Calcasieu, last updated 2026-04-15)`
+- `(Case Tables.xlsx, Case Profile sheet, Parish field)`
+- `(Bill of Information, Docket #2026-CR-0456, 14th JDC)`
+- `(Attorney instruction — Parish: Caddo, 2026-04-15)`
+
+**Unsourced assertions:** If parish is unclear, do not route — ask the attorney rather than guessing. Mark any uncertain routing `[UNSOURCED — CONFIRM PARISH]` until the attorney confirms.
+
+---
 
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 

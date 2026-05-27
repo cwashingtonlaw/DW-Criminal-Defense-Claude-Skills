@@ -1,5 +1,6 @@
 ---
 name: dw-sex-offense-specialist
+category: offense-specialists
 description: >
   Sex offense defense framework. ALWAYS invoke for "sex offense," "rape shield," "Art. 412,"
   "SANE exam," "sexual assault," "sexual battery," "indecent behavior," "child molestation,"
@@ -54,6 +55,27 @@ These matters involve allegations of extraordinary gravity. The analysis framewo
 ```
 
 **If file is incomplete, analysis is PROVISIONAL and flagged for supplementation.**
+
+---
+
+### Source Citation Mandate
+
+Every factual assertion in the sex-offense analysis — alleged conduct, victim and accused statements, SANE findings, forensic interview content, DNA results, and corroborating or contradicting evidence — must trace back to a specific source document. These cases turn on the documented record: the SANE exam report establishes physical findings, the forensic interview establishes the disclosure narrative, and the lab report establishes biological evidence. Unsourced claims about what was alleged, what was found, or how the disclosure unfolded carry no weight at suppression hearings, rape-shield (Art. 412) hearings, or trial.
+
+**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
+- `(SANE Exam Report — [Hospital], dated 03/15/2026, p. 2, "Findings")`
+- `(Forensic Interview — [Center], 03/16/2026, Timestamp 00:14:32)`
+- `(Lab Report — LSP Crime Lab, Sample #2026-001, p. 1)`
+- `(Detective Narrative — LCPD Case #2026-00456, p. 3, para. 2)`
+- `(Initial Disclosure — Witness Statement, p. 1, Line 8)`
+- `(Bill of Information, Counts 1-2, p. 1)`
+- `(Discovery Production, Bates #00145-00148)`
+
+**Multiple-source rule:** When more than one document confirms a fact, cite all of them — e.g., `(SANE Report, p. 2; Lab Report, Sample #2026-001, p. 1)`.
+
+**Unsourced assertions:** If a factual claim cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY WITH CLIENT/DISCOVERY]` so the attorney knows to confirm or remove it before relying on it.
+
+**Where sourcing applies:** All factual content — alleged conduct, disclosure timing, SANE findings, forensic interview methodology, DNA mixture interpretations, prior consistent/inconsistent statements. Statutory citations (La. R.S. 14:42 series, La. C.E. Art. 412), case law, and SORNA references follow normal legal citation format. Maintain dignity in all references to the alleged victim — sourcing requirements never authorize gratuitous detail.
 
 ---
 
@@ -374,6 +396,25 @@ Analyze evidence by severity level to prioritize resources and identify case dis
 **LAST UPDATED:** March 2026
 **SCOPE:** Sex Offense Defense — All Louisiana Sex Offense Statutes
 **CONFIDENTIALITY:** Attorney-Client Privileged; Work Product
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **cross-examination-seeds.md** — Cross-examination chapter seeds (SANE nurse, forensic interviewer, complaining witness, expert) for integration with `dw-cross-exam-architect`
+- **defense-strategy-reference-guide.md** — Defense strategy reference: consent defense framework, elements prosecution must disprove, and available defense theories
+- **dna-analysis-methodology-reference.md** — DNA analysis methodology and chain-of-custody checklist (LADOJ kit collection protocols, contamination audit points)
+- **expert-witness-framework.md** — Expert witness framework including CSAAS (Child Sexual Abuse Accommodation Syndrome) admissibility status in Louisiana
+- **forensic-interview-challenge-standards.md** — Forensic interview challenge standards: interviewer qualifications audit and protocol-compliance checklist
+- **louisiana-case-law-authority.md** — Louisiana case-law authority for sex-offense defense (*State v. Kennedy*, death-penalty context, current statutory framework)
+- **louisiana-sex-offense-statutes.md** — Louisiana sex offense statutes (R.S. 14:42 through 14:43.1 etc.): elements, penalties, registration tier in matrix form
+- **quick-reference-tables.md** — Statute comparison matrix tables across Louisiana sex offenses (degree, force, age threshold, registration)
+- **rape-shield-law-framework.md** — La. C.E. Art. 412 rape-shield framework: general prohibition, defense-use exceptions, and procedural mechanics
+- **sane-exam-audit-protocols.md** — SANE exam audit protocols: examiner-qualifications audit and exam-protocol challenge points
+- **severity-classification-matrix.md** — Severity classification matrix for case-dispositive (CRITICAL) and significant findings in sex-offense audits
+- **sorna-tier-classification-matrix.md** — Louisiana SORNA tier classification matrix (R.S. 15:540 et seq.): Tier 1/2/3 offenses, duration, and notification requirements
 
 ---
 
