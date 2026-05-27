@@ -78,7 +78,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Recusal | `dw-pretrial-motion-library` | "recusal" |
 | Continuance | `dw-pretrial-motion-library` | "continuance" |
 
-All motion skills use `dw-template-selector` to search DEVONthink for firm templates before drafting.
+All motion skills use the template selection protocol in `dw-shared-protocols/references/` to search DEVONthink for firm templates before drafting.
 
 ---
 
@@ -126,7 +126,6 @@ These skills are read by other skills as reference protocols — you don't invok
 
 | Skill | What It Does | Read By |
 |-------|-------------|---------|
-| `dw-template-selector` | DEVONthink template search protocol | All motion/pleading skills |
 | `dw-data-contracts` | Output schema definitions | All skills producing deliverables |
 | `dw-case-brain` | Session persistence (also direct-trigger) | Every skill at session open/close |
 

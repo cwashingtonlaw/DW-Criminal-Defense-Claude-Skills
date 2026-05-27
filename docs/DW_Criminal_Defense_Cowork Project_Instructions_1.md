@@ -102,7 +102,7 @@ D&W has a library of specialized skills. You must invoke the correct skill for e
 **This is firm policy — no exceptions.** Before drafting any pleading, motion, or legal document:
 
 1. Search DEVONthink (`Law Library-Criminal` database) for firm templates and prior filings.
-2. Present ranked results to the attorney using the `dw-template-selector` protocol.
+2. Present ranked results to the attorney using the template selection protocol at `dw-shared-protocols/references/template-selection-protocol.md`.
 3. Wait for the attorney to select a template or confirm "draft from scratch."
 4. Only then begin drafting.
 

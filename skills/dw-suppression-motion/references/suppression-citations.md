@@ -21,7 +21,7 @@ The firm's `Law Library-Criminal` database is the operational source for suppres
 | Statements (5th Am.) | [Motions / 5th Amendment Issues](x-devonthink-item://8BAFE1E0-BAA4-48C7-84EE-1C94366CFF3A) | Miranda suppression motions; statement-suppression templates |
 | False Confessions | [Motions / False Confessions](x-devonthink-item://961A20A0-0591-49E9-B7AC-7DC9A51373E9) | Voluntariness and false-confession-specific templates |
 | Identification | [Motions / Eyewitness Identification](x-devonthink-item://ACF16B84-8632-4AED-9243-24E9B00D2F40) | Wade/reliability motions, expert-notice templates, Innocence Project amicus, Manson framework briefs |
-| Treatise — Louisiana Criminal Trial Practice | [Open formulary](x-devonthink-item://F43B9C6D-3D5A-44D1-B228-520090BBEEEF) | Primary template source per dw-template-selector |
+| Treatise — Louisiana Criminal Trial Practice | [Open formulary](x-devonthink-item://F43B9C6D-3D5A-44D1-B228-520090BBEEEF) | Primary template source per dw-shared-protocols template selection protocol |
 
 **Layered workflow:**
 

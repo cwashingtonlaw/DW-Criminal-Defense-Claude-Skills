@@ -608,7 +608,7 @@ Every excluded exhibit and every sustained objection must be flagged to **dw-app
 
 ## TEMPLATE INTEGRATION
 
-Use dw-template-selector to access:
+Use the template selection protocol in dw-shared-protocols/references/template-selection-protocol.md to access:
 - Exhibit card template (for Step 2)
 - Objection log template (for Step 5)
 - Authentication checklist template (for output 6D)

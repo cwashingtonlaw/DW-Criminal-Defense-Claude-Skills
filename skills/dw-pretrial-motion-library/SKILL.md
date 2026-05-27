@@ -28,7 +28,6 @@ This skill handles the "bread and butter" motions — the ones filed in nearly e
 | `dw-criminal-defense` | Phase 2 Red Flags trigger motion practice |
 | `dw-brady-giglio-auditor` | CI findings → Module 11 (Reveal the Deal); missing-discovery findings → Module 4 (Compel) |
 | `dw-case-brain` | Motion status tracking and CASE_ROOT resolution |
-| `dw-template-selector` | Shared template selection protocol after DEVONthink search |
 | `dw-suppression-motion` | Hand off suppression issues |
 | `dw-404b-opposition` | Hand off 404(b) issues |
 | `dw-bond-and-release-motion` | Hand off bond issues |
@@ -132,7 +131,7 @@ groupPath: /LACDL All That Jazz
 limit: 5
 ```
 
-**After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
+**After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.
 

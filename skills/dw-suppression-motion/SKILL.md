@@ -114,7 +114,7 @@ Before drafting anything, search DEVONthink for firm templates and prior suppres
 
 Also search with tags: `template`, `suppression`, `motion`
 
-**After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
+**After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting, language, and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
 
@@ -456,7 +456,6 @@ This chronological approach is persuasive because it tells a story: one illegal 
 | Skill | How It Integrates |
 |-------|------------------|
 | `dw-shared-protocols` | Caption, signature, COS, notice of hearing, proposed order, citation style, filing conventions, output path |
-| `dw-template-selector` | Template-First DEVONthink search protocol before drafting |
 | `dw-criminal-defense` | Phase 2 Constitutional Issues Scan feeds suppression grounds |
 | `dw-mobile-forensic-auditor` | Forensic Audit report provides digital evidence suppression facts |
 | `dw-cross-exam-architect` | Warrant audit generates cross-exam seeds for affiant/executing officers |
