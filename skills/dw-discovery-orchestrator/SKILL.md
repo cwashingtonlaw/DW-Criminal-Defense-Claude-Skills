@@ -125,15 +125,31 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 
 ---
 
-#### F. Lab Reports (DNA, Toxicology, Firearms, Trace Evidence)
+#### F. Lab Reports (DNA / Forensic Biology)
 
-**Keywords:** lab, laboratory, dna, toxicology, firearms, ballistics, serology, trace evidence, drug analysis, blood alcohol, thc, cocaine, methamphetamine, analysis, results, report
+**Keywords:** dna, str, mixture, strmix, trueallele, probabilistic genotyping, electropherogram, epg, random match probability, rmp, likelihood ratio, ldr, y-str, mitochondrial, mtdna, touch dna, transfer dna, low copy number, lcn, low template, codis, igg, investigative genetic genealogy, gedmatch, kinship
+
+**Extensions:** .pdf, .docx (lab report); raw EPG data files (.fsa, .hid, .csv) if produced
+
+**Content indicators:** DNA profile tables, allele calls at STR loci, mixture deconvolution language, probabilistic genotyping software output, RMP / LR / LDR statistics, CODIS hit notice, IGG investigative lead language
+
+**Auditor Route:** `dw-dna-forensic-biology-auditor` (deep methodology audit — STR, probabilistic genotyping, mixture interpretation, statistical challenges, contamination, IGG/databases, Daubert/Foret challenges) + `dw-chain-of-custody-auditor` (collection through lab)
+
+**Priority:** HIGH
+
+---
+
+#### F2. Lab Reports (Drug ID, Toxicology, General Crime Lab — NOT DNA)
+
+**Keywords:** lab, laboratory, toxicology, drug analysis, gc/ms, gc-ms, gas chromatography, ftir, color test, spot test, presumptive test, confirmatory test, blood alcohol, bac, immunoassay, elisa, criminalist certificate, r.s. 15:499, melendez-diaz, controlled substance, cocaine, methamphetamine, heroin, fentanyl, marijuana, thc, oxycodone, alprazolam, firearms, ballistics, serology, trace evidence
 
 **Extensions:** .pdf, .docx
 
-**Content indicators:** Lab name, case number, evidence item numbers, testing methodology, results tables, analyst name, accreditation info, quality control notes, comparison results (DNA match/exclusion, ballistics match)
+**Content indicators:** Lab name, case number, evidence item numbers, testing methodology (presumptive vs. confirmatory, GC/MS, FTIR, immunoassay), results tables, analyst name, accreditation info (ANAB / ASCLD-LAB / ISO 17025), quality control notes, R.S. 15:499 certificate language, Bullcoming/Melendez-Diaz disclosures, ballistics comparison results
 
-**Auditor Route:** `dw-crime-scene-auditor` (for lab methodology audit) + `dw-chain-of-custody-auditor` (for evidence handling from collection through lab)
+**Auditor Route:** `dw-crime-lab-auditor` (drug ID methodology, toxicology methodology, analyst dossier, lab accreditation, R.S. 15:499/501 certificate challenges, lab-side chain of custody) + `dw-chain-of-custody-auditor` (field-side handling from collection through lab intake)
+
+**Note:** If the lab report involves DNA, route to `dw-dna-forensic-biology-auditor` instead (Category F). For DWI roadside / SFST / breath instrument operator issues, route to `dw-dwi-specialist` — `dw-crime-lab-auditor` covers only the lab-side blood/urine analysis.
 
 **Priority:** HIGH
 
@@ -578,8 +594,12 @@ Output location for all auditor findings: `[Case Root] / 01 - Trial Notebook / 0
    - Yes → `dw-crime-scene-auditor`
    - No → Continue
 
-7. **Does filename mention lab, DNA, toxicology, firearms?**
-   - Yes → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
+7. **Does filename or content reference DNA, STR, mixture, STRmix, TrueAllele, EPG, electropherogram, Y-STR, mtDNA, touch DNA, CODIS, IGG, GEDmatch, or kinship?**
+   - Yes → `dw-dna-forensic-biology-auditor` + `dw-chain-of-custody-auditor`
+   - No → Continue
+
+7a. **Does filename or content reference drug analysis (GC/MS, FTIR, presumptive/confirmatory test), toxicology (immunoassay, ELISA, blood alcohol lab analysis), criminalist certificate / R.S. 15:499, Melendez-Diaz, lab accreditation (ANAB / ASCLD-LAB / ISO 17025), or general crime lab methodology (firearms, ballistics, serology, trace evidence — non-DNA)?**
+   - Yes → `dw-crime-lab-auditor` + `dw-chain-of-custody-auditor`
    - No → Continue
 
 8. **Does filename mention SANE, rape kit, sexual assault exam?**

@@ -58,6 +58,8 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Adult interrogation / confession | `dw-confession-interrogation-auditor` | "audit interrogation" |
 | Child forensic interview (CAC) | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
 | Expert witness qualifications | `dw-expert-witness-evaluator` | "evaluate the expert" |
+| DNA / forensic biology (STR, mixtures, STRmix, TrueAllele, IGG, mtDNA, Y-STR, touch DNA) | `dw-dna-forensic-biology-auditor` | "DNA audit" or "audit the DNA" |
+| Crime lab (drug ID, toxicology, blood alcohol, certificate challenges) | `dw-crime-lab-auditor` | "audit the crime lab" or "criminalist certificate" |
 
 ---
 
@@ -84,7 +86,9 @@ All motion skills use `dw-template-selector` to search DEVONthink for firm templ
 
 | Task | Skill | Trigger Phrase |
 |------|-------|---------------|
-| Cross-examination outlines | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Cross-examination outlines (state witnesses) | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Direct-examination outlines (defense witnesses) | `dw-direct-exam-architect` | "build a direct for [witness]" or "defendant testimony prep" |
+| Opening statement + closing argument (paired) | `dw-trial-narrative-builder` | "draft opening" / "draft closing" / "trial narrative" |
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Jury selection / voir dire | `dw-voir-dire-assistant` | "prep voir dire" |
 | Track errors for appeal | `dw-appellate-error-monitor` | "preserve error" or "log error" |
@@ -138,4 +142,4 @@ If none of the above matches:
 
 ---
 
-*D&W Skill Index v1.0 — April 2026*
+*D&W Skill Index v1.1 — May 2026. v1.1 added: `dw-direct-exam-architect`, `dw-trial-narrative-builder`, `dw-dna-forensic-biology-auditor`, `dw-crime-lab-auditor`.*

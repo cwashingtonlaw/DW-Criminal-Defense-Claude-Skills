@@ -91,8 +91,8 @@ Scan each standard Trial Notebook subfolder and catalog every file found:
 | Tab | Folder Path | What to Look For |
 |-----|-------------|------------------|
 | Tab 1 | `01 - Trial Notebook/01 - Jury Instructions & Selection/` | Proposed jury charges, verdict forms, responsive verdict analysis, Art 814 documents, voir dire materials, juror questionnaires, strike lists, Batson tracking |
-| Tab 2 | `01 - Trial Notebook/02 - Opening & Closing/` | Opening statement outlines, closing argument outlines, Mapping the Story worksheets, memorable theme documents |
-| Tab 3 | `01 - Trial Notebook/03 - Witnesses/` | Cross-exam outlines (.docx), source catalogs (.pdf), combined source documents (.pdf), impeachment worksheets, witness battle cards, direct exam templates, witness dossiers. Check both `Prosecution Witnesses/` and `Defense Witnesses/` subfolders |
+| Tab 2 | `01 - Trial Notebook/02 - Opening & Closing/` | Opening Statement (.docx from `dw-trial-narrative-builder`), Closing Argument (.docx from `dw-trial-narrative-builder`), Theme Tracker (.xlsx from `dw-trial-narrative-builder`), Rebuttal Anticipation Memo (.docx from `dw-trial-narrative-builder`), Mapping the Story worksheets, memorable theme documents |
+| Tab 3 | `01 - Trial Notebook/03 - Witnesses/` | Cross-exam outlines from `dw-cross-exam-architect` (.docx, source catalogs .pdf, combined source documents .pdf), Direct-exam outlines from `dw-direct-exam-architect` (.docx, source catalogs .pdf, combined source documents .pdf), impeachment worksheets, witness battle cards, witness dossiers. Check both `Prosecution Witnesses/` and `Defense Witnesses/` subfolders |
 | Tab 4 | `01 - Trial Notebook/04 - Exhibit List/` | Master exhibit list, exhibit authentication tracker, stipulated exhibits list |
 | Tab 5 | `01 - Trial Notebook/05 - Evidence/` | Bate-stamped documents, digital evidence placeholders, transcripts, media files |
 | Tab 6 | `01 - Trial Notebook/06 - Motions in Limine/` | Filed motions in limine, 404(b) oppositions, Prieur notice responses |
@@ -173,12 +173,15 @@ For each missing critical deliverable:
 - Estimated time to produce
 
 Critical deliverables (must exist for trial):
-- At least one cross-examination outline per key prosecution witness
+- At least one cross-examination outline per key prosecution witness (from `dw-cross-exam-architect`)
+- At least one direct-examination outline per defense witness expected to testify (from `dw-direct-exam-architect`)
+- Opening Statement (from `dw-trial-narrative-builder`)
+- Closing Argument (from `dw-trial-narrative-builder`)
+- Theme Tracker (from `dw-trial-narrative-builder` — opening themes mapped to closing callbacks)
 - Jury instructions / proposed charges
 - Verdict form with responsive verdicts
 - Defense matrix (charges + defenses + responsive verdicts)
 - Exhibit list
-- Opening statement outline (at minimum)
 - Case timeline
 
 **Section 3 — Non-Critical Gaps (Recommended)**
@@ -188,13 +191,15 @@ For each missing non-critical deliverable:
 - Which skill to run
 
 Non-critical but valuable:
-- Closing argument outline
+- Rebuttal Anticipation Memo (from `dw-trial-narrative-builder`)
 - Voir dire question outline / juror questionnaire
 - Witness scheduling worksheet
 - 404(b) opposition (if Prieur notice was filed)
 - Appellate error preservation log
 - Sentencing mitigation package (if relevant)
 - LWOP worksheet updates (if applicable)
+- DNA Audit Report (from `dw-dna-forensic-biology-auditor`) — Phase 2 deliverable, indexed in Tab 9 Case Analysis
+- Crime Lab Audit Report (from `dw-crime-lab-auditor`) — Phase 2 deliverable, indexed in Tab 9 Case Analysis
 
 **Section 4 — Folder Organization Issues**
 - Files found in wrong locations
@@ -680,7 +685,14 @@ This skill sits downstream of every other D&W skill. Here's the routing table fo
 
 | Missing Deliverable | Skill to Run | Trigger Phrase |
 |---------------------|-------------|----------------|
-| Cross-examination outline | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Cross-examination outline (state witnesses) | `dw-cross-exam-architect` | "build a cross for [witness]" |
+| Direct-examination outline (defense witnesses) | `dw-direct-exam-architect` | "build a direct for [witness]" |
+| Opening statement | `dw-trial-narrative-builder` | "draft opening" |
+| Closing argument | `dw-trial-narrative-builder` | "draft closing" |
+| Theme Tracker | `dw-trial-narrative-builder` | "trial themes" or "theme tracker" |
+| Rebuttal Anticipation Memo | `dw-trial-narrative-builder` | "rebuttal anticipation" |
+| DNA audit | `dw-dna-forensic-biology-auditor` | "DNA audit" or "audit the DNA" |
+| Crime lab audit (drug ID, tox) | `dw-crime-lab-auditor` | "audit the crime lab" |
 | Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
 | Verdict form | `dw-jury-instructions-builder` | "build the verdict form" |
 | Voir dire materials | `dw-voir-dire-assistant` | "prep voir dire" |
