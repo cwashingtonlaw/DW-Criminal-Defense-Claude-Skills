@@ -99,6 +99,7 @@ Scan each standard Trial Notebook subfolder and catalog every file found:
 | Tab 7 | `01 - Trial Notebook/07 - Legal Research/` | Legal memoranda, statutory compilations, case law printouts |
 | Tab 8 | `01 - Trial Notebook/08 - Jury Selection Notes/` | Voir dire question outlines, juror analysis cards, panel composition tracking |
 | Tab 9 | `01 - Trial Notebook/09 - Case Analysis/` | All 9 case analysis reports, Cowork parallel analysis outputs, missing discovery demands |
+| Tab 9 (Cowork) | `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` | Opening Statement outline, Closing Argument outline, Theme Tracker, Rebuttal Anticipation Memo (from `dw-trial-narrative-builder`); DNA / Forensic Biology Audit Report (from `dw-dna-forensic-biology-auditor`); Crime Lab Audit Report (from `dw-crime-lab-auditor`); plus all other auditor findings and Cowork parallel analyses |
 
 **Note:** Not every case folder uses these exact tab numbers — some folders have slight
 variations. Adapt to the folder structure you find, but flag any non-standard organization

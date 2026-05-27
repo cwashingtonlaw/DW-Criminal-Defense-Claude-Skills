@@ -147,9 +147,11 @@ Classify files by **filename keywords**, **file extension**, **content patterns*
 
 **Content indicators:** Lab name, case number, evidence item numbers, testing methodology (presumptive vs. confirmatory, GC/MS, FTIR, immunoassay), results tables, analyst name, accreditation info (ANAB / ASCLD-LAB / ISO 17025), quality control notes, R.S. 15:499 certificate language, Bullcoming/Melendez-Diaz disclosures, ballistics comparison results
 
-**Auditor Route:** `dw-crime-lab-auditor` (drug ID methodology, toxicology methodology, analyst dossier, lab accreditation, R.S. 15:499/501 certificate challenges, lab-side chain of custody) + `dw-chain-of-custody-auditor` (field-side handling from collection through lab intake)
-
-**Note:** If the lab report involves DNA, route to `dw-dna-forensic-biology-auditor` instead (Category F). For DWI roadside / SFST / breath instrument operator issues, route to `dw-dwi-specialist` — `dw-crime-lab-auditor` covers only the lab-side blood/urine analysis.
+**Auditor Route (by subtype):**
+- **DNA / forensic biology** (keywords: dna, str, y-str, mitochondrial, serology, blood, semen, saliva, touch dna, mixture, likelihood ratio, codis, probabilistic genotyping, strmix, truallele) → `dw-dna-forensic-biology-auditor` (primary) + `dw-chain-of-custody-auditor`
+- **Drug lab / controlled-substance analysis / toxicology** (keywords: drug analysis, controlled substance, schedule i/ii/iii/iv/v, gc-ms, fid, marijuana, thc, cocaine, methamphetamine, fentanyl, opiate, ethanol, blood alcohol, bac, urinalysis, hgn, R.S. 15:499, certificate of analysis, notice of intent to use certificate) → `dw-crime-lab-auditor` (primary) + `dw-chain-of-custody-auditor`
+- **Firearms / ballistics / trace evidence** → `dw-crime-scene-auditor` + `dw-chain-of-custody-auditor`
+- **Lab reports of indeterminate type** → default to `dw-crime-scene-auditor` and flag for attorney review
 
 **Priority:** HIGH
 
