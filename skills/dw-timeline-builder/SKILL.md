@@ -108,16 +108,25 @@ Before extracting events, establish the case's primary timezone from the inciden
 ### 3. Event Extraction
 For each source, extract all timestamped events into a structured table:
 
-| Timestamp (Case TZ) | Event | Source | Confidence | Notes |
-|---|---|---|---|---|
-| 2024-03-15 14:23:00 CT | 911 call placed | 911 CAD log | Tier 1 | Dispatch log timestamp |
-| 2024-03-15 14:25:30 CT | First unit dispatched | 911 CAD log | Tier 1 | CAD automated entry |
-| 2024-03-15 14:32:15 CT | Witness reports subject fled scene | Incident report | Tier 3 | Officer narrative, 9 min after call |
+| Timestamp (Case TZ) | Event | Source | Confidence | Certainty | Notes |
+|---|---|---|---|---|---|
+| 2024-03-15 14:23:00 CT | 911 call placed | 911 CAD log | Tier 1 | CONFIRMED | Dispatch log timestamp |
+| 2024-03-15 14:25:30 CT | First unit dispatched | 911 CAD log | Tier 1 | CONFIRMED | CAD automated entry |
+| 2024-03-15 14:32:15 CT | Witness reports subject fled scene | Incident report | Tier 3 | PROBABLE | Officer narrative, 9 min after call |
 
 **Confidence Levels:**
 - **High**: Device-generated or institutional logs with machine timestamps
 - **Medium**: Institutional records with human-verified timestamps
 - **Low**: Witness estimates or narrative approximations
+
+**Certainty Ratings (Barone Discovery Workflow):**
+Certainty tracks how confident the defense can be that an event actually occurred as described. This is distinct from Confidence (which tracks timestamp precision). An event can have a precise timestamp (High Confidence) but uncertain occurrence (e.g., an officer's narrative with a CAD timestamp).
+
+- **CONFIRMED**: Multiple independent sources corroborate, or device-generated record with no contradicting evidence. Defense can rely on this event in motions and at trial.
+- **PROBABLE**: Single reliable source (Tier 1-2) with no contradiction, or multiple Tier 3-4 sources in agreement. Defense can use but should note single-source limitation.
+- **DISPUTED**: Sources disagree on whether or timing of event. Flag for attorney review — may be impeachment material.
+- **UNCONFIRMED**: Single Tier 3-4 source only, or based on inference rather than direct observation. Do not rely on without corroboration.
+- **ALLEGED**: Assertion by a party with an interest in the outcome (victim, informant, co-defendant). Requires independent verification before defense reliance.
 
 ### 4. Conflict Detection & Source Reliability Hierarchy
 
@@ -166,6 +175,7 @@ Populate the "Timeline" sheet in Case Tables.xlsx with columns:
 - Source (with citation)
 - Source Tier
 - Confidence Level
+- Certainty (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
 - Conflict Status (GREEN/YELLOW/RED)
 - Defense Notes / Impeachment Opportunity
 - Link to Source Document

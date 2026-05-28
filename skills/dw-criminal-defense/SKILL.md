@@ -12,7 +12,7 @@ description: >
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.8 | Internal Use Only**
+**Version 5.9 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
 
@@ -294,6 +294,14 @@ Cases involving multiple specialist domains (e.g., armed robbery with felon-in-p
 
 Save all Step 1 outputs to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/` subfolder.
 
+### Step 1E — Barone Discovery Workflow Pre-Analysis (New — v5.9)
+Before generating the 8 Case Analysis Reports, run the Barone Discovery Workflow pre-analysis skills:
+
+1. **Report 0 — Neutral Inventory** → invoke **dw-neutral-inventory** to catalog all discovery neutrally before any strategic lens is applied. This establishes the complete evidence baseline.
+2. **Report 2a — Theory Deconstruction** → invoke **dw-theory-deconstructor** after Report 2 is generated. Decomposes the prosecution's theory into facts, inferences, and assumptions. Feeds Report 4 (Competing Theories).
+
+These pre-analysis steps run after the Triage Routing (Step 1A-1D) but before the 8 Reports (Step 2).
+
 ### Step 2: Generate the 8 Case Analysis Reports
 Read `references/case-analysis-prompts.md` for the exact prompt template for each report. That file contains the common analytical framework ("Dream Team" lens), the source citation standard, and per-report instructions. Name each report exactly as shown below. For each report, identify and route specific issues to specialist skills.
 
@@ -302,7 +310,8 @@ Read `references/case-analysis-prompts.md` for the exact prompt template for eac
 | 1 | Comprehensive Case Timeline | `Case Tables.xlsx — Timeline Sheet` ⚠ | Standard | - |
 | 2 | Prosecution's Case Summary | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
 | 3 | Immediate Red Flags | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★** | **dw-suppression-motion** (for warrant/search issues); **dw-expert-witness-evaluator** (for expert issues) |
-| 4 | Core Defense Narrative | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
+| 4 | Competing Defense Theories | `01 - Trial Notebook/09 - Case Analysis/` | Standard | **dw-theory-deconstructor** (upstream: Report 2a feeds in) |
+| 4a | Theory Selection Memo | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★** | **dw-theory-to-workplan** (downstream); **dw-adversarial-stress-test** (downstream) |
 | 5 | Viable Legal Defenses | `01 - Trial Notebook/09 - Case Analysis/` | Standard | **dw-404b-opposition** (for bad acts); **dw-sentencing-mitigation-specialist** (for sentencing exposure); **dw-habitual-offender-auditor** (for habitual claims) |
 | 6 | Memorable Theme | `01 - Trial Notebook/09 - Case Analysis/` | Standard | - |
 | 7 | Table of Missing Discovery | `01 - Trial Notebook/09 - Case Analysis/` | **HIGH ★ → Auto-Action** | **dw-brady-giglio-auditor** |
@@ -310,6 +319,17 @@ Read `references/case-analysis-prompts.md` for the exact prompt template for eac
 
 **Bond/Release Issues:** If Report 3 or 5 identifies bond concerns → route to **dw-bond-and-release-motion**
 **Plea Negotiations:** If prosecution indicates negotiation interest → route to **dw-plea-negotiation-analyzer**
+
+### Step 2A: Post-Report 4 — Theory Selection & Stress Test (Barone Workflow)
+*Triggered after Reports 1-8 are complete. This step bridges analysis to action.*
+
+**Report 4a — Theory Selection Memo:** After the attorney reviews Report 4 (Competing Defense Theories), the attorney selects the primary defense theory. Cowork drafts a **Theory Selection Memo** documenting: the selected theory, the evidence supporting it, the evidence against it, why it was selected over alternatives, and the key assumptions that must hold. The memo requires attorney sign-off before downstream skills consume it.
+
+**Downstream routing from Report 4a:**
+- **dw-adversarial-stress-test** — Red-team the selected theory from the prosecution's perspective. Produces vulnerability analysis and defense counter-responses.
+- **dw-theory-to-workplan** — Explode the selected theory into a 7-stream action plan (investigation, discovery, experts, motions, witnesses, exhibits, narrative).
+
+Report 4a is saved to: `01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 
 ### Step 3: Auto-Action — Report 7 → Missing Discovery Demand Letter
 *Triggered immediately upon filing Report 7.*
@@ -396,7 +416,7 @@ Built from **Report 1** (Comprehensive Case Timeline) → `Case Tables.xlsx — 
 
 ⚠ **Follow the Case Tables Write Protocol.** See `references/case-tables-write-protocol.md`.
 
-Columns to populate: Start Date | Start Time | End Date | End Time | Title | Subtitle | Description | Tags (Cowork Flags) | Bate Stamp | Notes
+Columns to populate: Start Date | Start Time | End Date | End Time | Title | Subtitle | Description | Tags (Cowork Flags) | Certainty | Bate Stamp | Notes
 
 Rules:
 - Sort all events in strict chronological order
@@ -469,7 +489,7 @@ Complete before witness preparation begins. This is the foundation of the defens
 ### Step 9: Opening Statement & Closing Argument Preparation
 *Attorney-driven — Cowork populates the framework from case analysis outputs.*
 
-Populate the Mapping the Story templates (Opening and Closing) from: Report 4 (Core Defense Narrative), Report 6 (Memorable Theme), and the Discover the Story worksheet.
+Populate the Mapping the Story templates (Opening and Closing) from: Report 4 (Competing Defense Theories — use the attorney-selected theory from Report 4a), Report 6 (Memorable Theme), and the Discover the Story worksheet.
 
 ### Step 10: Appellate Readiness
 *Post-conviction and during trial preparation — monitor for appealable issues.*
@@ -501,6 +521,14 @@ Route to **dw-trial-notebook-builder** to assemble all Phase 2 and Phase 3 deliv
 
 *This skill reflects Daniels & Washington Cowork Workflow Version 5.8 (May 2026). Update this file whenever the master workflow document is revised.*
 ## Changelog
+
+### v5.9 (May 2026) — Barone Discovery Workflow Audit
+- **NEW Step 1E:** Barone Discovery Workflow pre-analysis (Report 0 via `dw-neutral-inventory`, Report 2a via `dw-theory-deconstructor`)
+- **REVISED Report 4:** Renamed from "Core Defense Narrative" to "Competing Defense Theories" — now presents multiple viable theories instead of a single narrative
+- **NEW Report 4a:** Theory Selection Memo — attorney-driven theory selection with downstream routing to `dw-adversarial-stress-test` and `dw-theory-to-workplan`
+- **NEW Step 2A:** Post-Report 4 workflow for theory selection, stress testing, and workplan generation
+- **Timeline Sheet:** Added Certainty column (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
+- **Phase 3 Step 9:** Updated to reference Report 4 Competing Theories and attorney-selected theory from Report 4a
 
 ### v5.3 (April 2026)
 - **MERGED:** `dw-lwop-populator` is now part of this skill. The standalone populator skill has been retired.
@@ -534,4 +562,4 @@ This skill uses the following reference materials, available in the `references/
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.3 (April 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.9 (May 2026). Update this file whenever the master workflow document is revised.*

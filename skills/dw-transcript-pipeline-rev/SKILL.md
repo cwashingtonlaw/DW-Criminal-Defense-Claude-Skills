@@ -131,11 +131,17 @@ Read each referenced file for the per-module detection patterns, severity tables
 
 ---
 
+### Phase 4A: Report-vs-Recording Matrix (Barone 6-Category)
+
+For every officer whose written report can be compared against a transcribed recording, generate a **Report-vs-Recording Matrix** per `dw-data-contracts` Contract 1 Section 10. The six comparison categories are: (1) Narrative Match, (2) Omissions, (3) Additions, (4) Timing Discrepancies, (5) Quote Accuracy, (6) Procedural Compliance. Each discrepancy entry includes report citation, recording citation, discrepancy description, and severity (CRITICAL / SIGNIFICANT / MINOR). This matrix appears as DMAR Section 4A.
+
+---
+
 ### Phase 5: Generate the DMAR (.docx)
 
 Use the `docx` skill to produce the Defense Media Analysis Report. **The format is identical to the DMAR produced by `dw-transcript-pipeline-calcasieu`.**
 
-Read `references/dmar-structure.md` for the full Header Block + Section 1–7 + Appendix A/B template, the filename pattern (`DMAR — [LastName, FirstName] — [Date].docx`), and the Case Brain update entry.
+Read `references/dmar-structure.md` for the full Header Block + Section 1–7 + Section 4A (Barone Report-vs-Recording Matrix) + Appendix A/B template, the filename pattern (`DMAR — [LastName, FirstName] — [Date].docx`), and the Case Brain update entry.
 
 **Header Block fields required by `dw-data-contracts` Contract 1:**
 

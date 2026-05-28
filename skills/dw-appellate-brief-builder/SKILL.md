@@ -650,7 +650,7 @@ After saving, present the attorney with:
 | `dw-appellate-error-monitor` | UPSTREAM — produces the ranked-issue list, designated record, post-trial motion package, errors-patent findings, and harmless-error pre-assessment that this skill consumes |
 | `dw-post-conviction-relief` | DOWNSTREAM PEER — IAC claims, PCR grounds, and federal habeas all route there; this skill stays in direct-appeal lane |
 | `dw-shared-protocols` | Citation style, signature block, certificate of service, output path |
-| `dw-template-selector` | DEVONthink template-first search for prior firm appellate briefs |
+| `dw-shared-protocols` (template selection) | DEVONthink template-first search for prior firm appellate briefs (former `dw-template-selector`, now consolidated into shared protocols) |
 | `dw-suppression-motion` | Trial-court suppression briefing — feeds the suppression-denial assignment of error here |
 | `dw-404b-opposition` | Trial-court 404(b) briefing — feeds 404(b) assignments of error here |
 | `dw-jury-instructions-builder` | Jury-instruction objections at trial — feeds jury-instruction assignments of error here |

@@ -9,7 +9,8 @@ Note: The former "Report 8 — Witness Table" has been removed because witness d
 1. [Report 1: Comprehensive Case Timeline](#report-1-comprehensive-case-timeline)
 2. [Report 2: Prosecution's Case Summary](#report-2-prosecutions-case-summary)
 3. [Report 3: Immediate Red Flags](#report-3-immediate-red-flags)
-4. [Report 4: Core Defense Narrative](#report-4-core-defense-narrative)
+4. [Report 4: Competing Defense Theories](#report-4-competing-defense-theories)
+4a. [Report 4a: Theory Selection Memo](#report-4a-theory-selection-memo)
 5. [Report 5: Viable Legal Defenses](#report-5-viable-legal-defenses)
 6. [Report 6: Memorable Theme](#report-6-memorable-theme)
 7. [Report 7: Table of Missing Discovery](#report-7-table-of-missing-discovery)
@@ -110,11 +111,50 @@ Synthesizing all sourced documents, applying the common analytical framework, ge
 
 ---
 
-## Report 4: Core Defense Narrative
+## Report 4: Competing Defense Theories
 
-Synthesizing all sourced documents, applying the common analytical framework, generate:
+Synthesizing all sourced documents and Report 2a (Theory Deconstruction) if available, applying the common analytical framework, generate:
 
-- Based on the undisputed facts and most exculpatory evidence, propose the strongest and most believable defense narrative.
+- Identify and develop **all viable competing defense theories** — not just the single strongest narrative. For each theory:
+  1. **Theory name** — a short label (e.g., "Misidentification," "Self-Defense," "Coerced Confession," "Insufficient Evidence")
+  2. **Theory summary** — 2-3 paragraph narrative of the defense story under this theory
+  3. **Supporting evidence** — specific evidence (with Bate stamps) that supports this theory
+  4. **Weaknesses** — evidence or facts that undermine this theory (from Report 2a Assumption Audit if available)
+  5. **Prosecution counter-arguments** — how the state would attack this theory
+  6. **Viability assessment** — STRONG / MODERATE / WEAK with reasoning
+  7. **Compatible defenses** — which Report 5 legal defenses align with this theory
+
+- After presenting all theories, provide a **Comparative Matrix** summarizing: Theory | Key Strength | Key Weakness | Viability | Compatible With
+
+**Why competing theories instead of a single narrative:** Premature commitment to a single defense narrative creates confirmation bias — the defense team stops looking at evidence that doesn't fit. By presenting multiple theories, the attorney can make an informed strategic choice and the team remains open to pivoting as new evidence arrives.
+
+**Prerequisite:** Report 2 (Prosecution's Case Summary) must be complete. Report 2a (Theory Deconstruction from `dw-theory-deconstructor`) should be complete if available — the Alternative Inference Table from Report 2a directly feeds competing theory development.
+
+**Downstream:** The attorney selects a theory from this report → Report 4a (Theory Selection Memo) documents the choice → `dw-adversarial-stress-test` and `dw-theory-to-workplan` consume the selection.
+
+**Output destination:** `01 - Trial Notebook/09 - Case Analysis/`
+
+---
+
+## Report 4a: Theory Selection Memo
+
+*This report is attorney-driven — Cowork prepares the template, but the attorney makes the selection.*
+
+After the attorney reviews Report 4 (Competing Defense Theories), draft a **Theory Selection Memo** documenting:
+
+1. **Selected Theory** — which theory the attorney chose from Report 4
+2. **Selection Rationale** — why this theory was selected over alternatives (attorney provides; Cowork documents)
+3. **Key Evidence Supporting Selected Theory** — the top 5-10 pieces of evidence (with Bate stamps) that anchor the theory
+4. **Key Vulnerabilities** — the top 3-5 weaknesses that must be addressed (from Report 4 and Report 2a)
+5. **Critical Assumptions** — assumptions that must hold for this theory to succeed (from Report 2a MODULE D)
+6. **Pivot Triggers** — specific events or evidence that would require reconsidering the selected theory (e.g., "if BWC contradicts alibi witness," "if DNA results come back positive")
+7. **Abandoned Theories** — theories from Report 4 that were not selected and why (preserves the reasoning for the record)
+
+**Attorney sign-off required.** The Theory Selection Memo must be confirmed by the attorney before downstream skills consume it. Mark `[AWAITING ATTORNEY SIGN-OFF]` until confirmed.
+
+**Downstream routing:**
+- `dw-adversarial-stress-test` — stress-tests the selected theory
+- `dw-theory-to-workplan` — generates a 7-stream action plan from the selected theory
 
 **Output destination:** `01 - Trial Notebook/09 - Case Analysis/`
 

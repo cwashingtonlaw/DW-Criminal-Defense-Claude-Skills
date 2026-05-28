@@ -119,6 +119,7 @@ When a cell value matches one of these types, apply the corresponding fill:
 | Subtitle | Dark Cyan | #008B8B | White |
 | Description | Sea Green | #2E8B57 | White |
 | Tags (Cowork Flags) | Dark Orange | #FF8C00 | White |
+| Certainty | Dark Green | #006400 | White |
 | Bate Stamp | Steel Blue | #4682B4 | White |
 | Notes | Slate Gray | #708090 | White |
 
@@ -129,6 +130,16 @@ When a cell value matches one of these types, apply the corresponding fill:
 | Prosecution events | Light Red | Events that support the State's case |
 | Defense-favorable | Light Green | Events that support the defense |
 | Neutral | White | All other events |
+
+### Certainty Dropdown Cell Colors
+
+| Value | Fill Color | Hex | Text |
+|-------|-----------|-----|------|
+| CONFIRMED | Dark Green | #006400 | White |
+| PROBABLE | Sea Green | #2E8B57 | White |
+| DISPUTED | Red | #F44336 | White |
+| UNCONFIRMED | Yellow | #FFD93D | Dark |
+| ALLEGED | Dark Orange | #FF8C00 | White |
 
 ### Tags (Cowork Flags) Dropdown Cell Colors
 
