@@ -45,6 +45,18 @@ This skill is read-only infrastructure — it does not produce attorney delivera
 7. **Key Event Timeline** — Chronological timeline of significant events across all media files with timestamps and source file references
 8. **Defense Intelligence Brief** — Actionable findings organized by: favorable to defense, unfavorable to defense, requires further investigation
 9. **Cross-Examination Seeds** — Specific contradictions, omissions, or procedural issues that can be used in cross-examination, with source references
+10. **Report-vs-Recording Matrix (Barone 6-Category)** — Systematic comparison of what official reports say versus what recordings actually show. One matrix per officer/report-recording pair. Required categories:
+
+| Category | What to Compare | Defense Significance |
+|----------|----------------|---------------------|
+| **1. Narrative Match** | What the report says happened vs. what the recording shows happened | Outright contradictions = impeachment gold |
+| **2. Omissions** | What the report omits that the recording shows | What officers chose NOT to document may reveal bias or cover-up |
+| **3. Additions** | What the report adds that the recording doesn't show | Fabricated or embellished facts undermine credibility |
+| **4. Timing Discrepancies** | Chronological differences between report timestamps and recording timestamps | Inaccurate timelines may conceal constitutional violations (e.g., Miranda delay) |
+| **5. Quote Accuracy** | What was said (recording) vs. what was reported as said (report) | Paraphrased or altered quotes may change meaning — especially confessions |
+| **6. Procedural Compliance** | Procedures described in report vs. procedures shown in recording | Officers may claim procedures were followed that recordings show were not (search protocols, Miranda, use of force) |
+
+Each matrix entry must include: Report citation (document, page, paragraph), Recording citation (file, timestamp range), Discrepancy description, and Severity (CRITICAL / SIGNIFICANT / MINOR).
 
 ### Required Fields per Transcript Entry
 - Source filename (must match filename in evidence folder)
@@ -323,6 +335,7 @@ Inherits the Contract 2 (Auditor Skill Reports) structure with these crime-lab-s
 | Subtitle | Text | No |
 | Description | Text | Yes |
 | Tags (Cowork Flags) | Text | No |
+| Certainty | Dropdown (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED) | Yes |
 | Bate Stamp | Text | Yes |
 | Notes | Text | No |
 
@@ -386,6 +399,7 @@ Example:
 |--------|------|----------|
 | Item | Text | Yes |
 | Category | Text (Document/Physical/Digital/Witness) | Yes |
+| Discovery Bucket | Dropdown (1-7: Law Enforcement / Physical-Forensic / Digital-Electronic / Witness / Expert / Prosecution File / Brady-Giglio) | Yes |
 | Demanded Date | Date | Yes |
 | Demanded In | Text (motion/letter reference) | Yes |
 | Produced Date | Date or "OUTSTANDING" | Yes |
@@ -498,4 +512,5 @@ Bump Schema Version on any breaking change (renamed/removed required field, chan
 
 *Version 1.1 — May 2026. Added Contracts 3A (Direct-Exam Outlines from `dw-direct-exam-architect`) and 3B (Trial Narrative Deliverables from `dw-trial-narrative-builder`). Updated Contract 2 producer list to include the new `dw-dna-forensic-biology-auditor` and `dw-crime-lab-auditor` skills.*
 *Version 1.0 — April 2026. Created as part of the D&W skill architecture consolidation.*
+*Version 1.2 — May 2026 (Barone Discovery Workflow Audit). Added DMAR Section 10 (Report-vs-Recording Matrix, 6-category Barone). Added Certainty column to Timeline Sheet schema. Added Discovery Bucket column to Discovery Compliance Ledger.*
 *Version 1.1 — May 2026. Added Contract 7 (jail-call tampering cross-feed) and DMAR Header Block schema-version metadata.*

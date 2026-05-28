@@ -158,9 +158,24 @@ Tag every entry with one of nine flag types: TIME DISCREPANCY, OMISSION, DISCREP
 
 ---
 
+## STEP 3A — Report-vs-Recording Matrix (Barone 6-Category)
+
+For every officer whose written report can be compared against recorded footage, generate a **Report-vs-Recording Matrix** per `dw-data-contracts` Contract 1 Section 10. The six categories are:
+
+1. **Narrative Match** — Does the report account match the footage?
+2. **Omissions** — What does the report leave out that the recording shows?
+3. **Additions** — What does the report claim that the recording doesn't show?
+4. **Timing Discrepancies** — Do report timestamps match recording timestamps?
+5. **Quote Accuracy** — Do reported quotes match what was actually said?
+6. **Procedural Compliance** — Do procedures described in the report match procedures shown on camera?
+
+For each discrepancy found, assign severity (CRITICAL / SIGNIFICANT / MINOR) and note the defense implication. This matrix feeds directly into STEP 5 (Cross-Examination Integration) — the gap between report and recording is the most powerful source of impeachment material for officer witnesses.
+
+---
+
 ## STEP 4 — Generate the Narrative Audit Report
 
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed twelve-section structure (Executive Summary, Video Inventory, Activation & Coverage Analysis, Timestamp Logs, Content-vs-Report Discrepancies, Technical Limitations, Authentication & Metadata, Policy Compliance, Admissibility Challenges, Cross-Exam Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Complete Timestamp Logs, Cross-Exam Chapter Seeds, Agency BWC Policy Excerpts).
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed twelve-section structure (Executive Summary, Video Inventory, Activation & Coverage Analysis, Timestamp Logs, Content-vs-Report Discrepancies, Report-vs-Recording Matrix, Technical Limitations, Authentication & Metadata, Policy Compliance, Admissibility Challenges, Cross-Exam Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Complete Timestamp Logs, Cross-Exam Chapter Seeds, Agency BWC Policy Excerpts).
 
 Tag every finding: **CRITICAL** (directly undermines reliability/admissibility — supports a motion or creates substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (procedural irregularity affecting weight only).
 

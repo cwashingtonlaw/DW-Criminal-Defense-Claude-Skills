@@ -226,6 +226,15 @@ Disclosure Status: UNKNOWN — attorney should verify whether this was disclosed
 Recommended Action: [Check discovery ledger, file Brady motion if undisclosed]
 ```
 
+### Module S4A — Report-vs-Recording Cross-Case Comparison (Barone 6-Category)
+
+When source DMARs contain Report-vs-Recording Matrices (Section 4A, per `dw-data-contracts` Contract 1 Section 10), compare the matrices across cases:
+- **Same officer, different reports**: Does the officer's pattern of omissions, additions, or procedural deviations repeat across cases? Consistent patterns strengthen impeachment.
+- **Same event, different officers**: Do different officers' reports diverge from the same recording differently? Divergent accounts of the same event are powerful cross-examination material.
+- **Institutional patterns**: Do officers from the same agency exhibit similar report-vs-recording patterns? May support a systemic challenge or policy-compliance argument.
+
+Output as XR-### findings with: officer name, cases compared, pattern identified, severity, and cross-examination recommendation.
+
 ### Module S5 — Severance Analysis Intelligence
 
 If co-defendants are joined for trial, the synthesis may reveal grounds for severance under La. C.Cr.P. Art. 704. Flag situations where:

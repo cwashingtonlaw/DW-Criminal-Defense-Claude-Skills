@@ -295,6 +295,17 @@ SECTION 4: REPORT-VS-RECORDING DISCREPANCIES
   All RR-### findings from Module B
   (Empty section with "No written reports available for comparison" if none exist)
 
+SECTION 4A: REPORT-VS-RECORDING MATRIX (BARONE 6-CATEGORY)
+  Per-officer comparison matrix per dw-data-contracts Contract 1 Section 10:
+    4A.1 Narrative Match — report account vs. recording events
+    4A.2 Omissions — what the report leaves out
+    4A.3 Additions — what the report adds without recording support
+    4A.4 Timing Discrepancies — report timestamps vs. recording timestamps
+    4A.5 Quote Accuracy — reported quotes vs. actual statements
+    4A.6 Procedural Compliance — procedures described vs. procedures shown
+  Each entry: Report citation | Recording citation | Discrepancy | Severity
+  (Empty section with "No officer reports available for matrix comparison" if none exist)
+
 SECTION 5: MASTER TIMELINE
   Unified chronological timeline from Module C
 

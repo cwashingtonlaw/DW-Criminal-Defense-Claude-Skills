@@ -44,6 +44,34 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Triage new discovery | `dw-discovery-orchestrator` | "new discovery arrived" |
 | Transcribe recordings | `dw-transcript-router` | "transcribe the evidence" |
 | Compare transcripts across cases | `dw-dmar-synthesizer` | "compare the DMARs" |
+| Neutral discovery inventory (pre-strategic) | `dw-neutral-inventory` | "neutral inventory" or "catalog the evidence" |
+| Deconstruct prosecution's theory | `dw-theory-deconstructor` | "deconstruct the theory" or "facts vs inferences" |
+| Stress-test the defense theory | `dw-adversarial-stress-test` | "stress test" or "red team the theory" |
+| Generate a workplan from theory | `dw-theory-to-workplan` | "build a workplan" or "theory to workplan" |
+
+---
+
+## Barone Discovery Workflow — "Run the Barone workflow..."
+
+The Barone Discovery Workflow is a structured 9-step analytical pipeline that extends the standard Phase 2 analysis. It emphasizes theory-neutral initial assessment, structured theory development, and adversarial testing before committing to a defense strategy.
+
+| Step | Report / Skill | Trigger Phrase |
+|------|---------------|----------------|
+| 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory` | "neutral inventory" or "Report 0" |
+| 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder` | "build the timeline" |
+| 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense` Phase 2 | "run Phase 2" |
+| 4 | Report 2a — Theory Deconstruction | `dw-theory-deconstructor` | "deconstruct the theory" |
+| 5 | Report 3 — Red Flags | `dw-criminal-defense` Phase 2 | (auto-generated) |
+| 6 | Report 4 — Competing Defense Theories | `dw-criminal-defense` Phase 2 | (auto-generated) |
+| 7 | Report 4a — Theory Selection Memo | `dw-criminal-defense` Phase 2 Step 2A | (attorney-driven) |
+| 8 | Theory-to-Workplan (7 streams) | `dw-theory-to-workplan` | "build a workplan" |
+| 9 | Adversarial Stress Test | `dw-adversarial-stress-test` | "stress test the theory" |
+
+The Barone workflow also adds:
+- **Certainty column** to the Timeline Sheet (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
+- **Discovery Bucket classification** (7 Barone buckets) to the Discovery Compliance Ledger
+- **Report-vs-Recording Matrix** (6-category) to all DMARs
+- **Verification Protocol** ([VERIFIED] / [UNVERIFIED] flags) across all analytical skills
 
 ---
 
@@ -167,6 +195,8 @@ If none of the above matches:
 
 ---
 
-*D&W Skill Index v1.1 — May 2026*
+*D&W Skill Index v1.2 — May 2026*
+
+*v1.2 changes (Barone Discovery Workflow Audit): added `dw-neutral-inventory` (Report 0), `dw-theory-deconstructor` (Report 2a), `dw-theory-to-workplan` (7-stream workplan), `dw-adversarial-stress-test` (prosecutor red-team); new "Barone Discovery Workflow" section documenting the 9-step analytical pipeline; updated Quick Lookup with 4 new rows; `dw-criminal-defense` Report 4 renamed from "Core Defense Narrative" to "Competing Defense Theories" with new Report 4a (Theory Selection Memo); Timeline Sheet enhanced with Certainty column; Discovery Compliance Ledger enhanced with 7-bucket classification; DMAR enhanced with Report-vs-Recording Matrix (6-category); new shared protocol `verification-protocol.md`.*
 
 *v1.1 changes: added `dw-client-intake-interview`, `dw-jail-call-analyzer`, `dw-trial-day-assistant`, `dw-appellate-brief-builder`, `dw-violent-crime-specialist`; new "Charge-Type Specialists" section consolidating all five specialists; renamed "Sentencing & Post-Conviction" to "Sentencing, Appeal & Post-Conviction"; surfaced Daubert/Foret hearing day package (Module I) inside `dw-expert-witness-evaluator`; removed retired `dw-lwop-populator` row.*
