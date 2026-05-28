@@ -79,7 +79,7 @@ Before generating the workplan, collect the following in ranked order:
 
 ### Strategic (request if not provided)
 
-5. **Reports 1-8 (Barone Discovery Workflow):** The full analytical output from `dw-criminal-defense` Phase 2 -- Case Profile (Report 1), Evidence Audit (Report 2), Red Flags (Report 3), Theory Development (Report 4), Defense Matrix (Report 5), Case Timeline (Report 6), Discovery Gaps (Report 7), Pre-Trial Motion Action Plan (Report 8), Witness Analysis (Report 9).
+5. **Reports 1-8 + 4a (Barone Discovery Workflow):** The full analytical output from `dw-criminal-defense` Phase 2 -- Comprehensive Case Timeline (Report 1), Prosecution's Case Summary (Report 2), Theory Deconstruction (Report 2a from `dw-theory-deconstructor`), Immediate Red Flags (Report 3), Competing Defense Theories (Report 4), Theory Selection Memo (Report 4a), Viable Legal Defenses (Report 5), Memorable Theme (Report 6), Table of Missing Discovery (Report 7), Key Witness Impeachment Plan (Report 8). Plus Report 0 (Neutral Discovery Inventory from `dw-neutral-inventory`).
 6. **All completed audit reports:** Brady/Giglio audit, mobile forensic audit, chain of custody audit, crime scene audit, eyewitness ID audit, confession/interrogation audit, expert witness evaluation, DNA audit, crime lab audit, video evidence audit, jail call analysis, social media audit -- any audit that has been run feeds task generation.
 7. **Case Tables.xlsx:** Evidence Table, Timeline, Witness Sheet, Defense Matrix -- these are the structured data that seed tasks.
 8. **Discovery compliance ledger:** Outstanding discovery items from `dw-discovery-compliance-monitor` feed Stream 2 tasks directly.
@@ -434,7 +434,7 @@ Update the Case Brain's OPEN ISSUES section with any BLOCKED tasks.
 ### This skill READS FROM:
 
 - `dw-case-brain` -- structured case context, companion skill outputs, open issues
-- `dw-criminal-defense` Reports 1-9 -- all Barone Discovery Workflow outputs
+- `dw-criminal-defense` Reports 1-8 + 4a -- all Phase 2 analytical outputs (plus Report 0 from `dw-neutral-inventory` and Report 2a from `dw-theory-deconstructor`)
 - `dw-discovery-compliance-monitor` -- outstanding discovery ledger (feeds Stream 2)
 - `dw-brady-giglio-auditor` -- Brady/Giglio findings (feeds Streams 2 and 4)
 - All completed audit reports -- every auditor skill's output feeds task generation across streams
