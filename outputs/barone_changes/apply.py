@@ -2,10 +2,9 @@
 """
 apply.py — Apply the Barone Discovery Workflow Audit deliverables to the D&W skill suite.
 
-Per memory/dw_skills_layout.md the firm maintains three identical skill locations:
+Per memory/dw_skills_layout.md the firm maintains two identical skill locations:
     1. GitHub repo                 — path set by DW_GITHUB_REPO
     2. ~/.claude/skills/           — path set by DW_CLAUDE_SKILLS (default: $HOME/.claude/skills)
-    3. iCloud Claude Skills folder — path set by DW_ICLOUD_SKILLS
 
 This script sequences the 10 audit deliverables in dependency order, copies the
 new skills and reference file automatically, and walks you through the five
@@ -34,7 +33,6 @@ Usage examples:
 Environment variables (set these in your shell before running):
     DW_GITHUB_REPO     Path to GitHub repo skills/ root            (REQUIRED)
     DW_CLAUDE_SKILLS   Path to ~/.claude/skills root               (default: $HOME/.claude/skills)
-    DW_ICLOUD_SKILLS   Path to iCloud Claude Skills root           (REQUIRED)
 
 Safety guarantees:
     - Every modified file is backed up to <file>.bak.<timestamp> before edit.
@@ -214,41 +212,31 @@ class Log:
 class Locations:
     github: Path
     claude: Path
-    icloud: Path
 
     def all(self) -> list[Path]:
-        return [self.github, self.claude, self.icloud]
+        return [self.github, self.claude]
 
     def labels(self) -> list[tuple[str, Path]]:
         return [
             ("GitHub repo", self.github),
             ("~/.claude/skills", self.claude),
-            ("iCloud Claude Skills", self.icloud),
         ]
 
 
 def resolve_locations() -> Locations:
     github = os.environ.get("DW_GITHUB_REPO")
     claude = os.environ.get("DW_CLAUDE_SKILLS", str(DEFAULT_CLAUDE_SKILLS))
-    icloud = os.environ.get("DW_ICLOUD_SKILLS")
 
-    missing = []
     if not github:
-        missing.append("DW_GITHUB_REPO")
-    if not icloud:
-        missing.append("DW_ICLOUD_SKILLS")
-    if missing:
-        Log.err(f"Required environment variables not set: {', '.join(missing)}")
+        Log.err("Required environment variable not set: DW_GITHUB_REPO")
         Log.dim("  Example:")
         Log.dim('    export DW_GITHUB_REPO="$HOME/dev/dw-skills"')
-        Log.dim('    export DW_ICLOUD_SKILLS="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Claude Skills"')
         Log.dim('    export DW_CLAUDE_SKILLS="$HOME/.claude/skills"  # optional, has default')
         sys.exit(2)
 
     return Locations(
         github=Path(github).expanduser().resolve(),
         claude=Path(claude).expanduser().resolve(),
-        icloud=Path(icloud).expanduser().resolve(),
     )
 
 
@@ -357,7 +345,7 @@ def action_guided_edit(rec: Recommendation, locs: Locations, dry_run: bool, non_
 
     editor = os.environ.get("EDITOR")
     print()
-    Log.info(f"Open the edit spec and apply its BEFORE/AFTER blocks to the target files in all THREE locations:")
+    Log.info(f"Open the edit spec and apply its BEFORE/AFTER blocks to the target files in BOTH locations:")
     Log.dim(f"    spec → {spec}")
     print()
     for label, root in locs.labels():
@@ -372,7 +360,7 @@ def action_guided_edit(rec: Recommendation, locs: Locations, dry_run: bool, non_
         Log.dim(f"  Tip: '{editor} {spec}' to open the spec.")
 
     while True:
-        ans = input(f"  Type 'applied' once you've applied rec {rec.rec_id} to all three locations (or 'skip' to defer): ").strip().lower()
+        ans = input(f"  Type 'applied' once you've applied rec {rec.rec_id} to both locations (or 'skip' to defer): ").strip().lower()
         if ans in ("applied", "skip"):
             break
         Log.warn("  please type 'applied' or 'skip'")
