@@ -1,5 +1,37 @@
 # dw-criminal-defense — Changelog
 
+## v5.9 (May 2026) — Barone Discovery Workflow Audit
+
+Integrates the 9-step Barone Discovery Workflow into Phase 2 and revises Report 4 to support competing-theory analysis. Four new skills come online; five existing skills receive cross-cutting enhancements; one new shared protocol governs evidence verification.
+
+- **NEW Phase 2 Step 1E** — Barone pre-analysis. Runs `dw-neutral-inventory` (Report 0: theory-neutral discovery catalog with 6 modules) and `dw-theory-deconstructor` (Report 2a: facts/inferences/assumptions decomposition with Gap Analysis Matrix and Alternative Inference Table). Both produce outputs in `Cowork Analysis/` before the 8 reports run.
+
+- **REVISED Report 4 — "Core Defense Narrative" → "Competing Defense Theories"** — Single narrative replaced with multiple viable theories. Each theory now carries: theory name, summary, supporting evidence (with Bate stamps), weaknesses, prosecution counter-arguments, viability (STRONG/MODERATE/WEAK), and compatible Report 5 defenses. Followed by a Comparative Matrix. Rationale: premature commitment to one defense narrative creates confirmation bias; presenting alternatives lets the attorney choose with eyes open.
+
+- **NEW Report 4a — Theory Selection Memo** — Attorney-driven, attorney sign-off required. Documents: selected theory, selection rationale, top 5-10 supporting evidence items, top 3-5 vulnerabilities, critical assumptions, pivot triggers, abandoned theories with reasoning. Gates downstream Barone skills.
+
+- **NEW Phase 2 Step 2A — Post-Report-4 routing** — After attorney signs off on Report 4a, dispatches the selected theory to:
+  - `dw-adversarial-stress-test` — prosecutor red-team simulation (7 modules covering vulnerability scan, cross-examination simulation, closing preview, rebuttal evidence, defense counter-response matrix, jury perception risk, priority preparation checklist)
+  - `dw-theory-to-workplan` — 7-stream action plan (investigation / discovery / experts / motion practice / witness prep / exhibits / narrative)
+
+- **Phase 3 Step 1 — Timeline Sheet enhanced** with Certainty column (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED). Distinct from Confidence (timestamp precision) — Certainty tracks event reliability. Drives defense reliance decisions for motions and cross-examination.
+
+- **Phase 3 Step 9 — Opening/Closing prep** updated to consume the attorney-selected theory from Report 4a (replacing prior reference to "Core Defense Narrative").
+
+- **NEW shared protocol** — `dw-shared-protocols/references/verification-protocol.md`. Adds `[VERIFIED]` / `[UNVERIFIED]` flags to every catalog entry and fact extraction. Supplements (does not replace) the Source Citation Mandate. Required summary statistic at end of every deliverable using the protocol.
+
+- **DMAR Section 10 — Report-vs-Recording Matrix (6-category)** added across `dw-video-evidence-auditor`, `dw-transcript-pipeline-calcasieu`, `dw-transcript-pipeline-rev`, and `dw-dmar-synthesizer`. Categories: Narrative Match / Omissions / Additions / Timing Discrepancies / Quote Accuracy / Procedural Compliance.
+
+- **Discovery Compliance Ledger — 7-Bucket classification** added to `dw-discovery-compliance-monitor`. Barone buckets: Law Enforcement / Physical-Forensic / Digital-Electronic / Witness / Expert / Prosecution File / Brady-Giglio. Enables completeness analysis by category.
+
+- **Data contracts v1.2** — DMAR Section 10, Timeline Certainty column, Discovery Bucket column added to Contracts 1, 4, and 6.
+
+- **Skill index v1.2** — Quick Lookup expanded with 4 new skill rows; dedicated "Barone Discovery Workflow" section documenting the 9-step pipeline.
+
+- **Operations Guide v1.3** — Comprehensive Markdown manual at `docs/DW_Skills_Operations_Guide_v1.3.md` supersedes v1.2.docx.
+
+- **Cowork Project Instructions v2.0** — `docs/DW_Criminal_Defense_Cowork Project_Instructions_1.md` rewritten to reflect current skill suite and Barone workflow.
+
 ## v5.8 (May 2026)
 
 Comprehensive update to `assets/CASE PROFILE.docx` and `references/case-profile-procedure.md` to absorb the firm's legacy Criminal Defense Cover Sheet into Part 1 of the Case Profile. After v5.8 the standalone Cover Sheet is obsolete; the Case Profile is the single intake document. Part 2A/2B/2C unchanged.
