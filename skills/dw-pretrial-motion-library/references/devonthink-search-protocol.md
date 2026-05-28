@@ -56,6 +56,6 @@ limit: 5
 
 ## Template Selection Protocol
 
-**After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-template-selector/SKILL.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
+**After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `dw-shared-protocols/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.

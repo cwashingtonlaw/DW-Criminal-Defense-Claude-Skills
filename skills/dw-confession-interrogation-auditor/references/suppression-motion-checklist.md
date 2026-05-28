@@ -12,7 +12,7 @@ This file is the operational checklist for assembling a motion to suppress a con
 
 | # | Component | Source / Module |
 |---|-----------|-----------------|
-| 1 | Caption (court, parties, docket number, motion title) | Standard pleading; verify against `dw-template-selector` results |
+| 1 | Caption (court, parties, docket number, motion title) | Standard pleading; verify against `dw-shared-protocols` template-selection-protocol results |
 | 2 | Statement of relief sought | "Defendant moves this Court to suppress the statement made by Defendant on [date] at [location]" |
 | 3 | Procedural posture | Pretrial; per Art. 703(D), absent good cause shown, must be filed prior to trial |
 | 4 | Factual background | Module A facts: when, where, who, advisement, waiver, statement made |
