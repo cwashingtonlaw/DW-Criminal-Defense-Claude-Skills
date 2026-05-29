@@ -455,7 +455,7 @@ These exist in the same repo but are outside the criminal defense workflow.
 
 | Skill | Purpose |
 |---|---|
-| `dw-settlement-demand` | PI settlement demand drafting |
+| `dw-settlement-demand` | **Relocated 2026-05-29** → `DW-Personal-Injury-Claude-Skills` repo (was out of scope here) |
 | `iron-gavel-*` | Firm podcast operations (4 skills) |
 | `frontend-design`, `ui-ux-pro-max` | UI/design utilities |
 | `file-organizer`, `notebooklm`, `youtube-transcript` | General-purpose utilities |
