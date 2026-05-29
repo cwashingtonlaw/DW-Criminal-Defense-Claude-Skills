@@ -6,8 +6,10 @@ Analyze how Louisiana's Habitual Offender Law (La. R.S. 15:529.1) affects the pl
 
 ## Legal Framework
 
+> ⚠️ **Offense-date note:** The applicable version of La. R.S. 15:529.1 is fixed by the **date of offense** — confirm it first and select the version per `dw-shared-protocols/references/sentencing-statute-versions.md`. The figures below reflect current law (offenses on/after Nov. 1, 2017); pre-2017 vintages differ (verify via Westlaw).
+
 - **La. R.S. 15:529.1(A)** — Enhanced sentencing provisions:
-  - **Second felony offender:** Not less than one-half the longest term nor more than twice the longest term prescribed for the first conviction.
+  - **Second felony offender:** Not less than one-third the longest term nor more than twice the longest term prescribed for the first conviction *(current — offenses on/after Nov. 1, 2017; pre-2017 used one-half)*.
   - **Third felony offender:** Not less than two-thirds the longest term nor more than twice the longest term prescribed for the first conviction.
   - **Fourth felony offender (non-violent predicates):** Not less than 20 years nor more than the defendant's natural life.
   - **Third felony offender with one prior crime of violence or sex offense:** Not less than two-thirds the longest term nor more than twice the longest term, served without benefit of probation, parole, or suspension.

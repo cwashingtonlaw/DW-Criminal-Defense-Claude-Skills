@@ -2,15 +2,17 @@
 
 The habitual offender enhancement dramatically increases the sentencing range. The applicable tier depends on the number of predicate convictions and whether any predicates or the current offense involve crimes of violence.
 
+> ⚠️ **Offense-date note:** The applicable version of La. R.S. 15:529.1 is fixed by the **date of offense** — confirm it first and select the version per `dw-shared-protocols/references/sentencing-statute-versions.md`. **Current law (offenses on/after Nov. 1, 2017):** 2nd offender **⅓**–2×; 3rd (non-life) **½**–2×; 4th-offender mandatory LWOP requires the 4th felony **and two prior** crimes of violence/sex offenses. Pre-2017 vintages differ — verify via Westlaw version-compare.
+
 ## Enhancement Tier Table
 
 | Tier | Statutory Provision | Predicates Required | Enhanced Sentencing Range |
 |------|-------------------|--------------------|-----------------------------|
-| **Second Offender** | La. R.S. 15:529.1(A)(1)(a) | 1 valid predicate felony | Not less than one-half the longest time for the current felony and not more than twice the longest time |
+| **Second Offender** | La. R.S. 15:529.1(A)(1)(a) | 1 valid predicate felony | Not less than **one-third** the longest time and not more than twice the longest time *(current — offenses on/after Nov. 1, 2017; pre-2017 offenses used one-half)* |
 | **Third Offender (no violence)** | La. R.S. 15:529.1(A)(1)(b)(i) | 2 valid predicate felonies; neither predicate nor current offense is a crime of violence | Not less than two-thirds of the longest time and not more than twice the longest time |
 | **Third Offender (with violence)** | La. R.S. 15:529.1(A)(1)(b)(ii) | 2 valid predicate felonies; at least one predicate OR the current offense is a crime of violence | Not less than one-half the longest time and not more than twice the longest time, without benefit of probation, parole, or suspension of sentence |
 | **Fourth Offender (no violence)** | La. R.S. 15:529.1(A)(1)(c)(i) | 3 or more valid predicate felonies; no predicate and not the current offense is a crime of violence | Not less than the longest prescribed time and not more than his natural life |
-| **Fourth Offender (with violence — LWOP-eligible)** | La. R.S. 15:529.1(A)(1)(c)(ii) | 3 or more valid predicate felonies; at least one predicate OR the current offense is a crime of violence | **Imprisonment for the remainder of his natural life, without benefit of parole, probation, or suspension of sentence** |
+| **Fourth Offender (with violence — LWOP)** | La. R.S. 15:529.1(A)(1)(c)(ii) | 3+ predicate felonies, AND the 4th felony **and two of the prior felonies** are crimes of violence (R.S. 14:2(B)) or sex offenses (R.S. 15:541, victim under 18) | **Imprisonment for the remainder of his natural life, without benefit of parole, probation, or suspension of sentence** |
 
 ## Enhancement Calculation Worksheet
 
