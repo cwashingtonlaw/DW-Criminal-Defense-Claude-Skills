@@ -84,8 +84,8 @@ BARONE_RAW = """## Barone Discovery Workflow — "Run the Barone workflow..."
 
 The Barone Discovery Workflow is a structured 9-step analytical pipeline that extends the standard Phase 2 analysis. It emphasizes theory-neutral initial assessment, structured theory development, and adversarial testing before committing to a defense strategy.
 
-| Step | Report / Skill | Trigger Phrase |
-|------|---------------|----------------|
+| Step | Report | Skill | Trigger Phrase |
+|------|--------|-------|----------------|
 | 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory` | "neutral inventory" or "Report 0" |
 | 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder` | "build the timeline" |
 | 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense` Phase 2 | "run Phase 2" |

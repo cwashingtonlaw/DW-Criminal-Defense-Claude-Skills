@@ -1,5 +1,6 @@
 ---
 name: dw-trial-narrative-builder
+category: trial-prep
 description: >
   Capstone trial narrative skill — produces both opening statement and closing argument as a
   coherent pair, with theme tracking from opening to closing and rebuttal anticipation.

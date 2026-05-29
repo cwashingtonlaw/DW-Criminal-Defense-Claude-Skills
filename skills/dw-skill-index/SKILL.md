@@ -48,6 +48,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Deconstruct prosecution's theory | `dw-theory-deconstructor` | "deconstruct the theory" or "facts vs inferences" |
 | Stress-test the defense theory | `dw-adversarial-stress-test` | "stress test" or "red team the theory" |
 | Generate a workplan from theory | `dw-theory-to-workplan` | "build a workplan" or "theory to workplan" |
+| Track issue codes (living issue-code ledger) | `dw-issue-code-tracker` | "issue codes" or "issue tracker" |
 
 ---
 
@@ -55,8 +56,8 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 
 The Barone Discovery Workflow is a structured 9-step analytical pipeline that extends the standard Phase 2 analysis. It emphasizes theory-neutral initial assessment, structured theory development, and adversarial testing before committing to a defense strategy.
 
-| Step | Report / Skill | Trigger Phrase |
-|------|---------------|----------------|
+| Step | Report | Skill | Trigger Phrase |
+|------|--------|-------|----------------|
 | 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory` | "neutral inventory" or "Report 0" |
 | 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder` | "build the timeline" |
 | 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense` Phase 2 | "run Phase 2" |
@@ -95,6 +96,7 @@ The Barone workflow also adds:
 | Crime lab (drug ID, toxicology, blood alcohol, certificate challenges) | `dw-crime-lab-auditor` | "audit the crime lab" or "criminalist certificate" |
 | Daubert/Foret hearing day package | `dw-expert-witness-evaluator` (Module I) | "Daubert hearing prep" or "Foret hearing" |
 | Jail calls (recordings, logs, transcripts) | `dw-jail-call-analyzer` | "audit jail calls" or "Securus/GTL/ViaPath" |
+| Witness statement consistency / impeachment synthesis | `dw-witness-statement-analyzer` | "analyze this statement" or "compare these statements" |
 
 ---
 
@@ -131,6 +133,7 @@ All motion skills use the template selection protocol in `dw-shared-protocols/re
 | Generate investigator tasks | `dw-defense-investigator-tasking` | "investigator assignment" |
 | Track discovery compliance | `dw-discovery-compliance-monitor` | "update the discovery ledger" |
 | Brady/Giglio audit | `dw-brady-giglio-auditor` | "run Brady audit" |
+| Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam) | `dw-witness-threat-matrix` | "witness threat matrix" or "rank the witnesses" |
 
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: dw-dna-forensic-biology-auditor
+category: evidence-audit
 description: >
   Audit DNA and forensic biology evidence: STR analysis, probabilistic genotyping (STRmix,
   TrueAllele), mixture interpretation, low-template/LCN DNA, touch/transfer DNA, Y-STR,

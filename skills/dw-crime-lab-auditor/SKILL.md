@@ -1,5 +1,6 @@
 ---
 name: dw-crime-lab-auditor
+category: evidence-audit
 description: >
   Methodology audit of crime lab work — drug identification, blood/breath toxicology,
   controlled substance analysis, analyst qualifications, lab accreditation, error logs, and

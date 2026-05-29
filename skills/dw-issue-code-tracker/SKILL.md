@@ -1,5 +1,6 @@
 ---
 name: dw-issue-code-tracker
+category: trial-prep
 description: Maintains a living issue-code ledger for any criminal case at Daniels & Washington using the firm's 33-code taxonomy v2.0 (14 Universal + 8 Homicide + 11 Rape/Sex Assault). ALWAYS invoke for "issue codes," "issue ledger," "issue tracker," "what issues are open," "what's been addressed," "set up issue codes," "initialize the issue ledger," "update the issue tracker," "mark issue as addressed," "issue code status," "what issues apply to this case," "show me the open issues," "issue code report," or "refresh the issue ledger." Initializes a per-case ledger, tracks status (N/A | Open | Addressed) for each applicable code, and produces both an Obsidian narrative section and an Excel sheet view. Does NOT auto-route to specialist skills — the attorney decides when to invoke dw-suppression-motion, dw-eyewitness-identification-auditor, etc. Do NOT use for case status dashboards (use dw-case-dashboard) or session persistence (use dw-case-brain).
 ---
 

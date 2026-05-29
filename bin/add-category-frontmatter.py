@@ -69,6 +69,7 @@ OVERRIDES: dict[str, str] = {
     "dw-jury-focus-group":              "trial-prep",
     "dw-exhibit-manager":               "trial-prep",
     "dw-timeline-builder":              "trial-prep",
+    "dw-issue-code-tracker":            "trial-prep",
 
     # Evidence audit (skill in uncategorized but functionally an audit)
     "dw-witness-statement-analyzer":    "evidence-audit",
