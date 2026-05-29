@@ -42,8 +42,8 @@ Use this section if you are new to the D&W skill collection (joining the firm, s
 ### 1. Clone the repository
 
 ```
-git clone <repo-url> ~/Code/DW-Criminal-Defense-Claude-Skills
-cd ~/Code/DW-Criminal-Defense-Claude-Skills
+git clone <repo-url> ~/Documents/GitHub/dw-skills
+cd ~/Documents/GitHub/dw-skills
 ```
 
 The actual remote URL is internal to D&W — see your team lead or the firm operations document.
