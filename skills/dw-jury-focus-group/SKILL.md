@@ -291,7 +291,6 @@ Apply the output-path formula from `dw-shared-protocols/references/output-path-f
 ```
 
 - Save to the client's case folder under the path above; create `01 - Jury Instructions & Selection/Focus Group/` if it does not exist.
-- Also save a copy to `/sessions/upbeat-clever-heisenberg/mnt/outputs/` for Cowork access.
 - Apply attorney work-product marking per `dw-shared-protocols/references/attorney-work-product-marking.md` — this is internal strategy work product, never filed.
 - Update Case Brain (if active) with a note that a focus group simulation was completed, the date, and the key findings (verdict tally + top strategic recommendation).
 

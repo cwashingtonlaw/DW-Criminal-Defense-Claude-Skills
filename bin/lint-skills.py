@@ -48,7 +48,6 @@ CATEGORIES_YML = REPO_ROOT / "bin" / "skill-index-categories.yml"
 
 EXEMPT: dict[str, set[str]] = {
     "dw-skill-index":         {"W1", "W3", "W4", "W7"},                       # index/lookup, no file output
-    "dw-template-selector":   {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # shared protocol, not direct-trigger
     "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # library other skills load specific files from
     "dw-data-contracts":      {"W1", "W2", "W3", "W4", "W6", "W7"},           # schema definitions; read-only infra, no shared-protocols load
     "dw-criminal-defense":    {"W1", "W2", "W3"},                             # master orchestrator; downstream skills enforce hard stops + citations
