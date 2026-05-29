@@ -120,7 +120,7 @@ All motion skills use the template selection protocol in `dw-shared-protocols/re
 ## Trial Preparation — "Prep for trial..."
 
 | Task | Skill | Trigger Phrase |
-|------|-------|---------------|
+|---|---|---|
 | Cross-examination outlines (state witnesses) | `dw-cross-exam-architect` | "build a cross for [witness]" |
 | Direct-examination outlines (defense witnesses) | `dw-direct-exam-architect` | "build a direct for [witness]" or "defendant testimony prep" |
 | Opening statement + closing argument (paired) | `dw-trial-narrative-builder` | "draft opening" / "draft closing" / "trial narrative" |
@@ -177,7 +177,7 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 These skills are read by other skills as reference protocols — you don't invoke them directly:
 
 | Skill | What It Does | Read By |
-|-------|-------------|---------|
+|---|---|---|
 | `dw-data-contracts` | Output schema definitions | All skills producing deliverables |
 | `dw-case-brain` | Session persistence (also direct-trigger) | Every skill at session open/close |
 

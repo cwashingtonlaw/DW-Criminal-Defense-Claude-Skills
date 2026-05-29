@@ -58,6 +58,18 @@ quick_lookup:
   - skill: dw-dmar-synthesizer
     label: "Compare transcripts across cases"
     trigger: "compare the DMARs"
+  - skill: dw-neutral-inventory
+    label: "Neutral discovery inventory (pre-strategic)"
+    trigger: "neutral inventory or catalog the evidence"
+  - skill: dw-theory-deconstructor
+    label: "Deconstruct prosecution's theory"
+    trigger: "deconstruct the theory or facts vs inferences"
+  - skill: dw-adversarial-stress-test
+    label: "Stress-test the defense theory"
+    trigger: "stress test or red team the theory"
+  - skill: dw-theory-to-workplan
+    label: "Generate a workplan from theory"
+    trigger: "build a workplan or theory to workplan"
 
 evidence_auditing:
   - skill: dw-mobile-forensic-auditor
@@ -96,6 +108,12 @@ evidence_auditing:
   - skill: dw-expert-witness-evaluator
     label: "Expert witness qualifications"
     trigger: "evaluate the expert"
+  - skill: dw-dna-forensic-biology-auditor
+    label: "DNA / forensic biology (STR, mixtures, STRmix, TrueAllele, IGG, mtDNA, Y-STR, touch DNA)"
+    trigger: "DNA audit or audit the DNA"
+  - skill: dw-crime-lab-auditor
+    label: "Crime lab (drug ID, toxicology, blood alcohol, certificate challenges)"
+    trigger: "audit the crime lab or criminalist certificate"
   - skill: dw-expert-witness-evaluator
     label: "Daubert/Foret hearing day package"
     trigger: "Daubert hearing prep or Foret hearing"
@@ -138,8 +156,14 @@ motions_pleadings:
 
 trial_preparation:
   - skill: dw-cross-exam-architect
-    label: "Cross-examination outlines"
+    label: "Cross-examination outlines (state witnesses)"
     trigger: "build a cross for [witness]"
+  - skill: dw-direct-exam-architect
+    label: "Direct-examination outlines (defense witnesses)"
+    trigger: "build a direct for [witness] or defendant testimony prep"
+  - skill: dw-trial-narrative-builder
+    label: "Opening statement + closing argument (paired)"
+    trigger: "draft opening" / "draft closing" / "trial narrative"
   - skill: dw-jury-instructions-builder
     label: "Jury instructions / charges"
     trigger: "draft jury instructions"
@@ -209,9 +233,6 @@ intake_setup:
     external: true
 
 shared_references:
-  - skill: dw-template-selector
-    label: "DEVONthink template search protocol"
-    read_by: "All motion/pleading skills"
   - skill: dw-data-contracts
     label: "Output schema definitions"
     read_by: "All skills producing deliverables"
@@ -234,9 +255,11 @@ uncategorized:
   - skill: dw-court-jail-tracker     # weekly case-sweep automation
   - skill: dw-exhibit-manager        # trial-day adjacent; covered indirectly
   - skill: dw-image-filename-stamp   # utility skill
+  - skill: dw-issue-code-tracker     # accessed by direct trigger ("issue codes"); not surfaced in routing tables
   - skill: dw-jury-focus-group       # focus-group simulator
   - skill: dw-timeline-builder       # timeline aggregator
   - skill: dw-transcript-pipeline-calcasieu  # invoked by dw-transcript-router
   - skill: dw-transcript-pipeline-rev        # invoked by dw-transcript-router
   - skill: dw-witness-statement-analyzer     # statement analyzer
+  - skill: dw-settlement-demand              # PI (personal-injury) skill; out of scope for the criminal routing tables
   - skill: dw-witness-threat-matrix          # Phase 3 capstone

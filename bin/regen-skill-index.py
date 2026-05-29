@@ -67,6 +67,40 @@ class SectionSpec:
     columns: tuple[str, str, str]
     intro: str = ""
     outro: str = ""
+    # If set, the section is emitted verbatim from this string (heading
+    # included) instead of being generated from config rows. Used for
+    # hand-authored narrative sections like the Barone Discovery Workflow,
+    # whose table/structure isn't derived from per-skill frontmatter. The
+    # skills it references are still listed in skill-index-categories.yml
+    # (Quick Lookup) so the orphan check sees them.
+    raw: str = ""
+
+
+# Hand-authored narrative section emitted verbatim (see SectionSpec.raw). Its
+# table/structure isn't derived from per-skill frontmatter, so it lives here as
+# a literal block. The skills it references appear in Quick Lookup config rows,
+# so the orphan check still sees them.
+BARONE_RAW = """## Barone Discovery Workflow — "Run the Barone workflow..."
+
+The Barone Discovery Workflow is a structured 9-step analytical pipeline that extends the standard Phase 2 analysis. It emphasizes theory-neutral initial assessment, structured theory development, and adversarial testing before committing to a defense strategy.
+
+| Step | Report / Skill | Trigger Phrase |
+|------|---------------|----------------|
+| 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory` | "neutral inventory" or "Report 0" |
+| 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder` | "build the timeline" |
+| 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense` Phase 2 | "run Phase 2" |
+| 4 | Report 2a — Theory Deconstruction | `dw-theory-deconstructor` | "deconstruct the theory" |
+| 5 | Report 3 — Red Flags | `dw-criminal-defense` Phase 2 | (auto-generated) |
+| 6 | Report 4 — Competing Defense Theories | `dw-criminal-defense` Phase 2 | (auto-generated) |
+| 7 | Report 4a — Theory Selection Memo | `dw-criminal-defense` Phase 2 Step 2A | (attorney-driven) |
+| 8 | Theory-to-Workplan (7 streams) | `dw-theory-to-workplan` | "build a workplan" |
+| 9 | Adversarial Stress Test | `dw-adversarial-stress-test` | "stress test the theory" |
+
+The Barone workflow also adds:
+- **Certainty column** to the Timeline Sheet (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
+- **Discovery Bucket classification** (7 Barone buckets) to the Discovery Compliance Ledger
+- **Report-vs-Recording Matrix** (6-category) to all DMARs
+- **Verification Protocol** ([VERIFIED] / [UNVERIFIED] flags) across all analytical skills"""
 
 
 SECTIONS: list[SectionSpec] = [
@@ -74,6 +108,12 @@ SECTIONS: list[SectionSpec] = [
         key="quick_lookup",
         heading="Quick Lookup — \"I need to...\"",
         columns=("I need to...", "Use this skill", "Say this"),
+    ),
+    SectionSpec(
+        key="barone",
+        heading="Barone Discovery Workflow",
+        columns=("", "", ""),
+        raw=BARONE_RAW,
     ),
     SectionSpec(
         key="evidence_auditing",
@@ -84,7 +124,7 @@ SECTIONS: list[SectionSpec] = [
         key="motions_pleadings",
         heading="Motions & Pleadings — \"Draft a...\"",
         columns=("Motion Type", "Skill", "Trigger Phrase"),
-        outro="All motion skills use `dw-template-selector` to search DEVONthink for firm templates before drafting.",
+        outro="All motion skills use the template selection protocol in `dw-shared-protocols/references/` to search DEVONthink for firm templates before drafting.",
     ),
     SectionSpec(
         key="trial_preparation",
@@ -308,6 +348,11 @@ def format_trigger(raw: str) -> str:
 
 
 def render_section(spec: SectionSpec, entries: list[dict[str, str]], skills: dict[str, Skill]) -> str:
+    # Verbatim sections (e.g. Barone Discovery Workflow) emit their raw body.
+    # Normalize to a single trailing newline so the splice spacing in
+    # render_all_sections matches generated sections.
+    if spec.raw:
+        return spec.raw.rstrip("\n") + "\n"
     lines: list[str] = []
     lines.append(f"## {spec.heading}")
     lines.append("")
