@@ -513,16 +513,16 @@ District of Louisiana (within the Fifth Circuit Court of Appeals):
 This skill integrates with other Daniels & Washington skills. When jury
 instruction issues intersect with other defense workstreams, coordinate with:
 
-- **DW Motion Practice Builder** -- for motions in limine that affect which
+- **dw-pretrial-motion-library** -- for motions in limine that affect which
   instructions will be needed (e.g., motion to exclude 404(B) evidence
   eliminates need for limiting instruction if granted)
-- **DW Case Analysis** -- for identifying defense theories that drive
+- **dw-criminal-defense** -- for identifying defense theories that drive
   affirmative defense instructions
-- **DW Appellate Review** -- for assessing which instruction errors are
+- **dw-appellate-error-monitor** -- for assessing which instruction errors are
   most likely to succeed on appeal and ensuring proper preservation
-- **DW Voir Dire Builder** -- for coordinating jury instruction themes
+- **dw-voir-dire-assistant** -- for coordinating jury instruction themes
   with voir dire questioning strategy
-- **DW Trial Preparation** -- for sequencing instruction preparation within
+- **dw-trial-notebook-builder** -- for sequencing instruction preparation within
   the overall trial timeline
 
 When in doubt about integration points, flag the issue and recommend

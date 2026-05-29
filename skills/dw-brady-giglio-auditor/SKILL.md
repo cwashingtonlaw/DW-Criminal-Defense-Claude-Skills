@@ -176,7 +176,7 @@ Produce the audit as a **Word document (.docx)** using the docx skill. Begin wit
 
 ## STEP 6 — Integration with D&W Workflow
 
-For each Critical or Significant Giglio finding, generate a cross-examination chapter seed for **dw-cross-exam-architect**. When Critical violations are identified, flag for the **motion-writer** skill (Motion to Compel under La. C.Cr.P. Art. 718-729, Brady/Giglio Motion with *Kyles* cumulative analysis, Motion for Sanctions under La. C.Cr.P. Art. 729.3 for willful or repeated violations). Feed audit findings into the broader case analysis: update the Master Evidence Table, flag items for the Discovery Gap Report, and note items affecting witness credibility assessments.
+For each Critical or Significant Giglio finding, generate a cross-examination chapter seed for **dw-cross-exam-architect**. When Critical violations are identified, route to **dw-pretrial-motion-library** for the appropriate motion (Motion to Compel under La. C.Cr.P. Art. 718-729, Brady/Giglio Motion with *Kyles* cumulative analysis, Motion for Sanctions under La. C.Cr.P. Art. 729.3 for willful or repeated violations), and to **dw-suppression-motion** for CI-tainted evidence. Feed audit findings into the broader case analysis: update the Master Evidence Table, flag items for the Discovery Gap Report, and note items affecting witness credibility assessments.
 
 After the audit report is generated, build a **Brady/Giglio Audit Action Plan** that translates findings into specific Discovery Demands, Suppression Opportunities (route CI-tainted evidence and undisclosed-deal credibility issues to **dw-suppression-motion**), Strategic Prioritization by trial impact, and CI-Specific Discovery (CI agreements, criminal history, payment records, handler notes, communications).
 
@@ -185,8 +185,9 @@ After the audit report is generated, build a **Brady/Giglio Audit Action Plan** 
 - **dw-witness-statement-analyzer** — feed witness inconsistencies and recantations identified in Brady Category A
 - **dw-cross-exam-architect** — receives Critical/Significant Giglio findings as chapter seeds
 - **dw-suppression-motion** — receives CI-taint and undisclosed-deal credibility issues for motion drafting
+- **dw-pretrial-motion-library** — receives Critical Brady/Giglio findings for Motion to Compel (Art. 718–729), Brady/Giglio Motion, and "Reveal the Deal" motions
 
-**Reference:** Read `references/cross-exam-and-motion-integration.md` for the full Cross Chapter Seed template, the Motion Writer flag list, the Case Analysis integration steps, and the four-step Brady/Giglio Audit Action Plan.
+**Reference:** Read `references/cross-exam-and-motion-integration.md` for the full Cross Chapter Seed template, the motion-routing flag list, the Case Analysis integration steps, and the four-step Brady/Giglio Audit Action Plan.
 
 ---
 
@@ -232,7 +233,7 @@ The references directory contains the detailed audit content offloaded from this
 | `references/ci-detection-module.md` | Four-category CI Indicator Scan (Direct Language / Timeline Red Flags / Cooperation Indicators / Document Gaps) + Roviaro balancing + Per-CI Checklist + five attack vectors + CI-specific motion list + federal note | Step 3B |
 | `references/disclosure-timeline-tracking.md` | Tracking Log Structure + four-tier Timeliness Analysis (Timely / Late-but-remediable / Late-and-prejudicial / Never disclosed) + Pattern Detection prompts | Step 4 |
 | `references/audit-report-structure.md` | Pre-Draft Confirmation script + six-section audit report template + two appendices + file naming/location convention with companion Disclosure Tracking Log | Step 5 |
-| `references/cross-exam-and-motion-integration.md` | Cross Chapter Seed template + Motion Writer flag list + Case Analysis integration steps + four-step Brady/Giglio Audit Action Plan | Step 6 |
+| `references/cross-exam-and-motion-integration.md` | Cross Chapter Seed template + motion-routing flag list + Case Analysis integration steps + four-step Brady/Giglio Audit Action Plan | Step 6 |
 | `references/legal-authority-quick-reference.md` | Brady / Giglio / CI Authority Table + Louisiana-Specific Discovery Articles (La. C.Cr.P. Art. 718–729.5) | Reference throughout |
 
 ---

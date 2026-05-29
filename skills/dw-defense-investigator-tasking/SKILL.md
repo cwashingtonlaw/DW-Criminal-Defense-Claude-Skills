@@ -256,7 +256,7 @@ For Louisiana investigator licensing requirements, key Louisiana criminal proced
 |---|---|
 | `dw-shared-protocols` | Attorney work product marking + output path formula |
 
-This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Investigation outputs can feed directly into the **DW Case Theory Builder**, **DW Motion Drafting Tool**, **DW Trial Preparation Tool**, **DW Mitigation Investigation Tool**, and **DW Sentencing Memorandum Tool**. When generating investigation tasks, flag any findings that should trigger analysis under another DW skill — for example, a constitutional violation discovered during investigation should trigger the **DW Suppression Motion Drafting Tool**, and mitigation evidence uncovered during background investigation should trigger the **DW Mitigation Investigation Tool**.
+This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Investigation outputs can feed directly into **dw-criminal-defense** (Phase 2 theory development), **dw-pretrial-motion-library**, **dw-trial-notebook-builder**, and **dw-sentencing-mitigation-specialist**. When generating investigation tasks, flag any findings that should trigger analysis under another D&W skill — for example, a constitutional violation discovered during investigation should trigger **dw-suppression-motion**, and mitigation evidence uncovered during background investigation should trigger **dw-sentencing-mitigation-specialist**.
 
 ---
 

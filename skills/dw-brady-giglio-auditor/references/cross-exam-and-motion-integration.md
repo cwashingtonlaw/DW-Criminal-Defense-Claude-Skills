@@ -1,4 +1,4 @@
-# Cross-Exam, Motion Writer, and Action-Plan Integration
+# Cross-Exam, Motion-Routing, and Action-Plan Integration
 
 ## Cross-Exam Architect Integration
 For each Critical or Significant Giglio finding, generate a cross-examination chapter seed:
@@ -18,8 +18,8 @@ Legal Authority: [Applicable Brady/Giglio case]
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect skill]`
 
-## Motion Writer Integration
-When Critical violations are identified, flag for the **motion-writer** skill:
+## Motion Routing Integration
+When Critical violations are identified, route to the appropriate motion skill (**dw-pretrial-motion-library** for Motion to Compel / "Reveal the Deal"; **dw-suppression-motion** for CI-tainted evidence):
 - Motion to Compel Discovery (La. C.Cr.P. Art. 718-729)
 - Brady/Giglio Motion (with specific items and Kyles cumulative analysis)
 - Motion for Sanctions (La. C.Cr.P. Art. 729.3) when violations are willful or repeated
