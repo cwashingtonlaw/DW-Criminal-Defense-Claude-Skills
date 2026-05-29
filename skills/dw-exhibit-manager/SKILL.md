@@ -140,7 +140,7 @@ Maintain a running objection log for ALL evidentiary objections encountered at t
 
 ### STEP 6 — OUTPUTS
 
-All outputs saved to: `<case-root>/03 - Trial Notebook/01 - Exhibit List/`
+All outputs saved to: `{{CASE_ROOT}}/01 - Trial Notebook/04 - Exhibit List/`
 
 Four deliverables:
 - **6A. Master Exhibit List (.xlsx)** — full exhibit tracker with separate sheets for Defense / State / Joint / Excluded
@@ -185,7 +185,7 @@ This skill addresses ten recurring exhibit categories that demand specialized ha
 - **Demonstrative Exhibits (Non-Admitted)** — track separately; aid jury but never admitted into evidence
 - **Art. 404(b) Other Crimes Evidence** — flag and route to dw-404b-opposition; prepare for bifurcated ruling
 - **State's Exhibits (Adverse Evidence)** — same pre-trial rigor; prepare objections in advance
-- **Confrontation Clause Issues (Crawford)** — testimonial hearsay analysis; lab reports without analyst (Davidison v. Prince)
+- **Confrontation Clause Issues (Crawford)** — testimonial hearsay analysis; lab reports without analyst (Davidison v. Prince [VERIFY CITATION])
 - **Prior Statements (Impeachment vs. Substantive)** — La. C.E. Art. 607, 613 distinction
 - **Expert Reports & CVs** — Daubert/Foret reliability; cross-reference dw-expert-witness-evaluator
 - **Audio/Video Evidence** — BWC, dash cam, surveillance; cross-reference dw-video-evidence-auditor

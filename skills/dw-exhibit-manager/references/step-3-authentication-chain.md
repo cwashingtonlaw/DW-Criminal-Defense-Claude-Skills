@@ -17,7 +17,7 @@ For each exhibit requiring testimonial authentication:
    - Public records (803(8)): Lab reports, police records
    - Excited utterances (803(2)): 911 calls, bystander statements
    - State of mind (803(3)): Diary entries, threat statements
-   - Confrontation Clause issues: Davidison v. Prince (La. 2017) — lab reports without analyst testimony
+   - Confrontation Clause issues: Davidison v. Prince [VERIFY CITATION] (La. 2017) — lab reports without analyst testimony
 
 4. **Flag Art. 901 issues:**
    - Authentication requirements — circuit court must be satisfied exhibit is what it claims to be

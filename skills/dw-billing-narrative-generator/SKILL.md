@@ -108,7 +108,8 @@ Use the D&W Skill-to-LEDES Code Mapping table below to assign each work item to 
 | dw-trial-notebook-builder | L300 | Trial Preparation |
 | dw-jury-instructions-builder | L300 | Trial Preparation |
 | dw-voir-dire-assistant | L300 | Trial Preparation |
-| dw-jury-focus-group | L300 | Trial Preparation || dw-witness-statement-analyzer | L110 | Investigation |
+| dw-jury-focus-group | L300 | Trial Preparation |
+| dw-witness-statement-analyzer | L110 | Investigation |
 | dw-timeline-builder | L110 | Investigation |
 | dw-video-evidence-auditor | L110 | Investigation |
 | dw-forensic-dump-analyzer | L110 | Investigation |
@@ -252,7 +253,7 @@ Attorney selects output format after approval. System automatically creates save
 [XLSX Export] — Downloads workbook
 [CSV Export] — Downloads CSV for billing software import
 [PDF Summary] — Generates print-ready summary
-[Email to Billing] — Sends XLSX to billing@dw-criminal.local
+[Email to Billing] — Sends XLSX to billing@danielswashington.com
 [Archive] — Saves to case file automatically; note date in case log
 ```
 

@@ -125,12 +125,12 @@ Check `01 - Trial Notebook → 09 - Case Analysis/` and `Case Tables.xlsx`:
 | 1 | Comprehensive Case Timeline | Check Timeline Sheet in xlsx | Standard |
 | 2 | Prosecution's Case Summary | Scan for `02 - Prosecution...` or similar | Standard |
 | 3 | Immediate Red Flags | Scan for `03 - Red Flags...` | **HIGH** |
-| 4 | Core Defense Narrative | Scan for `04 - Defense Narrative...` | Standard |
+| 4 | Competing Defense Theories | Scan for `04 - Competing Theories...` or `04 - Defense Narrative...` | Standard |
+| 4a | Theory Selection Memo | Scan for `Theory Selection Memo` (attorney-selected) | **HIGH** |
 | 5 | Viable Legal Defenses | Scan for `05 - Legal Defenses...` | Standard |
 | 6 | Memorable Theme | Scan for `06 - Memorable Theme...` | Standard |
 | 7 | Missing Discovery Demand | Check for auto-generated demand letter | **HIGH** |
-| 8 | Witness Table | Check Witness Sheet in xlsx | Standard |
-| 9 | Impeachment Plan | Scan for `09 - Impeachment...` or witness worksheets | **HIGH** |
+| 8 | Key Witness Impeachment Plan | Scan for `09 - Impeachment...` or witness worksheets | **HIGH** |
 
 Also check:
 - `02 - Pretrial Notebook → 03 - Case Analysis & Notes → Cowork Analysis/` folder for Constitutional, Brady, Witness Cross-Reference, Timeline, Chain of Custody analyses
@@ -173,7 +173,7 @@ Check for the following case-level documents:
 | **404(b) Opposition** | Look for "404" or "Prieur" in Pleadings | ✓ or ✗ (only if Prieur notice received) |
 
 **Status Logic:**
-- All 9 reports present + all auto-action documents (Missing Discovery Demand, Impeachment Worksheets) + parallel analysis → **Phase 2 Complete** ✓
+- All 8 reports present (Reports 1–8, plus the attorney-selected Report 4a Theory Selection Memo) + all auto-action documents (Missing Discovery Demand, Impeachment Worksheets) + parallel analysis → **Phase 2 Complete** ✓
 - 5-8 reports present → **Phase 2 In Progress**
 - 0-4 reports present → **Phase 2 Not Started**
 
@@ -327,12 +327,12 @@ Based on current phase and gaps, recommend the exact next skill to invoke:
 - [x] Report 1: Comprehensive Case Timeline
 - [x] Report 2: Prosecution's Case Summary
 - [x] Report 3: Immediate Red Flags **[HIGH]**
-- [x] Report 4: Core Defense Narrative
+- [x] Report 4: Competing Defense Theories
+- [x] Report 4a: Theory Selection Memo **[HIGH]**
 - [x] Report 5: Viable Legal Defenses
 - [x] Report 6: Memorable Theme
 - [x] Report 7: Missing Discovery Demand **[HIGH]** + Demand Letter Generated
-- [x] Report 8: Witness Table
-- [x] Report 9: Impeachment Plan **[HIGH]** + Worksheets Generated
+- [x] Report 8: Key Witness Impeachment Plan **[HIGH]** + Worksheets Generated
 
 ### Parallel Analysis ✓
 - [x] Constitutional Issues Scan
@@ -466,7 +466,7 @@ List each stale code with its `Last Updated` date:
 **→ Ready for Phase 2:** YES / NO
 
 ### Phase 2
-- [ ] All 9 reports ✓
+- [ ] All 8 reports ✓
 - [ ] Parallel analyses ✓
 - [ ] Missing Discovery Demand ✓
 - [ ] Impeachment Worksheets ✓

@@ -39,7 +39,7 @@ Quick reference for prepared responses to common objections:
 - "Witness will testify live; defendant has opportunity to cross-examine"
 - "Not testimonial in nature; offered for [non-testimonial purpose]"
 - "Business record exception satisfies Confrontation; not 'accusatory' statement"
-- "Prior Davidison v. Prince / State v. [case] objection — [specific response to precedent]"
+- "Prior Davidison v. Prince [VERIFY CITATION] / State v. [case] objection — [specific response to precedent]"
 
 **Expert Methodology Objection (Art. 702 / Daubert-Foret) → Responses:**
 - "Expert will testify regarding methodology, peer review, acceptance in field"

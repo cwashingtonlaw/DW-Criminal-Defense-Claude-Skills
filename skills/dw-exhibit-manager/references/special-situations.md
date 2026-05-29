@@ -37,7 +37,7 @@ For any testimonial hearsay offered against defendant (lab reports, statements b
 1. Identify if it's testimonial (created with primary purpose of proving defendant committed crime)
 2. Determine if witness unavailable and defendant had prior opportunity to cross
 3. If both true: Confrontation problem — prepare Art. 901(b) objection or demand live testimony
-4. Examples: Lab reports without analyst (Davidison v. Prince), police reports offered for truth, victim statements
+4. Examples: Lab reports without analyst (Davidison v. Prince [VERIFY CITATION]), police reports offered for truth, victim statements
 5. Flag for dw-appellate-error-monitor if court overrules Confrontation objection
 
 ## Prior Statements (Impeachment vs. Substantive)

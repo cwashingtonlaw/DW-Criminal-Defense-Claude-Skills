@@ -1,6 +1,6 @@
 # Step 6 — Output Specifications
 
-All outputs saved to: `<case-root>/03 - Trial Notebook/01 - Exhibit List/`
+All outputs saved to: `{{CASE_ROOT}}/01 - Trial Notebook/04 - Exhibit List/`
 
 ## 6A. Master Exhibit List (.xlsx)
 
