@@ -7,7 +7,8 @@ description: >
   "actual innocence," "ineffective assistance," "sentence modification," "Art. 930," "Art. 926,"
   "AEDPA," "collateral review," "writ application," or "motion for new trial."
   Covers Louisiana PCR (Art. 924-930.10), federal habeas (28 U.S.C. § 2254), and sentence
-  modification (Art. 881.1). Do NOT use for direct appeal — use dw-appellate-error-monitor.
+  modification (Art. 881.1). Do NOT use for direct appeal — use dw-appellate-brief-builder
+  (to draft the appeal) or dw-appellate-error-monitor (for error preservation/viability).
 ---
 
 # Post-Conviction Relief Specialist
