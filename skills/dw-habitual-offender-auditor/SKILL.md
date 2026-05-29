@@ -65,7 +65,7 @@ Before conducting any audit, collect the following in ranked order:
 ### Essential (must have before auditing)
 
 1. **Habitual Offender Bill of Information:** the State's multiple offender bill listing the current offense and each predicate conviction relied upon — this is the document being challenged
-2. **Current Charges & Conviction:** the offense(s) for which the defendant was convicted in the present case, with statutory citations, conviction date, and manner of conviction (guilty plea, jury verdict, bench trial)
+2. **Current Charges & Conviction:** the offense(s) for which the defendant was convicted in the present case, with statutory citations, conviction date, and manner of conviction (guilty plea, jury verdict, bench trial). **Confirm the DATE OF OFFENSE for each count** — the governing version of La. R.S. 15:529.1 is fixed by the offense date (not conviction/sentencing date); select the applicable version per `dw-shared-protocols/references/sentencing-statute-versions.md` before computing any enhancement tier (Module E).
 3. **Predicate Conviction Documentation:** for each prior conviction the State relies upon — certified copies of the bill of information, minute entries reflecting the guilty plea or verdict, commitment/sentencing orders, and any plea transcripts
 4. **Criminal History Record:** rap sheet, NCIC report, or other criminal history summary showing the defendant's complete conviction history — essential for identifying which convictions the State is using and whether others exist that were omitted
 5. **Defendant's Identity:** full legal name, date of birth, and any aliases — necessary to verify the predicate convictions belong to the correct individual

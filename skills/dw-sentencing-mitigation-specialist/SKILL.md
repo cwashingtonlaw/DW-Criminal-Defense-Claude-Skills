@@ -101,6 +101,7 @@ Before drafting any sentencing analysis, collect the following in ranked order:
    - Dismissed counts and any plea agreement terms
    - Multiple-count considerations (concurrent vs. consecutive exposure)
 2. **Sentencing Range Identification**
+   - **Date of offense (per count) — CONFIRM explicitly before any exposure calculation.** The governing version of La. R.S. 15:529.1 (habitual), 15:571.3 (good time), and 15:574.4 (parole) is fixed by the date of offense — not the conviction or sentencing date. Select the applicable version per `dw-shared-protocols/references/sentencing-statute-versions.md` and do not compute enhancement, good-time, or parole exposure until the offense date is confirmed and the version selected.
    - Statutory minimum and maximum for each count
    - Whether mandatory minimum applies and basis
    - Enhancement provisions (firearm, victim age, prior convictions, drug-free zone)

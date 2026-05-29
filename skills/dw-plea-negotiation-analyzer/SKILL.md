@@ -83,6 +83,7 @@ Once documents are received, organize the intake into three tiers before running
 
 | Data Point | Source | Status |
 |---|---|---|
+| **Date of offense (per count)** — fixes which version of La. R.S. 15:529.1 / 15:571.3 / 15:574.4 applies; select per `dw-shared-protocols/references/sentencing-statute-versions.md` before any exposure math | Bill of information / charging docs | |
 | Exact charges (La. R.S. citations, all counts) | Bill of information / indictment | |
 | Statutory sentencing range per count (min/max) | Louisiana Revised Statutes | |
 | Plea offer specifics (charge, sentence, conditions) | Offer letter / ADA communication | |
