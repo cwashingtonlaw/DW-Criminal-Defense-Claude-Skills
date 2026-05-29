@@ -1,5 +1,6 @@
 ---
 name: dw-direct-exam-architect
+category: trial-prep
 description: >
   Build direct-examination outlines for DEFENSE witnesses (defendant, alibi witnesses, defense
   experts, character witnesses, foundation/custodial witnesses). ALWAYS invoke for "direct

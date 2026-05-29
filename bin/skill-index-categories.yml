@@ -70,6 +70,9 @@ quick_lookup:
   - skill: dw-theory-to-workplan
     label: "Generate a workplan from theory"
     trigger: "build a workplan or theory to workplan"
+  - skill: dw-issue-code-tracker
+    label: "Track issue codes (living issue-code ledger)"
+    trigger: "issue codes or issue tracker"
 
 evidence_auditing:
   - skill: dw-mobile-forensic-auditor
@@ -121,6 +124,9 @@ evidence_auditing:
   - skill: dw-jail-call-analyzer
     label: "Jail calls (recordings, logs, transcripts)"
     trigger: "audit jail calls or Securus/GTL/ViaPath"
+  - skill: dw-witness-statement-analyzer
+    label: "Witness statement consistency / impeachment synthesis"
+    trigger: "analyze this statement or compare these statements"
 
 motions_pleadings:
   - skill: dw-suppression-motion
@@ -185,6 +191,9 @@ trial_preparation:
   - skill: dw-brady-giglio-auditor
     label: "Brady/Giglio audit"
     trigger: "run Brady audit"
+  - skill: dw-witness-threat-matrix
+    label: "Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam)"
+    trigger: "witness threat matrix or rank the witnesses"
 
 sentencing_appeal_pcr:
   - skill: dw-sentencing-mitigation-specialist
@@ -255,11 +264,8 @@ uncategorized:
   - skill: dw-court-jail-tracker     # weekly case-sweep automation
   - skill: dw-exhibit-manager        # trial-day adjacent; covered indirectly
   - skill: dw-image-filename-stamp   # utility skill
-  - skill: dw-issue-code-tracker     # accessed by direct trigger ("issue codes"); not surfaced in routing tables
   - skill: dw-jury-focus-group       # focus-group simulator
   - skill: dw-timeline-builder       # timeline aggregator
   - skill: dw-transcript-pipeline-calcasieu  # invoked by dw-transcript-router
   - skill: dw-transcript-pipeline-rev        # invoked by dw-transcript-router
-  - skill: dw-witness-statement-analyzer     # statement analyzer
   - skill: dw-settlement-demand              # PI (personal-injury) skill; out of scope for the criminal routing tables
-  - skill: dw-witness-threat-matrix          # Phase 3 capstone
