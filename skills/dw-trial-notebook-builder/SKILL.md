@@ -841,15 +841,15 @@ All five generated documents are internal work product — apply attorney work-p
 - No auto-routing — `Linked Skill` recommendations are listed but not auto-invoked,
   consistent with `dw-issue-code-tracker`'s design.
 ### v1.1 (April 2026)
-- **FIX:** Corrected Trial Notebook folder structure to match actual D&W tab layout
-  - Tab 2: "Opening Statement" (not "Opening & Closing")
-  - Tab 4: "Closing Argument" (not "Exhibit List")
-  - Tab 6: "Pleadings" (not "Motions in Limine")
-  - Tab 7: "PT Orders_Law" (not "Legal Research")
-  - Tab 8: "Verdict_Sentencing" (not "Jury Selection Notes")
 - Added recommended subfolder structure for all 9 tabs (Step 3B)
-- Reassigned deliverables to correct tabs (verdict forms → Tab 8, motions → Tab 6, etc.)
-- Updated deliverable-map.md to match corrected structure
+- Updated deliverable-map.md to match the Step 1A tab structure
+- The authoritative tab layout is the 9-tab structure defined in Step 1A
+  (Tab 2 `02 - Opening & Closing`, Tab 4 `04 - Exhibit List`, Tab 6
+  `06 - Motions in Limine`, Tab 7 `07 - Legal Research`, Tab 8
+  `08 - Jury Selection Notes`) — the scheme the orchestrator (Reports → Tab 9
+  `09 - Case Analysis`), dw-case-dashboard (`03 - Witnesses`), and
+  dw-exhibit-manager (exhibits → Tab 4 `04 - Exhibit List`) all align to.
+  [VERIFY tab folder names against a live case file before relying on Tabs 2/6/7/8.]
 
 ### v1.0 (April 2026)
 - Initial skill version
