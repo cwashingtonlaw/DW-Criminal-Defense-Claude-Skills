@@ -26,8 +26,7 @@ When working in this repo, follow the conventions below. They exist because they
 └── skills/
     ├── dw-criminal-defense/     ← Master 3-phase orchestrator (the entry point)
     ├── dw-skill-index/          ← Lookup table for all skills (the routing manual)
-    ├── dw-shared-protocols/     ← Library of shared references other skills load (work-product marking, output-path formula, captions, etc.)
-    ├── dw-template-selector/    ← DEVONthink template-search protocol read by motion-drafting skills
+    ├── dw-shared-protocols/     ← Library of shared references other skills load (work-product marking, output-path formula, captions, DEVONthink template-selection-protocol, etc.)
     ├── dw-data-contracts/       ← Cross-skill input/output schemas
     └── dw-*/                    ← All other D&W skills follow the standard pattern
 ```
@@ -161,8 +160,7 @@ Per `dw-shared-protocols/references/attorney-work-product-marking.md`. Every ana
 
 The following skills are infrastructure that downstream skills depend on. Changes ripple. Discuss before touching:
 
-- `dw-shared-protocols/` — the protocol library; many skills load from here
-- `dw-template-selector/` — the DEVONthink template-search protocol
+- `dw-shared-protocols/` — the protocol library; many skills load from here (includes the DEVONthink template-selection-protocol, formerly the standalone `dw-template-selector`)
 - `dw-data-contracts/` — cross-skill schemas
 - `dw-skill-index/` — lookup; needs updating only when adding/retiring skills (use the linter to verify references resolve)
 - `dw-criminal-defense/` — the master orchestrator (currently v5.4); changes here affect Cowork's workflow
@@ -222,8 +220,7 @@ References for a skill live in `skills/dw-<name>/references/`. Each reference is
 These skills legitimately diverge — see `EXEMPT` table in `bin/lint-skills.py` for the full list:
 
 - `dw-skill-index` — lookup/index only, no file output
-- `dw-template-selector` — shared protocol, not directly user-invoked
-- `dw-shared-protocols` — by design a library other skills load files from
+- `dw-shared-protocols` — by design a library other skills load files from (includes the template-selection-protocol)
 - `dw-data-contracts` — schema definitions
 - `dw-criminal-defense` — master orchestrator; downstream skills enforce hard stops + citations
 - `dw-case-brain` — session persistence to internal `brain.md`, no attorney deliverables
