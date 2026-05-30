@@ -47,9 +47,18 @@ sys.modules["lint_skills"] = _lint_skills  # required for @dataclass to find ns
 _spec.loader.exec_module(_lint_skills)
 parse_frontmatter = _lint_skills.parse_frontmatter
 
+# Map bare skill name -> plugin namespace, derived from the on-disk layout.
+# Only includes plugin-housed skills (plugin is not None); flat skills are absent.
+PLUGIN_OF = {d.name: plugin for plugin, d in _lint_skills.discover_skills() if plugin is not None}
+
+def ns(skill_name: str) -> str:
+    """Namespaced display name, e.g. dw-pleadings:dw-suppression-motion."""
+    p = PLUGIN_OF.get(skill_name)
+    return f"{p}:{skill_name}" if p else skill_name
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SKILLS_DIR = REPO_ROOT / "skills"
-INDEX_PATH = SKILLS_DIR / "dw-skill-index" / "SKILL.md"
+_SKILL_DIRS_BY_NAME = {d.name: d for d in _lint_skills.discover_skill_dirs()}
+INDEX_PATH = _SKILL_DIRS_BY_NAME["dw-skill-index"] / "SKILL.md"
 CONFIG_PATH = Path(__file__).resolve().parent / "skill-index-categories.yml"
 
 # ── Section definitions ─────────────────────────────────────────────────────
@@ -293,9 +302,7 @@ class Skill:
 def load_skills() -> dict[str, Skill]:
     """Load name → Skill for every skill directory present (dw-* and others)."""
     out: dict[str, Skill] = {}
-    if not SKILLS_DIR.is_dir():
-        raise SystemExit(f"skills/ not found at {SKILLS_DIR}")
-    for d in sorted(p for p in SKILLS_DIR.iterdir() if p.is_dir()):
+    for d in _lint_skills.discover_skill_dirs():
         skill_md = d / "SKILL.md"
         if not skill_md.exists():
             continue
@@ -371,7 +378,7 @@ def render_section(spec: SectionSpec, entries: list[dict[str, str]], skills: dic
         # For shared_references, columns are (Skill, What It Does, Read By).
         if spec.key == "shared_references":
             read_by = entry.get("read_by", "—")
-            lines.append(f"| `{skill_name}` | {label} | {read_by} |")
+            lines.append(f"| `{ns(skill_name)}` | {label} | {read_by} |")
             continue
         # Normal rows: derive trigger from config, falling back to frontmatter.
         trigger = entry.get("trigger")
@@ -381,9 +388,9 @@ def render_section(spec: SectionSpec, entries: list[dict[str, str]], skills: dic
         formatted_trigger = format_trigger(trigger)
         # Skill cell: `name` plus any suffix kept OUTSIDE the backticks.
         if suffix:
-            skill_cell = f"`{skill_name}`{suffix}"
+            skill_cell = f"`{ns(skill_name)}`{suffix}"
         else:
-            skill_cell = f"`{skill_name}`"
+            skill_cell = f"`{ns(skill_name)}`"
         lines.append(f"| {label} | {skill_cell} | {formatted_trigger} |")
     if spec.outro:
         lines.append("")

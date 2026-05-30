@@ -33,6 +33,27 @@ import importlib.util as _importlib_util
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_DIR = REPO_ROOT / "skills"
 
+
+def discover_skills():
+    """Yield (plugin_name_or_None, skill_dir) across the plugin layout and the
+    retained flat skills/ dir. plugin_name is None for flat (non-plugin) skills."""
+    seen = set()
+    for p in sorted(REPO_ROOT.glob("*/skills/dw-*"), key=lambda x: x.name):
+        if p.is_dir() and p.name not in seen:
+            seen.add(p.name)
+            yield p.parent.parent.name, p
+    if SKILLS_DIR.is_dir():
+        for p in sorted((q for q in SKILLS_DIR.iterdir() if q.is_dir()), key=lambda x: x.name):
+            if p.name not in seen:
+                seen.add(p.name)
+                yield None, p
+
+
+def discover_skill_dirs():
+    """All skill directories (plugin-housed + flat), sorted by name."""
+    return [d for _, d in discover_skills()]
+
+
 # ── Import helpers from add-category-frontmatter.py (hyphenated filename) ───
 
 _add_cat_path = REPO_ROOT / "bin" / "add-category-frontmatter.py"
@@ -338,23 +359,21 @@ def main() -> int:
     parser.add_argument("--quiet", action="store_true", help="Only print the summary line.")
     args = parser.parse_args()
 
-    if not SKILLS_DIR.is_dir():
-        print(f"skills/ not found at {SKILLS_DIR}", file=sys.stderr)
-        return 2
+    all_dirs = discover_skill_dirs()
+    by_name = {d.name: d for d in all_dirs}
 
     if args.skill:
-        targets = [SKILLS_DIR / args.skill]
-        if not targets[0].is_dir():
+        if args.skill not in by_name:
             print(f"Skill not found: {args.skill}", file=sys.stderr)
             return 2
+        targets = [by_name[args.skill]]
+    elif args.all:
+        targets = all_dirs
     else:
-        all_dirs = sorted(p for p in SKILLS_DIR.iterdir() if p.is_dir())
-        if args.all:
-            targets = all_dirs
-        else:
-            targets = [p for p in all_dirs if p.name.startswith("dw-")]
+        targets = [d for d in all_dirs if d.name.startswith("dw-")]
 
-    all_skill_names = {p.name for p in SKILLS_DIR.iterdir() if p.is_dir()}
+    plugin_names = {p for p, _ in discover_skills() if p}
+    all_skill_names = set(by_name) | plugin_names
 
     reports = [lint_skill(t, all_skill_names) for t in targets]
     errors, warnings = render_report(reports, args.errors_only, args.strict, args.quiet)

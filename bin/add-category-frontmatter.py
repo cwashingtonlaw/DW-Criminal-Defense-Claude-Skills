@@ -25,7 +25,6 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SKILLS_DIR = REPO_ROOT / "skills"
 CONFIG_PATH = REPO_ROOT / "bin" / "skill-index-categories.yml"
 
 # Section ID (in skill-index-categories.yml) -> plugin-aligned category name
@@ -181,7 +180,10 @@ def main() -> int:
 
     sections = parse_categories_yml(CONFIG_PATH.read_text(encoding="utf-8"))
 
-    skills = sorted(p for p in SKILLS_DIR.iterdir() if p.is_dir() and p.name.startswith("dw-"))
+    skills = sorted(
+        (p for p in REPO_ROOT.glob("*/skills/dw-*") if p.is_dir()),
+        key=lambda p: p.name,
+    )
     changed_count = 0
     skipped: list[str] = []
 
