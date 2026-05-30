@@ -17,6 +17,30 @@ warn() { echo -e "${YELLOW}[warn]${NC} $1"; }
 err()  { echo -e "${RED}[error]${NC} $1" >&2; }
 ok()   { echo -e "${GREEN}[ok]${NC} $1"; }
 
+# Discover every skill across the 9-plugin layout AND the retained flat skills/
+# dir, mirroring bin/lint-skills.py discover_skills(). Plugin-housed skills win
+# on a name clash. Emits one TAB-separated "<parent_dir>\t<skill_name>" line per
+# skill, where <parent_dir> is the directory that directly contains the skill
+# folder (so a .skill zip can be built with the skill folder as its top entry).
+discover_skill_dirs() {
+    local seen=" " d name parent
+    for d in "$REPO_DIR"/*/skills/*/; do          # plugin-housed: <plugin>/skills/<name>/
+        [ -f "${d}SKILL.md" ] || continue
+        name=$(basename "$d")
+        case "$seen" in *" $name "*) continue ;; esac
+        seen="$seen$name "
+        parent=$(dirname "${d%/}")
+        printf '%s\t%s\n' "$parent" "$name"
+    done
+    for d in "$SKILLS_DIR"/*/; do                   # flat (retained non-plugin skills)
+        [ -f "${d}SKILL.md" ] || continue
+        name=$(basename "$d")
+        case "$seen" in *" $name "*) continue ;; esac
+        seen="$seen$name "
+        printf '%s\t%s\n' "$SKILLS_DIR" "$name"
+    done
+}
+
 # ── STATUS ──────────────────────────────────────────────────────────────────
 cmd_status() {
     echo ""
@@ -56,10 +80,8 @@ cmd_status() {
     else
         echo -e "  ${GREEN}Local:${NC}   Clean"
     fi
-    local repo_count=0
-    for d in "$SKILLS_DIR"/*/; do
-        [ -f "$d/SKILL.md" ] 2>/dev/null && ((repo_count++)) || true
-    done
+    local repo_count
+    repo_count=$(discover_skill_dirs | wc -l | tr -d ' ')
     echo ""
     echo -e "  ${CYAN}Skills in repo:${NC}  $repo_count"
 
@@ -147,18 +169,23 @@ cmd_log() {
 cmd_export_cowork() {
     log "Packaging skills for Cowork import..."
     mkdir -p "$COWORK_EXPORT_DIR"
-    local count=0
-    for skilldir in "$SKILLS_DIR"/*/; do
-        [ -f "$skilldir/SKILL.md" ] || continue
-        local name
-        name=$(basename "$skilldir")
-        local outfile="$COWORK_EXPORT_DIR/${name}.skill"
+    local count=0 total=0 dw=0 parent name skilldir outfile
+    # Discover across the plugin layout + flat dir (see discover_skill_dirs).
+    while IFS=$'\t' read -r parent name; do
+        [ -n "$name" ] || continue
+        total=$((total + 1))
+        case "$name" in dw-*) dw=$((dw + 1)) ;; esac
+        skilldir="$parent/$name"
+        outfile="$COWORK_EXPORT_DIR/${name}.skill"
+        # Incremental: re-zip only when the source is newer than the package.
         if [ ! -f "$outfile" ] || [ "$(find "$skilldir" -newer "$outfile" 2>/dev/null | head -1)" ]; then
-            (cd "$SKILLS_DIR" && zip -rq "$outfile" "$name/" -x "*.DS_Store")
-            ((count++)) || true
+            rm -f "$outfile"   # avoid zip appending into a stale archive
+            (cd "$parent" && zip -rq "$outfile" "$name/" -x "*.DS_Store")
+            count=$((count + 1))
         fi
-    done
-    ok "Packaged $count skill(s) to: $COWORK_EXPORT_DIR"
+    done < <(discover_skill_dirs)
+    ok "Packaged $count of $total skill(s) ($dw dw-* firm skills, $((total - dw)) other) to: $COWORK_EXPORT_DIR"
+    [ "$count" -lt "$total" ] && log "$((total - count)) skill(s) already up to date — skipped."
 }
 
 # ── LINK ────────────────────────────────────────────────────────────────────

@@ -269,7 +269,7 @@ When you change an upstream skill's output, check the consumer skills for breaka
 
 ### Cowork export packaging
 
-`bin/dw-skill-git.sh export-cowork` packages each `skills/dw-*/` directory into a single `.skill` zip and writes them to `_cowork-exports/` (gitignored — generated artifact, not version-controlled). The packaging is incremental: only skills whose contents are newer than their existing `.skill` file are re-zipped.
+`bin/dw-skill-git.sh export-cowork` packages each skill into a single `.skill` zip and writes them to `_cowork-exports/` (gitignored — generated artifact, not version-controlled). Skills are discovered across the 9-plugin layout (`<plugin>/skills/<name>/`) **and** the retained flat `skills/` dir via the shared `discover_skill_dirs()` helper (same discovery the linter uses), so all firm `dw-*` skills plus the retained third-party skills are packaged. The packaging is incremental: only skills whose contents are newer than their existing `.skill` file are re-zipped (and a stale `.skill` is removed first so updated packages never retain deleted files).
 
 The `.skill` files are consumed by the Cowork project on Claude.ai when uploading skills via the project's settings UI. Workflow:
 
