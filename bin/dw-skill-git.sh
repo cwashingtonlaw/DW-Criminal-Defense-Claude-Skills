@@ -169,11 +169,12 @@ cmd_log() {
 cmd_export_cowork() {
     log "Packaging skills for Cowork import..."
     mkdir -p "$COWORK_EXPORT_DIR"
-    local count=0 total=0 dw=0 parent name skilldir outfile
+    local count=0 total=0 dw=0 parent name skilldir outfile current=" "
     # Discover across the plugin layout + flat dir (see discover_skill_dirs).
     while IFS=$'\t' read -r parent name; do
         [ -n "$name" ] || continue
         total=$((total + 1))
+        current="$current$name "      # track current names for the prune pass
         case "$name" in dw-*) dw=$((dw + 1)) ;; esac
         skilldir="$parent/$name"
         outfile="$COWORK_EXPORT_DIR/${name}.skill"
@@ -186,6 +187,19 @@ cmd_export_cowork() {
     done < <(discover_skill_dirs)
     ok "Packaged $count of $total skill(s) ($dw dw-* firm skills, $((total - dw)) other) to: $COWORK_EXPORT_DIR"
     [ "$count" -lt "$total" ] && log "$((total - count)) skill(s) already up to date — skipped."
+    # Prune orphaned packages: .skill files with no matching current skill
+    # (left over from renamed or retired skills). Keeps the upload set clean so
+    # re-uploading the folder to Cowork doesn't create stale duplicates.
+    local pruned=0 base f
+    for f in "$COWORK_EXPORT_DIR"/*.skill; do
+        [ -e "$f" ] || continue
+        base=$(basename "$f" .skill)
+        case "$current" in *" $base "*) continue ;; esac
+        rm -f "$f"
+        warn "pruned stale package: ${base}.skill"
+        pruned=$((pruned + 1))
+    done
+    [ "$pruned" -gt 0 ] && log "Pruned $pruned stale package(s) for renamed/retired skills."
 }
 
 # ── LINK ────────────────────────────────────────────────────────────────────
