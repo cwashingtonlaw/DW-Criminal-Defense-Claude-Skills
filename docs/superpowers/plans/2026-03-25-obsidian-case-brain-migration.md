@@ -4,13 +4,13 @@
 
 **Goal:** Migrate the D&W case brain system from DEVONthink to pure Obsidian with MCP integration, statute fetching from Westlaw, and Claude-driven document search.
 
-**Architecture:** Obsidian vault at `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/DW-CASE BRAINS/` becomes the sole case brain store. The `dw-case-brain` skill is rewritten to use Obsidian MCP (`obsidian-claude-code-mcp` plugin) instead of DEVONthink MCP. A statute fetcher workflow uses Claude in Chrome to pull statutes from legis.la.gov (primary) and Westlaw (secondary). Claude-driven document search replaces DEVONthink's AI search by reading PDFs from Google Drive via filesystem.
+**Architecture:** Obsidian vault at `~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/DW-CASE BRAINS/` becomes the sole case brain store. The `dw-case-brain-crim` skill is rewritten to use Obsidian MCP (`obsidian-claude-code-mcp` plugin) instead of DEVONthink MCP. A statute fetcher workflow uses Claude in Chrome to pull statutes from legis.la.gov (primary) and Westlaw (secondary). Claude-driven document search replaces DEVONthink's AI search by reading PDFs from Google Drive via filesystem.
 
 **Tech Stack:** Obsidian, obsidian-claude-code-mcp plugin, Obsidian Local REST API, Claude in Chrome MCP, Claude Code filesystem tools, Markdown/YAML
 
 **Spec:** `docs/superpowers/specs/2026-03-25-obsidian-case-brain-migration-design.md`
 
-**Rollback:** See spec Section 7 "Rollback Plan." All phases are additive — DEVONthink data is never modified or deleted. At any point, reverting to DEVONthink means re-enabling the original `dw-case-brain` skill.
+**Rollback:** See spec Section 7 "Rollback Plan." All phases are additive — DEVONthink data is never modified or deleted. At any point, reverting to DEVONthink means re-enabling the original `dw-case-brain-crim` skill.
 
 ---
 
@@ -347,12 +347,12 @@ Find the section `### Step 5: Index Vault in DEVONthink`. Delete the entire sect
 
 - [ ] **Step 6: Update skill configuration section (now Step 5)**
 
-Find the section about updating the dw-case-brain skill. Replace with:
+Find the section about updating the dw-case-brain-crim skill. Replace with:
 
 ```markdown
-### Step 5: Verify dw-case-brain Skill
+### Step 5: Verify dw-case-brain-crim Skill
 
-The `dw-case-brain` skill reads and writes Case Brains via Obsidian MCP. Verify:
+The `dw-case-brain-crim` skill reads and writes Case Brains via Obsidian MCP. Verify:
 - Obsidian MCP is connected (check Claude's MCP status)
 - Skill can search for a case brain in `Cases/`
 - Skill can read and write case brain content
@@ -420,10 +420,10 @@ Document any issues or limitations discovered.
 
 ---
 
-### Task 8: Rewrite dw-case-brain SKILL.md — Core Session Lifecycle
+### Task 8: Rewrite dw-case-brain-crim SKILL.md — Core Session Lifecycle
 
 **Files:**
-- Modify: `/Users/greatelephant82/.claude/skills/dw-case-brain/SKILL.md`
+- Modify: `/Users/greatelephant82/.claude/skills/dw-case-brain-crim/SKILL.md`
 
 > **Dependency:** Task 7 must be complete. Use the confirmed MCP tool names from Task 7 Step 3.
 
@@ -467,7 +467,7 @@ Replace DEVONthink tagging with YAML frontmatter updates (`status`, `tags`). Rep
 - [ ] **Step 9: Verify — grep for DEVONthink references**
 
 ```bash
-grep -n "DEVONthink\|devonthink:" "/Users/greatelephant82/.claude/skills/dw-case-brain/SKILL.md"
+grep -n "DEVONthink\|devonthink:" "/Users/greatelephant82/.claude/skills/dw-case-brain-crim/SKILL.md"
 ```
 
 Expected: Zero matches for active DEVONthink tool calls. Zero matches for "DEVONthink" as the storage system.
@@ -483,10 +483,10 @@ Confirm the Guardrails section still contains all five rules:
 
 ---
 
-### Task 9: Add New Workflow Sections to dw-case-brain SKILL.md
+### Task 9: Add New Workflow Sections to dw-case-brain-crim SKILL.md
 
 **Files:**
-- Modify: `/Users/greatelephant82/.claude/skills/dw-case-brain/SKILL.md`
+- Modify: `/Users/greatelephant82/.claude/skills/dw-case-brain-crim/SKILL.md`
 
 > **Dependency:** Verify `CB/Templates/Legal-Theory-Template.md` exists. Read it to confirm structure.
 
@@ -510,18 +510,18 @@ Add a new `## Document Search (Replacing DEVONthink AI Search)` section covering
 
 - [ ] **Step 3: Update Integration table**
 
-Add `dw-mobile-forensic-auditor` to the skill integration table.
+Add `dw-mobile-forensic-auditor-crim` to the skill integration table.
 
 - [ ] **Step 4: Update references/case-brain-template.md**
 
-Read `/Users/greatelephant82/.claude/skills/dw-case-brain/references/case-brain-template.md`. Update it to match `CB/Templates/Case-Brain-Template.md` (the canonical version). Add `victims` and `gdrive_root`/`gdrive_path` to YAML. Update Key Evidence Flags types.
+Read `/Users/greatelephant82/.claude/skills/dw-case-brain-crim/references/case-brain-template.md`. Update it to match `CB/Templates/Case-Brain-Template.md` (the canonical version). Add `victims` and `gdrive_root`/`gdrive_path` to YAML. Update Key Evidence Flags types.
 
 - [ ] **Step 5: Commit core skill rewrite + new sections**
 
 ```bash
 cd /Users/greatelephant82/.claude/skills
-git add dw-case-brain/SKILL.md dw-case-brain/references/case-brain-template.md
-git commit -m "feat: rewrite dw-case-brain skill for Obsidian MCP (replace DEVONthink)"
+git add dw-case-brain-crim/SKILL.md dw-case-brain-crim/references/case-brain-template.md
+git commit -m "feat: rewrite dw-case-brain-crim skill for Obsidian MCP (replace DEVONthink)"
 ```
 
 ---
@@ -542,7 +542,7 @@ git commit -m "feat: rewrite dw-case-brain skill for Obsidian MCP (replace DEVON
 | General case analysis | `CB/Case-Analysis/` |
 
 Skills to update:
-1. `dw-criminal-defense` 2. `dw-forensic-dump-analyzer` 3. `dw-suppression-motion` 4. `dw-cross-exam-architect` 5. `dw-brady-giglio-auditor` 6. `dw-search-warrant-auditor` 7. `dw-cell-site-geolocation-auditor` 8. `dw-404b-opposition` 9. `dw-ci-auditor` 10. `dw-lwop-populator` 11. `dw-mobile-forensic-auditor`
+1. `dw-criminal-defense-crim` 2. `dw-forensic-dump-analyzer-crim` 3. `dw-suppression-motion-crim` 4. `dw-cross-exam-architect-crim` 5. `dw-brady-giglio-auditor-crim` 6. `dw-search-warrant-auditor` 7. `dw-cell-site-geolocation-auditor-crim` 8. `dw-404b-opposition-crim` 9. `dw-ci-auditor` 10. `dw-lwop-populator` 11. `dw-mobile-forensic-auditor-crim`
 
 - [ ] **Step 1: Batch 1 — Read and update skills 1–4**
 
@@ -654,8 +654,8 @@ This is a Phase 4 deliverable per the spec.
 
 ```bash
 cd /Users/greatelephant82/.claude/skills
-git add dw-case-brain/SKILL.md
-git commit -m "feat: finalize document search workflow in dw-case-brain"
+git add dw-case-brain-crim/SKILL.md
+git commit -m "feat: finalize document search workflow in dw-case-brain-crim"
 ```
 
 ---
@@ -749,7 +749,7 @@ Ask to find something in discovery. Verify Claude reads Case File Locations, nav
 
 1. Remove remaining DEVONthink references from README
 2. DEVONthink data retained (never deleted) but no longer actively used
-3. `dw-case-brain` skill Obsidian-only path is now the sole path
+3. `dw-case-brain-crim` skill Obsidian-only path is now the sole path
 
 ---
 
@@ -758,7 +758,7 @@ Ask to find something in discovery. Verify Claude reads Case File Locations, nav
 | Phase | Tasks | Key Deliverable |
 |---|---|---|
 | Phase 1 | Tasks 1–6 | Vault restructured, templates updated, README updated |
-| Phase 2 | Tasks 7–10 | MCP configured, dw-case-brain rewritten, companion skills updated |
+| Phase 2 | Tasks 7–10 | MCP configured, dw-case-brain-crim rewritten, companion skills updated |
 | Phase 3 | Tasks 11–12 | Statute fetcher tested, legal theory fetcher tested |
 | Phase 4 | Tasks 13–14 | Document search tested, success criteria verified |
 | Phase 5 | Tasks 15–16 | All case brains migrated, parallel run validated, DEVONthink decommissioned |

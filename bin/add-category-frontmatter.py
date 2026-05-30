@@ -43,46 +43,46 @@ SECTION_TO_CATEGORY: dict[str, str] = {
 # Per-skill overrides (applied when section mapping is empty or wrong)
 OVERRIDES: dict[str, str] = {
     # Orchestrator + infrastructure -> core
-    "dw-criminal-defense":              "core",
-    "dw-case-brain":                    "core",
-    "dw-case-dashboard":                "core",
-    "dw-skill-index":                   "core",
-    "dw-shared-protocols":              "core",
+    "dw-criminal-defense-crim":              "core",
+    "dw-case-brain-crim":                    "core",
+    "dw-case-dashboard-crim":                "core",
+    "dw-skill-index-crim":                   "core",
+    "dw-shared-protocols-crim":              "core",
     "dw-template-selector":             "core",
-    "dw-data-contracts":                "core",
+    "dw-data-contracts-crim":                "core",
 
     # Discovery
-    "dw-discovery-orchestrator":        "discovery",
-    "dw-discovery-compliance-monitor":  "discovery",
-    "dw-brady-giglio-auditor":          "discovery",
+    "dw-discovery-orchestrator-crim":        "discovery",
+    "dw-discovery-compliance-monitor-crim":  "discovery",
+    "dw-brady-giglio-auditor-crim":          "discovery",
 
     # Transcription pipeline
-    "dw-transcript-router":             "transcription",
-    "dw-transcript-pipeline-calcasieu": "transcription",
-    "dw-transcript-pipeline-rev":       "transcription",
-    "dw-dmar-synthesizer":              "transcription",
+    "dw-transcript-router-crim":             "transcription",
+    "dw-transcript-pipeline-calcasieu-crim": "transcription",
+    "dw-transcript-pipeline-rev-crim":       "transcription",
+    "dw-dmar-synthesizer-crim":              "transcription",
 
     # Trial prep (skills not naturally in trial_preparation routing section)
-    "dw-trial-notebook-builder":        "trial-prep",
-    "dw-witness-threat-matrix":         "trial-prep",
-    "dw-jury-focus-group":              "trial-prep",
-    "dw-exhibit-manager":               "trial-prep",
-    "dw-timeline-builder":              "trial-prep",
-    "dw-issue-code-tracker":            "trial-prep",
+    "dw-trial-notebook-builder-crim":        "trial-prep",
+    "dw-witness-threat-matrix-crim":         "trial-prep",
+    "dw-jury-focus-group-crim":              "trial-prep",
+    "dw-exhibit-manager-crim":               "trial-prep",
+    "dw-timeline-builder-crim":              "trial-prep",
+    "dw-issue-code-tracker-crim":            "trial-prep",
 
     # Evidence audit (skill in uncategorized but functionally an audit)
-    "dw-witness-statement-analyzer":    "evidence-audit",
+    "dw-witness-statement-analyzer-crim":    "evidence-audit",
 
     # Disposition / case-closing
-    "dw-case-disposition":              "disposition",
+    "dw-case-disposition-crim":              "disposition",
 
     # Operational utilities
-    "dw-billing-narrative-generator":   "ops",
-    "dw-case-law-researcher":           "ops",
-    "dw-client-communication-drafter":  "ops",
-    "dw-court-jail-tracker":            "ops",
-    "dw-image-filename-stamp":          "ops",
-    "dw-evidence-placeholder":          "ops",
+    "dw-billing-narrative-generator-crim":   "ops",
+    "dw-case-law-researcher-crim":           "ops",
+    "dw-client-communication-drafter-crim":  "ops",
+    "dw-court-jail-tracker-crim":            "ops",
+    "dw-image-filename-stamp-crim":          "ops",
+    "dw-evidence-placeholder-crim":          "ops",
 }
 
 

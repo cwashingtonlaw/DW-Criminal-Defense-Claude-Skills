@@ -23,7 +23,7 @@
 **Moved (via `git mv`):** 69 `skills/dw-*/` → `<plugin>/skills/dw-*/` per the grouping table below.
 
 **Modified:**
-- 6 SKILL.md files — repoint 8 `../dw-shared-protocols/...` references.
+- 6 SKILL.md files — repoint 8 `../dw-shared-protocols-crim/...` references.
 - `bin/lint-skills.py` — add `discover_skills()` helper; use it for discovery + single-skill lookup + `all_skill_names`.
 - `bin/regen-skill-index.py` — reuse `discover_skills()`; namespace skill names in rendered tables.
 - `bin/add-category-frontmatter.py` — discover via plugin layout.
@@ -36,15 +36,15 @@
 
 | Plugin | Skills |
 |---|---|
-| `dw-core` | dw-case-brain, dw-case-dashboard, dw-criminal-defense, dw-data-contracts, dw-shared-protocols, dw-skill-index |
-| `dw-intake-discovery` | dw-client-intake-interview, dw-brady-giglio-auditor, dw-discovery-compliance-monitor, dw-discovery-orchestrator |
-| `dw-evidence-audit` | dw-cell-site-geolocation-auditor, dw-chain-of-custody-auditor, dw-child-forensic-interview-auditor, dw-confession-interrogation-auditor, dw-crime-lab-auditor, dw-crime-scene-auditor, dw-dna-forensic-biology-auditor, dw-expert-witness-evaluator, dw-eyewitness-identification-auditor, dw-forensic-dump-analyzer, dw-jail-call-analyzer, dw-mobile-forensic-auditor, dw-social-media-auditor, dw-sqlite-recovery, dw-video-evidence-auditor, dw-witness-statement-analyzer |
-| `dw-offense-specialists` | dw-drug-offense-specialist, dw-dwi-specialist, dw-firearms-specialist, dw-sex-offense-specialist, dw-violent-crime-specialist |
-| `dw-pleadings` | dw-404b-opposition, dw-bond-and-release-motion, dw-pretrial-motion-library, dw-suppression-motion |
-| `dw-trial-prep` | dw-adversarial-stress-test, dw-appellate-error-monitor, dw-cross-exam-architect, dw-defense-investigator-tasking, dw-direct-exam-architect, dw-exhibit-manager, dw-issue-code-tracker, dw-jury-focus-group, dw-jury-instructions-builder, dw-theory-to-workplan, dw-timeline-builder, dw-trial-day-assistant, dw-trial-narrative-builder, dw-trial-notebook-builder, dw-voir-dire-assistant, dw-witness-threat-matrix, dw-neutral-inventory, dw-theory-deconstructor |
-| `dw-transcription` | dw-dmar-synthesizer, dw-transcript-pipeline-calcasieu, dw-transcript-pipeline-rev, dw-transcript-router |
-| `dw-disposition` | dw-appellate-brief-builder, dw-case-disposition, dw-habitual-offender-auditor, dw-plea-negotiation-analyzer, dw-post-conviction-relief, dw-sentencing-mitigation-specialist |
-| `dw-ops` | dw-billing-narrative-generator, dw-case-law-researcher, dw-client-communication-drafter, dw-court-jail-tracker, dw-evidence-placeholder, dw-image-filename-stamp |
+| `dw-core` | dw-case-brain-crim, dw-case-dashboard-crim, dw-criminal-defense-crim, dw-data-contracts-crim, dw-shared-protocols-crim, dw-skill-index-crim |
+| `dw-intake-discovery` | dw-client-intake-interview-crim, dw-brady-giglio-auditor-crim, dw-discovery-compliance-monitor-crim, dw-discovery-orchestrator-crim |
+| `dw-evidence-audit` | dw-cell-site-geolocation-auditor-crim, dw-chain-of-custody-auditor-crim, dw-child-forensic-interview-auditor-crim, dw-confession-interrogation-auditor-crim, dw-crime-lab-auditor-crim, dw-crime-scene-auditor-crim, dw-dna-forensic-biology-auditor-crim, dw-expert-witness-evaluator-crim, dw-eyewitness-identification-auditor-crim, dw-forensic-dump-analyzer-crim, dw-jail-call-analyzer-crim, dw-mobile-forensic-auditor-crim, dw-social-media-auditor-crim, dw-sqlite-recovery-crim, dw-video-evidence-auditor-crim, dw-witness-statement-analyzer-crim |
+| `dw-offense-specialists` | dw-drug-offense-specialist-crim, dw-dwi-specialist-crim, dw-firearms-specialist-crim, dw-sex-offense-specialist-crim, dw-violent-crime-specialist-crim |
+| `dw-pleadings` | dw-404b-opposition-crim, dw-bond-and-release-motion-crim, dw-pretrial-motion-library-crim, dw-suppression-motion-crim |
+| `dw-trial-prep` | dw-adversarial-stress-test-crim, dw-appellate-error-monitor-crim, dw-cross-exam-architect-crim, dw-defense-investigator-tasking-crim, dw-direct-exam-architect-crim, dw-exhibit-manager-crim, dw-issue-code-tracker-crim, dw-jury-focus-group-crim, dw-jury-instructions-builder-crim, dw-theory-to-workplan-crim, dw-timeline-builder-crim, dw-trial-day-assistant-crim, dw-trial-narrative-builder-crim, dw-trial-notebook-builder-crim, dw-voir-dire-assistant-crim, dw-witness-threat-matrix-crim, dw-neutral-inventory-crim, dw-theory-deconstructor-crim |
+| `dw-transcription` | dw-dmar-synthesizer-crim, dw-transcript-pipeline-calcasieu-crim, dw-transcript-pipeline-rev-crim, dw-transcript-router-crim |
+| `dw-disposition` | dw-appellate-brief-builder-crim, dw-case-disposition-crim, dw-habitual-offender-auditor-crim, dw-plea-negotiation-analyzer-crim, dw-post-conviction-relief-crim, dw-sentencing-mitigation-specialist-crim |
+| `dw-ops` | dw-billing-narrative-generator-crim, dw-case-law-researcher-crim, dw-client-communication-drafter-crim, dw-court-jail-tracker-crim, dw-evidence-placeholder-crim, dw-image-filename-stamp-crim |
 
 ---
 
@@ -88,56 +88,56 @@ A throwaway script encodes the grouping table once and is reused for the move an
 # values are the dw-* skill dir names that belong in <plugin>/skills/.
 PLUGINS = {
     "dw-core": [
-        "dw-case-brain", "dw-case-dashboard", "dw-criminal-defense",
-        "dw-data-contracts", "dw-shared-protocols", "dw-skill-index",
+        "dw-case-brain-crim", "dw-case-dashboard-crim", "dw-criminal-defense-crim",
+        "dw-data-contracts-crim", "dw-shared-protocols-crim", "dw-skill-index-crim",
     ],
     "dw-intake-discovery": [
-        "dw-client-intake-interview", "dw-brady-giglio-auditor",
-        "dw-discovery-compliance-monitor", "dw-discovery-orchestrator",
+        "dw-client-intake-interview-crim", "dw-brady-giglio-auditor-crim",
+        "dw-discovery-compliance-monitor-crim", "dw-discovery-orchestrator-crim",
     ],
     "dw-evidence-audit": [
-        "dw-cell-site-geolocation-auditor", "dw-chain-of-custody-auditor",
-        "dw-child-forensic-interview-auditor", "dw-confession-interrogation-auditor",
-        "dw-crime-lab-auditor", "dw-crime-scene-auditor",
-        "dw-dna-forensic-biology-auditor", "dw-expert-witness-evaluator",
-        "dw-eyewitness-identification-auditor", "dw-forensic-dump-analyzer",
-        "dw-jail-call-analyzer", "dw-mobile-forensic-auditor",
-        "dw-social-media-auditor", "dw-sqlite-recovery",
-        "dw-video-evidence-auditor", "dw-witness-statement-analyzer",
+        "dw-cell-site-geolocation-auditor-crim", "dw-chain-of-custody-auditor-crim",
+        "dw-child-forensic-interview-auditor-crim", "dw-confession-interrogation-auditor-crim",
+        "dw-crime-lab-auditor-crim", "dw-crime-scene-auditor-crim",
+        "dw-dna-forensic-biology-auditor-crim", "dw-expert-witness-evaluator-crim",
+        "dw-eyewitness-identification-auditor-crim", "dw-forensic-dump-analyzer-crim",
+        "dw-jail-call-analyzer-crim", "dw-mobile-forensic-auditor-crim",
+        "dw-social-media-auditor-crim", "dw-sqlite-recovery-crim",
+        "dw-video-evidence-auditor-crim", "dw-witness-statement-analyzer-crim",
     ],
     "dw-offense-specialists": [
-        "dw-drug-offense-specialist", "dw-dwi-specialist",
-        "dw-firearms-specialist", "dw-sex-offense-specialist",
-        "dw-violent-crime-specialist",
+        "dw-drug-offense-specialist-crim", "dw-dwi-specialist-crim",
+        "dw-firearms-specialist-crim", "dw-sex-offense-specialist-crim",
+        "dw-violent-crime-specialist-crim",
     ],
     "dw-pleadings": [
-        "dw-404b-opposition", "dw-bond-and-release-motion",
-        "dw-pretrial-motion-library", "dw-suppression-motion",
+        "dw-404b-opposition-crim", "dw-bond-and-release-motion-crim",
+        "dw-pretrial-motion-library-crim", "dw-suppression-motion-crim",
     ],
     "dw-trial-prep": [
-        "dw-adversarial-stress-test", "dw-appellate-error-monitor",
-        "dw-cross-exam-architect", "dw-defense-investigator-tasking",
-        "dw-direct-exam-architect", "dw-exhibit-manager",
-        "dw-issue-code-tracker", "dw-jury-focus-group",
-        "dw-jury-instructions-builder", "dw-theory-to-workplan",
-        "dw-timeline-builder", "dw-trial-day-assistant",
-        "dw-trial-narrative-builder", "dw-trial-notebook-builder",
-        "dw-voir-dire-assistant", "dw-witness-threat-matrix",
-        "dw-neutral-inventory", "dw-theory-deconstructor",
+        "dw-adversarial-stress-test-crim", "dw-appellate-error-monitor-crim",
+        "dw-cross-exam-architect-crim", "dw-defense-investigator-tasking-crim",
+        "dw-direct-exam-architect-crim", "dw-exhibit-manager-crim",
+        "dw-issue-code-tracker-crim", "dw-jury-focus-group-crim",
+        "dw-jury-instructions-builder-crim", "dw-theory-to-workplan-crim",
+        "dw-timeline-builder-crim", "dw-trial-day-assistant-crim",
+        "dw-trial-narrative-builder-crim", "dw-trial-notebook-builder-crim",
+        "dw-voir-dire-assistant-crim", "dw-witness-threat-matrix-crim",
+        "dw-neutral-inventory-crim", "dw-theory-deconstructor-crim",
     ],
     "dw-transcription": [
-        "dw-dmar-synthesizer", "dw-transcript-pipeline-calcasieu",
-        "dw-transcript-pipeline-rev", "dw-transcript-router",
+        "dw-dmar-synthesizer-crim", "dw-transcript-pipeline-calcasieu-crim",
+        "dw-transcript-pipeline-rev-crim", "dw-transcript-router-crim",
     ],
     "dw-disposition": [
-        "dw-appellate-brief-builder", "dw-case-disposition",
-        "dw-habitual-offender-auditor", "dw-plea-negotiation-analyzer",
-        "dw-post-conviction-relief", "dw-sentencing-mitigation-specialist",
+        "dw-appellate-brief-builder-crim", "dw-case-disposition-crim",
+        "dw-habitual-offender-auditor-crim", "dw-plea-negotiation-analyzer-crim",
+        "dw-post-conviction-relief-crim", "dw-sentencing-mitigation-specialist-crim",
     ],
     "dw-ops": [
-        "dw-billing-narrative-generator", "dw-case-law-researcher",
-        "dw-client-communication-drafter", "dw-court-jail-tracker",
-        "dw-evidence-placeholder", "dw-image-filename-stamp",
+        "dw-billing-narrative-generator-crim", "dw-case-law-researcher-crim",
+        "dw-client-communication-drafter-crim", "dw-court-jail-tracker-crim",
+        "dw-evidence-placeholder-crim", "dw-image-filename-stamp-crim",
     ],
 }
 
@@ -225,7 +225,7 @@ for plugin in PLUGINS:
 
 # Root marketplace.json
 mp = {
-    "name": "dw-criminal-defense",
+    "name": "dw-criminal-defense-crim",
     "owner": {"name": "Chris Washington", "url": "https://danielswashington.com"},
     "description": "Daniels & Washington criminal-defense toolkit — 69 skills across 8 plugins plus dw-core foundation.",
     "metadata": {"version": "1.0.0"},
@@ -329,28 +329,28 @@ git commit -m "refactor: move 69 dw-* skills into 9 plugin dirs; drop iron-gavel
 
 ## Task 5: Repoint the 8 cross-plugin file references
 
-All 8 live in a `SKILL.md` at depth `<plugin>/skills/<skill>/SKILL.md`. From there, `dw-core` is reached via `../../../dw-core/skills/dw-shared-protocols/...` (3× `../`). Every occurrence of `../dw-shared-protocols/` becomes `../../../dw-core/skills/dw-shared-protocols/`.
+All 8 live in a `SKILL.md` at depth `<plugin>/skills/<skill>/SKILL.md`. From there, `dw-core` is reached via `../../../dw-core/skills/dw-shared-protocols-crim/...` (3× `../`). Every occurrence of `../dw-shared-protocols-crim/` becomes `../../../dw-core/skills/dw-shared-protocols-crim/`.
 
 **Files (modify):**
-- `dw-disposition/skills/dw-sentencing-mitigation-specialist/SKILL.md` (lines 8, 239)
-- `dw-trial-prep/skills/dw-issue-code-tracker/SKILL.md` (line 29)
-- `dw-pleadings/skills/dw-bond-and-release-motion/SKILL.md` (line 7)
-- `dw-disposition/skills/dw-post-conviction-relief/SKILL.md` (lines 259, 285)
-- `dw-pleadings/skills/dw-404b-opposition/SKILL.md` (line 8)
-- `dw-pleadings/skills/dw-suppression-motion/SKILL.md` (line 8)
+- `dw-disposition/skills/dw-sentencing-mitigation-specialist-crim/SKILL.md` (lines 8, 239)
+- `dw-trial-prep/skills/dw-issue-code-tracker-crim/SKILL.md` (line 29)
+- `dw-pleadings/skills/dw-bond-and-release-motion-crim/SKILL.md` (line 7)
+- `dw-disposition/skills/dw-post-conviction-relief-crim/SKILL.md` (lines 259, 285)
+- `dw-pleadings/skills/dw-404b-opposition-crim/SKILL.md` (line 8)
+- `dw-pleadings/skills/dw-suppression-motion-crim/SKILL.md` (line 8)
 
 - [ ] **Step 1: Apply the uniform repoint across the 6 files**
 
 Run:
 ```bash
 for f in \
-  dw-disposition/skills/dw-sentencing-mitigation-specialist/SKILL.md \
-  dw-trial-prep/skills/dw-issue-code-tracker/SKILL.md \
-  dw-pleadings/skills/dw-bond-and-release-motion/SKILL.md \
-  dw-disposition/skills/dw-post-conviction-relief/SKILL.md \
-  dw-pleadings/skills/dw-404b-opposition/SKILL.md \
-  dw-pleadings/skills/dw-suppression-motion/SKILL.md ; do
-    perl -i -pe 's{\.\./dw-shared-protocols/}{../../../dw-core/skills/dw-shared-protocols/}g' "$f"
+  dw-disposition/skills/dw-sentencing-mitigation-specialist-crim/SKILL.md \
+  dw-trial-prep/skills/dw-issue-code-tracker-crim/SKILL.md \
+  dw-pleadings/skills/dw-bond-and-release-motion-crim/SKILL.md \
+  dw-disposition/skills/dw-post-conviction-relief-crim/SKILL.md \
+  dw-pleadings/skills/dw-404b-opposition-crim/SKILL.md \
+  dw-pleadings/skills/dw-suppression-motion-crim/SKILL.md ; do
+    perl -i -pe 's{\.\./dw-shared-protocols-crim/}{../../../dw-core/skills/dw-shared-protocols-crim/}g' "$f"
 done
 echo "repointed"
 ```
@@ -360,14 +360,14 @@ Expected: prints "repointed".
 
 Run:
 ```bash
-echo "stale refs left (expect 0):"; grep -rn '\.\./dw-shared-protocols' */skills/ | grep -v '\.\./\.\./\.\./dw-core/' | wc -l
+echo "stale refs left (expect 0):"; grep -rn '\.\./dw-shared-protocols-crim' */skills/ | grep -v '\.\./\.\./\.\./dw-core/' | wc -l
 echo "new refs that DO NOT resolve on disk (expect empty):"
 python3 - <<'PY'
 import re
 from pathlib import Path
 bad=[]
 for md in Path(".").glob("*/skills/dw-*/SKILL.md"):
-    for m in re.finditer(r'(\.\./\.\./\.\./dw-core/skills/dw-shared-protocols/[^\s`)]+)', md.read_text(encoding="utf-8")):
+    for m in re.finditer(r'(\.\./\.\./\.\./dw-core/skills/dw-shared-protocols-crim/[^\s`)]+)', md.read_text(encoding="utf-8")):
         target=(md.parent / m.group(1)).resolve()
         if not target.exists(): bad.append((str(md), m.group(1)))
 for b in bad: print(b)
@@ -379,7 +379,7 @@ Expected: `0` stale refs; the Python block prints nothing (every repointed path 
 
 ```bash
 git add */skills/*/SKILL.md
-git commit -m "fix: repoint 8 dw-shared-protocols refs to dw-core depth"
+git commit -m "fix: repoint 8 dw-shared-protocols-crim refs to dw-core depth"
 ```
 
 ---
@@ -457,7 +457,7 @@ In `bin/regen-skill-index.py`, add near the top (after the `_lint_skills` import
 PLUGIN_OF = {d.name: plugin for plugin, d in _lint_skills.discover_skills()}
 
 def ns(skill_name: str) -> str:
-    """Namespaced display name, e.g. dw-pleadings:dw-suppression-motion."""
+    """Namespaced display name, e.g. dw-pleadings:dw-suppression-motion-crim."""
     p = PLUGIN_OF.get(skill_name)
     return f"{p}:{skill_name}" if p else skill_name
 ```
@@ -488,10 +488,10 @@ spec = importlib.util.spec_from_file_location("lint_skills", "bin/lint-skills.py
 m = importlib.util.module_from_spec(spec); sys.modules["lint_skills"]=m; spec.loader.exec_module(m)
 dw = [d for d in m.discover_skill_dirs() if d.name.startswith("dw-")]
 print("dw skills discovered:", len(dw))            # expect 69
-print("sample namespace:", dict((p,d.name) for p,d in m.discover_skills() if d.name=="dw-suppression-motion"))
+print("sample namespace:", dict((p,d.name) for p,d in m.discover_skills() if d.name=="dw-suppression-motion-crim"))
 PY
 ```
-Expected: `dw skills discovered: 69`; sample shows `{'dw-pleadings': 'dw-suppression-motion'}`.
+Expected: `dw skills discovered: 69`; sample shows `{'dw-pleadings': 'dw-suppression-motion-crim'}`.
 
 - [ ] **Step 7: Commit**
 
@@ -504,16 +504,16 @@ git commit -m "build: bin tooling discovers skills across plugin layout"
 
 ## Task 7: Regenerate index + lint gate
 
-**Files (modify):** `dw-core/skills/dw-skill-index/SKILL.md` (regenerated).
+**Files (modify):** `dw-core/skills/dw-skill-index-crim/SKILL.md` (regenerated).
 
 - [ ] **Step 1: Regenerate the index tables**
 
 Run:
 ```bash
 bin/regen-skill-index.py
-git diff --stat dw-core/skills/dw-skill-index/SKILL.md
+git diff --stat dw-core/skills/dw-skill-index-crim/SKILL.md
 ```
-Expected: the index SKILL.md updates; diff shows skill cells now namespaced (e.g. `dw-pleadings:dw-suppression-motion`).
+Expected: the index SKILL.md updates; diff shows skill cells now namespaced (e.g. `dw-pleadings:dw-suppression-motion-crim`).
 
 - [ ] **Step 2: Lint gate (MUST be 0 errors)**
 
@@ -535,7 +535,7 @@ Expected: `0` — every `dw-*` mention still resolves against the discovered nam
 - [ ] **Step 4: Commit**
 
 ```bash
-git add dw-core/skills/dw-skill-index/SKILL.md
+git add dw-core/skills/dw-skill-index-crim/SKILL.md
 git commit -m "docs: regenerate skill index with namespaced names"
 ```
 
@@ -560,19 +560,19 @@ In the Claude Code session, run:
 ```
 Then enable each plugin (or via `/plugin` UI): `dw-core`, `dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, `dw-ops`.
 
-Expected: marketplace `dw-criminal-defense` registers; 9 plugins install with `installPath` pointing at the repo dirs (in place).
+Expected: marketplace `dw-criminal-defense-crim` registers; 9 plugins install with `installPath` pointing at the repo dirs (in place).
 
 - [ ] **Step 3: Verify in-place install + namespaced availability**
 
 Run:
 ```bash
-python3 -c "import json; d=json.load(open('$HOME/.claude/plugins/installed_plugins.json')); ks=[k for k in d if k.endswith('@dw-criminal-defense')]; print('installed:', len(ks)); [print(' ', k, d[k][0]['installPath']) for k in sorted(ks)]"
+python3 -c "import json; d=json.load(open('$HOME/.claude/plugins/installed_plugins.json')); ks=[k for k in d if k.endswith('@dw-criminal-defense-crim')]; print('installed:', len(ks)); [print(' ', k, d[k][0]['installPath']) for k in sorted(ks)]"
 ```
 Expected: `installed: 9`, each `installPath` under `~/Documents/GitHub/dw-skills/<plugin>` (in place, not cache).
 
 - [ ] **Step 4: Smoke test — one skill per plugin + a cross-plugin load**
 
-In session, confirm these are invocable by namespace (spot-check, not all 69): `/dw-core:dw-case-brain`, `/dw-pleadings:dw-suppression-motion`, `/dw-evidence-audit:dw-mobile-forensic-auditor`, `/dw-disposition:dw-sentencing-mitigation-specialist`. Then invoke `/dw-pleadings:dw-suppression-motion` and confirm it can still read `dw-core`'s `template-selection-protocol.md` (cross-plugin file load resolves) and that `/dw-core:dw-criminal-defense` orchestrator routing references a specialist in another plugin without error.
+In session, confirm these are invocable by namespace (spot-check, not all 69): `/dw-core:dw-case-brain-crim`, `/dw-pleadings:dw-suppression-motion-crim`, `/dw-evidence-audit:dw-mobile-forensic-auditor-crim`, `/dw-disposition:dw-sentencing-mitigation-specialist-crim`. Then invoke `/dw-pleadings:dw-suppression-motion-crim` and confirm it can still read `dw-core`'s `template-selection-protocol.md` (cross-plugin file load resolves) and that `/dw-core:dw-criminal-defense-crim` orchestrator routing references a specialist in another plugin without error.
 
 Expected: all spot-checked skills resolve; the cross-plugin file read succeeds.
 
@@ -592,7 +592,7 @@ Expected: `0` (no dw-* visible via the symlink path → no duplicate-load confli
 
 - [ ] **Step 1: Update repo docs**
 
-In `README.md` and `CLAUDE.md`, add a short "Plugin layout" note: skills now live in 9 plugins under a local marketplace; invoke as `plugin:skill` (e.g. `/dw-pleadings:dw-suppression-motion`); `dw-core` is the shared foundation; the flat `skills/` holds only non-dw personal skills. In `docs/skill-dependency-graph.md`, update the "Cross-category dependency boundaries" note to say the packaging is now implemented (Approach B, machine-local).
+In `README.md` and `CLAUDE.md`, add a short "Plugin layout" note: skills now live in 9 plugins under a local marketplace; invoke as `plugin:skill` (e.g. `/dw-pleadings:dw-suppression-motion-crim`); `dw-core` is the shared foundation; the flat `skills/` holds only non-dw personal skills. In `docs/skill-dependency-graph.md`, update the "Cross-category dependency boundaries" note to say the packaging is now implemented (Approach B, machine-local).
 
 - [ ] **Step 2: Commit docs**
 

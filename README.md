@@ -49,9 +49,9 @@ The auto-pull agent checks every 5 minutes if installed.
 ```
 dw-skills/
 ├── skills/                    ← All skill directories live here
-│   ├── dw-case-brain/
+│   ├── dw-case-brain-crim/
 │   │   └── SKILL.md
-│   ├── dw-criminal-defense/
+│   ├── dw-criminal-defense-crim/
 │   │   ├── SKILL.md
 │   │   └── references/
 │   └── ...
@@ -65,7 +65,7 @@ dw-skills/
 
 ## Plugin layout
 
-Skills are organized as 9 plugins under a machine-local Claude Code marketplace named `dw-criminal-defense`. Invoke skills namespaced as `plugin:skill` — e.g. `/dw-pleadings:dw-suppression-motion` or `/dw-core:dw-case-brain`. Bare `/dw-*` invocation no longer works for these skills.
+Skills are organized as 9 plugins under a machine-local Claude Code marketplace named `dw-criminal-defense-crim`. Invoke skills namespaced as `plugin:skill` — e.g. `/dw-pleadings:dw-suppression-motion-crim` or `/dw-core:dw-case-brain-crim`. Bare `/dw-*` invocation no longer works for these skills.
 
 `dw-core` is the shared foundation (case-brain, case-dashboard, criminal-defense, data-contracts, shared-protocols, skill-index) that every other plugin depends on. The 8 functional plugins are: `dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, and `dw-ops`.
 

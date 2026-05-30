@@ -4,7 +4,7 @@ This repository is the canonical source of truth for the Daniels & Washington (D
 
 When working in this repo, follow the conventions below. They exist because they have been established across ~60 skills and ~150 reference files; deviations create maintenance burden and lawyer-facing inconsistency.
 
-> **Plugin layout (as of May 2026):** Skills now live in 9 plugins — `dw-core` (foundation) plus 8 functional plugins (`dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, `dw-ops`) — installed as a machine-local marketplace named `dw-criminal-defense`. Invoke skills namespaced: `/dw-pleadings:dw-suppression-motion`, `/dw-core:dw-case-brain`, etc. Cross-skill references in prose still use bare `dw-*` names; the model resolves them via the available-skills list.
+> **Plugin layout (as of May 2026):** Skills now live in 9 plugins — `dw-core` (foundation) plus 8 functional plugins (`dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, `dw-ops`) — installed as a machine-local marketplace named `dw-criminal-defense`. Invoke skills namespaced: `/dw-pleadings:dw-suppression-motion-crim`, `/dw-core:dw-case-brain-crim`, etc. Cross-skill references in prose still use bare `dw-*` names; the model resolves them via the available-skills list.
 
 ---
 
@@ -26,14 +26,14 @@ When working in this repo, follow the conventions below. They exist because they
 │   ├── DW_Skills_Operations_Guide_v1.2.docx
 │   └── Updated_Skill_Map_March_2026.docx     ← Canonical skill map (refresh on net additions/removals)
 └── skills/
-    ├── dw-criminal-defense/     ← Master 3-phase orchestrator (the entry point)
-    ├── dw-skill-index/          ← Lookup table for all skills (the routing manual)
-    ├── dw-shared-protocols/     ← Library of shared references other skills load (work-product marking, output-path formula, captions, DEVONthink template-selection-protocol, etc.)
-    ├── dw-data-contracts/       ← Cross-skill input/output schemas
+    ├── dw-criminal-defense-crim/     ← Master 3-phase orchestrator (the entry point)
+    ├── dw-skill-index-crim/          ← Lookup table for all skills (the routing manual)
+    ├── dw-shared-protocols-crim/     ← Library of shared references other skills load (work-product marking, output-path formula, captions, DEVONthink template-selection-protocol, etc.)
+    ├── dw-data-contracts-crim/       ← Cross-skill input/output schemas
     └── dw-*/                    ← All other D&W skills follow the standard pattern
 ```
 
-The `skills/` directory is the canonical install point — Claude Code reads from here. The duplicate top-level `dw-trial-notebook-builder/` directory is a known stale artifact from an older upload pipeline; treat `skills/dw-trial-notebook-builder/` as authoritative.
+The `skills/` directory is the canonical install point — Claude Code reads from here. The duplicate top-level `dw-trial-notebook-builder-crim/` directory is a known stale artifact from an older upload pipeline; treat `skills/dw-trial-notebook-builder-crim/` as authoritative.
 
 ---
 
@@ -86,7 +86,7 @@ The session-start banner will confirm the linter is healthy. Try a discoverabili
 > what skills do we have for evidence audits?
 ```
 
-Claude should consult `dw-skill-index` and return the Evidence Auditing routing table. If it doesn't, the skill collection isn't loaded — re-run `bin/dw-skill-git.sh sync`.
+Claude should consult `dw-skill-index-crim` and return the Evidence Auditing routing table. If it doesn't, the skill collection isn't loaded — re-run `bin/dw-skill-git.sh sync`.
 
 ### 6. Cowork project setup (Claude on the web)
 
@@ -96,13 +96,13 @@ For the Claude Cowork project (firm-wide criminal-defense workspace), the projec
 
 | Situation | Say this | Skill that fires |
 |---|---|---|
-| New client, first meeting | "intake" or "new client meeting" | `dw-client-intake-interview` |
-| New case, file processing | "new case" or "case intake" | `dw-criminal-defense` (Phase 1) |
-| Returning to existing case | "load the case" | `dw-case-brain` |
-| Mid-trial, in court | "log this objection" | `dw-trial-day-assistant` |
-| After verdict, prepping appeal | "preserve error" then later "appellate brief" | `dw-appellate-error-monitor` → `dw-appellate-brief-builder` |
+| New client, first meeting | "intake" or "new client meeting" | `dw-client-intake-interview-crim` |
+| New case, file processing | "new case" or "case intake" | `dw-criminal-defense-crim` (Phase 1) |
+| Returning to existing case | "load the case" | `dw-case-brain-crim` |
+| Mid-trial, in court | "log this objection" | `dw-trial-day-assistant-crim` |
+| After verdict, prepping appeal | "preserve error" then later "appellate brief" | `dw-appellate-error-monitor-crim` → `dw-appellate-brief-builder-crim` |
 
-For the full routing table, ask: *"what skills do we have"* (invokes `dw-skill-index`).
+For the full routing table, ask: *"what skills do we have"* (invokes `dw-skill-index-crim`).
 
 ### 8. Common troubleshooting
 
@@ -110,9 +110,9 @@ For the full routing table, ask: *"what skills do we have"* (invokes `dw-skill-i
 |---|---|---|
 | Stop hook fires, session won't end | Linter found errors | Run `bin/lint-skills.py --errors-only` to see what's broken; fix and retry stop |
 | SessionStart banner missing | `.claude/settings.json` wasn't present at session start | Run `/hooks` in Claude Code to reload, or restart the session |
-| Skill not invoked when expected | Trigger keywords don't match user's wording | Check `dw-skill-index` for the canonical trigger phrase; rephrase, or update the skill's frontmatter description |
+| Skill not invoked when expected | Trigger keywords don't match user's wording | Check `dw-skill-index-crim` for the canonical trigger phrase; rephrase, or update the skill's frontmatter description |
 | `bin/lint-skills.py` reports E4 (broken cross-skill ref) | Skill mentions a `dw-foo` that doesn't exist | Either fix the reference or, if intentional historical mention, add a "former" / "merged into" / "deprecated" marker on the same line so the linter recognizes it as historical |
-| `bin/regen-skill-index.py --check` exits 1 | Index is stale | Run `bin/regen-skill-index.py` to apply, then commit `skills/dw-skill-index/SKILL.md` |
+| `bin/regen-skill-index.py --check` exits 1 | Index is stale | Run `bin/regen-skill-index.py` to apply, then commit `skills/dw-skill-index-crim/SKILL.md` |
 
 ---
 
@@ -143,7 +143,7 @@ Unsourced claims must be marked `[UNSOURCED — VERIFY]` so the attorney knows t
 
 ### 3. Output paths anchor on `{{CASE_ROOT}}`
 
-All deliverable file paths follow the formula in `dw-shared-protocols/references/output-path-formula.md`. The convention root for analytical outputs:
+All deliverable file paths follow the formula in `dw-shared-protocols-crim/references/output-path-formula.md`. The convention root for analytical outputs:
 
 ```
 {{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/
@@ -152,20 +152,20 @@ All deliverable file paths follow the formula in `dw-shared-protocols/references
 with sub-folders for specific phases. Two known special-case anchors:
 
 - `{{FIRM_MARKETING_ROOT}}` — used by PI marketing skills (now in the sibling `DW-PI-Marketing-Claude-Skills` repo) for marketing-folder outputs; case-derived facts still cite `{{CASE_ROOT}}` if those skills consume case data
-- `~/.dw-tracker/` — local tracker artifacts (`dw-court-jail-tracker`)
+- `~/.dw-tracker/` — local tracker artifacts (`dw-court-jail-tracker-crim`)
 
 ### 4. Every deliverable carries attorney work-product marking
 
-Per `dw-shared-protocols/references/attorney-work-product-marking.md`. Every analytical or motion deliverable header includes the marking. The shared-protocols load step is Step 0.5 in every standard skill.
+Per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`. Every analytical or motion deliverable header includes the marking. The shared-protocols load step is Step 0.5 in every standard skill.
 
 ### 5. Don't modify shared infrastructure casually
 
 The following skills are infrastructure that downstream skills depend on. Changes ripple. Discuss before touching:
 
-- `dw-shared-protocols/` — the protocol library; many skills load from here (includes the DEVONthink template-selection-protocol, formerly the standalone `dw-template-selector`)
-- `dw-data-contracts/` — cross-skill schemas
-- `dw-skill-index/` — lookup; needs updating only when adding/retiring skills (use the linter to verify references resolve)
-- `dw-criminal-defense/` — the master orchestrator (currently v5.4); changes here affect Cowork's workflow
+- `dw-shared-protocols-crim/` — the protocol library; many skills load from here (includes the DEVONthink template-selection-protocol, formerly the standalone `dw-template-selector`)
+- `dw-data-contracts-crim/` — cross-skill schemas
+- `dw-skill-index-crim/` — lookup; needs updating only when adding/retiring skills (use the linter to verify references resolve)
+- `dw-criminal-defense-crim/` — the master orchestrator (currently v5.4); changes here affect Cowork's workflow
 
 ### 6. Cowork drafts; attorney approves
 
@@ -194,7 +194,7 @@ description: >
 [Hard-stop language that prevents premature analysis when uploads are in flight]
 
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
-[Reads dw-shared-protocols/SKILL.md + work-product marking + output-path formula]
+[Reads dw-shared-protocols-crim/SKILL.md + work-product marking + output-path formula]
 
 ### Source Citation Mandate
 [Every factual assertion traces to a source; format and unsourced rules]
@@ -221,12 +221,12 @@ References for a skill live in `skills/dw-<name>/references/`. Each reference is
 
 These skills legitimately diverge — see `EXEMPT` table in `bin/lint-skills.py` for the full list:
 
-- `dw-skill-index` — lookup/index only, no file output
-- `dw-shared-protocols` — by design a library other skills load files from (includes the template-selection-protocol)
-- `dw-data-contracts` — schema definitions
-- `dw-criminal-defense` — master orchestrator; downstream skills enforce hard stops + citations
-- `dw-case-brain` — session persistence to internal `brain.md`, no attorney deliverables
-- `dw-evidence-placeholder`, `dw-image-filename-stamp` — utility skills
+- `dw-skill-index-crim` — lookup/index only, no file output
+- `dw-shared-protocols-crim` — by design a library other skills load files from (includes the template-selection-protocol)
+- `dw-data-contracts-crim` — schema definitions
+- `dw-criminal-defense-crim` — master orchestrator; downstream skills enforce hard stops + citations
+- `dw-case-brain-crim` — session persistence to internal `brain.md`, no attorney deliverables
+- `dw-evidence-placeholder-crim`, `dw-image-filename-stamp-crim` — utility skills
 
 ---
 
@@ -236,15 +236,15 @@ Several skills feed each other in well-defined chains. Preserve these contracts.
 
 | Producer | Consumer | What flows |
 |---|---|---|
-| `dw-trial-day-assistant` Module B (objection log) | `dw-appellate-error-monitor` Modules A/B | Objection log schema is field-for-field aligned (additive `Day`/`Time` fields only) |
-| `dw-trial-day-assistant` Module C (witness scorecard) | `dw-cross-exam-architect` | Per-witness scorecard rolls into next-day cross prep |
-| `dw-appellate-error-monitor` ranked-issue output (Module H) | `dw-appellate-brief-builder` Step 1 | Ranked appellate issues feed brief drafting; routes back if missing |
-| `dw-jail-call-analyzer` tampering risk findings | `dw-witness-threat-matrix` (Refresh Mode) | Cross-feed for witness-contact monitoring |
-| `dw-client-intake-interview` charge-type dispatcher | All five charge-type specialists | Charge identification routes to the right specialist (drug, DWI, sex, firearms, violent) |
-| `dw-criminal-defense` Phase 2 Step 1C | All evidence auditors | Evidence-type routing |
-| `dw-criminal-defense` Phase 2 Step 1D | All charge-type specialists | Charge-type routing |
-| `dw-criminal-defense` Phase 3 Step 11 | `dw-trial-day-assistant` | Trial-day live support routing |
-| `dw-confession-interrogation-auditor` Step 4 | `dw-suppression-motion` | Audit findings → Art. 703 motion |
+| `dw-trial-day-assistant-crim` Module B (objection log) | `dw-appellate-error-monitor-crim` Modules A/B | Objection log schema is field-for-field aligned (additive `Day`/`Time` fields only) |
+| `dw-trial-day-assistant-crim` Module C (witness scorecard) | `dw-cross-exam-architect-crim` | Per-witness scorecard rolls into next-day cross prep |
+| `dw-appellate-error-monitor-crim` ranked-issue output (Module H) | `dw-appellate-brief-builder-crim` Step 1 | Ranked appellate issues feed brief drafting; routes back if missing |
+| `dw-jail-call-analyzer-crim` tampering risk findings | `dw-witness-threat-matrix-crim` (Refresh Mode) | Cross-feed for witness-contact monitoring |
+| `dw-client-intake-interview-crim` charge-type dispatcher | All five charge-type specialists | Charge identification routes to the right specialist (drug, DWI, sex, firearms, violent) |
+| `dw-criminal-defense-crim` Phase 2 Step 1C | All evidence auditors | Evidence-type routing |
+| `dw-criminal-defense-crim` Phase 2 Step 1D | All charge-type specialists | Charge-type routing |
+| `dw-criminal-defense-crim` Phase 3 Step 11 | `dw-trial-day-assistant-crim` | Trial-day live support routing |
+| `dw-confession-interrogation-auditor-crim` Step 4 | `dw-suppression-motion-crim` | Audit findings → Art. 703 motion |
 
 When you change an upstream skill's output, check the consumer skills for breakage.
 
@@ -262,7 +262,7 @@ When you change an upstream skill's output, check the consumer skills for breaka
 | Sync skills to ~/.claude/skills | `bin/dw-skill-git.sh sync` |
 | Check sync status | `bin/dw-skill-git.sh status` |
 | Background auto-pull | `bin/auto-pull.sh` |
-| Regenerate `dw-skill-index/SKILL.md` from frontmatter | `bin/regen-skill-index.py` |
+| Regenerate `dw-skill-index-crim/SKILL.md` from frontmatter | `bin/regen-skill-index.py` |
 | Check whether the skill index is up to date | `bin/regen-skill-index.py --check` |
 | Add `category:` frontmatter to all skills | `bin/add-category-frontmatter.py` |
 | Package each skill as a `.skill` zip for Cowork import | `bin/dw-skill-git.sh export-cowork` |
@@ -316,10 +316,10 @@ echo '{"session_id":"test"}' | bash -c 'output=$(bin/lint-skills.py --errors-onl
 Expected output (clean): silent (no output, exit 0). The hook only emits JSON when there are errors.
 
 **Pipe-test the Stop hook (error path):**
-1. Introduce a temporary error: `echo "broken-ref to references/totally-missing-file.md" >> skills/dw-jail-call-analyzer/SKILL.md`
+1. Introduce a temporary error: `echo "broken-ref to references/totally-missing-file.md" >> skills/dw-jail-call-analyzer-crim/SKILL.md`
 2. Run the same pipe-test command above
-3. Expected output: a JSON line `{"decision":"block","reason":"Skill-pattern linter found errors. Fix before stopping:\n\n\n=== dw-jail-call-analyzer ...\n  ERROR E3: Referenced file does not exist on disk — references/totally-missing-file.md\n\n62 skill(s) checked — 1 error(s), 0 warning(s)."}`
-4. Revert: `git checkout skills/dw-jail-call-analyzer/SKILL.md`
+3. Expected output: a JSON line `{"decision":"block","reason":"Skill-pattern linter found errors. Fix before stopping:\n\n\n=== dw-jail-call-analyzer-crim ...\n  ERROR E3: Referenced file does not exist on disk — references/totally-missing-file.md\n\n62 skill(s) checked — 1 error(s), 0 warning(s)."}`
+4. Revert: `git checkout skills/dw-jail-call-analyzer-crim/SKILL.md`
 
 **Common gotcha — settings watcher:** Claude Code's settings watcher only watches directories that had a `.claude/settings.json` at session start. If you ADD `.claude/settings.json` mid-session, the hooks won't fire in that session. Run `/hooks` to reload, or restart the session.
 
@@ -329,7 +329,7 @@ Expected output (clean): silent (no output, exit 0). The hook only emits JSON wh
 
 When you spawn sub-agents (general-purpose, Plan, Explore) to build or modify skills:
 
-1. **Brief them on the standard pattern** — point them at `dw-suppression-motion`, `dw-violent-crime-specialist`, or `dw-expert-witness-evaluator` as model skills to mirror.
+1. **Brief them on the standard pattern** — point them at `dw-suppression-motion-crim`, `dw-violent-crime-specialist-crim`, or `dw-expert-witness-evaluator-crim` as model skills to mirror.
 2. **Tell them not to commit or push** — sub-agents working on the same branch can race. Have them create files; the parent does the consolidated commit.
 3. **Tell them to NOT modify infrastructure skills** unless the task explicitly requires it.
 4. **Tell them to flag uncertain citations** with `[VERIFY CITATION]`.
@@ -363,10 +363,10 @@ The Stop hook will block stopping if linter errors are present. When you push:
 
 ## Known follow-up items (not blocking, worth knowing)
 
-- White-collar and juvenile charge types surfaced from `dw-client-intake-interview`'s question banks as future specialist-skill candidates (Tier-2).
-- Consider building `bin/regen-skill-index.py` to auto-generate `dw-skill-index/SKILL.md` from a scan of `skills/dw-*/SKILL.md` frontmatter, eliminating the hand-wired routing tables.
+- White-collar and juvenile charge types surfaced from `dw-client-intake-interview-crim`'s question banks as future specialist-skill candidates (Tier-2).
+- Consider building `bin/regen-skill-index.py` to auto-generate `dw-skill-index-crim/SKILL.md` from a scan of `skills/dw-*/SKILL.md` frontmatter, eliminating the hand-wired routing tables.
 - Three Louisiana errors-patent appellate citations from the original brief-builder build (`State v. Price`, `State v. Haynes`, `State v. Shannon`) could not be located in publicly available case databases. They have been replaced with the canonical errors-patent authorities (`State v. Oliveaux`, 312 So.2d 337 (La. 1975) + La. C.Cr.P. Art. 920(2)) — but if the original Price/Haynes/Shannon citations turn out to be real and useful, the attorney can add them back via Westlaw lookup.
-- "Mere words insufficient to constitute aggression" doctrine in `dw-violent-crime-specialist` is described without case attribution; the attorney should add the controlling Louisiana case before filing any deliverable that relies on it.
+- "Mere words insufficient to constitute aggression" doctrine in `dw-violent-crime-specialist-crim` is described without case attribution; the attorney should add the controlling Louisiana case before filing any deliverable that relies on it.
 
 ## Citation verification pass (May 2026)
 

@@ -2,7 +2,7 @@
 
 **ATTORNEY WORK PRODUCT — PRIVILEGED. Internal use; verify against the official statute before filing-grade reliance.**
 
-**Date:** 2026-05-29 · **Researched by:** Cowork (`dw-case-law-researcher`) · **For:** populating `dw-shared-protocols/references/sentencing-statute-versions.md` and resolving `docs/SENTENCING_LAW_DISCREPANCIES_2026-05-29.md`
+**Date:** 2026-05-29 · **Researched by:** Cowork (`dw-case-law-researcher-crim`) · **For:** populating `dw-shared-protocols-crim/references/sentencing-statute-versions.md` and resolving `docs/SENTENCING_LAW_DISCREPANCIES_2026-05-29.md`
 **Sources consulted:** official Louisiana State Legislature statute text (legis.la.gov) + WebSearch corroboration (Justia/FindLaw snapshots). CourtListener MCP and Westlaw were unavailable in this environment; **historical (V1/V2) verbatim text still needs your Westlaw version-compare.**
 
 ---
@@ -75,7 +75,7 @@ Source: legis.la.gov `LawPrint.aspx?d=79190`. Amendment credit line: **Acts 2024
 
 - `[VERIFIED — official source]` All **current** values above are from legis.la.gov (the authoritative source). **Eyeball the official text before filing-grade reliance** — WebFetch extraction can miss sub-clauses.
 - `[VERIFY — Westlaw version-compare]` **Exact verbatim V1/V2 (historical) text** was not independently retrieved (Justia year-snapshots were 403-blocked here). The pre-2017 / interim values are characterized from the amendment history + secondary sources; confirm exact prior-version language via Westlaw's statute version-compare before locking V1/V2 into the reference.
-- `[CORRECTNESS — fix]` Two stale-law bugs to correct in the skills regardless of versioning: (a) `dw-habitual-offender-auditor` module-e 4th-offender LWOP trigger says **"one"** — current law requires **"two of the prior felonies"**; (b) **all three skills** state the 2nd-offender floor as **½** — current is **⅓**.
+- `[CORRECTNESS — fix]` Two stale-law bugs to correct in the skills regardless of versioning: (a) `dw-habitual-offender-auditor-crim` module-e 4th-offender LWOP trigger says **"one"** — current law requires **"two of the prior felonies"**; (b) **all three skills** state the 2nd-offender floor as **½** — current is **⅓**.
 - `[OFFENSE-DATE] ` Multiple provisions are expressly keyed to offense date (8/1/2014, 11/1/2017, 8/1/2024) — the offense-date gate added in commit `1baa90f` is essential to selecting correctly.
 
 ---

@@ -12,14 +12,14 @@ While attempting to de-duplicate the shared "sentencing-exposure" math across th
 
 This is a **correctness issue independent of de-duplication**: the three skills can hand an attorney different sentencing-exposure numbers — including a different answer to *when mandatory life-without-parole attaches*. The de-duplication itself is paused until the law is verified; House Rule #1 forbids selecting an unverified value.
 
-**Skills affected:** `dw-sentencing-mitigation-specialist`, `dw-plea-negotiation-analyzer`, `dw-habitual-offender-auditor`.
+**Skills affected:** `dw-sentencing-mitigation-specialist-crim`, `dw-plea-negotiation-analyzer-crim`, `dw-habitual-offender-auditor-crim`.
 
 ---
 
 ## Engine 1 — Good-time / parole eligibility
 
-- **Source A:** `skills/dw-sentencing-mitigation-specialist/references/good-time-parole-eligibility.md`
-- **Source B:** `skills/dw-plea-negotiation-analyzer/references/module-c-good-time-calculator.md`
+- **Source A:** `skills/dw-sentencing-mitigation-specialist-crim/references/good-time-parole-eligibility.md`
+- **Source B:** `skills/dw-plea-negotiation-analyzer-crim/references/module-c-good-time-calculator.md`
 
 | # | Issue | Source A says | Source B says | Conflict |
 |---|-------|---------------|---------------|----------|
@@ -34,9 +34,9 @@ This is a **correctness issue independent of de-duplication**: the three skills 
 
 ## Engine 2 — Habitual offender (La. R.S. 15:529.1)
 
-- **Source C:** `skills/dw-habitual-offender-auditor/references/module-e-enhancement-tier.md` *(the dedicated habitual-offender skill — presumptive canonical owner, but its values still require verification)*
-- **Source D:** `skills/dw-sentencing-mitigation-specialist/references/habitual-offender-reference.md`
-- **Source E:** `skills/dw-plea-negotiation-analyzer/references/module-h-habitual-offender-leverage.md`
+- **Source C:** `skills/dw-habitual-offender-auditor-crim/references/module-e-enhancement-tier.md` *(the dedicated habitual-offender skill — presumptive canonical owner, but its values still require verification)*
+- **Source D:** `skills/dw-sentencing-mitigation-specialist-crim/references/habitual-offender-reference.md`
+- **Source E:** `skills/dw-plea-negotiation-analyzer-crim/references/module-h-habitual-offender-leverage.md`
 
 | # | Tier | Source C (module-e) | Source D (sentencing) | Source E (plea) | Conflict |
 |---|------|---------------------|-----------------------|-----------------|----------|
@@ -52,9 +52,9 @@ This is a **correctness issue independent of de-duplication**: the three skills 
 
 ## Recommended resolution path
 
-1. **Verify** the correct current values for each contested cell against Westlaw / the current statute (consider `dw-case-law-researcher`), keyed to offense date.
-2. **Designate one canonical reference per engine** — the natural owners are `dw-habitual-offender-auditor` (529.1) and a good-time reference under `dw-shared-protocols/references/` (parole/good-time). Correct the values there, with any version-dependent value clearly labeled by offense-date regime.
-3. **Repoint** `dw-sentencing-mitigation-specialist` (Module A inline habitual block + Module E good-time; remove its `habitual-offender-reference.md` once folded) and `dw-plea-negotiation-analyzer` (module-c, module-h) at the canonical references. *This is the de-duplication step — safe only after the law is verified.*
+1. **Verify** the correct current values for each contested cell against Westlaw / the current statute (consider `dw-case-law-researcher-crim`), keyed to offense date.
+2. **Designate one canonical reference per engine** — the natural owners are `dw-habitual-offender-auditor-crim` (529.1) and a good-time reference under `dw-shared-protocols-crim/references/` (parole/good-time). Correct the values there, with any version-dependent value clearly labeled by offense-date regime.
+3. **Repoint** `dw-sentencing-mitigation-specialist-crim` (Module A inline habitual block + Module E good-time; remove its `habitual-offender-reference.md` once folded) and `dw-plea-negotiation-analyzer-crim` (module-c, module-h) at the canonical references. *This is the de-duplication step — safe only after the law is verified.*
 4. **Then** the original P3 hoist #2 can complete with confidence.
 
 Until step 1 is done, treat the contradictions above as open issues. Every value in the affected skills that touches these tiers should be regarded as `[VERIFY CITATION]`.

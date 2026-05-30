@@ -68,14 +68,14 @@ CATEGORIES_YML = REPO_ROOT / "bin" / "skill-index-categories.yml"
 # represent real structural problems.
 
 EXEMPT: dict[str, set[str]] = {
-    "dw-skill-index":         {"W1", "W3", "W4", "W7"},                       # index/lookup, no file output
-    "dw-shared-protocols":    {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # library other skills load specific files from
-    "dw-data-contracts":      {"W1", "W2", "W3", "W4", "W6", "W7"},           # schema definitions; read-only infra, no shared-protocols load
-    "dw-criminal-defense":    {"W1", "W2", "W3"},                             # master orchestrator; downstream skills enforce hard stops + citations
-    "dw-evidence-placeholder":{"W1", "W3", "W7"},                             # utility skill
-    "dw-image-filename-stamp":{"W1", "W3", "W4", "W7"},                       # utility
-    "dw-case-brain":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
-    "dw-criminal-defense.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
+    "dw-skill-index-crim":         {"W1", "W3", "W4", "W7"},                       # index/lookup, no file output
+    "dw-shared-protocols-crim":    {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},     # library other skills load specific files from
+    "dw-data-contracts-crim":      {"W1", "W2", "W3", "W4", "W6", "W7"},           # schema definitions; read-only infra, no shared-protocols load
+    "dw-criminal-defense-crim":    {"W1", "W2", "W3"},                             # master orchestrator; downstream skills enforce hard stops + citations
+    "dw-evidence-placeholder-crim":{"W1", "W3", "W7"},                             # utility skill
+    "dw-image-filename-stamp-crim":{"W1", "W3", "W4", "W7"},                       # utility
+    "dw-case-brain-crim":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
+    "dw-criminal-defense-crim.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }
 
 # ── Issue codes ─────────────────────────────────────────────────────────────

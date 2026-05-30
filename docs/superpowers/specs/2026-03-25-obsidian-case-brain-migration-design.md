@@ -199,7 +199,7 @@ The CASE-BRAIN-CONFIG.md defines a required YAML schema, but existing case brain
 
 **Fallback MCP server:** `npx mcp-obsidian` (npm package) if the plugin is unavailable.
 
-The `dw-case-brain` skill is rewritten to use Obsidian MCP instead of DEVONthink MCP.
+The `dw-case-brain-crim` skill is rewritten to use Obsidian MCP instead of DEVONthink MCP.
 
 **Operation mapping (obsidian-claude-code-mcp tool names):**
 
@@ -309,18 +309,18 @@ This index is updated incrementally as new discovery is processed.
 
 | Skill | Change Required |
 |---|---|
-| `dw-case-brain` | Full rewrite — Obsidian MCP instead of DEVONthink MCP |
-| `dw-criminal-defense` | Update output paths: write skill outputs to vault case folder |
-| `dw-forensic-dump-analyzer` | Update output paths |
-| `dw-suppression-motion` | Update output paths |
-| `dw-cross-exam-architect` | Update output paths |
-| `dw-brady-giglio-auditor` | Update output paths |
+| `dw-case-brain-crim` | Full rewrite — Obsidian MCP instead of DEVONthink MCP |
+| `dw-criminal-defense-crim` | Update output paths: write skill outputs to vault case folder |
+| `dw-forensic-dump-analyzer-crim` | Update output paths |
+| `dw-suppression-motion-crim` | Update output paths |
+| `dw-cross-exam-architect-crim` | Update output paths |
+| `dw-brady-giglio-auditor-crim` | Update output paths |
 | `dw-search-warrant-auditor` | Update output paths |
-| `dw-cell-site-geolocation-auditor` | Update output paths |
-| `dw-404b-opposition` | Update output paths |
+| `dw-cell-site-geolocation-auditor-crim` | Update output paths |
+| `dw-404b-opposition-crim` | Update output paths |
 | `dw-ci-auditor` | Update output paths |
 | `dw-lwop-populator` | Update output paths |
-| `dw-mobile-forensic-auditor` | Update output paths |
+| `dw-mobile-forensic-auditor-crim` | Update output paths |
 | `CASE-BRAIN-CONFIG.md` | Remove DEVONthink references; add statute fetcher config; add Statutes/ path |
 | `README.md` | Full update — see Section 5F |
 
@@ -334,7 +334,7 @@ The following README sections must be updated to remove DEVONthink references an
 | Vault Structure (lines 20–29) | Shows `Experts/`, `Motions/` | Add `Statutes/`, `Persons-of-Interest/`; remove `Experts/` |
 | Step 4: Configure Obsidian MCP (lines 63–81) | Documents both MCP options | Specify primary (obsidian-claude-code-mcp) and fallback |
 | Step 5: Index Vault in DEVONthink (lines 83–92) | Full DEVONthink indexing instructions | **Delete entire section** |
-| Step 6: Update dw-case-brain (lines 96–101) | References DEVONthink fallback | Rewrite for Obsidian-only |
+| Step 6: Update dw-case-brain-crim (lines 96–101) | References DEVONthink fallback | Rewrite for Obsidian-only |
 | Adding Witnesses (lines 120–124) | References `Experts/` folder | Update to `Witnesses/Expert/` |
 | Frontmatter Property Reference (lines 142–170) | Missing `victims`, `staff` | Add all reconciled fields |
 
@@ -405,7 +405,7 @@ When Claude creates or updates a case brain:
 ### Phase 2: MCP & Skill Rewrites
 - Install and configure `obsidian-claude-code-mcp` plugin
 - Inspect MCP tool schema and confirm tool names
-- Rewrite `dw-case-brain` skill for Obsidian MCP
+- Rewrite `dw-case-brain-crim` skill for Obsidian MCP
 - Update all 11 companion skills (output paths)
 - **Parallel run begins:** Both DEVONthink and Obsidian are active; Obsidian is primary, DEVONthink is read-only fallback
 

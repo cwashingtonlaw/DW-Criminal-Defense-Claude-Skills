@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-regen-skill-index.py — Regenerate dw-skill-index/SKILL.md routing tables.
+regen-skill-index.py — Regenerate dw-skill-index-crim/SKILL.md routing tables.
 
 Eliminates drift between the index's routing tables and the actual contents
 of `skills/dw-*/`. Walks every skill directory, parses its YAML frontmatter,
-and emits the markdown tables in `skills/dw-skill-index/SKILL.md` from the
+and emits the markdown tables in `skills/dw-skill-index-crim/SKILL.md` from the
 config in `bin/skill-index-categories.yml`.
 
 The non-table content of SKILL.md (header, intro, "Quick Lookup" lead, footer
 including the changelog) is preserved verbatim — only the table sections are
 regenerated, between marker comments the script writes on first run.
 
-Out of scope: regenerating dw-template-selector or dw-criminal-defense — those
+Out of scope: regenerating dw-template-selector or dw-criminal-defense-crim — those
 have more contextual routing and are still maintained by hand.
 
 Usage:
@@ -52,13 +52,13 @@ parse_frontmatter = _lint_skills.parse_frontmatter
 PLUGIN_OF = {d.name: plugin for plugin, d in _lint_skills.discover_skills() if plugin is not None}
 
 def ns(skill_name: str) -> str:
-    """Namespaced display name, e.g. dw-pleadings:dw-suppression-motion."""
+    """Namespaced display name, e.g. dw-pleadings:dw-suppression-motion-crim."""
     p = PLUGIN_OF.get(skill_name)
     return f"{p}:{skill_name}" if p else skill_name
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 _SKILL_DIRS_BY_NAME = {d.name: d for d in _lint_skills.discover_skill_dirs()}
-INDEX_PATH = _SKILL_DIRS_BY_NAME["dw-skill-index"] / "SKILL.md"
+INDEX_PATH = _SKILL_DIRS_BY_NAME["dw-skill-index-crim"] / "SKILL.md"
 CONFIG_PATH = Path(__file__).resolve().parent / "skill-index-categories.yml"
 
 # ── Section definitions ─────────────────────────────────────────────────────
@@ -95,15 +95,15 @@ The Barone Discovery Workflow is a structured 9-step analytical pipeline that ex
 
 | Step | Report | Skill | Trigger Phrase |
 |------|--------|-------|----------------|
-| 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory` | "neutral inventory" or "Report 0" |
-| 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder` | "build the timeline" |
-| 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense` Phase 2 | "run Phase 2" |
-| 4 | Report 2a — Theory Deconstruction | `dw-theory-deconstructor` | "deconstruct the theory" |
-| 5 | Report 3 — Red Flags | `dw-criminal-defense` Phase 2 | (auto-generated) |
-| 6 | Report 4 — Competing Defense Theories | `dw-criminal-defense` Phase 2 | (auto-generated) |
-| 7 | Report 4a — Theory Selection Memo | `dw-criminal-defense` Phase 2 Step 2A | (attorney-driven) |
-| 8 | Theory-to-Workplan (7 streams) | `dw-theory-to-workplan` | "build a workplan" |
-| 9 | Adversarial Stress Test | `dw-adversarial-stress-test` | "stress test the theory" |
+| 1 | Report 0 — Neutral Inventory | `dw-neutral-inventory-crim` | "neutral inventory" or "Report 0" |
+| 2 | Report 1 — Timeline (with Certainty) | `dw-timeline-builder-crim` | "build the timeline" |
+| 3 | Report 2 — Prosecution's Case Summary | `dw-criminal-defense-crim` Phase 2 | "run Phase 2" |
+| 4 | Report 2a — Theory Deconstruction | `dw-theory-deconstructor-crim` | "deconstruct the theory" |
+| 5 | Report 3 — Red Flags | `dw-criminal-defense-crim` Phase 2 | (auto-generated) |
+| 6 | Report 4 — Competing Defense Theories | `dw-criminal-defense-crim` Phase 2 | (auto-generated) |
+| 7 | Report 4a — Theory Selection Memo | `dw-criminal-defense-crim` Phase 2 Step 2A | (attorney-driven) |
+| 8 | Theory-to-Workplan (7 streams) | `dw-theory-to-workplan-crim` | "build a workplan" |
+| 9 | Adversarial Stress Test | `dw-adversarial-stress-test-crim` | "stress test the theory" |
 
 The Barone workflow also adds:
 - **Certainty column** to the Timeline Sheet (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
@@ -133,7 +133,7 @@ SECTIONS: list[SectionSpec] = [
         key="motions_pleadings",
         heading="Motions & Pleadings — \"Draft a...\"",
         columns=("Motion Type", "Skill", "Trigger Phrase"),
-        outro="All motion skills use the template selection protocol in `dw-shared-protocols/references/` to search DEVONthink for firm templates before drafting.",
+        outro="All motion skills use the template selection protocol in `dw-shared-protocols-crim/references/` to search DEVONthink for firm templates before drafting.",
     ),
     SectionSpec(
         key="trial_preparation",
@@ -152,7 +152,7 @@ SECTIONS: list[SectionSpec] = [
         intro=(
             "Each specialist provides charge-specific elements, defenses, "
             "sentencing exposure, motions, and discovery checklists. Routed "
-            "to from `dw-criminal-defense` Phase 2 or directly when the charge "
+            "to from `dw-criminal-defense-crim` Phase 2 or directly when the charge "
             "type is known."
         ),
     ),
@@ -162,7 +162,7 @@ SECTIONS: list[SectionSpec] = [
         columns=("Task", "Skill", "Trigger Phrase"),
         outro=(
             "*Note: `dw-lwop-populator` was retired in v5.3 — its functionality "
-            "merged into `dw-criminal-defense` Phase 1 Step 3.*"
+            "merged into `dw-criminal-defense-crim` Phase 1 Step 3.*"
         ),
     ),
     SectionSpec(
@@ -419,7 +419,7 @@ def render_all_sections(config: dict[str, list[dict[str, str]]], skills: dict[st
 # run. After the first run, the markers are present and we leave everything
 # above BEGIN_MARKER untouched.
 DEFAULT_HEADER = """---
-name: dw-skill-index
+name: dw-skill-index-crim
 description: >
   Find the right D&W skill for any task. ALWAYS invoke for "what skills do we have,"
   "which skill handles X," "show me the skills," "skill list," "what can Cowork do,"
@@ -436,10 +436,10 @@ When the attorney asks which skill to use, or wants to know what's available, pr
 
 ## STEP 0.5 — LOAD SHARED PROTOCOLS
 
-Before drafting any deliverable, read `dw-shared-protocols/SKILL.md` and load these references:
+Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and load these references:
 
-1. `dw-shared-protocols/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
-2. `dw-shared-protocols/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
 
 Do not proceed to Step 1 until these protocols are loaded. Note: this is a reference/index skill with no file output — no output path applies.
 
@@ -455,16 +455,16 @@ DEFAULT_FOOTER = """
 ## Can't Find What You Need?
 
 If none of the above matches:
-1. **General criminal defense work** → Start with `dw-criminal-defense` — it routes to specialists
-2. **New discovery just arrived** → Start with `dw-discovery-orchestrator` — it triages to auditors
-3. **Not sure what phase we're in** → Start with `dw-case-dashboard` — it tells you where you are
+1. **General criminal defense work** → Start with `dw-criminal-defense-crim` — it routes to specialists
+2. **New discovery just arrived** → Start with `dw-discovery-orchestrator-crim` — it triages to auditors
+3. **Not sure what phase we're in** → Start with `dw-case-dashboard-crim` — it tells you where you are
 4. **Something entirely new** → Use `skill-creator` to build a new skill
 
 ---
 
 *D&W Skill Index v1.1 — May 2026*
 
-*v1.1 changes: added `dw-client-intake-interview`, `dw-jail-call-analyzer`, `dw-trial-day-assistant`, `dw-appellate-brief-builder`, `dw-violent-crime-specialist`; new "Charge-Type Specialists" section consolidating all five specialists; renamed "Sentencing & Post-Conviction" to "Sentencing, Appeal & Post-Conviction"; surfaced Daubert/Foret hearing day package (Module I) inside `dw-expert-witness-evaluator`; removed retired `dw-lwop-populator` row.*
+*v1.1 changes: added `dw-client-intake-interview-crim`, `dw-jail-call-analyzer-crim`, `dw-trial-day-assistant-crim`, `dw-appellate-brief-builder-crim`, `dw-violent-crime-specialist-crim`; new "Charge-Type Specialists" section consolidating all five specialists; renamed "Sentencing & Post-Conviction" to "Sentencing, Appeal & Post-Conviction"; surfaced Daubert/Foret hearing day package (Module I) inside `dw-expert-witness-evaluator-crim`; removed retired `dw-lwop-populator` row.*
 """
 
 
