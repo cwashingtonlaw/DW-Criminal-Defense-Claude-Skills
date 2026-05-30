@@ -1,5 +1,5 @@
 ---
-name: dw-transcript-pipeline-calcasieu
+name: dw-transcript-pipeline-calcasieu-crim
 category: transcription
 description: >
   JusticeText-based transcription pipeline for Calcasieu Parish cases at Daniels & Washington.

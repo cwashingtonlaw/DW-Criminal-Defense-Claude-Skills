@@ -1,5 +1,5 @@
 ---
-name: dw-trial-day-assistant
+name: dw-trial-day-assistant-crim
 category: trial-prep
 description: >
   Real-time, in-trial support for Louisiana criminal defense. ALWAYS invoke for

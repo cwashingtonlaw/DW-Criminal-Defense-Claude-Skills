@@ -1,5 +1,5 @@
 ---
-name: dw-criminal-defense
+name: dw-criminal-defense-crim
 category: core
 description: >
   Master 3-phase criminal defense workflow. ALWAYS invoke for "case intake," "new case,"

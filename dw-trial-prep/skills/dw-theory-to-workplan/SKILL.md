@@ -1,5 +1,5 @@
 ---
-name: dw-theory-to-workplan
+name: dw-theory-to-workplan-crim
 category: trial-prep
 description: >
   ALWAYS invoke for "build a workplan," "theory to workplan," "action plan from theory,"

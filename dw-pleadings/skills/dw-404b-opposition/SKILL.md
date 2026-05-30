@@ -1,5 +1,5 @@
 ---
-name: dw-404b-opposition
+name: dw-404b-opposition-crim
 category: pleadings
 description: >
   Oppose other crimes evidence under 404(b). ALWAYS invoke for "404(b)," "Prieur notice,"

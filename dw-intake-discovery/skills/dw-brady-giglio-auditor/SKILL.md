@@ -1,5 +1,5 @@
 ---
-name: dw-brady-giglio-auditor
+name: dw-brady-giglio-auditor-crim
 category: discovery
 description: >
   Brady/Giglio audit and confidential informant detection. ALWAYS invoke for "Brady audit,"

@@ -1,5 +1,5 @@
 ---
-name: dw-case-dashboard
+name: dw-case-dashboard-crim
 category: core
 description: >
   Case status dashboard. ALWAYS invoke for "case status," "where do we stand," "what's

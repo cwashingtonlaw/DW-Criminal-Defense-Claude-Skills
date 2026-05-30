@@ -1,5 +1,5 @@
 ---
-name: dw-case-disposition
+name: dw-case-disposition-crim
 category: disposition
 description: >
   Comprehensive case closing workflow for criminal case final dispositions. Records

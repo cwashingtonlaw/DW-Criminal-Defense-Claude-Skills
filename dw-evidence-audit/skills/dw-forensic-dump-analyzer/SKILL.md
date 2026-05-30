@@ -1,5 +1,5 @@
 ---
-name: dw-forensic-dump-analyzer
+name: dw-forensic-dump-analyzer-crim
 category: evidence-audit
 description: >
   Mine phone dump CONTENT for defense intelligence. ALWAYS invoke for "analyze the phone

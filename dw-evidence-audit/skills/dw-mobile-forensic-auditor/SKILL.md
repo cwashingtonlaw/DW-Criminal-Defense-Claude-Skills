@@ -1,5 +1,5 @@
 ---
-name: dw-mobile-forensic-auditor
+name: dw-mobile-forensic-auditor-crim
 category: evidence-audit
 description: >
   Phone extraction METHODOLOGY audit. ALWAYS invoke for "audit the Cellebrite," "phone

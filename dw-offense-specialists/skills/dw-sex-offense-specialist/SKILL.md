@@ -1,5 +1,5 @@
 ---
-name: dw-sex-offense-specialist
+name: dw-sex-offense-specialist-crim
 category: offense-specialists
 description: >
   Sex offense defense framework. ALWAYS invoke for "sex offense," "rape shield," "Art. 412,"

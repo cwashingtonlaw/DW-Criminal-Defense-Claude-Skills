@@ -1,5 +1,5 @@
 ---
-name: dw-chain-of-custody-auditor
+name: dw-chain-of-custody-auditor-crim
 category: evidence-audit
 description: >
   Audit evidence handling from collection to courtroom. ALWAYS invoke for "chain of

@@ -1,5 +1,5 @@
 ---
-name: dw-crime-scene-auditor
+name: dw-crime-scene-auditor-crim
 category: evidence-audit
 description: >
   Audit crime scene processing and physical evidence collection. ALWAYS invoke for "audit

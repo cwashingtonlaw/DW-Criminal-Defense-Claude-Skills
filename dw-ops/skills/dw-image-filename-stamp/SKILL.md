@@ -1,5 +1,5 @@
 ---
-name: dw-image-filename-stamp
+name: dw-image-filename-stamp-crim
 category: ops
 description: >
   Stamp image files with their own filenames (no extension) in the bottom-right corner.

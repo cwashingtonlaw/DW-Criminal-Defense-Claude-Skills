@@ -1,5 +1,5 @@
 ---
-name: dw-voir-dire-assistant
+name: dw-voir-dire-assistant-crim
 category: trial-prep
 description: >
   Jury selection support with Batson compliance. ALWAYS invoke for "jury selection," "voir

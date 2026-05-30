@@ -1,5 +1,5 @@
 ---
-name: dw-cell-site-geolocation-auditor
+name: dw-cell-site-geolocation-auditor-crim
 category: evidence-audit
 description: >
   Audit cell site location, GPS, tower dumps, geofence, and Stingray evidence. ALWAYS invoke

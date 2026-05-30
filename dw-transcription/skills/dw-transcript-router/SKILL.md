@@ -1,5 +1,5 @@
 ---
-name: dw-transcript-router
+name: dw-transcript-router-crim
 category: transcription
 description: >
   Parish-based transcript pipeline router for Daniels & Washington. ALWAYS invoke for

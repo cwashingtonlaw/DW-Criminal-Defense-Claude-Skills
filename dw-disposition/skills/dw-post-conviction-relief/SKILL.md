@@ -1,5 +1,5 @@
 ---
-name: dw-post-conviction-relief
+name: dw-post-conviction-relief-crim
 category: disposition
 description: >
   Evaluate and prepare post-conviction relief applications. ALWAYS invoke for "post-conviction,"

@@ -1,5 +1,5 @@
 ---
-name: dw-jury-focus-group
+name: dw-jury-focus-group-crim
 category: trial-prep
 description: >
   Run a criminal defense jury focus group simulation with a demographically accurate mock panel.

@@ -1,5 +1,5 @@
 ---
-name: dw-client-interview-drafter
+name: dw-client-interview-drafter-crim
 description: >
   Draft client interview question sheets — the document the attorney USES to question
   the client (distinct from dw-client-communication-drafter, which drafts letters TO the

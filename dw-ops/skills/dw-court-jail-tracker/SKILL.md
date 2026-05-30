@@ -1,5 +1,5 @@
 ---
-name: dw-court-jail-tracker
+name: dw-court-jail-tracker-crim
 category: ops
 description: Refresh the Calcasieu Public Defender Court & Jail Visit Tracker for Chris Washington. ALWAYS invoke for "update the tracker," "court and jail tracker," "refresh my cases," "who do I need to see this week," "weekly visit list," "jail visits due," "pull my cases from JusticeWorks," "court and jail visit tracker," "update court tracker," "run the Sunday case sweep," or any request to refresh assigned-case status from the JusticeWorks portal. Pulls Open and Awaiting-Bill cases from the JusticeWorks portal at online.justiceworks.com/dd7/web/start/1199, merges them into the firm Excel tracker at "Court & Jail Visit Tracker.xlsx," recomputes jail-visit OVERDUE/OK status (more than 30 days since last visit triggers OVERDUE), and dispatches a "who you need to see" reminder via email and Google Chat. Designed to run weekly on Sunday at midnight via scheduled task, but also works on demand.
 ---

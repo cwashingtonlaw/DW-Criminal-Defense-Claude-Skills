@@ -1,5 +1,5 @@
 ---
-name: dw-trial-notebook-builder
+name: dw-trial-notebook-builder-crim
 category: trial-prep
 description: >
   Assemble the final trial notebook from all upstream deliverables. ALWAYS invoke for

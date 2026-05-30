@@ -1,5 +1,5 @@
 ---
-name: dw-exhibit-manager
+name: dw-exhibit-manager-crim
 category: trial-prep
 description: >
   Manages the full lifecycle of trial exhibits from pre-marking through admission.

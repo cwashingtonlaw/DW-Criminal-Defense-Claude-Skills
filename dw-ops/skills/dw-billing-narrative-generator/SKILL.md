@@ -1,5 +1,5 @@
 ---
-name: dw-billing-narrative-generator
+name: dw-billing-narrative-generator-crim
 category: ops
 description: >
   Generate billing time entry narratives from session work. ALWAYS invoke for "billing entries," "time entries," "log my time," "what did we bill today," "generate narratives," "billing summary," or at session close when the attorney asks to capture time. Produces LEDES-compatible narratives.

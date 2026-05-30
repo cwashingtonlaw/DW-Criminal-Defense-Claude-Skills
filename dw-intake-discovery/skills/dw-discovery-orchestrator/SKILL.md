@@ -1,5 +1,5 @@
 ---
-name: dw-discovery-orchestrator
+name: dw-discovery-orchestrator-crim
 category: discovery
 description: >
   Auto-triage incoming discovery files to specialist auditors. ALWAYS invoke for "new

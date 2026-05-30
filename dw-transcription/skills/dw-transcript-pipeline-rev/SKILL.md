@@ -1,5 +1,5 @@
 ---
-name: dw-transcript-pipeline-rev
+name: dw-transcript-pipeline-rev-crim
 category: transcription
 description: >
   Rev.com-based transcription pipeline for all non-Calcasieu Parish cases at Daniels & Washington.

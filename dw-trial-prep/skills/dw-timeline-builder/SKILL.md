@@ -1,5 +1,5 @@
 ---
-name: dw-timeline-builder
+name: dw-timeline-builder-crim
 category: trial-prep
 description: >
   Build and maintain the master case timeline from all evidence sources. ALWAYS invoke for

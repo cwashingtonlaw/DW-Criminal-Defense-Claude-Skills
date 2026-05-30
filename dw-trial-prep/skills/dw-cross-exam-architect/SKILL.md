@@ -1,5 +1,5 @@
 ---
-name: dw-cross-exam-architect
+name: dw-cross-exam-architect-crim
 category: trial-prep
 description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"

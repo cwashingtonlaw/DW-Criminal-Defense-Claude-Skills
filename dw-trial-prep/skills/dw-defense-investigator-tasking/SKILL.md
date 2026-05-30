@@ -1,5 +1,5 @@
 ---
-name: dw-defense-investigator-tasking
+name: dw-defense-investigator-tasking-crim
 category: trial-prep
 description: >
   Generate investigation assignments and checklists. ALWAYS invoke for "investigator,"

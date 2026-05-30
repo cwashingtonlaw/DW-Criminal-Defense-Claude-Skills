@@ -1,5 +1,5 @@
 ---
-name: dw-appellate-brief-builder
+name: dw-appellate-brief-builder-crim
 category: disposition
 description: >
   Draft Louisiana state criminal direct-appeal briefs for the courts of appeal (1st, 2nd, 3rd,

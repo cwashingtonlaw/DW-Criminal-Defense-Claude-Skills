@@ -1,5 +1,5 @@
 ---
-name: dw-expert-witness-evaluator
+name: dw-expert-witness-evaluator-crim
 category: evidence-audit
 description: >
   Evaluate expert witness qualifications and methodology for Daubert/Foret challenges.

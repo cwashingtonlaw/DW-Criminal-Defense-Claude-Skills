@@ -1,5 +1,5 @@
 ---
-name: dw-jury-instructions-builder
+name: dw-jury-instructions-builder-crim
 category: trial-prep
 description: >
   Draft proposed jury charges and verdict forms. ALWAYS invoke for "jury instructions,"

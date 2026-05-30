@@ -1,5 +1,5 @@
 ---
-name: dw-violent-crime-specialist
+name: dw-violent-crime-specialist-crim
 category: offense-specialists
 description: >
   Violent-crime defense framework for Louisiana state prosecutions. ALWAYS invoke for "homicide,"

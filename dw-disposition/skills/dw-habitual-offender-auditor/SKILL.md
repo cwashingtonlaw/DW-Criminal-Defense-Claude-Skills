@@ -1,5 +1,5 @@
 ---
-name: dw-habitual-offender-auditor
+name: dw-habitual-offender-auditor-crim
 category: disposition
 description: >
   Audit habitual offender bills and predicate convictions. ALWAYS invoke for "habitual

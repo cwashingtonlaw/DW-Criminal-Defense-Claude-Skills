@@ -1,5 +1,5 @@
 ---
-name: dw-child-forensic-interview-auditor
+name: dw-child-forensic-interview-auditor-crim
 category: evidence-audit
 description: >
   Audit forensic interviews of CHILD witnesses for protocol violations and suggestibility.

@@ -1,5 +1,5 @@
 ---
-name: dw-adversarial-stress-test
+name: dw-adversarial-stress-test-crim
 category: trial-prep
 description: >
   ALWAYS invoke for "stress test," "stress test the theory," "red team," "prosecutor's

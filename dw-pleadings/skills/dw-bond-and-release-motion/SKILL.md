@@ -1,5 +1,5 @@
 ---
-name: dw-bond-and-release-motion
+name: dw-bond-and-release-motion-crim
 category: pleadings
 description: >
   Draft bond reduction and pretrial release motions. ALWAYS invoke for "bond reduction,"

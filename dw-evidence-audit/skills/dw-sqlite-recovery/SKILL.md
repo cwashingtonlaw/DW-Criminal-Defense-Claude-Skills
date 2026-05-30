@@ -1,5 +1,5 @@
 ---
-name: dw-sqlite-recovery
+name: dw-sqlite-recovery-crim
 category: evidence-audit
 description: >
   Recover deleted data from SQLite databases and WAL files. ALWAYS invoke for "SQLite

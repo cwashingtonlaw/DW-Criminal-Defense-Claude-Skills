@@ -1,5 +1,5 @@
 ---
-name: dw-evidence-placeholder
+name: dw-evidence-placeholder-crim
 category: ops
 description: >
   Generate placeholder PDFs for media evidence folders. ALWAYS invoke for "evidence

@@ -1,5 +1,5 @@
 ---
-name: dw-theory-deconstructor
+name: dw-theory-deconstructor-crim
 category: analysis
 description: >
   ALWAYS invoke for "deconstruct the theory," "deconstruct the state's theory,"

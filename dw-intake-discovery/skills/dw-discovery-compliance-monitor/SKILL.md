@@ -1,5 +1,5 @@
 ---
-name: dw-discovery-compliance-monitor
+name: dw-discovery-compliance-monitor-crim
 category: discovery
 description: >
   Living discovery ledger tracking demanded vs. produced items. ALWAYS invoke for "discovery

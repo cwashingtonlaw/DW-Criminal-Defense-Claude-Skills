@@ -1,5 +1,5 @@
 ---
-name: dw-dmar-synthesizer
+name: dw-dmar-synthesizer-crim
 category: transcription
 description: >
   Cross-case DMAR synthesizer for Daniels & Washington. Ingests multiple Defense Media Analysis

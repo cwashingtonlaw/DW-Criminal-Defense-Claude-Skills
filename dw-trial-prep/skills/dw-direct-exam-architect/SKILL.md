@@ -1,5 +1,5 @@
 ---
-name: dw-direct-exam-architect
+name: dw-direct-exam-architect-crim
 category: trial-prep
 description: >
   Build direct-examination outlines for DEFENSE witnesses (defendant, alibi witnesses, defense

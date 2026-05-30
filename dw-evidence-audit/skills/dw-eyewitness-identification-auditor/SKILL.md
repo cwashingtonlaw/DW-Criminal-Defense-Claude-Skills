@@ -1,5 +1,5 @@
 ---
-name: dw-eyewitness-identification-auditor
+name: dw-eyewitness-identification-auditor-crim
 category: evidence-audit
 description: >
   Audit photo array, lineup, and showup identification procedures. ALWAYS invoke for "audit

@@ -1,5 +1,5 @@
 ---
-name: dw-crime-lab-auditor
+name: dw-crime-lab-auditor-crim
 category: evidence-audit
 description: >
   Methodology audit of crime lab work — drug identification, blood/breath toxicology,

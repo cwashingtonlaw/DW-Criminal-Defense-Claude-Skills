@@ -1,5 +1,5 @@
 ---
-name: dw-confession-interrogation-auditor
+name: dw-confession-interrogation-auditor-crim
 category: evidence-audit
 description: >
   Audit custodial interrogations for Miranda violations, coercion, and false confession

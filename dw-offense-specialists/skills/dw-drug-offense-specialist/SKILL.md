@@ -1,5 +1,5 @@
 ---
-name: dw-drug-offense-specialist
+name: dw-drug-offense-specialist-crim
 category: offense-specialists
 description: >
   Drug offense defense framework for Louisiana. ALWAYS invoke for "drug charge," "possession,"

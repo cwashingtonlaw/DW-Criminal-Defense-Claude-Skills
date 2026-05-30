@@ -1,5 +1,5 @@
 ---
-name: dw-case-brain
+name: dw-case-brain-crim
 category: core
 description: >
   Session persistence. ALWAYS invoke for "load the case," "open the matter," "pick up where

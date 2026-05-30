@@ -1,5 +1,5 @@
 ---
-name: dw-jail-call-analyzer
+name: dw-jail-call-analyzer-crim
 category: evidence-audit
 description: >
   Audit recorded jail calls produced in discovery for damaging admissions, helpful content,

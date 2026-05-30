@@ -1,5 +1,5 @@
 ---
-name: dw-neutral-inventory
+name: dw-neutral-inventory-crim
 category: analysis
 description: >
   ALWAYS invoke for "neutral inventory," "discovery inventory," "catalog the evidence,"

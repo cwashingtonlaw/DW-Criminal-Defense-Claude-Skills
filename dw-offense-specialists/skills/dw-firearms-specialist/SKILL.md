@@ -1,5 +1,5 @@
 ---
-name: dw-firearms-specialist
+name: dw-firearms-specialist-crim
 category: offense-specialists
 description: >
   Firearms and weapons offense defense framework for Louisiana and federal law. ALWAYS invoke for

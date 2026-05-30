@@ -1,5 +1,5 @@
 ---
-name: dw-dwi-specialist
+name: dw-dwi-specialist-crim
 category: offense-specialists
 description: >
   DWI/DUI defense framework for Louisiana. ALWAYS invoke for "DWI," "DUI," "drunk driving,"

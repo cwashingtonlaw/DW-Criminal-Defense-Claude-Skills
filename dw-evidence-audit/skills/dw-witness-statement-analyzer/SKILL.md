@@ -1,5 +1,5 @@
 ---
-name: dw-witness-statement-analyzer
+name: dw-witness-statement-analyzer-crim
 category: evidence-audit
 description: >
   Analyze witness statements for key facts, inconsistencies, and credibility issues.

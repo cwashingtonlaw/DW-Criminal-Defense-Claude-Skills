@@ -1,5 +1,5 @@
 ---
-name: dw-data-contracts
+name: dw-data-contracts-crim
 category: core
 description: >
   Shared data contracts defining output schemas between Daniels & Washington skills.

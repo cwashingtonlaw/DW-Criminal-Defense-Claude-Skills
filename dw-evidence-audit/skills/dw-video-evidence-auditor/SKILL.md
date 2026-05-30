@@ -1,5 +1,5 @@
 ---
-name: dw-video-evidence-auditor
+name: dw-video-evidence-auditor-crim
 category: evidence-audit
 description: >
   Audit all video evidence: body cam, dash cam, CCTV, interview room, civilian. ALWAYS

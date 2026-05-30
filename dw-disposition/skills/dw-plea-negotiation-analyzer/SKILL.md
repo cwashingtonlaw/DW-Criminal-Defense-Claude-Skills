@@ -1,5 +1,5 @@
 ---
-name: dw-plea-negotiation-analyzer
+name: dw-plea-negotiation-analyzer-crim
 category: disposition
 description: >
   Evaluate plea offers against trial exposure. ALWAYS invoke for "plea offer," "plea deal,"

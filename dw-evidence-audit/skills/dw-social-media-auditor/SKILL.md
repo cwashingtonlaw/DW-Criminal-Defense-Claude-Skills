@@ -1,5 +1,5 @@
 ---
-name: dw-social-media-auditor
+name: dw-social-media-auditor-crim
 category: evidence-audit
 description: >
   Audit social media evidence authentication and admissibility. ALWAYS invoke for "audit

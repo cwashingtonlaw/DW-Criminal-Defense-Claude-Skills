@@ -1,5 +1,5 @@
 ---
-name: dw-suppression-motion
+name: dw-suppression-motion-crim
 category: pleadings
 description: >
   Draft suppression motions AND audit search warrants. ALWAYS invoke for "suppress," "motion

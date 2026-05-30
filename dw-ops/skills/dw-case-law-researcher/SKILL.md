@@ -1,5 +1,5 @@
 ---
-name: dw-case-law-researcher
+name: dw-case-law-researcher-crim
 category: ops
 description: >
   Multi-source legal research engine for Daniels & Washington criminal defense.

@@ -1,5 +1,5 @@
 ---
-name: dw-client-communication-drafter
+name: dw-client-communication-drafter-crim
 category: ops
 description: >
   Draft client correspondence including status updates, jail mail, family letters, and interpreter-ready summaries.

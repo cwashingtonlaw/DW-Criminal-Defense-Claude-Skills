@@ -1,5 +1,5 @@
 ---
-name: dw-client-intake-interview
+name: dw-client-intake-interview-crim
 category: intake
 description: >
   First-contact client intake interview protocol. ALWAYS invoke for "intake," "first

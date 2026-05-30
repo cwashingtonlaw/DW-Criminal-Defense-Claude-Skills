@@ -1,5 +1,5 @@
 ---
-name: dw-pretrial-motion-library
+name: dw-pretrial-motion-library-crim
 category: pleadings
 description: >
   Draft 15 pretrial motion types. ALWAYS invoke for "speedy trial," "701 motion," "bill of

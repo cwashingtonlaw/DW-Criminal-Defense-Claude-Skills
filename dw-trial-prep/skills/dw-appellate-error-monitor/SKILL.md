@@ -1,5 +1,5 @@
 ---
-name: dw-appellate-error-monitor
+name: dw-appellate-error-monitor-crim
 category: trial-prep
 description: >
   Track error preservation throughout proceedings. ALWAYS invoke for "error preservation,"

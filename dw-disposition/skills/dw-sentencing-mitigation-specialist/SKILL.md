@@ -1,5 +1,5 @@
 ---
-name: dw-sentencing-mitigation-specialist
+name: dw-sentencing-mitigation-specialist-crim
 category: disposition
 description: >
   Build sentencing mitigation packages and audit PSI reports. ALWAYS invoke for

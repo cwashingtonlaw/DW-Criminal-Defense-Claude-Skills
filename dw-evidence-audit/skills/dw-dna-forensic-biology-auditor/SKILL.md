@@ -1,5 +1,5 @@
 ---
-name: dw-dna-forensic-biology-auditor
+name: dw-dna-forensic-biology-auditor-crim
 category: evidence-audit
 description: >
   Audit DNA and forensic biology evidence: STR analysis, probabilistic genotyping (STRmix,
