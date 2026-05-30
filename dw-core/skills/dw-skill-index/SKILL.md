@@ -168,6 +168,7 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 | Task | Skill | Trigger Phrase |
 |---|---|---|
 | Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-intake-discovery:dw-client-intake-interview` | "intake" or "new client" or "first meeting" |
+| Client interview question sheets (initial + follow-up; the sheet the attorney USES to question the client) | `dw-intake-discovery:dw-client-interview-drafter` | "client interview sheet" or "jail visit prep sheet" |
 | Evidence folder placeholders | `dw-ops:dw-evidence-placeholder` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
 

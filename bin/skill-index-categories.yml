@@ -233,6 +233,9 @@ intake_setup:
   - skill: dw-client-intake-interview
     label: "Client intake interview (first meeting, conflict check, immediate-action triage)"
     trigger: "intake, new client, first meeting"
+  - skill: dw-client-interview-drafter
+    label: "Client interview question sheets (initial + follow-up; the sheet the attorney USES to question the client)"
+    trigger: "client interview sheet or jail visit prep sheet"
   - skill: dw-evidence-placeholder
     label: "Evidence folder placeholders"
     trigger: "evidence placeholders"
