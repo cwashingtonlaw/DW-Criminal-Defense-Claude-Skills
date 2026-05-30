@@ -32,23 +32,23 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 
 | I need to... | Use this skill | Say this |
 |---|---|---|
-| Run a client intake / first meeting | `dw-client-intake-interview` | "intake" or "new client meeting" |
-| Start a new case | `dw-criminal-defense` | "new case" or "case intake" |
-| Load an existing case | `dw-case-brain` | "load the case" or "open the matter" |
-| Check case status | `dw-case-dashboard` | "where do we stand" or "case status" |
-| Process discovery | `dw-criminal-defense` | "run Phase 1" |
-| Analyze the case | `dw-criminal-defense` | "run Phase 2" |
-| Build trial prep | `dw-criminal-defense` | "run Phase 3" |
-| Support trial day (live, in-court) | `dw-trial-day-assistant` | "trial day" or "log this objection" |
-| Assemble trial notebook | `dw-trial-notebook-builder` | "build the trial notebook" |
-| Triage new discovery | `dw-discovery-orchestrator` | "new discovery arrived" |
-| Transcribe recordings | `dw-transcript-router` | "transcribe the evidence" |
-| Compare transcripts across cases | `dw-dmar-synthesizer` | "compare the DMARs" |
-| Neutral discovery inventory (pre-strategic) | `dw-neutral-inventory` | "neutral inventory" or "catalog the evidence" |
-| Deconstruct prosecution's theory | `dw-theory-deconstructor` | "deconstruct the theory" or "facts vs inferences" |
-| Stress-test the defense theory | `dw-adversarial-stress-test` | "stress test" or "red team the theory" |
-| Generate a workplan from theory | `dw-theory-to-workplan` | "build a workplan" or "theory to workplan" |
-| Track issue codes (living issue-code ledger) | `dw-issue-code-tracker` | "issue codes" or "issue tracker" |
+| Run a client intake / first meeting | `dw-intake-discovery:dw-client-intake-interview` | "intake" or "new client meeting" |
+| Start a new case | `dw-core:dw-criminal-defense` | "new case" or "case intake" |
+| Load an existing case | `dw-core:dw-case-brain` | "load the case" or "open the matter" |
+| Check case status | `dw-core:dw-case-dashboard` | "where do we stand" or "case status" |
+| Process discovery | `dw-core:dw-criminal-defense` | "run Phase 1" |
+| Analyze the case | `dw-core:dw-criminal-defense` | "run Phase 2" |
+| Build trial prep | `dw-core:dw-criminal-defense` | "run Phase 3" |
+| Support trial day (live, in-court) | `dw-trial-prep:dw-trial-day-assistant` | "trial day" or "log this objection" |
+| Assemble trial notebook | `dw-trial-prep:dw-trial-notebook-builder` | "build the trial notebook" |
+| Triage new discovery | `dw-intake-discovery:dw-discovery-orchestrator` | "new discovery arrived" |
+| Transcribe recordings | `dw-transcription:dw-transcript-router` | "transcribe the evidence" |
+| Compare transcripts across cases | `dw-transcription:dw-dmar-synthesizer` | "compare the DMARs" |
+| Neutral discovery inventory (pre-strategic) | `dw-trial-prep:dw-neutral-inventory` | "neutral inventory" or "catalog the evidence" |
+| Deconstruct prosecution's theory | `dw-trial-prep:dw-theory-deconstructor` | "deconstruct the theory" or "facts vs inferences" |
+| Stress-test the defense theory | `dw-trial-prep:dw-adversarial-stress-test` | "stress test" or "red team the theory" |
+| Generate a workplan from theory | `dw-trial-prep:dw-theory-to-workplan` | "build a workplan" or "theory to workplan" |
+| Track issue codes (living issue-code ledger) | `dw-trial-prep:dw-issue-code-tracker` | "issue codes" or "issue tracker" |
 
 ---
 
@@ -80,23 +80,23 @@ The Barone workflow also adds:
 
 | Evidence Type | Skill | Trigger Phrase |
 |---|---|---|
-| Phone extraction (HOW it was done) | `dw-mobile-forensic-auditor` | "audit the Cellebrite" |
-| Phone contents (WHAT's on it) | `dw-forensic-dump-analyzer` | "analyze the phone dump" |
-| Body cam / dash cam / CCTV | `dw-video-evidence-auditor` | "audit body cam" |
-| Crime scene processing | `dw-crime-scene-auditor` | "audit crime scene" |
-| Evidence chain of custody | `dw-chain-of-custody-auditor` | "audit chain of custody" |
-| Cell tower / GPS / location | `dw-cell-site-geolocation-auditor` | "audit cell site" |
-| Social media screenshots/DMs | `dw-social-media-auditor` | "audit Facebook" or "social media" |
-| Photo array / lineup | `dw-eyewitness-identification-auditor` | "audit the lineup" |
-| Deleted phone data / SQLite | `dw-sqlite-recovery` | "recover deleted messages" |
-| Adult interrogation / confession | `dw-confession-interrogation-auditor` | "audit interrogation" |
-| Child forensic interview (CAC) | `dw-child-forensic-interview-auditor` | "audit the CAC video" |
-| Expert witness qualifications | `dw-expert-witness-evaluator` | "evaluate the expert" |
-| DNA / forensic biology (STR, mixtures, STRmix, TrueAllele, IGG, mtDNA, Y-STR, touch DNA) | `dw-dna-forensic-biology-auditor` | "DNA audit" or "audit the DNA" |
-| Crime lab (drug ID, toxicology, blood alcohol, certificate challenges) | `dw-crime-lab-auditor` | "audit the crime lab" or "criminalist certificate" |
-| Daubert/Foret hearing day package | `dw-expert-witness-evaluator` (Module I) | "Daubert hearing prep" or "Foret hearing" |
-| Jail calls (recordings, logs, transcripts) | `dw-jail-call-analyzer` | "audit jail calls" or "Securus/GTL/ViaPath" |
-| Witness statement consistency / impeachment synthesis | `dw-witness-statement-analyzer` | "analyze this statement" or "compare these statements" |
+| Phone extraction (HOW it was done) | `dw-evidence-audit:dw-mobile-forensic-auditor` | "audit the Cellebrite" |
+| Phone contents (WHAT's on it) | `dw-evidence-audit:dw-forensic-dump-analyzer` | "analyze the phone dump" |
+| Body cam / dash cam / CCTV | `dw-evidence-audit:dw-video-evidence-auditor` | "audit body cam" |
+| Crime scene processing | `dw-evidence-audit:dw-crime-scene-auditor` | "audit crime scene" |
+| Evidence chain of custody | `dw-evidence-audit:dw-chain-of-custody-auditor` | "audit chain of custody" |
+| Cell tower / GPS / location | `dw-evidence-audit:dw-cell-site-geolocation-auditor` | "audit cell site" |
+| Social media screenshots/DMs | `dw-evidence-audit:dw-social-media-auditor` | "audit Facebook" or "social media" |
+| Photo array / lineup | `dw-evidence-audit:dw-eyewitness-identification-auditor` | "audit the lineup" |
+| Deleted phone data / SQLite | `dw-evidence-audit:dw-sqlite-recovery` | "recover deleted messages" |
+| Adult interrogation / confession | `dw-evidence-audit:dw-confession-interrogation-auditor` | "audit interrogation" |
+| Child forensic interview (CAC) | `dw-evidence-audit:dw-child-forensic-interview-auditor` | "audit the CAC video" |
+| Expert witness qualifications | `dw-evidence-audit:dw-expert-witness-evaluator` | "evaluate the expert" |
+| DNA / forensic biology (STR, mixtures, STRmix, TrueAllele, IGG, mtDNA, Y-STR, touch DNA) | `dw-evidence-audit:dw-dna-forensic-biology-auditor` | "DNA audit" or "audit the DNA" |
+| Crime lab (drug ID, toxicology, blood alcohol, certificate challenges) | `dw-evidence-audit:dw-crime-lab-auditor` | "audit the crime lab" or "criminalist certificate" |
+| Daubert/Foret hearing day package | `dw-evidence-audit:dw-expert-witness-evaluator` (Module I) | "Daubert hearing prep" or "Foret hearing" |
+| Jail calls (recordings, logs, transcripts) | `dw-evidence-audit:dw-jail-call-analyzer` | "audit jail calls" or "Securus/GTL/ViaPath" |
+| Witness statement consistency / impeachment synthesis | `dw-evidence-audit:dw-witness-statement-analyzer` | "analyze this statement" or "compare these statements" |
 
 ---
 
@@ -104,16 +104,16 @@ The Barone workflow also adds:
 
 | Motion Type | Skill | Trigger Phrase |
 |---|---|---|
-| Suppress evidence (4th/5th Amend.) | `dw-suppression-motion` | "motion to suppress" |
-| Oppose 404(b) / other crimes | `dw-404b-opposition` | "oppose the 404(b)" |
-| Reduce bond / pretrial release | `dw-bond-and-release-motion` | "bond reduction" |
-| Speedy trial | `dw-pretrial-motion-library` | "speedy trial motion" |
-| Bill of particulars | `dw-pretrial-motion-library` | "bill of particulars" |
-| Motion to compel discovery | `dw-pretrial-motion-library` | "motion to compel" |
-| Severance / change of venue | `dw-pretrial-motion-library` | "severance" or "change of venue" |
-| Reveal the deal | `dw-pretrial-motion-library` | "reveal the deal" |
-| Recusal | `dw-pretrial-motion-library` | "recusal" |
-| Continuance | `dw-pretrial-motion-library` | "continuance" |
+| Suppress evidence (4th/5th Amend.) | `dw-pleadings:dw-suppression-motion` | "motion to suppress" |
+| Oppose 404(b) / other crimes | `dw-pleadings:dw-404b-opposition` | "oppose the 404(b)" |
+| Reduce bond / pretrial release | `dw-pleadings:dw-bond-and-release-motion` | "bond reduction" |
+| Speedy trial | `dw-pleadings:dw-pretrial-motion-library` | "speedy trial motion" |
+| Bill of particulars | `dw-pleadings:dw-pretrial-motion-library` | "bill of particulars" |
+| Motion to compel discovery | `dw-pleadings:dw-pretrial-motion-library` | "motion to compel" |
+| Severance / change of venue | `dw-pleadings:dw-pretrial-motion-library` | "severance" or "change of venue" |
+| Reveal the deal | `dw-pleadings:dw-pretrial-motion-library` | "reveal the deal" |
+| Recusal | `dw-pleadings:dw-pretrial-motion-library` | "recusal" |
+| Continuance | `dw-pleadings:dw-pretrial-motion-library` | "continuance" |
 
 All motion skills use the template selection protocol in `dw-shared-protocols/references/` to search DEVONthink for firm templates before drafting.
 
@@ -123,17 +123,17 @@ All motion skills use the template selection protocol in `dw-shared-protocols/re
 
 | Task | Skill | Trigger Phrase |
 |---|---|---|
-| Cross-examination outlines (state witnesses) | `dw-cross-exam-architect` | "build a cross for [witness]" |
-| Direct-examination outlines (defense witnesses) | `dw-direct-exam-architect` | "build a direct for [witness]" or "defendant testimony prep" |
-| Opening statement + closing argument (paired) | `dw-trial-narrative-builder` | "draft opening" / "draft closing" / "trial narrative" |
-| Jury instructions / charges | `dw-jury-instructions-builder` | "draft jury instructions" |
-| Jury selection / voir dire | `dw-voir-dire-assistant` | "prep voir dire" |
-| Track errors for appeal | `dw-appellate-error-monitor` | "preserve error" or "log error" |
-| Real-time trial-day logging (objections, witnesses, exhibits, jurors) | `dw-trial-day-assistant` | "log this objection" or "today's witness" |
-| Generate investigator tasks | `dw-defense-investigator-tasking` | "investigator assignment" |
-| Track discovery compliance | `dw-discovery-compliance-monitor` | "update the discovery ledger" |
-| Brady/Giglio audit | `dw-brady-giglio-auditor` | "run Brady audit" |
-| Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam) | `dw-witness-threat-matrix` | "witness threat matrix" or "rank the witnesses" |
+| Cross-examination outlines (state witnesses) | `dw-trial-prep:dw-cross-exam-architect` | "build a cross for [witness]" |
+| Direct-examination outlines (defense witnesses) | `dw-trial-prep:dw-direct-exam-architect` | "build a direct for [witness]" or "defendant testimony prep" |
+| Opening statement + closing argument (paired) | `dw-trial-prep:dw-trial-narrative-builder` | "draft opening" / "draft closing" / "trial narrative" |
+| Jury instructions / charges | `dw-trial-prep:dw-jury-instructions-builder` | "draft jury instructions" |
+| Jury selection / voir dire | `dw-trial-prep:dw-voir-dire-assistant` | "prep voir dire" |
+| Track errors for appeal | `dw-trial-prep:dw-appellate-error-monitor` | "preserve error" or "log error" |
+| Real-time trial-day logging (objections, witnesses, exhibits, jurors) | `dw-trial-prep:dw-trial-day-assistant` | "log this objection" or "today's witness" |
+| Generate investigator tasks | `dw-trial-prep:dw-defense-investigator-tasking` | "investigator assignment" |
+| Track discovery compliance | `dw-intake-discovery:dw-discovery-compliance-monitor` | "update the discovery ledger" |
+| Brady/Giglio audit | `dw-intake-discovery:dw-brady-giglio-auditor` | "run Brady audit" |
+| Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam) | `dw-trial-prep:dw-witness-threat-matrix` | "witness threat matrix" or "rank the witnesses" |
 
 ---
 
@@ -141,11 +141,11 @@ All motion skills use the template selection protocol in `dw-shared-protocols/re
 
 | Task | Skill | Trigger Phrase |
 |---|---|---|
-| Sentencing mitigation package | `dw-sentencing-mitigation-specialist` | "build sentencing mitigation" |
-| Habitual offender bill audit | `dw-habitual-offender-auditor` | "audit the habitual bill" |
-| Evaluate plea offer | `dw-plea-negotiation-analyzer` | "analyze the plea offer" |
-| Draft direct-appeal brief (assignments of error, argument, reply) | `dw-appellate-brief-builder` | "appellate brief" or "appeal brief" or "assignments of error" |
-| Post-conviction relief (PCR / habeas / sentence modification) | `dw-post-conviction-relief` | "post-conviction" or "PCR" or "habeas" |
+| Sentencing mitigation package | `dw-disposition:dw-sentencing-mitigation-specialist` | "build sentencing mitigation" |
+| Habitual offender bill audit | `dw-disposition:dw-habitual-offender-auditor` | "audit the habitual bill" |
+| Evaluate plea offer | `dw-disposition:dw-plea-negotiation-analyzer` | "analyze the plea offer" |
+| Draft direct-appeal brief (assignments of error, argument, reply) | `dw-disposition:dw-appellate-brief-builder` | "appellate brief" or "appeal brief" or "assignments of error" |
+| Post-conviction relief (PCR / habeas / sentence modification) | `dw-disposition:dw-post-conviction-relief` | "post-conviction" or "PCR" or "habeas" |
 
 ---
 
@@ -155,11 +155,11 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 
 | Charge Type | Skill | Trigger Phrase |
 |---|---|---|
-| Drug offenses (CDS, distribution, possession with intent) | `dw-drug-offense-specialist` | "drug case" or "CDS" |
-| DWI / OWI / vehicular homicide | `dw-dwi-specialist` | "DWI" or "DUI" |
-| Sex offenses (incl. SANE exam audits) | `dw-sex-offense-specialist` | "sex offense" or "SANE" |
-| Firearms offenses (state and federal) | `dw-firearms-specialist` | "firearm charge" or "felon in possession" |
-| Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion) | `dw-violent-crime-specialist` | "murder" or "manslaughter" or "armed robbery" or "agg battery" or "self-defense" |
+| Drug offenses (CDS, distribution, possession with intent) | `dw-offense-specialists:dw-drug-offense-specialist` | "drug case" or "CDS" |
+| DWI / OWI / vehicular homicide | `dw-offense-specialists:dw-dwi-specialist` | "DWI" or "DUI" |
+| Sex offenses (incl. SANE exam audits) | `dw-offense-specialists:dw-sex-offense-specialist` | "sex offense" or "SANE" |
+| Firearms offenses (state and federal) | `dw-offense-specialists:dw-firearms-specialist` | "firearm charge" or "felon in possession" |
+| Violent crime (murder, manslaughter, agg battery, armed robbery, kidnapping, home invasion) | `dw-offense-specialists:dw-violent-crime-specialist` | "murder" or "manslaughter" or "armed robbery" or "agg battery" or "self-defense" |
 
 ---
 
@@ -167,8 +167,8 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 
 | Task | Skill | Trigger Phrase |
 |---|---|---|
-| Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-client-intake-interview` | "intake" or "new client" or "first meeting" |
-| Evidence folder placeholders | `dw-evidence-placeholder` | "evidence placeholders" |
+| Client intake interview (first meeting, conflict check, immediate-action triage) | `dw-intake-discovery:dw-client-intake-interview` | "intake" or "new client" or "first meeting" |
+| Evidence folder placeholders | `dw-ops:dw-evidence-placeholder` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
 
 *Note: `dw-lwop-populator` was retired in v5.3 — its functionality merged into `dw-criminal-defense` Phase 1 Step 3.*
@@ -181,8 +181,8 @@ These skills are read by other skills as reference protocols — you don't invok
 
 | Skill | What It Does | Read By |
 |---|---|---|
-| `dw-data-contracts` | Output schema definitions | All skills producing deliverables |
-| `dw-case-brain` | Session persistence (also direct-trigger) | Every skill at session open/close |
+| `dw-core:dw-data-contracts` | Output schema definitions | All skills producing deliverables |
+| `dw-core:dw-case-brain` | Session persistence (also direct-trigger) | Every skill at session open/close |
 
 <!-- END AUTOGEN: routing-tables (regen-skill-index.py) -->
 
