@@ -26,7 +26,7 @@ If any are missing, ask the attorney before proceeding.
 
 ## Read Before Drafting
 
-Read `../dw-shared-protocols/SKILL.md` for:
+Read `../../../dw-core/skills/dw-shared-protocols/SKILL.md` for:
 - Attorney work product marking
 - CASE_ROOT-anchored output path formula
 - Louisiana citation conventions

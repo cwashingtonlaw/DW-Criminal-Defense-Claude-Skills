@@ -5,7 +5,7 @@ description: >
   Draft suppression motions AND audit search warrants. ALWAYS invoke for "suppress," "motion
   to suppress," "illegal search," "bad warrant," "audit the warrant," "probable cause,"
   "Franks," or "fruit of the poisonous tree." Covers 4th and 5th Amendment issues. Read
-  ../dw-shared-protocols/references/template-selection-protocol.md before drafting.
+  ../../../dw-core/skills/dw-shared-protocols/references/template-selection-protocol.md before drafting.
 ---
 
 # Daniels & Washington — Suppression Motion & Warrant Auditor

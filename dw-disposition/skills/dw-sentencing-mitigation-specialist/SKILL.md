@@ -5,7 +5,7 @@ description: >
   Build sentencing mitigation packages and audit PSI reports. ALWAYS invoke for
   "sentencing," "mitigation," "sentencing memorandum," "PSI report," "Dorthey challenge,"
   "Art. 894.1," or "excessive sentence." Covers LA and federal sentencing. Read
-  ../dw-shared-protocols/references/template-selection-protocol.md before drafting.
+  ../../../dw-core/skills/dw-shared-protocols/references/template-selection-protocol.md before drafting.
 ---
 
 # Sentencing Mitigation Specialist
@@ -236,7 +236,7 @@ Before proceeding to the applicable modules, load the reference files needed for
 - Read `references/federal-sentencing-guidelines.md` — USSG calculation, departures, and §3553(a)
 
 **Template selection (before drafting any pleading):**
-- Read `../dw-shared-protocols/references/template-selection-protocol.md` — DEVONthink template search protocol
+- Read `../../../dw-core/skills/dw-shared-protocols/references/template-selection-protocol.md` — DEVONthink template search protocol
 
 ### Step 2.5 -- Load Shared Protocols
 
