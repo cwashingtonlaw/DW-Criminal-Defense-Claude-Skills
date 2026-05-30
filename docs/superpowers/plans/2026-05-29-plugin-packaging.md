@@ -41,7 +41,7 @@
 | `dw-evidence-audit` | dw-cell-site-geolocation-auditor, dw-chain-of-custody-auditor, dw-child-forensic-interview-auditor, dw-confession-interrogation-auditor, dw-crime-lab-auditor, dw-crime-scene-auditor, dw-dna-forensic-biology-auditor, dw-expert-witness-evaluator, dw-eyewitness-identification-auditor, dw-forensic-dump-analyzer, dw-jail-call-analyzer, dw-mobile-forensic-auditor, dw-social-media-auditor, dw-sqlite-recovery, dw-video-evidence-auditor, dw-witness-statement-analyzer |
 | `dw-offense-specialists` | dw-drug-offense-specialist, dw-dwi-specialist, dw-firearms-specialist, dw-sex-offense-specialist, dw-violent-crime-specialist |
 | `dw-pleadings` | dw-404b-opposition, dw-bond-and-release-motion, dw-pretrial-motion-library, dw-suppression-motion |
-| `dw-trial-prep` | dw-adversarial-stress-test, dw-appellate-error-monitor, dw-cross-exam-architect, dw-defense-investigator-tasking, dw-direct-exam-architect, dw-exhibit-manager, dw-issue-code-tracker, dw-jury-focus-group, dw-jury-instructions-builder, dw-theory-to-workplan, dw-timeline-builder, dw-trial-day-assistant, dw-trial-narrative-builder, dw-voir-dire-assistant, dw-witness-threat-matrix, dw-neutral-inventory, dw-theory-deconstructor |
+| `dw-trial-prep` | dw-adversarial-stress-test, dw-appellate-error-monitor, dw-cross-exam-architect, dw-defense-investigator-tasking, dw-direct-exam-architect, dw-exhibit-manager, dw-issue-code-tracker, dw-jury-focus-group, dw-jury-instructions-builder, dw-theory-to-workplan, dw-timeline-builder, dw-trial-day-assistant, dw-trial-narrative-builder, dw-trial-notebook-builder, dw-voir-dire-assistant, dw-witness-threat-matrix, dw-neutral-inventory, dw-theory-deconstructor |
 | `dw-transcription` | dw-dmar-synthesizer, dw-transcript-pipeline-calcasieu, dw-transcript-pipeline-rev, dw-transcript-router |
 | `dw-disposition` | dw-appellate-brief-builder, dw-case-disposition, dw-habitual-offender-auditor, dw-plea-negotiation-analyzer, dw-post-conviction-relief, dw-sentencing-mitigation-specialist |
 | `dw-ops` | dw-billing-narrative-generator, dw-case-law-researcher, dw-client-communication-drafter, dw-court-jail-tracker, dw-evidence-placeholder, dw-image-filename-stamp |
@@ -121,9 +121,9 @@ PLUGINS = {
         "dw-issue-code-tracker", "dw-jury-focus-group",
         "dw-jury-instructions-builder", "dw-theory-to-workplan",
         "dw-timeline-builder", "dw-trial-day-assistant",
-        "dw-trial-narrative-builder", "dw-voir-dire-assistant",
-        "dw-witness-threat-matrix", "dw-neutral-inventory",
-        "dw-theory-deconstructor",
+        "dw-trial-narrative-builder", "dw-trial-notebook-builder",
+        "dw-voir-dire-assistant", "dw-witness-threat-matrix",
+        "dw-neutral-inventory", "dw-theory-deconstructor",
     ],
     "dw-transcription": [
         "dw-dmar-synthesizer", "dw-transcript-pipeline-calcasieu",
