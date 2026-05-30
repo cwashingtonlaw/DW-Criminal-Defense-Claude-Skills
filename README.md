@@ -63,6 +63,14 @@ dw-skills/
 └── README.md
 ```
 
+## Plugin layout
+
+Skills are organized as 9 plugins under a machine-local Claude Code marketplace named `dw-criminal-defense`. Invoke skills namespaced as `plugin:skill` — e.g. `/dw-pleadings:dw-suppression-motion` or `/dw-core:dw-case-brain`. Bare `/dw-*` invocation no longer works for these skills.
+
+`dw-core` is the shared foundation (case-brain, case-dashboard, criminal-defense, data-contracts, shared-protocols, skill-index) that every other plugin depends on. The 8 functional plugins are: `dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, and `dw-ops`.
+
+The flat `skills/` directory is retained for non-dw personal skills only (loaded via the `~/.claude/skills` symlink). The marketplace is machine-local (Approach B — in-place install; not git-publishable as-is without duplicating `dw-core`).
+
 ## CONFIDENTIAL
 
 This repository contains attorney work product and privileged workflow definitions. Do not make public.

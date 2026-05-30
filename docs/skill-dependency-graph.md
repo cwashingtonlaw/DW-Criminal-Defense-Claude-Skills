@@ -200,7 +200,7 @@ dw-dmar-synthesizer  ──(cross-case DMAR synthesis)──▶  Multi-defendant
 
 ## Cross-category dependency boundaries (relevant to plugin packaging)
 
-If the audit's 9-plugin proposal were ever adopted (`core`, `intake`, `discovery`, `evidence-audit`, `pleadings`, `trial-prep`, `transcription`, `disposition`, `offense-specialists`, `ops`), these dependencies would cross plugin boundaries and become inter-plugin contracts.
+The 9-plugin marketplace (`dw-criminal-defense`) has been implemented as Approach B — a machine-local, in-place install with `dw-core` as the single source of truth (shared reference files reached via relative paths, no duplication). The 9 plugins are `dw-core` (foundation) plus 8 functional plugins: `dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, and `dw-ops`. The following dependencies cross plugin boundaries and are now inter-plugin contracts.
 
 | Category boundary | Crossing dependencies | Notes |
 |---|---|---|
@@ -215,7 +215,7 @@ If the audit's 9-plugin proposal were ever adopted (`core`, `intake`, `discovery
 | **disposition → ops** | dw-case-disposition → dw-billing-narrative-generator | Closing → final billing |
 | **disposition → core** | dw-case-disposition → dw-case-brain (final disposition record) | Standard infrastructure dependency |
 
-**Implication:** if plugin packaging is ever undertaken, every cross-category arrow above would need a versioned, stable schema (probably encoded in `dw-data-contracts`). The current internal arrangement tolerates schema drift because every skill is in the same tree; plugin packaging would surface every schema mismatch as a versioning problem.
+**Implication:** now that plugin packaging is implemented, every cross-category arrow above is an inter-plugin contract. Because Approach B keeps all plugins in the same repo tree (with `dw-core` as the single source of truth via relative paths), the arrangement continues to tolerate some schema drift — but each boundary listed above should eventually be encoded as a versioned schema in `dw-data-contracts` to make contracts explicit and catch drift early.
 
 ---
 

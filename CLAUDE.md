@@ -4,6 +4,8 @@ This repository is the canonical source of truth for the Daniels & Washington (D
 
 When working in this repo, follow the conventions below. They exist because they have been established across ~60 skills and ~150 reference files; deviations create maintenance burden and lawyer-facing inconsistency.
 
+> **Plugin layout (as of May 2026):** Skills now live in 9 plugins — `dw-core` (foundation) plus 8 functional plugins (`dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, `dw-ops`) — installed as a machine-local marketplace named `dw-criminal-defense`. Invoke skills namespaced: `/dw-pleadings:dw-suppression-motion`, `/dw-core:dw-case-brain`, etc. Cross-skill references in prose still use bare `dw-*` names; the model resolves them via the available-skills list.
+
 ---
 
 ## Repository layout
