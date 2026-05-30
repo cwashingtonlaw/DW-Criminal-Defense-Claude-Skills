@@ -1,0 +1,10 @@
+{
+  "name": "dw-disposition",
+  "version": "1.0.0",
+  "description": "Sentencing, habitual-offender audit, plea analysis, appeal, post-conviction relief, and case disposition.",
+  "author": {
+    "name": "Chris Washington",
+    "email": "cjw@danielswashington.com"
+  },
+  "skills": "./skills"
+}

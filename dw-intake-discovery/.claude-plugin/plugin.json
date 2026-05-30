@@ -1,0 +1,10 @@
+{
+  "name": "dw-intake-discovery",
+  "version": "1.0.0",
+  "description": "Client intake interview plus discovery orchestration, compliance monitoring, and Brady/Giglio audit.",
+  "author": {
+    "name": "Chris Washington",
+    "email": "cjw@danielswashington.com"
+  },
+  "skills": "./skills"
+}

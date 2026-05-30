@@ -1,0 +1,10 @@
+{
+  "name": "dw-transcription",
+  "version": "1.0.0",
+  "description": "Media transcription routing and DMAR pipelines (Calcasieu + Rev) plus cross-case DMAR synthesis.",
+  "author": {
+    "name": "Chris Washington",
+    "email": "cjw@danielswashington.com"
+  },
+  "skills": "./skills"
+}
