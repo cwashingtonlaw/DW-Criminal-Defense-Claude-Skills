@@ -79,8 +79,9 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+3. `dw-shared-protocols-crim/references/letterhead.md` — proposed jury instructions filed with the court carry firm letterhead above the caption per firm preference (the caption stays the controlling header); internal working copies do not
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Filed jury instructions use `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`; draft/working copies use `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+Do not proceed to Step 1 until these protocols are loaded. Internal working copies are work product — apply marking per the shared protocol. **Filed** proposed instructions are outward-facing: they carry letterhead, NOT work-product marking, and use `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`; draft/working copies use `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
 

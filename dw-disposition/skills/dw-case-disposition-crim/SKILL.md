@@ -38,8 +38,9 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+3. `dw-shared-protocols-crim/references/letterhead.md` — the client notification letters (Module 3) are sent on firm letterhead; render the letterhead block at the top of each client-facing letter (not on the internal work-product draft file)
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+Do not proceed to Step 1 until these protocols are loaded. Internal deliverables (billing workbook, expungement memo, closing checklist) are work product — apply marking per the shared protocol. The **client notification letters** are outward-facing correspondence: they carry firm letterhead, NOT work-product marking. Internal work-product output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
 

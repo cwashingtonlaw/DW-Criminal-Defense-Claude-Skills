@@ -53,6 +53,7 @@ Before drafting any pleading, read `dw-shared-protocols-crim/SKILL.md` and load:
 
 1. `dw-shared-protocols-crim/references/filed-pleading-boilerplate.md` — orchestrator for caption, signature, COS, notice, proposed order, citation style, and filing conventions
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — output path anchored on `CASE_ROOT`
+3. `dw-shared-protocols-crim/references/letterhead.md` — firm letterhead; on a filed pleading it sits above the caption per firm preference (the court caption stays the controlling header — letterhead never replaces caption, signature block, or certificate of service)
 
 Filed pleadings receive NO work product marking. Follow the boilerplate component sequence in order. Output to the appropriate `01 - Trial Notebook/` motion subfolder per the formula. Internal audit deliverables produced by this skill (predicate inventories, vulnerability matrices) follow the work-product marking rule per shared protocols.
 

@@ -55,6 +55,7 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` -- apply work product marking to all internal deliverables (sentencing range tables, mitigation narratives, PSI audits, internal sentencing memo drafts)
 2. `dw-shared-protocols-crim/references/output-path-formula.md` -- use for all output file paths (anchored on `CASE_ROOT`)
+3. `dw-shared-protocols-crim/references/letterhead.md` -- firm letterhead for outward-facing documents: a FILED sentencing memorandum carries letterhead above the caption per firm preference (caption stays the controlling header), and the PSI correction letter is sent on letterhead. Internal drafts (range tables, mitigation narratives, PSI audits) do not.
 
 For FILED sentencing memoranda specifically, also load the references for the "Sentencing memorandum" row in the manifest (caption per parish + signature block + certificate of service + Louisiana citation style + output path). FILED sentencing memoranda receive NO work product marking; INTERNAL drafts do. Always confirm with the attorney which mode is being produced before drafting.
 
