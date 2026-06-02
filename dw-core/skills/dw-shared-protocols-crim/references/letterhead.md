@@ -2,7 +2,7 @@
 
 Canonical letterhead for all Daniels & Washington document-producing skills. Whenever a skill drafts a document that leaves the firm on firm letterhead — client and family letters, jail mail, records and preservation requests, demand/spoliation letters, engagement correspondence, and (per firm preference) filed pleadings — apply this letterhead. This is the single source of truth; do not hand-type the firm block or improvise a `[Firm Letterhead]` placeholder. When the firm's address, phone, partners, or branding change, edit this file once and every consuming skill picks it up.
 
-> **Authority note (firm-identity discrepancy):** This letterhead reflects the firm's current branded stationery — **Daniels & Washington Law Firm, LLC, 38167 Post Office Road, Prairieville, LA 70769**. The filed-pleading `signature-block.md` and `dw-firm-style-guide.md` still carry an older **Lake Charles, LA 70601** address and the single-attorney line "Christopher J. Washington #31354." These are infrastructure files; the attorney should reconcile them deliberately (offices may legitimately differ between letterhead and a court signature block). Until reconciled, treat **this file** as authoritative for letterhead and `signature-block.md` as authoritative for the filed-pleading signature.
+> **Single source of truth for firm contact details.** The firm address is always **Daniels & Washington Law Firm, LLC, 38167 Post Office Road, Prairieville, LA 70769** (Ph 225-383-3800 / Fax 225-208-1567). This file governs the firm block on every document. The filed-pleading `signature-block.md` now carries the same Prairieville address; if firm contact details ever change, update this file and `signature-block.md` together.
 
 ---
 
