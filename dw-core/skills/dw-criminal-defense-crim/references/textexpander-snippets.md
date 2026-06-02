@@ -20,7 +20,7 @@ VERSUS                                          NO. {{DOCKET}}
 ```
 Respectfully submitted,
 
-DANIELS & WASHINGTON, LLC
+DANIELS & WASHINGTON LAW FIRM, LLC
 Attorneys for {{DEFENDANT_NAME}}
 
 

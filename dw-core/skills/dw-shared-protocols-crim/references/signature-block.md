@@ -7,7 +7,7 @@ Standard signature block for filed pleadings. Pulled from the firm's filing temp
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON, LLC
+                              DANIELS & WASHINGTON LAW FIRM, LLC
 
 
                               ___________________________________
@@ -27,7 +27,7 @@ Standard signature block for filed pleadings. Pulled from the firm's filing temp
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON, LLC
+                              DANIELS & WASHINGTON LAW FIRM, LLC
 
 
                               /s/ Christopher J. Washington
@@ -61,7 +61,7 @@ When co-counsel signs:
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON, LLC
+                              DANIELS & WASHINGTON LAW FIRM, LLC
 
 
                               ___________________________________

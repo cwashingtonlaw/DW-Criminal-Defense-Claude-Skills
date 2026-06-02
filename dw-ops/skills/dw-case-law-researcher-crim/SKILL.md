@@ -21,7 +21,7 @@ version: 1.1.0
 
 # Case Law Researcher — Daniels & Washington
 
-**Internal Use Only — Daniels & Washington, LLC**
+**Internal Use Only — Daniels & Washington Law Firm, LLC**
 
 This skill finds on-point legal authority across five sources, synthesizes results into a structured research memo, and feeds citations directly into whatever motion or analysis is being drafted. It operates both standalone (attorney asks for research) and as a service layer called by other D&W skills mid-draft.
 
