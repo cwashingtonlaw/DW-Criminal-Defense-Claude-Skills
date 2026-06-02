@@ -17,7 +17,7 @@ Time-sensitive preservation letters drafted at intake under Module D.2. Every te
 Recipient: lead investigating agency (parish sheriff, municipal PD, state police troop, federal agency). Send certified mail or e-mail with delivery receipt. Copy the District Attorney's office.
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Chief / Sheriff / Agency Head]
@@ -107,7 +107,7 @@ cc:  [District Attorney — Parish]
 Recipient: business with potentially relevant surveillance — gas stations, convenience stores, restaurants, hotels, bars/clubs, parking garages, ATM/bank cameras, residential complex management, retail stores. Send the same day intake closes; many systems overwrite within 7-30 days.
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Business Name]
@@ -177,7 +177,7 @@ cc:  [Client File]
 Recipient: social media or communications platform via the platform's law enforcement / legal-process portal. Each platform has its own intake address and form — Cowork captures the platform identity; the attorney handles the actual submission via the platform's portal.
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Platform Name — Legal / Law Enforcement Response Team]
@@ -267,7 +267,7 @@ Mark all portal addresses in dispatched letters as `[VERIFY CURRENT PORTAL ADDRE
 Recipient: a known third-party witness who may have photos, videos, texts, or social posts relevant to the case. The attorney decides whether to send a letter or place a call. A letter creates a paper trail; a call is faster and may be appropriate when the relationship is delicate.
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Witness Name]
@@ -330,7 +330,7 @@ Sincerely,
 When the client's phone has been seized but discovery has not yet revealed which carrier records the State has obtained, send a preservation letter to the carrier directly.
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Carrier Legal Department]

@@ -60,6 +60,8 @@ Select caption file by jurisdiction:
 | Federal — Western District of LA | `caption-criminal-federal-WDLA.md` |
 | Other Louisiana parish | `caption-criminal-fill-in.md` (prompts attorney for parish/court values) |
 
+The **caption is the controlling header** of a filed pleading. By firm preference the firm letterhead (`letterhead.md`) may sit above the caption on the first page; letterhead never replaces, renumbers, or alters the caption, and never carries a privilege marking. If the attorney prefers caption-only filings for a given court/clerk, omit letterhead and lead with the caption. See `letterhead.md` §3.
+
 ### Step 3 — DO NOT apply work product marking
 
 Filed pleadings receive **NO** work product marking. The standard "ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIAL" header must NOT appear on anything served or filed. See `attorney-work-product-marking.md` Section "No marking" for the rule.

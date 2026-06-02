@@ -25,7 +25,7 @@ The template uses the same variables as the rest of the D&W shared-protocols sys
 
 ## Template
 
-**[Letterhead — Daniels & Washington]**
+**[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]**
 
 **Attorney Work Product / Privileged & Confidential**
 

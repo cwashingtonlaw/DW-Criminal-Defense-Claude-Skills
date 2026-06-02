@@ -21,15 +21,18 @@ Template selection: the DEVONthink Template-First search protocol now lives in t
 
 > **Filed pleading orchestration:** for any filed pleading (motion, opposition, memo, sentencing memo, proposed order), read `filed-pleading-boilerplate.md` first — it walks through every component reference in the correct order. The table below remains the authoritative source for which component references each document type requires.
 
+> **Letterhead applies to every outward-facing document.** Any document that leaves the firm — correspondence AND, by firm preference, filed pleadings — carries the firm letterhead per `letterhead.md`. Read it before drafting any such document and never improvise a `[Firm Letterhead]` placeholder. Internal work product (Case Brain, audits, matrices, ledgers) does **not** take letterhead. For filed pleadings the court caption remains the controlling header; letterhead never replaces the caption, signature block, or certificate of service. See `letterhead.md` §3.
+
 | Document type | Required references |
 |---|---|
-| State criminal motion (14th JDC Calcasieu) | `filed-pleading-boilerplate.md`, `caption-criminal-14thJDC.md`, `signature-block.md`, `certificate-of-service.md`, `notice-of-hearing.md`, `proposed-order.md`, `louisiana-citation-style.md`, `filing-conventions-14thJDC.md`, `output-path-formula.md` |
-| State criminal motion (12th JDC Avoyelles) | `caption-criminal-12thJDC-avoyelles.md` + (work-product, signature, COS, notice, order, citation, output-path) |
-| State criminal motion (Orleans CDC) | `caption-criminal-orleans-CDC.md` + (work-product, signature, COS, notice, order, citation, output-path) |
-| State criminal motion (19th JDC EBR) | `caption-criminal-19thJDC-EBR.md` + (work-product, signature, COS, notice, order, citation, output-path) |
-| Federal motion (WDLA) | `caption-criminal-federal-WDLA.md` + (work-product, signature, COS-federal version inside `certificate-of-service.md`, order, citation, output-path) |
-| Other Louisiana parish (any court not listed above) | `caption-criminal-fill-in.md` + (work-product, signature, COS, notice, order, citation, output-path) — agent prompts attorney for parish/court-specific values |
-| Sentencing memorandum | Caption per parish + `attorney-work-product-marking.md` + `signature-block.md` + `certificate-of-service.md` + `louisiana-citation-style.md` + `output-path-formula.md` |
+| State criminal motion (14th JDC Calcasieu) | `filed-pleading-boilerplate.md`, `caption-criminal-14thJDC.md`, `letterhead.md`, `signature-block.md`, `certificate-of-service.md`, `notice-of-hearing.md`, `proposed-order.md`, `louisiana-citation-style.md`, `filing-conventions-14thJDC.md`, `output-path-formula.md` |
+| State criminal motion (12th JDC Avoyelles) | `caption-criminal-12thJDC-avoyelles.md` + (letterhead, work-product, signature, COS, notice, order, citation, output-path) |
+| State criminal motion (Orleans CDC) | `caption-criminal-orleans-CDC.md` + (letterhead, work-product, signature, COS, notice, order, citation, output-path) |
+| State criminal motion (19th JDC EBR) | `caption-criminal-19thJDC-EBR.md` + (letterhead, work-product, signature, COS, notice, order, citation, output-path) |
+| Federal motion (WDLA) | `caption-criminal-federal-WDLA.md` + (letterhead, work-product, signature, COS-federal version inside `certificate-of-service.md`, order, citation, output-path) |
+| Other Louisiana parish (any court not listed above) | `caption-criminal-fill-in.md` + (letterhead, work-product, signature, COS, notice, order, citation, output-path) — agent prompts attorney for parish/court-specific values |
+| Sentencing memorandum | Caption per parish + `letterhead.md` + `attorney-work-product-marking.md` + `signature-block.md` + `certificate-of-service.md` + `louisiana-citation-style.md` + `output-path-formula.md` |
+| Correspondence / letter (client letter, jail mail, family letter, records request, preservation/spoliation letter, engagement letter, demand letter) | `letterhead.md` + `signature-block.md` + `output-path-formula.md` (privilege marking per `dw-firm-style-guide.md` §6 where applicable; NO attorney-work-product marking on the sent letter) |
 | Internal work product (Case Brain, threat matrix, cross outline, audit reports) | `attorney-work-product-marking.md` + `output-path-formula.md` ONLY |
 | Discovery ledger / triage report | `attorney-work-product-marking.md` + `output-path-formula.md` ONLY |
 | Client deliverable (LWOP review sheet, plea analysis) | `attorney-work-product-marking.md` + `signature-block.md` + `output-path-formula.md` |
