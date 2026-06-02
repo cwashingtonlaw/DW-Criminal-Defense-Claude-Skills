@@ -56,6 +56,7 @@ Before producing any deliverable, read `dw-shared-protocols-crim/SKILL.md` and l
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — every intake deliverable is internal work product; mark all output headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — for `CASE_ROOT` resolution and path conventions
 3. `dw-shared-protocols-crim/references/signature-block.md` — for the engagement letter signature block
+4. `dw-shared-protocols-crim/references/letterhead.md` — the engagement letter and any evidence-preservation / spoliation letters leave the firm on firm letterhead; render the letterhead block at the top of those client-/recipient-facing letters (not on internal intake work product)
 
 **Output paths for this skill:**
 

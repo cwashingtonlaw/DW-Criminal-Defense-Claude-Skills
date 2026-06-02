@@ -320,7 +320,7 @@ When the screen returns a non-waivable conflict, the firm declines:
 ### Non-engagement letter template
 
 ```
-[Firm Letterhead]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 [Date]
 
 [Prospective Client Name]

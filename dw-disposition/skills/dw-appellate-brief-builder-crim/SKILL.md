@@ -77,6 +77,7 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — anchored on `CASE_ROOT`
 3. `dw-shared-protocols-crim/references/signature-block.md` — counsel signature block for the brief and certificate of service
 4. `dw-shared-protocols-crim/references/certificate-of-service.md` — certificate of service language
+5. `dw-shared-protocols-crim/references/letterhead.md` — firm letterhead per firm preference; the circuit cover-page format and caption control the brief's first page, so apply letterhead only where the circuit's cover format permits
 
 The appellate brief is a **filed pleading** with a Louisiana court of appeal — it receives NO attorney work-product marking. (Compare with the `dw-appellate-error-monitor-crim` outputs, which are internal work product and DO carry the marking.)
 

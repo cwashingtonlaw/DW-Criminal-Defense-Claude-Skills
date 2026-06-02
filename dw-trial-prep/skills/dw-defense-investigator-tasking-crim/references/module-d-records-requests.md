@@ -74,7 +74,7 @@ The following records should be considered in EVERY criminal case:
 ## Records Request Letter Template Structure
 
 ```
-[DANIELS & WASHINGTON LETTERHEAD]
+[FIRM LETTERHEAD — apply per dw-shared-protocols-crim/references/letterhead.md]
 
 [Date]
 

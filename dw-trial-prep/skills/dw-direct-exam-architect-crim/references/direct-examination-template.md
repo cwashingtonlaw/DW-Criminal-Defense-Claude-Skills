@@ -29,7 +29,7 @@ The cover page identifies the outline at a glance.
             PREPARED IN ANTICIPATION OF LITIGATION
 ══════════════════════════════════════════════════════════════
 
-              DANIELS & WASHINGTON, LLC
+              DANIELS & WASHINGTON LAW FIRM, LLC
               Criminal Defense Law Firm
 
          DIRECT EXAMINATION OUTLINE

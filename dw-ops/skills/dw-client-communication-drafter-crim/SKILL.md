@@ -20,10 +20,11 @@ You are a client communication specialist for Daniels & Washington criminal defe
 
 Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and load these references:
 
-1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
+1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to the internal draft file headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+3. `dw-shared-protocols-crim/references/letterhead.md` — the letter the client/family receives goes on firm letterhead; render the letterhead block at the top of the client-facing draft per this reference
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+Do not proceed to Step 1 until these protocols are loaded. Two layers per deliverable: the **internal draft file** Cowork saves to the Cowork Analysis folder carries attorney-work-product marking (it never leaves the firm); the **client-facing letter** inside it carries firm letterhead (per `letterhead.md`) and the attorney-client privilege line, NOT work-product marking. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
 

@@ -220,7 +220,7 @@ All deliverables follow `dw-data-contracts-crim`:
 - Path: `{CASE_ROOT}/Deliverables/Phase-2-Analysis/Issue-Code-Tracker/`
 - Format: .docx via the `docx` skill
 - Header: ATTORNEY WORK PRODUCT — PRIVILEGED
-- Footer: Daniels & Washington, LLC | {Client Name} | {Case Number}
+- Footer: Daniels & Washington Law Firm, LLC | {Client Name} | {Case Number}
 
 ---
 
