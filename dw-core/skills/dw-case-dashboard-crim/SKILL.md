@@ -52,7 +52,7 @@ Every factual assertion in the dashboard must trace back to a specific file or f
 - `(01 - Trial Notebook/05 - Evidence/, 12 files present)`
 - `(Court Order — Scheduling Order, filed 03/15/2026, p. 1)`
 
-**Multiple-source rule:** When more than one location confirms a status fact, cite all of them — e.g., `(Case Tables.xlsx — Witness Table; 01 - Trial Notebook/03 - Witnesses/, 8 files)`.
+**Multiple-source rule:** When more than one location confirms a status fact, cite all of them — e.g., `(Case Tables.xlsx — Witness List; 01 - Trial Notebook/03 - Witnesses/, 8 files)`.
 
 **Unsourced assertions:** If a status claim cannot be tied to a documented file or location, mark it `[UNSOURCED — VERIFY WITH ATTORNEY]` so the team knows the dashboard reflects an assumption rather than a confirmed deliverable.
 
@@ -184,7 +184,7 @@ Check `Case Tables.xlsx` and `01 - Trial Notebook/`:
 | Deliverable | Location | Status |
 |-------------|----------|--------|
 | Timeline Spreadsheet | `Case Tables.xlsx — Timeline Sheet` (populated with color, links) | ✓ or ✗ |
-| Witness Lists (Alpha & Priority) | `Case Tables.xlsx — Witness List - Alpha/Priority sheets` | Check for rows > 0 |
+| Witness List | `Case Tables.xlsx — Witness List sheet` | Check for rows > 0; Priority (1–5) populated |
 | Defense Matrix | `Case Tables.xlsx — Defense Matrix sheet` | Check for charges + verdicts + defenses |
 | Cross-Exam Prep | `01 - Trial Notebook → 03 - Witnesses/` for battle cards, worksheets | Count files |
 | Direct-Exam Prep | `01 - Trial Notebook → 03 - Witnesses/` | Count files |
@@ -512,8 +512,7 @@ Use these methods to check for file presence:
 When reading `Case Tables.xlsx`, check these sheets for population:
 - `Evidence Table`: Count rows with data (excluding headers)
 - `Timeline Sheet`: Count rows with data
-- `Witness Sheet`: Count rows with data
-- `Witness List - Alpha` & `Witness List - Priority`: Count rows with data
+- `Witness List`: Count rows with data; confirm Priority (1–5) populated
 - `Defense Matrix`: Count charge rows
 
 If a sheet does not exist, note it as missing.

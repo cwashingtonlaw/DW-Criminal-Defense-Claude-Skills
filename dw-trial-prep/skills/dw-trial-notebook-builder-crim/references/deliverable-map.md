@@ -110,7 +110,7 @@ Read this file before every scan to ensure nothing is missed.
 | Report 5: Viable Legal Defenses | `09 - Case Analysis/` | `dw-criminal-defense-crim` (Phase 2) | 2 | Recommended |
 | Report 6: Memorable Theme | `09 - Case Analysis/` | `dw-criminal-defense-crim` (Phase 2) | 2 | Recommended |
 | Report 7: Table of Missing Discovery | `09 - Case Analysis/` | `dw-criminal-defense-crim` (Phase 2) | 2 | YES |
-| Report 8: Witness Table | `Case Tables.xlsx — Witness Sheet` | `dw-criminal-defense-crim` (Phase 2) | 2 | Recommended |
+| Report 8: Witness Table | `Case Tables.xlsx — Witness List` | `dw-criminal-defense-crim` (Phase 2) | 2 | Recommended |
 | Report 9: Key Witness Impeachment Plan | `09 - Case Analysis/` | `dw-criminal-defense-crim` (Phase 2) | 2 | YES |
 | Missing Discovery Demand Letter | `09 - Case Analysis/Cowork Analysis/` | `dw-criminal-defense-crim` (Phase 2, Auto) | 2 | YES |
 | Constitutional Issues Scan | `09 - Case Analysis/Cowork Analysis/` | `dw-criminal-defense-crim` (Phase 2) | 2 | Recommended |

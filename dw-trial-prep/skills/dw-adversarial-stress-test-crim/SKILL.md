@@ -84,7 +84,7 @@ Before building the stress test, collect and review the following materials in r
 2. **Report 2a (Theory Deconstruction)** -- the full deconstruction of the selected theory, including identified weaknesses, assumption dependencies, and evidence gaps. Provides the vulnerability baseline.
 3. **Charges** -- all counts with statutory citations, elements, and responsive-verdict architecture.
 4. **Discovery production** -- complete discovery index and all uploaded case documents. The stress test must work from the same evidence pool the prosecution has.
-5. **Case Tables.xlsx** -- Evidence Table, Witness Tables (Priority and Alpha), Timeline Sheet. These are the prosecution's building blocks.
+5. **Case Tables.xlsx** -- Evidence Table, Witness List, Timeline Sheet. These are the prosecution's building blocks.
 
 ### Strategic (request if not provided)
 6. **Reports 1-8 (Phase 2 Case Analysis)** -- the full analytical suite. Report 2 (Prosecution's Case Summary) is particularly important -- it previews the State's best case.
@@ -367,7 +367,7 @@ When re-running, generate a new report with the current date. Do not overwrite t
 - Reports 1-8 (Phase 2 Case Analysis) -- evidence inventory, timeline, prosecution summary, impeachment plan.
 - All evidence audit reports -- forensic, identification, confession, Brady/Giglio, jail call, crime scene, mobile forensic findings.
 - `dw-expert-witness-evaluator-crim` -- expert vulnerability assessments.
-- Case Tables.xlsx -- Evidence Table, Witness Tables, Timeline Sheet.
+- Case Tables.xlsx -- Evidence Table, Witness List, Timeline Sheet.
 
 ### This skill FEEDS:
 - `dw-theory-to-workplan-crim` -- vulnerabilities from Module G create new tasks in Stream 5 (witness preparation), Stream 3 (motion practice), and other workplan streams. The Priority Preparation Checklist maps directly to workplan task entries.

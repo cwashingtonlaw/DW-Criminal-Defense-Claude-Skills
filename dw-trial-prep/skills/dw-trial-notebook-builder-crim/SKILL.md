@@ -168,9 +168,7 @@ Open `Case Tables.xlsx` at the case root and verify these sheets exist and are p
 |-------|-------|-------------|
 | Evidence Table | Phase 1 | Row count > 0; check for empty Review Priority or Defense Relevance columns |
 | Timeline Sheet | Phase 2/3 | Row count > 0; check chronological ordering |
-| Witness Sheet | Phase 2 | Row count > 0 |
-| Witness List - Alpha | Phase 3 | Row count > 0 |
-| Witness List - Priority | Phase 3 | Row count > 0 |
+| Witness List | Phase 1 → 3 | Row count > 0; Priority (1–5) populated |
 | Defense Matrix | Phase 3 | Row count > 0; check for empty Defense column cells |
 
 ### 1D — Cross-Reference with Case Brain
@@ -602,7 +600,7 @@ Two sections: Prosecution Witnesses (expected order) and Defense Witnesses (prop
 | Order | Witness Name | Role | Estimated Time | Cross Prepared? | Key Issues | Contact Info | Subpoena Status |
 |-------|-------------|------|----------------|-----------------|------------|-------------|----------------|
 
-Pre-fill from the Witness List - Priority sheet and the Cross-Examination outlines.
+Pre-fill from the Witness List sheet (sorted by Priority 1–5) and the Cross-Examination outlines.
 "Cross Prepared?" = Yes if a cross-exam outline exists for that witness in Tab 3.
 Leave Contact Info and Subpoena Status for attorney/staff completion.
 

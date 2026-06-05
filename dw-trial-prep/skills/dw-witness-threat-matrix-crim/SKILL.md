@@ -99,7 +99,7 @@ If the State's witness list is missing, STOP and tell the attorney to file a Bil
 
 ## Process
 
-1. Load State's witness list from Case-Tables excel document.  Look at Witness List - Priority and Witness List - Alpha.
+1. Load State's witness list from Case-Tables excel document.  Look at the `Witness List` sheet (single consolidated sheet; use its `Priority (1–5)` column and `Witness Name`).
 2. Classify each witness by type.
 3. Score Damage and Vulnerability independently from upstream deliverables. Every harmful claim must have a source citation. Do not score CRITICAL without at least one cited source.
 4. Select Top 10 per type. If a type has fewer than 10, list all and note count. If zero, omit and note in Gap Report.
