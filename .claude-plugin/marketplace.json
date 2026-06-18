@@ -92,7 +92,7 @@
     {
       "name": "dw-ops",
       "source": "./dw-ops",
-      "description": "Operational utilities: billing narratives, case-law research, client communications, court/jail tracker, evidence placeholders, image stamping.",
+      "description": "Operational utilities: billing narratives, case-law research, client communications, court/jail tracker, DefenderData meeting logging, evidence placeholders, image stamping.",
       "version": "1.0.0",
       "author": {
         "name": "Chris Washington",
