@@ -1,5 +1,37 @@
 # dw-criminal-defense-crim — Changelog
 
+## v5.11 (July 2026) — Prosecution Theory, Art. 814 auto-verdicts, JusticeWorks ingest
+
+Refocuses the Case Profile as a defense document built against a sourced statement of the State's case, and hardens the Charges section so responsive verdicts are emitted from statute rather than reconstructed from memory. Drafted from lessons learned on *State v. Harrison* (14780-25). Affects `references/case-profile-procedure.md`, `SKILL.md` (Step 3 spine and checks), and adds one reference file. `assets/CASE PROFILE.docx` template still needs the new § 1 prose block and the two new Seized Property columns added on first generation — see the migration note below.
+
+- **NEW Part 1 Section 1 — Prosecution's Theory of the Case.** A 1–3 page, discovery-cited defense-authored synopsis of the State's case (charge & forum, the State's narrative, theory of guilt, key proof, apparent weak points). Every factual assertion carries a `[DOC ###]`/Bates cite; no unsupported inference; attribution not adoption; adverse and favorable facts both named. Rebuilt only on explicit instruction or a materially new production; never overwrites attorney edits. **All prior Part 1 sections shift +1** — Case Identification is now § 2 … Key Dates & Next Steps is now § 11.
+
+- **REVISED § 4 Charges & Exposure — Responsive Verdicts auto-generated.** The Responsive Verdicts cell is now emitted verbatim from the new `references/art814-responsive-verdict-map.md`, matched to the billed offense **by offense name** and reproduced in statutory order (with the ¶ C evidence-sufficiency, ¶ D value-ceiling, and ¶ B(2) CDS-weight footnotes). Fixes an earlier bad seed that wrongly listed **negligent homicide** as responsive to **first degree murder** — art. 814(A)(1) does not include it; negligent homicide is responsive to second degree murder (A)(3) and manslaughter (A)(5). Verified against the firm's source statute PDF for offenses (A)(1)–(23), including all homicide anchors.
+
+- **NEW reference file — `references/art814-responsive-verdict-map.md`.** All 71 art. 814(A) enumerated offenses with verbatim verdict sets and an R.S. crosswalk (convenience only). Carries the KeyCite red flag for 2026 Act 103 (H.B. 92) as a `[VERIFY]` before trial reliance.
+
+- **REVISED § 2 Seized Property / Devices table (7 → 9 columns).** Adds **Evidence ID / PR#** (the agency's own property/voucher identifier, cited verbatim; `NONE ON RECEIPT` routes to `dw-chain-of-custody-auditor-crim`) and **Owner Basis** (warrant-tied owner attribution with source doc; inference marked `[VERIFY]`).
+
+- **NEW input source — JusticeWorks / DefenderData "Case File Detail" export.** Structured ingest mapped to §§ 2, 5, 6, 9 (Case ID, Bail/Bond, Arraignment, Court Appearance Log, Plea Log, contacts). Authoritative for administrative fields; conflicts reconciled and flagged in red, not silently overwritten. Event notes scanned for conflict-of-interest and theory flags → surfaced to § 11.
+
+- **RESTATED § 6 Court Appearance Log and § 9 Plea Discussions Log** as fixed-schema, dated, append-only tables — seeded from the DefenderData export, thereafter append-only (history is never edited; a superseding entry is a new dated row).
+
+- **NEW closing block — VERIFY / [ATTORNEY] Roll-Up.** After population, every `[VERIFY]` tag and blank `[ATTORNEY]` field is collected into a two-part punch-list with an `OPEN ITEMS: N to verify · M awaiting attorney` count; highest-stakes items cross-listed to § 11 High Priority Next Steps. Replaces the ad hoc completion-notes free text.
+
+- **NEW generation step 2C — position-based section auto-renumbering pass.** Renumbers Part 1 section banners sequentially by document order regardless of banner cell count (1-, 2-, or 6-cell merged headers), resetting at each Part boundary. Idempotent; runs in both Initial Generation and Refresh Mode. Prevents the duplicate/gapped-number failures that follow section insertion or reorder.
+
+- **Template updated.** The `assets/CASE PROFILE.docx` template now carries the v5.11 structure natively: the new § 1 Prosecution's Theory of the Case block (dark banner, red "not an admission" note, five bolded sub-heads), all Part 1 banners renumbered 2–11 (Part 2A/2B/2C banners untouched), and the Seized Property / Devices table rebuilt at 9 columns (Evidence ID / PR# after Item, Owner Basis after Owner). No first-generation column/section surgery is required. Build hygiene: write to a fresh temp filename, validate, then delete-and-replace the live file (and close it in Word first) to avoid the stale-cache revert.
+
+## v5.10 (June 2026) — Consolidated Witness List + 1–5 Priority Rubric
+
+Consolidates the three witness sheets into a single alphabetical `Witness List` and replaces the ad hoc importance ranking with a first-match 1–5 priority rubric driven by the selected defense theory. Applies to the master template `assets/Case Tables.xlsx` and to Phase 1 Step 4 / Phase 3 Step 2 of the workflow. (Entry backfilled — shipped in commit `a0451b6`, June 4 2026, but omitted from this changelog at the time.)
+
+- **MERGED sheets.** `Witness Sheet`, `Witness List - Alpha`, and `Witness List - Priority` become one **`Witness List`** sheet (13 columns), sorted alphabetically by Last, First, with `Priority (1–5)` as a sortable column.
+- **NEW reference — `references/witness-priority-rubric.md`.** First-match 1–5 ranking rule (1 – Critical … 5 – Peripheral), defense-theory-driven, with impeachment/Brady-Giglio modifiers and a required `Priority Rationale` justification per witness.
+- **NEW columns** on the Witness List: Address, Role, Priority (1–5), Priority Rationale (absorbs the old Priority "Reason").
+- **Workflow changes.** Phase 1 Steps 4b/4c merged into a single Witness List build; Phase 3 Step 2 re-ranks via the rubric once the defense theory (Report 4a) and impeachment plan (Report 8) are known.
+- **Consumers repointed** to the single sheet: `dw-data-contracts-crim`, `dw-case-dashboard-crim`, `dw-witness-threat-matrix-crim`, `dw-trial-notebook-builder-crim`, `dw-theory-to-workplan-crim`, `dw-adversarial-stress-test-crim`, `dw-voir-dire-assistant-crim`.
+
 ## v5.9 (May 2026) — Barone Discovery Workflow Audit
 
 Integrates the 9-step Barone Discovery Workflow into Phase 2 and revises Report 4 to support competing-theory analysis. Four new skills come online; five existing skills receive cross-cutting enhancements; one new shared protocol governs evidence verification.

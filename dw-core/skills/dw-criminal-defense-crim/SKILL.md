@@ -12,7 +12,7 @@ description: >
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.9 | Internal Use Only**
+**Version 5.11 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
 
@@ -36,6 +36,7 @@ dw-criminal-defense-crim/
 │   ├── output-path-convention.md         ← CASE_ROOT resolution, phase folders, file naming
 │   ├── lwop-field-maps.md                ← Field schema for Part 2A (Homicide) and Part 2B (Sex Offense) of Case Profile
 │   ├── lwop-extraction-patterns.md       ← How to extract each LWOP field from discovery
+│   ├── art814-responsive-verdict-map.md  ← All 71 La. C.Cr.P. art. 814(A) offenses + verbatim responsive-verdict sets (source for Case Profile § 4)
 │   ├── color-coding.md                   ← Spreadsheet color specs for all Case Tables sheets
 │   ├── witness-priority-rubric.md        ← First-match 1–5 ranking rule for the Witness List Priority column
 │   ├── folder-structure-and-naming.md    ← Standard case folder structure + document naming conventions
@@ -51,7 +52,7 @@ dw-criminal-defense-crim/
 **When to load each resource:**
 - **Phase 1 Step 1 (new case):** Read `references/output-path-convention.md` to resolve `CASE_ROOT`. Copy `assets/Case Tables.xlsx` to the case root if not already present.
 - **Phase 1 Step 2f:** Run `scripts/generate_placeholders.py` against the evidence directory.
-- **Phase 1 Step 3 (Case Profile):** Read `references/case-profile-procedure.md`. For LWOP cases (Part 2A or 2B), also read `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`.
+- **Phase 1 Step 3 (Case Profile):** Read `references/case-profile-procedure.md`. For the § 4 Responsive Verdicts cell, read `references/art814-responsive-verdict-map.md` (emit verbatim from the map — never hand-type verdict sets). For LWOP cases (Part 2A or 2B), also read `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`.
 - **Phase 1 Step 4 / Phase 3 Step 1 (Case Tables population):** Read `references/case-tables-write-protocol.md` before any write. Read `references/color-coding.md` for formatting specs. For the `Witness List` Priority column, read `references/witness-priority-rubric.md` and rank every witness 1–5.
 - **Phase 2 Step 2 (8 reports):** Read `references/case-analysis-prompts.md` for the exact prompt templates.
 - **Phase 3 Step 3 (Defense Shield):** Read `references/defense-shield-procedure.md`.
@@ -164,25 +165,32 @@ If `--folders` is omitted, the script processes all subfolders automatically. Th
 
 Read **`references/case-profile-procedure.md`** for the full operating manual. That file covers:
 - The two operating modes (Initial Generation vs. Refresh)
-- Part 1 (always populated) — ten sections covering Case Identification (with case classification and next court date), Probation/Parole Status, Charges, Arraignment & Bail History, Court Appearance Log, Case-Specific Defenses, Client Background, Plea Discussions Log, Family/Friends Contact List, and Key Dates & Next Steps
+- The JusticeWorks / DefenderData "Case File Detail" ingest (structured field source feeding §§ 2, 5, 6, 9)
+- Part 1 (always populated) — ELEVEN sections: Prosecution's Theory of the Case (discovery-cited synopsis of the State's case), Case Identification (with classification and next court date), Probation/Parole Status, Charges & Exposure (Responsive Verdicts auto-generated from the Art. 814 map), Arraignment & Bail History, Court Appearance Log, Case-Specific Defenses, Client Background, Plea Discussions Log, Family/Friends Contact List, and Key Dates & Next Steps
 - Part 2 (case-type specific) — 2A LWOP Homicide, 2B LWOP Sex Offense, or 2C Other Felony
 - LWOP population workflow with extraction priority order, sourcing rules, and formatting conventions
 - Attorney-only field handling (red font preservation)
 - Refresh Mode merge rules
+- The position-based section auto-renumbering pass (Step 2C) and the VERIFY / [ATTORNEY] Roll-Up closing block
 - Field-completeness checklist and completion notes
 - Generation procedure (XML edit using the docx skill)
 
-For LWOP cases (Part 2A or 2B in scope), also read `references/lwop-field-maps.md` (field schema) and `references/lwop-extraction-patterns.md` (extraction rules from discovery).
+For the § 4 Responsive Verdicts cell, read `references/art814-responsive-verdict-map.md` and emit the verdict set verbatim (never hand-type). For LWOP cases (Part 2A or 2B in scope), also read `references/lwop-field-maps.md` (field schema) and `references/lwop-extraction-patterns.md` (extraction rules from discovery).
 
 **✓ Step 3 Check:**
 - [ ] Operating mode selected (Initial Generation or Refresh)
 - [ ] `000 - Case Profile.docx` saved to `Pretrial Notebook → 03 - Case Analysis & Notes`
-- [ ] Part 1 sections 1–10 populated (Initial Generation) OR existing Part 1 preserved with Next Court Date refreshed (Refresh)
+- [ ] Part 1 sections 1–11 populated (Initial Generation) OR existing Part 1 preserved with Next Court Date refreshed (Refresh)
+- [ ] § 1 Prosecution's Theory of the Case drafted, every assertion cited, adverse facts named
+- [ ] § 4 Responsive Verdicts emitted from the Art. 814 map (homicide charges include negligent homicide where the map lists it; First Degree Murder does not)
+- [ ] § 2 Seized Property includes Evidence ID / PR# and warrant-tied Owner Basis for every item
+- [ ] JusticeWorks/DefenderData export ingested (if provided) → §§ 2, 5, 6, 9 populated & reconciled
+- [ ] Position-based section renumbering pass run (no duplicate/gapped Part 1 numbers)
+- [ ] VERIFY / [ATTORNEY] roll-up block generated; highest-stakes items cross-listed to § 11
 - [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges
 - [ ] If LWOP: every field in `lwop-field-maps.md` for the active branch is present (field-completeness checklist run)
 - [ ] All `[ATTORNEY]` fields preserved in red
 - [ ] Refresh Mode only: attorney-entered content untouched, Refresh Log appended
-- [ ] Completion notes generated
 
 ### Step 4: Build Case Tables
 
@@ -514,8 +522,17 @@ Route to **dw-trial-notebook-builder-crim** to assemble all Phase 2 and Phase 3 
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.8 (May 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.11 (July 2026). Update this file whenever the master workflow document is revised.*
 ## Changelog
+
+### v5.11 (July 2026) — Prosecution Theory, Art. 814 auto-verdicts, JusticeWorks ingest
+- **NEW Part 1 Section 1 — Prosecution's Theory of the Case** (discovery-cited synopsis of the State's case). All prior Part 1 sections shift +1 (Case Identification is now § 2 … Key Dates & Next Steps is now § 11).
+- **Responsive Verdicts column (§ 4 Charges) now auto-generated** from the Art. 814 lookup map keyed to the charge by offense name — not free text. NEW reference file `references/art814-responsive-verdict-map.md` reproduces all 71 art. 814(A) offenses verbatim. Corrects a bad seed that wrongly put negligent homicide under first degree murder (negligent homicide is responsive to second degree murder and manslaughter, not first degree murder).
+- **Seized Property / Devices table** gains an **Evidence ID / PR#** column and a warrant-tied **Owner Basis** (owner-attribution) rule; `NONE ON RECEIPT` routes to `dw-chain-of-custody-auditor-crim`.
+- **NEW input source: JusticeWorks / DefenderData "Case File Detail" export** — structured ingest feeding §§ 2, 5, 6, 9 (Case ID, Arraignment, Court Appearance Log, Plea Log).
+- **Court Appearance Log (§ 6) and Plea Discussions Log (§ 9)** restated as fixed-schema, dated, append-only tables.
+- **NEW closing block: VERIFY / [ATTORNEY] roll-up** — every open tag collected into one punch-list, cross-listed to § 11 High Priority Next Steps.
+- **NEW generation step (2C): position-based section auto-renumbering pass** — renumbers Part 1 section banners by document order regardless of banner cell count.
 
 ### v5.10 (June 2026) — Consolidated Witness List + 1–5 Priority Rubric
 - **MERGED:** The former three witness sheets (`Witness Sheet`, `Witness List - Alpha`, `Witness List - Priority`) are consolidated into a single **`Witness List`** sheet (13 columns), sorted alphabetically by Last, First, with a sortable `Priority (1–5)` column. Applies to the master template `assets/Case Tables.xlsx`.
@@ -554,6 +571,7 @@ Route to **dw-trial-notebook-builder-crim** to assemble all Phase 2 and Phase 3 
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
+- **art814-responsive-verdict-map.md** — All 71 La. C.Cr.P. art. 814(A) enumerated offenses and their verbatim responsive-verdict sets; the authoritative source for the Case Profile § 4 Responsive Verdicts cell (matched by offense name, emitted verbatim)
 - **case-analysis-prompts.md** — Eight report prompt templates used in Phase 2 Step 2 (Case Timeline, Prosecution's Case Summary, Red Flags, etc.) with shared analytical framework and source-citation standards
 - **color-coding.md** — Daniels & Washington standard color-coding scheme for Case Tables.xlsx (headers, dropdowns, cell fills)
 - **folder-structure-and-naming.md** — Standard case folder structure and file-naming conventions (Case Tables.xlsx and the 01 - Trial Notebook tree)
@@ -565,4 +583,4 @@ This skill uses the following reference materials, available in the `references/
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.9 (May 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 5.11 (July 2026). Update this file whenever the master workflow document is revised.*
