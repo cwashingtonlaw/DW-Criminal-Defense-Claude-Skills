@@ -265,6 +265,7 @@ uncategorized:
   - skill: dw-case-law-researcher-crim    # auto-invoked by other skills
   - skill: dw-client-communication-drafter-crim  # client correspondence drafter
   - skill: dw-court-jail-tracker-crim     # weekly case-sweep automation
+  - skill: dw-defenderdata-meeting-logger-crim  # browser-automation event logger
   - skill: dw-exhibit-manager-crim        # trial-day adjacent; covered indirectly
   - skill: dw-image-filename-stamp-crim   # utility skill
   - skill: dw-jury-focus-group-crim       # focus-group simulator

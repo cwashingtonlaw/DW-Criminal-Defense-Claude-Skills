@@ -204,20 +204,15 @@ PRIVILEGED AND CONFIDENTIAL — ATTORNEY-CLIENT COMMUNICATION
 
 ## 7. Firm Information
 
-### Firm Letterhead
-The canonical firm letterhead — exact block text, the D&W crest artwork, the Century Schoolbook stationery (`assets/dw-letterhead.docx`), and the rules for when to apply it — lives in `letterhead.md`. Every outward-facing document (correspondence and, per firm preference, filed pleadings) uses it; internal work product does not. Do not hand-type the firm block or use a `[Firm Letterhead]` placeholder — read `letterhead.md`.
-
-> **Firm address (always):** **Daniels & Washington Law Firm, LLC, 38167 Post Office Road, Prairieville, LA 70769** (Ph 225-383-3800 / Fax 225-208-1567; partners Christopher Washington and Harry Daniels III). `letterhead.md` is the single source of truth for the firm block; `signature-block.md` carries the same Prairieville address for filed pleadings. The signature-block example in §7 below uses generic placeholders — when drafting, use the real values from `letterhead.md` / `signature-block.md`.
-
 ### Firm Name and Identity
-- **Legal name / use in filings:** **Daniels & Washington Law Firm, LLC** (the firm name exactly as it appears on letterhead and the filed-pleading signature block)
-- **Short brand reference in prose:** "Daniels & Washington" or "D&W" is fine in narrative; the full entity name above is used wherever the firm signs or is named as counsel.
+- **Legal name:** Daniels & Washington
+- **Use in filings:** "Daniels & Washington, L.L.C." (or check firm articles of incorporation)
 - **Signature block format:**
 
 ```
 Respectfully submitted,
 
-Daniels & Washington Law Firm, LLC
+Daniels & Washington, L.L.C.
 
 By: ___________________________
 [ATTORNEY NAME]

@@ -74,6 +74,7 @@ EXEMPT: dict[str, set[str]] = {
     "dw-criminal-defense-crim":    {"W1", "W2", "W3"},                             # master orchestrator; downstream skills enforce hard stops + citations
     "dw-evidence-placeholder-crim":{"W1", "W3", "W7"},                             # utility skill
     "dw-image-filename-stamp-crim":{"W1", "W3", "W4", "W7"},                       # utility
+    "dw-defenderdata-meeting-logger-crim": {"W1", "W2", "W3", "W4", "W6"},               # browser-automation utility; writes Events to DefenderData, no case-file deliverable
     "dw-case-brain-crim":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
     "dw-criminal-defense-crim.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }

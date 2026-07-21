@@ -7,15 +7,14 @@ Standard signature block for filed pleadings. Pulled from the firm's filing temp
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON LAW FIRM, LLC
+                              DANIELS & WASHINGTON, LLC
 
 
                               ___________________________________
                               CHRISTOPHER J. WASHINGTON #31354
-                              Daniels & Washington Law Firm, LLC
                               38167 Post Office Road
                               Prairieville, Louisiana 70769
-                              Telephone: 225-383-3800
+                              Telephone: (225) 383-3800
                               Facsimile: (225) 208-1567
                               Email: cjw@danielswashington.com
                               ATTORNEY FOR DEFENDANT,
@@ -27,32 +26,32 @@ Standard signature block for filed pleadings. Pulled from the firm's filing temp
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON LAW FIRM, LLC
+                              DANIELS & WASHINGTON, LLC
 
 
                               /s/ Christopher J. Washington
                               ___________________________________
                               CHRISTOPHER J. WASHINGTON
                               Louisiana Bar No. 31354
-                              Daniels & Washington Law Firm, LLC
                               38167 Post Office Road
                               Prairieville, Louisiana 70769
-                              Telephone: 225-383-3800
+                              Telephone: (225) 383-3800
                               Email: cjw@danielswashington.com
                               ATTORNEY FOR DEFENDANT,
                               {{DEFENDANT_NAME}}
 ```
 
-## Firm identity (fixed — matches `letterhead.md`)
+## Firm identity (standing values)
 
-The firm name, address, phone, and fax are fixed values and are hardcoded in the blocks above. They must always read:
+These are the firm's standing values, already filled into the blocks above. Update them here if the firm moves, changes numbers, or Chris's bar status changes:
 
-- **Firm:** Daniels & Washington Law Firm, LLC
-- **Address:** 38167 Post Office Road, Prairieville, Louisiana 70769
-- **Telephone:** 225-383-3800   **Facsimile:** (225) 208-1567
-- **Christopher J. Washington** — Louisiana Bar No. 31354 — cjw@danielswashington.com
+- **Bar number:** 31354 (Christopher J. Washington, Louisiana)
+- **Firm street address:** 38167 Post Office Road, Prairieville, Louisiana 70769
+- **Telephone:** (225) 383-3800
+- **Facsimile:** (225) 208-1567
+- **Email:** cjw@danielswashington.com
 
-Keep these in sync with `letterhead.md` (the single source of truth for firm contact details). The only per-case variable in a single-attorney block is `{{DEFENDANT_NAME}}`. When a different attorney of record or co-counsel signs, use the multi-attorney variant below and supply their name/bar/firm.
+Case-specific values (`{{DEFENDANT_NAME}}`, etc.) are still resolved from Case Brain at draft time. Never insert a blank or placeholder for the firm identity into a filed pleading — if any value above is ever cleared, prompt the attorney before drafting.
 
 ## Multi-attorney variant
 
@@ -61,7 +60,7 @@ When co-counsel signs:
 ```
                               Respectfully submitted,
 
-                              DANIELS & WASHINGTON LAW FIRM, LLC
+                              DANIELS & WASHINGTON, LLC
 
 
                               ___________________________________

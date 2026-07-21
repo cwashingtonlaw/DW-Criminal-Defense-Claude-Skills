@@ -339,25 +339,15 @@ Inherits the Contract 2 (Auditor Skill Reports) structure with these crime-lab-s
 | Bate Stamp | Text | Yes |
 | Notes | Text | No |
 
-### Witness List
-
-> **Consolidated sheet.** A single `Witness List` sheet replaces the former three witness sheets (`Witness Sheet`, `Witness List - Alpha`, `Witness List - Priority`). Default sort is **alphabetical by Last, First**; `Priority (1–5)` is a sortable column. Ranking is governed by `dw-criminal-defense-crim/references/witness-priority-rubric.md` (first-match decision rule).
+### Witness Sheet
 
 | Column | Type | Required |
 |--------|------|----------|
-| Witness Name | Text — "Last, First" | Yes |
-| Address | Text | No |
-| Role | Text (Defendant, Lead Detective, Eyewitness, Latent-Print Examiner, E911 custodian, etc.) | Yes |
-| Type | Dropdown (Defendant / Co-Defendant / State Witness / State Expert / Defense Witness / Victim) | Yes |
-| Priority (1–5) | Dropdown ("1 – Critical" / "2 – High" / "3 – Medium" / "4 – Low" / "5 – Peripheral") — per witness-priority-rubric.md | Yes |
-| Priority Rationale | Text — defense-theory-specific justification for the rank | Yes |
-| Bate Ref (Statement) | Text | No |
-| Bate Ref (Other) | Text | No |
-| Connection to Case | Text | Yes |
-| Key Testimony Expected | Text | No |
-| Impeachment Issues | Text | No |
-| Exam Prep (Y/N) | Dropdown | Yes |
-| Notes | Text | No |
+| Name | Text | Yes |
+| Witness Type | Text (Prosecution/Defense/Expert) | Yes |
+| Association | Text | Yes |
+| Sources (Bate stamps) | Text | Yes |
+| Trial Exam Prepared (Y/N) | Dropdown | Yes |
 
 ### Defense Matrix Sheet
 
@@ -476,7 +466,7 @@ One row per identified witness-contact event:
 
 | Field | Type | Description |
 |---|---|---|
-| `witness_id` | string | Witness identifier matching the entry in `Case Tables.xlsx` Witness List |
+| `witness_id` | string | Witness identifier matching the entry in `Case Tables.xlsx` Witness List - Alpha |
 | `witness_name` | string | Full witness name (sanity-check field; `witness_id` is authoritative) |
 | `event_timestamp` | ISO-8601 | When the call/event occurred (call start time) |
 | `severity` | enum | `CRITICAL` (direct threat or explicit coaching) / `SIGNIFICANT` (indirect contact attempt or coordinated messaging) / `MODERATE` (third-party message relay) / `MINOR` (mention without contact attempt) |

@@ -79,17 +79,31 @@ Filed pleadings receive NO work product marking. Follow the boilerplate componen
 
 ---
 
-## STEP 1 — Template-First DEVONthink Search
+## STEP 1 — Template Source Selection (Hard Stop)
 
-Before drafting any motion, search DEVONthink for firm templates, prior filings, case law, and reference materials. Run searches specific to the motion type requested. **This is the firm's Template-First Drafting Rule** — never draft from scratch when a firm template exists.
+**Before drafting any motion, you must first ask the attorney which source to draft from. Do not search DEVONthink, pull a bundled template, or begin drafting until the attorney has made this choice.**
 
-Read `references/devonthink-search-protocol.md` for the general search query templates, the catalog of known DEVONthink resources (Motions Practice OVERVIEW OUTLINE, CRIMINAL PLEADING INDEX, Complete Manual to Criminal Forms, Louisiana Criminal Trial Practice Formulary, Criminal Procedure Handbook), the seminar/CLE searches (NACDL, LACDL), and the Template Selection Protocol handoff.
+First, present the list of bundled firm templates available in `assets/templates/`. Re-read `assets/templates/README.md` and confirm the folder contents so the list reflects the templates actually present, then list each in-scope template with its motion type, mapped module, and venue. The current bundled templates are:
 
-**After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols-crim/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to drafting until the attorney has selected a template or chosen to draft from scratch.
+| # | Template | Motion type | Module | Venue |
+|---|----------|-------------|--------|-------|
+| 1 | `motion_for_speedy_trial_701.docx` | Speedy Trial / Art. 701 | Module 1 | 14th JDC Calcasieu (D&W primary venue) |
+| 2 | `motion_for_discovery_initial.docx` | Initial Discovery demand | Module 4 | 19th JDC East Baton Rouge |
+| 3 | `motion_for_preliminary_exam.docx` | Preliminary Examination / Art. 292 | Module 12 | 2nd JDC Allen |
+| 4 | `motion_omnibus_orleans.docx` | Omnibus Pretrial Motion | Module 13 | Orleans Parish CDC |
+| 5 | `notice_of_self_defense.docx` | Notice of Self-Defense / Justification (Art. 390) | Module 14 | 2nd JDC Allen |
+| 6 | `melendez_diaz_objection.docx` | Melendez-Diaz / Criminalist Certificate objection | Module 15 | 2nd JDC Allen |
+| 7 | `motion_to_enroll.docx` | Enrollment of Counsel (admin boilerplate) | — | 2nd JDC Allen |
 
-If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.
+Then ask the attorney to choose one of three drafting sources:
 
-Each MODULE below also lists its motion-specific DEVONthink search queries and known prior filings. Run those in addition to the general searches in `references/devonthink-search-protocol.md`.
+1. **Use one of the bundled templates above** — name or number the template to use. Load it, strip ALL case-specific content (client name, docket number, parish, judge, facts, dates), reset the caption per `dw-shared-protocols-crim/references/filed-pleading-boilerplate.md` for the actual filing parish, and verify every citation against `references/caselaw-citations.md`. See STEP 1.5 for the full porting procedure.
+2. **Search the DEVONthink database** — search DEVONthink for firm templates, prior filings, case law, and reference materials specific to the motion type requested. Read `references/devonthink-search-protocol.md` for the general search query templates, the catalog of known DEVONthink resources (Motions Practice OVERVIEW OUTLINE, CRIMINAL PLEADING INDEX, Complete Manual to Criminal Forms, Louisiana Criminal Trial Practice Formulary, Criminal Procedure Handbook), and the seminar/CLE searches (NACDL, LACDL). Each MODULE below also lists its motion-specific DEVONthink search queries and known prior filings — run those too. **After all DEVONthink searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols-crim/references/template-selection-protocol.md` (Steps A through D): present the top 3 results and let the attorney select a template or paste a DEVONthink link, then load the selection before proceeding.
+3. **Draft from scratch without a template** — skip both the bundled templates and the DEVONthink search, and draft using this skill's built-in module structure.
+
+**Do not proceed to drafting until the attorney selects one of these three options.** If the attorney is unsure, note that DEVONthink reflects the firm's most recent and case-appropriate filings while bundled templates are static exemplars frozen at packaging time — but the choice is the attorney's.
+
+If a template is selected (bundled or DEVONthink), preserve the firm's preferred formatting and legal positions, then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure.
 
 ---
 
@@ -395,7 +409,7 @@ Apply the standard review flags (`[VERIFY]`, `[RESEARCH]`, `[ATTORNEY TO COMPLET
 - **Never fabricate legal citations.** Flag any citation needing verification. Cross-check every cite against `references/caselaw-citations.md`, which flags known typos and stale cites in the bundled templates.
 - **Attorney work product.** All outputs are drafts requiring attorney review.
 - **Louisiana default.** Apply Louisiana statutes and 5th Circuit standards.
-- **Template-First.** Always search DEVONthink before drafting from scratch. Bundled templates in `assets/templates/` are secondary — use when DEVONthink returns nothing useful or to cross-check formatting consistency. DEVONthink reflects the firm's most recent filings; bundled templates are static.
+- **Template Source Selection first.** Always run STEP 1 before drafting: present the bundled `assets/templates/` list and ask the attorney to choose among (1) a bundled template, (2) a DEVONthink search, or (3) drafting from scratch. Never begin drafting until the attorney has chosen. DEVONthink reflects the firm's most recent filings; bundled templates are static exemplars — surface that trade-off if the attorney is unsure, but the choice is theirs.
 - **Reset the caption.** Bundled templates use 2nd JDC, 14th JDC, 19th JDC, and Orleans Parish CDC captions. Only `motion_for_speedy_trial_701.docx` uses 14th JDC (D&W's primary venue) — for any other filing, pull caption boilerplate from `dw-shared-protocols-crim/references/filed-pleading-boilerplate.md` rather than copying a template's caption forward.
 - **Article renumbering.** La. C.Cr.P. articles have been renumbered (e.g., the old Art. 334 bail factors are now Art. 316). Always verify against the current code.
 - **Route specialized motions correctly.** Suppression → `dw-suppression-motion-crim`. 404(b) → `dw-404b-opposition-crim`. Bond → `dw-bond-and-release-motion-crim`. New trial → `dw-appellate-error-monitor-crim` MODULE E. Appeal → `dw-appellate-error-monitor-crim` MODULE E. Don't draft these from this skill.
