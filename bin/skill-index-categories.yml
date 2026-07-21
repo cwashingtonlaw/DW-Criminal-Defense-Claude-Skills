@@ -268,6 +268,7 @@ uncategorized:
   - skill: dw-defenderdata-meeting-logger-crim  # browser-automation event logger
   - skill: dw-exhibit-manager-crim        # trial-day adjacent; covered indirectly
   - skill: dw-image-filename-stamp-crim   # utility skill
+  - skill: dw-jail-visit-list-crim        # Apple Notes jail-visit checklist
   - skill: dw-jury-focus-group-crim       # focus-group simulator
   - skill: dw-timeline-builder-crim       # timeline aggregator
   - skill: dw-transcript-pipeline-calcasieu-crim  # invoked by dw-transcript-router-crim

@@ -1,5 +1,5 @@
 ---
-name: jail-visit-list
+name: dw-jail-visit-list-crim
 description: >-
   Build a checkable Apple Notes jail-visit list for Chris Washington. ALWAYS
   invoke for "jail visit list," "create a jail visit list," "make a list of
