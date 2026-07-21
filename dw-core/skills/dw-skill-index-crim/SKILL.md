@@ -144,6 +144,7 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 | Sentencing mitigation package | `dw-disposition:dw-sentencing-mitigation-specialist-crim` | "build sentencing mitigation" |
 | Habitual offender bill audit | `dw-disposition:dw-habitual-offender-auditor-crim` | "audit the habitual bill" |
 | Evaluate plea offer | `dw-disposition:dw-plea-negotiation-analyzer-crim` | "analyze the plea offer" |
+| Padilla immigration-consequences advisement (bilingual EN/ES, signable) | `dw-disposition:dw-padilla-advisement-crim` | "Padilla advisement" or "immigration consequences of a plea" |
 | Draft direct-appeal brief (assignments of error, argument, reply) | `dw-disposition:dw-appellate-brief-builder-crim` | "appellate brief" or "appeal brief" or "assignments of error" |
 | Post-conviction relief (PCR / habeas / sentence modification) | `dw-disposition:dw-post-conviction-relief-crim` | "post-conviction" or "PCR" or "habeas" |
 

@@ -75,6 +75,7 @@ EXEMPT: dict[str, set[str]] = {
     "dw-evidence-placeholder-crim":{"W1", "W3", "W7"},                             # utility skill
     "dw-image-filename-stamp-crim":{"W1", "W3", "W4", "W7"},                       # utility
     "dw-defenderdata-meeting-logger-crim": {"W1", "W2", "W3", "W4", "W6"},               # browser-automation utility; writes Events to DefenderData, no case-file deliverable
+    "dw-padilla-advisement-crim":  {"W1", "W2", "W3", "W7"},                       # Cowork legal-skill-creator pattern; fixed advisement language w/ exact INA cites, own guardrails section
     "dw-case-brain-crim":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
     "dw-criminal-defense-crim.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }

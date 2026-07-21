@@ -1,0 +1,113 @@
+{
+  "_note": "Canonical bilingual (EN/ES) language for the D&W Padilla immigration-consequences advisement. Edit here to change the firm's standard language. The generator script reads this file. Statutory citations are kept in original form. See references/advisement-language-en-es.md for the human-readable version.",
+  "title": {
+    "en": "IMMIGRATION-CONSEQUENCES ADVISEMENT (PADILLA v. KENTUCKY)",
+    "es": "ADVERTENCIA SOBRE CONSECUENCIAS MIGRATORIAS (PADILLA v. KENTUCKY)"
+  },
+  "purpose": {
+    "en": "Because you are not a United States citizen, any decision you make in this criminal case — especially a guilty or no-contest plea — may carry serious and permanent immigration consequences that are separate from, and in addition to, any criminal sentence. Under Padilla v. Kentucky, 559 U.S. 356 (2010), your attorney must advise you of these consequences. This document explains them. Read it carefully with your interpreter and your attorney before you make any decision about a plea.",
+    "es": "Como usted no es ciudadano de los Estados Unidos, cualquier decisión que tome en este caso penal — especialmente declararse culpable o \"no contest\" — puede tener consecuencias migratorias graves y permanentes, separadas y adicionales a cualquier condena penal. Conforme a Padilla v. Kentucky, 559 U.S. 356 (2010), su abogado debe advertirle de estas consecuencias. Este documento las explica. Léalo con cuidado, junto con su intérprete y su abogado, antes de tomar cualquier decisión sobre una negociación de culpabilidad."
+  },
+  "universal_points": [
+    {
+      "en": "You are not a U.S. citizen. A criminal conviction can affect your right to remain in, or ever return to, the United States — regardless of how long you have lived here or your family ties.",
+      "es": "Usted no es ciudadano estadounidense. Una condena penal puede afectar su derecho a permanecer en los Estados Unidos, o a regresar alguna vez — sin importar cuánto tiempo haya vivido aquí ni sus lazos familiares."
+    },
+    {
+      "en": "__CHARGE_CLASSIFICATION__",
+      "es": "__CHARGE_CLASSIFICATION__"
+    },
+    {
+      "en": "A conviction — whether by guilty plea, no-contest plea, or trial — for a removable offense makes you deportable/removable (8 U.S.C. § 1227(a)(2)) and may result in your removal (deportation) from the United States.",
+      "es": "Una condena — ya sea por declararse culpable, \"no contest\", o por juicio — por un delito que causa expulsión lo hace deportable/removible (8 U.S.C. § 1227(a)(2)) y puede resultar en su expulsión (deportación) de los Estados Unidos."
+    },
+    {
+      "en": "It may make you inadmissible — barred from lawfully returning to the United States, obtaining a visa, or becoming a lawful permanent resident (\"green card\") or citizen. For an aggravated felony, this bar is permanent.",
+      "es": "Puede hacerlo inadmisible — impedido de regresar legalmente a los Estados Unidos, de obtener una visa, o de convertirse en residente permanente legal (\"green card\") o ciudadano. En el caso de un delito agravado (\"aggravated felony\"), esta prohibición es permanente."
+    },
+    {
+      "en": "It may make you ineligible for relief from removal — such as cancellation of removal, waivers, or voluntary departure — and certain convictions bar asylum/withholding as a \"particularly serious crime\" and bar U.S. citizenship (naturalization).",
+      "es": "Puede hacerlo inelegible para el alivio contra la expulsión — como la cancelación de expulsión, las exenciones (\"waivers\"), o la salida voluntaria — y ciertas condenas impiden el asilo/retención de expulsión por tratarse de un \"delito particularmente grave\" e impiden la ciudadanía estadounidense (naturalización)."
+    },
+    {
+      "en": "You may be held in mandatory immigration detention by ICE (8 U.S.C. § 1226(c)) with no right to an immigration bond during your removal proceedings.",
+      "es": "Podría quedar bajo detención migratoria obligatoria por parte de ICE (8 U.S.C. § 1226(c)), sin derecho a una fianza migratoria durante su proceso de expulsión."
+    },
+    {
+      "en": "If you now hold or later seek any immigration status or benefit (lawful permanent residence, a visa, TPS, DACA, asylum, or relief through a family member), a conviction in this case may destroy it.",
+      "es": "Si usted tiene ahora, o solicita en el futuro, cualquier estatus o beneficio migratorio (residencia permanente legal, una visa, TPS, DACA, asilo, o alivio a través de un familiar), una condena en este caso podría destruirlo."
+    }
+  ],
+  "conditional_points": {
+    "sex_offense_registration": {
+      "en": "A sex-offense conviction carries additional immigration consequences and requires sex-offender registration, which can follow you and further affect immigration and travel.",
+      "es": "Una condena por delito sexual conlleva consecuencias migratorias adicionales y exige el registro como ofensor sexual, lo cual puede seguirlo y afectar aún más su situación migratoria y de viaje."
+    },
+    "controlled_substance": {
+      "en": "A controlled-substance conviction (other than a single offense of simple possession of 30 grams or less of marijuana) makes you both deportable and inadmissible (8 U.S.C. §§ 1227(a)(2)(B), 1182(a)(2)(A)(i)(II)) and is very difficult to waive.",
+      "es": "Una condena por sustancias controladas (salvo una sola ofensa de posesión simple de 30 gramos o menos de marihuana) lo hace tanto deportable como inadmisible (8 U.S.C. §§ 1227(a)(2)(B), 1182(a)(2)(A)(i)(II)) y es muy difícil de exonerar."
+    },
+    "firearm": {
+      "en": "A firearm-offense conviction makes you deportable (8 U.S.C. § 1227(a)(2)(C)).",
+      "es": "Una condena por delito de armas de fuego lo hace deportable (8 U.S.C. § 1227(a)(2)(C))."
+    },
+    "domestic_violence": {
+      "en": "A conviction for domestic violence, stalking, child abuse, or violation of a protective order makes you deportable (8 U.S.C. § 1227(a)(2)(E)).",
+      "es": "Una condena por violencia doméstica, acecho, maltrato infantil, o violación de una orden de protección lo hace deportable (8 U.S.C. § 1227(a)(2)(E))."
+    }
+  },
+  "deportation_caution": {
+    "heading": {
+      "en": "About Your Wish to Be Deported — Important Warning",
+      "es": "Sobre su deseo de ser deportado — advertencia importante"
+    },
+    "points": [
+      {
+        "en": "You have told your attorney that you want to be deported. Please understand: a criminal conviction is NOT a reliable or controlled way to make that happen. Deportation is decided by ICE and the immigration court — a separate system that the criminal court, the district attorney, and your plea do not control. Pleading guilty does not guarantee quick removal.",
+        "es": "Usted le ha dicho a su abogado que quiere ser deportado. Por favor entienda: una condena penal NO es una manera confiable ni controlada de lograrlo. La deportación la deciden ICE y el tribunal de inmigración — un sistema separado que el tribunal penal, el fiscal y su declaración de culpabilidad no controlan. Declararse culpable no garantiza una expulsión rápida."
+      },
+      {
+        "en": "Pleading guilty could make your situation permanently worse: you would likely first serve __SENTENCE_CONSEQUENCE__, then face mandatory ICE detention, a permanent bar on ever returning legally, and — if you ever reenter the U.S. after removal — a new federal felony prosecution (8 U.S.C. § 1326).",
+        "es": "Declararse culpable podría empeorar su situación de forma permanente: probablemente primero cumpliría __SENTENCE_CONSEQUENCE_ES__, y luego enfrentaría detención migratoria obligatoria, una prohibición permanente de regresar legalmente y — si alguna vez reingresa a los EE. UU. tras ser expulsado — un nuevo proceso penal federal (8 U.S.C. § 1326)."
+      },
+      {
+        "en": "Your immigration goals should be evaluated by an immigration attorney BEFORE you decide on any plea. Wanting to be deported is not, by itself, a reason to plead guilty to these charges.",
+        "es": "Sus objetivos migratorios deben ser evaluados por un abogado de inmigración ANTES de que usted decida sobre cualquier negociación de culpabilidad. Querer ser deportado no es, por sí solo, una razón para declararse culpable de estos cargos."
+      }
+    ]
+  },
+  "rights_points": [
+    {
+      "en": "A plea to a different or reduced charge might avoid or reduce some of these consequences. For that reason, you should NOT accept or reject any plea offer until an immigration attorney has reviewed it.",
+      "es": "Declararse culpable de un cargo distinto o reducido podría evitar o disminuir algunas de estas consecuencias. Por esa razón, usted NO debe aceptar ni rechazar ninguna oferta de negociación hasta que un abogado de inmigración la haya revisado."
+    },
+    {
+      "en": "You have the right to consult an immigration attorney. We strongly recommend that you speak with a qualified immigration attorney before making any decision in this case. Your criminal defense attorney is not your immigration attorney, and this advisement is general information — not immigration legal advice about your specific eligibility.",
+      "es": "Usted tiene derecho a consultar con un abogado de inmigración. Le recomendamos encarecidamente que hable con un abogado de inmigración calificado antes de tomar cualquier decisión en este caso. Su abogado defensor penal no es su abogado de inmigración, y esta advertencia es información general — no es asesoría legal migratoria sobre su elegibilidad específica."
+    }
+  ],
+  "certifications": {
+    "client": {
+      "heading": {"en": "Client Acknowledgment", "es": "Reconocimiento del cliente"},
+      "en": "I have read (or had read/interpreted to me in my primary language) this entire advisement. My attorney explained it to me and answered my questions. I understand that a conviction in this case may result in my removal from the United States and in the other consequences described above. I understand my right to consult an immigration attorney.",
+      "es": "He leído (o se me ha leído/interpretado en mi idioma principal) toda esta advertencia. Mi abogado me la explicó y respondió mis preguntas. Entiendo que una condena en este caso puede resultar en mi expulsión de los Estados Unidos y en las demás consecuencias descritas arriba. Entiendo mi derecho a consultar con un abogado de inmigración.",
+      "sig_en": "Client", "sig_es": "Cliente"
+    },
+    "attorney": {
+      "heading": {"en": "Attorney Certification", "es": "Certificación del abogado"},
+      "en": "I certify that I advised the above-named client of the immigration consequences set forth in this document, through a qualified interpreter where applicable, and answered the client's questions before any plea decision.",
+      "es": "Certifico que advertí al cliente arriba nombrado de las consecuencias migratorias establecidas en este documento, a través de un intérprete calificado cuando corresponde, y respondí las preguntas del cliente antes de cualquier decisión sobre negociación de culpabilidad.",
+      "sig_en": "Attorney", "sig_es": "Abogado"
+    },
+    "interpreter": {
+      "heading": {"en": "Interpreter Certification", "es": "Certificación del intérprete"},
+      "en": "I certify that I am fluent in English and the client's primary language and that I accurately interpreted this advisement, and the discussion between attorney and client, in both directions.",
+      "es": "Certifico que domino el inglés y el idioma principal del cliente y que interpreté con exactitud esta advertencia, y la conversación entre el abogado y el cliente, en ambas direcciones.",
+      "sig_en": "Interpreter (name & credential)", "sig_es": "Intérprete (nombre y credencial)"
+    }
+  },
+  "footer": {
+    "en": "Attorney work product — DRAFT prepared for attorney review and signature. General information only; not a substitute for advice from immigration counsel. Immigration law is complex and changes; specialist consultation is required.",
+    "es": "Producto de trabajo del abogado — BORRADOR preparado para revisión y firma del abogado. Solo información general; no sustituye la asesoría de un abogado de inmigración. La ley migratoria es compleja y cambia; se requiere consulta con un especialista."
+  }
+}

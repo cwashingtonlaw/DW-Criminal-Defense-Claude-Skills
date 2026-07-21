@@ -205,6 +205,9 @@ sentencing_appeal_pcr:
   - skill: dw-plea-negotiation-analyzer-crim
     label: "Evaluate plea offer"
     trigger: "analyze the plea offer"
+  - skill: dw-padilla-advisement-crim
+    label: "Padilla immigration-consequences advisement (bilingual EN/ES, signable)"
+    trigger: "Padilla advisement or immigration consequences of a plea"
   - skill: dw-appellate-brief-builder-crim
     label: "Draft direct-appeal brief (assignments of error, argument, reply)"
     trigger: "appellate brief or appeal brief or assignments of error"
