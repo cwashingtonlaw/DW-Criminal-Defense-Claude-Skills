@@ -2,20 +2,17 @@
 name: dw-case-law-researcher-crim
 category: ops
 description: >
-  Multi-source legal research engine for Daniels & Washington criminal defense.
-  Searches case.dev (case law + statutes), CourtListener (9M+ cases with semantic search,
-  citation verification, full opinion text), DEVONthink (firm templates + prior work product),
-  Consensus/Semantic Scholar (empirical/academic research), and Westlaw/Fastcase/OpenCase via
-  Chrome (KeyCite, Shepard's, premium secondary sources). ALWAYS invoke for "research case law,"
-  "find authority," "find cases on," "what does the law say about," "pull up the case,"
-  "cite check," "shepardize," "KeyCite," "is this still good law," "find studies on,"
-  "empirical research," "run Westlaw," "search Fastcase," "search OpenCase," "legal research on,"
-  "find supporting authority," "look up the statute," "CourtListener," "find citing cases,"
-  "who is the judge," "verify this citation," or any request for legal authority during motion
-  drafting. Also auto-invoked by other D&W skills (suppression, 404(b), bond, sentencing, etc.)
-  when they need on-point authority beyond DEVONthink templates. Do NOT use for template selection
-  (use the template selection protocol in dw-shared-protocols-crim/references/template-selection-protocol.md)
-  or for general web search unrelated to legal authority.
+  Multi-source legal research engine for D&W criminal defense: case.dev (case law + statutes),
+  CourtListener (semantic search, citation verification, opinion text), DEVONthink (firm
+  templates + prior work product), Consensus/Semantic Scholar (empirical research), and
+  Westlaw/Fastcase/OpenCase via Chrome. ALWAYS invoke for "research case law," "find authority,"
+  "find cases on," "what does the law say about," "pull up the case," "cite check," "shepardize,"
+  "KeyCite," "is this still good law," "find studies on," "empirical research," "run Westlaw,"
+  "search Fastcase," "search OpenCase," "legal research on," "find supporting authority," "look
+  up the statute," "CourtListener," "find citing cases," "verify this citation," or any request
+  for legal authority during motion drafting. Also auto-invoked by other D&W skills needing
+  on-point authority. Do NOT use for template selection (use the template-selection-protocol in
+  dw-shared-protocols-crim) or general web search unrelated to legal authority.
 version: 1.1.0
 ---
 

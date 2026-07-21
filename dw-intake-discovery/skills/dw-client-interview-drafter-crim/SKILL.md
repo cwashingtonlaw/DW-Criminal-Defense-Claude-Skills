@@ -1,18 +1,18 @@
 ---
 name: dw-client-interview-drafter-crim
 description: >
-  Draft client interview question sheets — the document the attorney USES to question
-  the client (distinct from dw-client-communication-drafter-crim, which drafts letters TO the
-  client). ALWAYS invoke for "client interview sheet," "intake question sheet," "questions
-  for client interview," "jail visit prep sheet," "client questionnaire," "interview the
-  client," "prep for client meeting," "follow-up client interview," "post-discovery client
-  meeting," "pre-plea client consultation," "pre-trial client meeting," or "interview
-  questions for [client name]." Supports three modes: long-form initial, short-form initial
-  triage, and four follow-up scenarios (post-discovery review, pre-plea consultation,
-  pre-trial readiness, post-motion-ruling debrief). Auto-routes charge-specific question
-  modules based on CISPSA or charging document. Do NOT use for letters to the client (use
-  dw-client-communication-drafter-crim), witness interviews (use dw-witness-statement-analyzer-crim),
-  or investigator tasking (use dw-defense-investigator-tasking-crim).
+  Draft client interview question sheets — the document the attorney USES to question the client
+  (distinct from dw-client-communication-drafter-crim, which drafts letters TO the client).
+  ALWAYS invoke for "client interview sheet," "intake question sheet," "questions for client
+  interview," "jail visit prep sheet," "client questionnaire," "interview the client," "prep for
+  client meeting," "follow-up client interview," "pre-plea client consultation," "pre-trial
+  client meeting," or "interview questions for [client name]." Three modes: long-form initial,
+  short-form initial triage, and four follow-up scenarios (post-discovery review, pre-plea
+  consultation, pre-trial readiness, post-motion-ruling debrief). Auto-routes charge-specific
+  question modules from CISPSA or charging document. Do NOT use for letters to the client
+  (dw-client-communication-drafter-crim), witness interviews
+  (dw-witness-statement-analyzer-crim), or investigator tasking
+  (dw-defense-investigator-tasking-crim).
 ---
 
 # D&W Client Interview Drafter

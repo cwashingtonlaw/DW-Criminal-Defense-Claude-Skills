@@ -3,19 +3,17 @@ name: dw-violent-crime-specialist-crim
 category: offense-specialists
 description: >
   Violent-crime defense framework for Louisiana state prosecutions. ALWAYS invoke for "homicide,"
-  "murder," "first degree murder," "second degree murder," "manslaughter," "negligent homicide,"
-  "heat of passion," "sudden passion," "self-defense," "stand your ground," "no duty to retreat,"
-  "justifiable homicide," "defense of others," "felony murder," "aggravated battery," "second degree
-  battery," "battery on a police officer," "aggravated assault," "aggravated kidnapping," "second
-  degree kidnapping," "aggravated burglary," "home invasion," "armed robbery," "first degree robbery,"
-  "simple robbery," "firearm enhancement on robbery," "R.S. 14:30," "R.S. 14:30.1," "R.S. 14:31,"
-  "R.S. 14:32," "R.S. 14:34," "R.S. 14:34.1," "R.S. 14:34.5," "R.S. 14:37," "R.S. 14:44,"
-  "R.S. 14:44.1," "R.S. 14:60," "R.S. 14:62.8," "R.S. 14:64," "R.S. 14:64.1," "R.S. 14:64.3,"
-  "R.S. 14:65," "Miller hearing," "Montgomery v. Louisiana," "juvenile LWOP," "responsive verdict,"
-  "Article 814," or "death-eligible." Do NOT use for sex offenses (use dw-sex-offense-specialist-crim),
-  drug offenses (use dw-drug-offense-specialist-crim), DWI (use dw-dwi-specialist-crim), or standalone gun
-  charges (use dw-firearms-specialist-crim) — but DO use this skill when a violent crime is the lead
-  charge and a firearm is the instrumentality.
+  "murder," "first/second degree murder," "manslaughter," "negligent homicide," "heat of
+  passion," "sudden passion," "self-defense," "stand your ground," "justifiable homicide,"
+  "defense of others," "felony murder," "aggravated/second degree battery," "battery on a police
+  officer," "aggravated assault," "aggravated/second degree kidnapping," "aggravated burglary,"
+  "home invasion," "armed/first degree/simple robbery," "firearm enhancement," R.S. 14:30,
+  14:30.1, 14:31, 14:32, 14:34, 14:34.1, 14:34.5, 14:37, 14:44, 14:44.1, 14:60, 14:62.8, 14:64,
+  14:64.1, 14:64.3, 14:65, "Miller hearing," "juvenile LWOP," "responsive verdict," "Article
+  814," or "death-eligible." Do NOT use for sex offenses (dw-sex-offense-specialist-crim), drug
+  offenses (dw-drug-offense-specialist-crim), DWI (dw-dwi-specialist-crim), or standalone gun
+  charges (dw-firearms-specialist-crim); DO use when a violent crime is the lead charge with a
+  firearm.
 ---
 
 # D&W Violent Crime Specialist

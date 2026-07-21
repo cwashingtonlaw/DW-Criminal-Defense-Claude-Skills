@@ -3,18 +3,17 @@ name: dw-jail-call-analyzer-crim
 category: evidence-audit
 description: >
   Audit recorded jail calls produced in discovery for damaging admissions, helpful content,
-  witness-tampering exposure, and trial-cross fodder at Daniels & Washington. ALWAYS invoke
-  for "jail call," "jail calls," "jail recording," "jail recordings," "phone call analysis,"
-  "inmate calls," "Securus," "GTL," "ViaPath," "NCIC calls," "IC Solutions," "calls produced,"
-  "call detail records," "recorded calls from the jail," "audit the jail calls," "review the
-  jail calls," "Lanza," "third-party-presence waiver," "client said something on a call,"
-  "co-defendant calls," or "witness contact from jail." Triage-first audit skill: prioritizes
-  100s-1000s of calls into full-review / summary / log-only tiers, then produces an eight-module
-  report covering admissions, exculpatory content, tampering risk, narrative themes, privilege,
-  cross-exam fodder, and a forward-looking client hygiene memo. Feeds dw-witness-threat-matrix-crim,
-  dw-cross-exam-architect-crim, and dw-case-brain-crim. Do NOT use for raw audio→transcript conversion
-  (use dw-transcript-router-crim / dw-transcript-pipeline-rev-crim) or for client-side communications
-  drafted by the firm (use dw-client-communication-drafter-crim).
+  witness-tampering exposure, and trial-cross fodder. ALWAYS invoke for "jail call," "jail
+  calls," "jail recording," "phone call analysis," "inmate calls," "Securus," "GTL," "ViaPath,"
+  "NCIC calls," "IC Solutions," "calls produced," "call detail records," "audit the jail calls,"
+  "review the jail calls," "Lanza," "third-party-presence waiver," "client said something on a
+  call," "co-defendant calls," or "witness contact from jail." Triage-first: prioritizes
+  100s-1000s of calls into full-review / summary / log-only tiers, then an eight-module report
+  (admissions, exculpatory content, tampering risk, themes, privilege, cross-exam fodder, client
+  hygiene memo). Feeds dw-witness-threat-matrix-crim, dw-cross-exam-architect-crim, and
+  dw-case-brain-crim. Do NOT use for raw audio-to-transcript conversion (use
+  dw-transcript-router-crim) or firm-drafted client communications (use
+  dw-client-communication-drafter-crim).
 ---
 
 # Jail Call Analyzer
