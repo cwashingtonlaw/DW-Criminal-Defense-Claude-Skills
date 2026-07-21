@@ -72,6 +72,10 @@ Do not proceed to Step 0.6 until these protocols are loaded.
 
 ---
 
+### Source Citation Mandate
+
+Every factual assertion in an opening, closing, theme tracker, or rebuttal memo must trace to a specific source: a trial-record cite (witness/exhibit), a discovery document (Bates/DOC ###), or a jury instruction quoted verbatim. The evidence-keyed defense story (STEP 4) maps every narrative step to the specific record evidence that supports it. Any assertion without a source must be marked `[UNSOURCED — VERIFY]` so the attorney can confirm or cut it before use — an unsourced line in an opening is a broken promise the State will exploit in rebuttal.
+
 ## STEP 0.6 — MODE SELECTION
 
 This skill operates in two modes, with a strongly recommended combined mode:
@@ -379,6 +383,15 @@ If any of these upstream skills have not been run for this case, recommend they 
 | Self-defense burden (State must disprove) | La. R.S. 14:20; *State v. Patterson*, 10-0415 (La. 2010) |
 | Personal vouching prohibition | La. Rules of Prof. Conduct 3.4(e) |
 | Contemporaneous objection (preserve for appeal) | La. C.Cr.P. Art. 841 |
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **opening-louisiana-guardrails.md** — STEP 3 enforcement checklist: Louisiana rules for criminal opening statements (a violating draft is fixed, not delivered)
+- **closing-louisiana-guardrails.md** — STEP 4 enforcement checklist: Louisiana rules for criminal closing arguments
+- **theme-craft.md** — Theme construction and callback principles (plant in opening, water mid-trial, harvest in closing)
+- **rebuttal-anticipation.md** — How to predict the State's rebuttal and pre-rebut it inside the defense closing
 
 ---
 

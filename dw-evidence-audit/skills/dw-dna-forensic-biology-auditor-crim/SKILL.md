@@ -280,6 +280,19 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 - **D&W workflow integration.** Follow shared protocols (Step 0.5).
 - **Evolving science/law caveat.** Mark legal sections `[VERIFY CURRENT — DNA admissibility law continues to evolve]`.
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **str-methodology.md** — Module A: STR methodology audit (all autosomal DNA cases)
+- **probabilistic-genotyping.md** — Module B: STRmix / TrueAllele / EuroForMix and other probabilistic interpretation software audits
+- **mixture-interpretation.md** — Module C: DNA mixture interpretation audit (two or more contributors)
+- **statistical-challenges.md** — Module D: challenges to reported DNA statistics (RMP, CPI, LR, kinship index)
+- **contamination-and-handling.md** — Module E: contamination and handling audit (load in essentially every DNA case)
+- **igg-and-databases.md** — Module F: CODIS hits, Investigative Genetic Genealogy, and DNA-database methodology
+- **louisiana-dna-case-law.md** — Legal standards for DNA admissibility and challenge under Louisiana law and 5th Circuit practice (annotate `[VERIFY CURRENT]`)
+- **defense-dna-experts.md** — Defense DNA expert categories and sourcing channels for Modules B–F retention recommendations
+
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for Phase 2 integration, dw-cross-exam-architect-crim for analyst cross-examination, dw-expert-witness-evaluator-crim for defense expert vetting, dw-suppression-motion-crim and dw-pretrial-motion-library-crim for motion practice, and dw-issue-code-tracker-crim for trial notebook integration. Upstream from dw-discovery-orchestrator-crim. For drug/toxicology audits use dw-crime-lab-auditor-crim; for sex-offense offense-level strategy use dw-sex-offense-specialist-crim — this skill is the deep methodology audit.*

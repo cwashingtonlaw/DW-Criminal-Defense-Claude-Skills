@@ -514,6 +514,15 @@ If any of these upstream products is missing or stale, prompt the attorney to re
 - `dw-jury-instructions-builder-crim` (defense-theory-driven instruction requests anchored on direct testimony)
 - `dw-trial-narrative-builder-crim` (closing argument integration — defense witness propositions become closing themes)
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **defendant-testify-decision-matrix.md** — STEP 0.6 / STEP 3: pretrial and morning-of-trial testify-or-not decision matrix for the defendant
+- **witness-types.md** — STEP 3: five witness-type modules (prep protocol, chapter sequencing, cross-attack vectors, rehearsal plan, foundation checklist)
+- **direct-examination-template.md** — STEP 4: firm Direct-Examination Outline template specification (mirror of the Cross-Exam Template with Anticipated Cross-Attack Vectors column)
+- **louisiana-direct-examination-rules.md** — Doctrinal reference for defense direct examination in Louisiana state courts (WDLA parallels noted)
+
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Mirror skill of `dw-cross-exam-architect-crim`. Pair with the `dw-criminal-defense-crim` skill for full Phase 4 integration.*

@@ -277,6 +277,17 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 - **Substantive drug law is OUT.** Schedule classification, constructive possession, intent-to-distribute, drug-free zones, and habitual-offender enhancement belong to `dw-drug-offense-specialist-crim`. This skill audits the chemistry that proves the substance element.
 - **Verify current statutes and case law.** R.S. 15:501's objection deadline and the post-*Williams* Louisiana confrontation cases evolve. Mark legal analysis `[VERIFY CURRENT]` and recommend the attorney confirm before filing.
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **drug-id-methodology.md** — Module A: controlled-substance identification chemistry (presumptive screening, confirmatory analysis, instrumental methods, bulk sampling, Daubert/Foret sufficiency standards)
+- **toxicology-methodology.md** — Module B: forensic toxicology chemistry (immunoassay screening, instrumental confirmation, blood-alcohol analysis, metabolite-vs-impairment problem)
+- **analyst-dossier.md** — Module C: analyst professional-record compilation template, discovery demand checklist, and cautionary precedents
+- **lab-accreditation.md** — Module D: accreditation regime, audit reports, corrective-action plans, and admissibility consequences of lost/restricted accreditation
+- **certificate-challenges-louisiana.md** — Module E: Louisiana lab-certificate statutory framework, confrontation-clause overlay, and challenge-preservation mechanics
+- **chain-of-custody-at-lab.md** — Module F: lab-side chain of custody from evidence intake through analysis, sub-sampling, storage, and disposition
+
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit (Phase 2 — Discovery Processing). Pair with `dw-dna-forensic-biology-auditor-crim` (DNA & biology), `dw-chain-of-custody-auditor-crim` (field-side chain), `dw-dwi-specialist-crim` (DWI workflow), `dw-drug-offense-specialist-crim` (substantive drug-offense strategy), `dw-cross-exam-architect-crim` (analyst cross), and `dw-pretrial-motion-library-crim` (R.S. 15:501 objection / Daubert/Foret motion).*

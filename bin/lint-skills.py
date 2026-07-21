@@ -76,6 +76,9 @@ EXEMPT: dict[str, set[str]] = {
     "dw-image-filename-stamp-crim":{"W1", "W3", "W4", "W7"},                       # utility
     "dw-defenderdata-meeting-logger-crim": {"W1", "W2", "W3", "W4", "W6"},               # browser-automation utility; writes Events to DefenderData, no case-file deliverable
     "dw-padilla-advisement-crim":  {"W1", "W2", "W3", "W7"},                       # Cowork legal-skill-creator pattern; fixed advisement language w/ exact INA cites, own guardrails section
+    "dw-jail-visit-list-crim":     {"W1", "W2", "W3", "W4"},                       # Apple Notes checklist utility; no case-file deliverable, no citations, output is a Note not a file
+    "dw-client-interview-drafter-crim": {"W3"},                                    # question sheets contain no case-factual assertions — W3 intentionally omitted (2026-05-30 build)
+    "dw-issue-code-tracker-crim":  {"W1", "W2", "W3"},                             # tracker infra; intake gate + protocols present under non-standard headings ("Hard-Stop File Intake Gate", "Read Before Drafting")
     "dw-case-brain-crim":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
     "dw-criminal-defense-crim.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }

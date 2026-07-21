@@ -224,6 +224,15 @@ All deliverables follow `dw-data-contracts-crim`:
 
 ---
 
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **issue-code-taxonomy.md** — Canonical descriptions for all 33 issue codes (read during INITIALIZE)
+- **excel-sheet-schema.md** — Case Tables.xlsx Issue Codes sheet schema (v2.0, renumbered)
+- **obsidian-ledger-template.md** — Obsidian Case Brain Issue Code Ledger section template (v2.0)
+- **skill-routing-map.md** — Issue code → D&W skill routing map (which skill works each open issue)
+
 ## Version History
 
 - **v2.0 (2026-05-06):** Renumbered taxonomy with no gaps. 33 active codes. Former U-06 retired (Evidence-Incriminating, deleted as inventory-not-issue). Former H-05 promoted to U-14 (CSLI/Geolocation, applies across case types). All cross-references updated. Refined descriptions throughout with statutory anchors, "Addressed" definitions, attack-surface enumerations, and N/A guidance.

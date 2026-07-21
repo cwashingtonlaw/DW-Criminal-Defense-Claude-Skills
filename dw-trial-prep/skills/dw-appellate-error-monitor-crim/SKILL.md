@@ -534,6 +534,7 @@ This skill uses the following reference materials, available in the `references/
 - **04-missed-objection-categories.md** — MODULE B four-category review (evidentiary, prosecutorial misconduct, jury instructions, procedural) and MO-# output format
 - **05-proffer-compliance.md** — MODULE C Art. 103(A)(2) compliance checklist and four-step proffer best-practices procedure
 - **06-errors-patent-checklist.md** — MODULE D five-category errors-patent checkpoint tables (illegal sentence, Boykin, Art. 873 delay, defective charging instrument, additional errors patent)
+- **02-Post-Trial-Template-Caselaw.md** — Caselaw and statutory authority extracted from the firm post-trial motion templates in `assets/templates/`; companion to 01-Louisiana-Appellate-Framework.md, focused on MODULE E post-trial motions
 - **07-post-trial-motions.md** — MODULE E motion generators: Art. 851 grounds table, Motion for New Trial template, Art. 858 grounds, Motion to Reconsider Sentence (Art. 881.1) template
 - **08-harmless-error-analysis.md** — MODULE F structural-error catalog and harmless-error standards (*Chapman*, Art. 921, *Sullivan*-derived "surely unattributable")
 - **09-iac-audit.md** — MODULE G *Strickland* two-prong framework, eight-category IAC checklist, *McCoy* structural-error rule, and IAC output format
