@@ -22,6 +22,16 @@ Refocuses the Case Profile as a defense document built against a sourced stateme
 
 - **Template updated.** The `assets/CASE PROFILE.docx` template now carries the v5.11 structure natively: the new § 1 Prosecution's Theory of the Case block (dark banner, red "not an admission" note, five bolded sub-heads), all Part 1 banners renumbered 2–11 (Part 2A/2B/2C banners untouched), and the Seized Property / Devices table rebuilt at 9 columns (Evidence ID / PR# after Item, Owner Basis after Owner). No first-generation column/section surgery is required. Build hygiene: write to a fresh temp filename, validate, then delete-and-replace the live file (and close it in Word first) to avoid the stale-cache revert.
 
+## v5.10 (June 2026) — Consolidated Witness List + 1–5 Priority Rubric
+
+Consolidates the three witness sheets into a single alphabetical `Witness List` and replaces the ad hoc importance ranking with a first-match 1–5 priority rubric driven by the selected defense theory. Applies to the master template `assets/Case Tables.xlsx` and to Phase 1 Step 4 / Phase 3 Step 2 of the workflow. (Entry backfilled — shipped in commit `a0451b6`, June 4 2026, but omitted from this changelog at the time.)
+
+- **MERGED sheets.** `Witness Sheet`, `Witness List - Alpha`, and `Witness List - Priority` become one **`Witness List`** sheet (13 columns), sorted alphabetically by Last, First, with `Priority (1–5)` as a sortable column.
+- **NEW reference — `references/witness-priority-rubric.md`.** First-match 1–5 ranking rule (1 – Critical … 5 – Peripheral), defense-theory-driven, with impeachment/Brady-Giglio modifiers and a required `Priority Rationale` justification per witness.
+- **NEW columns** on the Witness List: Address, Role, Priority (1–5), Priority Rationale (absorbs the old Priority "Reason").
+- **Workflow changes.** Phase 1 Steps 4b/4c merged into a single Witness List build; Phase 3 Step 2 re-ranks via the rubric once the defense theory (Report 4a) and impeachment plan (Report 8) are known.
+- **Consumers repointed** to the single sheet: `dw-data-contracts-crim`, `dw-case-dashboard-crim`, `dw-witness-threat-matrix-crim`, `dw-trial-notebook-builder-crim`, `dw-theory-to-workplan-crim`, `dw-adversarial-stress-test-crim`, `dw-voir-dire-assistant-crim`.
+
 ## v5.9 (May 2026) — Barone Discovery Workflow Audit
 
 Integrates the 9-step Barone Discovery Workflow into Phase 2 and revises Report 4 to support competing-theory analysis. Four new skills come online; five existing skills receive cross-cutting enhancements; one new shared protocol governs evidence verification.

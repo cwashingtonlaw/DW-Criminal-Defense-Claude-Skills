@@ -38,6 +38,7 @@ dw-criminal-defense-crim/
 │   ├── lwop-extraction-patterns.md       ← How to extract each LWOP field from discovery
 │   ├── art814-responsive-verdict-map.md  ← All 71 La. C.Cr.P. art. 814(A) offenses + verbatim responsive-verdict sets (source for Case Profile § 4)
 │   ├── color-coding.md                   ← Spreadsheet color specs for all Case Tables sheets
+│   ├── witness-priority-rubric.md        ← First-match 1–5 ranking rule for the Witness List Priority column
 │   ├── folder-structure-and-naming.md    ← Standard case folder structure + document naming conventions
 │   └── quick-reference.md                ← Cowork action types, sheet index, phase quick map, specialist skill routing
 ├── assets/
@@ -52,7 +53,7 @@ dw-criminal-defense-crim/
 - **Phase 1 Step 1 (new case):** Read `references/output-path-convention.md` to resolve `CASE_ROOT`. Copy `assets/Case Tables.xlsx` to the case root if not already present.
 - **Phase 1 Step 2f:** Run `scripts/generate_placeholders.py` against the evidence directory.
 - **Phase 1 Step 3 (Case Profile):** Read `references/case-profile-procedure.md`. For the § 4 Responsive Verdicts cell, read `references/art814-responsive-verdict-map.md` (emit verbatim from the map — never hand-type verdict sets). For LWOP cases (Part 2A or 2B), also read `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`.
-- **Phase 1 Step 4 / Phase 3 Step 1 (Case Tables population):** Read `references/case-tables-write-protocol.md` before any write. Read `references/color-coding.md` for formatting specs.
+- **Phase 1 Step 4 / Phase 3 Step 1 (Case Tables population):** Read `references/case-tables-write-protocol.md` before any write. Read `references/color-coding.md` for formatting specs. For the `Witness List` Priority column, read `references/witness-priority-rubric.md` and rank every witness 1–5.
 - **Phase 2 Step 2 (8 reports):** Read `references/case-analysis-prompts.md` for the exact prompt templates.
 - **Phase 3 Step 3 (Defense Shield):** Read `references/defense-shield-procedure.md`.
 - **Any file-write step:** Consult `references/output-path-convention.md` for the canonical save path and `references/folder-structure-and-naming.md` for folder/naming standards.
@@ -228,31 +229,25 @@ Populate the **Evidence Table Sheet** with the full discovery catalog, including
 
 *Attorney must review all FAVORABLE and FLAG items before Phase 2. Cowork's assessment is preliminary — attorney confirmation required on all AI assessments.*
 
-**4b — Witness Table – Priority** (`Witness List - Priority` sheet)
-Extract every witness name encountered during discovery organization and transcription. Sort by witness impact on case outcome. Cross-reference against Case Profile defenses to identify which witnesses are central to the identified defense theories or the prosecution's burden of proof.
+**4b — Witness List** (`Witness List` sheet — single consolidated sheet)
+Extract every witness name encountered during discovery organization and transcription. Enter each on the one `Witness List` sheet, sorted **alphabetically by Last, First**. `Priority (1–5)` is a sortable column — do not keep separate alpha/priority sheets.
 
-Importance ranking: Key Witness > Eyewitnesses > Law Enforcement > Character Witnesses > Others
+Columns: Witness Name (Last, First) | Address | Role | Type | Priority (1–5) | Priority Rationale | Bate Ref (Statement) | Bate Ref (Other) | Connection to Case | Key Testimony Expected | Impeachment Issues | Exam Prep (Y/N) | Notes
 
-Columns: Name | Witness Type | Association | Sources (Bate stamps) | Trial Exam Prepared (Y/N)
-
-Bold-mark any witness who appears in multiple documents, gives conflicting statements, or is central to identified defense theories as **KEY WITNESS**.
-
-**4c — Witness Table – Alpha** (`Witness List - Alpha` sheet)
-Same data as 4b, sorted alphabetically. Standard reference list for quick lookup.
+**Rank every witness 1–5** using the first-match decision rule in `references/witness-priority-rubric.md` (1 – Critical … 5 – Peripheral). Read the selected defense theory from the Case Profile FIRST, then rank each witness by importance to that theory and to the State's burden. Write the rank as `N – Label` and record the defense-theory-specific justification in **Priority Rationale**. Flag unconfirmed roles as `5 (prov.)` and re-rank as discovery arrives.
 
 **✓ Step 4 Check:**
 - [ ] Evidence Table row count matches file count in Evidence Folder
 - [ ] Review Priority populated for every row in Evidence Table
 - [ ] Defense Relevance populated for every row in Evidence Table
-- [ ] Witness Table – Priority populated, ranked, and cross-referenced against Case Profile
-- [ ] Witness Table – Alpha populated and sorted
+- [ ] Witness List populated, sorted alphabetically, and ranked 1–5 per witness-priority-rubric.md (Priority Rationale completed for each)
 
 ### ✓ Phase 1 Quality Gate
 Before proceeding to Phase 2, confirm all step checks are complete:
 - [ ] Folder structure confirmed — all standard subfolders exist (Step 1)
 - [ ] Discovery fully organized, Bate-stamped, OCR'd, transcribed, and placeholders generated (Step 2)
 - [ ] `000 - Case Profile.docx` complete with all auto-populated fields (Step 3) — including Part 2A/2B for any LWOP case
-- [ ] All Case Tables populated — Evidence Table (all 11 columns), Witness Tables (Priority and Alpha) (Step 4)
+- [ ] All Case Tables populated — Evidence Table (all 11 columns), Witness List (alphabetical, Priority 1–5 ranked) (Step 4)
 - [ ] Case state saved to **dw-case-brain-crim** — Phase 1 complete, ready for Phase 2
 
 ---
@@ -433,14 +428,14 @@ Rules:
 - Flag any timeline event that conflicts with another document in the Cowork Flags column
 - Maintain all existing color coding, dropdown lists, and formatting
 
-### Step 2: Update Witness Tables
-The Witness Tables (Priority and Alpha) were initially populated in Phase 1 Step 4. Now update them with intelligence from Phase 2's case analysis:
+### Step 2: Update Witness List
+The `Witness List` sheet was initially populated in Phase 1 Step 4. Now update it with intelligence from Phase 2's case analysis:
 
 ⚠ **Follow the Case Tables Write Protocol.** See `references/case-tables-write-protocol.md`.
 
-- Incorporate Report 8 (Key Witness Impeachment Plan) — bold-mark any witness with an Impeachment Plan as **KEY WITNESS** in both tables
-- Re-rank Priority table: Key Witness (Report 8) > Eyewitnesses > Law Enforcement > Character Witnesses > Others
-- Update the `Trial Exam Prepared (Y/N)` column as preparation progresses
+- Incorporate Report 8 (Key Witness Impeachment Plan) — record impeachment material in the `Impeachment Issues` column and apply the rubric's Brady/Giglio modifier (bump one step toward 1) where warranted
+- **Re-rank Priority (1–5)** per `references/witness-priority-rubric.md` now that the defense theory (Report 4a) and impeachment plan (Report 8) are known; update `Priority Rationale`
+- Update the `Exam Prep (Y/N)` column as preparation progresses
 
 ### Step 3: Defense Shield & Defense Matrix
 
@@ -539,6 +534,13 @@ Route to **dw-trial-notebook-builder-crim** to assemble all Phase 2 and Phase 3 
 - **NEW closing block: VERIFY / [ATTORNEY] roll-up** — every open tag collected into one punch-list, cross-listed to § 11 High Priority Next Steps.
 - **NEW generation step (2C): position-based section auto-renumbering pass** — renumbers Part 1 section banners by document order regardless of banner cell count.
 
+### v5.10 (June 2026) — Consolidated Witness List + 1–5 Priority Rubric
+- **MERGED:** The former three witness sheets (`Witness Sheet`, `Witness List - Alpha`, `Witness List - Priority`) are consolidated into a single **`Witness List`** sheet (13 columns), sorted alphabetically by Last, First, with a sortable `Priority (1–5)` column. Applies to the master template `assets/Case Tables.xlsx`.
+- **NEW reference:** `references/witness-priority-rubric.md` — first-match 1–5 ranking rule (1 – Critical … 5 – Peripheral) driven by the selected defense theory, with impeachment/Brady-Giglio modifiers and a `Priority Rationale` column.
+- **NEW columns** on the Witness List: Address, Role, Priority (1–5), Priority Rationale (absorbs the old Priority "Reason").
+- **Phase 1 Step 4 (4b/4c merged):** builds the single Witness List; Phase 3 Step 2 re-ranks via the rubric.
+- **Consumers repointed:** `dw-data-contracts-crim`, `dw-case-dashboard-crim`, `dw-witness-threat-matrix-crim`, `dw-trial-notebook-builder-crim`, `dw-theory-to-workplan-crim` now reference `Witness List`.
+
 ### v5.9 (May 2026) — Barone Discovery Workflow Audit
 - **NEW Step 1E:** Barone Discovery Workflow pre-analysis (Report 0 via `dw-neutral-inventory-crim`, Report 2a via `dw-theory-deconstructor-crim`)
 - **REVISED Report 4:** Renamed from "Core Defense Narrative" to "Competing Defense Theories" — now presents multiple viable theories instead of a single narrative
@@ -576,6 +578,7 @@ This skill uses the following reference materials, available in the `references/
 - **lwop-extraction-patterns.md** — Document-recognition patterns for Calcasieu Parish discovery and how to extract structured data from each document type
 - **lwop-field-maps.md** — LWOP review-sheet field maps: every field in both review-sheet templates and how to extract data for each (mandatory completeness checklist)
 - **output-path-convention.md** — Standard output-path convention for any D&W skill that writes a file (anchors to active case folder, never to Cowork default or temp directories)
+- **witness-priority-rubric.md** — First-match 1–5 priority ranking rule for the Witness List sheet (1 – Critical … 5 – Peripheral), defense-theory-driven, with impeachment/Brady-Giglio modifiers
 - **textexpander-snippets.md** — Standard boilerplate snippets (Caption, Signature, Certificate of Service, Discovery Citations, Draft Disclaimer) for use in motion drafting
 
 ---

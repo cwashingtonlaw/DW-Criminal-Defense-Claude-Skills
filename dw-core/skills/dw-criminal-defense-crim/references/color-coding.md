@@ -153,30 +153,38 @@ When a cell value matches one of these types, apply the corresponding fill:
 
 ---
 
-## Witness List Sheets (Alpha & Priority)
+## Witness List Sheet
+
+Single consolidated sheet (replaces the former Alpha & Priority sheets). Sorted alphabetically by Last, First; `Priority (1–5)` is a sortable, color-coded column.
 
 ### Column Headers
 
-| Column | Header Color | Hex | Text |
-|--------|-------------|-----|------|
-| Name | Navy | #003366 | White |
-| Witness Type | Dark Slate Blue | #483D8B | White |
-| Association | Teal | #008080 | White |
-| Sources (Bate stamps) | Steel Blue | #4682B4 | White |
-| Trial Exam Prepared (Y/N) | Sea Green | #2E8B57 | White |
+All 13 headers use **white text on Navy (#003366)** for firm consistency. (Optional palette rotation per the "creating a new sheet" guidance below is acceptable, but Navy across the row is the standard.)
 
-### Witness Type Dropdown Cell Colors
+Columns: Witness Name · Address · Role · Type · Priority (1–5) · Priority Rationale · Bate Ref (Statement) · Bate Ref (Other) · Connection to Case · Key Testimony Expected · Impeachment Issues · Exam Prep (Y/N) · Notes
 
-| Witness Type | Fill Color | Hex | Text |
-|-------------|-----------|-----|------|
-| Law Enforcement | Navy | #003366 | White |
-| Expert | Purple | #800080 | White |
-| Eyewitness | Dark Orange | #FF8C00 | White |
-| Character | Teal | #008080 | White |
-| Civilian | Steel Blue | #4682B4 | White |
+### Priority (1–5) Dropdown Cell Colors
+
+| Value | Fill Color | Hex | Text |
+|-------|-----------|-----|------|
+| 1 – Critical | Red | #FF0000 | White (bold) |
+| 2 – High | Amber | #FFC000 | Dark |
+| 3 – Medium | Yellow | #FFD93D | Dark |
+| 4 – Low | Light Green | #C6EFCE | Dark |
+| 5 – Peripheral | Light Gray | #E0E0E0 | Dark |
+
+### Type Dropdown Cell Colors
+
+| Type | Fill Color | Hex | Text |
+|------|-----------|-----|------|
+| Defendant | Maroon | #800000 | White |
+| Co-Defendant | Dark Red | #8B0000 | White |
+| State Witness | Navy | #003366 | White |
+| State Expert | Purple | #800080 | White |
+| Defense Witness | Sea Green | #2E8B57 | White |
 | Victim | Crimson | #DC143C | White |
 
-### Trial Exam Prepared (Y/N) Dropdown Cell Colors
+### Exam Prep (Y/N) Dropdown Cell Colors
 
 | Value | Fill Color | Hex | Text |
 |-------|-----------|-----|------|

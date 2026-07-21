@@ -27,8 +27,7 @@ The master template in `assets/Case Tables.xlsx` contains all sheets below with 
 |------------|----------|-----------------|
 | Evidence Table | Master discovery index (11 columns) | Phase 1 Step 4 |
 | Timeline Sheet | Chronological case events (10 columns) | Phase 2 Report 1 / Phase 3 Step 1 |
-| Witness List - Alpha | Alphabetical witness list (6 columns) | Phase 1 Step 4 → Phase 3 Step 2 |
-| Witness List - Priority | Priority-ranked witness list (6 columns) | Phase 1 Step 4 → Phase 3 Step 2 |
+| Witness List | Consolidated witness list (13 columns), alphabetical by Last, First, with sortable Priority (1–5) column — replaces the former Witness Sheet / Alpha / Priority sheets | Phase 1 Step 4 → Phase 3 Step 2 |
 | Defense Matrix | Charges, responsive verdicts, defenses (7 columns) | Phase 3 Step 3B |
 | Legal Defenses (Rape) | **Defense Shield template** — sex offense defense catalog (7 columns) | Phase 3 Step 3A (sex offense cases only) |
 | Legal Defenses (Homicide) | **Defense Shield template** — homicide defense catalog (7 columns) | Phase 3 Step 3A (homicide cases only) |
