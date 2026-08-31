@@ -387,6 +387,8 @@ If yes, invoke **dw-cross-exam-architect-crim** and pass:
 **Additional downstream routing:**
 If extraction methodology issues are found, offer to route to dw-suppression-motion-crim for a motion to suppress digital evidence. If the extraction passes audit, offer to route to dw-forensic-dump-analyzer-crim to mine the contents for defense intelligence.
 
+**Routing reference:** Read `dw-shared-protocols-crim/references/digital-forensics-decision-tree.md` for the full three-tier digital forensics audit sequence and ordering requirements.
+
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for Phase 2 integration and the dw-cross-exam-architect-crim skill for examiner cross-examination preparation.*

@@ -31,6 +31,7 @@ Template selection: the DEVONthink Template-First search protocol now lives in t
 | Other Louisiana parish (any court not listed above) | `caption-criminal-fill-in.md` + (work-product, signature, COS, notice, order, citation, output-path) — agent prompts attorney for parish/court-specific values |
 | Sentencing memorandum | Caption per parish + `attorney-work-product-marking.md` + `signature-block.md` + `certificate-of-service.md` + `louisiana-citation-style.md` + `output-path-formula.md` |
 | Internal work product (Case Brain, threat matrix, cross outline, audit reports) | `attorney-work-product-marking.md` + `output-path-formula.md` ONLY |
+| Digital forensics audit (mobile extraction, forensic dump, SQLite recovery) | `digital-forensics-decision-tree.md` (mandatory three-tier ordering) + `forensic-tool-registry.md` + `attorney-work-product-marking.md` + `output-path-formula.md` |
 | Discovery ledger / triage report | `attorney-work-product-marking.md` + `output-path-formula.md` ONLY |
 | Client deliverable (LWOP review sheet, plea analysis) | `attorney-work-product-marking.md` + `signature-block.md` + `output-path-formula.md` |
 

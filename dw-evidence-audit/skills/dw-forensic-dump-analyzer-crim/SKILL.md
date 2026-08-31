@@ -462,6 +462,7 @@ This skill uses the following reference materials, available in the `references/
 - **cloud-vs-local-provenance.md** — Classification table for LOCAL vs. CLOUD data provenance and the authentication/defense impact of each
 - **common-misinterpretations.md** — Catalog of prosecution misinterpretations of phone data with defense counter-arguments and supporting authority
 - **companion-skills-routing.md** — Quick-reference matrix for routing findings to companion skills (geolocation, mobile forensic auditor, cross-exam architect, etc.)
+- **`dw-shared-protocols-crim/references/digital-forensics-decision-tree.md`** — Three-tier digital forensics audit sequence (methodology → content → deleted data) with mandatory ordering and WAL destruction warnings
 - **cross-reference-guide.md** — Detailed methodology for cross-referencing phone dump contents against police reports, witness statements, and the State's timeline
 - **data-category-reference-index.md** — Selective-loading index pointing to the relevant sections of `defense-analysis-framework.md` for the data categories actually present
 - **defense-analysis-framework.md** — Detailed analytical checklist for each data category, organized by the eight defense lenses

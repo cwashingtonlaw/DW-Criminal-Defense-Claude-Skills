@@ -13,7 +13,7 @@
       "name": "dw-core",
       "source": "./dw-core",
       "description": "Foundation: session persistence, shared protocols, data contracts, master orchestrator, case dashboard, and skill index. Every other dw plugin depends on this.",
-      "version": "5.11.1",
+      "version": "5.11.2",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"

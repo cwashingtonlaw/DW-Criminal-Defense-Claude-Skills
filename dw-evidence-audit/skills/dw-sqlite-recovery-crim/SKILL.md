@@ -462,6 +462,7 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
 - **wal-technical-reference.md** — Defense-forensics deep dive on SQLite WAL: file format, transaction history, recovery of deleted records, tool-by-tool failure modes, and expert-witness preparation material
+- **`dw-shared-protocols-crim/references/digital-forensics-decision-tree.md`** — Three-tier digital forensics audit sequence (methodology → content → deleted data) with mandatory ordering and WAL destruction warnings
 
 ---
 
