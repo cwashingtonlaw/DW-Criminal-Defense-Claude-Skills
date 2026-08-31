@@ -97,6 +97,7 @@ ISSUE_DESCRIPTIONS = {
     "W6": "Frontmatter description has no explicit trigger keywords (e.g., 'ALWAYS invoke')",
     "W7": "References directory has files but no Quick References section in SKILL.md",
     "W8": "Frontmatter `category:` disagrees with skill-index-categories.yml + OVERRIDES",
+    "W9": "SKILL.md exceeds the progressive-disclosure budget (2,500 words) — move detail into references/",
 }
 
 # ── Issue model ─────────────────────────────────────────────────────────────
@@ -299,6 +300,12 @@ def lint_skill(skill_dir: Path, all_skill_names: set[str]) -> SkillReport:
         expected = _add_cat.determine_category(skill_dir.name, sections)
         if expected and fm_category != expected:
             rpt.add("W8", f"frontmatter category='{fm_category}' but expected '{expected}'")
+
+    # W9 — SKILL.md size budget (progressive disclosure). Everything over the
+    # budget should live in references/ and be loaded at the step that needs it.
+    _words = len(text.split())
+    if _words > 2500:
+        rpt.add("W9", f"SKILL.md is {_words} words (budget 2,500)")
 
     # E4 — cross-skill references must resolve. Skip:
     #   - Self-references
