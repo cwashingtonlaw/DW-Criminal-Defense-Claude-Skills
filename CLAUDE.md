@@ -112,6 +112,7 @@ For the full routing table, ask: *"what skills do we have"* (invokes `dw-skill-i
 | SessionStart banner missing | `.claude/settings.json` wasn't present at session start | Run `/hooks` in Claude Code to reload, or restart the session |
 | Skill not invoked when expected | Trigger keywords don't match user's wording | Check `dw-skill-index-crim` for the canonical trigger phrase; rephrase, or update the skill's frontmatter description |
 | `bin/lint-skills.py` reports E4 (broken cross-skill ref) | Skill mentions a `dw-foo` that doesn't exist | Either fix the reference or, if intentional historical mention, add a "former" / "merged into" / "deprecated" marker on the same line so the linter recognizes it as historical |
+| `bin/lint-skills.py` reports E5 (SKILL.md over 2,500 words) | Skill body grew past the progressive-disclosure budget | Move the heavy block (table, template, module detail) verbatim into `references/<topic>.md`, leave a 1–4 line summary + `Read \`references/<topic>.md\` now` pointer, list the file under Quick References |
 | `bin/regen-skill-index.py --check` exits 1 | Index is stale | Run `bin/regen-skill-index.py` to apply, then commit `skills/dw-skill-index-crim/SKILL.md` |
 
 ---

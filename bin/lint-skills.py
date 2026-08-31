@@ -3,7 +3,8 @@
 lint-skills.py — Daniels & Washington Skill-Pattern Linter
 
 Validates each `skills/dw-*/SKILL.md` against the established D&W skill pattern.
-Hard errors flag structural breakage (missing frontmatter, broken cross-references).
+Hard errors flag structural breakage (missing frontmatter, broken cross-references)
+and SKILL.md files over the 2,500-word progressive-disclosure budget (E5).
 Warnings flag pattern drift (missing standard sections) — useful but not fatal.
 
 Usage:
@@ -89,6 +90,7 @@ ISSUE_DESCRIPTIONS = {
     "E2": "Frontmatter `name` does not match directory name",
     "E3": "Referenced file does not exist on disk",
     "E4": "Referenced dw-* skill does not exist as a directory",
+    "E5": "SKILL.md exceeds the progressive-disclosure budget (2,500 words) — move detail into references/",
     "W1": "No 'Step 0' / file intake hard stop section found",
     "W2": "No 'Step 0.5' / shared protocols load section found",
     "W3": "No 'Source Citation Mandate' (or equivalent) section found",
@@ -97,7 +99,6 @@ ISSUE_DESCRIPTIONS = {
     "W6": "Frontmatter description has no explicit trigger keywords (e.g., 'ALWAYS invoke')",
     "W7": "References directory has files but no Quick References section in SKILL.md",
     "W8": "Frontmatter `category:` disagrees with skill-index-categories.yml + OVERRIDES",
-    "W9": "SKILL.md exceeds the progressive-disclosure budget (2,500 words) — move detail into references/",
 }
 
 # ── Issue model ─────────────────────────────────────────────────────────────
@@ -301,11 +302,11 @@ def lint_skill(skill_dir: Path, all_skill_names: set[str]) -> SkillReport:
         if expected and fm_category != expected:
             rpt.add("W8", f"frontmatter category='{fm_category}' but expected '{expected}'")
 
-    # W9 — SKILL.md size budget (progressive disclosure). Everything over the
+    # E5 — SKILL.md size budget (progressive disclosure). Hard error by design: Everything over the
     # budget should live in references/ and be loaded at the step that needs it.
     _words = len(text.split())
     if _words > 2500:
-        rpt.add("W9", f"SKILL.md is {_words} words (budget 2,500)")
+        rpt.add("E5", f"SKILL.md is {_words} words (budget 2,500)")
 
     # E4 — cross-skill references must resolve. Skip:
     #   - Self-references
