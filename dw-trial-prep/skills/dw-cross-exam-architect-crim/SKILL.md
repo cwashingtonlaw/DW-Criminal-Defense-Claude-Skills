@@ -32,7 +32,7 @@ Applies to every new batch. If analysis is requested with nothing attached, ask 
 
 ---
 
-## STEP 0.5 — Load Protocols
+## STEP 0.5 — Load Shared Protocols
 
 From `dw-shared-protocols-crim`: `attorney-work-product-marking.md`, `output-path-formula.md`.
 
@@ -209,7 +209,7 @@ Full list loaded at Step 0.5 → `references/guardrails.md`. The six that most o
 
 ---
 
-## File Index
+## Quick References (File Index)
 
 Each step names the files it needs. **Load those and no others.**
 
