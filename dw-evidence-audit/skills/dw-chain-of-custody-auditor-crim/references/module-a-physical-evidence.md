@@ -1,5 +1,9 @@
 # Module A — Physical Evidence Chain Audit
 
+## Module Overview (carried over from SKILL.md)
+
+Trace every item of physical evidence (clothing, weapons, tools, documents) through five sequential custody links — collection at scene, transport to evidence facility, intake at evidence facility, storage, and retrieval/transport to lab/return. A failure at any link compromises the integrity of all subsequent links.
+
 Physical evidence (clothing, weapons, tools, documents) is audited through five sequential custody links. A failure at any link compromises the integrity of all subsequent links.
 
 ## The Five Links of Physical Evidence Custody
@@ -58,3 +62,10 @@ Trace every item of physical evidence through five sequential links. A failure a
 | Multiple evidence items packaged together | SIGNIFICANT | Cross-contamination risk — particularly for trace and biological evidence | Collector: "Were items [X] and [Y] ever in the same container?" |
 | Drop locker with no individual compartments or surveillance | MINOR to SIGNIFICANT | Evidence in communal temporary storage is accessible to anyone with general access | Custodian: "How many officers have access to the drop locker area?" |
 | No periodic inventory documentation | MINOR | Cannot verify evidence was continuously in storage during the full storage period | Custodian: "How do you verify evidence hasn't been removed without authorization between inventories?" |
+
+## Top CRITICAL Red Flags at a Glance
+
+Summary bullets carried over from SKILL.md Module A; the full matrix above is authoritative.
+
+- Gap in custody record (undocumented time period) — cannot rule out tampering, substitution, or contamination
+- Broken or missing tamper-evident seal — physical integrity is compromised; no assurance contents are unchanged

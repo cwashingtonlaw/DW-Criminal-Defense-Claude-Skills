@@ -1660,3 +1660,7 @@ Johnson_24-CR-1234_PhoneDump_DefenseIntelReport_20260305.pdf
 ---
 
 *This reference is loaded by the dw-forensic-dump-analyzer-crim skill during Step 6 (Report Generation). Use in conjunction with the docx SKILL.md for document formatting and creation.*
+
+## Full Report — 29 Mandatory Sections Summary (carried over from SKILL.md Step 6)
+
+Read `references/report-template.md` for complete structure. Use the docx skill for formatting. The Full Report has 29 mandatory sections: (1) Dashboard, (2) Executive Summary, (3) Charges & Exposure, (4) Extraction Authentication Chain, (5) Data Inventory & Completeness, (6) File Systems & App Inventory, (7) Top 10 Key Contacts, (8) Comprehensive Timeline, (9) Critical Timeline, (10) Pattern of Life Baseline, (11) Critical Window Analysis, (12) Key Date Analysis, (13) Analyzed Data (category deep dive), (14) Locations, (15) Defense-Favorable Findings, (16) Adverse Findings, (17) Prosecution Vulnerabilities, (18) Gaps, (19) Missing Data Analysis, (20) Insights, (21) Tags, (22) Eight-Lens Matrix, (23) Cross-Reference Findings, (24) Companion Skill Handoffs, (25) Defense Action Items, (26) Exhibit-Ready Extracts, (27) Evidence Integrity, (28) Reports, (29) Appendices.

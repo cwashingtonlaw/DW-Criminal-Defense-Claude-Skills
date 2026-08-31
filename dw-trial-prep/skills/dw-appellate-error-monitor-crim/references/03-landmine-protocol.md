@@ -32,3 +32,19 @@ For each potential landmine, assess:
 Landmine Summary Table ranked by Danger Level (FATAL first), with recommended cure for each (post-trial motion language, Art. 920 errors patent argument, or notation that the issue is permanently waived).
 
 This module feeds directly into MODULE E (Post-Trial Motion Generator) — every curable landmine becomes a ground in the Motion for New Trial or Motion in Arrest of Judgment.
+
+
+---
+
+## Module A.5 Summary (moved verbatim from SKILL.md MODULE A.5)
+
+After completing MODULE A and STEP 1.5, cross-reference to identify "landmine" issues — trial moments where the absence of an objection or a weak proffer creates appellate vulnerability serious enough to sink the appeal. Each landmine is logged with issue, legal basis, objection/proffer status, post-trial cure availability, waiver consequence, and a Danger Level (FATAL / SERIOUS / MODERATE).
+
+The five categories tracked are: Confrontation Clause, Other Crimes / 404(b), Prosecutorial Misconduct, Jury Instructions, and Expert Testimony.
+
+
+---
+
+## Module A.5 Output Routing (moved verbatim from SKILL.md MODULE A.5)
+
+The output of this module — ranked by Danger Level (FATAL first), with recommended cure for each — feeds directly into MODULE E (Post-Trial Motion Generator). Every curable landmine becomes a ground in the Motion for New Trial or Motion in Arrest of Judgment.

@@ -88,3 +88,13 @@
 - **Drive Testing**: Evidence of RF propagation testing or drive testing in relevant area
 - **Vendor Training**: Completion of vendor-specific training program
 - **Red Flag**: No RF background; tool training only; no RF testing experience; excessive certainty in location determination
+## Discipline-Specific Daubert Guidance (carried over from SKILL.md Module B)
+
+For detailed guidance on how each factor applies to specific forensic disciplines, consult `references/discipline-standards.md` and `references/scientific-reports.md`:
+- DNA/Forensic Biology: validation of software, contributor assumptions, secondary transfer
+- Latent Fingerprints: ACE-V subjectivity, Black Box study error rates, contextual bias
+- Firearms: "sufficient agreement" is subjective, PCAST limited validity findings
+- Digital Forensics: tool validation, hash verification, deleted data limitations
+- Toxicology: immunoassay cross-reactivity, back-calculation assumptions, impairment determination
+- Bloodstain Pattern Analysis: subjective interpretation, NAS findings, lack of error rate data
+- And nine other disciplines with specific reliability concerns

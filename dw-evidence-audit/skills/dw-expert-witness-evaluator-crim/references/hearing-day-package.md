@@ -297,3 +297,57 @@ Substantial sub-deliverables (cross-exam outline, proposed FOF/COL, reply brief)
 - `Daubert Hearing - Exhibit List - [Expert].docx`
 
 All deliverables receive attorney work-product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`.
+
+## Module I Overview (carried over from SKILL.md) — Burden, Six Deliverables, Hearing vs. Trial Cross, Appellate Record, Logistics
+
+### Burden and Standard at the Hearing
+
+The proponent of the testimony bears the burden of establishing admissibility by a preponderance of the evidence. In a criminal case where the State seeks to introduce expert testimony, the State carries this burden. *See Daubert*, 509 U.S. at 592 n.10; La. C.E. Art. 104(A); *Bourjaily v. United States*, 483 U.S. 171, 175-76 (1987).
+
+The defense's role at the hearing is therefore not to "prove unreliability" but to test whether the State has carried its burden. Frame every cross-examination question and every argument with that framing.
+
+### Six Hearing Day Deliverables
+
+The Hearing Day Package consists of six discrete deliverables, each generated from the prior module outputs:
+
+| # | Deliverable | Source Modules | Filename |
+|---|------------|----------------|----------|
+| 1 | **Witness order plan** with sequencing, time budgets, and sequestration strategy | A + F | `Daubert Hearing - Witness Order - [Expert].docx` |
+| 2 | **Hearing exhibit list** with foundation hierarchy and Notice of Intent to Use Learned Treatises | E + G | `Daubert Hearing - Exhibit List - [Expert].docx` |
+| 3 | **Hearing-specific cross-examination outline** structured factor-by-factor (distinct from trial cross seeds in Module G) | B + C + D + G | `Daubert Hearing - Cross Outline - [Expert].docx` |
+| 4 | **Reply brief** responding to State's opposition point-by-point | B + C | `Daubert Hearing - Reply Brief - [Expert].docx` |
+| 5 | **Oral argument outline** (10-20 minute roadmap) with verbatim cross quotes inserted post-hearing | All applicable modules | `Daubert Hearing - Oral Argument - [Expert].docx` |
+| 6 | **Proposed Findings of Fact and Conclusions of Law** factor-by-factor | All applicable modules | `Daubert Hearing - Proposed FOF-COL - [Expert].docx` |
+
+Optional seventh deliverable: **post-hearing brief** if the court takes the matter under advisement.
+
+### Hearing Cross vs. Trial Cross — Critical Distinction
+
+Hearing cross is **not** the same as trial cross. The audiences, goals, question forms, and topical scope all differ:
+
+| Dimension | Hearing Cross (Module I) | Trial Cross (Module G) |
+|-----------|-------------------------|-----------------------|
+| **Audience** | Judge as gatekeeper | Jury as factfinder |
+| **Goal** | Extract factor-by-factor concessions to defeat admissibility | Establish credibility-undermining concessions for closing argument |
+| **Length** | Detailed; judges expect thorough factor analysis | Tight; juror attention is finite |
+| **Question form** | Closed leading + occasional treatise-anchored open questions | Closed leading only |
+| **Topical scope** | Daubert factors 1-5 + analytical gap + DOJ Uniform Language | Discipline-specific seeds, methodology errors, bias |
+| **Demeanor / personality** | Reserved; do not burn at hearing | Available for impeachment at trial |
+
+**Rule:** Reserve discipline-specific cross-examination chapters from `cross-exam-seeds.md` for trial. Do not preview those at the hearing — once previewed, the State will prepare the expert to neutralize them at trial.
+
+### Building the Appellate Record at the Hearing
+
+Although La. C.E. Art. 104(A) relaxes evidentiary rules at preliminary admissibility hearings, the appellate court reviews the ruling on the record made. Therefore:
+
+1. **Authenticate exhibits anyway** when feasible (stipulation, self-authentication under Art. 902, or expert recognition under Art. 803(18))
+2. **Make every objection on the record** even when the court is likely to overrule
+3. **Request specific findings on each Daubert factor** before the court rules — a general "motion denied" is harder to appeal than a ruling that engages each factor
+4. **Order the hearing transcript** promptly after the hearing
+5. **Submit Proposed FOF/COL** even if the court has not requested them — adoption shapes the appellate record
+
+For the standards of review on direct appeal, supervisory writ, and federal habeas, see `references/la-daubert-hearing-procedure.md`.
+
+### Hearing Day Logistics Checklist
+
+Run through the logistics checklist in `references/hearing-day-package.md` (Section 8) at least 48 hours before the hearing. Common items: subpoenas, sequestration motion, pre-marked exhibits, court reporter, defense rebuttal expert prep, ruling-form drafts (limiting order and exclusion order skeletons), post-hearing brief deadline calendaring, trial date confirmation.

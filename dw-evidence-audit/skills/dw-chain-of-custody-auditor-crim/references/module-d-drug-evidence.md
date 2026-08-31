@@ -1,5 +1,9 @@
 # Module D — Drug / Controlled Substance Evidence Chain Audit
 
+## Module Overview (carried over from SKILL.md)
+
+Drug evidence chain of custody is uniquely vulnerable because controlled substances have inherent value (creating theft/diversion risk), weight is a critical legal element (determining charge severity under Louisiana law per La. R.S. 40:966-968), and field testing can consume or contaminate evidence before laboratory confirmation. Audit weight at every transfer point and verify dual-access secure storage compliance.
+
 Drug evidence chain of custody is uniquely vulnerable because controlled substances have inherent value (creating theft/diversion risk), weight is a critical legal element (determining charge severity under Louisiana law), and field testing can consume or contaminate evidence before laboratory confirmation.
 
 ## Drug Evidence — Weight as a Chain of Custody Element
@@ -40,3 +44,10 @@ Controlled substance evidence must be stored under heightened security to preven
 | No dual-signature drug storage access log | SIGNIFICANT | Access cannot be independently verified — one person's word is the only record |
 | Weight recorded only as gross weight (including packaging) throughout chain | MINOR to SIGNIFICANT | Packaging weight can vary; gross weight inflates the apparent amount and may push the substance past a statutory threshold |
 | Drug evidence stored in general evidence room (not dedicated drug vault) | MINOR | Reduced security controls compared to dedicated drug storage |
+
+## Top CRITICAL Red Flags at a Glance
+
+Summary bullets carried over from SKILL.md Module D; the full matrix above is authoritative.
+
+- Weight at collection significantly exceeds weight at lab analysis (beyond packaging and field test consumption) — undermines reliability of the weight element
+- No weight recorded at seizure/collection — the State cannot establish foundational weight; chain starts with an unknown quantity

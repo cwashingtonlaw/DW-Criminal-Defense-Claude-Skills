@@ -1,5 +1,9 @@
 # Module G — Cross-Examination Seeds
 
+## Module Overview (carried over from SKILL.md)
+
+For each CRITICAL and SIGNIFICANT deficiency identified in Modules A through F, generate cross-examination question sets targeting the specific handler, custodian, or analyst responsible for the deficiency. Cross-examination follows a three-phase architecture: (1) establish the standard (training & policy), (2) demonstrate the failure (using documents, not the witness's oral testimony), (3) establish the significance (the witness must concede the purpose of chain documentation is to prevent the very problem the gap creates).
+
 For each CRITICAL and SIGNIFICANT deficiency identified in Modules A through F, generate cross-examination question sets targeting the specific handler, custodian, or analyst responsible for the deficiency.
 
 ## Cross-Examination Architecture for Chain of Custody Witnesses
@@ -69,3 +73,7 @@ For each finding, ensure:
 4. **The closing question leaves no escape** — "You cannot assure this jury that the evidence was not [tampered with / contaminated / substituted / degraded] during that period, can you?"
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`
+
+## Step 5 — Cross-Examination Integration Requirements (carried over from SKILL.md)
+
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. Follow the template in Module G. Each seed must (1) establish the standard first, (2) demonstrate the failure through documents, (3) drive home the significance, and (4) close with a no-escape question. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.

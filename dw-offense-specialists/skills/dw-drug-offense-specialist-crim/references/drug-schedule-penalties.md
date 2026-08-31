@@ -191,3 +191,27 @@ For pharmaceutical pills (oxycodone, alprazolam):
 - **R.S. 40:981.3** — Drug-free zone enhancement (2,000-foot radius, school/church/housing/community centers)
 - **Act 274 (2024)** — Marijuana decriminalization (first offense small amount = misdemeanor)
 
+---
+
+## Step 2 Quick Map — Charge Classification & Penalty Exposure (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 2. This block was relocated from the skill body without modification; it is the quick substance → Schedule / charge-tier / enhancement map that precedes the detailed tables above.
+
+- **Substance → Schedule mapping** under R.S. 40:964
+  - Schedule I: heroin, LSD, marijuana >2.5 lbs, ecstasy, GHB
+  - Schedule II: cocaine, methamphetamine, fentanyl, oxycodone, PCP
+  - Schedule III: anabolic steroids, ketamine, hydrocodone combinations
+  - Schedule IV: alprazolam, diazepam, zolpidem, tramadol
+  - Schedule V: cough syrups with codeine
+
+- **Charge tier → penalty matrix:**
+  - Simple possession: 4-10 years (Schedule I/II), up to 5 years (III/IV), up to 2 years (V)
+  - PWID: 5-30 years (most Schedules)
+  - Distribution: 2-30 years depending on Schedule
+  - Trafficking: mandatory minimums (cocaine 10g = 5 years mandatory, 28g = 10 years, 200g = 20 years, etc.)
+
+- **Penalty enhancements to flag:**
+  - Drug-free zone (R.S. 40:981.3): offense within 2,000 feet of school, church, public housing → penalties DOUBLED + 5-year mandatory
+  - Firearm enhancement: possession or use of firearm during drug offense → add 5-year mandatory
+  - Minor present: drug offense with child present → enhanced penalty
+  - Prior drug felony: escalates penalties substantially

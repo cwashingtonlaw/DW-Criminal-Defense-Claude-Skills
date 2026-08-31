@@ -61,3 +61,7 @@ limit: 5
 ## Key authority
 
 La. C.Cr.P. Art. 701; *State v. Reaves*, 569 So.2d 650 (La. App. 2d Cir. 1990); *State v. Rome*, 93-1221 (La. 1/14/94), 630 So.2d 1284.
+
+## Module summary (moved from SKILL.md)
+
+Dismissal-or-trial motion under La. C.Cr.P. Art. 701 when the State exceeds the statutory time limits (30/60 days for misdemeanors, 120/150 days for felonies, 2 years for capital). Requires precise time computation — total elapsed time minus excludable delays under Art. 701(B).

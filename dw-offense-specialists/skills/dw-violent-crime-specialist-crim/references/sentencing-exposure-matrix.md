@@ -225,3 +225,70 @@ Maintain a written plea-advice memo in the file, dated and signed by counsel, re
 | 14:65 | Simple robbery | 0 | 7 yrs | Yes | Yes | Violent-felony list |
 
 All entries [VERIFY CITATION] against current Westlaw text before filing or sentencing.
+
+---
+
+## Module H Operational Guidance — Death-Eligibility, Mandatory LWOP, Juvenile LWOP, Firearm Enhancement (moved verbatim from SKILL.md)
+
+Read by SKILL.md Module H. This block was relocated from the skill body without modification.
+
+### H.1 — Death-eligibility (La. R.S. 14:30)
+
+If the State has filed (or signaled) a notice of intent to seek the death penalty under La. C.Cr.P. Art. 905.2.1, the case enters capital posture:
+- Voir dire is *Witherspoon / Witt*-qualified.
+- Mitigation investigation begins immediately — route to `dw-sentencing-mitigation-specialist-crim`.
+- Independent capital-qualified counsel rules apply (Louisiana Indigent Defender Board capital standards).
+- Aggravating-circumstance theory must be matched element-by-element against La. C.Cr.P. Art. 905.4.
+- Plea negotiations must include LWOP-vs.-death modeling.
+
+### H.2 — Mandatory LWOP (La. R.S. 14:30.1; 14:44; non-capital 14:30)
+
+LWOP cases compress all of the trial-defense effort into the verdict-form architecture. There is no sentencing mitigation that softens the LWOP outcome — the only way out is acquittal, manslaughter conversion, or charge reduction by plea. Route to `dw-plea-negotiation-analyzer-crim` for plea modeling.
+
+### H.3 — Juvenile LWOP (*Miller v. Alabama* / *Montgomery v. Louisiana*)
+
+For any defendant under 18 at the time of the offense:
+- *Miller v. Alabama*, 567 U.S. 460 (2012) — mandatory LWOP for juvenile homicide offenders is unconstitutional. Individualized hearing required.
+- *Montgomery v. Louisiana*, 577 U.S. 190 (2016) — *Miller* is retroactive on collateral review. Confirms a substantive Eighth Amendment rule.
+- La. C.Cr.P. Art. 878.1 — Louisiana's *Miller* hearing procedure. Without an Art. 878.1 finding of permanent incorrigibility, the juvenile must be parole-eligible (typically after 25 years of service per La. R.S. 15:574.4).
+- *Roper v. Simmons*, 543 U.S. 551 (2005) — bars death penalty for juvenile offenders.
+- *Graham v. Florida*, 560 U.S. 48 (2010) — bars LWOP for non-homicide juvenile offenders (relevant to 14:44 aggravated kidnapping if applied to a juvenile).
+
+Mitigation investigation for the Art. 878.1 hearing requires neuropsychological evaluation, school records, family-history mitigation, brain-development science. Route to `dw-sentencing-mitigation-specialist-crim`.
+
+### H.4 — Firearm enhancement on armed robbery (La. R.S. 14:64.3)
+
+5 years consecutive, without benefit, on top of the 10-99 year armed-robbery sentence. Triggers when the dangerous weapon was a firearm. Defense angles:
+- Push for 14:64.1 first-degree-robbery responsive verdict (eliminates 14:64.3 entirely).
+- Challenge the "firearm" characterization (replica? inoperable? simulated?).
+- Verify the State actually charged 14:64.3 — the enhancement must be charged and proved.
+
+### H.5 — Habitual offender (La. R.S. 15:529.1)
+
+See Module I and `references/sentencing-exposure-matrix.md` § 5. Build the predicate audit early — habitual exposure can transform a 7-year simple-robbery floor into a life-without-benefit ceiling.
+
+---
+
+## Module I — Habitual Offender Exposure Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Module I. This block was relocated from the skill body without modification.
+
+For every defendant with a prior felony record, build the habitual-exposure spreadsheet:
+
+| # | Predicate offense | Statute | Date of conviction | Date sentence completed | On 14:2(B) violent list? | Within cleansing period? | Boykin colloquy verified? | Predicate quality |
+|---|---|---|---|---|---|---|---|---|
+
+Workflow:
+1. Pull all certified conviction documents (route to `dw-habitual-offender-auditor-crim` for the audit).
+2. Verify each predicate is actually a felony of conviction (not deferred adjudication; not expunged; not vacated).
+3. Verify each predicate's Boykin colloquy was constitutional (right to counsel, right to jury trial, right against self-incrimination — defendant must have been advised and waived knowingly and voluntarily).
+4. Verify cleansing period (La. R.S. 15:529.1(C)) — confirm current length, which has changed across recent sessions.
+5. Determine which (if any) predicates are on the violent-felony list (La. R.S. 14:2(B)) — drives the cascade to mandatory life under third- or fourth-felony enhancement.
+6. Model the post-enhancement exposure for each scenario (no bill, second-felony bill, third-felony bill with violent predicate, etc.).
+7. Feed the model into `dw-plea-negotiation-analyzer-crim` for plea-versus-trial decision.
+
+Defense priorities:
+- **Attack each predicate's validity** (Boykin, expungement, identity).
+- **Negotiate a no-bill** as part of plea structure where possible.
+- **Object to the enhancement charge** if the prosecution missed a procedural step (timely filing of the bill, proper service, hearing requirements under La. R.S. 15:529.1(D)).
+- **Document the constitutional minimum** — under *State v. Dorthey*, an enhancement that is constitutionally excessive (grossly disproportionate) can be reduced. Build the *Dorthey* record at sentencing.

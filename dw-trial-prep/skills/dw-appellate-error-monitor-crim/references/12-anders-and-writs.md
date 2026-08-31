@@ -97,3 +97,21 @@ D. Trial court's written reasons (if any)
 [SIGNATURE BLOCK]
 [CERTIFICATE OF SERVICE]
 ```
+
+
+---
+
+## Anders Summary (moved verbatim from SKILL.md ANDERS BRIEF TRIGGER ANALYSIS)
+
+*Anders v. California*, 386 U.S. 738 (1967), requires appointed counsel who concludes that an appeal is wholly frivolous to file a brief referring to anything in the record that might arguably support the appeal. Louisiana's no-merit procedure is governed by *State v. Benjamin*, 573 So.2d 528 (La. App. 4th Cir. 1990), and *State v. Jyles*, 704 So.2d 241 (La. App. 2d Cir. 1997).
+
+**If any Tier 1, Tier 2, or Tier 3 issue exists, an Anders brief is NOT appropriate.** Anders briefs are reserved for cases where a thorough review of the entire record reveals no issue of even arguable merit.
+
+
+---
+
+## Writ Summary (moved verbatim from SKILL.md WRIT APPLICATION FRAMEWORK)
+
+Certain issues require immediate interlocutory review by writ application rather than waiting for post-trial appeal. Writ-appropriate issues include: denial of motion to suppress (La. C.Cr.P. Art. 912(B)); denial of motion to quash; ruling on motion in limine; denial of continuance; denial of severance; bond/pretrial release; recusal ruling; discovery ruling.
+
+**Deadline:** 30 days from the adverse ruling under La. Uniform Rules, Courts of Appeal, Rule 4-3.

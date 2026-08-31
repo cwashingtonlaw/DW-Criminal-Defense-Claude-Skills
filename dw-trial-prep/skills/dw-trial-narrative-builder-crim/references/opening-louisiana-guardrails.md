@@ -155,3 +155,17 @@ If any item fails, the skill rewrites the offending passage and re-runs the chec
 ---
 
 *Last reviewed: Louisiana practice as of 5/2026. Authorities cited: La. C.Cr.P. Art. 765, 774, 841; La. Rules of Prof. Conduct 3.4(e); Griffin v. California, 380 U.S. 609 (1965); Doyle v. Ohio, 426 U.S. 610 (1976); In re Winship, 397 U.S. 358 (1970); Sullivan v. Louisiana, 508 U.S. 275 (1993); Sandstrom v. Montana, 442 U.S. 510 (1979); Estelle v. Williams, 425 U.S. 501 (1976); State v. Cage, 583 So.2d 1125 (La. 1991); Cage v. Louisiana, 498 U.S. 39 (1990).*
+
+---
+
+## Most Common Opening-Statement Errors (moved from SKILL.md Step 3)
+
+Read at SKILL.md STEP 3 when running the opening through the checklist above. Verbatim from the SKILL.md draft-time guardrail block.
+
+Before finalizing the opening, run the draft through `references/opening-louisiana-guardrails.md` checklist. Do not deliver a draft that violates any item. The most common Louisiana opening-statement errors:
+- Comment on defendant's silence (Griffin, Doyle) — automatic strike
+- Personal vouching ("I believe," "I know") — La. Rules of Prof. Conduct 3.4(e) — automatic strike
+- Argument about what the evidence MEANS rather than preview of what it WILL SHOW (Art. 774) — strike
+- Reference to inadmissible evidence (motion-in-limine excluded items) — strike
+- Golden Rule violation (asking jurors to put themselves in someone's place) — strike
+- Promising evidence the defense cannot produce — strike (this becomes a State closing-argument weapon: "Defense counsel promised you X — where is X?")

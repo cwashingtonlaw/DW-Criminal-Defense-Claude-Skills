@@ -290,3 +290,38 @@ Next: morning of Day [N+1], regenerate Module A Daily Docket.
 ---
 
 *Apply work product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`. The memo is internal work product and is not filed with the court.*
+
+---
+
+## One-Page Skeleton (moved from SKILL.md Module F)
+
+Read at **MODULE F — End-of-Day Recap + Tomorrow Prep** of `SKILL.md`; the twelve-section outline of the nightly memo.
+
+```
+END OF DAY — TRIAL DAY [N] — [DATE] — [CLIENT]
+Court: [Judge], Div. [Letter]
+
+1. TODAY'S WINS (3-5 bullets)
+2. TODAY'S LOSSES (3-5 bullets)
+3. OBJECTIONS PRESERVED (count + critical ones)
+4. MISSED OBJECTIONS — MITIGATION
+   - For each MO: salvage pathway (errors patent / IAC / post-trial motion / N/A)
+5. EXHIBITS — STATUS DELTA TODAY
+   - Admitted: [list]
+   - Excluded: [list, with proffer status]
+6. RULINGS PENDING
+7. JUROR ISSUES TODAY (one-liner each)
+8. TOMORROW'S WITNESSES (in order)
+   - [Witness] — type — direct est. — cross focus — outline status
+9. TOMORROW'S FIRST-THING CHECKLIST
+   - [ ] Renew motion to ...
+   - [ ] Confirm Brady supplement
+   - [ ] Pre-court 8:30 AM sidebar request re: ...
+10. OVERNIGHT TASKS
+    - Research: [question + skill to invoke — e.g., dw-case-law-researcher-crim]
+    - Witness calls: [name + purpose]
+    - Exhibit prep: [item]
+    - Motion drafts: [motion + skill — e.g., dw-pretrial-motion-library-crim or dw-suppression-motion-crim]
+11. CASE-THEORY ADJUSTMENTS (if any)
+12. ESCALATIONS — what to flag to the lead attorney tonight
+```

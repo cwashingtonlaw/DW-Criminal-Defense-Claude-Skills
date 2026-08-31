@@ -655,3 +655,38 @@ To assemble a complete brief from these templates:
 ---
 
 *Last updated: May 2026. These templates are starting points. Adapt to the specific case, the specific assignments of error, and any per-circuit local-rule requirements.*
+
+---
+
+## Final Assembly Order (moved from SKILL.md — Output Format / Brief Structure step)
+
+The complete appellate brief is assembled in this order. Use `references/brief-section-templates.md` for the boilerplate skeleton.
+
+```
+1.  COVER PAGE                  — Rule 2-12.3 format
+2.  TABLE OF CONTENTS           — auto-generated; section + page numbers
+3.  TABLE OF AUTHORITIES        — cases, statutes, rules, secondary; page refs
+4.  JURISDICTIONAL STATEMENT    — when required (La. Sup. Ct. writs always)
+5.  ASSIGNMENTS OF ERROR        — numbered list, terse restatement
+6.  STATEMENT OF THE CASE       — procedural history only
+7.  STATEMENT OF FACTS          — every sentence record-cited
+8.  SUMMARY OF ARGUMENT         — one paragraph per assignment
+9.  ARGUMENT                    — Assignment by Assignment, each with the
+                                    D.1-D.6 substructure
+10. CONCLUSION                  — specific relief requested + prayer
+11. CERTIFICATE OF COMPLIANCE   — if word-count alternative under Rule 2-12.2
+12. CERTIFICATE OF SERVICE      — per shared protocols
+13. SIGNATURE BLOCK             — per shared protocols
+14. APPENDIX (if attached)      — typically not for criminal appeals; record
+                                    cites suffice
+```
+
+## After Saving — Present to the Attorney (moved from SKILL.md)
+
+After saving, present the attorney with:
+- Brief assembled — section list and page count
+- Citations flagged for verification (`[VERIFY CITATION]` markers)
+- Record cites flagged for verification (`[VERIFY RECORD CITE]` markers)
+- Standard-of-review assignments flagged (`[VERIFY STANDARD]` markers)
+- Filing deadline (if known)
+- Any per-circuit local-rule item that requires the attorney's attention

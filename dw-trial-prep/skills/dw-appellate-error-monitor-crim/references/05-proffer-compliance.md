@@ -27,3 +27,10 @@ When a defense offer of evidence is excluded, the following proffer procedure sa
 2. **Narrative proffer (minimum):** "If permitted to testify, this witness would state that [substance of excluded testimony]."
 3. **Testimonial proffer (preferred for critical evidence):** "Your Honor, we request to question the witness outside the presence of the jury for purposes of an offer of proof." Conduct the examination and create a verbatim record.
 4. **Documentary proffer:** "The defense marks this document as Defense Exhibit [X] for identification and proffers it into the record as excluded evidence for appellate purposes."
+
+
+---
+
+## Module C Summary — Log Fields (moved verbatim from SKILL.md MODULE C)
+
+For every defense exhibit excluded, defense witness testimony excluded, or defense question sustained on objection where the answer was prevented, log: PC-#, transcript location, evidence excluded, legal basis for exclusion, whether a proffer was made, proffer type (narrative / testimonial / documentary), proffer adequacy, Art. 103(A)(2) compliance (COMPLIANT / NON-COMPLIANT / PARTIAL), consequence of non-compliance (issue waived; salvage via IAC), and whether the "apparent from context" exception applies.

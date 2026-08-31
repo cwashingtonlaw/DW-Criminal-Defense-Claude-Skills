@@ -23,3 +23,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 622; *State v. David*, 468 So.2d 1126 (La. 1985); *Skilling v. United States*, 561 U.S. 358 (2010).
+
+## Module summary (moved from SKILL.md)
+
+Venue change under La. C.Cr.P. Art. 622 based on pretrial publicity, community sentiment, victim prominence, and jury-pool size. Authorities: *State v. David*, *Skilling v. United States*.

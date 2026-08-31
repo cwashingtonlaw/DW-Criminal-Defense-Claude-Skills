@@ -1,5 +1,14 @@
 # MODULE H — Plea Negotiation Impact
 
+## Overview (moved from SKILL.md)
+
+The habitual bill is frequently the State's most powerful plea-leverage tool. Effective negotiation requires a clear-eyed view of true exposure (Module E) and bill strength (Modules A-D).
+
+Classify the bill as **Unassailable** (negotiate for waiver as primary concession), **Vulnerable** (use deficiencies as leverage), or **Fatally Deficient** (challenge — operate from strength). Common negotiated outcomes: full waiver of the habitual bill, reduction in tier (e.g., admit second-offender instead of fourth), agreed sentence at the lower end of the enhanced range, plea to a reduced charge that compresses the enhanced range, or conditional dismissal upon completion of treatment/cooperation.
+
+Fourth-offender-with-violence (mandatory LWOP) is the maximum-leverage scenario; every deficiency becomes critical, and any plea avoiding the fourth-offender adjudication merits serious consideration.
+
+
 The habitual offender bill is frequently the single most powerful tool in the State's plea negotiation arsenal. Understanding the defendant's true habitual offender exposure — and whether the State's bill can actually withstand challenge — is essential to effective plea negotiation.
 
 ## Habitual Offender Exposure as Leverage

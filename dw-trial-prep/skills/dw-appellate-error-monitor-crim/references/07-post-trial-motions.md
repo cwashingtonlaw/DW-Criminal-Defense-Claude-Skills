@@ -124,3 +124,103 @@ III. PRAYER
 [ATTORNEY TO COMPLETE]
 [SIGNATURE BLOCK]
 ```
+
+
+---
+
+## Module E Summary — The Three Post-Trial Motions (moved verbatim from SKILL.md MODULE E)
+
+- **Motion for New Trial (La. C.Cr.P. Art. 851)** — must be filed before sentencing. Five grounds: (1) verdict contrary to law and evidence; (2) prejudicial error in ruling on motion or objection; (3) new and material evidence; (4) deprivation of constitutional rights; (5) jury prejudice. Renews trial objections; preserves weight-of-the-evidence challenge distinct from Jackson sufficiency.
+- **Motion in Arrest of Judgment (La. C.Cr.P. Art. 858)** — may be filed any time before sentence. Ground: charging instrument substantially defective (fails to charge offense punishable under valid statute, missing essential element, unconstitutional statute, fatal variance).
+- **Motion to Reconsider Sentence (La. C.Cr.P. Art. 881.1)** — within 30 days of sentencing (or longer if court so sets). **Prerequisite to raising an excessive sentence claim on appeal** — *State v. Mims*, 619 So.2d 1059 (La. 1993). Without it, only an illegal sentence (errors patent) is reviewable on appeal.
+
+
+---
+
+## Motion for Appeal -- La. C.Cr.P. Art. 914 (moved verbatim from SKILL.md MODULE E)
+
+**Bundled template:** `assets/templates/motion_for_appeal.docx` (Jefferson Parish Public Defender variant). Standard Motion for Appeal and Designation of Record that (i) perfects the appeal under Art. 914, (ii) designates the entire record under Art. 914.1(A), (iii) appoints the Louisiana Appeals and Writ Service (LAWS) to handle the appeal, and (iv) withdraws trial counsel from the matter. Strong exemplar for indigent / public defender appellate transitions. For retained appellants, replace the LAWS appointment language with the actual appellate counsel arrangement.
+
+**Filing Deadline (Art. 912):**
+- 30 days after the order denying a timely post-trial motion (motion for new trial, motion in arrest of judgment, or motion to reconsider sentence), OR
+- 30 days from sentence if no post-trial motion is filed
+
+The clock starts running fast. Coordinate the timing with any pending post-trial motions — the appeal clock does not start until those motions are decided, so filing post-trial motions extends the deadline. Conversely, if no post-trial motion is filed, the deadline runs from sentencing.
+
+**Designation of Record (Art. 914.1(A)):** Default to designating the **entire record** including all transcripts, pleadings, and exhibits. Any portion of the record not designated cannot be reviewed by the appellate court. Partial designation is appropriate only for unusually long records and only after consultation with appellate counsel.
+
+**Motion for Appeal Template Sections:**
+
+```
+MOTION FOR APPEAL AND DESIGNATION OF RECORD
+
+STATE OF LOUISIANA
+vs.                                            No. [CASE NUMBER]
+[DEFENDANT NAME]                               [JUDICIAL DISTRICT COURT]
+                                               PARISH OF [PARISH]
+                                               DIVISION/SECTION [X]
+
+NOW INTO COURT comes the defendant herein, through undersigned counsel,
+and on suggesting to the Court that the record herein shows error to
+his/her prejudice and that he/she is desirous to appeal to the
+[FIFTH/FIRST/SECOND/THIRD/FOURTH] Circuit Court of Appeal of the State
+of Louisiana, and on further suggesting that [LAWS / retained appellate
+counsel / continuation by trial counsel] be appointed to represent
+defendant in his/her appeal of this case.
+
+FURTHER, pursuant to La. C.Cr.P. Art. 914.1(A), the defendant respectfully
+designates the entire record including transcripts of each hearing herein
+and all of the pleadings for inclusion in the appellate record.
+
+[IF SWITCHING COUNSEL: FURTHER, counsel requests that [TRIAL COUNSEL] be
+removed as counsel of record in this matter.]
+
+WHEREFORE, he/she prays that he/she be granted an appeal to the
+[FIFTH/FIRST/SECOND/THIRD/FOURTH] Circuit Court of Appeal of the State
+of Louisiana, returnable in accordance with the law.
+
+Respectfully submitted,
+[ATTORNEY TO COMPLETE]
+[SIGNATURE BLOCK]
+
+ORDER
+
+Considering the above and foregoing motion of and by the above-named
+defendant:
+
+IT IS ORDERED that an appeal be granted in this case in behalf of the
+defendant to the [APPLICABLE] Circuit Court of Appeal of the State of
+Louisiana and that [LAWS / appellate counsel] be appointed to handle
+the appeal of this case, the return date being the _____ day of
+_______________, [YEAR].
+
+IT IS FURTHER ORDERED that the Clerk of Court lodge, in the [APPLICABLE]
+Circuit Court of Appeal, State of Louisiana, the entire record of these
+proceedings, including but not limited to all Pre-Trial, Trial, and
+Post-Trial pleadings, proceedings, and testimony in connection therewith.
+
+[IF APPLICABLE: IT IS FURTHER ORDERED that the Louisiana Appeals and
+Writ Service (LAWS) through Remy Voisin Starns, LA # 26522, State Public
+Defender, and Michael A. Mitchell, LA Bar # 09623, Deputy State Public
+Defender, be appointed to represent the defendant in his/her appeal,
+and that trial counsel ________________________________ be and is
+withdrawn as counsel of record.]
+
+[CITY], Louisiana, on this _____ day of ____________________, [YEAR].
+
+_______________________________
+JUDGE
+```
+
+**Court of Appeal Mapping (Louisiana):**
+
+| Judicial District | Court of Appeal |
+|------------------|-----------------|
+| 14th JDC (Calcasieu) | Third Circuit |
+| 32nd JDC (Terrebonne) | First Circuit |
+| 24th JDC (Jefferson) | Fifth Circuit |
+| 19th JDC (East Baton Rouge) | First Circuit |
+| 22nd JDC (Washington) | First Circuit |
+| Orleans Parish CDC | Fourth Circuit |
+
+Verify the correct Court of Appeal for the filing parish before drafting — the Jefferson Parish template defaults to Fifth Circuit, but every other parish has its own circuit.

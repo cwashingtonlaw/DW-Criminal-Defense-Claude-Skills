@@ -1,5 +1,14 @@
 # MODULE E — Enhancement Tier Calculator
 
+## Overview (moved from SKILL.md)
+
+The applicable tier depends on the number of valid predicates and whether any predicate or the current offense is a crime of violence. Five tiers under La. R.S. 15:529.1(A)(1): **Second Offender** (one valid predicate); **Third Offender — no violence**; **Third Offender — with violence** (no probation/parole/suspension); **Fourth Offender — no violence**; **Fourth Offender — with violence** (mandatory LWOP).
+
+Critical points: "longest time" means the maximum sentence prescribed for the current felony, not the sentence imposed; fourth-with-violence is mandatory LWOP and must be flagged immediately; Act 282 of 2017 (effective Nov. 1, 2017) restructured the tiers, so the date of the current offense determines which version of the statute applies; multi-count cases require concurrent/consecutive analysis.
+
+Produce an enhancement-calculation worksheet showing current offense, valid predicates, tier determination, statutory provision, and enhanced range with comparison to base range.
+
+
 The habitual offender enhancement dramatically increases the sentencing range. The applicable tier depends on the number of predicate convictions and whether any predicates or the current offense involve crimes of violence.
 
 > ⚠️ **Offense-date note:** The applicable version of La. R.S. 15:529.1 is fixed by the **date of offense** — confirm it first and select the version per `dw-shared-protocols-crim/references/sentencing-statute-versions.md`. **Current law (offenses on/after Nov. 1, 2017):** 2nd offender **⅓**–2×; 3rd (non-life) **½**–2×; 4th-offender mandatory LWOP requires the 4th felony **and two prior** crimes of violence/sex offenses. Pre-2017 vintages differ — verify via Westlaw version-compare.

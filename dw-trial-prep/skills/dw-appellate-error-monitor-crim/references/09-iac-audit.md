@@ -42,3 +42,16 @@ For each potential IAC claim identified:
 > **Available on Direct Appeal?** [Yes -- if record is sufficient / No -- requires post-conviction evidentiary hearing]
 > **Record Citation:** [Transcript page/line or minute entry reference]
 > **[STRATEGIC DECISION -- Attorney must assess whether to raise on direct appeal, preserve for post-conviction, or both]**
+
+
+---
+
+## Module G Summary (moved verbatim from SKILL.md MODULE G)
+
+Identify potential *Strickland v. Washington*, 466 U.S. 668 (1984), claims arising from trial counsel's performance. In Louisiana, IAC claims are generally not available on direct appeal — they must be raised in post-conviction proceedings under La. C.Cr.P. Art. 924 et seq. Exception: if the record on appeal is sufficient to address the claim without an evidentiary hearing, Louisiana courts may consider it on direct appeal (*State v. Ratcliff*, 416 So.2d 528 (La. 1982)).
+
+The Strickland two-prong framework: (1) deficient performance — counsel's performance fell below an objective standard of reasonableness; (2) prejudice — reasonable probability that, but for counsel's errors, the result would have been different.
+
+Eight IAC categories are audited: failure to object (cross-ref Module B), failure to proffer (cross-ref Module C), failure to file motions, failure to investigate, failure to call witnesses, failure to cross-examine, concession of guilt without consent (*McCoy v. Louisiana*, 584 U.S. 414 (2018) — structural error), and sentencing performance (mitigating evidence, Art. 881.1, illegal sentence).
+
+For each potential IAC claim, output: IAC-#, category, what counsel did/failed to do, deficient-performance analysis, prejudice analysis, viability rating (STRONG / MODERATE / WEAK / NOT VIABLE), direct-appeal vs. post-conviction availability, and record citation.

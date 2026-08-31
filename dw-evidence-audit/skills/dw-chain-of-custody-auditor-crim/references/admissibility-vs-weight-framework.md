@@ -41,3 +41,9 @@ For each item of destroyed or lost evidence, analyze:
 1. Was the exculpatory value apparent before destruction? (If yes, *Trombetta* applies — no bad faith needed.)
 2. If potentially useful but not obviously exculpatory, can bad faith be demonstrated? (If yes, *Youngblood* remedy.)
 3. Even without a constitutional remedy, destroyed evidence is powerful cross-examination material: "You destroyed the evidence that could have cleared my client."
+
+## Framework at a Glance (carried over from SKILL.md Step 4)
+
+Louisiana applies a nuanced standard to chain of custody challenges. Understand the framework before calibrating the defense approach. The **general rule** (*State v. Sweeney*, 443 So.2d 522 (La. 1983)): chain defects go to weight, not admissibility — the State need only establish "more probable than not." The **exception** (La. C.E. Art. 901(B)(1)): when the chain is so deficient that the evidence cannot be authenticated at all, it is inadmissible. The **bridge** (La. C.E. Art. 901(B)(4)): authentication by distinctive characteristics — vulnerable to challenge when evidence is fungible (drugs, biological samples, ammunition).
+
+For destroyed/lost/consumed evidence, apply the federal constitutional framework: *California v. Trombetta*, 467 U.S. 479 (1984) (apparent exculpatory value — no bad faith required) and *Arizona v. Youngblood*, 488 U.S. 51 (1988) / *State v. Koon*, 704 So.2d 756 (La. 1997) (potentially useful evidence — bad faith required).

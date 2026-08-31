@@ -379,3 +379,78 @@ For diversion cases:
 
 **Before completion deadline:** File motion for early completion or certificate of completion. Present evidence of success to judge. Request conviction set-aside at completion.
 
+---
+
+## Step 7 Operational Guidance — Diversionary Options Evaluation (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 7. This block was relocated from the skill body without modification.
+
+### Article 893 First Offender Diversion (Louisiana Code of Criminal Procedure)
+
+**Eligibility criteria:**
+- First felony drug offense (prior misdemeanor drug convictions OK)
+- No prior felony convictions of ANY kind
+- Prosecutor and judge must consent (but judge cannot refuse if criteria met and defendant requests)
+
+**Procedure:**
+- Defendant pleads guilty or nolo contendere
+- Court defers adjudication
+- Probation term: 2-5 years (typically 3 years)
+- Defendant must comply with probation (drug testing, treatment, no arrests)
+
+**Completion effect:**
+- If probation successfully completed: conviction is SET ASIDE
+- Defendant may answer "no" to "Have you been convicted of a felony?" on employment applications
+- Record is sealed (though not expunged)
+
+**CRITICAL:** This is a powerful tool for first-time drug offenders. Evaluate eligibility IMMEDIATELY before proceeding to trial strategy.
+
+### Article 890 Suspension/Deferral of Sentence
+
+**Differs from Art. 893:** Available to defendants with prior convictions.
+
+**Procedure:** Defendant pleads guilty, court suspends imposition of sentence and places defendant on probation.
+
+**Effect:** On successful completion of probation, sentence is suspended (not set aside — conviction remains).
+
+### Drug Court
+
+**Eligibility:**
+- Voluntary participation
+- Substance abuse disorder diagnosis
+- Non-violent offense (violent offenses typically excluded)
+- No prior violent felonies
+- Parish-specific availability (not all parishes have drug courts)
+
+**Program structure:**
+- 4 phases typically (treatment intensive → work/education focused → community reintegration → transition)
+- Frequent court appearances (weekly initially)
+- Mandatory treatment (inpatient or outpatient)
+- Mandatory drug testing
+- 12-24 months typical duration
+
+**Outcome:** Successful completion = case dismissed or conviction set aside (varies by parish)
+
+**Strategic value:** Drug court removes case from traditional criminal docket, focuses on treatment, and provides exit ramp from criminal justice system.
+
+### Pre-Trial Diversion
+
+**DA discretion:** District attorney's office may offer pre-trial diversion (typical terms: no arrest record, stay out of trouble for 6-12 months, diversion fees, community service).
+
+**Parish-specific:** Availability varies by parish and DA policy.
+
+**Advantage:** Case never prosecuted if diversion completed.
+
+### Marijuana-Specific Options (Post-Act 274, 2024)
+
+**First offense, small amount (<14g):** Misdemeanor, not felony. Fine up to $300, no jail.
+
+**Second offense:** Misdemeanor, up to 30 days jail.
+
+**Third+ offense:** Felony charges apply.
+
+**Expungement eligibility:** Marijuana misdemeanors may be expungeable after conviction.
+
+### Federal vs. State Diversion
+
+**Federal cases:** No Art. 893 equivalent. Drug Offender Self-Sufficiency (DOSS) program may be available in some districts. Federal sentencing guidelines are generally more stringent.

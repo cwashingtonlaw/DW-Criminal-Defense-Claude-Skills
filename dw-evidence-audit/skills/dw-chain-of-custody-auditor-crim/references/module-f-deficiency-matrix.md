@@ -1,5 +1,9 @@
 # Module F — Chain Documentation Deficiency Matrix
 
+## Module Overview (carried over from SKILL.md)
+
+Apply a systematic framework for identifying and cataloguing every documentation deficiency across all evidence types. Score every transfer link against seven universal documentation requirements (WHO, WHAT, WHEN, WHERE, HOW, WHY, CONDITION) using a four-tier scoring system (COMPLETE / PARTIAL / ABSENT / CONTRADICTED), then assign each evidence item an overall chain integrity rating.
+
 This module provides a systematic framework for identifying and cataloguing every documentation deficiency across all evidence types. Apply this matrix to every evidence item in the case.
 
 ## Universal Documentation Requirements

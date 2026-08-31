@@ -1,5 +1,9 @@
 # Module B — Digital Evidence Chain Audit
 
+## Module Overview (carried over from SKILL.md)
+
+Digital evidence requires a specialized chain of custody analysis because digital data can be altered without leaving physical traces. Audit the seven integrity checkpoints — seizure & initial handling, write-blocking verification, forensic imaging, hash value verification, storage of digital evidence, analysis documentation, and reporting & court presentation. The chain must document not only physical transfers but also the integrity of the data at every stage.
+
 Digital evidence requires a specialized chain of custody analysis because digital data can be altered without leaving physical traces. The chain must document not only physical transfers but also the integrity of the data at every stage.
 
 ## Digital Evidence — The Seven Integrity Checkpoints
@@ -75,3 +79,12 @@ Digital evidence requires a specialized chain of custody analysis because digita
 | ISO 27037 | International Organization for Standardization | Guidelines for identification, collection, acquisition, and preservation of digital evidence |
 | ACPO Good Practice Guide | Association of Chief Police Officers (UK, widely adopted) | Four principles of digital evidence: no action should change data, access must be competent, audit trail must exist, case officer is responsible |
 | FBI RCFL (Regional Computer Forensic Laboratory) | FBI | Operating procedures for federal digital forensic examination |
+
+## Top CRITICAL Red Flags at a Glance
+
+Summary bullets carried over from SKILL.md Module B; the full matrix above is authoritative.
+
+- No write-blocker used or documented — original data may have been modified during examination
+- Hash values missing at any transfer point — data integrity cannot be verified
+- Source and image hash values do not match — forensic image is not a faithful copy
+- Analysis performed on original media (not working copy) — original evidence may have been modified

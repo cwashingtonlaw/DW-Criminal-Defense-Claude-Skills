@@ -1,5 +1,10 @@
 # Predicate Conviction Inventory & Classification
 
+## Step 2 Overview (moved from SKILL.md)
+
+Before diving into individual module analysis, build a complete inventory of every predicate conviction the State relies upon. Build a per-predicate inventory table (case number, court/parish, charge, crime-of-violence flag, dates of offense/conviction/sentence-completion, manner of conviction, appeal status, available documentation, preliminary deficiency flags) and classify each predicate by whether it qualifies as a "crime of violence" under La. R.S. 14:2(B) — that classification is outcome-determinative for the enhancement tier. Always verify the version of La. R.S. 14:2(B) in effect at the time of the predicate offense (the statute is amended frequently); see *State v. Loggins*, 2017-0778 (La. 6/27/18), 252 So.3d 877.
+
+
 Before diving into individual module analysis, build a complete inventory of every predicate conviction the State relies upon in the habitual offender bill.
 
 ## Predicate Inventory Table

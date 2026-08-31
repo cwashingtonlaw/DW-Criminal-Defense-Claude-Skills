@@ -310,3 +310,115 @@ Can be charged together, creating stacked mandatory minimums.
 5. ACCA 15-year mandatory is catastrophic if triggered; challenge every predicate
 6. Federal sentencing can be more lenient than state (parole available; no mandatory minimum unless ACCA/§ 924(c))
 7. Forum selection (state vs. federal) should drive plea negotiation strategy
+
+---
+
+## Step 4 Operational Guidance — Federal Charge Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 4. This block was relocated from the skill body without modification.
+
+### 18 U.S.C. § 922(g) — Prohibited Persons
+
+**PENALTY:** Up to 15 years imprisonment (increased from 10 by Bipartisan Safer Communities Act 2022)
+
+**NINE CATEGORIES OF PROHIBITED PERSONS:**
+
+1. **Convicted of crime punishable by imprisonment >1 year (§ 922(g)(1))**
+   - **NOTE: Federal definition differs from state**
+   - Federal uses "crime punishable by imprisonment for more than one year" — ANY offense, even if classified as misdemeanor under state law
+   - Example: Some Louisiana felonies carry sentences <1 year; federal court may not recognize as disqualifying
+   - **Rehaney/Lara issues:** Does the state conviction meet federal predicates?
+   - ALWAYS check: what was the actual sentence imposed vs. what was authorized?
+
+2. **Fugitive from justice (§ 922(g)(2))**
+   - Fleeing to avoid prosecution, conviction, imprisonment, or testimony
+   - Active warrant = fugitive status
+
+3. **Unlawful user of controlled substance (§ 922(g)(3))**
+   - Marijuana use (federal illegal despite state decriminalization) = disqualifier
+   - Can be proven by positive drug test, possession, admission
+   - NOT limited to felony drug convictions
+   - Can trigger federal indictment independent of state charge
+
+4. **Adjudicated mental defective (§ 922(g)(4))**
+   - Prior adjudication of mental illness affecting judgment
+   - Involuntary commitment
+   - Incompetence to stand trial finding
+
+5. **Illegal alien (§ 922(g)(5))**
+   - Not lawful permanent resident
+   - Includes individuals on temporary visa, overstays, undocumented status
+
+6. **Dishonorable discharge (§ 922(g)(6))**
+   - Military dishonorable discharge only (not other-than-honorable)
+   - Must be from U.S. Armed Forces
+
+7. **Domestic violence conviction (§ 922(g)(9))**
+   - Misdemeanor crime of domestic violence (§ 921(a)(33))
+   - Includes Louisiana DV battery convictions
+   - **Rahimi (2024): DV restraining order also disqualifies** (separate from conviction)
+
+8. **Subject to protective order (§ 922(g)(8))**
+   - Restraining order issued by civil or criminal court
+   - Order must find reasonable cause to believe domestic violence was committed OR order issued to prevent harassment/threatening
+   - **United States v. Rahimi (2024):** upheld § 922(g)(8) under Bruen historical tradition test
+
+9. **Renounced U.S. citizenship (§ 922(g)(7))**
+   - Lesser-used category
+
+### 18 U.S.C. § 924(c) — Using or Carrying Firearm During Crime of Violence or Drug Trafficking Crime
+
+**MANDATORY CONSECUTIVE SENTENCING — HIGHEST STAKES ISSUE IN FIREARMS CASES**
+
+**PENALTIES:**
+- Base: 5 years consecutive (minimum)
+- Brandished: 7 years consecutive
+- Discharged: 10 years consecutive
+- Discharged and caused death/serious injury: 25+ years consecutive
+- **Second or subsequent § 924(c) conviction:** 25 years minimum
+
+**"IN FURTHERANCE" REQUIREMENT:**
+- Not just mere presence of gun near crime
+- Gun must facilitate, promote, or have reasonable nexus to underlying crime
+- Example: gun in car during drug transaction may not be "in furtherance" if never shown
+- Much fact-intensive inquiry
+
+**FEDERAL SENTENCING IMPLICATIONS:**
+- § 924(c) sentence runs CONSECUTIVE to underlying crime (drug trafficking, robbery, etc.)
+- Creates massive total sentence exposure
+- Example: Drug trafficking 10 years + § 924(c) 7 years = 17 years minimum
+- Cannot be shortened by guideline adjustments
+
+### 18 U.S.C. § 924(e) — Armed Career Criminal Act (ACCA)
+
+**15-YEAR MANDATORY MINIMUM SENTENCE**
+
+**TRIGGER:**
+- Defendant convicted of being felon in possession (§ 922(g)(1))
+- AND has three or more prior convictions for violent felonies or serious drug offenses
+
+**"VIOLENT FELONY" DEFINITION (Taylor categorical approach):**
+- Must have elements of force or substantial risk that force will be used
+- Typically: homicide, robbery, burglary, arson, aggravated assault
+- NOTE: Johnson v. United States (2015) struck down "residual clause" as void for vagueness
+- Must use elements test (Mathis v. United States, 2016)
+
+**"SERIOUS DRUG OFFENSE" DEFINITION:**
+- Federal felony drug offense (controlled substance)
+- Trafficking in cocaine, methamphetamine, heroin, etc.
+- NOT simple possession (unless it triggers mandatory minimum separately)
+
+**PREDICATE CHALLENGE STRATEGY:**
+- Every predicate must qualify categorically
+- Use Taylor/Mathis categorical approach
+- Get actual crime of conviction documents (indictment, plea colloquy, statute)
+- Some Louisiana felonies may not meet federal definition of "violent" or "serious drug"
+- Circuit split on whether Louisiana crimes qualify
+
+### Federal Sentencing Guidelines (USSG § 2K2.1)
+
+- Base offense level for § 922(g) possession: typically 12-14 (depending on weapon type)
+- Enhancements: prior convictions, number of weapons, trafficking in firearms
+- Criminal history category: calculated from prior convictions
+- Final guideline range (before mandatory minimums override)
+- REMEMBER: § 924(c) mandatory consecutive sentences override guideline calculations

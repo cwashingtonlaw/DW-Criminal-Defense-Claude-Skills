@@ -60,3 +60,12 @@ When the court grants a continuing objection, record:
 
 - *State v. Hongo*, 625 So.2d 610 (La. App. 3d Cir. 1993) -- continuing objection preserves issues within its stated scope
 - A continuing objection does NOT preserve issues outside its stated scope -- if the subject matter shifts, a new objection is required
+
+
+---
+
+## Module A Summary (moved verbatim from SKILL.md MODULE A)
+
+Create a comprehensive log of every objection made during proceedings, documenting the information necessary to assess whether each issue is preserved for appeal. Each objection is logged with its transcript location, phase of proceeding, type, legal basis, specificity assessment, the court's ruling, any curative instruction, any proffer, continuing-objection scope, and a final preservation status (PRESERVED / PARTIALLY PRESERVED / WAIVED) with explanation.
+
+Apply Art. 841 specificity analysis to every entry. Continuing objections preserve only what is within their stated scope (*State v. Hongo*, 625 So.2d 610 (La. App. 3d Cir. 1993)); when the subject matter shifts, a new objection is required.

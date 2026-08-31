@@ -73,47 +73,13 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Each source fills a different gap. The skill runs them in a tiered sequence — fast and cheap first, slow and deep last — so the attorney gets useful results quickly and can decide whether to go deeper.
 
-### Tier 1A: case.dev Legal Search (always runs)
-- **What it covers**: Case law databases, statutes, legal authorities across jurisdictions
-- **Why it runs first**: API-based, returns structured results in seconds, no login required
-- **Best for**: Finding on-point opinions, statutory text, similar cases by topic or by citation similarity
-- **Tool**: `casedev search legal` and `casedev search cases` (via the casedev CLI — read `casedev:search` skill if unfamiliar with syntax)
+- **Tier 1A — case.dev Legal Search** (always runs): case law, statutes, and legal authorities via the `casedev` CLI; API-based, fast, runs first
+- **Tier 1B — CourtListener** (always runs, alongside case.dev): semantic / keyword / hybrid search, citation verification, full opinion text, citing cases, judge search via the CourtListener MCP tools; use the REST API (`references/courtlistener-api-reference.md`) for complex filtered or bulk queries. Run both in parallel and cross-reference — verify every case.dev citation through CourtListener before it goes in a filing
+- **Tier 2 — DEVONthink Firm Library** (always runs): prior firm motions, templates, CLE materials, the LA Criminal Trial Practice Formulary, saved research memos
+- **Tier 3 — Consensus / Semantic Scholar** (conditional): empirical research when the topic benefits from peer-reviewed backing (false confessions, eyewitness reliability, forensic methodology, etc.)
+- **Tier 4 — Westlaw / Fastcase / OpenCase via Chrome** (on request or when deeper research is needed): KeyCite / Bad Law flags, headnotes, secondary sources; slowest, depends on attorney login
 
-### Tier 1B: CourtListener (always runs, alongside case.dev)
-- **What it covers**: 9+ million case opinions, 18+ million citations, 16,000+ judges, 3,353 courts, dockets, oral arguments
-- **Why it runs alongside case.dev**: Free open API (Free Law Project nonprofit), semantic search via vector embeddings (natural language queries), plus citation verification against the full database. CourtListener and case.dev have different strengths — case.dev is better for statutory research and jurisdiction-filtered queries, CourtListener excels at semantic similarity, citation networks, and full opinion text retrieval
-- **Best for**: Natural language case search ("cases where police extended a traffic stop to wait for a drug dog"), verifying citations are real and accurate, finding all cases that cite a given opinion, retrieving full opinion text without needing Westlaw, looking up judge backgrounds
-- **Tools**: CourtListener MCP tools (installed at `/sessions/eager-jolly-clarke/courtlistener-mcp/`):
-  - **Semantic search** — natural language case law search using vector embeddings
-  - **Keyword search** — Boolean operators and fielded queries (court, date range, judge)
-  - **Hybrid search** — combines semantic understanding with required keywords for precision
-  - **Citation verification** — validates that a citation exists and is accurate against 18M+ records
-  - **Get opinion** — retrieves full opinion text with metadata
-  - **Citing cases** — finds all cases that cite a specific opinion (the "cited by" search)
-  - **Judge search** — biographical data on 16,000+ federal and state judges
-  - **Court info** — jurisdiction details for 3,353 courts
-
-**Direct REST API access**: For complex filtered queries, docket-level research, or bulk retrieval beyond what the MCP tools support, use the CourtListener REST API directly. Read `references/courtlistener-api-reference.md` for endpoints, parameters, Louisiana court codes, and D&W-specific research patterns.
-
-**CourtListener + case.dev together**: Run both in parallel when possible. Cross-reference results — if case.dev returns a citation, verify it through CourtListener's citation verification tool before including it in a filing. If CourtListener's semantic search surfaces cases that case.dev missed, add them. The two sources complement rather than duplicate each other.
-
-### Tier 2: DEVONthink Firm Library (always runs)
-- **What it covers**: Prior firm motions, templates, CLE materials, the LA Criminal Trial Practice Formulary, saved research memos
-- **Why it matters**: The firm may have already briefed this exact issue. A prior filing that won or went unchallenged is more valuable than a fresh draft
-- **Best for**: Finding prior work product that cited the same authority, firm templates addressing the legal issue, saved research
-- **Tools**: `devonthink:search`, `devonthink:get_record_content`, `devonthink:list_group_content`
-
-### Tier 3: Consensus / Semantic Scholar (conditional)
-- **What it covers**: 200M+ academic papers from Semantic Scholar, PubMed, ArXiv
-- **When it runs**: Only when the research topic benefits from empirical backing — false confessions, eyewitness reliability, forensic methodology validity, interrogation psychology, juvenile brain development, PTSD/trauma responses, DNA mixture statistics, cell tower accuracy studies, etc.
-- **Why it matters**: Louisiana courts (and the 5th Circuit) increasingly cite social science research in suppression hearings, Daubert/Foret challenges, and sentencing mitigation. A peer-reviewed study can make or break a Daubert challenge
-- **Tool**: Consensus MCP search (`mcp__375e8680-0d99-4473-91c4-f470b8b5a093__search`)
-
-### Tier 4: Westlaw / Fastcase / OpenCase via Chrome (on request or when deeper research needed)
-- **What it covers**: Full opinion text with headnotes, KeyCite (Westlaw), Bad Law flags (Fastcase), AI-assisted research (OpenCase), citing references, secondary sources, treatises, ALR annotations, law review articles
-- **When it runs**: When the attorney says "run Westlaw," "check KeyCite," "shepardize this," "pull up the full opinion," "search OpenCase," OR when Tiers 1-2 return a key citation that needs validation beyond what CourtListener can provide (e.g., Westlaw's KeyCite negative treatment flags are more granular than CourtListener's citation data)
-- **Why it's last**: Requires browser automation, is slower, and depends on active login sessions (Westlaw/Fastcase) or account access (OpenCase)
-- **Tools**: Claude in Chrome MCP (`mcp__Claude_in_Chrome__*`) — navigate, read_page, get_page_text, form_input, find
+Read `references/source-tiers.md` now for each source's coverage, why it runs where it does, best uses, and exact tool names.
 
 **Important**: The attorney always controls which platforms run. Never launch into any search without confirming platforms first (see Step 1 of the Standalone Research Workflow). For Tier 4 specifically, the attorney may prefer to do that research themselves, or the earlier tiers may be sufficient.
 
@@ -131,197 +97,15 @@ Before searching, make sure you understand:
 - **The purpose**: Is this for a specific motion type? A memo to the attorney? General issue-spotting? This affects how deep to go
 - **Any known starting points**: Does the attorney already have a case name, statute, or article number to build from?
 
-**REQUIRED — Platform Confirmation**: Because this skill spans multiple research platforms with different speeds, costs, and coverage, always present the available sources and ask the attorney which ones to use before running any searches. Present them like this:
-
-> **Which platforms should I search?**
-> 1. **case.dev** — case law & statutes, API-based, fast
-> 2. **CourtListener** — 9M+ opinions, semantic search, citation verification, free
-> 3. **DEVONthink** — firm library, prior work product, templates
-> 4. **Consensus** — academic/empirical research (200M+ papers)
-> 5. **Westlaw / Fastcase / OpenCase** — premium databases, requires browser login
->
-> I'd recommend [1, 2, 3] for this issue. Want me to run all of those, or a different combination?
-
-Tailor the recommendation to the request — e.g., suggest Consensus only when empirical research is relevant, suggest Westlaw only when KeyCite/Shepard's validation is needed. But always let the attorney confirm before executing.
-
-**Exception — called by another skill**: When invoked as a service layer by another D&W skill (e.g., `dw-suppression-motion-crim` calls for authority), use the calling skill's platform preferences if specified. If not specified, default to case.dev + CourtListener + DEVONthink (Tiers 1A + 1B + 2) without asking, since the attorney already initiated the parent workflow. The attorney can always say "also run Westlaw" or "skip DEVONthink" to override.
+**REQUIRED — Platform Confirmation**: always present the available sources and ask the attorney which ones to use before running any searches. Tailor the recommendation to the request, but always let the attorney confirm before executing. Exception — when invoked as a service layer by another D&W skill, use the calling skill's platform preferences; if none, default to case.dev + CourtListener + DEVONthink (Tiers 1A + 1B + 2) without asking. Read `references/platform-confirmation.md` now for the exact platform-menu prompt and the service-layer exception rules.
 
 ### Step 2: Run Tiered Searches
 
-**Tier 1A — case.dev** (run in parallel with Tier 1B):
-```bash
-# Topic-based legal search (default: broad, then narrow)
-casedev search legal "[legal issue in search-friendly terms]" --jurisdiction "louisiana" --limit 15 --json
-
-# If attorney provided a specific case, find similar authority
-casedev search cases --url "[case URL]" --json
-
-# For statutory research
-casedev search legal "[statute number or topic]" --jurisdiction "louisiana" --json
-```
-
-Search strategy for case.dev:
-- Run a **broad query** first (the legal principle), then a **narrow query** (the specific factual scenario)
-- If the issue spans state and federal, run both `--jurisdiction "louisiana"` and `--jurisdiction "5th circuit"` (or omit jurisdiction for all)
-- Use `--deep` flag for complex issues that benefit from multi-query analysis
-- Use `--alt-query` to provide alternative phrasings of the same issue
-
-**Tier 1B — CourtListener** (run in parallel with Tier 1A):
-
-Use CourtListener's tools in this order:
-
-1. **Semantic search** for the legal issue in natural language — this is CourtListener's strongest feature. Phrase the query the way you'd describe the issue to a colleague, not as Boolean operators:
-   - Good: "police extended traffic stop beyond original purpose to wait for drug dog without reasonable suspicion"
-   - Bad: "traffic stop AND drug dog AND extended"
-
-2. **Keyword search** to catch anything semantic search might miss — use Boolean operators, filter by court (Louisiana courts), and date range:
-   - Filter to Louisiana: use court filter for `lasc` (Supreme Court), `la1coa` through `la5coa` (Courts of Appeal), `ca5` (5th Circuit)
-
-3. **Citation verification** for every case you plan to include in the Research Memo — confirm the citation is real and accurate before the attorney relies on it
-
-4. **Citing cases** search when you find a strong on-point case — find everything that cites it to build the full citation chain and check for negative treatment
-
-5. **Judge search** if the attorney asks about the assigned judge's background, prior rulings, or tendencies
-
-**Cross-referencing Tier 1A + 1B results**: After both searches complete, deduplicate. If a case appears in both results, note it — dual hits increase confidence. If case.dev found a case that CourtListener didn't (or vice versa), verify the outlier through the other source before including it. Use CourtListener's citation verification tool on every case.dev result that will appear in a filed pleading.
-
-**Tier 2 — DEVONthink**:
-```
-devonthink:search
-  query: "[legal issue keywords]"
-  databaseName: "Law Library-Criminal"
-  limit: 10
-
-devonthink:search
-  query: "tag:research OR tag:memo [issue keywords]"
-  databaseName: "Law Library-Criminal"
-  limit: 10
-```
-
-Search strategy for DEVONthink:
-- Search the `Law Library-Criminal` database first
-- Also search within `06 - Law & Research/` group if doing case-specific research
-- Look for prior filings that addressed the same legal issue (these will have the firm's tested arguments and citation chains)
-- Check for saved research memos from prior cases on the same topic
-
-**Tier 3 — Consensus** (if applicable):
-```
-Consensus MCP search:
-  query: "[academic search terms — use research terminology, not legal terminology]"
-  year_min: 2010  (for recent studies; adjust based on topic)
-```
-
-Trigger Consensus when the research topic touches any of these areas:
-- Eyewitness identification reliability (cross-racial ID, weapon focus, stress effects, confidence-accuracy relationship)
-- False confessions and interrogation psychology (Reid Technique effectiveness, juvenile susceptibility, intellectual disability)
-- Forensic science methodology (DNA mixture interpretation, bite mark analysis, hair microscopy, fingerprint error rates, ballistics)
-- Memory and suggestibility (child witness competency, delayed disclosure in sexual abuse, trauma and memory)
-- Sentencing and recidivism (juvenile brain development, rehabilitation outcomes, risk assessment instrument validity)
-- Cell site location accuracy (granularity limitations, indoor vs. outdoor, urban vs. rural)
-- Drug recognition expert (DRE) reliability
-- Arson investigation methodology (debunked indicators, modern fire science)
-
-**Tier 4 — Westlaw / Fastcase / OpenCase** (only if selected in Step 1):
-
-Only run if the attorney selected Westlaw, Fastcase, or OpenCase during the platform confirmation in Step 1. If the attorney didn't select Tier 4 upfront but the earlier tiers returned thin or uncertain results, ask before escalating:
-> "Tiers 1–3 returned [brief summary of gaps]. Would you like me to also check Westlaw, Fastcase, or OpenCase?"
-
-If approved, the attorney chooses which platform(s) to use:
-
-**Westlaw** (`westlaw.com` or `1.next.westlaw.com`):
-1. Use Chrome MCP to navigate to Westlaw
-2. Check if already logged in — look for the search bar on the main research page
-3. If not logged in, notify the attorney: "Westlaw needs a login. Can you log in and let me know when you're on the main search page?"
-4. Once on the search page:
-   - Use `form_input` to enter the search query in the main search bar
-   - Use `get_page_text` to read results
-   - For KeyCite: navigate to the case, look for the KeyCite status flag (green, yellow, red, orange)
-   - For full text: click into the opinion and use `get_page_text` to extract
-
-**Fastcase** (`fastcase.com`):
-1. Use Chrome MCP to navigate to Fastcase
-2. Same login check — notify attorney if credentials needed
-3. Once logged in:
-   - Enter search terms in the search interface
-   - Use `get_page_text` to read results and opinion text
-   - Check Bad Law flags and Authority Check for citation validity
-
-**OpenCase** (`opencase.com`):
-1. Use Chrome MCP to navigate to OpenCase
-2. Check login status — OpenCase has a free tier and paid Pro tier
-3. If not logged in, notify the attorney: "OpenCase needs a login. Can you log in and let me know when you're ready?"
-4. Once on the research page:
-   - OpenCase uses AI-assisted natural language search trained on Cornell LII's database
-   - Enter the legal question in natural language (OpenCase is optimized for this, unlike Westlaw's Boolean-heavy syntax)
-   - Use `get_page_text` to read results — OpenCase provides case summaries with verified citations
-   - OpenCase also has a Microsoft Word plugin — if the attorney is drafting in Word, suggest using the Word plugin for inline citation insertion
-
-**Chrome automation ground rules** (applies to all three platforms):
-- Never store or log any login credentials
-- If the page shows a login screen, stop and ask the attorney to authenticate — do not attempt to fill login forms
-- Read results using `get_page_text` rather than screenshotting (faster, more reliable)
-- If the page structure is unfamiliar or has changed, describe what you see and ask the attorney for guidance rather than guessing at clicks
+Run Tier 1A (case.dev) and Tier 1B (CourtListener) in parallel, then deduplicate and cross-reference — verify outliers through the other source and run CourtListener citation verification on every case.dev result bound for a filed pleading. Run Tier 2 (DEVONthink) for prior work product and templates. Run Tier 3 (Consensus) only when the topic touches an empirical trigger area. Run Tier 4 (Westlaw / Fastcase / OpenCase) only if selected in Step 1 — if Tiers 1–3 return thin or uncertain results, ask before escalating. Read `references/tiered-search-procedures.md` now for the case.dev commands and search strategy, the CourtListener tool order and Louisiana court filters, the DEVONthink queries, the Consensus trigger list, the per-platform Chrome procedures, and the Chrome automation ground rules.
 
 ### Step 3: Synthesize Results
 
-After all tiers complete, produce a **Research Memo** with this structure:
-
-```
-# Legal Research Memo
-## [Legal Issue — one-line statement of the question]
-
-**Case**: [Client name / Docket number if available]
-**Date**: [Current date]
-**Researched by**: Claude / Daniels & Washington
-**Sources consulted**: [List which tiers were used]
-
----
-
-## Short Answer
-[2-3 sentence answer to the legal question, citing the controlling authority]
-
-## Controlling Authority
-[The most on-point cases and statutes, organized by weight]
-
-### Louisiana Supreme Court
-- **[Case Name]**, [Citation] ([Year]) — [1-2 sentence holding and relevance]
-  - Citation verified: [Yes/No — via CourtListener] | Cited by: [X cases]
-
-### Louisiana Courts of Appeal
-- **[Case Name]**, [Citation] ([Year]) — [1-2 sentence holding and relevance]
-  - [Note which circuit — 1st, 2nd, 3rd, 4th, 5th — and whether it's the client's circuit]
-  - Citation verified: [Yes/No] | Cited by: [X cases]
-
-### Fifth Circuit / Federal
-- **[Case Name]**, [Citation] ([Year]) — [1-2 sentence holding and relevance]
-  - Citation verified: [Yes/No] | Cited by: [X cases]
-
-### Statutes & Code
-- **[Statute]** — [What it provides and how it applies]
-
-## Prior Firm Work Product
-[If DEVONthink returned relevant prior filings]
-- **[Document title]** (DEVONthink ID: [UUID]) — [How this prior filing addressed the same issue, what arguments it used, outcome if known]
-
-## Empirical Research
-[If Consensus was consulted]
-- **[Author(s)]**, "[Paper Title]," *[Journal]* ([Year]) — [Key finding and how it supports the defense argument]
-  - Cited [X] times | [Study type] | Sample: [N]
-
-## Adverse Authority
-[Cases or statutes that cut against the defense position — critical for candor and for preparing responses]
-- **[Case Name]**, [Citation] — [Why it's adverse and how to distinguish it]
-
-## Citation Chain
-[For the strongest on-point case, list its full citation chain via CourtListener's "citing cases" tool — shows how the legal principle has developed and whether the trend favors the defense]
-
-## Flags
-- [VERIFY — KeyCite/Shepard's needed]: [Citations where CourtListener verification passed but Westlaw/Fastcase KeyCite would add confidence before filing]
-- [VERIFY — quote accuracy]: [Quotations from summaries, not full opinion text — verify against actual opinion]
-- [RESEARCH — thin results]: [Sub-issues where Tiers 1-2 returned few results; deeper Westlaw/Fastcase/OpenCase research recommended]
-- [DISTINGUISH — adverse authority]: [Cases the state will likely cite that need distinguishing arguments]
-- [VERIFIED — CourtListener confirmed]: [Citations confirmed accurate through CourtListener's citation verification]
-```
+After all tiers complete, produce a **Research Memo**: header (issue, case, date, researcher, sources consulted), Short Answer, Controlling Authority by weight (Louisiana Supreme Court, Louisiana Courts of Appeal with circuit noted, Fifth Circuit / Federal, Statutes & Code — each with citation-verified status and cited-by count), Prior Firm Work Product, Empirical Research, Adverse Authority, Citation Chain, and Flags. Read `references/research-memo-template.md` now for the full memo template.
 
 ### Step 4: Integration with Calling Skill
 
@@ -366,20 +150,7 @@ For federal cases (e.g., client is in W.D. La. or M.D. La.), adjust: 5th Circuit
 
 When called by a motion-drafting skill, tailor the search to the motion's needs. Read `references/search-strategies.md` for detailed query templates organized by motion type.
 
-Quick reference for common patterns:
-
-| Calling Skill | Primary Search Focus | Consensus Needed? |
-|---|---|---|
-| `dw-suppression-motion-crim` (4th Amdt) | Warrant requirements, probable cause, good faith exception, fruit of poisonous tree | Rarely |
-| `dw-suppression-motion-crim` (5th Amdt) | Miranda, voluntariness, custody analysis, invocation of rights | Yes — false confession research, interrogation psychology |
-| `dw-404b-opposition-crim` | Prieur notice requirements, Art. 404(B) exceptions, balancing test, limiting instructions | No |
-| `dw-bond-and-release-motion-crim` | Art. 316/341 factors, excessive bail, pretrial detention conditions | Sometimes — risk assessment validity |
-| `dw-sentencing-mitigation-specialist-crim` | Art. 894.1 factors, Dorthey, excessive sentence jurisprudence, youthful offender | Yes — rehabilitation, brain development, trauma |
-| `dw-expert-witness-evaluator-crim` | Daubert/Foret reliability factors, Art. 702, specific methodology challenges | Yes — methodology validity studies |
-| `dw-eyewitness-identification-auditor-crim` | Manson/Neil v. Biggers factors, Henderson framework, suggestive procedures | Yes — eyewitness reliability research |
-| `dw-habitual-offender-auditor-crim` | Art. 529.1, predicate validity, Boykin requirements, cleansing period | No |
-| `dw-pretrial-motion-library-crim` | Varies by motion type — speedy trial (Barker), severance, venue, compel discovery | Rarely |
-| `dw-jury-instructions-builder-crim` | Responsive verdicts, lesser included offenses, self-defense, specific intent | No |
+Read `references/search-strategies.md` now — its closing quick-reference table maps each calling skill to its primary search focus and whether Consensus is needed, and the sections above it hold the detailed query templates by motion type.
 
 ---
 
@@ -404,15 +175,7 @@ Flag system:
 
 ## CourtListener Setup
 
-The CourtListener MCP server is installed at `/sessions/eager-jolly-clarke/courtlistener-mcp/`.
-
-**To activate** (one-time setup):
-1. Register for a free API key at https://www.courtlistener.com/help/api/rest/
-2. Create the `.env` file: `cp /sessions/eager-jolly-clarke/courtlistener-mcp/.env.example /sessions/eager-jolly-clarke/courtlistener-mcp/.env`
-3. Add your API key to the `.env` file
-4. Add the MCP to your Claude configuration: `claude mcp add courtlistener python /sessions/eager-jolly-clarke/courtlistener-mcp/src/server.py`
-
-**Rate limits**: 5,000 API requests per hour (more than sufficient for research sessions).
+The CourtListener MCP server is installed at `/sessions/eager-jolly-clarke/courtlistener-mcp/`. Read `references/courtlistener-api-reference.md` (section "CourtListener MCP Server Setup") now for the one-time activation steps and rate limits.
 
 ---
 
@@ -434,5 +197,9 @@ If you are a D&W skill invoking this researcher:
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **courtlistener-api-reference.md** — Practical reference for the CourtListener REST API endpoints most relevant to Louisiana criminal defense research (auth, rate limits, endpoint patterns)
-- **search-strategies.md** — Tailored CourtListener search queries by motion type, with semantic/keyword/Boolean patterns and Louisiana court filters
+- **source-tiers.md** — "How the Five Sources Work Together"; per-source coverage, sequencing rationale, best uses, exact tool names
+- **platform-confirmation.md** — Workflow Step 1; the required platform-menu prompt and the service-layer exception
+- **tiered-search-procedures.md** — Workflow Step 2; case.dev, CourtListener, DEVONthink, Consensus, and Westlaw / Fastcase / OpenCase procedures plus Chrome ground rules
+- **research-memo-template.md** — Workflow Step 3; the full Research Memo structure
+- **courtlistener-api-reference.md** — Tier 1B and CourtListener Setup; REST API endpoints, auth, rate limits, Louisiana court codes, D&W research patterns, MCP server setup
+- **search-strategies.md** — Search Strategy by Motion Type; tailored queries by motion type with semantic / keyword / Boolean patterns, plus the calling-skill quick-reference table

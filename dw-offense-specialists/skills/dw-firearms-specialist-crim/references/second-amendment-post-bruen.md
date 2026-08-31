@@ -340,3 +340,75 @@ Defendant subject to civil domestic violence restraining order sought to challen
 2. Argue sentencing mitigation (despite § 922(g) validity)
 3. Pursue suppression motion if search/seizure issues exist
 
+---
+
+## Step 6 Operational Guidance — Second Amendment Challenges (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 6. This block was relocated from the skill body without modification.
+
+### New York State Rifle & Pistol Association v. Bruen (2022)
+
+**PARADIGM SHIFT:**
+- Replaced multi-factor means-end scrutiny with **historical tradition test**
+- New standard: text-history-and-tradition framework
+- Court must look for "historical tradition" of comparable regulation
+- Requires actual historical analogue, not just general principle
+
+**IMPLICATION FOR § 922(g):**
+- § 922(g) felon-in-possession prohibition being challenged
+- Question: Is there historical tradition of disarming all persons convicted of felonies?
+- Founding era evidence: very limited; felons traditionally could keep guns
+- **Debate:** Does Rahimi foreclose all § 922(g) challenges? (See below)
+
+### United States v. Rahimi (2024)
+
+**DOMESTIC VIOLENCE RESTRAINING ORDER SURVIVES BRUEN**
+
+- Court upheld § 922(g)(8) restraining order prohibition
+- Applied Bruen historical tradition test
+- Found sufficient historical tradition of domestic abuse regulations
+- Rule: historical tradition doesn't require exact historical twin, but "analogue" suffices
+
+**IMPLICATIONS:**
+- Some § 922(g) categorical prohibitions survive post-Bruen challenge
+- DV restraining order disqualification firmly upheld
+- Unknown: whether Rahimi logic extends to all of § 922(g)(1)
+
+### Circuit Split on § 922(g)(1) Felon-in-Possession Under Bruen
+
+**RANGE v. ATTORNEY GENERAL (3rd Cir. 2023):**
+- Nonviolent felon (false tax return conviction) may retain Second Amendment rights
+- Court found no historical tradition of disarming nonviolent felons
+- Suggested Second Amendment protections exist for some felon categories
+
+**STATUS POST-RAHIMI:**
+- Unclear whether Range survives Rahimi logic
+- Some courts may distinguish violent vs. nonviolent predicates
+- 5th Circuit (covering Louisiana) continues to develop jurisprudence
+- **Must research current caselaw before filing any Second Amendment motion**
+
+### 5th Circuit Post-Bruen Development
+
+- Track **United States v. Daniels** (marijuana user § 922(g)(3) challenge)
+- Track **United States v. Rahimi** (pre-SCOTUS 5th Cir. decisions, then SCOTUS reversal/affirmance)
+- Search for ongoing circuit split on nonviolent felon category
+- Check casedev:search for latest 5th Cir. firearms decisions
+
+### When to Raise Second Amendment Challenge
+
+**GOOD CANDIDATES:**
+- Defendant convicted of nonviolent felony (white-collar crime, fraud, regulatory violation)
+- Defendant convicted of misdemeanor-level crime but facing § 922(g) predicate
+- Defendant subject to protective order but claims weak factual basis
+- Historical tradition argument appears viable
+
+**PROCEDURAL REQUIREMENTS:**
+- Standing: defendant must be "regulated party" (person with gun or seeking to acquire)
+- Ripeness: must be actual enforcement (not hypothetical)
+- As-applied challenge: narrow tailoring argument
+- Facial challenge: much harder to sustain
+
+**RESEARCH REQUIREMENT:**
+- ALWAYS verify current 5th Circuit precedent via casedev:search or WebSearch
+- Bruen/Rahimi jurisprudence evolves constantly
+- Circuit split remains unresolved on multiple issues

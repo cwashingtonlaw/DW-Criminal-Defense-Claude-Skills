@@ -289,3 +289,19 @@ The skill has access to both the CourtListener MCP server (12 tools) and the RES
 4. Sort by date to see evolution
 5. Check depth ≥ 2 for substantive treatment
 ```
+
+---
+
+## CourtListener MCP Server Setup
+
+Read at SKILL.md "CourtListener Setup"; one-time activation steps and rate limits for the CourtListener MCP server.
+
+The CourtListener MCP server is installed at `/sessions/eager-jolly-clarke/courtlistener-mcp/`.
+
+**To activate** (one-time setup):
+1. Register for a free API key at https://www.courtlistener.com/help/api/rest/
+2. Create the `.env` file: `cp /sessions/eager-jolly-clarke/courtlistener-mcp/.env.example /sessions/eager-jolly-clarke/courtlistener-mcp/.env`
+3. Add your API key to the `.env` file
+4. Add the MCP to your Claude configuration: `claude mcp add courtlistener python /sessions/eager-jolly-clarke/courtlistener-mcp/src/server.py`
+
+**Rate limits**: 5,000 API requests per hour (more than sufficient for research sessions).

@@ -28,3 +28,10 @@ After baseline is built, revisit critical window findings:
 - Downgrade findings where baseline weakens them
 - Add new findings only visible through baseline comparison
 - Update the Prosecution Misinterpretation Watch
+## Revisiting Critical Window Findings After the Baseline (carried over from SKILL.md Step 3.5)
+
+After baseline is built, revisit critical window findings:
+- Upgrade findings where baseline makes them stronger ("client went silent for 6 hours — baseline shows this is abnormal")
+- Downgrade findings where baseline weakens them ("gap during crime window is actually the client's normal sleep pattern")
+- Add new findings only visible through baseline comparison ("frequency to victim was actually declining, not escalating")
+- Update the Prosecution Misinterpretation Watch — any State claim about "unusual" activity that baseline disproves

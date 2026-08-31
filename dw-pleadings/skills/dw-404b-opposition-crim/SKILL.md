@@ -64,27 +64,9 @@ When the State has filed a notice, generate an Opposition. When the defense is a
 
 ## The 404(B) Analytical Framework
 
-Understanding this framework is essential — it drives every argument in the filing. Louisiana's 404(B) exclusionary rule rests on a fundamental principle: evidence that a person committed other crimes or bad acts is inadmissible to prove that the person acted in conformity with that character on the charged occasion. The substantial risk of grave prejudice to the defendant is too high. *State v. Prieur*, 277 So.2d 126, 128 (La. 1973).
+Louisiana's 404(B) exclusionary rule bars other-crimes evidence offered to prove conformity with character (*Prieur*). The State must satisfy ALL six requirements: (1) adequate written Prieur notice, (2) a pretrial hearing with item-by-item rulings, (3) a legitimate non-character purpose, (4) independent relevance to a material fact genuinely at issue, (5) proof the defendant committed the other acts, and (6) Art. 403 balancing. This framework drives every argument in the filing.
 
-The State may overcome this bar only by satisfying ALL of the following requirements:
-
-### Requirement 1: Adequate Written Notice (Prieur)
-The State must furnish written notice within a reasonable time before trial describing the other acts with the "general particularity required of an indictment or information." *Prieur*, 277 So.2d at 130. The notice must specify which exception(s) the State relies upon. A "kitchen sink" notice listing every possible exception without connecting each item of evidence to a specific exception is inadequate. *State v. Goffner (I)*, 23-179 (La. App. 5 Cir. 04/07/23); *Goffner (II)*, 23-403 (La. App. 5 Cir. 08/17/23); *Goffner (III)*, 23-403 (La. App. 5 Cir. 08/18/23).
-
-### Requirement 2: Pretrial Hearing
-A Prieur hearing must be held before the evidence is admitted. The court must make specific, individualized rulings on each item of evidence — not in globo rulings on an entire production. *Goffner (II)*; *Goffner (III)*.
-
-### Requirement 3: Legitimate Purpose (Not Character)
-The evidence must be offered for one of the enumerated purposes under La. C.E. Art. 404(B)(1) — motive, opportunity, intent, preparation, plan, knowledge, identity, absence of mistake or accident — or as res gestae / integral act. It cannot be a subterfuge for depicting the defendant's bad character or propensity for criminal behavior. *Rose*, 949 So.2d at 1243-44.
-
-### Requirement 4: Independent Relevance to a Material Fact
-The other crimes evidence must tend to prove a material fact genuinely at issue in the case, not merely a fact the State asserts. If the defendant has not placed intent, identity, plan, etc. at issue, the evidence lacks independent relevance. *State v. Martin*, 377 So.2d 259, 263 (La. 1979).
-
-### Requirement 5: State Must Prove Defendant Committed the Other Acts
-The State bears the burden of proving the defendant actually committed the other crimes or acts. *State v. Galliano*, 2002-2849 (La. 1/10/03), 839 So.2d 932.
-
-### Requirement 6: Probative Value Must Outweigh Prejudicial Effect
-Even if the evidence passes all the above tests, it must still survive the La. C.E. Art. 403 balancing test — its probative value must substantially outweigh the danger of unfair prejudice, confusion of issues, misleading the jury, undue delay, or waste of time.
+Read `references/404b-analytical-framework.md` now for the full six-requirement framework with controlling authority (*Prieur*, *Goffner I–III*, *Rose*, *Martin*, *Galliano*).
 
 ---
 
@@ -104,223 +86,43 @@ Filed pleadings receive NO work product marking. Follow the boilerplate componen
 
 Before drafting, search DEVONthink for firm templates and prior 404(b) filings. This is the firm's Template-First Drafting Rule.
 
-**DEVONthink searches to run:**
-```
-"404" OR "other crimes" in group "404 B - Other Crimes" (database: Law Library-Criminal)
-"motion exclude other crimes" OR "oppose 404" OR "Prieur"
-"motion in limine" AND "404"
-```
+Run the DEVONthink queries against the `404 B - Other Crimes` group (Law Library-Criminal) and the active case folder's `06 - Law & Research`, and check the catalog of known 404(B) documents (prior motion template, brief memo, Neveaux Goffner supplement, notice-requirement analysis, Notes of Decisions, *State v. Jones*).
 
-Also search the active case folder's `06 - Law & Research` for any case-specific research already completed.
+Read `references/devonthink-search-protocol.md` now for the exact search strings and the known-document catalog.
 
-Key documents known to exist in DEVONthink (404 B - Other Crimes folder):
-- `motion to Exclude other crimes evidence` — prior motion template
-- `brief memo-404 b` — brief memo on 404(B) law
-- `044s2 Supplement to Adequate 404b Notice` — Neveaux capital case supplement with Goffner opinions
-- `notice requirement` — Prieur notice requirement analysis
-- `Notes of Decisions for Art 404` — comprehensive case law digest
-- `Louisiana supreme court reigns in 404 b` — analysis of Louisiana Supreme Court restrictions
-- `State v. Jones, 285 So.3d 1074` — recent case law
-
-**After searches complete**, read and follow the Template Selection Protocol at `/mnt/skills/user/dw-shared-protocols-crim/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
+**After searches complete**, read and follow the Template Selection Protocol at `dw-shared-protocols-crim/references/template-selection-protocol.md` (Steps A through D). Present the top 3 results, let the attorney select a template or paste a DEVONthink link, and load the selection before proceeding. Do not proceed to Step 2 until the attorney has selected a template or chosen to draft from scratch.
 
 If a template is selected, preserve the firm's preferred formatting and legal positions — then update with case-specific facts and authority. If drafting from scratch, use this skill's built-in structure and offer to save the final approved version as a new template.
 
 ### Step 2: Gather Case Context
 
-**From the attorney prompt:** Parse whatever the attorney provides — client name, docket number, the charged offense(s), what other crimes evidence the State seeks to introduce, and the defense theory.
+Parse the attorney prompt (client, docket, charged offense, the other-crimes evidence at issue, defense theory); catalog each act in the State's Prieur notice with its claimed exception, specificity, and timeliness; mine discovery (police reports, criminal history, witness statements, charged-offense details); and check prior case analysis (Report 3 Red Flags, Constitutional Issues Scan, Witness Cross-Reference).
 
-**From the State's Prieur notice (when uploaded):** Extract and catalog:
-- Each act or offense the State seeks to introduce
-- Which 404(B)(1) exception the State claims for each
-- The level of specificity — does it identify specific items of evidence, or is it a "document dump"?
-- Whether the notice was timely filed
-- Whether it describes the acts with the particularity required by Prieur
-
-**From discovery files (when available):** Look for:
-- **Police reports** — details of the other acts the State references; look for inconsistencies, weak identification, lack of corroboration
-- **Client's criminal history** — prior convictions vs. uncharged conduct; arrests that did not result in conviction; dismissed or nolle prosequi charges
-- **Witness statements** — who is the source for the other acts? What credibility issues exist?
-- **The charged offense details** — essential for arguing lack of similarity, relevance, or connection to the other acts
-
-**From case analysis (when available):** Check for:
-- Phase 2 Report 3 (Immediate Red Flags) — any 404(b) issues already identified
-- Phase 2 Constitutional Issues Scan
-- Witness Cross-Reference — witnesses who appear in both the charged and other acts
+Read `references/case-context-intake.md` now for the full intake checklist by source.
 
 ### Step 3: Analyze Each Item of Evidence
 
 For every item of other crimes evidence the State seeks to introduce, work through the six-requirement framework above. This analysis drives the argument structure.
 
-**For each item, answer:**
+**For each item,** answer five questions: notice adequacy; whether the stated purpose is legitimate or pretextual (tested exception by exception — motive, opportunity, intent, preparation, plan/scheme/system, knowledge, identity, absence of mistake, res gestae); whether the claimed material fact is genuinely contested; the State's proof that the defendant committed the act; and Art. 403 probative-vs-prejudicial balance.
 
-1. **Notice adequacy:** Did the State specifically identify this item and connect it to a specific exception, or is it buried in a general notice?
-
-2. **Stated purpose — is it legitimate or pretextual?**
-   - *Motive:* Does the other act actually establish a motive for the charged offense? Or is the connection speculative?
-   - *Opportunity:* Does it show the defendant had the means or access? Or is it mere propensity reasoning disguised as opportunity?
-   - *Intent:* Is intent genuinely at issue? If the defendant has not raised a defense negating intent (accident, mistake, lack of specific intent), the State cannot use 404(b) to "prove" what is not disputed.
-   - *Preparation:* Does it show the defendant took preparatory steps for the charged offense? Or is it unrelated prior conduct?
-   - *Plan / scheme / system:* Is there a genuine signature or modus operandi connecting the acts? Mere general similarity is insufficient — Louisiana requires a "peculiar and distinctive quality" or "such connection with the charged crime as to be of independent relevance." The more generic the similarity, the weaker the plan argument.
-   - *Knowledge:* Does the other act show the defendant knew something material (e.g., the substance was a controlled substance)? Or is it cumulative?
-   - *Identity:* Is identity genuinely at issue? If the defendant does not dispute being present, 404(b) identity evidence is irrelevant.
-   - *Absence of mistake or accident:* Has the defense raised mistake or accident? If not, this exception does not apply.
-   - *Res gestae / integral act:* Is the other act so intertwined with the charged offense that the State truly cannot present its case without it? This is a narrow exception — not a backdoor for character evidence.
-
-3. **Material fact at issue:** Is the purpose the State claims actually contested in this case?
-
-4. **Proof the defendant committed it:** What is the State's evidence that the defendant actually committed the other act? Bare allegations, uncorroborated accusations, or arrests without conviction may be insufficient.
-
-5. **Probative vs. prejudicial (Art. 403):** Even if the evidence clears every hurdle, does the marginal probative value justify the grave prejudice of placing uncharged conduct before the jury?
+Read `references/item-analysis-checklist.md` now for the full per-item question set and the exception-by-exception pretext tests. Then read `references/attack-vectors.md` for the checklist of defense attack lines organized by the exception the State claims.
 
 ### Step 4: Draft the Opposition / Motion in Limine (.docx #1)
 
 The Opposition (or Motion in Limine) is a short, formal filing — typically 3-5 pages. It frames the issue and requests relief.
 
-**Structure:**
+**Structure:** Caption → title (Opposition or Motion in Limine) → NOW INTO COURT paragraph → I. Introduction → II. Background → III. Summary of Argument → IV. Prayer for Relief (deny, order adequate Prieur/Goffner notice, individualized Prieur hearing, exclude under 404(B)/403, other relief) → Certificate of Service → Signature Block.
 
-```
-[CAPTION — per shared protocols]
-
-DEFENDANT'S OPPOSITION TO STATE'S NOTICE OF INTENT TO
-INTRODUCE OTHER CRIMES EVIDENCE PURSUANT TO LA. C.E. ART. 404(B)
-— OR —
-DEFENDANT'S MOTION IN LIMINE TO EXCLUDE OTHER CRIMES EVIDENCE
-
-NOW INTO COURT, through undersigned counsel, comes defendant [CLIENT NAME],
-who respectfully opposes the State's Notice of Intent to Introduce Evidence
-of Other Crimes, Wrongs, or Acts pursuant to La. C.E. Art. 404(B) [or:
-who respectfully moves this Honorable Court to exclude evidence of other
-crimes, wrongs, or acts] and in support thereof states the following:
-
-I.    INTRODUCTION
-      [2-3 sentences: what the State seeks to introduce, why it should be
-       excluded, what constitutional and evidentiary principles are at stake]
-
-II.   BACKGROUND
-      [The charged offense — brief summary. What the State's notice seeks
-       to introduce. Identify each item of other crimes evidence by number
-       or category.]
-
-III.  SUMMARY OF ARGUMENT
-      [Brief preview of the legal deficiencies in the State's position.
-       Organize by item of evidence if multiple items are challenged.]
-
-IV.   PRAYER FOR RELIEF
-      WHEREFORE, defendant [CLIENT NAME] respectfully prays that this
-      Honorable Court:
-      (1) Deny the State's request to introduce evidence of other crimes,
-          wrongs, or acts at trial;
-      (2) [If notice is inadequate:] Order the State to provide adequate
-          notice in compliance with State v. Prieur and specifically
-          identify each item of evidence and the exception relied upon,
-          per State v. Goffner;
-      (3) Conduct a pretrial hearing pursuant to Prieur with specific,
-          individualized rulings on each item of evidence;
-      (4) Exclude [specific evidence] as inadmissible under La. C.E.
-          Art. 404(B) and Art. 403;
-      (5) Grant such other relief as the Court deems just and proper.
-
-[CERTIFICATE OF SERVICE — per shared protocols]
-[SIGNATURE BLOCK — per shared protocols]
-```
-
-**If generating a defense Motion in Limine** (preemptive, no State notice yet):
-- Replace "Opposition" language with "Motion in Limine to Exclude"
-- Explain what evidence the defense anticipates the State will seek to introduce
-- Argue that the evidence should be excluded regardless of how the State frames it
-- Request that the court prohibit the State from referencing the evidence without prior approval outside the presence of the jury
+Read `references/opposition-template.md` now for the full verbatim document structure and the Motion in Limine (preemptive) variant instructions.
 
 ### Step 5: Draft the Memorandum in Support (.docx #2)
 
 The Memorandum is the substantive legal brief — typically 10-25 pages depending on the number of items challenged and complexity of the arguments.
 
-**Structure:**
+**Structure:** Caption → title → I. Introduction → II. Statement of Facts (A. charged offense; B. other acts) → III. Legal Standard → IV. Argument (A. notice inadequate; B. no legitimate purpose, item by item; C. no independent relevance; D. State cannot prove the other acts; E. Art. 403) → V. Conclusion → COS → Signature.
 
-```
-[CAPTION — per shared protocols]
-
-MEMORANDUM IN SUPPORT OF DEFENDANT'S OPPOSITION TO STATE'S
-404(B) NOTICE [or: MOTION IN LIMINE TO EXCLUDE OTHER CRIMES EVIDENCE]
-
-I.    INTRODUCTION
-      [Frame the constitutional stakes. The general exclusionary rule exists
-       because other crimes evidence carries a "substantial risk of grave
-       prejudice." Prieur, 277 So.2d at 128. The State's burden is heavy
-       and the court must carefully scrutinize every item.]
-
-II.   STATEMENT OF FACTS
-      [Detailed factual narrative. Two sections:
-       A. The Charged Offense — what the defendant is actually on trial for
-       B. The Other Acts Evidence — what the State seeks to introduce,
-          described with specificity. Cite the State's notice and any
-          discovery by Bate stamp.]
-
-III.  LEGAL STANDARD
-      [The 404(B) framework. Read references/404b-citations.md for the
-       complete citation library. Key elements to cover:
-       - General exclusionary rule (Art. 404(B)(1); Prieur)
-       - Notice and hearing requirements (Prieur; Goffner)
-       - Independent relevance requirement (Martin; Rose)
-       - State's burden to prove defendant committed the other acts (Galliano)
-       - Art. 403 balancing test
-       - Louisiana's heightened scrutiny of other crimes evidence]
-
-IV.   ARGUMENT
-      [Apply the law to the facts. Organize by ground of challenge.
-       Each section should:
-       - State the legal rule
-       - Apply it to the specific facts
-       - Anticipate and rebut the State's likely response
-       - Conclude with why this evidence must be excluded]
-
-      A. THE STATE'S NOTICE IS INADEQUATE
-         [If applicable. Argue specificity under Prieur and Goffner.
-          Attack "kitchen sink" notices. Demand item-by-item identification
-          and exception-by-exception specification.]
-
-      B. THE EVIDENCE DOES NOT SERVE A LEGITIMATE PURPOSE
-         [For each item: the stated purpose is either inapplicable to this
-          case or is a pretext for character evidence.]
-
-         1. [Item/Category 1] — [Why the stated exception fails]
-         2. [Item/Category 2] — [Why the stated exception fails]
-         ...
-
-      C. THE EVIDENCE LACKS INDEPENDENT RELEVANCE TO A MATERIAL
-         FACT AT ISSUE
-         [The purpose the State claims is not genuinely contested.
-          If the defendant has not raised the defense that the exception
-          is designed to rebut, the evidence is irrelevant.]
-
-      D. THE STATE CANNOT PROVE THE DEFENDANT COMMITTED THE OTHER ACTS
-         [If applicable. Attack the quality of evidence supporting the
-          other acts — uncorroborated allegations, dismissed charges,
-          acquittals, credibility problems.]
-
-      E. THE PROBATIVE VALUE IS SUBSTANTIALLY OUTWEIGHED BY
-         UNFAIR PREJUDICE (LA. C.E. ART. 403)
-         [Even if the evidence passes every other test, the jury will
-          use it for the forbidden purpose — to conclude that the defendant
-          is a bad person who probably committed the charged offense.
-          The prejudicial effect is devastating and the probative value
-          is marginal at best, especially where the State has other
-          evidence to prove the same point.]
-
-V.    CONCLUSION
-      [Summarize the deficiencies. Reiterate specific relief requested.]
-
-[CERTIFICATE OF SERVICE — per shared protocols]
-[SIGNATURE BLOCK — per shared protocols]
-```
-
-**Key rules for the Memorandum:**
-- Lead with the strongest argument. If the notice is a "kitchen sink" dump, lead with notice inadequacy under Goffner — it's a threshold issue that can moot the substantive arguments.
-- Address each item of evidence individually. The Fifth Circuit in Goffner made clear that courts must rule on each item specifically — mirror this in the argument structure.
-- Anticipate the State's arguments. The prosecution will claim the evidence is "integral to the narrative" or "necessary to explain the context." Beat them to it — explain why the State can present its case without this evidence.
-- Use the State's own characterization against them. If the State's notice uses vague language, quote it to show inadequacy. If the State claims "plan" but the acts have nothing distinctive in common, highlight the generic nature.
-- Emphasize the prejudice. Other crimes evidence is uniquely dangerous because jurors cannot easily compartmentalize it. The risk that jurors will convict based on character rather than proof of the charged offense is the core reason the exclusionary rule exists.
-- Cite both Louisiana Supreme Court and Circuit Court authority. Louisiana courts have been increasingly strict about 404(B) — the Goffner line of cases from the Fifth Circuit is particularly powerful.
+Read `references/memorandum-template.md` now for the full memorandum structure and the key drafting rules (lead with the strongest argument, address each item individually, anticipate the State's "integral to the narrative" claim, use the State's own language, emphasize prejudice, cite both Supreme Court and Circuit authority).
 
 ### Step 6: Citation Research
 
@@ -393,44 +195,9 @@ Before presenting the output, mark all items that need attorney attention:
 
 These are the most effective lines of attack organized by the exception the State typically claims. Use these as a checklist when analyzing the State's notice.
 
-### "Motive"
-- The other act does not logically establish a motive for the charged offense
-- The alleged motive is speculative or requires too many inferential leaps
-- The other act shows general criminal disposition, not specific motive
-- The prejudicial impact of revealing the other act far outweighs the marginal value of establishing motive, especially where motive can be shown through other evidence
+Organized by claimed exception: "Motive," "Intent," "Plan / Scheme / System," "Knowledge," "Identity," "Absence of Mistake or Accident," and "Res Gestae / Integral Act."
 
-### "Intent"
-- Intent is not genuinely at issue — the defendant has not claimed accident or mistake
-- The charged offense requires only general intent, which can be inferred from the act itself
-- Using prior acts to "prove" intent is propensity reasoning in disguise
-- The doctrine of chances should not be used to circumvent the exclusionary rule
-
-### "Plan / Scheme / System"
-- The acts are not sufficiently similar — mere general resemblance is insufficient
-- Louisiana requires a "peculiar and distinctive quality" or modus operandi
-- Common criminal methods shared by thousands of offenders do not establish a "plan"
-- The similarity is in the type of crime, not in a distinctive method of commission
-
-### "Knowledge"
-- Knowledge is not genuinely disputed
-- The other act does not logically establish knowledge relevant to the charged offense
-- Knowledge can be proved through other means without the prejudice of other crimes evidence
-
-### "Identity"
-- Identity is not at issue — the defendant does not dispute being present
-- The other acts lack the distinctive signature necessary for identity evidence
-- The identifying characteristics are too common to be probative
-
-### "Absence of Mistake or Accident"
-- The defendant has not raised mistake or accident as a defense
-- The State is preemptively "rebutting" a defense that does not exist
-- This exception applies only when the defendant actually claims the act was innocent
-
-### "Res Gestae / Integral Act"
-- The other act is not genuinely intertwined with the charged offense
-- The State can present its case coherently without reference to the other act
-- "Context" and "background" are not recognized exceptions — they are character evidence in disguise
-- The res gestae exception is narrow and should not be stretched to admit what the enumerated exceptions exclude
+Read `references/attack-vectors.md` now for the full attack-vector checklist under each exception.
 
 ---
 
@@ -465,3 +232,10 @@ Use the output path formula from `dw-shared-protocols-crim/references/output-pat
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
 - **404b-citations.md** — 404(B) citation library: Louisiana opposition authority (Prieur framework foundational cases) with DEVONthink links to firm copies; cite-check before filing
+- **404b-analytical-framework.md** — Analytical Framework section / Step 3: the six requirements the State must satisfy (notice, hearing, legitimate purpose, independent relevance, proof of the other acts, Art. 403) with controlling authority
+- **item-analysis-checklist.md** — Step 3: per-item five-question analysis, including exception-by-exception pretext tests
+- **attack-vectors.md** — Step 3 / Memorandum Argument B: defense attack lines organized by the exception the State claims
+- **opposition-template.md** — Step 4: full Opposition / Motion in Limine document structure and preemptive-motion variant
+- **memorandum-template.md** — Step 5: full Memorandum in Support structure (Sections I–V, Argument A–E) and key drafting rules
+- **devonthink-search-protocol.md** — Step 1: DEVONthink search strings and the catalog of known 404(B) documents in the firm database
+- **case-context-intake.md** — Step 2: intake checklist by source (attorney prompt, Prieur notice, discovery, prior case analysis)

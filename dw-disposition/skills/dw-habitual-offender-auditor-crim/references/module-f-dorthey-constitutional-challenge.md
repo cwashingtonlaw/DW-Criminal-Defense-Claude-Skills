@@ -1,5 +1,14 @@
 # MODULE F — Constitutional Challenge Assessment
 
+## Overview (moved from SKILL.md)
+
+Even when the bill is properly filed and the predicates are valid, the resulting enhanced sentence may be constitutionally excessive. *State v. Dorthey*, 623 So.2d 1276 (La. 1993), holds that mandatory habitual offender sentences are subject to review under La. Const. Art. I, Sec. 20: a sentence that makes "no measurable contribution to acceptable goals of punishment" or that is "grossly out of proportion to the severity of the crime" must be reduced.
+
+The defendant's burden is heavy. *State v. Johnson*, 97-1906 (La. 3/4/98), 709 So.2d 672 (clear and convincing evidence; rebut presumption that the Legislature acted reasonably); *State v. Lindsey*, 99-3256 (La. 10/17/00), 770 So.2d 339 (don't lightly second-guess legislative judgment); *State v. Mosby*, 2014-2704 (La. 11/20/15), 180 So.3d 1274 (reaffirmed). Federal floor: *Solem v. Helm*, 463 U.S. 277 (1983), narrowed by *Ewing v. California*, 538 U.S. 11 (2003).
+
+Assess Dorthey viability across seven factors (nature of current offense, nature of predicates, defendant's full criminal history, proportionality, goals of punishment, mitigating circumstances, comparable jurisprudence). If viable, draft a Motion to Declare Enhanced Sentence Unconstitutionally Excessive. This is a filed pleading — caption/COS/signature per shared protocols, no work-product marking.
+
+
 Even when the habitual offender bill is properly filed and the predicates are valid, the resulting enhanced sentence may be subject to constitutional challenge as excessive.
 
 ## The Dorthey Framework

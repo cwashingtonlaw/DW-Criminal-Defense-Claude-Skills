@@ -58,3 +58,16 @@ Review the face of the record (pleadings and proceedings, without reviewing the 
 | Prescription | Was the prosecution timely initiated within the prescriptive period? | La. C.Cr.P. Art. 571-576 |
 | Proper court | Did the court have jurisdiction and venue? | La. C.Cr.P. Art. 611-624 |
 | Notice of sex offender registration | If convicted of a sex offense, was the defendant given written notification of sex offender registration requirements? | La. R.S. 15:543 |
+
+
+---
+
+## Module D Summary — Five Categories (moved verbatim from SKILL.md MODULE D)
+
+Five errors-patent categories are audited from the face of the record (pleadings and proceedings, without inspection of evidence):
+
+1. **Illegal Sentence** — statutory range, mandatory minimum, statutory maximum, hard labor designation, fine range, special conditions, probation/parole eligibility, consecutive/concurrent designation, multiple punishments (*State v. Murray*), credit for time served (Art. 880)
+2. **Boykin Deficiency** (guilty pleas) — jury trial, confrontation, self-incrimination waivers; Art. 556.1 advisements; factual basis; voluntariness
+3. **Art. 873 Sentencing Delay** — delay observed or waived; post-trial motion delay; waiver on record (*Augustine*)
+4. **Defective Charging Instrument** — offense charged, essential elements, statutory citation, grand jury indictment when required
+5. **Additional Errors Patent** — *Ramos* unanimity (post-Jan 1, 2019), jury size, prescription, jurisdiction/venue, sex offender registration notice

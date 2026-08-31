@@ -21,3 +21,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 671-674; La. Code Jud. Conduct Canon 3; *Liteky v. United States*, 510 U.S. 540 (1994).
+
+## Module summary (moved from SKILL.md)
+
+Judicial recusal under La. C.Cr.P. Art. 671-674 and La. Code Jud. Conduct Canon 3 on grounds of personal bias, prior involvement, financial interest, or relationship to a party. Mandatory vs. discretionary recusal distinction.

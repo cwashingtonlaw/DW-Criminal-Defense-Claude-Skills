@@ -213,3 +213,17 @@ If any item fails, the skill rewrites the offending passage and re-runs the chec
 ---
 
 *Last reviewed: Louisiana practice as of 5/2026. Authorities cited: La. C.Cr.P. Art. 774, 841; La. Rules of Prof. Conduct 3.4(e); Cage v. Louisiana, 498 U.S. 39 (1990); State v. Cage, 583 So.2d 1125 (La. 1991); In re Winship, 397 U.S. 358 (1970); Victor v. Nebraska, 511 U.S. 1 (1994); Sullivan v. Louisiana, 508 U.S. 275 (1993); Sandstrom v. Montana, 442 U.S. 510 (1979); Francis v. Franklin, 471 U.S. 307 (1985); Griffin v. California, 380 U.S. 609 (1965); Doyle v. Ohio, 426 U.S. 610 (1976); Berger v. United States, 295 U.S. 78 (1935); Chapman v. California, 386 U.S. 18 (1967); State v. Sayles, 395 So.2d 695 (La. 1981); State v. Smith, 327 So.2d 355 (La. 1976).*
+
+---
+
+## Most Common Closing-Argument Errors (moved from SKILL.md Step 4)
+
+Read at SKILL.md STEP 4 when running the closing through the checklist above. Verbatim from the SKILL.md draft-time guardrail block.
+
+Before finalizing the closing, run the draft through `references/closing-louisiana-guardrails.md` checklist. The Art. 774 scope rules apply to closing as they do to opening — but closing is permitted to ARGUE the meaning of evidence, where opening is not. The most common Louisiana closing-argument errors are still:
+- Comment on defendant's silence (Griffin, Doyle) — automatic strike
+- Personal vouching — strike
+- Reference to facts not in evidence — strike
+- Misstatement of law (especially the reasonable-doubt definition, the burden, or the presumption of innocence) — strike. The closing must mirror the jury instructions; deviating from the instructions invites a State objection and a judge correction in front of the jury.
+- Golden Rule — strike
+- Sandstrom violations (presumption-shifting language) — strike

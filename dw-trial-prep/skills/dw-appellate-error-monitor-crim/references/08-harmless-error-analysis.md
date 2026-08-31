@@ -42,3 +42,17 @@ For each error classified as PRESERVED in the Module A objection log, conduct th
 | **Curative instruction** | Was a curative instruction given? Curative instructions support a harmless error finding. |
 | **Closing argument emphasis** | Did the State emphasize the erroneously admitted evidence in closing argument? Heavy reliance supports prejudice. |
 | **Reversal likelihood** | HIGH / MODERATE / LOW -- with explanation |
+
+
+---
+
+## Module F Summary — Structural Errors, Standards, and Assessment Factors (moved verbatim from SKILL.md MODULE F)
+
+**Structural errors (automatic reversal):** complete denial of counsel (*Gideon*); biased trial judge (*Tumey*); racial discrimination in grand jury selection (*Vasquez*); denial of self-representation (*McKaskle*); denial of public trial (*Waller*); defective reasonable doubt instruction (*Sullivan v. Louisiana*); non-unanimous jury verdict post-*Ramos*.
+
+**Trial errors — harmless error standard:**
+- **Constitutional error** — harmless beyond a reasonable doubt; State bears burden (*Chapman v. California*, 386 U.S. 18 (1967))
+- **Non-constitutional error** — error did not affect substantial rights (La. C.Cr.P. Art. 921; *State v. Johnson*, 94-1379 (La. 11/27/95), 664 So.2d 94)
+- **Evidentiary error** — verdict surely unattributable to the error (*Sullivan*-derived "surely unattributable" formulation applied through *Johnson*)
+
+For each preserved error, assess: error type, applicable harmless-error standard, strength of remaining evidence, cumulative nature, centrality to disputed issue, curative instruction, closing-argument emphasis, and reversal likelihood (HIGH / MODERATE / LOW).

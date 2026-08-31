@@ -62,26 +62,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Chain of Custody Documentation:** evidence transfer forms, property receipts, evidence room logs, lab submission records, evidence booking sheets — any documents tracking who handled the evidence, when, and where
-2. **Charges:** all counts with statutory citations — charge severity determines the scrutiny threshold for evidence handling (LWOP-eligible cases demand the highest standard)
-3. **What the State Claims the Evidence Proves:** the prosecution's theory of what each piece of evidence establishes (e.g., "the drugs found in the vehicle prove possession with intent to distribute")
-4. **Evidence Inventory:** a list or description of all evidence items in the case — what was collected, from where, by whom, and when
-5. **Lab Reports:** forensic analysis results referencing the evidence items whose chain is being audited — DNA reports, drug analysis, firearms reports, digital forensics reports, etc.
+Collect three tiers: **Essential** (items 1-5: chain documentation, charges, State's evidentiary theory, evidence inventory, lab reports), **Strategic** (items 6-11), and **Contextual** (items 12-15).
 
-### Strategic (request if not provided)
-6. **Crime Scene Report / Evidence Collection Log:** the initial documentation of evidence recovery at the scene — who collected each item, what packaging was used, what time, what conditions
-7. **Evidence Room / Property Room Policies:** the agency's written standard operating procedures for evidence intake, storage, retrieval, and disposal (request through discovery if not available)
-8. **Lab Intake Records:** the laboratory's receiving documentation — was the evidence sealed on arrival, was the seal intact, were there weight/quantity discrepancies noted at intake
-9. **Defense Theory:** what happened from the defense perspective — which evidence items are most critical to challenge
-10. **Known Suppression Issues:** any pending motions regarding evidence seizure, search warrants, or consent — an illegal seizure taints the chain from inception
-11. **Evidence Destruction / Disposal Notices:** any notifications that evidence has been destroyed, consumed during testing, or disposed of
-
-### Contextual (gather from uploaded files)
-12. **Personnel Identification:** names, badge numbers, roles, agencies, and certifications of all individuals who handled the evidence — collectors, transport officers, evidence custodians, lab intake technicians, analysts, and courtroom presenters
-13. **Timeline:** offense date through trial date — total time evidence was in custody, intervals between transfers, delays in lab submission
-14. **Evidence Type Classification:** physical, biological, digital, chemical (drugs), firearms/ballistics — each type has unique handling requirements
-15. **Agency/Lab Accreditation Status:** ASCLD/LAB accreditation for the crime lab, agency accreditation status, any recent accreditation deficiencies or corrective actions
+Read `references/information-gathering-checklist.md` now for the full ranked checklist (items 1-15) with what each item must contain.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1-5 are missing, do not audit — ask for them first.
 
@@ -91,148 +74,93 @@ Before drafting any audit, collect the following in ranked order:
 
 Identify every item of evidence in the case, classify it by type, and assign the appropriate audit module. Each evidence type has unique chain of custody requirements — a gap that is minor for a piece of clothing may be critical for a biological sample or a digital device.
 
-### Evidence Type Classification Matrix
+Classify each item as Physical (Module A), Digital (Module B), Biological (Module C), Drug (Module D), or Firearm/Ballistic (Module E). Where expected chain documentation is absent from discovery, raise a **CONSPICUOUS ABSENCE** flag.
 
-| Evidence Type | Unique Chain Requirements | Critical Failure Points | Audit Module |
-|--------------|--------------------------|------------------------|--------------|
-| **Physical Evidence** (clothing, weapons, tools, documents) | Tamper-evident packaging, proper labeling, secure storage | Broken seals, unsigned transfers, undocumented storage gaps | Module A |
-| **Digital / Electronic Evidence** (computers, phones, storage media, cloud data) | Write-blocking before imaging, hash verification at every transfer, forensic copy documentation | Missing hash values, no write-blocker documentation, unverified forensic copies, original vs. copy confusion | Module B |
-| **Biological Evidence** (DNA samples, blood, saliva, hair, sexual assault kits) | Cold-chain maintenance, sterile collection, degradation prevention, consumption tracking | Refrigeration gaps, wet evidence in sealed containers, cross-contamination between items, sample exhaustion without defense testing | Module C |
-| **Drug / Controlled Substance Evidence** | Weight verification at every transfer, secure storage with dual-access controls, field test vs. lab confirmation | Weight discrepancies between collection and lab, single-access storage, missing dual-signature logs, field test contamination | Module D |
-| **Firearm / Ballistic Evidence** (firearms, projectiles, cartridge cases, GSR) | Safe handling documentation, serial number verification at each transfer, projectile/casing recovery documentation | Missing serial number checks, projectile fragmentation not documented, GSR collection timing gaps | Module E |
-
-### Conspicuous Absence Flags
-
-When the charge type strongly implies chain of custody documentation should exist but it does not appear in discovery:
-
-> **CONSPICUOUS ABSENCE — [Document Type]:** In a [charge type] case involving [evidence type], [specific chain documentation] is standard procedure. No [document type] appears in the discovery provided. This absence should be explored: was it created and not disclosed (*Brady* concern)? Was it never created (procedural deficiency)? Was it created and lost/destroyed (spoliation)? Flag for: Missing Discovery Demand + cross-examination of evidence custodian.
+Read `references/evidence-type-triage.md` now for the Evidence Type Classification Matrix (unique chain requirements, critical failure points, module assignment) and the Conspicuous Absence flag template.
 
 ---
 
 ## MODULE A — Physical Evidence Chain Audit
 
-Trace every item of physical evidence (clothing, weapons, tools, documents) through five sequential custody links — collection at scene, transport to evidence facility, intake at evidence facility, storage, and retrieval/transport to lab/return. A failure at any link compromises the integrity of all subsequent links.
+Trace each physical item through five sequential custody links (collection, transport, intake, storage, retrieval); a failure at any link compromises all subsequent links.
 
-**Top CRITICAL red flags (full matrix in reference):**
-- Gap in custody record (undocumented time period) — cannot rule out tampering, substitution, or contamination
-- Broken or missing tamper-evident seal — physical integrity is compromised; no assurance contents are unchanged
-
-**Reference:** Read `references/module-a-physical-evidence.md` for the full five-link audit checklist and the Physical Evidence Red Flag Matrix (severity tagging plus cross-exam targets per deficiency).
+Read `references/module-a-physical-evidence.md` now for the full five-link audit checklist, the top red flags, and the Physical Evidence Red Flag Matrix (severity tagging plus cross-exam targets per deficiency).
 
 ---
 
 ## MODULE B — Digital Evidence Chain Audit
 
-Digital evidence requires a specialized chain of custody analysis because digital data can be altered without leaving physical traces. Audit the seven integrity checkpoints — seizure & initial handling, write-blocking verification, forensic imaging, hash value verification, storage of digital evidence, analysis documentation, and reporting & court presentation. The chain must document not only physical transfers but also the integrity of the data at every stage.
+Digital data can be altered without physical trace, so audit the seven integrity checkpoints (seizure through court presentation) and the integrity of the data at every stage, not just physical transfers.
 
-**Top CRITICAL red flags (full matrix in reference):**
-- No write-blocker used or documented — original data may have been modified during examination
-- Hash values missing at any transfer point — data integrity cannot be verified
-- Source and image hash values do not match — forensic image is not a faithful copy
-- Analysis performed on original media (not working copy) — original evidence may have been modified
-
-**Reference:** Read `references/module-b-digital-evidence.md` for the full seven-checkpoint audit, the Digital Evidence Red Flag Matrix, and the key digital forensics standards table (NIST SP 800-86, NIST CFTT, SWGDE, ISO 27037, ACPO, FBI RCFL).
+Read `references/module-b-digital-evidence.md` now for the full seven-checkpoint audit, the top red flags, the Digital Evidence Red Flag Matrix, and the key digital forensics standards table (NIST SP 800-86, NIST CFTT, SWGDE, ISO 27037, ACPO, FBI RCFL).
 
 ---
 
 ## MODULE C — Biological Evidence Chain Audit
 
-Biological evidence (DNA, blood, saliva, semen, hair, tissue, sexual assault kits) has the most demanding chain of custody requirements because biological samples degrade, can be cross-contaminated at trace levels, and are consumed during testing — meaning retesting may be impossible if the chain is compromised. Audit collection, packaging, cold-chain maintenance, lab analysis consumption tracking, and SAK-specific chain requirements.
+Biological samples degrade, cross-contaminate at trace levels, and are consumed by testing; audit collection, packaging, cold chain, consumption tracking, and SAK-specific chain requirements.
 
-**Top CRITICAL red flags (full matrix in reference):**
-- Wet biological evidence sealed in plastic at collection — bacterial degradation may have destroyed DNA
-- No documentation of refrigeration/freezing after collection — cold chain cannot be verified
-- Sample exhausted without defense notification — potential *Youngblood* / *Trombetta* violation; La. C.Cr.P. Art. 719 right to independent testing
-- Same gloves used to collect multiple items — cross-contamination by collector's gloves
-
-**Reference:** Read `references/module-c-biological-evidence.md` for the full degradation-timeline audit, the Biological Evidence Red Flag Matrix, and the key DNA/biological standards table (FBI QAS, SWGDAM, ASCLD/LAB, La. R.S. 15:621, NIJ SAK Best Practices).
+Read `references/module-c-biological-evidence.md` now for the full degradation-timeline audit, the top red flags, the Biological Evidence Red Flag Matrix, and the key DNA/biological standards table (FBI QAS, SWGDAM, ASCLD/LAB, La. R.S. 15:621, NIJ SAK Best Practices).
 
 ---
 
 ## MODULE D — Drug / Controlled Substance Evidence Chain Audit
 
-Drug evidence chain of custody is uniquely vulnerable because controlled substances have inherent value (creating theft/diversion risk), weight is a critical legal element (determining charge severity under Louisiana law per La. R.S. 40:966-968), and field testing can consume or contaminate evidence before laboratory confirmation. Audit weight at every transfer point and verify dual-access secure storage compliance.
+Drug evidence is uniquely vulnerable (diversion risk, weight as a legal element under La. R.S. 40:966-968, field-test consumption); audit weight at every transfer point and dual-access secure storage compliance.
 
-**Top CRITICAL red flags (full matrix in reference):**
-- Weight at collection significantly exceeds weight at lab analysis (beyond packaging and field test consumption) — undermines reliability of the weight element
-- No weight recorded at seizure/collection — the State cannot establish foundational weight; chain starts with an unknown quantity
-
-**Reference:** Read `references/module-d-drug-evidence.md` for the full Weight Verification Protocol (transfer-point-by-transfer-point), the Secure Storage Requirements checklist, and the Drug Evidence Red Flag Matrix.
+Read `references/module-d-drug-evidence.md` now for the full Weight Verification Protocol (transfer-point-by-transfer-point), the Secure Storage Requirements checklist, the top red flags, and the Drug Evidence Red Flag Matrix.
 
 ---
 
 ## MODULE E — Firearm / Ballistic Evidence Chain Audit
 
-Firearms and ballistic evidence (firearms, projectiles, cartridge cases, magazines, ammunition, gunshot residue) require chain of custody analysis addressing both the physical integrity of the items and the preservation of comparison-critical features. Audit serial number verification at each transfer, safe handling documentation, and preservation of comparison surfaces (striations, breech face impressions).
+Audit both physical integrity and preservation of comparison-critical features: serial number verification at each transfer, safe handling documentation, and protection of striations and breech face impressions.
 
-**Top SIGNIFICANT red flags (full matrix in reference):**
-- Serial number not verified at each transfer point — cannot confirm the firearm at trial is the same firearm seized
-- Projectile packaged in a manner that could damage striation marks — comparison surfaces may have been altered post-collection
-- GSR collected hours after the shooting event — GSR dissipates rapidly; delayed collection produces unreliable results
-
-**Reference:** Read `references/module-e-firearm-ballistic-evidence.md` for the full firearm/ballistic audit checklist (serial number verification, safe handling, ballistic comparison chain) and the Firearm/Ballistic Red Flag Matrix.
+Read `references/module-e-firearm-ballistic-evidence.md` now for the full firearm/ballistic audit checklist (serial number verification, safe handling, ballistic comparison chain), the top red flags, and the Firearm/Ballistic Red Flag Matrix.
 
 ---
 
 ## MODULE F — Chain Documentation Deficiency Matrix
 
-Apply a systematic framework for identifying and cataloguing every documentation deficiency across all evidence types. Score every transfer link against seven universal documentation requirements (WHO, WHAT, WHEN, WHERE, HOW, WHY, CONDITION) using a four-tier scoring system (COMPLETE / PARTIAL / ABSENT / CONTRADICTED), then assign each evidence item an overall chain integrity rating.
+Score every transfer link against the seven universal documentation requirements (WHO/WHAT/WHEN/WHERE/HOW/WHY/CONDITION) on the four-tier COMPLETE / PARTIAL / ABSENT / CONTRADICTED scale.
 
-### Chain Integrity Rating (decision anchor)
+Assign each item a Chain Integrity Rating of **INTACT**, **WEAKENED**, **COMPROMISED**, or **BROKEN** — this rating is the decision anchor that drives the Step 4 motion selection.
 
-| Rating | Definition | Legal Significance |
-|--------|-----------|-------------------|
-| **INTACT** | All links documented with complete or substantially complete documentation; no temporal gaps; no contradictions | Chain supports admissibility; defense challenges limited to weight |
-| **WEAKENED** | One or more links have partial documentation; minor temporal gaps exist; but the overall chain is traceable | Chain likely survives admissibility challenge under *Sweeney*; strong cross-examination material on weight |
-| **COMPROMISED** | One or more links have absent documentation; significant temporal gaps exist; or internal contradictions undermine reliability | Strong suppression argument; *Toney* challenge viable; weight argument is powerful |
-| **BROKEN** | Critical links are undocumented; evidence was unaccounted for during significant time periods; or documentation is so deficient that the chain cannot be reconstructed | Strongest suppression argument; the State cannot authenticate the evidence under La. C.E. Art. 901(B)(1) |
-
-**Reference:** Read `references/module-f-deficiency-matrix.md` for the Universal Documentation Requirements (WHO/WHAT/WHEN/WHERE/HOW/WHY/CONDITION), the Deficiency Scoring System (COMPLETE / PARTIAL / ABSENT / CONTRADICTED), and the full Chain Integrity Rating commentary.
+Read `references/module-f-deficiency-matrix.md` now for the Universal Documentation Requirements (WHO/WHAT/WHEN/WHERE/HOW/WHY/CONDITION), the Deficiency Scoring System (COMPLETE / PARTIAL / ABSENT / CONTRADICTED), and the Chain Integrity Rating table with its legal-significance commentary.
 
 ---
 
 ## MODULE G — Cross-Examination Seeds
 
-For each CRITICAL and SIGNIFICANT deficiency identified in Modules A through F, generate cross-examination question sets targeting the specific handler, custodian, or analyst responsible for the deficiency. Cross-examination follows a three-phase architecture: (1) establish the standard (training & policy), (2) demonstrate the failure (using documents, not the witness's oral testimony), (3) establish the significance (the witness must concede the purpose of chain documentation is to prevent the very problem the gap creates).
+For each CRITICAL and SIGNIFICANT deficiency from Modules A-F, generate cross-examination question sets for the responsible handler using the three-phase architecture: establish the standard, demonstrate the failure through documents, establish the significance.
 
-**Reference:** Read `references/module-g-cross-exam-seeds.md` for the three-phase question architecture, the Cross-Exam Seed Template, and the integration checklist for handoff to `dw-cross-exam-architect-crim`.
+Read `references/module-g-cross-exam-seeds.md` now for the three-phase question architecture, the Cross-Exam Seed Template, and the integration checklist for handoff to `dw-cross-exam-architect-crim`.
 
 ---
 
 ## STEP 3 — Generate the Chain of Custody Audit Report
 
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed ten-section structure (Executive Summary, Evidence Inventory, Item-by-Item Timeline, Evidence-Type-Specific Findings, Documentation Deficiency Matrix, Admissibility vs. Weight Analysis, Suppression Motion Framework, Cross-Examination Question Sets, Defense Action Items, Discovery Gap Report) plus five appendices (Weight Reconciliation Table, Hash Value Verification Table, Cold-Chain Timeline, Legal Authority Reference Table, Cross-Exam Chapter Seeds).
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed ten-section structure plus five appendices.
 
 Tag every finding with a severity level: **CRITICAL** (chain failure that directly undermines authentication or integrity — supports suppression), **SIGNIFICANT** (deficiency that weakens evidentiary value — strong cross-exam material), or **MINOR** (procedural irregularity affecting weight only).
 
-**Reference:** Read `references/audit-report-structure.md` for the full ten-section + appendix template, the field-by-field structure for each section, and the severity-classification examples.
+Read `references/audit-report-structure.md` now for the full ten-section + appendix template, the field-by-field structure for each section, and the severity-classification examples.
 
 ---
 
 ## STEP 4 — Admissibility vs. Weight Framework
 
-Louisiana applies a nuanced standard to chain of custody challenges. Understand the framework before calibrating the defense approach. The **general rule** (*State v. Sweeney*, 443 So.2d 522 (La. 1983)): chain defects go to weight, not admissibility — the State need only establish "more probable than not." The **exception** (La. C.E. Art. 901(B)(1)): when the chain is so deficient that the evidence cannot be authenticated at all, it is inadmissible. The **bridge** (La. C.E. Art. 901(B)(4)): authentication by distinctive characteristics — vulnerable to challenge when evidence is fungible (drugs, biological samples, ammunition).
+Under *State v. Sweeney* chain defects generally go to weight, not admissibility; La. C.E. Art. 901(B)(1) is the exception. Map each item's Module F rating to a primary attack and motion type (BROKEN / COMPROMISED support suppression; WEAKENED / INTACT go to cross-exam or other grounds). For destroyed or consumed evidence apply *Trombetta* / *Youngblood* / *Koon*.
 
-For destroyed/lost/consumed evidence, apply the federal constitutional framework: *California v. Trombetta*, 467 U.S. 479 (1984) (apparent exculpatory value — no bad faith required) and *Arizona v. Youngblood*, 488 U.S. 51 (1988) / *State v. Koon*, 704 So.2d 756 (La. 1997) (potentially useful evidence — bad faith required).
-
-### Strategic Framework — chain rating to motion type
-
-| Chain Rating | Primary Attack | Motion Type |
-|-------------|---------------|-------------|
-| **BROKEN** | Admissibility — La. C.E. Art. 901(B)(1) failure; State cannot authenticate | Motion to Suppress + Motion in Limine |
-| **COMPROMISED** | Admissibility under *Toney* — gaps too significant to satisfy "more probable than not" | Motion to Suppress (alternative: weight argument at trial) |
-| **WEAKENED** | Weight — cross-examination targeting each deficiency | No motion; preserve for trial cross-exam and closing |
-| **INTACT** | Limited — focus on other defense angles; if seizure was illegal, suppress on 4th Amendment grounds | Suppression motion on seizure grounds only |
-
-**Reference:** Read `references/admissibility-vs-weight-framework.md` for the full Louisiana standard, the complete Strategic Framework table (with secondary attack column), and the *Trombetta* / *Youngblood* practical-application analysis for destroyed/lost evidence.
+Read `references/admissibility-vs-weight-framework.md` now for the full Louisiana standard, the framework-at-a-glance summary, the Strategic Framework table (rating to attack and motion type), and the *Trombetta* / *Youngblood* analysis.
 
 ---
 
 ## STEP 5 — Cross-Examination Integration
 
-For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. Follow the template in Module G. Each seed must (1) establish the standard first, (2) demonstrate the failure through documents, (3) drive home the significance, and (4) close with a no-escape question. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds for **dw-cross-exam-architect-crim** using the Module G template, and tag each `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
 
-**Reference:** See `references/module-g-cross-exam-seeds.md` (loaded for Module G) for the integration checklist.
+Read `references/module-g-cross-exam-seeds.md` now for the four seed requirements and the integration checklist.
 
 ---
 
@@ -269,38 +197,29 @@ If chain breaks are found affecting admissibility, offer to route to dw-suppress
 
 ## Register Output with Case Brain
 
-After generating any deliverable, check if a case session is active (i.e., if `dw-case-brain-crim` has been loaded for this case). If so, register the output:
+After generating any deliverable, check whether a `dw-case-brain-crim` session is active and, if so, register the output (COMPANION SKILL OUTPUTS entry, OPEN ISSUES, NEXT STEPS). If no session is active, skip silently — the deliverable is still saved to the case folder for later folder scans.
 
-1. **Append to COMPANION SKILL OUTPUTS** in the Case Brain:
-   - Skill: `dw-chain-of-custody-auditor-crim`
-   - Output: `[filename of deliverable]`
-   - Date: `[today's date]`
-   - Location: `[path where the deliverable was saved]`
-
-2. **Add to OPEN ISSUES** if the audit identified any items requiring attorney action.
-
-3. **Update NEXT STEPS** if the audit output changes the recommended case strategy.
-
-If no Case Brain session is active, skip this step silently — the deliverable is still saved to the case folder and will be discovered by `dw-case-dashboard-crim` and `dw-trial-notebook-builder-crim` during their folder scans.
+Read `references/case-brain-registration.md` now for the exact registration fields and procedure.
 
 ---
 
 ## Quick References
 
-The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
+Load each file at the step or module named:
 
-| File | Purpose | Loaded At |
-|------|---------|-----------|
-| `references/module-a-physical-evidence.md` | Five-link physical evidence audit checklist + Red Flag Matrix with cross-exam targets | Module A |
-| `references/module-b-digital-evidence.md` | Seven integrity checkpoints + Digital Red Flag Matrix + key digital forensics standards | Module B |
-| `references/module-c-biological-evidence.md` | Degradation-timeline audit (collection through SAK) + Biological Red Flag Matrix + DNA/biological standards | Module C |
-| `references/module-d-drug-evidence.md` | Weight Verification Protocol + Secure Storage Requirements + Drug Red Flag Matrix | Module D |
-| `references/module-e-firearm-ballistic-evidence.md` | Serial number verification, safe handling, ballistic comparison chain + Firearm Red Flag Matrix | Module E |
-| `references/module-f-deficiency-matrix.md` | Seven universal documentation requirements + four-tier scoring system + Chain Integrity Rating | Module F |
-| `references/module-g-cross-exam-seeds.md` | Three-phase cross-exam architecture + Seed Template + Cross-Exam Architect integration checklist | Module G / Step 5 |
-| `references/admissibility-vs-weight-framework.md` | Louisiana standard (*Sweeney* / *Toney*) + Strategic Framework table + *Trombetta* / *Youngblood* destroyed-evidence analysis | Step 4 |
-| `references/audit-report-structure.md` | Ten-section audit report template + five appendices + severity classification | Step 3 |
-| `references/quick-reference-tables.md` | Louisiana legal standards, national evidence handling standards, evidence storage requirements by type, common discovery demands, charge-specific chain priorities, timeline expectations | Reference throughout |
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-15)
+- **evidence-type-triage.md** — Step 2: Evidence Type Classification Matrix + Conspicuous Absence flag template
+- **module-a-physical-evidence.md** — Module A: five-link audit checklist + Physical Red Flag Matrix
+- **module-b-digital-evidence.md** — Module B: seven integrity checkpoints + red flags + Digital Red Flag Matrix + standards
+- **module-c-biological-evidence.md** — Module C: degradation-timeline audit + red flags + Biological Red Flag Matrix + standards
+- **module-d-drug-evidence.md** — Module D: Weight Verification Protocol + Secure Storage Requirements + Drug Red Flag Matrix
+- **module-e-firearm-ballistic-evidence.md** — Module E: serial/safe-handling/ballistic checklist + Firearm Red Flag Matrix
+- **module-f-deficiency-matrix.md** — Module F: seven documentation requirements + four-tier scoring + Chain Integrity Rating table
+- **module-g-cross-exam-seeds.md** — Module G / Step 5: three-phase architecture + Seed Template + integration checklist
+- **audit-report-structure.md** — Step 3: ten-section report template + five appendices + severity classification
+- **admissibility-vs-weight-framework.md** — Step 4: *Sweeney* / *Toney* standard + Strategic Framework table + *Trombetta* / *Youngblood* analysis
+- **case-brain-registration.md** — Register Output step: Case Brain registration fields and procedure
+- **quick-reference-tables.md** — Throughout: Louisiana and national standards, storage requirements by type, discovery demands, charge priorities, timeline expectations
 
 ---
 

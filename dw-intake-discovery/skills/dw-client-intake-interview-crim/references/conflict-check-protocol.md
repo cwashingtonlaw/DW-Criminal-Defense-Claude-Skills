@@ -394,3 +394,54 @@ Cite by rule number. Mark any quoted text `[VERIFY CURRENT TEXT]`.
 ---
 
 *The conflict check is the firm's first ethical act in any new matter. Run it before listening to a single substantive fact.*
+
+---
+
+## Module A Detail (moved from SKILL.md)
+
+Read at SKILL.md MODULE A — Conflict Check Protocol; holds the staged-disclosure rationale, the redirect script, the screening list, the authorities, and the Conflict Check Record spec formerly inline in SKILL.md (the four-step sequence itself stays in SKILL.md).
+
+### The staged-disclosure rule
+
+Under La. Rules of Professional Conduct 1.18, even a prospective client (someone consulting about possible representation, who has not yet retained the firm) is owed a duty of confidentiality. But that duty cuts both ways: information learned from a prospective client can also disqualify the firm from representing other clients on related matters.
+
+If the client begins narrating immediately, gently redirect:
+
+> *"Before you tell me what happened, I need to make sure our office can represent you. Give me ten minutes to confirm we don't have any conflict, and then I'll want to hear everything. While you're here, can you write down on this sheet the names of anyone else involved — anyone the police mentioned, anyone you know was there, anyone you think might have been a witness?"*
+
+That sheet is the conflict screen input. The narrative comes later.
+
+### What gets screened (`references/conflict-check-protocol.md`)
+
+The conflict-check protocol reference (`references/conflict-check-protocol.md`) covers:
+
+- Firm database query workflow (current and former clients)
+- Co-defendant screen (Rule 1.7 concurrent conflicts; joint representation almost never advisable in criminal co-defendant scenarios)
+- Alleged victim / complainant screen (Rule 1.9 former-client conflicts; if the firm previously represented the alleged victim on any matter, especially a related one)
+- Witness screen (where a key state witness is or was a firm client)
+- Financial conflicts (third-party payor — Rule 1.8(f))
+- Prospective-client duties under Rule 1.18 — what we owe even if we decline the representation
+- Written waiver requirements where conflicts are waivable
+- Documentation of the screen in the conflict check record
+
+### Authorities (real — do not fabricate)
+
+- **La. Rules of Professional Conduct 1.6** — Confidentiality of Information
+- **La. Rules of Professional Conduct 1.7** — Conflict of Interest: Current Clients
+- **La. Rules of Professional Conduct 1.9** — Duties to Former Clients
+- **La. Rules of Professional Conduct 1.18** — Duties to Prospective Clients
+
+Cite by rule number only. Do not paraphrase rule text into the intake memo as if it were a direct quote — the rule numbers are what the bar associates and ethics counsel will recognize. Flag the citation as `[VERIFY CURRENT TEXT]` if quoting.
+
+### Output: Conflict Check Record
+
+The conflict check record is a one-page docx that captures, at minimum:
+
+- Date and time of intake conversation
+- Names screened (client, co-defendants, victims, witnesses)
+- Database(s) queried and date queried
+- Result (CLEAR / CONFLICT IDENTIFIED — NOT WAIVABLE / CONFLICT IDENTIFIED — POTENTIALLY WAIVABLE WITH WRITTEN INFORMED CONSENT)
+- Screening attorney signature line
+- Date the engagement letter was signed (filled in later)
+
+If a conflict is identified that is not waivable, the firm must decline. The Rule 1.18 duty to the prospective client survives the decline. Flag accordingly in the record.

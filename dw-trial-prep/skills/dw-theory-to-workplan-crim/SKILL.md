@@ -70,25 +70,7 @@ Every task in the workplan must trace to a specific case fact or legal requireme
 
 Before generating the workplan, collect the following in ranked order:
 
-### Essential (must have before generating workplan)
-
-1. **Report 4a -- Theory Selection Memo:** The attorney's selected defense theory with supporting rationale. This is the mandatory prerequisite. If Report 4a does not exist, STOP and route to `dw-criminal-defense-crim` Report 4 for theory development. Do not generate a workplan without an attorney-selected theory.
-2. **Charges:** All counts with statutory citations -- the charge architecture determines which streams need the most attention.
-3. **Trial date (or next critical hearing date):** All task deadlines are calculated relative to this date. If no trial date is set, use the next hearing date and flag all deadlines as provisional.
-4. **Case Brain:** Read from `dw-case-brain-crim` for structured case context -- defendant demographics, docket, parish, court, judge, ADA, discovery status, and companion skill outputs already completed.
-
-### Strategic (request if not provided)
-
-5. **Reports 1-8 + 4a (Barone Discovery Workflow):** The full analytical output from `dw-criminal-defense-crim` Phase 2 -- Comprehensive Case Timeline (Report 1), Prosecution's Case Summary (Report 2), Theory Deconstruction (Report 2a from `dw-theory-deconstructor-crim`), Immediate Red Flags (Report 3), Competing Defense Theories (Report 4), Theory Selection Memo (Report 4a), Viable Legal Defenses (Report 5), Memorable Theme (Report 6), Table of Missing Discovery (Report 7), Key Witness Impeachment Plan (Report 8). Plus Report 0 (Neutral Discovery Inventory from `dw-neutral-inventory-crim`).
-6. **All completed audit reports:** Brady/Giglio audit, mobile forensic audit, chain of custody audit, crime scene audit, eyewitness ID audit, confession/interrogation audit, expert witness evaluation, DNA audit, crime lab audit, video evidence audit, jail call analysis, social media audit -- any audit that has been run feeds task generation.
-7. **Case Tables.xlsx:** Evidence Table, Timeline, Witness List, Defense Matrix -- these are the structured data that seed tasks.
-8. **Discovery compliance ledger:** Outstanding discovery items from `dw-discovery-compliance-monitor-crim` feed Stream 2 tasks directly.
-
-### Contextual (gather from uploaded files)
-
-9. **Budget and resource constraints:** Is this a public defender case with limited investigator hours? A retained case with expert budget? Resource constraints affect task prioritization and responsible-party assignment.
-10. **Co-defendant posture:** Severance, joint defense, cooperator -- affects witness prep, motion practice, and discovery strategy.
-11. **Prior workplan versions:** If this is an update, load the prior workplan to preserve completed tasks and track status changes.
+Collect inputs in three ranked tiers: **Essential** (Report 4a Theory Selection Memo — mandatory, STOP and route to `dw-criminal-defense-crim` Report 4 if absent; charges; trial date or next critical hearing date; Case Brain), **Strategic** (Reports 0–8 + 4a, all completed audit reports, Case Tables.xlsx, discovery compliance ledger), and **Contextual** (budget/resource constraints, co-defendant posture, prior workplan versions). Read `references/information-gathering-protocol.md` now for the full ranked list with what each item feeds.
 
 **Present missing essential items as a hard stop. Present missing strategic items as a ranked request list before generating.**
 
@@ -100,30 +82,7 @@ For each stream, generate tasks based on the selected defense theory, the case f
 
 ### STEP 2.1 -- Standard Task Format
 
-Every task in every stream includes these fields:
-
-| Field | Description | Required |
-|-------|-------------|----------|
-| **Task ID** | Stream number + sequential (e.g., S1-001, S2-001) | Yes |
-| **Task Description** | Concrete, actionable description of what must be done | Yes |
-| **Theory Link** | How this task supports or tests the selected defense theory | Yes |
-| **Source** | Case fact or legal requirement that makes this task necessary (per Source Citation Mandate) | Yes |
-| **Priority** | CRITICAL / HIGH / MEDIUM / LOW (see priority definitions below) | Yes |
-| **Responsible Party** | Attorney / Investigator / Expert / Paralegal / Cowork | Yes |
-| **D&W Skill** | If Cowork-executable, the specific D&W skill to invoke | If Cowork |
-| **Deadline** | Relative to trial date (e.g., T-60 days, T-30 days, T-7 days) or absolute date if trial date is set | Yes |
-| **Dependencies** | Task IDs that must be completed before this task can begin | If any |
-| **Status** | NOT STARTED / IN PROGRESS / COMPLETE / BLOCKED / DEFERRED | Yes |
-| **Notes** | Additional context, attorney instructions, or strategic considerations | Optional |
-
-### Priority Definitions
-
-| Priority | Definition | Timing |
-|----------|-----------|--------|
-| **CRITICAL** | Theory collapses without this task. Must be completed or case cannot go to trial on this theory. | Immediate -- begin now |
-| **HIGH** | Substantially strengthens or is necessary to the theory. Failure to complete materially weakens the defense. | T-60 days or sooner |
-| **MEDIUM** | Supports the theory or addresses a secondary issue. Important but not theory-determinative. | T-30 days or sooner |
-| **LOW** | Nice to have. Marginal improvement to the defense or addresses a contingency. | T-14 days or as time permits |
+Every task in every stream carries the same eleven fields (Task ID, Task Description, Theory Link, Source, Priority, Responsible Party, D&W Skill, Deadline, Dependencies, Status, Notes) and one of four priority tiers (CRITICAL / HIGH / MEDIUM / LOW, each with a defined timing window relative to trial). Read `references/task-format-and-priority.md` now for the full field table and the priority definitions.
 
 ---
 
@@ -131,32 +90,7 @@ Every task in every stream includes these fields:
 
 What facts need to be verified, investigated, or developed to support or test the selected theory?
 
-**Task categories:**
-
-1. **Witness interviews** -- Which witnesses need to be located and interviewed? What questions flow from the defense theory? Which witnesses have not yet been contacted?
-   - Alibi witnesses (verify alibi timeline)
-   - Occurrence witnesses (develop defense-favorable version)
-   - Character witnesses (if character evidence is part of the theory)
-   - Victim background witnesses (prior aggression, reputation for violence -- relevant to self-defense theories)
-
-2. **Physical location visits** -- What scenes need to be visited, photographed, measured, or reconstructed?
-   - Crime scene (lighting, sightlines, distances, access points)
-   - Alibi locations (verify plausibility)
-   - Surveillance camera canvass (identify cameras that may have captured relevant footage)
-
-3. **Record subpoenas** -- What records need to be subpoenaed to support or test the theory?
-   - Medical records (victim or defendant)
-   - Employment records
-   - Phone records (call logs, cell site data)
-   - Social media account records
-   - Prior police reports involving the victim
-   - 911 audio and CAD records
-   - Surveillance footage from businesses
-
-4. **Fact verification** -- What factual claims in the theory need independent verification?
-   - Timeline verification against physical evidence
-   - Witness statement consistency checks
-   - Physical plausibility of the defense version
+Generate tasks from the Module A task-category checklist. Read `references/stream-modules.md` now for the Module A task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Generate tasks and route to `dw-defense-investigator-tasking-crim` for investigator assignment and tracking.
 
@@ -166,20 +100,7 @@ What facts need to be verified, investigated, or developed to support or test th
 
 What additional discovery is needed to support or test this theory? What discovery deficiencies must be resolved?
 
-**Task categories:**
-
-1. **Outstanding discovery demands** -- Pull from `dw-discovery-compliance-monitor-crim` ledger. What has been demanded but not produced?
-   - Flag items that are CRITICAL to the selected theory
-   - Draft motion to compel for items outstanding beyond 30 days
-
-2. **New discovery demands driven by the theory** -- What has not yet been demanded but is now needed because of the theory selection?
-   - Brady/Giglio demands specific to this theory (e.g., if self-defense theory, demand victim's criminal history, prior DV reports, prior threats)
-   - Expert-related discovery (lab bench notes, calibration records, analyst training records)
-   - Witness-related discovery (witness criminal histories, prior statements, cooperation agreements)
-
-3. **Motions to compel** -- For any outstanding critical items, draft or route motion to compel.
-
-4. **Discovery preservation** -- Identify evidence at risk of destruction or loss and issue preservation demands.
+Generate tasks from the Module B task-category checklist. Read `references/stream-modules.md` now for the Module B task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route discovery ledger tasks to `dw-discovery-compliance-monitor-crim`. Route Brady/Giglio demands to `dw-brady-giglio-auditor-crim`. Route motions to compel to `dw-pretrial-motion-library-crim`.
 
@@ -189,25 +110,7 @@ What additional discovery is needed to support or test this theory? What discove
 
 What expert testimony is needed to support this theory? What prosecution experts need to be challenged?
 
-**Task categories:**
-
-1. **Defense expert retention** -- What experts does the defense need to retain?
-   - Identify the discipline (forensic pathologist, ballistics, DNA, mental health, accident reconstruction, cell site, etc.)
-   - Define the scope of engagement (consulting only vs. testifying)
-   - Budget estimate and funding source (if public defender, indigent defense fund application under La. C.Cr.P. Art. 725)
-   - Timeline for retention, report completion, and deposition/testimony
-
-2. **Prosecution expert challenges** -- What prosecution experts need Daubert/Foret challenges?
-   - Identify each prosecution expert and their discipline
-   - Route to `dw-expert-witness-evaluator-crim` for full evaluation
-   - Timeline for filing Daubert/Foret motion and hearing
-
-3. **Expert opinion development** -- What specific opinions need to be developed?
-   - Define the question the expert must answer
-   - Identify the materials the expert needs to review
-   - Set deadline for expert report
-
-4. **Expert coordination** -- Schedule expert review of materials, coordinate with investigator for scene visits if needed, arrange for expert to review opposing expert's report.
+Generate tasks from the Module C task-category checklist. Read `references/stream-modules.md` now for the Module C task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route expert evaluations to `dw-expert-witness-evaluator-crim`. Route indigent expert funding motions to `dw-pretrial-motion-library-crim`.
 
@@ -217,27 +120,7 @@ What expert testimony is needed to support this theory? What prosecution experts
 
 What pretrial motions support this theory? What motions must be filed to exclude harmful evidence or preserve favorable evidence?
 
-**Task categories:**
-
-1. **Suppression motions** -- Based on constitutional issues identified in the case analysis:
-   - 4th Amendment (search and seizure) -- route to `dw-suppression-motion-crim`
-   - 5th Amendment (statements / Miranda) -- route to `dw-suppression-motion-crim`
-   - 14th Amendment (identification) -- route to `dw-suppression-motion-crim`
-   - Fruit of the poisonous tree cascades
-
-2. **404(b) opposition** -- If the State has filed or signaled a Prieur notice:
-   - Route to `dw-404b-opposition-crim` for opposition drafting
-   - If the defense wants to introduce 404(b) evidence about the victim (e.g., prior violence in a self-defense case), draft the supporting motion
-
-3. **Motions in limine** -- Theory-specific evidentiary motions:
-   - Exclude prejudicial photographs (inflammatory autopsy photos, crime scene photos)
-   - Exclude hearsay or improper opinion testimony
-   - Limit expert testimony scope
-   - Exclude prior bad acts of the defendant
-
-4. **Severance motions** -- Sever counts or co-defendants if joinder prejudices the selected theory.
-
-5. **Other pretrial motions** -- Bill of particulars, bond reduction, continuance, venue change, recusal -- any motion that advances the theory or removes obstacles.
+Generate tasks from the Module D task-category checklist. Read `references/stream-modules.md` now for the Module D task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route all motions to `dw-pretrial-motion-library-crim` for template selection and drafting. Route suppression motions to `dw-suppression-motion-crim`. Route 404(b) work to `dw-404b-opposition-crim`.
 
@@ -247,27 +130,7 @@ What pretrial motions support this theory? What motions must be filed to exclude
 
 Which witnesses need to be prepared? What testimony supports the theory? What cross-examination themes align with the theory?
 
-**Task categories:**
-
-1. **Cross-examination outlines for prosecution witnesses** -- For each prosecution witness:
-   - How does their testimony interact with the defense theory?
-   - What concessions can be extracted that support the theory?
-   - What impeachment material exists?
-   - Route to `dw-cross-exam-architect-crim` for full outline development
-
-2. **Direct-examination outlines for defense witnesses** -- For each defense witness:
-   - What testimony supports the theory?
-   - What foundation must be laid?
-   - What exhibits will be introduced through this witness?
-   - Route to `dw-direct-exam-architect-crim` for full outline development
-
-3. **Witness preparation sessions** -- Schedule and plan preparation for:
-   - Defendant (if testifying -- strategic decision for attorney)
-   - Character witnesses
-   - Expert witnesses (coordinate testimony with expert report)
-   - Alibi witnesses
-
-4. **Witness sequencing** -- Determine the order of defense witnesses to build the theory narrative. Cross-reference with `dw-trial-narrative-builder-crim` for narrative arc.
+Generate tasks from the Module E task-category checklist. Read `references/stream-modules.md` now for the Module E task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route cross-examination work to `dw-cross-exam-architect-crim`. Route direct-examination work to `dw-direct-exam-architect-crim`.
 
@@ -277,29 +140,7 @@ Which witnesses need to be prepared? What testimony supports the theory? What cr
 
 What exhibits support the theory? What demonstratives need to be created? What evidence authentication issues must be resolved?
 
-**Task categories:**
-
-1. **Exhibit identification** -- From the Evidence Table in Case Tables.xlsx, identify every exhibit that supports the defense theory:
-   - Documentary exhibits (records, reports, photographs)
-   - Physical exhibits (weapons, clothing, objects)
-   - Digital exhibits (cell phone records, social media, surveillance video)
-   - Demonstrative exhibits (diagrams, maps, timelines, charts)
-
-2. **Exhibit preparation** -- For each identified exhibit:
-   - Authentication method (stipulation, witness testimony, self-authentication)
-   - Predicate witness (who lays the foundation?)
-   - Enlargements or display format for trial
-   - Pre-marking and exhibit list preparation
-
-3. **Demonstrative creation** -- What demonstratives need to be built?
-   - Crime scene diagram with defense-favorable annotations
-   - Timeline chart showing defense version
-   - Comparison charts (e.g., witness statement inconsistencies)
-   - Maps (alibi route, cell site coverage areas)
-
-4. **Evidence authentication challenges** -- What prosecution exhibits can be challenged on authentication, chain of custody, or admissibility grounds?
-   - Cross-reference with `dw-chain-of-custody-auditor-crim` findings
-   - Identify hearsay, best evidence, or foundation deficiencies
+Generate tasks from the Module F task-category checklist. Read `references/stream-modules.md` now for the Module F task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route exhibit management to `dw-exhibit-manager-crim`. Route trial notebook assembly to `dw-trial-notebook-builder-crim`.
 
@@ -309,34 +150,7 @@ What exhibits support the theory? What demonstratives need to be created? What e
 
 How does the theory translate into the courtroom story? What is the memorable theme? How does every piece of the trial reinforce that theme?
 
-**Task categories:**
-
-1. **Case theme development** -- Distill the defense theory into a one-sentence theme that:
-   - Is memorable and repeatable
-   - Frames the entire case from the defense perspective
-   - Can be introduced in voir dire, reinforced in opening, proved through evidence, and argued in closing
-
-2. **Opening statement outline** -- Build the opening around the theme:
-   - Hook / primacy opener tied to the theme
-   - Defense narrative in story form
-   - Roadmap of the evidence the jury will hear
-   - Route to `dw-trial-narrative-builder-crim` for full development
-
-3. **Closing argument framework** -- Build the closing around the theme:
-   - Element-by-element burden walk using the Defense Matrix
-   - Witness credibility summary using cross-examination findings
-   - Verdict form walk-through
-   - Route to `dw-trial-narrative-builder-crim` for full development
-
-4. **Jury instruction requests** -- What special jury instructions does the theory require?
-   - Self-defense charges (La. R.S. 14:20 -- no duty to retreat, castle doctrine)
-   - Heat-of-passion / manslaughter responsive verdict
-   - Specific intent negation (intoxication, mental defect)
-   - Lesser included offenses / responsive verdicts
-   - Route to `dw-jury-instructions-builder-crim` for charge package
-
-5. **Voir dire themes** -- What juror attitudes and experiences are relevant to this theory?
-   - Route to `dw-voir-dire-assistant-crim` for voir dire question development
+Generate tasks from the Module G task-category checklist. Read `references/stream-modules.md` now for the Module G task categories (and for Modules A–G together if building all streams in one pass).
 
 **Routing:** Route narrative work to `dw-trial-narrative-builder-crim`. Route jury instruction work to `dw-jury-instructions-builder-crim`. Route voir dire work to `dw-voir-dire-assistant-crim`.
 
@@ -346,27 +160,7 @@ How does the theory translate into the courtroom story? What is the memorable th
 
 After generating all seven streams, produce a summary dashboard at the top of the workplan document:
 
-### Dashboard Contents
-
-1. **Theory Summary** -- One paragraph restating the selected defense theory from Report 4a
-2. **Trial Date** -- Absolute date and days remaining
-3. **Task Count by Stream**
-
-| Stream | Total Tasks | Critical | High | Medium | Low | Complete | Blocked |
-|--------|------------|----------|------|--------|-----|----------|---------|
-| 1 - Investigation | | | | | | | |
-| 2 - Discovery | | | | | | | |
-| 3 - Expert Witness | | | | | | | |
-| 4 - Motion Practice | | | | | | | |
-| 5 - Witness Prep | | | | | | | |
-| 6 - Exhibit & Evidence | | | | | | | |
-| 7 - Narrative & Theme | | | | | | | |
-| **TOTAL** | | | | | | | |
-
-4. **Critical Path** -- List the CRITICAL-priority tasks across all streams in deadline order. These are the tasks that, if not completed, prevent the case from going to trial on this theory.
-5. **Blocked Tasks** -- List any tasks with BLOCKED status and the reason for the block.
-6. **Immediate Action Items** -- Top 5 tasks to begin today, with responsible party and routing skill.
-7. **Budget & Resource Summary** -- Estimated investigator hours, expert costs, and paralegal time (if data available).
+The dashboard carries seven components: Theory Summary, Trial Date (with days remaining), Task Count by Stream table, Critical Path, Blocked Tasks, Immediate Action Items, and Budget & Resource Summary. Read `references/summary-dashboard.md` now for the full dashboard contents and the stream-count table.
 
 ---
 
@@ -378,93 +172,21 @@ Filename: `Theory to Workplan - {{DEFENDANT_LAST}} - {{YYYY-MM-DD}}.docx`
 
 Location: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 
-**Document structure:**
-
-1. **Header** -- Attorney work product marking per shared protocols
-2. **Case Caption Block** -- Defendant name, docket number, parish/court, judge, ADA, trial date, lead attorney
-3. **Selected Defense Theory** -- From Report 4a, with attorney's rationale
-4. **Summary Dashboard** -- Per Step 3
-5. **Stream 1 -- Investigation Tasks** -- Full task table (Module A)
-6. **Stream 2 -- Discovery Actions** -- Full task table (Module B)
-7. **Stream 3 -- Expert Witness Needs** -- Full task table (Module C)
-8. **Stream 4 -- Motion Practice** -- Full task table (Module D)
-9. **Stream 5 -- Witness Preparation** -- Full task table (Module E)
-10. **Stream 6 -- Exhibit & Evidence Strategy** -- Full task table (Module F)
-11. **Stream 7 -- Narrative & Theme Development** -- Full task table (Module G)
-12. **Cross-Stream Dependencies** -- Dependency map showing how tasks in one stream depend on completion of tasks in another (e.g., Stream 5 cross-exam outlines depend on Stream 2 discovery production)
-13. **Revision History** -- Date, author, what changed (for living-document tracking)
+**Document structure:** 13 sections — work-product header, case caption block, selected defense theory, summary dashboard, the seven stream task tables (Modules A–G), cross-stream dependencies map, and revision history. Read `references/output-format-and-registration.md` now for the full document structure.
 
 ### Secondary Deliverable: Summary Checklist (Apple Notes)
 
-Push a condensed checklist of all CRITICAL and HIGH priority tasks to Apple Notes via the same mechanism used by `dw-criminal-defense-crim` Phase 2 Step 6. Format:
-
-```
-[Case Name] -- Theory-to-Workplan Summary
-Theory: [One-line theory statement]
-Trial Date: [Date] ([X] days)
-
-CRITICAL TASKS:
-[ ] S1-001: [Description] -- [Responsible] -- by [Deadline]
-[ ] S2-003: [Description] -- [Responsible] -- by [Deadline]
-...
-
-HIGH PRIORITY TASKS:
-[ ] S3-001: [Description] -- [Responsible] -- by [Deadline]
-...
-```
+Push a condensed checklist of all CRITICAL and HIGH priority tasks to Apple Notes via the same mechanism used by `dw-criminal-defense-crim` Phase 2 Step 6. Read `references/output-format-and-registration.md` now for the checklist format.
 
 ### Case Brain Registration
 
-Register the workplan output with `dw-case-brain-crim` per Contract 5 in `dw-data-contracts-crim`:
-
-```
-- **[Date]** | `dw-theory-to-workplan-crim` | Theory to Workplan - [Client Last Name] - [Date].docx | 01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/
-```
-
-Update the Case Brain's OPEN ISSUES section with any BLOCKED tasks.
+Register the workplan output with `dw-case-brain-crim` per Contract 5 in `dw-data-contracts-crim`, and update the Case Brain's OPEN ISSUES section with any BLOCKED tasks. Read `references/output-format-and-registration.md` now for the exact registration line.
 
 ---
 
 ## CROSS-SKILL INTEGRATION
 
-### This skill REQUIRES (prerequisite):
-
-- `dw-criminal-defense-crim` Report 4/4a -- Theory Selection Memo (mandatory input; will not generate workplan without it)
-
-### This skill READS FROM:
-
-- `dw-case-brain-crim` -- structured case context, companion skill outputs, open issues
-- `dw-criminal-defense-crim` Reports 1-8 + 4a -- all Phase 2 analytical outputs (plus Report 0 from `dw-neutral-inventory-crim` and Report 2a from `dw-theory-deconstructor-crim`)
-- `dw-discovery-compliance-monitor-crim` -- outstanding discovery ledger (feeds Stream 2)
-- `dw-brady-giglio-auditor-crim` -- Brady/Giglio findings (feeds Streams 2 and 4)
-- All completed audit reports -- every auditor skill's output feeds task generation across streams
-- `Case Tables.xlsx` -- Evidence Table, Timeline, Witness List, Defense Matrix
-
-### This skill ROUTES TO (downstream execution):
-
-| Stream | D&W Skill | What Flows |
-|--------|-----------|-----------|
-| 1 - Investigation | `dw-defense-investigator-tasking-crim` | Investigation tasks with witness lists, location visits, record subpoenas |
-| 2 - Discovery | `dw-discovery-compliance-monitor-crim`, `dw-brady-giglio-auditor-crim` | New discovery demands, Brady/Giglio-specific demands |
-| 2 - Discovery | `dw-pretrial-motion-library-crim` | Motions to compel |
-| 3 - Expert | `dw-expert-witness-evaluator-crim` | Prosecution expert evaluations, Daubert/Foret challenge seeds |
-| 3 - Expert | `dw-pretrial-motion-library-crim` | Indigent expert funding motions (La. C.Cr.P. Art. 725) |
-| 4 - Motions | `dw-suppression-motion-crim` | Suppression motions (4th, 5th, 14th Amendment) |
-| 4 - Motions | `dw-404b-opposition-crim` | 404(b) / Prieur opposition |
-| 4 - Motions | `dw-pretrial-motion-library-crim` | All other pretrial motions |
-| 5 - Witness | `dw-cross-exam-architect-crim` | Cross-examination outlines for prosecution witnesses |
-| 5 - Witness | `dw-direct-exam-architect-crim` | Direct-examination outlines for defense witnesses |
-| 6 - Exhibit | `dw-exhibit-manager-crim` | Exhibit identification, preparation, and pre-marking |
-| 6 - Exhibit | `dw-trial-notebook-builder-crim` | Trial notebook assembly with theory-aligned tabs |
-| 7 - Narrative | `dw-trial-narrative-builder-crim` | Opening statement, closing argument, theme tracker |
-| 7 - Narrative | `dw-jury-instructions-builder-crim` | Theory-specific jury charges and verdict form |
-| 7 - Narrative | `dw-voir-dire-assistant-crim` | Theory-aligned voir dire questions |
-
-### This skill WRITES TO:
-
-- Workplan document (primary deliverable)
-- Apple Notes summary checklist (secondary deliverable)
-- `dw-case-brain-crim` -- registers output and updates OPEN ISSUES with BLOCKED tasks
+This skill REQUIRES Report 4/4a from `dw-criminal-defense-crim`; READS FROM the Case Brain, Reports 0–8 + 4a, the discovery compliance ledger, Brady/Giglio findings, all completed audit reports, and Case Tables.xlsx; ROUTES each stream to its executing D&W skill; and WRITES TO the workplan document, the Apple Notes checklist, and the Case Brain. Read `references/cross-skill-integration.md` now for the prerequisite list, upstream reads, the stream-to-skill routing table, and downstream writes.
 
 ---
 
@@ -497,7 +219,16 @@ Update the Case Brain's OPEN ISSUES section with any BLOCKED tasks.
 
 ## Quick References
 
-This skill does not maintain its own `references/` subdirectory. It is an orchestrator that reads from and routes to other skills. Key reference documents consumed indirectly through downstream skills:
+Skill-local reference files (read at the step named):
+
+- **information-gathering-protocol.md** — Step 1; the ranked Essential / Strategic / Contextual intake list
+- **task-format-and-priority.md** — Step 2.1; the eleven-field task table and CRITICAL/HIGH/MEDIUM/LOW priority definitions
+- **stream-modules.md** — Step 2, Modules A–G; the full task-category checklists and routing for all seven streams
+- **summary-dashboard.md** — Step 3; dashboard contents and the task-count-by-stream table
+- **output-format-and-registration.md** — Step 4; .docx document structure, Apple Notes checklist format, Case Brain registration line
+- **cross-skill-integration.md** — Cross-Skill Integration; prerequisites, upstream reads, stream-to-skill routing table, downstream writes
+
+External reference documents consumed through other skills:
 
 - **Report 4a (Theory Selection Memo)** -- mandatory input; produced by `dw-criminal-defense-crim` Report 4
 - **dw-shared-protocols-crim/references/attorney-work-product-marking.md** -- work product marking for all deliverables

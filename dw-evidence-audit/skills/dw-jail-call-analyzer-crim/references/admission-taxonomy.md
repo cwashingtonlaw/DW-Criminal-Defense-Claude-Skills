@@ -149,3 +149,33 @@ For audit-report consistency, the Module B severity scale (1-5) maps to the cons
 - Severity 1 → MINOR
 
 The consolidated table in Step 3 of the SKILL uses CRITICAL/SIGNIFICANT/MODERATE/MINOR. The Module B numerical scale exists because admission damage is more granular than the four-tier severity scale and because trial-prep teams use the numerical scale to triage clip-selection decisions.
+
+## Module B Procedure (carried over from SKILL.md) — B.1 Admission Categories, B.2 Damage Severity Scoring, B.3 Cumulative Risk Assessment
+
+### B.1 Admission Categories
+
+For every Tier 1 and any-flagged Tier 2 call, scan for and document:
+
+- **Location admissions** — placing the client at the scene, near the scene, or at any location the State will use to anchor an element. Includes both direct ("I was at the corner of...") and indirect ("when we were over there that night...").
+- **Association admissions** — placing the client with co-defendants, witnesses, or other charged parties. Includes "we" and "us" usage when the antecedent is a co-defendant.
+- **Possession admissions** — possession or control of contraband, weapons, vehicles, phones, or other charged items.
+- **Intent / motive admissions** — statements bearing on mental state, plan, or motive.
+- **Prior-conduct admissions** — references to prior bad acts, prior arrests, prior charged conduct, or prior similar incidents (404(B) exposure).
+- **Consciousness-of-guilt admissions** — flight, asset disposal, witness avoidance, story coordination, instructing others to lie or to refuse to talk to investigators.
+- **Theory-of-defense contradictions** — any statement inconsistent with the defense theory loaded in Step 1, Item 3. These are the most dangerous category because the State will use them not just substantively but as cross-fodder if the client testifies.
+
+### B.2 Damage Severity Scoring
+
+Score each flagged statement on a 1-5 scale:
+
+- **5 — Case-defining.** Direct admission to a charged element, on a clear recording, in the client's voice, contradicting the defense theory.
+- **4 — Severely damaging.** Strong admission with some interpretive flexibility, or direct admission on a marginally clearer/messier recording.
+- **3 — Significant.** Material admission requiring context to be damaging.
+- **2 — Notable but defensible.** Statement that hurts but has plausible innocent reading.
+- **1 — Background concern.** Tone, attitude, or peripheral fact that the State might exploit but cannot independently prove an element with.
+
+Each scored statement must cite the call ID + timestamp + verbatim quote.
+
+### B.3 Cumulative Theory-of-Defense Risk Assessment
+
+After cataloging individual admissions, write a one-page narrative assessing whether the calls, taken cumulatively, are survivable under the current defense theory. If not, the audit must explicitly recommend a theory-of-defense reset to the case-brain attorney.

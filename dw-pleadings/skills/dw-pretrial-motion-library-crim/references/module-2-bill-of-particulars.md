@@ -34,3 +34,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 484-485; *State v. DeJesus*, 631 So.2d 462 (La. App. 4th Cir. 1993).
+
+## Module summary (moved from SKILL.md)
+
+Demand for greater specificity in the charging instrument when the Bill of Information / Indictment leaves the defense unable to prepare (alibi, identity, timeline). Due-process grounding under La. C.Cr.P. Art. 484-485.

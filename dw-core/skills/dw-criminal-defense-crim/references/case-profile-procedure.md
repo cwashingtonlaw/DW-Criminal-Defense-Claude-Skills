@@ -697,3 +697,40 @@ For Refresh Mode, the merge rules from the Refresh Mode subsection above apply t
 - [ ] If LWOP exposure is present (Part 2A or 2B): every field listed in `lwop-field-maps.md` for that branch is present in the output (field-completeness checklist run)
 - [ ] All `[ATTORNEY]` fields preserved in red for attorney completion
 - [ ] In Refresh Mode: all attorney-entered content preserved untouched (including § 1 Prosecution's Theory prose); Refresh Log entry appended
+
+---
+
+## Appendix — SKILL.md Step 3 Summary (moved verbatim from SKILL.md, 2026-08-30)
+
+Read from SKILL.md **Phase 1 Step 3** — the scope list and the 13-item Step 3 Check that formerly sat in the skeleton.
+
+### Scope of this file (as stated in SKILL.md)
+
+Read **`references/case-profile-procedure.md`** for the full operating manual. That file covers:
+- The two operating modes (Initial Generation vs. Refresh)
+- The JusticeWorks / DefenderData "Case File Detail" ingest (structured field source feeding §§ 2, 5, 6, 9)
+- Part 1 (always populated) — ELEVEN sections: Prosecution's Theory of the Case (discovery-cited synopsis of the State's case), Case Identification (with classification and next court date), Probation/Parole Status, Charges & Exposure (Responsive Verdicts auto-generated from the Art. 814 map), Arraignment & Bail History, Court Appearance Log, Case-Specific Defenses, Client Background, Plea Discussions Log, Family/Friends Contact List, and Key Dates & Next Steps
+- Part 2 (case-type specific) — 2A LWOP Homicide, 2B LWOP Sex Offense, or 2C Other Felony
+- LWOP population workflow with extraction priority order, sourcing rules, and formatting conventions
+- Attorney-only field handling (red font preservation)
+- Refresh Mode merge rules
+- The position-based section auto-renumbering pass (Step 2C) and the VERIFY / [ATTORNEY] Roll-Up closing block
+- Field-completeness checklist and completion notes
+- Generation procedure (XML edit using the docx skill)
+
+### Step 3 Check (SKILL.md summary gate)
+
+**✓ Step 3 Check:**
+- [ ] Operating mode selected (Initial Generation or Refresh)
+- [ ] `000 - Case Profile.docx` saved to `Pretrial Notebook → 03 - Case Analysis & Notes`
+- [ ] Part 1 sections 1–11 populated (Initial Generation) OR existing Part 1 preserved with Next Court Date refreshed (Refresh)
+- [ ] § 1 Prosecution's Theory of the Case drafted, every assertion cited, adverse facts named
+- [ ] § 4 Responsive Verdicts emitted from the Art. 814 map (homicide charges include negligent homicide where the map lists it; First Degree Murder does not)
+- [ ] § 2 Seized Property includes Evidence ID / PR# and warrant-tied Owner Basis for every item
+- [ ] JusticeWorks/DefenderData export ingested (if provided) → §§ 2, 5, 6, 9 populated & reconciled
+- [ ] Position-based section renumbering pass run (no duplicate/gapped Part 1 numbers)
+- [ ] VERIFY / [ATTORNEY] roll-up block generated; highest-stakes items cross-listed to § 11
+- [ ] Exactly one of Part 2A, 2B, or 2C selected based on charges
+- [ ] If LWOP: every field in `lwop-field-maps.md` for the active branch is present (field-completeness checklist run)
+- [ ] All `[ATTORNEY]` fields preserved in red
+- [ ] Refresh Mode only: attorney-entered content untouched, Refresh Log appended

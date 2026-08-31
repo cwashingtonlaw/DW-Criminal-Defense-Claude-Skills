@@ -55,3 +55,16 @@ For each missed objection identified:
 | **Preservation Status** | WAIVED -- unless errors patent or structural error exception applies |
 | **Salvage Pathway** | Can this issue be raised through: (a) errors patent (Art. 920); (b) structural error; (c) ineffective assistance of counsel (post-conviction only); (d) plain error (extremely limited in Louisiana); (e) Brady/Giglio (if applicable) |
 | **Prejudice Assessment** | How significant was this error to the outcome? (Critical / Significant / Minor / De minimis) |
+
+
+---
+
+## Module B Summary — Categories and Per-Objection Fields (moved verbatim from SKILL.md MODULE B)
+
+Four categories are systematically reviewed:
+- **Category 1 — Evidentiary Errors** (hearsay, 404/404(B), Crawford violations, expert foundation, privilege, leading, Art. 701 lay opinion, authentication, best evidence)
+- **Category 2 — Prosecutorial Misconduct** (improper closing, improper questioning, discovery violations, late or undisclosed *Brady* material — note *Brady* is reviewable regardless of objection)
+- **Category 3 — Jury Instruction Errors** (responsive verdicts, misstatements of law, refused defense instructions, presumption/burden, improper Allen charge)
+- **Category 4 — Procedural Errors** (sequestration, juror misconduct, Batson, witness-jury contact, unauthorized communications)
+
+For each missed objection, document MO-#, transcript location, what happened, what objection should have been made, why it was objectionable, preservation status (WAIVED unless errors patent / structural exception), salvage pathway (errors patent / structural / IAC / plain error / Brady), and a prejudice assessment.

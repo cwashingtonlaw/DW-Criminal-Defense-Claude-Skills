@@ -1,5 +1,9 @@
 # Module E — Firearm / Ballistic Evidence Chain Audit
 
+## Module Overview (carried over from SKILL.md)
+
+Firearms and ballistic evidence (firearms, projectiles, cartridge cases, magazines, ammunition, gunshot residue) require chain of custody analysis addressing both the physical integrity of the items and the preservation of comparison-critical features. Audit serial number verification at each transfer, safe handling documentation, and preservation of comparison surfaces (striations, breech face impressions).
+
 Firearms and ballistic evidence (firearms, projectiles, cartridge cases, magazines, ammunition, gunshot residue) require chain of custody analysis addressing both the physical integrity of the items and the preservation of comparison-critical features.
 
 ## Firearm Evidence — Serial Number & Identification Verification
@@ -35,3 +39,11 @@ For projectile and cartridge case comparison (linking a questioned item to a kno
 | Firearm not rendered safe before packaging | MINOR to SIGNIFICANT | Safety concern; also indicates handling may not have followed standard procedures, raising questions about other procedural compliance |
 | Ammunition and firearm packaged together | MINOR | Cross-contamination risk; may indicate careless evidence handling overall |
 | No documentation that the firearm was operable at time of seizure | MINOR to SIGNIFICANT | If operability is an element of the offense, the chain must document the firearm's condition at seizure |
+
+## Top SIGNIFICANT Red Flags at a Glance
+
+Summary bullets carried over from SKILL.md Module E; the full matrix above is authoritative.
+
+- Serial number not verified at each transfer point — cannot confirm the firearm at trial is the same firearm seized
+- Projectile packaged in a manner that could damage striation marks — comparison surfaces may have been altered post-collection
+- GSR collected hours after the shooting event — GSR dissipates rapidly; delayed collection produces unreliable results

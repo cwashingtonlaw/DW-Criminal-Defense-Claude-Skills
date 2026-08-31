@@ -1,5 +1,12 @@
 # MODULE C — Sequence Analysis
 
+## Overview (moved from SKILL.md)
+
+Louisiana's habitual offender law requires a specific sequence: each subsequent offense must have been committed **after** the prior conviction became final. *State v. Johnson*, 432 So.2d 815 (La. 1983) — "The sequence is conviction, then commission of a new felony, then conviction for the new felony."
+
+For each predicate pair, verify (1) the date the prior conviction became final, (2) the date the next offense was committed, and (3) that the latter postdates the former. A conviction becomes final when the appeal time expires (30 days under La. C.Cr.P. Art. 914), or when the appellate court affirms and further review is exhausted. *State v. Baker*, 230 So.3d 207 (La. App. 4th Cir. 2017). Multiple offenses arising from the same criminal episode may constitute a single conviction for habitual purposes. *State v. Parker*, 2003-0924 (La. 4/14/04), 871 So.2d 317.
+
+
 Louisiana's habitual offender law requires that convictions occur in a specific sequence. The requirement is not merely that the defendant has multiple prior convictions — each subsequent offense must have been committed **after** the conviction for the prior offense became final.
 
 ## The Sequence Requirement

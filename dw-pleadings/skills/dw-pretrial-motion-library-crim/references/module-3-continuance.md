@@ -29,3 +29,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 707-714; *State v. Simpson*, 551 So.2d 1303 (La. 1989) (abuse of discretion standard).
+
+## Module summary (moved from SKILL.md)
+
+Trial-date continuance under La. C.Cr.P. Art. 707-714 on grounds of incomplete discovery, witness unavailability, expert preparation time, or new evidence/charges. Argument structure depends on the specific ground asserted.

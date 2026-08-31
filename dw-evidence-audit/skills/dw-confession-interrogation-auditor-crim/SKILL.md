@@ -38,96 +38,9 @@ Proceed **only** after the user explicitly confirms no further uploads. If more 
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (Must Have Before Auditing)
+Collect three tiers: **Essential** (items 1-5: recording/transcript, charges, State's theory of the confession, Miranda documentation, defendant demographics & condition), **Strategic** (items 6-10), and **Contextual** (items 11-13).
 
-1. **Interrogation Recording or Transcript**
-   - Full recording (video/audio) with timestamps OR complete verbatim transcript
-   - Exact duration and date of interrogation
-   - Any breaks, interruptions, or off-camera periods noted
-   - If multiple sessions exist, all sessions with dates and times
-
-2. **Charges Alleged Against Defendant**
-   - Specific charges with statutory citations (e.g., La. R.S. 14:30 — First Degree Murder)
-   - Charge severity — LWOP-eligible charges demand heightened scrutiny
-   - Which specific elements of the charged offense(s) the confession allegedly establishes
-
-3. **What the State Claims the Confession Proves**
-   - The prosecution's theory of what the confession establishes
-   - Is the confession the primary evidence, or corroborating?
-   - Specific statements the State intends to introduce at trial
-   - Whether the State intends to use the confession in its case-in-chief, for impeachment, or both
-
-4. **Miranda Documentation**
-   - Miranda waiver form (signed or unsigned)
-   - Rights-of-arrestee form
-   - Body camera footage of rights advisement (if separate from interrogation recording)
-   - Any written acknowledgment or refusal of rights
-   - Time of arrest vs. time of rights advisement vs. time interrogation began
-
-5. **Defendant Demographics & Condition**
-   - Age at time of interrogation
-   - Education level and literacy
-   - Primary language; English proficiency
-   - Known mental health diagnoses, intellectual disabilities, or developmental delays
-   - Substance use or intoxication at time of interrogation
-   - Physical condition (injuries, illness, medication needs, fatigue)
-   - Sleep deprivation (when did defendant last sleep? how long was the interrogation?)
-   - Food, water, bathroom access during interrogation
-
-### Strategic (Request if Not Provided)
-
-6. **Interrogator Information**
-   - Names, ranks, and assignments of all interrogating officers
-   - Training and certifications (Reid Technique, PEACE model, Wicklander-Zulawski, etc.)
-   - Years of interrogation experience
-   - Whether the interrogator had prior contact with the defendant
-
-7. **Custody Timeline**
-   - Exact time of arrest (or de facto custody)
-   - Time of transport to station
-   - Time placed in interrogation room
-   - Time Miranda rights were administered
-   - Time interrogation began
-   - Duration of all breaks
-   - Time interrogation ended
-   - Total time in custody before first statement
-
-8. **Prior Statements**
-   - Any statements made at the scene (spontaneous, in response to questioning, during transport)
-   - Any statements made during booking
-   - Any prior interrogation sessions (dates, times, recordings/transcripts)
-   - Any statements to cellmates, family, or third parties that the State intends to use
-
-9. **Defense Theory**
-   - What happened from the defense perspective
-   - Is the defense position that the confession is false, coerced, involuntary, obtained in violation of Miranda, or some combination?
-   - Known exculpatory evidence that contradicts the confession
-   - Alibi evidence or physical evidence inconsistent with the confessed account
-
-10. **Known Suppression Issues**
-    - Any pending motions regarding the legality of the arrest or detention
-    - Any pending motions regarding the search/seizure that led to the interrogation
-    - Any prior court rulings on the admissibility of the statement
-
-### Contextual (Gather from Uploaded Files)
-
-11. **Environmental Conditions**
-    - Interrogation room dimensions, furnishing, temperature
-    - Whether the defendant was handcuffed or restrained during questioning
-    - Whether the defendant was in jail clothing or personal clothing
-    - Number of officers present and their positioning relative to the defendant
-    - Door status (open, closed, locked)
-
-12. **Case Context**
-    - Offense date and circumstances
-    - Co-defendants and their interrogation/cooperation status
-    - Whether co-defendant statements were used as leverage during this interrogation
-    - Victim identity and relationship to defendant
-
-13. **Post-Interrogation Events**
-    - Whether defendant attempted to recant or modify the statement
-    - Whether defendant made subsequent statements
-    - Whether the defendant was re-interrogated after invoking rights
+Read `references/information-gathering-checklist.md` now for the full ranked checklist with the sub-items each entry must contain.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1-5 are missing, do not audit — ask for them first.
 
@@ -169,12 +82,7 @@ Every factual assertion in the Confession & Interrogation Audit Report must trac
 
 Analyze every aspect of the Miranda advisement and waiver for constitutional sufficiency.
 
-**For detailed Miranda standards reference, read `references/miranda-standards.md`**, which contains:
-- The Four Miranda Warnings checklist
-- Timing analysis matrix (pre-custody, custody determination, delays, question-first technique)
-- Waiver validity framework (voluntary, knowing, intelligent)
-- Express vs. implied waiver standards
-- Miranda Red Flag Matrix with legal authorities
+Read `references/miranda-standards.md` now for the Four Warnings checklist, timing analysis matrix (pre-custody, custody determination, delays, question-first), waiver validity framework, express vs. implied waiver standards, and the Miranda Red Flag Matrix.
 
 **Key audit points:**
 - Is each of the four warnings complete and correctly stated?
@@ -189,65 +97,17 @@ Analyze every aspect of the Miranda advisement and waiver for constitutional suf
 
 Under La. R.S. 15:451 and the totality-of-circumstances test, determine whether the confession was free and voluntary. The State bears the burden of proving voluntariness **beyond a reasonable doubt** at a suppression hearing (*State v. Simmons*, 443 So.2d 512 (La. 1983)).
 
-### The Totality-of-Circumstances Framework
+Assess the **totality of circumstances** — conduct of law enforcement against characteristics of the accused. Score each factor in the Voluntariness Factor Matrix, assign severity (CRITICAL / SIGNIFICANT / MINOR), and assess cumulative coerciveness under La. R.S. 15:451-452.
 
-Voluntariness is assessed by examining:
-- **Conduct of law enforcement:** Interrogation techniques, threats, promises, deception, physical conditions, duration, breaks
-- **Characteristics of the accused:** Age, education, mental condition, experience with the justice system, physical condition, substance use, sleep status
-
-### Voluntariness Factor Matrix
-
-| Factor | Assessment Questions | Weight in Analysis |
-|--------|---------------------|------------------|
-| **Interrogation duration** | How long was the interrogation? Was it continuous or broken by breaks? Research shows mean length in false confession cases is 16.3 hours | HIGH — duration alone can render confession involuntary if excessive |
-| **Threats or implied threats** | Were any threats made about consequences, harm to family, collateral charges? | CRITICAL — threats render confession involuntary |
-| **Promises or implied promises** | Were any explicit or implied promises made regarding leniency, lighter sentence, dropped charges? | CRITICAL (explicit); SIGNIFICANT (implied) |
-| **Coercive techniques** | Were Reid Technique steps, minimization, maximization, false evidence ploys, good-cop/bad-cop employed? | HIGH — cumulative effect assessed under totality |
-| **Physical conditions** | Temperature, ventilation, lighting, comfort of the room, restrain status (handcuffs) | MODERATE — contributes to overall coerciveness |
-| **Food, water, bathroom access** | Were requests for breaks, bathroom, water, food honored or denied? How long were requests delayed? | MODERATE — denial of basic needs is coercive |
-| **Mental condition of defendant** | Was the defendant in a diminished mental state due to sleep deprivation, substance use, mental illness, intellectual disability? | SIGNIFICANT — impairs ability to make rational decision |
-| **Education and intelligence** | Could the defendant understand the warnings and the significance of waiving rights? | SIGNIFICANT — particularly important for vulnerable populations |
-| **Prior justice system experience** | Has the defendant been interrogated before? Do they understand their rights? | MODERATE — first-time suspects are more vulnerable |
-| **Age of defendant** | If juvenile, apply heightened scrutiny under *J.D.B.* and La. Ch.C. Art. 808 | CRITICAL for juveniles |
-| **Officer demeanor** | Was the interrogator calm or aggressive? Did the officer misrepresent the evidence or the defendant's guilt? | MODERATE — contributes to psychological pressure |
-| **Isolation** | Was the defendant isolated from family, counsel, or other support for an extended period? | MODERATE — isolation increases despair and compliance |
-
-### Voluntariness — Cumulative Assessment
-
-No single factor renders a confession involuntary. The court examines the **cumulative effect** of all factors. However, certain factors — explicit threats, explicit promises of leniency, threats to family — are strongly indicative of involuntariness.
-
-**Document each factor identified, assign a severity level (CRITICAL / SIGNIFICANT / MINOR), and assess the cumulative coerciveness. The question is: Was the confession the product of rational intellect and free will, or was it the product of overwhelming police pressure?**
-
-### Louisiana-Specific Voluntariness Standards
-
-La. R.S. 15:451 requires that "before what purports to be a confession can be introduced in evidence, it must be affirmatively shown that it was free and voluntary."
-
-La. R.S. 15:452 imposes the burden on **the State** to prove voluntariness **beyond a reasonable doubt** at a suppression hearing — a higher burden than the federal preponderance standard.
-
-*State v. Blank*, 293 So.3d 1136 (La. 2020), applies the totality-of-circumstances test with careful scrutiny of the length of the interrogation, the mental and physical condition of the accused, the nature of the charges, and the conduct of law enforcement.
+Read `references/voluntariness-analysis.md` now for the totality framework, the full Voluntariness Factor Matrix (12 factors with assessment questions and weights), the cumulative assessment rule, and the Louisiana-specific standards (*Blank*).
 
 ---
 
 ## STEP 4 — MODULE C: Interrogation Technique Identification
 
-Identify the specific interrogation techniques employed and assess their coerciveness. **For detailed technique reference, read `references/reid-technique-and-coercion-tactics.md`**, which contains:
-- Reid Technique Nine-Step Identification (with markers and defense significance)
-- 11 additional techniques (minimization, maximization, false evidence ploy, good cop/bad cop, threats to family, futility, reciprocity, SUE, etc.)
-- Coercion level for each technique
+Identify the specific interrogation techniques employed and assess their coerciveness: the Reid Technique nine steps plus 11 additional techniques (minimization, maximization, false evidence ploy, good cop/bad cop, threats to family, futility, reciprocity, SUE, etc.), each with a coercion level.
 
-### Technique Identification — Output Format
-
-For each technique identified, document:
-
-```
-TECHNIQUE: [Name]
-TIMESTAMP: [HH:MM:SS - HH:MM:SS]
-INTERROGATOR: [Name/Badge]
-VERBATIM EXAMPLE: "[Exact quote from transcript/recording]"
-COERCION LEVEL: [LOW / MODERATE / HIGH / CRITICAL]
-LEGAL SIGNIFICANCE: [How this technique impacts voluntariness, Miranda waiver validity, or false confession risk]
-CROSS-EXAM SEED: [Question targeting this technique for cross-examination of the interrogating officer]
-```
+Read `references/reid-technique-and-coercion-tactics.md` now for the step/technique markers, defense significance, coercion levels, and the Technique Identification output block (TECHNIQUE / TIMESTAMP / INTERROGATOR / VERBATIM EXAMPLE / COERCION LEVEL / LEGAL SIGNIFICANCE / CROSS-EXAM SEED). Read `references/technique-coercion-levels.md` for the coercion-level matrix.
 
 ---
 
@@ -255,39 +115,15 @@ CROSS-EXAM SEED: [Question targeting this technique for cross-examination of the
 
 False confessions are a leading cause of wrongful convictions. The Innocence Project reports that approximately 29% of DNA exoneration cases involved false confessions. This module assesses the risk that the confession in this case is false.
 
-**For detailed false confession reference, read `references/false-confession-risk-factors.md`**, which contains:
-- False Confession Taxonomy (voluntary, compliant, persuaded)
-- Risk Factor Scoring matrix with weights and research citations
-- Risk Assessment Scale (0-5 = LOW; 6-12 = MODERATE; 13-20 = HIGH; 21+ = CRITICAL)
-- Contamination Analysis framework (did defendant provide independent details or was defendant fed details by interrogators?)
-
-**For research authorities, read `references/false-confession-research.md`**, which provides citations and applications for:
-- Kassin & Kiechel (1996) — false evidence ploy effects
-- Kassin & McNall (1991) — minimization as implied promise
-- Drizin & Leo (2004) — 125 proven false confession cases
-- Gudjonsson (2003), Perillo & Kassin (2011), Frenda et al. (2016), Grisso, Leo & Ofshe
+Read `references/false-confession-risk-factors.md` now for the False Confession Taxonomy (voluntary, compliant, persuaded), the Risk Factor Scoring matrix, the Risk Assessment Scale (0-5 LOW; 6-12 MODERATE; 13-20 HIGH; 21+ CRITICAL), and the Contamination Analysis framework. Read `references/false-confession-research.md` for the research authorities (Kassin & Kiechel, Kassin & McNall, Drizin & Leo, Gudjonsson, Perillo & Kassin, Frenda, Grisso, Leo & Ofshe) and their applications.
 
 ---
 
 ## STEP 6 — MODULE E: Recording Compliance Audit
 
-### Louisiana Recording Requirement — La. R.S. 15:453
+Louisiana requires electronic recording of custodial interrogations for crimes of violence; an unrecorded statement is presumptively inadmissible unless the State rebuts. Audit completeness, gaps, unrecorded sessions, off-camera conversations, intelligibility, selective recording, and equipment-failure documentation.
 
-Louisiana requires electronic recording of custodial interrogations for crimes of violence (first and second degree murder, manslaughter, aggravated assault, aggravated rape, armed robbery, kidnapping, and other violent felonies).
-
-**Recording must be complete from before the first substantive question through the end of the interrogation.** Failure to record creates a **presumption** that the statement is inadmissible. The State may overcome the presumption by showing: (1) the failure was not intentional; (2) the statement was voluntary; and (3) the interests of justice are served by admission.
-
-**Audit for:**
-- Does the recording capture the entire encounter from before the first substantive question?
-- Are there any gaps, pauses, or interruptions in the recording?
-- Were all interrogation sessions recorded?
-- Is the Miranda advisement on the recording?
-- Were there any off-camera conversations (transport, hallway, break rooms)?
-- Is the audio/video intelligible?
-- Was there "selective recording" (recording only the final confession but not the hours of interrogation)?
-- If recording equipment failed, was the failure documented contemporaneously?
-
-**Strategic note:** Even when the statutory recording requirement does not technically apply (non-violent offenses), the failure to record is relevant to voluntariness and goes to the weight of the confession at trial.
+Read `references/recording-compliance-audit.md` now for the La. R.S. 15:453 requirement, the three-part presumption-rebuttal test, the full audit checklist, and the strategic note for non-covered offenses.
 
 ---
 
@@ -295,246 +131,41 @@ Louisiana requires electronic recording of custodial interrogations for crimes o
 
 If the defendant is a juvenile (under 18 at time of interrogation), apply heightened scrutiny under *J.D.B. v. North Carolina*, 564 U.S. 261 (2011), *Fare v. Michael C.*, 442 U.S. 707 (1979), and La. Ch.C. Art. 808.
 
-**Key protections:**
-- Age is a relevant factor in custody determination (*J.D.B.*)
-- An interested adult (parent, guardian, attorney) should be present during interrogation (La. Ch.C. Art. 808)
-- Miranda warnings must be age-appropriate
-- Totality-of-circumstances waiver analysis applies with heightened scrutiny
+Apply the key protections (age in custody analysis, interested adult, age-appropriate warnings, heightened waiver scrutiny), score the juvenile-specific risk factors, and tag the juvenile red flags by severity.
 
-**Juvenile-specific risk factors:**
-- Suggestibility (juveniles significantly more suggestible than adults)
-- Impulsivity (juveniles discount future consequences)
-- Authority compliance (juveniles socialized to comply with police)
-- False confession vulnerability (33% of proven false confessions involved juveniles; juveniles under 15 especially vulnerable)
-- Miranda comprehension (juveniles, especially under 15, significantly misunderstand rights)
-- Interested adult effectiveness (parents sometimes fail to protect; may pressure confession)
-
-**Red flags:**
-- No interested adult present (CRITICAL)
-- Interested adult hostile or aligned with law enforcement (CRITICAL)
-- Standard adult Miranda used without age adaptation (SIGNIFICANT)
-- Defendant 14 or younger (CRITICAL false confession risk)
-- Intellectual disability or special education classification (CRITICAL)
-- Interrogation exceeded 2 hours (SIGNIFICANT to CRITICAL)
-- Reid Technique used on juvenile (HIGH to CRITICAL)
-- Juvenile interrogated during school hours without parent notification (SIGNIFICANT)
-- Waived rights without explanation of consequences (CRITICAL)
+Read `references/juvenile-interrogation-analysis.md` now for the key protections, the juvenile-specific risk factors, and the full red-flag list with severities.
 
 ---
 
 ## STEP 8 — MODULE G: Invocation Analysis
 
-### Right to Silence — Invocation and Scrupulous Honor
+Determine whether the defendant made an unambiguous invocation of silence (*Berghuis*) or counsel (*Edwards* / *Davis*), whether interrogation ceased immediately, whether any resumption satisfied *Mosley* (silence) or *Bradshaw* re-initiation plus fresh warnings (counsel), and whether the *Shatzer* 14-day rule applies.
 
-Under *Berghuis v. Thompkins*, 560 U.S. 370 (2010), the invocation of the right to silence must be **unambiguous**. The defendant cannot invoke by implication or through silence alone. However, once an unambiguous invocation is made, interrogation must cease immediately.
-
-**Clear invocation:** "I don't want to talk"; "I'm done"; "I want to remain silent"; "I'm invoking my right to silence"
-
-**Ambiguous statements (not invocations under *Berghuis*):** "I don't think I should be talking"; "Maybe I should stop"; "I don't know if I want to talk"
-
-**Partial/selective invocation:** "I'll talk about the drugs but not the gun" — officers must honor the limitation
-
-**Michigan v. Mosley, 423 U.S. 96 (1975) — Scrupulously Honored:**
-After the right to silence is invoked:
-1. Interrogation must cease immediately
-2. Questioning may resume only after a significant passage of time
-3. Fresh Miranda warnings must be given before resumption
-4. The subsequent questioning may concern a different crime
-
-### Right to Counsel — Edwards Protections
-
-Under *Edwards v. Arizona*, 451 U.S. 477 (1981), once the right to counsel is invoked, interrogation must stop until counsel is provided or the suspect re-initiates.
-
-**Clear invocation:** "I want a lawyer"; "I want to talk to an attorney"; "I want counsel"
-
-**Ambiguous statements (may or may not be invocations):** "Maybe I should get a lawyer"; "I'm not sure I should be talking without a lawyer" — under *Davis v. United States*, 512 U.S. 452 (1994), ambiguous statements are not invocations; officers may clarify or continue
-
-**Post-invocation questioning:** Any questioning after a clear invocation of counsel is unlawful unless:
-1. The suspect initiates contact (*Oregon v. Bradshaw*, 462 U.S. 1039 (1983)), and
-2. The suspect makes a clear re-initiation (not routine administrative questions), and
-3. A valid waiver is obtained after fresh warnings
-
-**14-Day Rule:** Under *Maryland v. Shatzer*, 559 U.S. 98 (2010), Edwards protections expire after a 14-day break in custody (release to normal life). However, continuous incarceration does not restart the clock — Edwards applies throughout a single period of custody.
-
-**Audit for:**
-- Did the defendant make an unambiguous invocation of silence or counsel?
-- Did interrogation cease immediately?
-- If interrogation resumed, what was the time lapse?
-- Were fresh Miranda warnings given?
-- Did the defendant re-initiate contact, and if so, was it clear?
-- Was a valid waiver obtained after re-initiation?
-- Was the Edwards protection unlawfully violated by questioning after invocation?
-
-### Invocation Analysis — Red Flag Matrix
-
-| Red Flag | Legal Authority | Severity |
-|----------|----------------|----------|
-| Clear invocation of right to silence followed by continued questioning | *Berghuis v. Thompkins*; *Michigan v. Mosley* | CRITICAL |
-| Clear invocation of right to counsel followed by continued questioning | *Edwards v. Arizona* | CRITICAL |
-| Ambiguous invocation treated as unambiguous and questioning ceased unnecessarily | *Davis v. United States* — this is permissible; officers may clarify | N/A (not a violation) |
-| Suspect's clear invocation, then officers sought "clarification" by continuing to question about a different topic | *Edwards* — this violates the per se rule | CRITICAL |
-| Invocation followed by extended interrogation without fresh warnings | *Michigan v. Mosley* | CRITICAL |
-| Suspect made statements suggesting re-initiation but did not clearly initiate contact | *Oregon v. Bradshaw* — routine administrative questions do not constitute re-initiation | SIGNIFICANT (assess whether true re-initiation occurred) |
-| Suspect in custody for 14+ days and invocation occurred before day 14, but questioning resumed after day 14 without fresh invocation | *Maryland v. Shatzer* — Edwards protections expire at 14-day break-in-custody | Depends on whether there was a break in custody |
+Read `references/invocation-analysis.md` now for the clear/ambiguous/partial invocation examples, the *Mosley* and *Edwards* frameworks, the audit checklist, and the Invocation Red Flag Matrix.
 
 ---
 
 ## STEP 9 — MODULE H: Cross-Examination Seeds
 
-### Cross-Examination Seed Template
+For each constitutional violation or technique identified, develop cross-examination questions that establish the fact, introduce the legal principle, and create credibility challenges, using the TARGET / FINDING / SEED QUESTION / FOLLOW-UP / CLOSING template.
 
-For each constitutional violation or technique identified, develop cross-examination questions that:
-1. Establish the specific fact (e.g., duration, technique, condition)
-2. Introduce the legal principle (e.g., case name, rule)
-3. Create discomfort or credibility challenges
-
-```
-TARGET: [Interrogating officer name and role]
-FINDING: [The constitutional/technique issue]
-SEED QUESTION: "[Question designed to establish the fact or technique]"
-FOLLOW-UP: "[Question that drives toward acknowledgment or contradiction]"
-CLOSING: "[Question that summarizes the problematic conduct]"
-```
+Read `references/cross-exam-seed-template.md` now for the seed-design goals and the template block.
 
 ---
 
 ## STEP 10 — Severity Classification System
 
-### CRITICAL FINDINGS
+Classify every finding as **CRITICAL** (per se violations or fundamental unfairness — suppression strongly supported), **SIGNIFICANT** (substantial deficiencies weighing heavily toward suppression), or **MINOR** (goes to weight rather than admissibility).
 
-Findings in this category are per se violations or so fundamentally unfair that suppression is strongly supported:
-- No Miranda warnings before custodial interrogation
-- Incomplete Miranda warnings
-- Clear invocation of right to counsel or right to silence followed by continued questioning
-- Explicit threat or explicit promise of leniency rendering confession involuntary
-- Threat to family members or third parties
-- Seibert question-first technique
-- Failure to honor invocation under *Edwards*
-- Recording gap during critical portion of interrogation
-- No interested adult during juvenile interrogation
-- Selective recording (recording only final statement, not hours of interrogation)
-
-### SIGNIFICANT FINDINGS
-
-Findings in this category are substantial deficiencies that weigh heavily toward suppression:
-- Warnings delivered in rushed/dismissive manner
-- No recording of rights advisement (when recording was feasible)
-- Defendant's clarifying questions about rights not adequately answered
-- Extended interrogation (6+ hours)
-- Reid Technique Alternative Question (Step 7) combined with other coercive techniques
-- Minimization or maximization
-- False evidence ploy
-- Good cop/bad cop
-- Sleep deprivation, substance influence, mental illness at time of interrogation
-- Cumulative coercive factors in voluntariness analysis
-
-### MINOR FINDINGS
-
-Findings in this category are deficiencies that go to weight rather than admissibility:
-- Delay between rights advisement and interrogation start
-- Single instance of Reid Technique step without cumulative coercion
-- Environmental conditions (temperature, comfort) without other coercive factors
-- Interrogation technique without significant risk factors
-- Recording quality issues (audio not perfect but intelligible)
+Read `references/severity-classification.md` now for the complete finding lists under each tier.
 
 ---
 
 ## Report Template: Word (.docx) Export
 
-**Structure for SKILL.md output:**
+Produce the audit as a Word document: Header, Executive Summary, Methodology, Findings by Module (A-G), Consolidated Findings & Severity table, Suppression Motion Framework, False Confession Risk Factor Assessment, Cross-Examination Outlines. Save per the Step 0.5 output path.
 
-### Header
-- Case name and docket number
-- Defendant name and date of birth
-- Charges and statute citations
-- Date of interrogation
-- Interrogating officer names and badges
-- Skill version and date of audit
-
-### Executive Summary (1 page)
-- Overarching findings: Is the confession likely subject to suppression?
-- Key constitutional or technical violations identified
-- Risk level for false confession (LOW / MODERATE / HIGH / CRITICAL)
-- Recommendation: Strong suppression motion, cross-examination focus, expert testimony needed?
-
-### Methodology (1/2 page)
-- How the audit was conducted (materials reviewed, modules applied)
-- Limitations (if recording had gaps, if certain info was unavailable)
-
-### Findings by Module
-
-**Module A: Miranda Compliance Audit**
-- [MIRANDA COMPLIANCE ANALYSIS — statement on completeness, timing, waiver validity]
-- Specific red flags identified with severity
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module B: Voluntariness Analysis**
-- [VOLUNTARINESS FACTOR MATRIX — table with all factors scored]
-- Cumulative assessment: VOLUNTARY / CONTESTED / INVOLUNTARY
-- Specific coercive conditions identified
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module C: Interrogation Technique Identification**
-- [TECHNIQUE IDENTIFICATION TABLE — each technique with timestamp, verbatim example, coercion level]
-- Reid Technique steps identified
-- Minimization/maximization analysis
-- False evidence ploys documented
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module D: False Confession Risk Assessment**
-- [RISK FACTOR SCORING TABLE — each factor with presence, weight, cumulative score]
-- Risk level: LOW / MODERATE / HIGH / CRITICAL
-- Contamination analysis: details independently provided vs. fed by interrogator
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module E: Recording Compliance Audit**
-- La. R.S. 15:453 applicability determination
-- Recording completeness assessment
-- Gap identification with timestamps
-- Selective recording analysis
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module F: Juvenile Interrogation Analysis** *(if applicable)*
-- J.D.B. custody analysis (reasonable child standard)
-- La. Ch.C. Art. 808 compliance
-- Interested adult assessment
-- Age-appropriate Miranda analysis
-- Juvenile-specific risk factors
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-**Module G: Invocation Analysis**
-- Invocation identification (right to silence and/or right to counsel)
-- Clear vs. ambiguous invocation determination
-- Post-invocation questioning assessment
-- Edwards / Mosley compliance
-- Re-initiation analysis (if applicable)
-- Shatzer 14-day rule (if applicable)
-- Severity rating: [CRITICAL / SIGNIFICANT / MINOR]
-
-### Consolidated Findings & Severity Rating
-
-| Finding | Module | Severity | Timestamp | Explanation |
-|---------|--------|----------|-----------|-------------|
-| [Finding #1] | [Module] | CRITICAL/SIGNIFICANT/MINOR | [HH:MM:SS] | [Explanation] |
-| [Finding #2] | | | | |
-
-### Suppression Motion Framework
-
-For each CRITICAL finding, provide:
-- **Legal basis:** Specific constitutional provision or Louisiana statute violated
-- **Factual support:** Specific facts from the interrogation supporting the violation
-- **Case authority:** Controlling or persuasive authority supporting suppression
-- **Suggested motion structure:** La. C.Cr.P. Art. 703 motion framework with proposed findings of fact and conclusions of law
-
-### False Confession Risk Factor Assessment *(separate section)*
-- Complete risk factor scoring matrix
-- Contamination analysis findings
-- Expert testimony recommendation (if warranted): `[EXPERT REQUIRED — retain false confession expert / forensic psychologist]`
-
-### Cross-Examination Outlines
-- Cross-examination seeds organized by target witness
-- Priority-ordered: CRITICAL findings first, then SIGNIFICANT
-- Each seed formatted for dw-cross-exam-architect-crim transfer
+Read `references/report-template.md` now for the field-by-field content of every section.
 
 ---
 
@@ -564,40 +195,6 @@ For each CRITICAL finding, provide:
 
 ---
 
-## Quick Reference — Constitutional & Louisiana Confession Law
-
-**For comprehensive legal reference, read `references/constitutional-louisiana-law-reference.md`**, which contains the complete Quick Reference table with 31 key situations, authorities, and holdings.
-
----
-
-## Quick Reference — Interrogation Technique Coercion Levels
-
-**For quick coercion level reference, read `references/technique-coercion-levels.md`**, which provides coercion levels, false confession risk, and key research for 14 interrogation techniques.
-
----
-
-## Quick Reference — False Confession Research Authorities
-
-**For false confession research citations, read `references/false-confession-research.md`**, which includes:
-- Kassin & Kiechel (1996), Kassin & McNall (1991), Drizin & Leo (2004)
-- Gudjonsson (2003), Perillo & Kassin (2011), Frenda et al. (2016)
-- Grisso (1981, 2003), Leo & Ofshe (1998)
-- Innocence Project data on false confessions
-
----
-
-## Quick Reference — Suppression Motion Checklist (La. C.Cr.P. Art. 703)
-
-**For suppression motion component checklist, read `references/suppression-motion-checklist.md`**, which lists all required components and supporting modules.
-
----
-
-## Quick Reference — Timestamp Analysis Template
-
-**For building interrogation timelines, read `references/timestamp-analysis-template.md`**, which provides a template for chronological event documentation with module correlation and severity assessment.
-
----
-
 ## Integration with Other D&W Skills
 
 - **dw-cross-exam-architect-crim:** Transfer cross-examination seeds from Module H to build interrogating officer cross-examination outline
@@ -610,11 +207,19 @@ For each CRITICAL finding, provide:
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **constitutional-louisiana-law-reference.md** — Constitutional and Louisiana confession-law quick-reference (federal due-process standards + La. C.Cr.P. Art. 703 + La. R.S. 15:451-452 + La. Ch.C. Art. 808)
-- **miranda-standards.md** — Substantive Miranda framework: Four Warnings, custody/interrogation tests, timing matrix, waiver validity, invocation rules, Red Flag Matrix
-- **false-confession-research.md** — Research authorities (Kassin, Drizin & Leo, Gudjonsson, Frenda, Grisso, Leo & Ofshe, Innocence Project) with key findings and applications
-- **false-confession-risk-factors.md** — False-confession taxonomy and per-suspect risk-factor scoring
-- **reid-technique-and-coercion-tactics.md** — Reid Technique nine-step framework + coercion-tactic identification
-- **technique-coercion-levels.md** — Interrogation-technique coercion-level matrix with false-confession risk per technique
-- **suppression-motion-checklist.md** — Operational checklist for assembling La. C.Cr.P. Art. 703 motion to suppress confession
-- **timestamp-analysis-template.md** — Chronological event-log template for time-anchoring audit findings to recording timestamps
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-13)
+- **miranda-standards.md** — Module A: Four Warnings, custody/interrogation tests, timing matrix, waiver validity, Red Flag Matrix
+- **voluntariness-analysis.md** — Module B: totality framework, Voluntariness Factor Matrix, Louisiana standards
+- **reid-technique-and-coercion-tactics.md** — Module C: Reid nine steps + coercion tactics + technique output format
+- **technique-coercion-levels.md** — Module C: coercion-level matrix for 14 techniques
+- **false-confession-risk-factors.md** — Module D: taxonomy, risk-factor scoring, risk scale, contamination analysis
+- **false-confession-research.md** — Module D: research authorities with applications
+- **recording-compliance-audit.md** — Module E: La. R.S. 15:453 requirement, presumption test, audit checklist
+- **juvenile-interrogation-analysis.md** — Module F: protections, juvenile risk factors, red flags
+- **invocation-analysis.md** — Module G: silence and counsel invocation frameworks + Red Flag Matrix
+- **cross-exam-seed-template.md** — Module H: seed-design goals + template
+- **severity-classification.md** — Step 10: CRITICAL / SIGNIFICANT / MINOR finding lists
+- **report-template.md** — Report Template step: section-by-section .docx structure
+- **constitutional-louisiana-law-reference.md** — Throughout: 31-situation constitutional and Louisiana confession-law table
+- **suppression-motion-checklist.md** — Handoff to dw-suppression-motion-crim: Art. 703 motion component checklist
+- **timestamp-analysis-template.md** — Throughout: chronological event-log template for time-anchoring findings

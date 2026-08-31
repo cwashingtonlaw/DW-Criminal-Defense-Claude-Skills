@@ -238,3 +238,18 @@ Update in real time. Do not overwrite.
 ---
 
 *Real citations: *Batson v. Kentucky*, 476 U.S. 79 (1986); *Georgia v. McCollum*, 505 U.S. 42 (1992); *J.E.B. v. Alabama ex rel. T.B.*, 511 U.S. 127 (1994); *Purkett v. Elem*, 514 U.S. 765 (1995); *Miller-El v. Dretke*, 545 U.S. 231 (2005); *Snyder v. Louisiana*, 552 U.S. 472 (2008); *State v. Collier*, 553 So.2d 815 (La. 1989); *State v. Williams*, 524 So.2d 746 (La. 1988); *State v. Tyler*, 723 So.2d 939 (La. 1998).*
+
+---
+
+## Quick-Fields Tracker (moved from SKILL.md Module E.1)
+
+Read at **MODULE E.1 — Batson / Reverse-Batson Tracker** of `SKILL.md`; the short-form strike table and three-step framework summary.
+
+| Strike # | Side | Juror # | Race | Gender | Stated Reason (if challenged) | Ruling | Pattern Note |
+|---|---|---|---|---|---|---|---|
+| 1 | State | 14 | B / F | F | — | Used | — |
+| 2 | State | 22 | B / M | M | — | Used | 2 of 2 strikes against Black panelists — flag |
+| 3 | Defense | 7 | W / M | M | — | Used | reverse-Batson watch |
+| ... | | | | | | | |
+
+Three-step Batson framework (`Batson v. Kentucky`, 476 U.S. 79 (1986)): (1) prima facie pattern, (2) race-neutral reason from striking party, (3) pretext analysis. Log the Batson challenge and the court's ruling at each step.

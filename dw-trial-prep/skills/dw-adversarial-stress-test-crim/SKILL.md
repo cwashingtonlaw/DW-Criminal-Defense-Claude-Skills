@@ -76,28 +76,9 @@ Every factual assertion in the Adversarial Stress Test Report -- every prosecuti
 ---
 
 ## STEP 1 -- Information Gathering Protocol
-
 Before building the stress test, collect and review the following materials in ranked order:
 
-### Essential (must have before stress-testing)
-1. **Report 4a (Theory Selection Memo)** -- the attorney's selected defense theory with supporting evidence, theme, and narrative framework. This is the target of the stress test.
-2. **Report 2a (Theory Deconstruction)** -- the full deconstruction of the selected theory, including identified weaknesses, assumption dependencies, and evidence gaps. Provides the vulnerability baseline.
-3. **Charges** -- all counts with statutory citations, elements, and responsive-verdict architecture.
-4. **Discovery production** -- complete discovery index and all uploaded case documents. The stress test must work from the same evidence pool the prosecution has.
-5. **Case Tables.xlsx** -- Evidence Table, Witness List, Timeline Sheet. These are the prosecution's building blocks.
-
-### Strategic (request if not provided)
-6. **Reports 1-8 (Phase 2 Case Analysis)** -- the full analytical suite. Report 2 (Prosecution's Case Summary) is particularly important -- it previews the State's best case.
-7. **All audit reports** -- evidence audits (`dw-mobile-forensic-auditor-crim`, `dw-jail-call-analyzer-crim`, `dw-crime-scene-auditor-crim`, `dw-eyewitness-identification-auditor-crim`, `dw-confession-interrogation-auditor-crim`, `dw-brady-giglio-auditor-crim`, etc.) that have already identified evidence vulnerabilities.
-8. **Defense witness list** -- any witnesses the defense intends to call, with summaries of expected testimony.
-9. **Expert witness evaluations** -- `dw-expert-witness-evaluator-crim` reports on prosecution and defense experts.
-10. **Prior motions and rulings** -- what has been filed, what has been granted/denied, what evidence remains admissible.
-
-### Contextual (gather from uploaded files)
-11. **Jury pool demographics** -- parish-specific factors that affect jury perception.
-12. **Co-defendant posture** -- severance status, cooperation agreements, Bruton issues.
-13. **ADA profile** -- the assigned prosecutor's known patterns, trial style, and prior cases (if available from Case Brain).
-14. **Case publicity** -- media coverage that may shape jury expectations.
+Materials fall into three tiers: **Essential** (Report 4a, Report 2a, charges, discovery production, Case Tables.xlsx), **Strategic** (Reports 1-8, audit reports, defense witness list, expert evaluations, prior motions and rulings), and **Contextual** (jury pool, co-defendant posture, ADA profile, publicity). Read `references/information-gathering-checklist.md` now for the full ranked 14-item checklist with the purpose of each item.
 
 **Present missing essential items as a ranked checklist before proceeding.** If items 1-2 are missing, do not proceed -- route the attorney to the theory development workflow.
 
@@ -105,30 +86,13 @@ Before building the stress test, collect and review the following materials in r
 
 ## STEP 2 -- Analytical Modules
 
+Work Modules A through G in order. Modules A-D build the prosecution's attack; Module E answers it; Modules F-G translate the result into trial risk and a preparation plan. Each module's table format and rule set lives in its reference file -- read it before drafting that module.
+
 ### MODULE A -- Theory Vulnerability Scan
 
 Identify the **top 10 weaknesses** in the selected defense theory. Approach this as a prosecutor reviewing the defense's case file: where would you attack?
 
-For each vulnerability, document:
-
-| # | Vulnerability | Why It's Exploitable | Evidence the Prosecution Would Use | Severity |
-|---|---|---|---|---|
-| 1 | [Concise statement] | [Why a jury would find this persuasive against the defense] | [Specific case evidence with citations] | CRITICAL / HIGH / MODERATE |
-
-**Vulnerability categories to scan:**
-
-1. **Factual contradictions** -- defense theory claims X, but evidence item Y says the opposite.
-2. **Missing evidence** -- defense theory depends on evidence that does not exist in discovery or has not been produced.
-3. **Witness credibility gaps** -- defense witnesses with impeachment vulnerabilities (prior inconsistent statements, bias, criminal history, interest in outcome).
-4. **Timeline inconsistencies** -- defense theory requires events in sequence A, but the evidence timeline shows sequence B.
-5. **Scientific/forensic conflicts** -- defense theory is contradicted by forensic evidence (DNA, ballistics, toxicology, digital forensics).
-6. **Common-sense implausibility** -- the defense theory, even if technically possible, asks the jury to believe something that strains credibility.
-7. **Legal doctrine weaknesses** -- the defense theory relies on a legal argument that is contested, has adverse precedent, or requires a favorable ruling on a pending motion.
-8. **Co-defendant / cooperator exposure** -- a co-defendant or cooperating witness could testify to facts that undermine the defense theory.
-9. **Defendant's own statements** -- statements by the defendant (to police, in jail calls, on social media, to witnesses) that are inconsistent with the defense theory.
-10. **Prior-acts exposure** -- La. C.E. Art. 404(B) or Prieur evidence the prosecution could introduce that undermines the defense theory's credibility.
-
-Rank the 10 vulnerabilities from most to least dangerous. The ranking should consider both the strength of the prosecution's evidence AND the likely jury impact.
+Rank the 10 vulnerabilities from most to least dangerous, weighing both the strength of the prosecution's evidence and the likely jury impact. Read `references/module-a-theory-vulnerability-scan.md` now for the vulnerability table format and the ten vulnerability categories to scan (factual contradictions through prior-acts exposure).
 
 ---
 
@@ -136,22 +100,7 @@ Rank the 10 vulnerabilities from most to least dangerous. The ranking should con
 
 For **each defense witness** (identified from the defense witness list and Report 4a), draft the **5 hardest cross-examination questions** the prosecution would ask.
 
-For each question, document:
-
-| Witness | Question | Evidence Basis | Damage Potential | Anticipated Defense Objection |
-|---|---|---|---|---|
-| [Name] | [The question, verbatim, as the ADA would ask it] | [Discovery item/citation the ADA would use to support the question] | [What the jury would take away if the answer is bad] | [Any evidentiary objection the defense could raise -- relevance, 403, hearsay, 404(b), etc.] |
-
-**Cross-examination principles to apply (prosecution perspective):**
-
-- Start with locked-in facts the witness cannot deny (prior statements, physical evidence, documents).
-- Use leading questions exclusively -- this is cross, not direct.
-- Target inconsistencies between the witness's expected testimony and documentary evidence.
-- Exploit any relationship between the witness and the defendant (bias, interest, motive to fabricate).
-- Build toward a concluding question that forces the witness into a damaging admission or an implausible denial.
-- Identify any witness whose cross-examination could be so damaging that the defense should reconsider calling them.
-
-If the defendant is expected to testify, include the defendant's cross-examination as the final and most detailed entry. A defendant's cross is the prosecution's best opportunity -- analyze it accordingly.
+If the defendant is expected to testify, the defendant's cross is the final and most detailed entry. Read `references/module-b-cross-examination-simulation.md` now for the per-question table format and the prosecution-perspective cross-examination principles.
 
 ---
 
@@ -159,17 +108,7 @@ If the defendant is expected to testify, include the defendant's cross-examinati
 
 Draft the prosecution's closing argument attacking the defense theory. This is not a generic closing -- it is tailored to this case's specific evidence, this defendant's specific theory, and this jurisdiction's jury expectations.
 
-**Structure the closing around:**
-
-1. **Opening frame** -- the prosecution's one-sentence theory of the case that competes with the defense narrative.
-2. **Theme** -- the 3-5 word theme the prosecution would repeat throughout closing (e.g., "He knew exactly what he was doing," "The evidence doesn't lie," "Actions speak louder than words").
-3. **Evidence walk-through** -- the 5-7 most powerful pieces of evidence the prosecution would highlight, in the order they would present them for maximum impact. For each: what it is, what it proves, and how it undermines the defense theory.
-4. **Defense theory attack** -- the specific section where the prosecution directly attacks the defense theory. What would the ADA say to the jury about why the defense theory doesn't hold up? What rhetorical questions would they ask?
-5. **Inferential leaps** -- the logical inferences the prosecution would ask the jury to draw from the evidence. Flag which inferences are strong (directly supported by evidence) and which are stretches (require the jury to speculate).
-6. **Emotional appeal** -- the emotional themes the prosecution would invoke (victim impact, community safety, accountability). Assess whether these appeals are legitimate or cross into impermissible territory.
-7. **Burden reassurance** -- how the prosecution would preemptively address reasonable doubt and reassure the jury that the burden has been met.
-
-**Flag any prosecution argument that would be objectionable** -- improper burden-shifting, commenting on defendant's silence, vouching, facts not in evidence, appeals to prejudice. These flags become defense objection preparation points.
+Flagged improper arguments become defense objection preparation points. Read `references/module-c-closing-argument-preview.md` now for the seven-part closing structure (opening frame through burden reassurance) and the objectionable-argument flags.
 
 ---
 
@@ -177,25 +116,7 @@ Draft the prosecution's closing argument attacking the defense theory. This is n
 
 Identify evidence the prosecution could introduce in **rebuttal** -- after the defense rests -- to undermine the defense theory.
 
-For each piece of rebuttal evidence:
-
-| # | Rebuttal Evidence | How It Undermines the Defense Theory | Source | Already in Discovery? | Legal Challenge |
-|---|---|---|---|---|---|
-| 1 | [Description] | [Specific defense claim it contradicts] | [Where it comes from] | Yes / No / Unknown | [Relevance, 403, 404(b), hearsay, or other evidentiary objection the defense could raise] |
-
-**Categories of rebuttal evidence to consider:**
-
-1. **Rebuttal witnesses** -- witnesses the prosecution held back to contradict specific defense testimony.
-2. **Prior inconsistent statements of defense witnesses** -- impeachment evidence saved for rebuttal.
-3. **Expert rebuttal** -- prosecution expert testimony responding to defense expert opinions.
-4. **Physical evidence rebuttal** -- forensic evidence that was not part of the case-in-chief but responds to defense claims.
-5. **404(B) evidence on rebuttal** -- prior bad acts that may be admissible in rebuttal even if excluded from the case-in-chief, because the defense "opened the door" (identify what defense testimony would open which doors).
-6. **Defendant's own rebuttal exposure** -- if the defendant testifies, prior convictions (La. C.E. Art. 609), prior inconsistent statements, and collateral evidence that becomes admissible once the defendant takes the stand.
-
-**For each rebuttal item, assess:**
-- Likelihood the prosecution has this evidence or could obtain it.
-- Whether the defense can avoid triggering it (e.g., by not calling a particular witness or not raising a specific claim).
-- Whether a pretrial motion in limine could exclude it.
+Assess for each item whether the prosecution has it, whether the defense can avoid triggering it, and whether a motion in limine could exclude it. Read `references/module-d-rebuttal-evidence.md` now for the rebuttal evidence table, the six rebuttal categories, and the three-part per-item assessment.
 
 ---
 
@@ -203,31 +124,7 @@ For each piece of rebuttal evidence:
 
 This is the core deliverable of the stress test. For **every vulnerability identified in Modules A through D**, generate a prepared defense response.
 
-| # | Attack | Source Module | Evidence Cited by Prosecution | Defense Response | Evidence/Authority Supporting Response | Preparation Needed |
-|---|---|---|---|---|---|---|
-| 1 | [Concise statement of the prosecution attack] | A/B/C/D | [Specific evidence the prosecution relies on] | [How the defense neutralizes, minimizes, or turns the attack] | [Case evidence, legal authority, or expert opinion supporting the defense response] | [What the defense team must do before trial to execute this response -- witness prep, motion practice, expert retention, additional investigation] |
-
-**Response strategies to consider for each attack:**
-
-- **Neutralize** -- present evidence or argument that directly refutes the prosecution's point.
-- **Minimize** -- concede the point exists but argue it is insignificant, taken out of context, or outweighed by other evidence.
-- **Redirect** -- use the prosecution's own evidence to support the defense theory ("Yes, and that proves our point because...").
-- **Preempt** -- address the vulnerability in the defense case-in-chief before the prosecution can exploit it (stealing thunder).
-- **Exclude** -- identify an evidentiary basis to keep the prosecution's attack out entirely (motion in limine, hearsay, 403, 404(b)).
-- **Jury instruction** -- request a limiting instruction that cabins the jury's consideration of the evidence.
-
-For each counter-response, identify the **D&W skill that should handle preparation**:
-
-| Preparation Type | Route To |
-|---|---|
-| Witness preparation for cross | `dw-cross-exam-architect-crim` |
-| Expert challenge or retention | `dw-expert-witness-evaluator-crim` |
-| Motion in limine / suppression | `dw-suppression-motion-crim` or `dw-pretrial-motion-library-crim` |
-| 404(B) opposition | `dw-404b-opposition-crim` |
-| Additional investigation | `dw-defense-investigator-tasking-crim` |
-| Jury instruction drafting | `dw-jury-instructions-builder-crim` |
-| Narrative reframing | `dw-trial-narrative-builder-crim` |
-| Voir dire focus areas | `dw-voir-dire-assistant-crim` |
+For each counter-response, name the D&W skill that should handle preparation. Read `references/module-e-counter-response-matrix.md` now for the matrix format, the six response strategies (neutralize, minimize, redirect, preempt, exclude, jury instruction), and the preparation-routing table.
 
 ---
 
@@ -235,27 +132,7 @@ For each counter-response, identify the **D&W skill that should handle preparati
 
 For each major attack identified in Modules A through D, assess how a **Louisiana jury** would perceive it. This module translates legal analysis into practical trial risk.
 
-For each attack:
-
-| # | Attack | Emotional Impact | Complexity | Credibility Balance | Visual Evidence? | Jury Risk Rating |
-|---|---|---|---|---|---|---|
-| 1 | [Attack description] | HIGH / MOD / LOW | HIGH / MOD / LOW | Favors State / Neutral / Favors Defense | Yes / No | **HIGH RISK** / **MODERATE RISK** / **LOW RISK** |
-
-**Assessment factors:**
-
-1. **Emotional impact** -- Does the attack invoke strong emotional responses (fear, anger, sympathy for the victim, disgust)? Emotionally charged attacks are harder to neutralize with logical responses.
-2. **Complexity** -- Is the attack simple enough for a lay jury to grasp immediately, or does it require understanding technical/legal nuances? Simple attacks are more dangerous.
-3. **Credibility of the attacker** -- Who delivers the attack? A sympathetic victim is more dangerous than a jailhouse informant. A uniformed officer is more dangerous than a co-defendant.
-4. **Credibility of the defense response** -- Is the defense counter-response intuitive, or does it require the jury to accept a counterintuitive explanation?
-5. **Visual evidence impact** -- Is the attack supported by photographs, video, physical exhibits, or demonstratives that the jury will see? Visual evidence has outsized impact.
-6. **Cultural / community factors** -- Parish-specific jury tendencies, local attitudes toward law enforcement, community sensitivities relevant to the case type.
-7. **Cumulative effect** -- Does this attack reinforce other prosecution themes, or does it stand alone? Attacks that fit the prosecution's narrative arc are more dangerous than isolated points.
-
-**Jury Risk Ratings:**
-
-- **HIGH RISK** -- This attack could independently cause a conviction or make acquittal very difficult. Requires aggressive preparation and may warrant reconsidering aspects of the defense strategy.
-- **MODERATE RISK** -- This attack is damaging but manageable with proper preparation. The defense counter-response is viable but must be executed well.
-- **LOW RISK** -- This attack is unlikely to move the jury significantly. The defense response is strong, or the attack itself is weak, complex, or based on low-credibility evidence.
+Every major attack from Modules A-D receives a Jury Risk Rating with rationale. Read `references/module-f-jury-perception-risk.md` now for the jury-risk table, the seven assessment factors, and the HIGH / MODERATE / LOW risk rating definitions.
 
 ---
 
@@ -263,37 +140,7 @@ For each attack:
 
 Synthesize all findings from Modules A through F into a **prioritized preparation checklist** ranked by jury risk level.
 
-**Format:**
-
-#### CRITICAL PRIORITY (HIGH RISK -- Prepare Immediately)
-
-- [ ] **[Vulnerability description]** -- [One-sentence preparation action]. Route to: `[applicable skill]`. Deadline: [relative to trial date].
-- [ ] ...
-
-#### HIGH PRIORITY (MODERATE RISK -- Prepare Before Trial Prep Deadline)
-
-- [ ] **[Vulnerability description]** -- [One-sentence preparation action]. Route to: `[applicable skill]`. Deadline: [relative to trial date].
-- [ ] ...
-
-#### STANDARD PRIORITY (LOW RISK -- Prepare During Normal Trial Prep)
-
-- [ ] **[Vulnerability description]** -- [One-sentence preparation action]. Route to: `[applicable skill]`. Deadline: [relative to trial date].
-- [ ] ...
-
-**Cross-skill routing summary:**
-
-| Skill | Tasks Routed | Count |
-|---|---|---|
-| `dw-cross-exam-architect-crim` | [List task numbers] | [N] |
-| `dw-expert-witness-evaluator-crim` | [List task numbers] | [N] |
-| `dw-trial-narrative-builder-crim` | [List task numbers -- feeds Rebuttal Anticipation Memo] | [N] |
-| `dw-voir-dire-assistant-crim` | [List task numbers -- feeds jury-selection focus areas] | [N] |
-| `dw-theory-to-workplan-crim` | [List task numbers -- feeds Stream 5 witness prep updates] | [N] |
-| `dw-pretrial-motion-library-crim` | [List task numbers] | [N] |
-| `dw-404b-opposition-crim` | [List task numbers] | [N] |
-| `dw-defense-investigator-tasking-crim` | [List task numbers] | [N] |
-| `dw-jury-instructions-builder-crim` | [List task numbers] | [N] |
-| `dw-suppression-motion-crim` | [List task numbers] | [N] |
+Every checklist item carries a preparation action, a routed skill, and a deadline relative to the trial date. Read `references/module-g-priority-preparation-checklist.md` now for the CRITICAL / HIGH / STANDARD checklist format and the cross-skill routing summary table.
 
 ---
 
@@ -305,39 +152,7 @@ All deliverables produced by this skill are internal work product. Apply work-pr
 {{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/
 ```
 
-### Primary deliverable: Adversarial Stress Test Report (.docx)
-
-Filename: `Adversarial_Stress_Test_{{DEFENDANT_LAST}}_{{DOCKET}}_{{YYYY-MM-DD}}.docx`
-
-Contents:
-1. Header -- work-product marking, defendant, docket, parish/court, date, attorney.
-2. Executive Summary -- one-page "Top 5 Vulnerabilities" with risk ratings, evidence citations, and recommended actions. Designed for quick attorney review before diving into the full report.
-3. Section 1 -- Theory Under Test (from Report 4a: selected theory, supporting evidence, theme).
-4. Section 2 -- Theory Vulnerability Scan (Module A: top 10 weaknesses ranked by severity).
-5. Section 3 -- Prosecution Cross-Examination Simulation (Module B: per-witness cross questions).
-6. Section 4 -- Prosecution Closing Argument Preview (Module C: full draft closing).
-7. Section 5 -- Rebuttal Evidence Identification (Module D: rebuttal evidence inventory).
-8. Section 6 -- Defense Counter-Response Matrix (Module E: attack-by-attack response plan).
-9. Section 7 -- Jury Perception Risk Assessment (Module F: risk ratings with rationale).
-10. Section 8 -- Priority Preparation Checklist (Module G: ranked action items with skill routing).
-11. Source-citation appendix -- every factual claim mapped to its discovery citation.
-
-### Secondary deliverable: Top 5 Vulnerabilities Executive Summary (.docx)
-
-Filename: `Stress_Test_Top_5_{{DEFENDANT_LAST}}_{{DOCKET}}_{{YYYY-MM-DD}}.docx`
-
-A standalone one-page document for quick attorney review. Contains:
-- The 5 highest-risk vulnerabilities from the full report.
-- For each: the attack, the evidence the prosecution would use, the defense counter-response, the jury risk rating, and the single most important preparation action.
-- A footer noting: *"Full Adversarial Stress Test Report available -- see [filename]."*
-
-### Case Brain update
-
-After generating the report, update `dw-case-brain-crim` with:
-- Stress test completion date.
-- Top 5 vulnerability summary (for quick-reference on case reload).
-- Cross-skill routing tasks generated.
-- Flag: `STRESS_TEST_CURRENT` = `true` (set to `false` when new evidence arrives or theory shifts -- see Re-Run Protocol below).
+Three outputs: the **Adversarial Stress Test Report (.docx)** -- header, Executive Summary, Sections 1-8 mapping to the Theory Under Test and Modules A-G, and a source-citation appendix; the standalone one-page **Top 5 Vulnerabilities Executive Summary (.docx)**; and a **Case Brain update** (completion date, top-5 summary, routing tasks, `STRESS_TEST_CURRENT` flag). Read `references/output-format-and-deliverables.md` now for the exact filenames, section-by-section contents, and Case Brain fields.
 
 ---
 
@@ -356,29 +171,7 @@ When re-running, generate a new report with the current date. Do not overwrite t
 
 ## Cross-Skill Integration
 
-### This skill REQUIRES (prerequisite):
-- `dw-criminal-defense-crim` Phase 2 Step 2 -- Reports 1-8 must exist.
-- Report 4a (Theory Selection Memo) -- the attorney's selected defense theory. Without this, the stress test has no target.
-- Report 2a (Theory Deconstruction) -- the vulnerability baseline from `dw-theory-deconstructor-crim`.
-
-### This skill READS FROM:
-- `dw-case-brain-crim` -- structured case context, prior analysis, Case Tables.
-- `dw-theory-deconstructor-crim` -- Report 2a vulnerability analysis (the starting point for Module A).
-- Reports 1-8 (Phase 2 Case Analysis) -- evidence inventory, timeline, prosecution summary, impeachment plan.
-- All evidence audit reports -- forensic, identification, confession, Brady/Giglio, jail call, crime scene, mobile forensic findings.
-- `dw-expert-witness-evaluator-crim` -- expert vulnerability assessments.
-- Case Tables.xlsx -- Evidence Table, Witness List, Timeline Sheet.
-
-### This skill FEEDS:
-- `dw-theory-to-workplan-crim` -- vulnerabilities from Module G create new tasks in Stream 5 (witness preparation), Stream 3 (motion practice), and other workplan streams. The Priority Preparation Checklist maps directly to workplan task entries.
-- `dw-trial-narrative-builder-crim` -- Module E (Defense Counter-Response Matrix) feeds the Rebuttal Anticipation Memo. The narrative builder uses the counter-responses to build preemptive narrative elements into the defense story.
-- `dw-cross-exam-architect-crim` -- Module B (Prosecution Cross-Examination Simulation) identifies the hardest questions defense witnesses will face; the cross-exam architect uses these to build witness preparation outlines.
-- `dw-voir-dire-assistant-crim` -- Module F (Jury Perception Risk Assessment) identifies jury-perception risks that inform voir dire focus areas and juror-profile criteria.
-- `dw-case-brain-crim` -- stress test completion status, top-5 summary, routing tasks.
-
-### This skill PAIRS WITH:
-- `dw-theory-deconstructor-crim` -- deconstructor identifies structural weaknesses; this skill tests those weaknesses under adversarial fire.
-- `dw-trial-narrative-builder-crim` -- narrative builder constructs the affirmative story; this skill identifies where the story breaks under attack.
+This skill **requires** Report 4a, Report 2a, and the Phase 2 Reports 1-8; **reads from** `dw-case-brain-crim`, `dw-theory-deconstructor-crim`, the evidence audit reports, `dw-expert-witness-evaluator-crim`, and Case Tables.xlsx; **feeds** `dw-theory-to-workplan-crim`, `dw-trial-narrative-builder-crim`, `dw-cross-exam-architect-crim`, `dw-voir-dire-assistant-crim`, and `dw-case-brain-crim`; and **pairs with** `dw-theory-deconstructor-crim` and `dw-trial-narrative-builder-crim`. Read `references/cross-skill-integration.md` now for the module-by-module contract of what flows in each direction.
 
 ---
 
@@ -397,7 +190,20 @@ When re-running, generate a new report with the current date. Do not overwrite t
 
 ## Quick References
 
-This skill does not maintain its own `references/` subdirectory. It reads from:
+Each step names the file it needs. Load that file at the step that reads it.
+
+- **information-gathering-checklist.md** -- Step 1: the ranked Essential / Strategic / Contextual 14-item materials checklist.
+- **module-a-theory-vulnerability-scan.md** -- Step 2, Module A: vulnerability table format and the ten vulnerability categories.
+- **module-b-cross-examination-simulation.md** -- Step 2, Module B: per-question table and prosecution-perspective cross principles.
+- **module-c-closing-argument-preview.md** -- Step 2, Module C: seven-part closing structure and objectionable-argument flags.
+- **module-d-rebuttal-evidence.md** -- Step 2, Module D: rebuttal evidence table, six rebuttal categories, per-item assessment.
+- **module-e-counter-response-matrix.md** -- Step 2, Module E: counter-response matrix, six response strategies, preparation-routing table.
+- **module-f-jury-perception-risk.md** -- Step 2, Module F: jury-risk table, seven assessment factors, risk rating definitions.
+- **module-g-priority-preparation-checklist.md** -- Step 2, Module G: three-tier checklist format and cross-skill routing summary.
+- **output-format-and-deliverables.md** -- Step 3: filenames and contents of the full report, Top 5 executive summary, and Case Brain update.
+- **cross-skill-integration.md** -- Cross-Skill Integration: prerequisites, inputs, outputs, and pairings.
+
+External inputs this skill reads (not in `references/`):
 
 - **Report 4a (Theory Selection Memo)** -- the attorney's selected defense theory (produced by the theory development workflow)
 - **Report 2a (Theory Deconstruction)** -- vulnerability baseline from `dw-theory-deconstructor-crim`

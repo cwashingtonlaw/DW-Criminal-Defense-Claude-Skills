@@ -225,3 +225,30 @@ The Theme Tracker (.xlsx) is the live document tracking the theme arc. See `dw-t
 ---
 
 *Theme craft is a defense lawyer's art, not a science. These principles are guidelines, not rules. The best themes come from the case file, not from a manual. But every theme — regardless of source — must pass the verbatim-repetition test, the evidence-supportability test, and the deliberating-juror-can-explain-it test before it earns a row in the Theme Tracker.*
+
+---
+
+## Theme Tracker Schema (moved from SKILL.md Step 5)
+
+Read at SKILL.md STEP 5 (Theme Tracker .xlsx). Column table, column rules, and per-mode finalization rules — verbatim from SKILL.md.
+
+### Columns
+
+| Theme # | Theme Text | Opening Registration (page/section) | Mid-Trial Reinforcement (witness/exhibit) | Closing Callback (section) | Status | Notes |
+|---|---|---|---|---|---|---|
+| 1 | [3-7 word theme phrase] | Opening, page X, section Y | Cross of Officer Smith, Ch. 3; Exhibit D-7 | Closing, section II.B | Registered / Reinforced / Dropped | [Notes] |
+| 2 | ... | ... | ... | ... | ... | ... |
+
+- **Theme # column:** sequential, matches the numbering in the opening and closing
+- **Theme Text:** the exact phrase to be used verbatim throughout trial. Same words, same phrasing.
+- **Opening Registration:** where in the opening this theme was planted (page and section)
+- **Mid-Trial Reinforcement:** during trial, every time the theme is echoed at a witness exit or with an exhibit, add a row entry. Populated as the trial unfolds — the attorney updates this column live.
+- **Closing Callback:** where in the closing this theme is harvested (section)
+- **Status:** Registered (in opening, not yet echoed mid-trial) / Reinforced (echoed at least once mid-trial) / Dropped (theme abandoned because evidence didn't support it — flag for attorney review; dropped themes cannot be harvested in closing)
+- **Notes:** strategic notes, decision points, evidence references
+
+### When the Theme Tracker is finalized
+
+- **MODE A:** Theme Tracker rows 1-N are populated for Theme # / Theme Text / Opening Registration. Mid-Trial and Closing columns are blank — to be filled during trial and during the MODE B build.
+- **MODE B:** Theme Tracker has been previously populated through opening and mid-trial. Now Closing Callback column is filled in, Status is updated, dropped themes are flagged.
+- **MODE A+B:** Theme Tracker is populated for both Opening Registration and Closing Callback at the same time, with Mid-Trial Reinforcement left for the attorney to fill in during trial.

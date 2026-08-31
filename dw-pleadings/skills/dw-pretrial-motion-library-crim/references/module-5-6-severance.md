@@ -46,3 +46,7 @@ Same as Module 5 searches above.
 ### Key authority
 
 La. C.Cr.P. Art. 495.1, 704; *Bruton v. United States*, 391 U.S. 123 (1968); *Zafiro v. United States*, 506 U.S. 534 (1993).
+
+## Module summary (moved from SKILL.md)
+
+Severance under La. C.Cr.P. Art. 495.1 (offenses) or Art. 495.1 / 704 (defendants). Module 5 addresses prejudicial joinder of counts (spillover, disparate evidence). Module 6 addresses prejudicial joint trials (antagonistic defenses, *Bruton* issues, co-defendant statements).

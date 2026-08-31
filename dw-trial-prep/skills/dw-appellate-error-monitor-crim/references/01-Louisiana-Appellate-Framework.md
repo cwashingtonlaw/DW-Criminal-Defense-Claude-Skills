@@ -115,3 +115,34 @@ A motion for appeal must be made no later than thirty days after the order of th
 "Within the time specified in Article 914.1, or within any extension thereof, the appellant shall file with the clerk of the trial court a designation of the portions of the record, pleadings, and documents relevant to the appeal."
 
 The record designation determines what the appellate court can review. Failure to designate a transcript or exhibit means the appellate court will not have it -- and issues dependent on the missing portion of the record cannot be reviewed.
+
+---
+
+## Role and Preservation Doctrine (moved verbatim from SKILL.md introduction)
+
+Your role is adversarial in the best sense: you assume the defense perspective and scrutinize every ruling, every objection (or failure to object), every proffer (or failure to proffer), and every post-trial deadline to maximize the client's appellate rights. Where trial counsel preserved issues effectively, you say so -- credibility depends on intellectual honesty. Where preservation failed, you document the failure precisely, explain the consequence under Louisiana law, assess whether any exception (errors patent, structural error, plain error, ineffective assistance of counsel) may salvage the issue, and arm the appellate attorney with the tools to pursue every viable avenue of relief.
+
+Error preservation is the bridge between trial and appeal. In Louisiana, the contemporaneous objection rule (La. C.Cr.P. Art. 841) is strictly enforced: an irregularity or error cannot be availed of after verdict unless it was objected to at the time of occurrence. The appellate courts will not consider issues raised for the first time on appeal, with narrow exceptions for errors patent (Art. 920) and structural errors. This skill ensures that no appellate opportunity is lost to a preservation failure, and that where preservation has failed, every available alternative -- post-trial motions, errors patent, ineffective assistance claims, writ applications -- is identified and assessed.
+
+
+---
+
+## Framework Contents Overview (moved verbatim from SKILL.md Step 0.6 and Step 2)
+
+- **Constitutional foundations:** La. Const. Art. I, Sec. 19; La. Const. Art. V, Sec. 10; U.S. Const. Amend. XIV due process and federal habeas exhaustion
+- **Contemporaneous objection rule (La. C.Cr.P. Art. 841):** timeliness, specificity, and ruling requirements; key jurisprudence (*Arvie*, *Taylor*, *Wessinger*, *Thomas*); narrow exceptions
+- **Proffer requirement (La. C.E. Art. 103):** narrative vs. testimonial proffers; *Magee*, *Broadway*
+- **Errors patent (La. C.Cr.P. Art. 920):** illegal sentences, Boykin deficiencies, Art. 873 delay, defective charging instruments, unauthorized multiple punishment
+- **Post-trial motion practice and appeal-deadline calculation**
+- **Harmless error and structural error doctrine**
+
+The complete framework — constitutional foundations (La. Const. Art. I Sec. 19, Art. V Sec. 10, U.S. Const. Amend. XIV); the Contemporaneous Objection Rule (Art. 841 with *Arvie*, *Taylor*, *Wessinger*, *Thomas*); the Proffer Requirement (La. C.E. Art. 103 with *Magee*, *Broadway*); Errors Patent (Art. 920); Post-Trial Motions as Preservation Vehicles (Arts. 851, 858, 881.1, 873 with *Mims*, *Augustine*); and Appeal Perfection (Arts. 912-914) — is set out in `references/01-Louisiana-Appellate-Framework.md` (loaded in Step 0.6).
+
+
+---
+
+## Framework Application Rule (moved verbatim from SKILL.md Step 0.6 and Step 2)
+
+Every preservation finding, every waiver assessment, and every appellate-issue ranking produced by this skill must apply the standards documented in this reference. Do not proceed to Step 1 until this framework is loaded.
+
+Louisiana criminal appeals are governed by a specific framework of constitutional provisions, Code of Criminal Procedure articles, and jurisprudential rules. Every error preservation analysis must begin with this framework.

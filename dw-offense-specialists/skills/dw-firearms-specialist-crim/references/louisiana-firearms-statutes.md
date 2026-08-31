@@ -262,3 +262,87 @@ Possession of firearm within 1,000 feet of school property.
 | R.S. 14:95.2 | School Zone | Firearm within 1000 ft school | Enhancement to R.S. 14:95 |
 | R.S. 14:95.5 | DV Battery Conviction | DV conviction + firearm possession | Up to 5 yrs |
 | R.S. 14:95.10 | Protective Order | Order issued + firearm possession | Varies |
+
+---
+
+## Step 3 Operational Guidance — State Charge Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 3. This block was relocated from the skill body without modification.
+
+### R.S. 14:95 — Illegal Carrying of Weapons
+
+**ELEMENTS:**
+- Intentionally carrying any firearm or other weapon in manner prohibited by statute
+- Manner includes: concealed handgun without proper permit, carrying while intoxicated, carrying on school property, carrying at parade/demonstration, carrying in courthouse
+
+**PENALTIES:**
+- First offense: up to 6 months imprisonment and/or $500 fine
+- Subsequent offense: up to 3 years imprisonment
+
+**DEFENSES:**
+- Valid concealed carry permit (R.S. 40:1379.3)
+- Permit-exempt locations (residence, vehicle, workplace)
+- No intent/knowledge of carrying
+- Permit obtained but officer unaware (reasonable mistake of law)
+
+### R.S. 14:95.1 — Felon in Possession of Firearm
+
+**CRITICAL STATUTE — MANDATORY SENTENCING**
+
+**ELEMENTS:**
+1. Defendant is a convicted felon (within Louisiana or elsewhere)
+2. Defendant intentionally possesses a firearm
+3. Firearm is accessible to defendant
+4. Defendant knows of possession
+5. Firearm is not a destructive device and not subject to NFA registration
+
+**PENALTIES:**
+- 10 to 20 years hard labor at Angola
+- **NO probation, parole, or suspension of sentence** — fully mandatory
+- No good-time credit applicable in some interpretations
+
+**PREDICATE CONVICTION AUDIT (MUST DO):**
+
+Is the prior conviction actually a disqualifying felony?
+
+1. **Was it a conviction?** (not a deferral under La. C.C.P. Art. 893, not a deferred adjudication)
+2. **Was it actually a felony?** (Some charges can be adjudicated as misdemeanors or felonies depending on sentencing)
+3. **Has it been expunged?** (Check LSHB 1018 — some felonies can be expunged after 5-10 years)
+4. **Was Boykin colloquy proper?** (Failure to comply with Boykin in guilty plea = void conviction)
+5. **What is the specific statute of conviction?** (Some crimes are wobbler offenses)
+
+**10-YEAR CLEANSING PERIOD — R.S. 14:95.1(C):**
+- Cleansing period runs from completion of sentence, NOT from date of conviction
+- If prior felony sentence ended 9 years ago, defendant is still within window
+- Completion includes parole/probation termination
+- Document exact dates of sentence and parole release
+
+### R.S. 14:95.2 — Firearm-Free Zone
+
+- Possession within 1000 feet of school property: enhanced penalty
+- Carries additional crime (separate charge possibility)
+- School property defined broadly (building, grounds, buses)
+
+### R.S. 14:95.5 — Prohibited Possession (Domestic Abuse)
+
+- Defendant convicted of domestic abuse battery (R.S. 14:35.3)
+- Possession of firearm while under such conviction: prohibited
+- Overlaps with federal § 922(g)(9) domestic violence prohibitor
+
+### R.S. 14:95.10 — Protective Order/Domestic Abuse
+
+- Possession prohibited while under protective order
+- Or while convicted of domestic abuse crime
+- Overlaps with federal law (18 U.S.C. § 922(g)(8))
+
+### Concealed Carry Permit Exemptions
+
+- R.S. 40:1379.3 outlines permit requirements
+- Certain locations exempt (vehicle, residence, workplace with employer consent)
+- Permit required for public carry in populated areas
+
+### Castle Doctrine / Stand Your Ground
+
+- R.S. 14:20 (Justifiable homicide) — self-defense principles
+- May apply as mitigation if firearm used in self-defense scenario
+- Separate from illegal carrying charge itself

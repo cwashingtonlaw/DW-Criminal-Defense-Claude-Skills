@@ -175,3 +175,43 @@ The Rebuttal Anticipation Memo (Step 6 deliverable in `dw-trial-narrative-builde
 ---
 
 *The Five-Point Rebuttal Map is a baseline. Every case has its own rebuttal landscape, and the memo customizes accordingly. But the five points appear with such regularity that any defense closing built without addressing them will be caught flat-footed in 80% of trials. Build the inoculation in.*
+
+---
+
+## Rebuttal Memo Structure and Default Predictions (moved from SKILL.md Step 6)
+
+Read at SKILL.md STEP 6 (Rebuttal Anticipation Memo .docx). Four-part memo template, default Five-Point predictions, and output/handling rule — verbatim from SKILL.md.
+
+### Memo structure
+
+For each predicted State rebuttal point, the memo contains four parts:
+
+> **Predicted Rebuttal Point #1: [Short label, e.g., "Burden-shift attempt"]**
+>
+> **(a) What the State will likely say:** [One paragraph — verbatim language the prosecutor will probably use. Anticipate phrasing.]
+>
+> **(b) Why it's wrong:** [Legal and factual analysis. Cite the rule (e.g., burden never shifts — *In re Winship*, *Sullivan v. Louisiana*). Cite the evidence the State is misrepresenting, if any.]
+>
+> **(c) Pre-rebuttal line woven into defense closing:** [The exact sentence(s) the defense closing should contain so that when the prosecutor stands up, the jury has already heard the rebuttal coming. Reference the section of the defense closing where this line appears.]
+>
+> **(d) Fallback objection if State's rebuttal exceeds scope:** [Objection text and legal basis — La. C.Cr.P. Art. 774; reference *State v. Manning*, 03-1982 (La. 2004), 885 So.2d 1044, and *State v. Sayles*, 395 So.2d 695 (La. 1981), for scope-of-rebuttal preservation. If the State references facts not in evidence: *"Objection — facts not in evidence."* If burden-shifting: *"Objection — misstatement of law; the burden remains with the State."*]
+
+### Standard Five-Point Rebuttal Map (default predictions if no case-specific intelligence)
+
+See `references/rebuttal-anticipation.md` for the full Five-Point Rebuttal Map. Default predictions, in approximate frequency order:
+
+1. **Burden-shift attempt** — "Defense counsel didn't explain X" / "Where's the defense witness who says Y?"
+2. **Reasonable doubt minimization** — "Reasonable doubt is not any doubt; it's a real doubt; use your common sense"
+3. **The 'common sense' appeal** — "Use your common sense; you know what happened here"
+4. **Victim sympathy** — invocation of the victim's suffering, the family, the community
+5. **Defense-theory mockery** — characterization of the defense theory as "ridiculous," "a fantasy," "a smoke screen"
+
+The Rebuttal Memo customizes these to the specific case based on the State's case-in-chief evidence and the defense's actual closing.
+
+### Output
+
+The Rebuttal Memo is an internal work product document — never filed, never shared with the State. It sits in the trial notebook next to the closing argument so the attorney can review it immediately before delivering closing and immediately after the State's rebuttal (to assess whether any predicted points were missed or whether new ground was opened).
+
+### Step 6 framing (moved from SKILL.md Step 6)
+
+The State gets the last word. The defense closing is followed by the State's rebuttal. Rebuttal scope is bounded by La. C.Cr.P. Art. 774 — the State may only rebut what the defense argued. But within that scope, the State will hit predictable points.

@@ -234,3 +234,40 @@ A practical note: the standard of review is a battleground in many appeals. The 
 ---
 
 *Last updated: May 2026. Verify all citations marked `[VERIFY CITATION]` against current Louisiana jurisprudence before filing.*
+
+---
+
+## Step 3 Quick Map (moved from SKILL.md)
+
+**Quick map** (full chart in the reference file):
+
+| Issue Type | Standard of Review | Anchor Authority |
+|---|---|---|
+| Sufficiency of evidence | *Jackson v. Virginia* — rational trier could find each element BRD | *Jackson v. Virginia*, 443 U.S. 307 (1979); *State v. Captville*, 448 So.2d 676 (La. 1984) |
+| Constitutional rulings (4th/5th/6th Am.) | De novo on legal questions; deferential on credibility findings | *Ornelas v. United States*, 517 U.S. 690 (1996) |
+| Evidentiary rulings (relevance, hearsay, 404(b)) | Abuse of discretion | *State v. Mosby*, 595 So.2d 1135, 1138-39 (La. 1992); *State v. Taylor*, 2001-1638 (La. 1/14/03), 838 So.2d 729, 741 (404(B)) |
+| Sentencing — constitutional excessiveness | Manifest abuse of discretion | La. Const. Art. I, § 20; *State v. Bonanno*, 384 So.2d 355 (La. 1980) |
+| Motion to suppress | De novo on legal/mixed questions; deferential on credibility | *State v. Hunt*, 2009-1589 (La. 12/1/09), 25 So.3d 746, 751 |
+| Jury instruction errors | De novo on the instruction; harmless-error analysis | *Neder v. United States*, 527 U.S. 1 (1999) |
+| Batson challenges | Mixed — clear error on factual findings; de novo on legal framework | *Snyder v. Louisiana*, 552 U.S. 472 (2008) |
+| Factual findings | Manifest error / clearly wrong | *Stobart v. State Through DOTD*, 617 So.2d 880, 882-83 (La. 1993) (civil case; same formulation applied criminally) |
+
+---
+
+## Module E — Quick Standard-of-Review Categories (moved from SKILL.md)
+
+### Quick standard-of-review categories
+
+| Category | Standard | When to use |
+|---|---|---|
+| Pure legal questions | De novo | Constitutional rulings, statutory interpretation |
+| Mixed questions of law and fact | De novo (legal); deferential (factual/credibility) | Suppression motions, ineffective-assistance claims (post-conviction) |
+| Factual findings | Manifest error / clearly wrong | Trial court fact-finding after bench trial or hearing |
+| Discretionary rulings | Abuse of discretion | Evidentiary rulings, continuances, severance, sentencing within range |
+| Constitutional excessiveness | Manifest abuse of discretion | Excessive sentence under La. Const. Art. I, § 20 |
+| Sufficiency | Jackson / Captville | Whether evidence supports conviction |
+| Structural error | Automatic reversal | *Sullivan*, *McCoy*, *Ramos*, total denial of counsel |
+| Harmless error (constitutional) | State proves BRD | *Chapman v. California* |
+| Harmless error (non-constitutional) | Did not affect substantial rights | La. C.Cr.P. Art. 921 |
+
+If a standard is unclear, default to the rule that the legal question is de novo and any factual or credibility predicate is deferential — and flag with `[VERIFY STANDARD]` for attorney review.

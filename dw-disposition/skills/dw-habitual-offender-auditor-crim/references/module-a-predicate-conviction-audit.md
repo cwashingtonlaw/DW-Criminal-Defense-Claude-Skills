@@ -1,5 +1,14 @@
 # MODULE A — Predicate Conviction Audit
 
+## Overview (moved from SKILL.md)
+
+Systematically verify every element the State must prove for each predicate conviction. The State bears the burden of proving each predicate beyond a reasonable doubt at the habitual offender hearing — *State v. Carlos*, 98 So.3d 727 (La. App. 4th Cir. 2012); *State v. Payton*, 810 So.2d 1127 (La. 2002). Failure on any single element defeats that predicate.
+
+The five elements are: (1) **Identity** (defendant is the same person convicted in the predicate case — fingerprints preferred per *State v. Curtis*, 338 So.2d 662 (La. 1976)); (2) **Valid Conviction** (final conviction supported by certified records — *State v. Baker*, 230 So.3d 207 (La. App. 4th Cir. 2017)); (3) **Felony Status** (predicate must have been a felony at the time of conviction — watch for 2017 reclassifications); (4) **Boykinization** (for guilty-plea predicates — analyzed in Module B); and (5) **Sequence & Timing** (analyzed in Modules C and D).
+
+After auditing each predicate, assign a severity rating: FATAL DEFICIENCY / SIGNIFICANT DEFICIENCY / MODERATE DEFICIENCY / MINOR DEFICIENCY / NO DEFICIENCY.
+
+
 This module systematically verifies every element the State must prove for each predicate conviction. The State bears the burden of proving each predicate conviction beyond a reasonable doubt at the habitual offender hearing. *State v. Carlos*, 98 So.3d 727 (La. App. 4th Cir. 2012); *State v. Payton*, 810 So.2d 1127 (La. 2002).
 
 ## The Five Elements of a Valid Predicate

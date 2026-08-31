@@ -156,3 +156,31 @@ Successive re-deliveries append the new date and are stored side-by-side; do not
 - It is not legal advice for the recipient (the family member, romantic partner, or other relay person). If a relay person has independent exposure (e.g., they have been receiving relay messages and may themselves be at risk), the assigned attorney evaluates whether to refer them to independent counsel under firm conflict policy.
 - It is not a substitute for in-person attorney-client conferences. The letter coaches conduct on the phones; substantive case discussion happens in person.
 - It is not a defense to obstruction-of-justice charges. If the client violates the rules and the State charges obstruction, the existence of this letter does not insulate the client; if anything, it documents the client's awareness of the recording and the rules. The defensive value of the letter is preventive, not retroactive.
+
+## Module H Procedure (carried over from SKILL.md) — H.1 Why This Module Matters, H.2 Hygiene Memo Components, H.3 Delivery Mechanism, H.4 Cross-Feed to Intake
+
+### H.1 Why This Module Matters
+
+Calls produced in discovery are the calls that already exist. Calls the client makes tomorrow will be in the next discovery production. The audit is incomplete if the defense team does not actively shape the client's call behavior going forward.
+
+### H.2 Hygiene Memo Components
+
+The memo (built from the template) should cover:
+
+- The fundamental rule: **assume every call is recorded, transcribed, and will be played to the jury**. Even calls that "feel" private — to a parent, to a romantic partner, to a child — are recorded.
+- No discussion of the case facts, the charges, the evidence, the witnesses, or the defense theory on any call. Period. Case discussion happens with counsel, in person, or on registered attorney lines.
+- No witness contact, direct or relayed. If the client has a need to communicate with a witness (rare and almost always inadvisable), it goes through counsel.
+- No coded language. Codes do not work — jurors and prosecutors are not stupid, and the use of codes is itself evidence of consciousness of guilt.
+- No bragging, joking, or downplaying. Even calls about unrelated topics can include tone and word choice that the State will replay in opening or closing.
+- No commentary on co-defendants, victims, or law enforcement. Anything said about a witness or a victim is admissible character / consciousness-of-guilt material.
+- Three-way calls and call-forwarding workarounds are detected and flagged by the vendor; do not attempt them.
+- If counsel calls and there is a third party in the room or on the line at the recipient end, hang up and call back when alone.
+- Explicit acknowledgment that the client has received the memo, signed and dated, retained in the case file.
+
+### H.3 Delivery Mechanism
+
+The memo is delivered through `dw-client-communication-drafter-crim` or hand-delivered at the next jail visit. It is NOT emailed through the jail messaging system — those messages are also recorded and produced.
+
+### H.4 Cross-Feed to Intake
+
+For new clients, the hygiene memo template is paired with `dw-client-intake-interview-crim` so that hygiene coaching happens at first contact, not after damaging calls already exist.

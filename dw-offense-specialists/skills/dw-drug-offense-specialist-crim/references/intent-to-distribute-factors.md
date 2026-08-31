@@ -365,3 +365,95 @@ For every PWID charge, evaluate each factor:
 
 **Result:** If only 1-2 weak factors present, argue reasonable doubt on intent to distribute.
 
+---
+
+## Step 6 Operational Guidance — Intent to Distribute Factor Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 6. This block was relocated from the skill body without modification.
+
+### Prosecution's Circumstantial Evidence of Intent
+
+Prosecutors typically rely on multiple factors to prove intent to distribute (PWID) rather than simple possession. Each factor is circumstantial and can be challenged individually.
+
+### Factor 1: Quantity
+
+**Prosecution argument:** Large quantity suggests distributor, not personal user.
+
+**Your challenge:** Personal use quantity varies widely by substance, tolerance, addiction severity.
+- Cocaine: Some sources say 28g/month = personal use, but heavy users consume 1g+ per day
+- Methamphetamine: Tolerance builds rapidly; heavy users consume 0.5-1g+ per day
+- Heroin: Tolerance varies; 2-5g per day is common for addicted users
+- Marijuana: Personal use typically 1-2 ounces/month, but varies
+
+**Expert testimony:** Retain pharmacology/toxicology expert to testify on personal use quantities for the specific substance and defendant's profile (age, tolerance, addiction history).
+
+### Factor 2: Packaging
+
+**Prosecution argument:** Individually wrapped units suggest distribution prep.
+
+**Your challenge:** Some personal users pre-portion drugs into smaller packages for:
+- Multi-day trips (pack a few doses)
+- Privacy (hide drugs in small packages)
+- Dosing control (pre-weigh doses to manage tolerance)
+
+**Counter-evidence:** Absence of distribution materials (no baggies factory, no bulk packaging, no labels).
+
+### Factor 3: Scales/Weighing Equipment
+
+**Prosecution argument:** Scale is a distribution tool.
+
+**Your challenge:** Personal users also weigh drugs for:
+- Dosing consistency
+- Budgeting ("how much can I afford?")
+- Tolerance management
+
+**Evidence:** If scale is found with substance, was it used for dosing or distribution? (Look at quantity of substance, packaging, and other factors)
+
+### Factor 4: Large Amounts of Cash
+
+**Prosecution argument:** Cash indicates drug proceeds.
+
+**Your challenge:** Legitimate explanations:
+- Employment income (defendant works cash-based job: restaurant, construction, services)
+- Inheritance or tax refund
+- Cash withdrawal from bank (for privacy, habit, or legitimate reason)
+- Savings from budget-conscious living
+
+**Evidence:** Bank records, employment history, prior spending patterns.
+
+### Factor 5: Cell Phones and Text Messages
+
+**Prosecution argument:** Multiple phones = drug operation; text messages = drug deals.
+
+**Your challenge:** Everyone has multiple phones (personal, work, burner for privacy). Text messages are often ambiguous:
+- "You still good?" = social question, not drug deal
+- "Meet up later?" = social plans
+- "How much?" = asking about quantity for personal purchase, not selling
+
+**Cross-examination:** Did prosecutor cherry-pick messages out of context?
+
+**Mobile forensic review:** Route to dw-forensic-dump-analyzer-crim and dw-mobile-forensic-auditor-crim to mine phone content for legitimate uses (job search, social plans, etc.) that counter distribution narrative.
+
+### Factor 6: Location (High-Crime Area)
+
+**Prosecution argument:** Defendant found in high-drug area = likely distributor.
+
+**Your challenge:** Defendant may live, work, or socialize in that area. High-crime area is not evidence of distribution.
+
+**Evidence:** Employment address, residence, family ties to area, legitimate reason for being there.
+
+### Factor 7: Absence of Paraphernalia (Inverse Factor)
+
+**Prosecution argument:** No pipes, rolling papers, or consumption items = defendant is distributor, not user.
+
+**Your challenge:** Not all drug users have visible paraphernalia. Heroin users may use needles (not always present). Cocaine users may snort (no paraphernalia). Marijuana users may have lost papers.
+
+**Evidence:** Absence of paraphernalia is weak evidence of intent without corroborating factors.
+
+### Factor 8: Conduct During Arrest
+
+**Prosecution argument:** Defendant destroyed evidence, fled, or made admissions of selling.
+
+**Your challenge:** Fleeing can be fear of arrest, not evidence of distribution. Destruction of evidence is separate charge, not proof of PWID. Admissions must be properly admitted (Mirandized? Voluntary?).
+
+**Cross-examine:** What exactly did defendant say/do during arrest?

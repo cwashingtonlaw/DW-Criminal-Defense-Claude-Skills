@@ -163,3 +163,49 @@ Closes the v5.5 follow-up backlog — three coordinated changes to `references/c
 - Report 8 (Witness Table) removed — witness data is captured in `Case Tables.xlsx` during Phase 1 Step 4.
 - Former Report 9 renumbered to Report 8.
 - Bundled resources: 8 report prompt templates, output path convention, `Case Tables.xlsx` master template, Evidence Placeholder template, `generate_placeholders.py` script.
+
+---
+
+## Condensed changelog (moved verbatim from SKILL.md on 2026-08-30)
+
+The following short-form entries lived in the `## Changelog` section of `SKILL.md` until the progressive-disclosure restructure. They are a condensed variant of the full entries above and are preserved here unchanged.
+
+### v5.11 (July 2026) — Prosecution Theory, Art. 814 auto-verdicts, JusticeWorks ingest
+- **NEW Part 1 Section 1 — Prosecution's Theory of the Case** (discovery-cited synopsis of the State's case). All prior Part 1 sections shift +1 (Case Identification is now § 2 … Key Dates & Next Steps is now § 11).
+- **Responsive Verdicts column (§ 4 Charges) now auto-generated** from the Art. 814 lookup map keyed to the charge by offense name — not free text. NEW reference file `references/art814-responsive-verdict-map.md` reproduces all 71 art. 814(A) offenses verbatim. Corrects a bad seed that wrongly put negligent homicide under first degree murder (negligent homicide is responsive to second degree murder and manslaughter, not first degree murder).
+- **Seized Property / Devices table** gains an **Evidence ID / PR#** column and a warrant-tied **Owner Basis** (owner-attribution) rule; `NONE ON RECEIPT` routes to `dw-chain-of-custody-auditor-crim`.
+- **NEW input source: JusticeWorks / DefenderData "Case File Detail" export** — structured ingest feeding §§ 2, 5, 6, 9 (Case ID, Arraignment, Court Appearance Log, Plea Log).
+- **Court Appearance Log (§ 6) and Plea Discussions Log (§ 9)** restated as fixed-schema, dated, append-only tables.
+- **NEW closing block: VERIFY / [ATTORNEY] roll-up** — every open tag collected into one punch-list, cross-listed to § 11 High Priority Next Steps.
+- **NEW generation step (2C): position-based section auto-renumbering pass** — renumbers Part 1 section banners by document order regardless of banner cell count.
+
+### v5.10 (June 2026) — Consolidated Witness List + 1–5 Priority Rubric
+- **MERGED:** The former three witness sheets (`Witness Sheet`, `Witness List - Alpha`, `Witness List - Priority`) are consolidated into a single **`Witness List`** sheet (13 columns), sorted alphabetically by Last, First, with a sortable `Priority (1–5)` column. Applies to the master template `assets/Case Tables.xlsx`.
+- **NEW reference:** `references/witness-priority-rubric.md` — first-match 1–5 ranking rule (1 – Critical … 5 – Peripheral) driven by the selected defense theory, with impeachment/Brady-Giglio modifiers and a `Priority Rationale` column.
+- **NEW columns** on the Witness List: Address, Role, Priority (1–5), Priority Rationale (absorbs the old Priority "Reason").
+- **Phase 1 Step 4 (4b/4c merged):** builds the single Witness List; Phase 3 Step 2 re-ranks via the rubric.
+- **Consumers repointed:** `dw-data-contracts-crim`, `dw-case-dashboard-crim`, `dw-witness-threat-matrix-crim`, `dw-trial-notebook-builder-crim`, `dw-theory-to-workplan-crim` now reference `Witness List`.
+
+### v5.9 (May 2026) — Barone Discovery Workflow Audit
+- **NEW Step 1E:** Barone Discovery Workflow pre-analysis (Report 0 via `dw-neutral-inventory-crim`, Report 2a via `dw-theory-deconstructor-crim`)
+- **REVISED Report 4:** Renamed from "Core Defense Narrative" to "Competing Defense Theories" — now presents multiple viable theories instead of a single narrative
+- **NEW Report 4a:** Theory Selection Memo — attorney-driven theory selection with downstream routing to `dw-adversarial-stress-test-crim` and `dw-theory-to-workplan-crim`
+- **NEW Step 2A:** Post-Report 4 workflow for theory selection, stress testing, and workplan generation
+- **Timeline Sheet:** Added Certainty column (CONFIRMED / PROBABLE / DISPUTED / UNCONFIRMED / ALLEGED)
+- **Phase 3 Step 9:** Updated to reference Report 4 Competing Theories and attorney-selected theory from Report 4a
+
+### v5.3 (April 2026)
+- **MERGED:** `dw-lwop-populator` is now part of this skill. The standalone populator skill has been retired.
+- **NEW reference files:** `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md` (both moved from the populator's `references/` folder).
+- **NEW assets/legacy/ folder:** archives the two original Calcasieu PDO standalone templates (`LWOP Homicide Review Sheet - FOR TYPING.docx`, `LWOP Sex Offense Review Sheet - FOR TYPING.docx`) for reference. They are no longer used as the output substrate.
+- **Phase 1 Step 3 expanded:** absorbs the populator's full workflow — extraction priority order, source-priority rules, formatting conventions, attorney-only field handling, field-completeness checklist, completion notes.
+- **NEW: Refresh Mode** added as a sub-mode of Phase 1 Step 3. Handles late-discovery updates that previously triggered standalone populator runs. Strict merge rules preserve all attorney-entered content; Refresh Log entry appended to the document on each refresh.
+- **Trigger phrases added** to skill description: "fill out the LWOP sheet," "LWOP review," "District Defender review," "life without parole worksheet," "refresh the Case Profile."
+- **Documentation patch** for Part 1 Section 5 (Prior Criminal History): explicit format guidance for LWOP cases (`MM-DD-YYYY — Offense Name (Disposition)`) vs. non-LWOP narrative form.
+- **HIPAA spelling normalized** throughout (legacy templates retained "HIPPA" typo; v5.3 references and unified template use "HIPAA").
+
+### v5.2 (April 2026)
+- Consolidated former Initial Case Profile, Criminal Defense Cover, and standalone LWOP review sheet into single `000 - Case Profile.docx` with Part 1 + Part 2A/2B/2C.
+- Report 8 (Witness Table) removed — witness data is captured in Case Tables.xlsx during Phase 1 Step 4.
+- Former Report 9 renumbered to Report 8.
+- Bundled resources: 8 report prompt templates, output path convention, Case Tables.xlsx master template, Evidence Placeholder template, generate_placeholders.py script.

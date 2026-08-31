@@ -20,3 +20,7 @@ This report is concise by design — it gives the attorney a motion roadmap befo
 ## Source Citation Mandate applies
 
 Every factual assertion in the action plan must cite the specific source document.
+
+## Step summary (moved from SKILL.md)
+
+Before drafting any individual motion, generate a consolidated Pre-Trial Motion Action Plan giving the attorney a strategic overview of all potential motions and their likelihood of success (HIGH / MEDIUM / LOW), enabling prioritization. The attorney selects which motions to pursue, then Cowork drafts each selected motion using the appropriate MODULE above.

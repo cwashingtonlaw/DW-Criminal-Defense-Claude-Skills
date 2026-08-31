@@ -118,3 +118,42 @@
 - Program participation while incarcerated
 - Restitution payments or efforts (if applicable)
 - Concrete reentry plan
+
+---
+
+## Module C Overview — Mitigation Narrative Builder & Mitigation Timeline Output (moved from SKILL.md)
+
+Build a comprehensive, humanizing life narrative that presents the client as a whole person -- not defined by the worst moment of their life. The mitigation narrative is the backbone of the sentencing memorandum and may be the most important document the defense produces for sentencing.
+
+### Mitigation Categories
+
+#### Category 1: Childhood and Family History
+Gather birth circumstances, family structure, parental substance abuse, domestic violence, abuse/neglect, housing stability, and cultural influences.
+
+#### Category 2: Mental Health
+Gather diagnosed conditions, age of onset, treatment history, relationship to offense conduct, and expert evaluations. Present mental health as context without excusing conduct.
+
+#### Category 3: Substance Abuse
+Gather substance type, age of first use, progression to dependency, prior treatment attempts, current sobriety status, and relationship to offense. Document addiction as medical condition (DSM-5 criteria).
+
+#### Category 4: Employment and Education
+Gather employment history, longest stable periods, skills/certifications, educational achievement, highest grade/GED/college, and current employability prospects.
+
+#### Category 5: Military Service
+Gather branch, dates, discharge status, deployment history, combat exposure, awards, service-connected injuries, VA disability rating, and combat-related PTSD/TBI.
+
+**Military Mitigation Note:** Service to country is among the most powerful mitigating factors. Even imperfect service records can be presented effectively. Combat exposure and its psychological consequences provide compelling context for post-service criminal behavior. Courts routinely give significant weight to military service. See 18 U.S.C. SS 3553(a) (federal); La. C.Cr.P. Art. 894.1(B) (state).
+
+#### Category 6: Community Ties and Rehabilitation
+Gather family support system, dependent care responsibilities, community involvement, mentoring relationships, letters of support, post-arrest rehabilitation efforts, jail conduct record, program participation, and concrete reentry plan.
+
+> **📖 Reference:** Read `references/mitigation-factor-catalog.md` for detailed information-gathering checklists by mitigation category and ACE assessment framework.
+
+### Mitigation Timeline Output
+
+**Format:** Chronological life history from birth to present, organized in columns:
+
+| Date / Age | Life Event | Category | Mitigation Value | Source Document(s) |
+|-----------|------------|----------|-----------------|-------------------|
+| [DOB] | Born in [city]; [circumstances] | Family | Context | Birth Certificate; Client Interview Notes, p. 1 |
+| Age X | [Life event] | [Category] | [Value] | [Source] |

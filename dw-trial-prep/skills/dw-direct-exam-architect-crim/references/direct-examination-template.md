@@ -398,3 +398,98 @@ REHEARSAL & PREP SCHEDULE
 ---
 
 *End of `direct-examination-template.md`. Return to SKILL.md STEP 4.*
+
+---
+
+## Detail moved from SKILL.md STEP 4 — Source Register, 8-Column Format, Citation Rule, Sequencing, Theme
+
+### Source Register (Mandatory — Build Before Drafting Any Chapter)
+
+Build a **Source Register** — a numbered master list of every corroborating document and exhibit that will be cited in the direct examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE cell throughout the outline. Numbering is sacred and persists across the outline, catalog, and combined PDF.
+
+**Source Register format:**
+
+| # | Short Name | Evidence Item | Bates / Reference | Date |
+|---|-----------|---------------|-------------------|------|
+| (1) | [Short name used in outline] | [Evidence item # or filing description] | [Bates range or N/A] | [Date of document] |
+| (2) | ... | ... | ... | ... |
+
+The Source Register is printed as a reference table on the second page of the direct-exam outline (after the cover page, before Chapter 1).
+
+### Template Structure — 8-Column Direct-Exam Format
+
+Every direct-exam outline uses the D&W Direct Exam Template — one chapter per page block. Read `references/direct-examination-template.md` for full template detail.
+
+The 8-column row structure for each chapter:
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CHAPTER TITLE: [Title tied to case theme]                Page ___ of ___
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Witness: [Name / Role]
+
+CHAPTER GOALS:
+• Goal 1 — proposition this chapter must establish
+• Goal 2
+• Goal 3
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+| Chapter Title | Page | Witness | Goals | Source | Questions | Anticipated Cross-Attack Vectors | Notes |
+| [Title]       | [#]  | [Name]  | [Goal]| (N)... | Q: [open]| [Cross attack]                   | [Notes] |
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTES:
+[Strategic notes, scope concerns, evidentiary flags, rehearsal items]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+The 8 columns:
+1. **Chapter Title** — tied to case theme
+2. **Page** — outline page number
+3. **Witness** — witness name (repeated for context)
+4. **Goals** — proposition this row establishes
+5. **Source** — `(N) Short Name, page/Bates/timestamp` or `Personal knowledge — foundation laid at Q[#]`
+6. **Questions** — the open-ended (non-leading) question(s) — see STEP 4.5
+7. **Anticipated Cross-Attack Vectors** — the most likely State attack on this point and the rebuttal preparation (this column replaces the cross-exam template's "Impeachment Hooks" column)
+8. **Notes** — strategic considerations, evidentiary flags, foundation requirements, rehearsal flags
+
+### Source/Exhibit Citation Rule — `(N)` Prefix Format (MANDATORY)
+
+**Every citation in the SOURCE column MUST begin with the source register number in parentheses**, followed by the short name, then the specific page, Bates number, or timestamp reference. Same rule as cross-exam — once a source number is assigned it never changes.
+
+### Chapter Sequencing — Story-Arc Default
+
+Defense direct exam tells a story. Default chapter order:
+1. **Background / context** — who the witness is, how they're connected (rapport with jury, foundation for credibility)
+2. **Setup for key event** — what was happening before, scene-setting
+3. **Key event** — the heart of the testimony (alibi, expert opinion, character trait)
+4. **Corroboration** — the documents and data that back the witness up
+5. **Close on the strongest point** — end on the most jury-memorable proposition
+
+### Case Theme Integration
+
+The case theme must appear in at least one chapter title per outline and be referenced in the Chapter Goals of every substantive chapter. The defense direct theme must MATCH the cross-exam theme — defense story is one story.
+
+---
+
+## Detail moved from SKILL.md STEP 6 — Discovery & Notice Gap Report Required Checks
+
+For each gap:
+- Name the missing filing/disclosure
+- Cite the rule requiring it
+- Compute the deadline relative to trial date
+- Flag the consequence of non-compliance
+
+**Required checks (apply only those applicable to the witness type):**
+
+| Witness Type | Required Filing / Disclosure | Rule | Consequence |
+|--------------|------------------------------|------|-------------|
+| Alibi | Notice of alibi defense served on State | La. C.Cr.P. Art. 727 | Exclusion of alibi evidence; potential mistrial risk |
+| Alibi | State's response disclosing rebuttal witnesses | La. C.Cr.P. Art. 727(B) | Surprise rebuttal blocked |
+| Defense expert | Disclosure package (CV, qualifications, opinion summary, basis) | La. C.Cr.P. arts. 716–729 `[VERIFY article — NOT 705]` | Exclusion or limited testimony |
+| Defense expert | Daubert challenge anticipated — methodology disclosure | La. C.E. Art. 702-703 | Voir dire of expert; possible exclusion |
+| Character witness | Notice of intent to introduce 404(A) character evidence (if pretrial order requires) | La. C.E. Art. 404(A) / scheduling order | Limit on scope of character testimony |
+| Custodian / foundation | Stipulation offered to State on authentication | La. C.E. Art. 901-902 | If stipulation refused, witness must testify; budget time |
+| Defendant | Confirm waiver advisement on record | 5th Amendment; Brooks v. Tennessee | Appellate issue if not documented |
+| All | Subpoena issued and served | La. C.Cr.P. Art. 731 et seq. | Witness no-show, defense rest with gap |
+
+Flag each gap for attorney action with deadline.

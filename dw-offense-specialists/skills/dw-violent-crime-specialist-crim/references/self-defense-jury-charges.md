@@ -131,3 +131,44 @@ Object to any pattern instruction that places a persuasion burden on the defenda
 - [ ] Reasonableness charge captures both subjective and objective prongs.
 - [ ] Prior-acts-of-victim evidence introduced or proffered to support reasonableness.
 - [ ] Imperfect self-defense / heat-of-passion responsive verdict preserved (see `manslaughter-conversion-analysis.md`).
+
+---
+
+## Module D Operational Guidance — Self-Defense / Defense of Others (moved verbatim from SKILL.md)
+
+Read by SKILL.md Module D. This block was relocated from the skill body without modification.
+
+### Statutory framework
+
+- La. R.S. 14:18 — justification (umbrella).
+- La. R.S. 14:19 — non-deadly force.
+- La. R.S. 14:20 — justifiable homicide (deadly force).
+- La. R.S. 14:21 — aggressor doctrine.
+- La. R.S. 14:22 — defense of others.
+
+### Critical doctrinal points
+
+- **No duty to retreat (La. R.S. 14:20(C))**. A person not engaged in unlawful activity, in a place where he has a right to be, may stand his ground and meet force with force. La. R.S. 14:20(D) bars the trier of fact from considering the possibility of retreat as a factor in reasonableness. This must be charged verbatim — see `references/self-defense-jury-charges.md`.
+- **Castle / vehicle / business presumption (La. R.S. 14:20(B))**. The law presumes the homicide actor had a reasonable belief deadly force was necessary when the victim was an unlawful intruder.
+- **Burden architecture.** Once self-defense is at issue (low production threshold; State's evidence often raises it), the State must DISPROVE self-defense BRD. The defendant does NOT carry a persuasion burden. See `references/self-defense-jury-charges.md` § 5.
+- **Reasonableness is hybrid.** Subjective belief of the defendant AND objective reasonableness from a person in the defendant's circumstances. Prior victim-on-defendant violence known to the defendant is admissible.
+- **Aggressor doctrine and withdrawal (La. R.S. 14:21).** Mere words cannot make a person the aggressor. Withdrawal must be communicated or knowable to the adversary.
+
+### When to deploy
+
+Self-defense is the standard primary theory in:
+- Domestic violence killings where the defendant is the long-term abuse victim.
+- Bar / public-place altercations where the victim displayed a weapon or threw the first blow.
+- Home / vehicle / business intrusion cases (castle presumption applies).
+- Cases where the victim had a prior history of violence known to the defendant.
+
+Self-defense should be paired with the heat-of-passion responsive verdict (Module G) so that even if the jury rejects justification, the defense lands on manslaughter rather than murder.
+
+### Pretrial motion package
+
+- Motion in limine to admit prior victim acts of violence known to the defendant (reasonableness).
+- Motion in limine to admit prior threats (charged or uncharged) by the victim against the defendant.
+- Prieur (404B) opposition — the State will try to introduce defendant's prior bad acts to negate self-defense; resist on relevance and prejudice grounds.
+- Motion to compel discovery of all 911 calls, BWC, CAD reports, prior DV reports, and victim's criminal history.
+
+Route to `dw-pretrial-motion-library-crim` for templates; route to `dw-jury-instructions-builder-crim` for the charge package.

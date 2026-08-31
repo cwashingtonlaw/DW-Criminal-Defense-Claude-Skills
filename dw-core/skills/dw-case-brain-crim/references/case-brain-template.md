@@ -264,3 +264,42 @@ Sections 2 (Charges & Exposure), 3 (Case File Locations), and 4 (Theory of Case)
 ---
 
 *Template version: 1.0 | Maintained by D&W. Update this template only after testing changes against existing Case Brains in the vault — section name changes will break companion skills and the "full brief" command.*
+
+---
+
+## Step 6B — YAML Frontmatter (moved verbatim from SKILL.md, 2026-08-30)
+
+Read from SKILL.md **Step 6B** — the required YAML field block and the `gdrive_root` / `gdrive_path` note as they appeared in the skill body.
+
+Every Case Brain starts with YAML frontmatter that Obsidian renders as "Properties." Include all case metadata so the attorney can search, filter, and sort cases in Obsidian.
+
+Required YAML fields:
+
+```yaml
+---
+tags:
+  - case-brain
+  - active
+  - [charge-type]    # weapons, homicide, sex-offense, drugs, etc.
+  - [phase]          # phase-0, phase-1, phase-2, phase-3
+status: active
+phase: "0 — Intake"
+client_name: "First Last"
+docket: "C-XXXXXX"
+court: "Court Name, Section X"
+parish: "Parish Name"
+lead_attorney: "Christopher Washington"
+charges: "Charge 1, Charge 2"
+date_of_offense: YYYY-MM-DD
+date_of_arrest: YYYY-MM-DD
+next_court_date: "VERIFY"
+prosecutor: "VERIFY"
+judge: "VERIFY"
+lwop_risk: false
+co_defendants: "Name1, Name2"
+gdrive_root: "Drive Name"
+gdrive_path: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
+---
+```
+
+The `gdrive_root` and `gdrive_path` fields record which Google Drive shared drive holds this case's files. This makes it possible to regenerate `file://` links without re-searching.

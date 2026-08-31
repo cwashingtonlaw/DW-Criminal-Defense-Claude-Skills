@@ -283,3 +283,24 @@ case.dev: "self-defense instruction" AND "justification" AND "Article 20" --juri
 case.dev: "Ramos v. Louisiana" AND "unanimous verdict" (for non-unanimous verdict challenges)
 DEVONthink: "jury instructions" OR "jury charges" OR "responsive verdicts" in Law Library-Criminal
 ```
+
+---
+
+## Quick Reference — Calling Skill to Search Focus
+
+Read at SKILL.md "Search Strategy by Motion Type"; maps each calling skill to its primary search focus and whether Consensus is needed (the detailed query templates are in the sections above).
+
+Quick reference for common patterns:
+
+| Calling Skill | Primary Search Focus | Consensus Needed? |
+|---|---|---|
+| `dw-suppression-motion-crim` (4th Amdt) | Warrant requirements, probable cause, good faith exception, fruit of poisonous tree | Rarely |
+| `dw-suppression-motion-crim` (5th Amdt) | Miranda, voluntariness, custody analysis, invocation of rights | Yes — false confession research, interrogation psychology |
+| `dw-404b-opposition-crim` | Prieur notice requirements, Art. 404(B) exceptions, balancing test, limiting instructions | No |
+| `dw-bond-and-release-motion-crim` | Art. 316/341 factors, excessive bail, pretrial detention conditions | Sometimes — risk assessment validity |
+| `dw-sentencing-mitigation-specialist-crim` | Art. 894.1 factors, Dorthey, excessive sentence jurisprudence, youthful offender | Yes — rehabilitation, brain development, trauma |
+| `dw-expert-witness-evaluator-crim` | Daubert/Foret reliability factors, Art. 702, specific methodology challenges | Yes — methodology validity studies |
+| `dw-eyewitness-identification-auditor-crim` | Manson/Neil v. Biggers factors, Henderson framework, suggestive procedures | Yes — eyewitness reliability research |
+| `dw-habitual-offender-auditor-crim` | Art. 529.1, predicate validity, Boykin requirements, cleansing period | No |
+| `dw-pretrial-motion-library-crim` | Varies by motion type — speedy trial (Barker), severance, venue, compel discovery | Rarely |
+| `dw-jury-instructions-builder-crim` | Responsive verdicts, lesser included offenses, self-defense, specific intent | No |

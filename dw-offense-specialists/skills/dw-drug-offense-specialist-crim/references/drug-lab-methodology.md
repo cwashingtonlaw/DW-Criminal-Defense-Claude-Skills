@@ -303,3 +303,86 @@ If lab methodology is questionable, consider Daubert motion (La. C.E. Art. 702 e
 - [ ] Lab notes complete and legible?
 - [ ] Remaining sample available for independent testing?
 
+---
+
+## Step 4 Operational Guidance — Lab Analysis Audit (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 4. This block was relocated from the skill body without modification.
+
+### CRITICAL DISTINCTION: Field Test vs. Confirmatory Lab Testing
+
+**Field tests** (Marquis, Mandelin, Mecke, Scott reagents) are NOT conclusive. They are preliminary tools only. False positive rates are significant — chocolate, vitamins, caffeine, legal supplements, and many other substances trigger false positives on field tests.
+
+**Confirmatory testing** (GC-MS, HPLC) is the gold standard and is required to establish corpus delicti.
+
+**Your immediate question:** Has the substance been confirmed by laboratory analysis, or does the prosecution only have field test results?
+
+- If field test only: Demand lab testing before trial. Without lab confirmation, possession charge is weakened significantly.
+- If lab tested: Audit the lab methodology (see below).
+
+### Lab Methodology Audit
+
+**GC-MS (Gas Chromatography-Mass Spectrometry):**
+- Gold standard for drug identification
+- Separates compounds by molecular weight and identifies by mass spectrum
+- Methodology: substance is vaporized, passed through chromatography column, detected by mass spectrometer
+- Retention time must match known standard for the substance
+- Common challenge points:
+  - Instrument calibration records (were standards run recently?)
+  - Analyst qualification and experience
+  - Lab accreditation (ASCLD/LAB or equivalent)
+  - Chain of custody from seizure through lab
+  - Contamination risk assessment
+
+**HPLC (High-Performance Liquid Chromatography):**
+- Used for liquid samples, some solids
+- Similar methodology to GC-MS but doesn't vaporize samples
+- Often paired with UV detection or mass spectrometry
+- Challenge points: same as GC-MS
+
+### Weight Determination — CRITICAL FOR PENALTY THRESHOLDS
+
+**Gross weight:** Total weight of substance plus packaging, container, cutting agents, moisture, etc.
+
+**Net weight:** Weight of pure substance only.
+
+**Why this matters:** Cocaine trafficking thresholds are:
+- 10g = 5-year mandatory minimum
+- 28g = 10-year mandatory minimum
+- 200g = 20-year mandatory minimum
+- 400g = 40-year mandatory minimum
+
+If prosecution is charging based on gross weight of 210g (but net is only 180g), you've just lost 20 years of potential exposure.
+
+**Audit process:**
+1. Request lab worksheets showing tare weight (weight of container alone)
+2. Confirm gross weight minus tare weight = net weight
+3. Ask: Does the reported weight reflect net substance or gross weight?
+4. For mixtures (e.g., cocaine cut with filler): Did lab identify pure cocaine weight separately?
+5. Moisture content: Did lab account for water weight in substance?
+
+### Lab Accreditation and Analyst Qualification
+
+- Is the lab accredited by ASCLD/LAB or equivalent?
+- How long has the analyst been in position?
+- How many samples has the analyst analyzed?
+- Has the analyst testified in court before? How many times?
+- Are there any disciplinary records or reliability issues for this analyst?
+
+**Route to dw-expert-witness-evaluator-crim** to vet lab analyst qualifications.
+
+### Chain of Custody Audit
+
+- Who seized the substance?
+- Who transported it to the lab?
+- How was it stored (sealed container, locked evidence room)?
+- Who performed the analysis?
+- Who signed off on the results?
+- Are there gaps in the chain (dates/times missing, unsealed containers)?
+
+### Re-testing and Independent Lab Analysis
+
+- Does defendant have the right to independent lab testing?
+- Is there enough substance remaining for retesting?
+- Cost of independent lab analysis? (Defense must typically bear cost)
+- Strategic value: Does retesting strengthen or weaken the defense?

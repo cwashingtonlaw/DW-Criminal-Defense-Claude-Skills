@@ -266,3 +266,69 @@ For every constructive possession case, document prosecution's proof of each Har
 - Prosecution must rely on circumstantial evidence (keys, rent payments, personal items)
 - Defendant's absence may cut both ways (shows he wasn't exercising control; also shows others could have planted)
 
+---
+
+## Step 3 Operational Guidance — Possession Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 3. This block was relocated from the skill body without modification.
+
+### Actual vs. Constructive Possession
+
+**Actual possession:** Defendant has physical contact with substance (in pocket, hand, immediately accessible).
+
+**Constructive possession:** Defendant has dominion and control over substance without physical contact (substance in residence, vehicle, or locker under defendant's control).
+
+### State v. Harris Framework (Mandatory Test)
+
+All four elements must be proven beyond reasonable doubt:
+
+1. **Awareness:** Defendant knew CDS was in the area
+2. **Knowledge:** Defendant knew CDS was actually present
+3. **Dominion and Control:** Defendant had exclusive or joint control over location/item
+4. **Guilty Knowledge:** Defendant knew the substance was a controlled dangerous substance
+
+### Location-Based Analysis
+
+**Defendant's sole-occupied residence:** Constructive possession typically established if substance found in bedroom, safe, nightstand, or personal spaces. Prosecution burden is lower.
+
+**Multi-occupant residence:** Must prove dominion/control over specific area and rule out other residents' possession. Substance in common area (kitchen counter, living room table) creates ambiguity — challenge this.
+
+**Vehicle (sole driver/owner):** Substance in glove compartment, center console, or trunk supports constructive possession. Passenger scenario is weaker — see **State v. Trahan** analysis below.
+
+**Vehicle (passenger scenario):** Substance under seat, in door pocket, or passenger-area location. Prosecution must prove passenger had dominion/control. Mere presence + knowledge ≠ constructive possession per **State v. Bell**.
+
+### Key Case Law
+
+- **State v. Harris:** Establishes four-element test (see above). Applies statewide.
+- **State v. Bell:** Mere presence at scene + knowledge of substance ≠ constructive possession. Must have dominion/control + guilty knowledge.
+- **State v. Trahan:** Vehicle passenger: prosecution must prove passenger exercised dominion over substance, not just that it was in vehicle.
+- **State v. Cann:** Multi-occupant residence: prosecution must exclude other residents' possession; common area substances are weaker.
+- **State v. Mitchell:** Circumstantial evidence of dominion (keys to premises, payment of utilities, recent presence) supports constructive possession but must be corroborated.
+
+### Defense Strategies by Scenario
+
+**Lack of awareness:** "I didn't know the substance was in my car / apartment"
+- Challenge: How did prosecution prove awareness? Testimony only? Circumstantial?
+- Defense: Prior search of vehicle/home, no reason to suspect substance present
+
+**Lack of dominion/control:** "It belonged to my roommate / the other passenger"
+- Challenge: Did prosecution prove defendant had exclusive control?
+- Defense: Other person present, access to substance, defendant's lack of keys/authority
+
+**Mere presence:** "I was at a party where drugs were present"
+- Challenge: Did prosecution prove anything beyond presence?
+- Defense: No dominion/control, no guilty knowledge, no personal items near substance
+
+**Planted evidence:** "The substance was placed there by police or another person"
+- Connect to dw-suppression-motion-crim (illegal search), or challenge chain of custody
+
+### Documentation Checklist
+
+For every constructive possession case, document:
+- [ ] Exact location of substance (which room, which surface, which container)
+- [ ] Who had keys/access to the location
+- [ ] Defendant's personal items in vicinity (clothing, phone, wallet, ID)
+- [ ] Physical evidence linking defendant (fingerprints, DNA, photos of defendant in space)
+- [ ] Statements defendant made during arrest (admissions vs. denials)
+- [ ] Co-defendants or other occupants present
+- [ ] Alibi or timeline evidence (was defendant actually at location?)

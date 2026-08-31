@@ -378,3 +378,46 @@ This skill primarily drafts appellant briefs. Should the engagement involve draf
 ---
 
 *Last updated: May 2026. The Louisiana Uniform Rules — Courts of Appeal and per-circuit local rules change frequently. Verify all rule citations and page/word limits against current rule text before filing.*
+
+---
+
+## Module G — Certificate of Service & Page/Word-Count Compliance Check (moved from SKILL.md)
+
+### Certificate of Service
+
+Every appellate brief filed in Louisiana must include a certificate of service certifying that a copy was served on opposing counsel (the Louisiana Department of Justice, Criminal Division, or the elected District Attorney's appellate division, as the case may be). Use the certificate-of-service template from `dw-shared-protocols-crim/references/certificate-of-service.md` and adapt for appellate service.
+
+The certificate of service is the LAST page of the brief, after the Conclusion and before the signature block.
+
+### Page/word count compliance
+
+Louisiana Uniform Rules — Courts of Appeal, Rule 2-12.2 (general formatting):
+- **Font:** 14-point font (typically Times New Roman or Century Schoolbook); footnotes 12-point
+- **Spacing:** Double-spaced text; single-spaced quotations and footnotes
+- **Margins:** 1 inch on all sides
+- **Page limit (criminal appellant's original brief):** typically 50 pages, NOT counting cover, table of contents, table of authorities, certificate of service, or appendix
+- **Page limit (reply brief):** typically 30 pages
+- **Word-count alternative:** Rule 2-12.2 permits a word-count alternative — counsel may certify under penalty of perjury that the brief contains no more than the rule's word limit (commonly 14,000 words for the original brief; 7,000 for the reply) [VERIFY current word-count limits per Rule 2-12.2 and per circuit].
+
+Per-circuit nuances and certificate-of-compliance language are catalogued in `references/circuit-formatting-rules.md`.
+
+### Compliance checklist
+
+Run this checklist before finalizing:
+
+- [ ] Cover page complies with Rule 2-12.3 (caption, court, parties, attorney name and bar number)
+- [ ] Table of contents present (if brief > [page threshold] pages)
+- [ ] Table of authorities present (cases / statutes / other authorities, with page references)
+- [ ] Statement of the Case present and procedural-only
+- [ ] Statement of Facts has record cites on every factual sentence
+- [ ] Assignments of Error are numbered and restated (not argued)
+- [ ] Argument is organized assignment-by-assignment with the six-part substructure
+- [ ] Standard of review identified for each assignment
+- [ ] Preservation cited for each assignment
+- [ ] Harmless-error analysis present for each non-structural error
+- [ ] Conclusion specifies relief
+- [ ] Page count or word count under the rule's limit; certificate of compliance attached if word-count alternative used
+- [ ] Font, spacing, margins per Rule 2-12.2
+- [ ] Certificate of service attached
+- [ ] Signature block per shared protocols
+- [ ] Filename per output-path formula (`{{CASE_ROOT}}/05 - Appellate/01 - Direct Appeal/Brief Drafts/[NUM] - Appellant's Brief - [Last Name] - [Date].docx`)

@@ -41,3 +41,7 @@ This module feeds from and feeds back to `dw-brady-giglio-auditor-crim` — if t
 ## Key authority
 
 La. C.Cr.P. Art. 716-729, 729.3; *Brady v. Maryland*, 373 U.S. 83 (1963); *Kyles v. Whitley*, 514 U.S. 419 (1995).
+
+## Module summary (moved from SKILL.md)
+
+Motion to compel production under La. C.Cr.P. Art. 716-729 when the State has failed to respond to discovery demands. Identifies specific missing items, materiality per item, and requests sanctions under Art. 729.3 if appropriate. Feeds from `dw-brady-giglio-auditor-crim` Report 7 (Table of Missing Discovery).

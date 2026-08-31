@@ -164,3 +164,27 @@ For every homicide case file, document:
 - Sentencing exposure modeling: cross-reference `sentencing-exposure-matrix.md`.
 - If conviction returns at manslaughter, route to `dw-sentencing-mitigation-specialist-crim` for mitigation and `dw-habitual-offender-auditor-crim` if prior offenses raise enhancement risk.
 - If the case involves a juvenile defendant, route to `dw-sentencing-mitigation-specialist-crim` for *Miller / Montgomery* analysis on the murder count even if manslaughter is the goal.
+
+---
+
+## Module G Operating Rule and Conversion-Checklist Highlights (moved verbatim from SKILL.md)
+
+Read by SKILL.md Module G. This block was relocated from the skill body without modification.
+
+The two-paragraph operating rule:
+
+A homicide that would otherwise be murder under La. R.S. 14:30 or 14:30.1(A)(1) reduces to manslaughter when committed in sudden passion or heat of blood immediately caused by provocation sufficient to deprive an average person of self-control and cool reflection. Sudden passion and heat of blood are not elements of manslaughter; they are mitigatory factors that the defendant must establish by a preponderance to be entitled to a manslaughter verdict. *State v. Tompkins*, 403 So.2d 644 (La. 1981). Cooling-off is a jury question.
+
+Manslaughter is on the responsive-verdict form for first or second degree murder by operation of La. C.Cr.P. Art. 814 (see `references/responsive-verdict-tables.md` § 1–2). The defense should resist any State motion to strike manslaughter from the verdict form and should propose manslaughter-conversion language for the charge.
+
+A manslaughter conversion drops a mandatory LWOP (or death-eligible) sentence to a 40-year max with parole and probation eligibility — the single most consequential strategic outcome in Louisiana criminal practice.
+
+### Conversion checklist
+
+For every homicide case, complete the checklist in `references/manslaughter-conversion-analysis.md` § 8. Highlights:
+- Provocative-act timeline with discovery citations.
+- Defendant's emotional state at first contact.
+- Cooling-off analysis.
+- Self-defense overlap (the same provocation often supports both theories).
+- Charge-conference proposal.
+- Two-track closing.

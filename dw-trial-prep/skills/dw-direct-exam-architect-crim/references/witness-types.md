@@ -465,3 +465,15 @@ If the foundation chapter runs longer than 5–7 minutes, something is wrong —
 ---
 
 *End of `witness-types.md` — five modules complete. Return to `dw-direct-exam-architect-crim/SKILL.md` STEP 4 to build the Source Register and generate the outline.*
+
+---
+
+## Module Overview (moved from SKILL.md STEP 3)
+
+1. **Defendant** — 5th Amendment waiver protocol; pre-trial testify-or-not matrix; scope-of-cross anticipation; rehearsal schedule; demeanor coaching; La. C.E. art. 609.1 sanitization; pre-testimony advisement script.
+2. **Alibi witness** — La. C.Cr.P. Art. 727 prerequisites; corroboration anchors; timeline lock-down; cross vulnerability assessment; pre-testimony interview discipline.
+3. **Defense expert** — defense-expert disclosure compliance La. C.Cr.P. defense-expert disclosure article `[VERIFY — NOT art. 705, which governs severance of indictments; see arts. 716–729]`; qualifications colloquy; basis-of-opinion foundation (La. C.E. Art. 702/703); hypothetical questions; Daubert-survival framing; anticipated state cross.
+4. **Character witness** — La. C.E. Art. 404(A)(1) trait limitation; reputation vs. opinion form (La. C.E. Art. 405); basis sanitization; opening-the-door risk; personal-knowledge predicate.
+5. **Custodian / foundation witness** — La. C.E. Art. 902 self-authentication; La. C.E. Art. 803(6) business records four-prong; chain-of-custody markers; stipulation-first strategy; short-cross discipline.
+
+Each module ends with a checklist of pre-direct prep tasks (interview, rehearsal, mock cross, exhibit pull).

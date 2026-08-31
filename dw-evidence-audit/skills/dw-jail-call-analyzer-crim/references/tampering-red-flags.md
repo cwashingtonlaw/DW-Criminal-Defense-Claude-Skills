@@ -183,3 +183,35 @@ For every Module D entry:
 ## Operational Caution
 
 When a Module D CRITICAL flag surfaces, the audit team must NOT independently contact the affected witness, relay person, or co-defendant. Witness-related investigation routes through `dw-defense-investigator-tasking-crim` under attorney supervision. The analyzer's job is detection and documentation; field action is the investigator's and the assigned attorney's call.
+
+## Module D Procedure (carried over from SKILL.md) — D.1 Direct vs. Relay, D.2 Red Flag Patterns, D.3 Severity & Cross-Feed, D.4 Self-Tampering
+
+### D.1 Direct vs. Relay Contact
+
+- **Direct contact** — client calls a witness's number directly. Almost always traceable; jail vendors record both ends; the State will subpoena the witness's phone records to corroborate.
+- **Relay contact** — client calls a family member or friend, who then conveys a message to the witness. Vendor recordings capture the client's side; the State will pursue the relay person as a co-conspirator under La. R.S. 14:129.1 (intimidating a witness) or equivalent obstruction theory.
+- **Three-way contact** — vendor flags. Even attempted three-ways are evidence of intent.
+
+### D.2 Red Flag Patterns
+
+Flag any of the following with a Module D entry (full pattern catalog in `tampering-red-flags.md`):
+
+- Instructions to a witness or relay person to leave the jurisdiction, change phone numbers, or "stay scarce until this is over"
+- Instructions on what to say (or not say) if contacted by police, the DA, or the defense investigator
+- References to witnesses by code or nickname after attorneys or investigators have warned the client about call recording
+- Coordinated story development across multiple calls ("here's what happened that night — make sure everyone says the same thing")
+- Offers, bribes, or threats — explicit or implied — to witnesses or their families
+- Discussion of asset disposal, weapon disposal, or destruction of physical evidence
+- Discussion of contacting jurors, judges, or court personnel (rare but occurs)
+
+### D.3 Severity & Cross-Feed
+
+Each flagged item gets a severity (LOW / MODERATE / HIGH / CRITICAL) and a cross-feed action:
+
+- **Cross-feed to `dw-witness-threat-matrix-crim`** — every Module D flag involving an identifiable witness updates that witness's Vulnerability score (the witness has been contacted; defense may have leverage *or* may have created a corroboration problem) and the Damage score (if the witness now has additional incriminating context to testify about).
+- **Cross-feed to `dw-defense-investigator-tasking-crim`** — relay persons need to be interviewed, and counsel needs to know whether they are willing to be witnesses or are at risk of joining the indictment.
+- **Counsel alert** — any CRITICAL flag triggers an immediate verbal heads-up to the assigned attorney before the audit document is finalized; obstruction exposure can change the entire plea posture.
+
+### D.4 Self-Tampering by the Client
+
+The client's own statements about the calls — "they record everything in here, watch what you say" — are themselves discoverable and are sometimes the most damaging items in the corpus because they evidence consciousness of guilt and consciousness of the recording. Flag separately.

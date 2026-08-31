@@ -69,3 +69,28 @@ The court must consider the following factors before sentencing a juvenile:
 - Behavioral programs completed
 - Maturation evidence (changes in behavior, attitudes, understanding)
 - Expert opinion on rehabilitation potential and brain development
+
+---
+
+## Module G Overview — Juvenile Sentencing Specialist (moved from SKILL.md)
+
+### Purpose
+Analyze sentencing for juvenile defendants (under 18 at time of offense) under Miller v. Alabama, Montgomery v. Louisiana, and Louisiana's implementing statutes. This module addresses mandatory LWOP prohibitions, youthful offender considerations, and the unique mitigating factors applicable to juvenile sentencing.
+
+> **📖 Reference:** Read `references/juvenile-sentencing-framework.md` for the complete constitutional framework, Miller factors, youthful offender departure authority, and juvenile-specific mitigation strategies.
+
+### Brief Overview
+
+**Key U.S. Supreme Court Decisions:**
+- **Roper v. Simmons (2005):** Death penalty for juveniles unconstitutional
+- **Graham v. Florida (2010):** LWOP for juvenile non-homicide offenders unconstitutional
+- **Miller v. Alabama (2012):** Mandatory LWOP for juvenile homicide offenders unconstitutional; individualized sentencing required
+- **Montgomery v. Louisiana (2016):** Miller applies retroactively to existing LWOP juvenile sentences
+- **Jones v. Mississippi (2021):** Miller does not require permanent incorrigibility finding; only individualized consideration
+
+**Louisiana Implementation:**
+- **La. C.Cr.P. Art. 878.1:** Prohibits mandatory LWOP for offenders under 18 at time of offense; requires individualized sentencing hearing
+- **La. R.S. 15:574.4(E):** Juvenile offenders sentenced to life are eligible for parole after serving 25 years
+
+**Miller Factors for Juvenile Sentencing:**
+The court must consider: chronological age and immaturity; family and home environment; peer pressure and influence; competence in legal proceedings; possibility of rehabilitation.

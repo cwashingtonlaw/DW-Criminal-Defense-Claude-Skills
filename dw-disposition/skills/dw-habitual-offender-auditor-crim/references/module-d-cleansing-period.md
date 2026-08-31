@@ -1,5 +1,14 @@
 # MODULE D — Cleansing Period Calculator
 
+## Overview (moved from SKILL.md)
+
+La. R.S. 15:529.1(C) provides a 10-year cleansing period: if more than ten years elapsed between sentence completion and commission of the current offense, the predicate cannot be used — **unless** the prior offense was (a) a crime of violence under La. R.S. 14:2(B), (b) a sex offense under La. R.S. 15:541, or (c) a qualifying drug distribution/manufacturing offense under La. R.S. 40:966-968 (subsections A and B). For excepted offenses, no cleansing period applies regardless of elapsed time.
+
+Calculation: (Step 1) identify sentence completion date — release from DOC, end of probation, end of parole, end of suspended sentence, or release after revocation; (Step 2) identify commission date of current offense; (Step 3) compute elapsed time; (Step 4) determine whether the 10-year bar runs and whether any exception applies. *State v. Shaw*, 2006-2467 (La. 11/27/07), 969 So.2d 1233.
+
+Construct a per-predicate timeline and flag the status as CLEANSED / NOT CLEANSED / INSUFFICIENT DATA.
+
+
 Louisiana's Habitual Offender Law provides a "cleansing period" — a window during which, if the defendant remains conviction-free, prior convictions may no longer be used as predicates. La. R.S. 15:529.1(C).
 
 ## The Statutory Cleansing Period

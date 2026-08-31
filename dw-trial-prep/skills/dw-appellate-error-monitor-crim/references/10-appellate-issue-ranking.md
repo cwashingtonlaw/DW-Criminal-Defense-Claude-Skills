@@ -59,3 +59,19 @@ Sufficiency of the evidence is always reviewable on appeal when raised. The stan
 An excessive sentence claim requires a motion to reconsider sentence under Art. 881.1 as a prerequisite. If the motion was filed, the issue is preserved. If the motion was not filed, the issue is waived (unless the sentence is illegal -- errors patent).
 
 Standard: A sentence is constitutionally excessive if it is grossly out of proportion to the severity of the crime or is nothing more than the purposeless and needless imposition of pain and suffering. *State v. Bonanno*, 384 So.2d 355 (La. 1980).
+
+
+---
+
+## Module H Summary — Tiers, Table Fields, Special Categories (moved verbatim from SKILL.md MODULE H)
+
+Five tiers:
+- **Tier 1 — Strongest Issues:** lead assignments of error; preserved (Module A green); structural OR constitutional with strong prejudice; central disputed issue; jurisprudence supports reversal
+- **Tier 2 — Strong Supporting Issues:** preserved; subject to harmless error but State's argument is weak; important issue; some jurisprudential support
+- **Tier 3 — Preservation Issues:** preserved but harmless-error analysis likely favors State; novel questions; raise to preserve for post-conviction or federal habeas (28 U.S.C. § 2254 exhaustion)
+- **Tier 4 — Errors Patent Only:** identified through Module D; reviewable without objection; flag for appellate court's independent review
+- **Tier 5 — Waived Issues (IAC Salvage Only):** Module B missed objections raisable only through IAC in post-conviction (Module G)
+
+Ranking table fields: Rank, Issue, Module Source (A/B/C/D/E/F/G), Preservation Status (Preserved/Waived/Patent), Error Type (Structural/Constitutional/Non-constitutional), Harmless Error Risk (N/A/High/Moderate/Low), Reversal Likelihood (HIGH/MODERATE/LOW), Tier (1-5).
+
+Special issue categories: **Sufficiency of the Evidence** (*Jackson v. Virginia*, 443 U.S. 307 (1979)) — reviewable when raised, no contemporaneous objection required; **Excessive Sentence** (La. Const. Art. I, Sec. 20; *State v. Bonanno*, 384 So.2d 355 (La. 1980)) — Art. 881.1 motion is the prerequisite.

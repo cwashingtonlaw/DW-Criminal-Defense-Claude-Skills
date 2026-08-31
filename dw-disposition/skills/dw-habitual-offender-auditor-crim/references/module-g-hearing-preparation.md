@@ -1,5 +1,12 @@
 # MODULE G — Habitual Offender Hearing Preparation
 
+## Overview (moved from SKILL.md)
+
+The hearing is the proceeding at which the State must prove the bill. Post-2017, the determination is made by a **jury** (formerly a three-judge panel under repealed La. R.S. 15:529.1(G)). Standard of proof: beyond a reasonable doubt. The State must prove (1) identity, (2) prior convictions, (3) Boykinization (if challenged), (4) felony status, (5) sequence, and (6) cleansing-period compliance. *State v. Payton*, 810 So.2d 1127 (La. 2002).
+
+Defense preparation: build a per-predicate challenge matrix (deficiency, legal argument, exhibit, cross-examination target); prepare cross-examination of the State's fingerprint expert and records custodian; assemble defense exhibits (annotated transcripts, timelines, certified records); preserve all objections; plan post-hearing motions (new trial, La. C.Cr.P. Art. 881.1 reconsideration, Dorthey, La. C.Cr.P. Art. 914 appeal within 30 days).
+
+
 The habitual offender hearing is the proceeding at which the State must prove the habitual offender bill. Under the post-2017 amendments, the determination is made by a **jury** (previously a three-judge panel under the now-repealed La. R.S. 15:529.1(G)). The standard of proof is **beyond a reasonable doubt**.
 
 ## Procedural Requirements

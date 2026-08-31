@@ -284,3 +284,18 @@ the matter remanded for resentencing in accordance with law.
 ---
 
 *Last updated: May 2026. Verify all citations marked `[VERIFY CITATION]` against current Louisiana jurisprudence before filing.*
+
+---
+
+## Step 4 — Common Errors-Patent Categories the Brief Should Flag (moved from SKILL.md)
+
+Common errors-patent categories the brief should flag:
+
+1. **Illegal sentence** — exceeds statutory maximum, falls below mandatory minimum, imposes unauthorized conditions, or imposes unauthorized restriction on benefits (good time, probation, parole)
+2. **Boykin deficiency** — guilty-plea record fails to show on-record waiver of jury trial, confrontation, and self-incrimination (*Boykin v. Alabama*, 395 U.S. 238 (1969))
+3. **Art. 873 sentencing-delay violation** — court imposed sentence less than 24 hours (felony) after verdict or less than 24 hours after denial of motion for new trial / arrest of judgment, without valid waiver in the record
+4. **Defective charging instrument** — bill of information or indictment fails to charge an offense or is fatally defective on its face
+5. **Unauthorized double punishment** — conviction and sentence on both the greater and a lesser-included offense
+6. **Improper restriction of benefits** — denial of good time, probation, or parole eligibility where the statute does not authorize the restriction
+
+If `dw-appellate-error-monitor-crim` Module D identified any errors patent, build them into the brief either as an additional assignment of error or as a separate "Errors Patent" section. The standard template language is in `references/errors-patent-template.md`.

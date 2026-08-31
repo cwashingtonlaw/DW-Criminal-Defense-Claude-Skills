@@ -256,3 +256,51 @@ Firearms charges uniquely expose defendants to dual jurisdiction prosecution. Th
 11. **Forum Recommendation:** State / Federal / Negotiate both
 12. **Highest-Leverage Issue to Attack:** Predicate validity / § 924(c) "in furtherance" / Search/seizure / Second Amendment
 
+---
+
+## Step 2 Operational Guidance — Dual Jurisdiction Exposure Analysis (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 2. This block was relocated from the skill body without modification.
+
+**STATE CHARGES:**
+- R.S. 14:95 (Illegal carrying of weapons)
+- R.S. 14:95.1 (Felon in possession: 10-20 years hard labor, no probation/parole)
+
+**FEDERAL CHARGES:**
+- 18 U.S.C. § 922(g) (Prohibited persons: felon, drug user, mental defective, domestic violence, etc.)
+  - Penalty: up to 15 years (increased from 10 by Bipartisan Safer Communities Act 2022)
+- 18 U.S.C. § 924(c) (Using/carrying during drug/violence crime: 5/7/10/25 years MANDATORY CONSECUTIVE)
+- 18 U.S.C. § 924(e) ACCA (15-year mandatory minimum if 3+ violent felonies or serious drug offenses)
+
+**FEDERAL ADOPTION RISK:**
+Federal prosecutors routinely "adopt" state gun cases. Assess this risk immediately:
+- Is ATF/FBI involved in investigation?
+- Has federal grand jury been convened?
+- Any drug nexus? (drugs + gun = federal ticket)
+- Prior federal convictions?
+- Multi-defendant conspiracy or organized crime indicators?
+- Weapon type suggests trafficking (bulk purchases, altered serials)?
+
+**FORUM SELECTION ANALYSIS:**
+- Compare state vs. federal sentencing exposure
+- Which forum has more favorable jury pool?
+- Which sentencing judge is more favorable (if known)?
+- Does federal adoption block plea options in state court?
+- Can state conviction be avoided to prevent federal predicate?
+
+---
+
+## Quick Reference: State vs. Federal Comparison (moved verbatim from SKILL.md)
+
+Read by SKILL.md Step 2 and when preparing the forum analysis. This table was relocated from the skill body without modification.
+
+| Issue | Louisiana R.S. 14:95.1 | Federal § 922(g) |
+|-------|------------------------|------------------|
+| **Predicate** | Louisiana felony | Crime punishable >1 year |
+| **Penalty Range** | 10-20 years hard labor | Up to 15 years |
+| **Parole/Probation** | None allowed (mandatory) | Supervised release after 85% served |
+| **Cleansing** | 10 years from end of sentence | No cleansing period |
+| **Enhancements** | Habitual offender bill possible | ACCA (15-year min if 3+ predicates) |
+| **§ 924(c) Exposure** | No federal consequence | 5-25 years mandatory consecutive |
+| **Forum** | Louisiana state court | U.S. District Court |
+| **Jury** | Louisiana jury (parish-specific) | Federal jury (diverse district) |

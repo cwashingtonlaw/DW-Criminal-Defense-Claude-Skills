@@ -306,3 +306,22 @@ Document rehearsal sessions in a memo to file (privileged work product). Never d
 ---
 
 *End of `louisiana-direct-examination-rules.md`. Return to SKILL.md.*
+
+---
+
+## Quick Reference — Louisiana Evidence Rules for Direct (moved from SKILL.md)
+
+| Situation | Rule |
+|-----------|------|
+| Mode and order of interrogation (leading questions) | La. C.E. Art. 611 |
+| Expert testimony — qualifications, opinion, basis, ultimate issue, hypothetical | La. C.E. Art. 702–705 |
+| Character evidence — trait-in-issue limitation | La. C.E. Art. 404(A) |
+| Methods of proving character (reputation vs. opinion) | La. C.E. Art. 405 |
+| Impeachment — prior inconsistent statements / convictions | La. C.E. Art. 607–609 |
+| Business records foundation | La. C.E. Art. 803(6) |
+| Self-authentication | La. C.E. Art. 902 |
+| Alibi notice procedure | La. C.Cr.P. Art. 727 |
+| Defense expert disclosure | La. C.Cr.P. arts. 716–729 `[VERIFY — NOT art. 705 = severance]` |
+| 5th Amendment waiver | Estelle v. Williams, 425 U.S. 501 (1976); Brooks v. Tennessee, 406 U.S. 605 (1972) |
+| Right to testify | Rock v. Arkansas, 483 U.S. 44 (1987) |
+| State comment on silence prohibited | Griffin v. California, 380 U.S. 609 (1965) |

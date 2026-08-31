@@ -34,3 +34,12 @@ If the record is incomplete -- missing transcripts, missing exhibits, or gaps in
 - Motion for new trial based on inability to perfect the appeal
 - Agreed narrative statement of proceedings under La. C.Cr.P. Art. 914.1(B)
 - Request for reconstruction hearing
+
+
+---
+
+## Module I Summary (moved verbatim from SKILL.md MODULE I)
+
+Ensure all relevant portions of the record are designated for appeal under La. C.Cr.P. Art. 914, preventing the loss of appellate issues due to an incomplete record. Sixteen record items are tracked: charging instrument, arraignment transcript, pretrial hearing transcripts, voir dire transcript, trial transcript (all volumes), jury instruction conference transcript, jury instructions as read, verdict form, sentencing transcript, post-trial motion hearing transcripts, all minute entries, all exhibits, all written motions and orders, jury questionnaires, PSI report, commitment order.
+
+If the record is incomplete, file a motion to supplement under La. C.Cr.P. Art. 914.1(A). When a transcript is unavailable (deceased court reporter, lost recordings), consider: motion for new trial based on inability to perfect the appeal; agreed narrative statement of proceedings under Art. 914.1(B); reconstruction hearing.

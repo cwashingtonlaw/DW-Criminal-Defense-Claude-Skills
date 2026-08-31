@@ -31,3 +31,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 485, 532, 571-576; *State v. Byrd*, 708 So.2d 401 (La. 1998).
+
+## Module summary (moved from SKILL.md)
+
+Motion to quash under La. C.Cr.P. Art. 485, 532 on grounds of defective indictment, prescription (Art. 571-576), double jeopardy, failure to charge an offense, grand-jury irregularities, or perjured testimony. Includes prescription-period table (no prescription for life/death felonies; 6 years for felonies at hard labor; 4 years for non-hard-labor felonies; 2 years for misdemeanors).

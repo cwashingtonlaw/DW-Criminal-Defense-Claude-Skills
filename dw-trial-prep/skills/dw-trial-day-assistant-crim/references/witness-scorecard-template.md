@@ -202,3 +202,44 @@ CRITICAL scorecards may run a full page. They feed `dw-cross-exam-architect-crim
 ---
 
 *Apply work product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`.*
+
+---
+
+## Half-Page Format Block (moved from SKILL.md Module C)
+
+Read at **MODULE C — Witness Scorecard** of `SKILL.md`; the compact half-page-max scorecard skeleton.
+
+```
+WITNESS SCORECARD — [WITNESS NAME] — Day [N], [DATE]
+
+Type: [eyewitness / LEO / expert / cooperator / custodian / corroborator]
+Direct length: [HH:MM]    Cross length: [HH:MM]
+
+THEME ALIGNMENT
+- Defense theme: [one sentence]
+- Helped theme: [bullets — what testimony advanced it]
+- Hurt theme: [bullets — what testimony undermined it]
+
+KEY ADMISSIONS ON DIRECT (most damaging to defense)
+- [bullet] — (T. p. __ / 10:42 AM)
+- ...
+
+KEY CONCESSIONS ON CROSS (most useful to defense)
+- [bullet] — (T. p. __ / 11:18 AM)
+- ...
+
+LOCKED-IN COMMITMENTS
+- Witness committed to [fact] — useful for closing if rebuttal witness contradicts
+- ...
+
+IMPEACHMENT ELICITED (or not)
+- [Prior inconsistent statement / bias / conviction / etc.]
+- Hooks NOT used: [carry to tomorrow if redirect or recall]
+
+WHAT CROSS STILL NEEDS (carries to tomorrow)
+- [bullet] — escalate to dw-cross-exam-architect-crim for next-day prep
+
+NET ASSESSMENT
+- Defense net: WIN / NEUTRAL / LOSS
+- One-sentence why: [...]
+```

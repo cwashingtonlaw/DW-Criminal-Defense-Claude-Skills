@@ -13,7 +13,7 @@
       "name": "dw-core",
       "source": "./dw-core",
       "description": "Foundation: session persistence, shared protocols, data contracts, master orchestrator, case dashboard, and skill index. Every other dw plugin depends on this.",
-      "version": "5.11.3",
+      "version": "5.12.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -23,7 +23,7 @@
       "name": "dw-intake-discovery",
       "source": "./dw-intake-discovery",
       "description": "Client intake interview plus discovery orchestration, compliance monitoring, and Brady/Giglio audit.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -33,7 +33,7 @@
       "name": "dw-evidence-audit",
       "source": "./dw-evidence-audit",
       "description": "Methodology and reliability audits across all evidence types: forensics, interrogations, eyewitness ID, cell-site, video, social media, lab, DNA, chain of custody.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -43,7 +43,7 @@
       "name": "dw-offense-specialists",
       "source": "./dw-offense-specialists",
       "description": "Element-by-element defense theory for drug, DWI, firearms, sex, and violent-crime charges.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -53,7 +53,7 @@
       "name": "dw-pleadings",
       "source": "./dw-pleadings",
       "description": "Motion drafting: suppression, 404(b) opposition, bond/release, and the pretrial motion library.",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -63,7 +63,7 @@
       "name": "dw-trial-prep",
       "source": "./dw-trial-prep",
       "description": "Trial preparation: cross/direct exam, voir dire, jury instructions, exhibits, timelines, trial-day assistant, error preservation, theory tools, and investigator tasking.",
-      "version": "1.6.0",
+      "version": "1.7.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -83,7 +83,7 @@
       "name": "dw-disposition",
       "source": "./dw-disposition",
       "description": "Sentencing, habitual-offender audit, plea analysis, Padilla immigration-consequences advisement, appeal, post-conviction relief, and case disposition.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -93,7 +93,7 @@
       "name": "dw-ops",
       "source": "./dw-ops",
       "description": "Operational utilities: billing narratives, case-law research, client communications, court/jail tracker, jail-visit lists, DefenderData meeting logging, evidence placeholders, image stamping.",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"

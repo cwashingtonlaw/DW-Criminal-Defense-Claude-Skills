@@ -28,3 +28,7 @@ limit: 10
 ## Key authority
 
 La. C.Cr.P. Art. 641-649; *Drope v. Missouri*, 420 U.S. 162 (1975); *Dusky v. United States*, 362 U.S. 402 (1960).
+
+## Module summary (moved from SKILL.md)
+
+Sanity commission / competency evaluation under La. C.Cr.P. Art. 641-649 when client cannot communicate with counsel, presents disorientation, has psychiatric history, or is on psychotropic medication. Authorities: *Drope v. Missouri*, *Dusky v. United States*.

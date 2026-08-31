@@ -1,5 +1,18 @@
 # OUTPUT FORMAT SPECIFICATIONS
 
+## Overview — the Seven Outputs (moved from SKILL.md)
+
+Seven outputs are produced as needed for the case:
+
+1. **Predicate Conviction Audit Table** — per-predicate audit results with PASS/FAIL/CHALLENGE/UNKNOWN status across each element and overall severity rating (internal work product)
+2. **Habitual Offender Bill Response / Challenge Motion (.docx)** — filed pleading; caption, COS, signature, notice of hearing, proposed order per shared protocols; saved to `{{CASE_ROOT}}/02 - Pretrial Notebook/01 - Pleadings/`
+3. **Boykinization Challenge Motion** — filed pleading specifically challenging a predicate guilty plea
+4. **Enhanced Sentencing Range Calculation** — Module E worksheet
+5. **Cleansing Period Timeline** — Module D timeline (consolidated for multi-predicate cases)
+6. **Dorthey Excessive Sentence Motion Framework** — Module F motion template
+7. **Hearing Preparation Checklist** — pre-hearing / at-hearing (State's case + defense case) / post-hearing task lists
+
+
 ## Output 1: Predicate Conviction Audit Table
 
 A comprehensive table documenting the audit results for each predicate:

@@ -112,90 +112,9 @@ Then display the SESSION OPEN CONFIRMATION (Step 2) and proceed.
 
 When the attorney signals the session is ending (any of: "done for now," "wrap up," "end session," "save the session," "that's it for today"), do the following before closing:
 
-### 4A — Generate Session Delta
+Run **4A → 4H** in order: **4A** Generate Session Delta (3–8 bullets) → **4B** Prompt for Attorney Additions → **4C** Read the current Case Brain in full (same method as session open) → **4D** Merge all changes in-memory (section-by-section update table; a merge, never a replacement) → **4E** Write the full document back (full-document replacement, never heading-based patching) → **4F** Verify by reading the file back → **4G** Fallback Protocol if the write fails (save the merged document to `[case-root]/02 - Pretrial Notebook/03 - Case Analysis & Notes/CASE BRAIN — [Client Name] | [Docket].md` and notify the attorney) → **4H** Display the CASE BRAIN SAVED banner.
 
-Summarize what happened this session in 3–8 bullet points:
-- Tasks completed (with output file names if applicable)
-- New information discovered
-- Issues opened or closed
-- Decisions made
-- Next steps identified
-
-### 4B — Prompt for Attorney Additions
-
-Ask:
-> *"Anything to add before I save? Any decisions, concerns, or next steps I should note?"*
-
-### 4C — Read Current Case Brain (Full Document)
-
-Use the **same method** you used at session open to read the entire current Case Brain into memory:
-- **Via MCP:** `obsidian_get_file_contents` with `filepath: "DW-CASE BRAINS/Cases/[LastName]-[FirstName].md"`
-- **Via mounted folder:** Use the `Read` tool with the absolute path
-
-Do NOT attempt to read sections individually. Read the complete document in one operation.
-
-### 4D — Merge All Changes In-Memory
-
-Apply all updates to the full document now in Claude's context:
-
-| Section | What to Update |
-|---|---|
-| `YAML Frontmatter` | Update `last_updated` and `phase` fields if changed. Preserve all other YAML fields. |
-| `CURRENT STATUS` | Update phase / status if changed |
-| `SESSION LOG` | Prepend new session entry at the top of this section (most recent first) |
-| `OPEN ISSUES` | Add new issues; mark resolved issues with checkmark; preserve all existing issues |
-| `NEXT STEPS` | Replace with fresh list from this session |
-| `KEY DECISIONS` | Append any decisions made this session |
-| `COMPANION SKILL OUTPUTS` | Add links to new deliverables (files, motions, analysis reports, etc.) generated this session |
-| `Case File Locations` | Only add links to new files if they've been created during this session. Preserve all existing links. |
-
-**IMPORTANT MERGE RULE:** Preserve ALL existing content that has not changed. This is a merge, not a replacement. You are updating specific fields while keeping the rest of the document intact.
-
-### 4E — Write Full Document Back
-
-Write the complete merged document using **full-document replacement**, never section-by-section patching:
-- **Via MCP:** Use `obsidian_patch_content` with `operation: "replace"` on the target `filepath`, passing the complete updated document content.
-  - Alternatively, use `obsidian_delete_file` followed by `obsidian_create_record` with the complete merged document.
-- **Via mounted folder:** Use the `Edit` tool with `old_string` set to the entire original document and `new_string` set to the complete merged document. Or use the `Write` tool with `mode: "rewrite"` to overwrite the entire file.
-
-**CRITICAL RULE:** Never attempt to patch individual sections by heading name. Always write the complete document. This prevents data loss from heading-targeting failures.
-
-### 4F — Verify Write Success
-
-Read the file back immediately with the same method you used at 4C:
-- **Via MCP:** `obsidian_get_file_contents` with the same filepath
-- **Via mounted folder:** Use the `Read` tool with the same path
-
-Confirm that:
-- The new session entry appears in `SESSION LOG`
-- Updated fields (status, next steps, issues) match what you merged
-- YAML frontmatter is intact and `last_updated` reflects today's date
-- No content was lost
-
-### 4G — Fallback Protocol (If Write Fails)
-
-If the Obsidian write fails for any reason (MCP timeout, filesystem error, permission issue, or any other failure):
-
-1. **Save the complete updated Case Brain as a markdown file** in the case folder on Google Drive at:
-   ```
-   [case-root]/02 - Pretrial Notebook/03 - Case Analysis & Notes/CASE BRAIN — [Client Name] | [Docket].md
-   ```
-   Use the complete merged document content you created in step 4D.
-
-2. **Notify the attorney:**
-   > *"Obsidian sync failed. I've saved the updated Case Brain to your case folder at [path]. You can manually paste the content into Obsidian, or I can try the write again. Whatever you prefer."*
-
-3. **Never lose session data** due to an Obsidian API or filesystem failure. The fallback ensures the updated Case Brain is always preserved somewhere accessible.
-
-### 4H — Confirm Save
-
-Display:
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CASE BRAIN SAVED: [Client Name] | [Date]
-Session logged. [N] open issues. Next: [top next step]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+Read `references/step-4-session-close-protocol.md` now for the merge table, tool-specific read/write/verify commands, fallback wording, and the confirmation banner.
 
 ---
 
@@ -221,159 +140,22 @@ If the attorney types "full brief" or "full case summary," display the complete 
 
 ### 6A — Obsidian File Location & Vault Detection
 
-The Obsidian vault ("Dream Team Law") is stored in iCloud Drive on the attorney's Mac at:
-```
-/Users/greatelephant82/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/
-```
-The `DW-CASE BRAINS` folder lives at the vault root. The access method depends on your environment:
+The vault ("Dream Team Law") is in iCloud Drive at `/Users/greatelephant82/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/`; regardless of access method, Case Brains always live at `DW-CASE BRAINS/Cases/[LastName]-[FirstName].md` (hyphens only). **Detect the environment first:** Cowork (`/sessions/...` paths) → skip the MCP entirely and use the mounted `DW-CASE BRAINS` folder (Method 2); Claude Code (`/Users/greatelephant82/...`) → try the Obsidian MCP (Method 1, `mcp__obsidian__view` on `DW-CASE BRAINS/Cases`), fall back to the local iCloud path; neither → Method 3 / Fallback section. **Always read `DW-CASE BRAINS/CASE-BRAIN-CONFIG.md`** before creating or updating a Case Brain.
 
-#### Step 1 — Detect Your Environment
-
-**Cowork (cloud):** If the current working directory starts with `/sessions/` or you see `/sessions/.../mnt/` paths, you are in Cowork. **Skip the Obsidian MCP entirely** — it connects to a local Obsidian app that doesn't exist in Cowork and will time out. Go directly to Method 2 (Mounted Folder).
-
-**Claude Code (local):** If you're running on the attorney's Mac (paths like `/Users/greatelephant82/...`), try Method 1 (Obsidian MCP) first. If it fails, fall back to Method 2 using the local iCloud path.
-
-#### Method 1 — Obsidian MCP Server (Claude Code only)
-
-The Obsidian MCP server (`mcp__obsidian__*` tools) provides direct read/write access to the vault. This only works in Claude Code where the Obsidian app is running locally.
-
-**How to detect the Obsidian MCP at runtime:**
-1. Call `mcp__obsidian__view` with `path: "DW-CASE BRAINS/Cases"` to list existing Case Brains
-2. If the call succeeds → the MCP is connected. **Use MCP tools for all subsequent read/write operations in this session.**
-3. If the call fails with a connection/timeout error → fall through to Method 2.
-
-**MCP tool mapping:**
-
-| Operation | MCP Tool | Example |
-|---|---|---|
-| Read a Case Brain | `mcp__obsidian__view` | `path: "DW-CASE BRAINS/Cases/Tezeno-Titus.md"` |
-| Create a new Case Brain | `mcp__obsidian__create` | `path: "DW-CASE BRAINS/Cases/Tezeno-Titus.md"`, `file_text: "..."` |
-| Update specific text in a Case Brain | `mcp__obsidian__str_replace` | For targeted section edits (preferred for small changes) |
-| Overwrite a Case Brain (after reading) | `mcp__obsidian__create` | Same path — will overwrite. Only after reading current version. |
-| List all Case Brains | `mcp__obsidian__view` | `path: "DW-CASE BRAINS/Cases"` (lists directory) |
-| Read config file | `mcp__obsidian__view` | `path: "DW-CASE BRAINS/CASE-BRAIN-CONFIG.md"` |
-| Create notes in subfolders | `mcp__obsidian__create` | `path: "DW-CASE BRAINS/Witnesses/Prosecution/Smith-John.md"` |
-
-**IMPORTANT:** All paths used with MCP tools are **relative to the vault root** — do NOT use absolute filesystem paths. Example: `DW-CASE BRAINS/Cases/Tezeno-Titus.md`, NOT `/Users/.../DW-CASE BRAINS/Cases/Tezeno-Titus.md`.
-
-#### Method 2 — Mounted / Local Filesystem (Cowork primary, Claude Code fallback)
-
-Access the vault's `.md` files directly using `Read`, `Edit`, and `Write` tools with absolute paths.
-
-**In Cowork:** The attorney adds the `DW-CASE BRAINS` folder (not the entire vault) as a Cowork workspace directory. The folder on the attorney's Mac is:
-```
-/Users/greatelephant82/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/DW-CASE BRAINS
-```
-
-How to find it as a mounted folder:
-1. List the contents of the Cowork mount directory (e.g., `ls /sessions/.../mnt/`)
-2. Look for a folder named `DW-CASE BRAINS` — it will contain `Cases/` as a subdirectory.
-3. Use absolute paths: `/sessions/.../mnt/DW-CASE BRAINS/Cases/[LastName]-[FirstName].md`
-
-**In Claude Code (fallback):** If the MCP is unavailable, access the vault directly at:
-```
-/Users/greatelephant82/Library/Mobile Documents/iCloud~md~obsidian/Documents/Dream Team Law/DW-CASE BRAINS/Cases/[LastName]-[FirstName].md
-```
-
-#### Method 3 — Neither Available (LAST RESORT)
-
-If neither the Obsidian MCP nor the filesystem vault path is accessible, use the Fallback procedure described in the Fallback section below. Do not silently skip vault access — the Case Brain lives in Obsidian and the skill cannot function properly without it.
-
-**Regardless of access method, Case Brains always live at:**
-```
-DW-CASE BRAINS/Cases/[LastName]-[FirstName].md
-```
-
-The filename uses hyphens (no pipes, no commas, no special characters) because Obsidian has trouble with certain characters in filenames.
-
-**Always read the config file** at `DW-CASE BRAINS/CASE-BRAIN-CONFIG.md` (via whichever method is active) for the full list of Google Drive shared drives, known case mappings, and URL encoding reference. This config file is the authoritative reference and should be consulted every time you create or update a Case Brain.
+Read `references/step-6a-vault-access-methods.md` now for the detection procedure, the MCP tool-mapping table, mounted-folder discovery, and path rules.
 
 ### 6B — YAML Frontmatter
 
-Every Case Brain starts with YAML frontmatter that Obsidian renders as "Properties." Include all case metadata so the attorney can search, filter, and sort cases in Obsidian.
-
-Required YAML fields:
-
-```yaml
----
-tags:
-  - case-brain
-  - active
-  - [charge-type]    # weapons, homicide, sex-offense, drugs, etc.
-  - [phase]          # phase-0, phase-1, phase-2, phase-3
-status: active
-phase: "0 — Intake"
-client_name: "First Last"
-docket: "C-XXXXXX"
-court: "Court Name, Section X"
-parish: "Parish Name"
-lead_attorney: "Christopher Washington"
-charges: "Charge 1, Charge 2"
-date_of_offense: YYYY-MM-DD
-date_of_arrest: YYYY-MM-DD
-next_court_date: "VERIFY"
-prosecutor: "VERIFY"
-judge: "VERIFY"
-lwop_risk: false
-co_defendants: "Name1, Name2"
-gdrive_root: "Drive Name"
-gdrive_path: "/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]"
----
-```
-
-The `gdrive_root` and `gdrive_path` fields record which Google Drive shared drive holds this case's files. This makes it possible to regenerate `file://` links without re-searching.
+Every Case Brain starts with YAML frontmatter that Obsidian renders as "Properties" (tags, status, phase, client_name, docket, court, parish, lead_attorney, charges, date_of_offense, date_of_arrest, next_court_date, prosecutor, judge, lwop_risk, co_defendants, gdrive_root, gdrive_path). Read the **Step 6B** section of `references/case-brain-template.md` now for the required field block.
 
 ### 6C — Auto-Detect Google Drive Location
 
-Case files are stored on Google Drive for Desktop across three shared drives. When creating a new Case Brain, auto-detect which drive holds the client folder — never ask the attorney to specify this.
-
-**The three shared drives:**
-
-| Drive Name | Host Path Pattern |
-|---|---|
-| NOLA Conflict Cases | `/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/NOLA Conflict Cases/` |
-| CALCASIEU PDO Files | `/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/CALCASIEU PDO Files/` |
-| D&W Law Firm (CJW) | `/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/D&W Law Firm (CJW)/` |
-
-**Detection procedure:**
-1. The Cowork workspace folder for the case is already mounted at `/sessions/.../mnt/[Case Folder Name]`. Check the case folder name — it usually indicates the client (e.g., `Tezeno, Titus - Murder`).
-2. Determine which shared drive the case is on by checking the parish: Calcasieu Parish cases are on `CALCASIEU PDO Files`, New Orleans conflict cases on `NOLA Conflict Cases`, all others on `D&W Law Firm (CJW)`.
-3. If the parish is ambiguous, check the `CASE-BRAIN-CONFIG.md` in the Obsidian vault for known case-to-drive mappings.
-4. Record the drive name in `gdrive_root` and construct the full host path in `gdrive_path`.
-
-The **host path** (used for `file://` links) follows this pattern:
-```
-/Users/greatelephant82/Library/CloudStorage/GoogleDrive-cjw@danielswashington.com/Shared drives/[Drive Name]/[Client Folder]
-```
+Case files live on three Google Drive shared drives (NOLA Conflict Cases, CALCASIEU PDO Files, D&W Law Firm (CJW)). Detect the drive by parish — never ask the attorney — and record `gdrive_root` and the full host path in `gdrive_path`. Read `references/step-6c-6d-drive-detection-and-file-links.md` now for the drive table, detection procedure, and host-path pattern.
 
 ### 6D — Generate file:// Links for Case File Locations
 
-The Case File Locations table appears in the Case Brain between "Charges & Exposure" and "Theory of Case." Each row links to a case folder or file using a `file://` URI that opens it directly on the attorney's Mac.
+Build the Case File Locations table (between "Charges & Exposure" and "Theory of Case") with URL-encoded `file://` links to the client folder, both notebooks, Case Tables, Pleadings, Discovery, Case Analysis, and significant root documents. **Verify every link target exists** before adding it. Encoding rules and the standard link table are in the same 6C–6D reference.
 
-**URL encoding rules** — the host path must be URL-encoded for the `file://` URI:
-- Spaces → `%20`
-- Commas → `%2C`
-- `@` → `%40`
-- `&` → `%26`
-- Parentheses → `%28` / `%29`
-
-**Format:** `[Display Name](file:///URL-encoded-host-path)`
-
-**Standard links to generate** (if the folders/files exist):
-
-| Source | Expected Path |
-|---|---|
-| Client Folder | `[gdrive_path]` |
-| Trial Notebook | `[gdrive_path]/01 - Trial Notebook` |
-| Pretrial Notebook | `[gdrive_path]/02 - Pretrial Notebook` |
-| Case Tables | `[gdrive_path]/Case Tables.xlsx` |
-| Pleadings | `[gdrive_path]/02 - Pretrial Notebook/01 - Pleadings` |
-| Discovery | `[gdrive_path]/02 - Pretrial Notebook/02 - Discovery` |
-| Case Analysis | `[gdrive_path]/02 - Pretrial Notebook/03 - Case Analysis & Notes` |
-
-Also scan the root folder for PDFs, motions (.docx), and other significant documents and link them individually (e.g., Arrest Report, PSA Report, Theory of Defense).
-
-**Verify every link target exists** before adding it to the table. If a folder or file doesn't exist yet, omit it — don't link to things that aren't there.
 
 ### 6E — Tagging Active vs. Archived Cases
 
@@ -386,51 +168,7 @@ When a companion skill generates a major output (suppression motion, forensic au
 
 ### 6G — DW-CASE BRAINS Folder Structure
 
-The Obsidian vault mirrors the attorney's Trial Notebook structure. When a companion skill generates witness profiles, legal theories, opening/closing drafts, or other trial prep materials, save them as individual notes in the appropriate folder. Each note should have YAML frontmatter with a `cases` field linking back to the relevant Case Brain(s).
-
-**When saving notes via MCP**, use `mcp__obsidian__create` with paths relative to vault root:
-```
-mcp__obsidian__create with path: "DW-CASE BRAINS/Witnesses/Prosecution/[WitnessName].md"
-```
-
-```
-DW-CASE BRAINS/
-├── Cases/                  # Case Brain summary files (one per case)
-├── Jury-Selection/         # Juror profiles, voir dire questions, strike tracking
-├── Opening-Statements/     # Opening statement drafts and outlines
-├── Witnesses/              # All witness profiles
-│   ├── Prosecution/        # State/prosecution witnesses
-│   ├── Defense/            # Defense witnesses
-│   └── Expert/             # Expert witnesses (state or defense)
-├── Closing-Arguments/      # Closing argument outlines, seeds, exhibit lists
-├── Evidence/               # Evidence inventory, authentication, exhibit lists
-├── Pleadings/              # Filed motions, oppositions, replies
-├── Pretrial-Orders/        # Court orders, legal memos, jury instructions
-├── Verdict-Sentencing/     # Verdict forms, sentencing memos, post-trial motions
-├── Case-Analysis/          # Phase 2 analysis reports
-├── Legal-Theories/         # Legal theory research notes
-├── Templates/              # Note templates for each folder type
-└── Dashboards/             # Obsidian Bases dashboards (.base files)
-```
-
-**Where to save new notes:**
-
-| Content | Folder | Example |
-|---|---|---|
-| Prosecution witness profile | `Witnesses/Prosecution/` | `LeBlanc, P-O Preston.md` |
-| Defense witness profile | `Witnesses/Defense/` | `Character Witness.md` |
-| Expert witness evaluation | `Witnesses/Expert/` | `Downs, Amber.md` |
-| Opening statement draft | `Opening-Statements/` | `Nicholas-Opening-v1.md` |
-| Closing argument outline | `Closing-Arguments/` | `Nicholas-Closing-Seeds.md` |
-| Jury selection materials | `Jury-Selection/` | `Nicholas-Voir-Dire-Questions.md` |
-| Case analysis report | `Case-Analysis/` | `Nicholas-Report-3-Constitutional.md` |
-| Legal theory research | `Legal-Theories/` | `Art. 893 First Offender.md` |
-| Evidence note | `Evidence/` | `Nicholas-Exhibit-List.md` |
-| Filed motion | `Pleadings/` | `Nicholas-Motion-to-Suppress.md` |
-| Court order | `Pretrial-Orders/` | `Nicholas-Discovery-Order.md` |
-| Sentencing material | `Verdict-Sentencing/` | `Nicholas-Sentencing-Memo.md` |
-
-The Case Brain's **Trial Preparation** section displays a summary view of all these folders' contents for the case, with links back to the individual notes.
+The vault mirrors the attorney's Trial Notebook structure; companion-skill outputs (witness profiles, theories, opening/closing drafts) save as individual notes in the matching folder, each with a `cases` YAML field linking back to the Case Brain. Read `references/step-6g-vault-folder-structure.md` now for the folder tree and the where-to-save table.
 
 ---
 
@@ -461,62 +199,26 @@ If no access method works (MCP unavailable in Claude Code, vault not mounted in 
 
 ## Integration with D&W Skill Ecosystem
 
-After loading the Case Brain, hand off to the appropriate skill based on what the attorney needs:
-
-| Task | Skill | Saves To Folder |
-|---|---|---|
-| Case intake / discovery processing | `dw-criminal-defense-crim` | `Cases/` |
-| Phone dump analysis | `dw-forensic-dump-analyzer-crim` | `Case-Analysis/` |
-| Suppression motion | `dw-suppression-motion-crim` | `Pleadings/` |
-| Cross-examination prep | `dw-cross-exam-architect-crim` | `Witnesses/` (appropriate subfolder) |
-| Brady/Giglio audit | `dw-brady-giglio-auditor-crim` | `Case-Analysis/` |
-| Search warrant challenge | `dw-suppression-motion-crim` | `Pleadings/` |
-| Cell site / CSLI | `dw-cell-site-geolocation-auditor-crim` | `Case-Analysis/` |
-| 404(b) opposition | `dw-404b-opposition-crim` | `Pleadings/` |
-| CI / informant audit | `dw-brady-giglio-auditor-crim` | `Case-Analysis/` |
-| LWOP Part 2A / 2B population | `dw-criminal-defense-crim` (Phase 1 Step 3) | `Cases/` |
-| Jury selection / voir dire | `dw-voir-dire-assistant-crim` | `Jury-Selection/` |
-| Expert witness evaluation | `dw-expert-witness-evaluator-crim` | `Witnesses/Expert/` |
-| Jury instructions | `dw-jury-instructions-builder-crim` | `Pretrial-Orders/` |
-| Sentencing mitigation | `dw-sentencing-mitigation-specialist-crim` | `Verdict-Sentencing/` |
-| Plea analysis | `dw-plea-negotiation-analyzer-crim` | `Case-Analysis/` |
-
-The Case Brain provides the context; the companion skill does the work.
+After loading the Case Brain, hand off to the appropriate companion skill — the Case Brain provides the context; the companion skill does the work. Read `references/skill-ecosystem-handoff-table.md` for the task → skill → vault-folder table.
 
 ---
 
 ## Changelog
 
-### v3.4 (April 2026)
-- **Cleanup:** Removed the last residual reference to legacy non-Obsidian storage from the changelog
-- Obsidian is — and has been — the sole repository for Case Brains; the skill body is now fully consistent with that fact
-- Bumped header version to match the most recent changelog entry (was stuck at 3.2 despite v3.3 having been added)
+Version history (v3.0 – v3.4) lives in `CHANGELOG.md` at the skill root.
 
-### v3.3 (April 2026)
-- **FIX:** Session close protocol repeatedly failed using obsidian_patch_content with heading-based targeting
-- Rewrote entire STEP 4 (SESSION CLOSE) to use **full-document merge-and-rewrite strategy** instead of section-by-section patching
-- Session Open now explicitly reads the complete Case Brain (not sections) to support eventual merge at close
-- Added new steps 4C–4H: Read Full Document → Merge In-Memory → Write Complete Document → Verify → Fallback
-- Added fallback protocol: if Obsidian write fails, save updated Case Brain to Google Drive and notify attorney
-- Added guardrail: never use heading-based patching; always read full document, merge changes in-memory, write complete document
-- This eliminates data loss from API failures and prevents silent sync errors
+---
 
-### v3.2 (March 2026)
-- **FIX:** Obsidian MCP times out in Cowork because there's no local Obsidian app running in the cloud
-- Added environment detection (Cowork vs Claude Code) to Step 6A — Cowork now skips MCP entirely and goes straight to mounted filesystem
-- MCP is now Claude Code-only; Cowork uses Read/Write/Edit tools on mounted vault
-- Updated guardrail from "always try MCP first" to "detect environment first"
+## Quick References
 
-### v3.1 (March 2026)
-- Added Obsidian MCP server as primary vault access method (Steps 1–4, 6A)
-- Corrected vault storage location: iCloud Drive (not Google Drive)
-- Added MCP tool mapping table with concrete examples
-- Added iCloud vault path for mounted-folder fallback
-- Simplified Google Drive detection in Step 6C (parish-based routing, no MCP needed)
-- Updated Fallback to trigger only when BOTH MCP and mounted folder are unavailable
+Reference materials in the `references/` subdirectory:
 
-### v3.0 (February 2026)
-- Initial skill version with mounted-folder-only vault access
+- **case-brain-template.md** — Step 3 (create) and Step 4 (merge): full Case Brain document structure, all field definitions, and the Step 6B YAML frontmatter block
+- **step-4-session-close-protocol.md** — Step 4: 4A–4H session-close procedure, merge table, write/verify commands, fallback protocol
+- **step-6a-vault-access-methods.md** — Step 6A (and Steps 1–2): environment detection, Obsidian MCP tool mapping, mounted-folder access, path rules
+- **step-6c-6d-drive-detection-and-file-links.md** — Steps 6C–6D: shared-drive table, parish-based detection, URL-encoding rules, standard file:// link table
+- **step-6g-vault-folder-structure.md** — Step 6G: DW-CASE BRAINS folder tree and where-to-save table for companion-skill notes
+- **skill-ecosystem-handoff-table.md** — Integration section: task → companion skill → vault folder hand-off table
 
 ---
 

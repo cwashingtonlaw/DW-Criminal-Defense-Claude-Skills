@@ -24,3 +24,7 @@ This module works closely with `dw-brady-giglio-auditor-crim` (which now include
 ## Key authority
 
 *Brady v. Maryland*; *Giglio v. United States*; *Roviaro v. United States*; La. C.Cr.P. Art. 716-729; *State v. Broadway*.
+
+## Module summary (moved from SKILL.md)
+
+Brady-progeny disclosure of cooperation agreements, informant deals, and benefits to State witnesses. Works closely with `dw-brady-giglio-auditor-crim` (which includes the CI detection module) — uses its findings as the factual basis.

@@ -79,53 +79,7 @@ Use the canonical output formula. Never hardcode paths.
 
 **Before any direct outline drafting begins, conduct a systematic audit of all proposed defense witnesses.** This is the mirror of the prosecution Witness Prioritization audit in `dw-cross-exam-architect-crim` — but it answers a different question. Cross asks "who do we attack?" Direct asks "who do we put up?"
 
-### Scope & Objective
-
-**Pre-check:** If `dw-witness-statement-analyzer-crim` has produced defense-favorable Analysis Cards and if `dw-expert-witness-evaluator-crim` has produced Daubert-survival vettings for proposed defense experts, import those findings.
-
-For every proposed defense witness, the audit answers four questions:
-1. Will calling this witness do more good than harm?
-2. What is the risk score on cross?
-3. Where in the trial order do they belong?
-4. If the witness is the defendant — testify or not?
-
-### Defense Witness Risk Score (per witness)
-
-Rate each witness 1–5 on each axis:
-
-| Axis | 1 (low risk) | 5 (high risk) |
-|------|--------------|---------------|
-| **Cross-attack surface** | No prior statements, no record, no bias | Multiple prior statements, La. C.E. art. 609.1 convictions, obvious bias |
-| **Witness temperament** | Calm, controllable, articulate, sticks to scope | Hostile, evasive, talkative, prone to argue with State |
-| **Corroboration depth** | Independently corroborated by documents/data | Witness's word only |
-| **Necessity to defense theory** | Mission-critical (no alternative) | Nice-to-have; theme reachable without them |
-| **State's prep level** | State has minimal material on this witness | State has full file, prior testimony, jail calls, etc. |
-
-**Total risk score = sum / 25.** Witnesses scoring 18+ get a "call only if necessary" flag; scoring 22+ get a "do not call absent override" flag.
-
-### Defendant Testify-or-Not Decision
-
-If the defendant is a candidate witness, route to `references/defendant-testify-decision-matrix.md` and complete the weighted matrix. Document the decision in writing with an attorney signature line and reaffirm on the morning of trial. The decision is the defendant's alone (Rock v. Arkansas, 483 U.S. 44 (1987)); counsel advises.
-
-### Sequencing
-
-Default defense case order (adjust to strategy):
-1. **Foundation / custodial witnesses** first (short, in/out, lay predicate for defense exhibits)
-2. **Corroboration witnesses** (alibi, third-party suspect, surveillance custodian)
-3. **Defense experts** (after their underlying facts are in evidence)
-4. **Character witnesses** (close to the defendant's testimony if both are called)
-5. **Defendant** (if called) — usually last so attorney has heard all State and defense witnesses first and the defendant can speak to the full record
-
-### Deliverable: Defense Witness Lineup Report
-
-Output a table:
-
-| Order | Witness | Type | Risk Score | Necessity | Call? (Y/N/Maybe) | Notes |
-|-------|---------|------|------------|-----------|-------------------|-------|
-| 1 | [Name] | [Foundation / Alibi / Expert / Character / Defendant] | __/25 | High/Med/Low | Y/N/Maybe | [Sequencing rationale] |
-| ... | ... | ... | ... | ... | ... | ... |
-
-Share with the attorney. Do not proceed to STEP 1 until the lineup is confirmed.
+Import upstream Analysis Cards and Daubert vettings; score each witness 1–5 on five risk axes (total /25; 18+ = "call only if necessary," 22+ = "do not call absent override"); sequence the defense case; output the Lineup Report table. If the defendant is a candidate, complete `references/defendant-testify-decision-matrix.md` — the decision is the defendant's alone (Rock v. Arkansas, 483 U.S. 44 (1987)). Read `references/defense-witness-lineup-audit.md` now for the axes, sequencing, and report table. Do not proceed to STEP 1 until the attorney confirms the lineup.
 
 ---
 
@@ -133,29 +87,7 @@ Share with the attorney. Do not proceed to STEP 1 until the lineup is confirmed.
 
 Before drafting any outline, collect the following in ranked order:
 
-### Essential (must have before drafting)
-0. **Witness Analysis Card** — Check if `dw-witness-statement-analyzer-crim` has produced a defense-favorable Analysis Card for this witness. If yes, load it. If the witness is an expert, also check `dw-expert-witness-evaluator-crim` for Daubert vetting.
-1. **Witness Type:** defendant, alibi witness, defense expert, character witness, foundation/custodial — routes to `references/witness-types.md`
-2. **Charges:** all counts with statutory citations
-3. **Case Theme (one sentence):** the spine of every chapter header (mirrors cross-exam theme — must be the SAME theme as the cross outlines; defense case is one story)
-4. **Defense Theory:** what happened from the defense's perspective — the affirmative narrative this witness builds
-5. **Key Facts to Elicit:** the propositions this witness must establish on direct
-6. **Anticipated Cross-Attack Vectors:** for each key fact, what will the State attack? (this drives the rehearsal plan and the cross-attack column of the outline)
-
-### Strategic (request if not provided)
-7. Jurisdiction — Louisiana state law by default; for federal matters the U.S. Fifth Circuit governs and the toggle changes (FRE 609 with its 10-year limit vs. La. C.E. art. 609.1 with none; FRE 702/Daubert; Fed. R. Crim. P. 16 expert disclosure). Confirm parish and forum.
-8. Prior rulings on scope, motions in limine, evidentiary suppressions affecting this witness's testimony
-9. **La. C.Cr.P. Art. 727 alibi notice status** — if alibi witness, has notice been filed? Has State responded? Is State's rebuttal disclosed?
-10. **Defense expert disclosure status** — has the required La. C.Cr.P. disclosure been served? CV produced? Report produced? La. C.Cr.P. defense-expert disclosure article `[VERIFY — NOT art. 705, which governs severance of indictments; see arts. 716–729]`
-11. Defense exhibits this witness will authenticate or sponsor
-
-### Contextual (gather from uploaded files)
-12. Prior statements by THIS defense witness (custodial statements, jail calls, prior testimony, social media, recorded interviews) — these are the State's impeachment ammunition; scan for them in STEP 5
-13. Corroboration documents (timestamped receipts, video, GPS, third-party witnesses)
-14. La. C.E. art. 609.1 convictions affecting the witness (especially the defendant — see decision matrix)
-15. Daubert-survival materials (for experts): methodology peer review, error rates, professional standards compliance
-
-**Present missing info as a ranked checklist before drafting.** If essential items are missing, do not draft — ask first.
+Ranked Essential → Strategic → Contextual checklist. Read `references/information-gathering-protocol.md` now for the full numbered list. **Present missing info as a ranked checklist before drafting.** If essential items are missing, do not draft — ask first.
 
 ---
 
@@ -163,21 +95,7 @@ Before drafting any outline, collect the following in ranked order:
 
 **Generate a comprehensive defense witness inventory immediately after STEP 1 information gathering.** This is the parallel to `dw-cross-exam-architect-crim`'s Master Witness Table — but scoped to the defense case.
 
-### Master Defense Witness Table Structure
-
-| Column 1: Contact Info | Column 2: Witness Type & Role | Column 3: Defense Utility | Column 4: Source / Corroboration Documents | Column 5: Trial Exam Status |
-|---|---|---|---|---|
-| Name, address, phone, relationship to defendant | Type (Defendant / Alibi / Expert / Character / Foundation) + role in defense narrative | What does this witness give the defense? What's the cross risk? What's the rehearsal plan? | List every corroborating document for this witness's testimony with page/Bates/timestamp | Direct? Yes/No in final defense case? Witness order? (sequenced from STEP 0.6) |
-
-### Rules for Master Defense Witness Table
-
-1. **Complete contact information:** Name, address, phone — required for subpoena drafting
-2. **Witness type:** Defendant / Alibi / Defense Expert / Character / Document Custodian (Foundation) / Other [specify]
-3. **Defense Utility column:** Identify the affirmative proposition the witness establishes, the cross-attack surface, anticipated demeanor, and the rehearsal plan (number of sessions, mock cross, video review)
-4. **Source / Corroboration Documents column:** Every document that supports this witness's testimony — `(N) Document Title, page/Bates/timestamp`. Use the source register numbering scheme from STEP 4.
-5. **Trial Exam Status column:** Direct (always — this is the defense case). Yes / No / Maybe. Witness # in defense order.
-
-**Critical Rule:** Every witness who appears in any direct-exam outline MUST have a corresponding entry in the Master Defense Witness Table. Refresh the table every time a new direct outline is generated.
+Five columns: Contact Info · Witness Type & Role · Defense Utility · Source / Corroboration Documents · Trial Exam Status. Read `references/master-defense-witness-table.md` now for the structure and rules. **Critical Rule:** every witness in any direct-exam outline MUST have an entry here; refresh on every new outline.
 
 ---
 
@@ -185,20 +103,7 @@ Before drafting any outline, collect the following in ranked order:
 
 Before drafting, summarize for attorney confirmation:
 
-> **Witness:** [Name / Role]
-> **Witness Type:** [Defendant / Alibi / Defense Expert / Character / Foundation]
-> **Charges:** [List]
-> **Case Theme:** [One sentence — same theme as the cross outlines]
-> **Defense Theory:** [Summary]
-> **Jurisdiction:** [Parish / trial court] · [Louisiana state court, or Federal — W.D./E.D./M.D. La., U.S. 5th Cir.]
-> **Key Facts to Elicit:** [Numbered list]
-> **Anticipated Cross-Attack Vectors:** [Numbered list — what the State will hit on cross]
-> **Files Available:** [List uploaded documents]
-> **Art. 727 / Art. 705 Status:** [If applicable]
-> **Risk Score (from STEP 0.6):** [__/25]
-> **Defendant Testify Decision (if applicable):** [For / Against / Pending — see decision matrix]
->
-> *Ready to draft. Confirm or correct.*
+Present the confirmation block (witness, type, charges, theme, theory, jurisdiction, key facts, cross-attack vectors, files, Art. 727 / disclosure status, risk score, testify decision). Read `references/pre-draft-confirmation.md` now for the exact block.
 
 Do not draft until the attorney responds.
 
@@ -208,83 +113,13 @@ Do not draft until the attorney responds.
 
 Route to `references/witness-types.md` and apply the module matching the witness:
 
-1. **Defendant** — 5th Amendment waiver protocol; pre-trial testify-or-not matrix; scope-of-cross anticipation; rehearsal schedule; demeanor coaching; La. C.E. art. 609.1 sanitization; pre-testimony advisement script.
-2. **Alibi witness** — La. C.Cr.P. Art. 727 prerequisites; corroboration anchors; timeline lock-down; cross vulnerability assessment; pre-testimony interview discipline.
-3. **Defense expert** — defense-expert disclosure compliance La. C.Cr.P. defense-expert disclosure article `[VERIFY — NOT art. 705, which governs severance of indictments; see arts. 716–729]`; qualifications colloquy; basis-of-opinion foundation (La. C.E. Art. 702/703); hypothetical questions; Daubert-survival framing; anticipated state cross.
-4. **Character witness** — La. C.E. Art. 404(A)(1) trait limitation; reputation vs. opinion form (La. C.E. Art. 405); basis sanitization; opening-the-door risk; personal-knowledge predicate.
-5. **Custodian / foundation witness** — La. C.E. Art. 902 self-authentication; La. C.E. Art. 803(6) business records four-prong; chain-of-custody markers; stipulation-first strategy; short-cross discipline.
-
-Each module ends with a checklist of pre-direct prep tasks (interview, rehearsal, mock cross, exhibit pull).
+Modules: Defendant · Alibi witness · Defense expert · Character witness · Custodian / foundation witness. Read `references/witness-types.md` now for each module and its overview; each ends with a checklist of pre-direct prep tasks (interview, rehearsal, mock cross, exhibit pull).
 
 ---
 
 ## STEP 4 — Build the Source Register & Generate the Direct-Exam Outline
 
-### Source Register (Mandatory — Build Before Drafting Any Chapter)
-
-Build a **Source Register** — a numbered master list of every corroborating document and exhibit that will be cited in the direct examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE cell throughout the outline. Numbering is sacred and persists across the outline, catalog, and combined PDF.
-
-**Source Register format:**
-
-| # | Short Name | Evidence Item | Bates / Reference | Date |
-|---|-----------|---------------|-------------------|------|
-| (1) | [Short name used in outline] | [Evidence item # or filing description] | [Bates range or N/A] | [Date of document] |
-| (2) | ... | ... | ... | ... |
-
-The Source Register is printed as a reference table on the second page of the direct-exam outline (after the cover page, before Chapter 1).
-
-### Template Structure — 8-Column Direct-Exam Format
-
-Every direct-exam outline uses the D&W Direct Exam Template — one chapter per page block. Read `references/direct-examination-template.md` for full template detail.
-
-The 8-column row structure for each chapter:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CHAPTER TITLE: [Title tied to case theme]                Page ___ of ___
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Witness: [Name / Role]
-
-CHAPTER GOALS:
-• Goal 1 — proposition this chapter must establish
-• Goal 2
-• Goal 3
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-| Chapter Title | Page | Witness | Goals | Source | Questions | Anticipated Cross-Attack Vectors | Notes |
-| [Title]       | [#]  | [Name]  | [Goal]| (N)... | Q: [open]| [Cross attack]                   | [Notes] |
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NOTES:
-[Strategic notes, scope concerns, evidentiary flags, rehearsal items]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-The 8 columns:
-1. **Chapter Title** — tied to case theme
-2. **Page** — outline page number
-3. **Witness** — witness name (repeated for context)
-4. **Goals** — proposition this row establishes
-5. **Source** — `(N) Short Name, page/Bates/timestamp` or `Personal knowledge — foundation laid at Q[#]`
-6. **Questions** — the open-ended (non-leading) question(s) — see STEP 4.5
-7. **Anticipated Cross-Attack Vectors** — the most likely State attack on this point and the rebuttal preparation (this column replaces the cross-exam template's "Impeachment Hooks" column)
-8. **Notes** — strategic considerations, evidentiary flags, foundation requirements, rehearsal flags
-
-### Source/Exhibit Citation Rule — `(N)` Prefix Format (MANDATORY)
-
-**Every citation in the SOURCE column MUST begin with the source register number in parentheses**, followed by the short name, then the specific page, Bates number, or timestamp reference. Same rule as cross-exam — once a source number is assigned it never changes.
-
-### Chapter Sequencing — Story-Arc Default
-
-Defense direct exam tells a story. Default chapter order:
-1. **Background / context** — who the witness is, how they're connected (rapport with jury, foundation for credibility)
-2. **Setup for key event** — what was happening before, scene-setting
-3. **Key event** — the heart of the testimony (alibi, expert opinion, character trait)
-4. **Corroboration** — the documents and data that back the witness up
-5. **Close on the strongest point** — end on the most jury-memorable proposition
-
-### Case Theme Integration
-
-The case theme must appear in at least one chapter title per outline and be referenced in the Chapter Goals of every substantive chapter. The defense direct theme must MATCH the cross-exam theme — defense story is one story.
+Build the numbered **Source Register** first (permanent `(N)` prefix in every SOURCE cell; numbering is sacred; register prints on page 2), then draft in the D&W 8-column template in story-arc order with the case theme in chapter titles and goals — the SAME theme as the cross outlines. Read `references/direct-examination-template.md` now for the full specification and the STEP 4 detail moved there.
 
 ---
 
@@ -292,41 +127,7 @@ The case theme must appear in at least one chapter title per outline and be refe
 
 **Direct examination uses non-leading, open-ended questions.** La. C.E. Art. 611(C) prohibits leading questions on direct except (a) hostile witnesses, (b) adverse parties, (c) preliminary matters, (d) refreshing recollection, (e) witnesses with communication difficulty.
 
-### Approved opening words for direct exam:
-- **Who** ... was with you?
-- **What** ... did you see / hear / do / say?
-- **When** ... did that happen?
-- **Where** ... were you standing?
-- **Why** ... did you go there?
-- **How** ... did you know him?
-- **Describe** ... the room.
-- **Tell** us about ... the conversation.
-- **Explain** ... what happened next.
-
-### Auto-flag leading questions
-
-Scan every question in the outline. If a question:
-- Suggests the answer ("You were at the Sonic at 10pm, weren't you?")
-- Can be answered yes/no without elaboration ("Did you see the defendant?")
-- Embeds a factual proposition ("After he punched you...")
-
-Mark it: `⚠ LEADING — REPHRASE (La. C.E. Art. 611(C))`. Provide an open-ended rewrite in the Notes column.
-
-### Permissible exceptions (flag the basis)
-
-- `[LEADING OK — Preliminary matters: name, address, occupation]`
-- `[LEADING OK — Refreshing recollection — first establish exhaustion of memory]`
-- `[LEADING OK — Hostile witness ruling — confirm with court before trial]`
-- `[LEADING OK — Adverse party called by defense — La. C.E. Art. 611(C)]`
-
-### The "story" cadence
-
-Direct exam questions cluster in groups of three: an open question, a follow-up that narrows, then a clarifying question. Example:
-1. "Tell us what you were doing that evening." [Open]
-2. "How long had you been at the Sonic?" [Narrow]
-3. "What time did you leave?" [Clarify]
-
-Avoid stacking five open questions in a row — the jury loses the thread. Avoid stacking five narrow questions in a row — the witness sounds coached.
+Open-ended words only; mark leading questions `⚠ LEADING — REPHRASE (La. C.E. Art. 611(C))` with a rewrite in Notes; tag exceptions `[LEADING OK — …]`; cluster open → narrow → clarify. Read `references/open-ended-questioning-discipline.md` now for the tests, tags, and cadence.
 
 ---
 
@@ -334,36 +135,7 @@ Avoid stacking five open questions in a row — the jury loses the thread. Avoid
 
 After reviewing all uploaded files, automatically scan for material the State will use to attack this defense witness on cross. Mirror of the cross-exam architect's prior-inconsistent-statement scan — but inverted (we are now defending the witness, not impeaching them).
 
-For each defense witness, scan and flag:
-
-### 5.1 — Prior inconsistent statements by THIS witness
-- Custodial statements, jail calls, social media, prior testimony, recorded interviews
-- For each inconsistency: identify, document the source, and propose either (a) a direct-exam explanation that gets ahead of it OR (b) a motion in limine to exclude
-
-### 5.2 — La. C.E. art. 609.1 prior convictions
-- Convictions admissible to impeach credibility
-- For defendant: see decision matrix in `references/defendant-testify-decision-matrix.md`
-- For other witnesses: identify, propose sanitization motion in limine, prepare direct-exam disclosure ("get out in front of it") if motion fails
-
-### 5.3 — Bias
-- Relationship to defendant (family, friend, romantic, financial)
-- Payment (especially defense expert paid by retainer)
-- Prior involvement in similar advocacy
-
-### 5.4 — Motive to fabricate
-- Pending charges of witness's own
-- Cooperation agreement, immunity, deal
-- Prior animus toward State / law enforcement
-
-### 5.5 — Character / competence challenges
-- Mental health history (limit per La. C.E. Art. 412.2 and case law)
-- Substance abuse at time of observation
-- Sensory limitations (vision, hearing) at time of observation
-
-Format each flag:
-> ⚠ **CROSS-ATTACK VECTOR:** State will impeach with [X] from [(N) Doc, p.___]. Direct strategy: [(a) get out in front by addressing on direct in Chapter __ / (b) move in limine to exclude / (c) prepare rehab on redirect]. La. C.E. Art. [613/607/609/...] foundation requirements: [...].
-
-Insert flags into the Anticipated Cross-Attack Vectors column of the relevant chapter.
+Scan prior inconsistent statements, art. 609.1 convictions, bias, motive to fabricate, and character/competence; insert each `⚠ CROSS-ATTACK VECTOR` flag into the relevant chapter's column. Read `references/cross-attack-vulnerability-scan.md` now for the scan items and flag format.
 
 ---
 
@@ -371,26 +143,7 @@ Insert flags into the Anticipated Cross-Attack Vectors column of the relevant ch
 
 At the end of every outline, append a **Discovery & Notice Gap Report** identifying procedural and disclosure gaps that could prevent or limit this witness's testimony.
 
-For each gap:
-- Name the missing filing/disclosure
-- Cite the rule requiring it
-- Compute the deadline relative to trial date
-- Flag the consequence of non-compliance
-
-**Required checks (apply only those applicable to the witness type):**
-
-| Witness Type | Required Filing / Disclosure | Rule | Consequence |
-|--------------|------------------------------|------|-------------|
-| Alibi | Notice of alibi defense served on State | La. C.Cr.P. Art. 727 | Exclusion of alibi evidence; potential mistrial risk |
-| Alibi | State's response disclosing rebuttal witnesses | La. C.Cr.P. Art. 727(B) | Surprise rebuttal blocked |
-| Defense expert | Disclosure package (CV, qualifications, opinion summary, basis) | La. C.Cr.P. arts. 716–729 `[VERIFY article — NOT 705]` | Exclusion or limited testimony |
-| Defense expert | Daubert challenge anticipated — methodology disclosure | La. C.E. Art. 702-703 | Voir dire of expert; possible exclusion |
-| Character witness | Notice of intent to introduce 404(A) character evidence (if pretrial order requires) | La. C.E. Art. 404(A) / scheduling order | Limit on scope of character testimony |
-| Custodian / foundation | Stipulation offered to State on authentication | La. C.E. Art. 901-902 | If stipulation refused, witness must testify; budget time |
-| Defendant | Confirm waiver advisement on record | 5th Amendment; Brooks v. Tennessee | Appellate issue if not documented |
-| All | Subpoena issued and served | La. C.Cr.P. Art. 731 et seq. | Witness no-show, defense rest with gap |
-
-Flag each gap for attorney action with deadline.
+For each gap: name it, cite the rule, compute the deadline, flag the consequence. Read `references/direct-examination-template.md` ("Detail moved from SKILL.md STEP 6") now for the required-checks table. Flag each gap for attorney action with deadline.
 
 ---
 
@@ -398,11 +151,7 @@ Flag each gap for attorney action with deadline.
 
 **This step is MANDATORY.** After completing the direct-exam outline, generate a standalone PDF catalog of every source document in the Source Register. Same structure as `dw-cross-exam-architect-crim` STEP 7:
 
-1. **Cover Page** — Firm name, "SOURCE / EXHIBIT DOCUMENT CATALOG," witness name, case caption, summary statistics
-2. **Table of Contents** — One row per source: source number, title, evidence item, Bates range, chapters referenced
-3. **Source Detail Sheets** — Per source: metadata table (Evidence Item, Bates Range, Date, Custodian, Case Reference, File Location, Direct-Exam Chapters Referenced), description, bulleted list of key references cited
-4. **Discovery & Notice Gap Table** — Mirrors STEP 6 in tabular form (Missing Item | Rule | Deadline | Consequence | Action Required)
-5. **Cross-Reference Matrix** — Grid: sources × chapters with checkmarks
+Read `references/source-catalog-and-combined-sources.md` now for the five required sections.
 
 **File name:** `Source Catalog — [Witness Name] Direct.pdf`
 **Location:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`
@@ -414,10 +163,7 @@ Flag each gap for attorney action with deadline.
 
 **This step is MANDATORY.** After completing the catalog, merge all source PDFs into a single combined file with divider pages. Same structure as `dw-cross-exam-architect-crim` STEP 8:
 
-1. **Cover Page** — Firm name, "SOURCE DOCUMENTS," witness name, case caption, table of contents
-2. **For each source in Source Register order:**
-   - **Divider Page** — Source number, title, metadata, direct-exam chapter references
-   - **Actual Source Document** — All pages of the original PDF
+Read `references/source-catalog-and-combined-sources.md` now for the divider-page structure.
 
 **File name:** `Combined Sources — [Witness Name] Direct.pdf`
 **Location:** Same folder as the outline
@@ -429,11 +175,7 @@ Handle non-PDF sources, missing documents, and externally-located civil filings 
 
 ## Deliverable Checklist (All Three Required)
 
-| # | Deliverable | Format | File Name Pattern |
-|---|-------------|--------|-------------------|
-| 1 | Direct-Examination Outline | .docx | `Direct-Examination — [Witness Name].docx` |
-| 2 | Source/Exhibit Document Catalog | .pdf | `Source Catalog — [Witness Name] Direct.pdf` |
-| 3 | Combined Source Documents | .pdf | `Combined Sources — [Witness Name] Direct.pdf` |
+Three files (outline .docx, Source Catalog .pdf, Combined Sources .pdf). Read `references/source-catalog-and-combined-sources.md` now for the file-name pattern table.
 
 **Plus:** Indexing copy of outline summary to `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/Direct-Exam Summary - [Witness Name] - [YYYY-MM-DD].docx` for the Cowork Analysis index.
 
@@ -445,18 +187,7 @@ All three primary files are saved to the Defense Witnesses folder. Present all f
 
 Preservation applies on direct as much as on cross, and is more often missed because the ruling excludes *your own* evidence.
 
-- **La. C.Cr.P. art. 841** — object or state the desired action **at the moment of the ruling**. Nothing preserved contemporaneously is generally reviewable.
-- **La. C.E. art. 103(A)(2)** — when the court **excludes** your evidence, error may not be predicated on it unless *"the substance of the evidence was made known to the court by counsel."* A sustained objection that kills a line of your own direct is an appellate issue **only if you proffer**.
-
-Every chapter carrying an anticipated objection gets a NOTES bullet:
-
-> • **IF EXCLUDED — PRESERVE:** Ground: [specific]. Proffer: [one sentence on what the witness would have said]. Request the proffer outside the jury's presence. La. C.Cr.P. art. 841; La. C.E. art. 103(A)(2).
-
-Proffer in the strongest available form: Q&A with the witness on the stand and the jury excused, then counsel's detailed statement, then the excluded document filed into the record. Log every ruling and hand off to `dw-appellate-error-monitor-crim` and `dw-issue-code-tracker-crim`.
-
-**Sequestration (La. C.E. art. 615).** On a party's request the court **shall** exclude witnesses. Exceptions in 615(B) include natural-person parties, one designated representative, a person shown essential to presenting a party's case, and crime victims and their family. Confirm the order was requested — an unrequested sequestration is a waived advantage — and confirm your own defense witnesses have complied before they testify. Sanctions under 615(C): contempt, jury instruction, or disqualification of the witness.
-
-`[VERIFY current text]` — arts. 841, 103, and 615 quoted from published sources as of this revision; Louisiana amends frequently.
+Art. 841 — object at the moment of the ruling; art. 103(A)(2) — excluded defense evidence is preserved only if you proffer. Every chapter with an anticipated objection gets an **IF EXCLUDED — PRESERVE** NOTES bullet; confirm art. 615 sequestration; hand rulings to `dw-appellate-error-monitor-crim` and `dw-issue-code-tracker-crim`. Read `references/error-preservation-direct.md` now for the rule text, bullet, proffer form, and sequestration detail.
 
 ---
 
@@ -483,64 +214,34 @@ Proffer in the strongest available form: Q&A with the witness on the stand and t
 
 ## Quick Reference — Louisiana Evidence Rules for Direct
 
-| Situation | Rule |
-|-----------|------|
-| Mode and order of interrogation (leading questions) | La. C.E. Art. 611 |
-| Expert testimony — qualifications, opinion, basis, ultimate issue, hypothetical | La. C.E. Art. 702–705 |
-| Character evidence — trait-in-issue limitation | La. C.E. Art. 404(A) |
-| Methods of proving character (reputation vs. opinion) | La. C.E. Art. 405 |
-| Impeachment — prior inconsistent statements / convictions | La. C.E. Art. 607–609 |
-| Business records foundation | La. C.E. Art. 803(6) |
-| Self-authentication | La. C.E. Art. 902 |
-| Alibi notice procedure | La. C.Cr.P. Art. 727 |
-| Defense expert disclosure | La. C.Cr.P. arts. 716–729 `[VERIFY — NOT art. 705 = severance]` |
-| 5th Amendment waiver | Estelle v. Williams, 425 U.S. 501 (1976); Brooks v. Tennessee, 406 U.S. 605 (1972) |
-| Right to testify | Rock v. Arkansas, 483 U.S. 44 (1987) |
-| State comment on silence prohibited | Griffin v. California, 380 U.S. 609 (1965) |
+Situation-to-rule table (La. C.E. arts. 611, 702–705, 404(A), 405, 607–609, 803(6), 902; La. C.Cr.P. Art. 727, arts. 716–729; Estelle, Brooks, Rock, Griffin). Read `references/louisiana-direct-examination-rules.md` (final section) now for the table.
 
 *Adapt all rules when jurisdiction toggle is set to federal WDLA or another state.* Full doctrinal treatment in `references/louisiana-direct-examination-rules.md`.
 
 ---
 
-## Downstream Integration
+## Integration — Downstream Consumers and Upstream Products
 
-`dw-trial-notebook-builder-crim` consumes the Direct-Examination Outlines produced by this skill as part of Phase 4 trial tab assembly. The outline `.docx` files in `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Defense Witnesses/` are indexed into the trial notebook's Defense Witnesses tab. The Cowork Analysis summary copies are indexed into the Case Analysis tab. Do not rename or move outline files after generation — `dw-trial-notebook-builder-crim` relies on the canonical filenames and paths.
-
-## Upstream Consumers — This Skill Reads From
-
-- **`dw-witness-statement-analyzer-crim`** — defense-favorable Witness Analysis Cards (key facts, vagueness flags, defense utility assessment for non-defendant defense witnesses)
-- **`dw-expert-witness-evaluator-crim`** — defense expert vetting, Daubert-survival prep, qualifications/methodology audit, prior testimony record
-- **`dw-case-brain-crim`** — defense theory, charges, parties, case theme, CASE_ROOT
-- **`dw-timeline-builder-crim`** — alibi corroboration timeline; defense narrative sequencing; cross-witness time anchors
-- **`dw-exhibit-manager-crim`** — exhibit numbers, Bates references, authentication status for sponsored exhibits
-
-If any of these upstream products is missing or stale, prompt the attorney to refresh before drafting.
-
----
-
-## Reads from / Feeds to
-
-**Reads from:**
-- `dw-shared-protocols-crim` (work product marking, output path formula)
-- `dw-case-brain-crim` (CASE_ROOT, parties, theme, theory)
-- `dw-witness-statement-analyzer-crim` (defense-favorable Analysis Cards)
-- `dw-expert-witness-evaluator-crim` (Daubert-survival prep for defense experts)
-- `dw-timeline-builder-crim` (alibi/corroboration timeline)
-- `dw-exhibit-manager-crim` (exhibit metadata)
-
-**Feeds to:**
-- `dw-trial-notebook-builder-crim` (Phase 4 Defense Witnesses tab assembly)
-- `dw-jury-instructions-builder-crim` (defense-theory-driven instruction requests anchored on direct testimony)
-- `dw-trial-narrative-builder-crim` (closing argument integration — defense witness propositions become closing themes)
+`dw-trial-notebook-builder-crim` indexes the outline files from the Defense Witnesses folder — do not rename or move them after generation. Reads from `dw-witness-statement-analyzer-crim`, `dw-expert-witness-evaluator-crim`, `dw-case-brain-crim`, `dw-timeline-builder-crim`, `dw-exhibit-manager-crim`; feeds `dw-trial-notebook-builder-crim`, `dw-jury-instructions-builder-crim`, `dw-trial-narrative-builder-crim`. Read `references/integration-map.md` now for the full detail. If an upstream product is missing or stale, prompt the attorney to refresh first.
 
 ## Quick References
 
-This skill uses the following reference materials, available in the `references/` subdirectory:
+Each step names the file it needs; all live in `references/`:
 
-- **defendant-testify-decision-matrix.md** — STEP 0.6 / STEP 3: pretrial and morning-of-trial testify-or-not decision matrix for the defendant
-- **witness-types.md** — STEP 3: five witness-type modules (prep protocol, chapter sequencing, cross-attack vectors, rehearsal plan, foundation checklist)
-- **direct-examination-template.md** — STEP 4: firm Direct-Examination Outline template specification (mirror of the Cross-Exam Template with Anticipated Cross-Attack Vectors column)
-- **louisiana-direct-examination-rules.md** — Doctrinal reference for defense direct examination in Louisiana state courts (WDLA parallels noted)
+- **defense-witness-lineup-audit.md** — STEP 0.6: risk axes, sequencing, Lineup Report table
+- **defendant-testify-decision-matrix.md** — STEP 0.6 / STEP 3: defendant testify-or-not matrix
+- **information-gathering-protocol.md** — STEP 1: ranked checklist
+- **master-defense-witness-table.md** — STEP 1.A: table structure and rules
+- **pre-draft-confirmation.md** — STEP 2: confirmation block
+- **witness-types.md** — STEP 3: five witness-type modules plus overview
+- **direct-examination-template.md** — STEP 4 / STEP 6: template specification, Source Register, 8-column block, `(N)` rule, sequencing, theme, gap-report required checks
+- **open-ended-questioning-discipline.md** — STEP 4.5: opening words, leading auto-flag, exceptions, cadence
+- **cross-attack-vulnerability-scan.md** — STEP 5: scan categories and flag format
+- **source-catalog-and-combined-sources.md** — STEP 7 / STEP 8 / Deliverable Checklist: PDF structures and file-name table
+- **error-preservation-direct.md** — Error Preservation: arts. 841 / 103(A)(2), proffer, art. 615
+- **louisiana-direct-examination-rules.md** — doctrinal reference plus situation-to-rule Quick Reference table
+- **integration-map.md** — Integration: upstream/downstream, Reads-from / Feeds-to
+
 
 ---
 

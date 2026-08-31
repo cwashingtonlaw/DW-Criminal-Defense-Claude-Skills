@@ -371,3 +371,15 @@ CAVEATS:
 ---
 
 *This reference is loaded by the dw-forensic-dump-analyzer-crim skill during Step 4 (Cross-Reference Mode). It is only relevant when the attorney provides case documents alongside the phone data. If no case documents are provided, the skill operates in standalone mode and skips this reference.*
+
+## Document-to-Section Lookup (carried over from SKILL.md Step 4)
+
+Read `references/cross-reference-guide.md` — only sections relevant to documents provided:
+
+| Documents available | Read section |
+|--------------------|-------------|
+| Police reports | Section 2 |
+| Witness statements | Section 3 |
+| State's timeline | Section 4 |
+| Multiple phone dumps | Section 5 |
+| Surveillance / body cam | Section 6 |

@@ -30,3 +30,19 @@ The Reid Technique is the most widely used interrogation method in American law 
 | **Futility / Inevitability** | Convincing the defendant that conviction is inevitable regardless of whether they confess | "You're going down either way. The only question is how hard"; "With or without your statement, the jury will convict you" | HIGH — creates despair and learned helplessness; undermines rational decision-making |
 | **Reciprocity / Rapport** | Building personal connection, offering food/drink/comfort, then leveraging the relationship | "I went out of my way to get you this food. Now help me out"; extended rapport-building before pivoting to confrontation | MODERATE — rapport itself is legitimate, but leveraging it creates obligation pressure |
 | **Strategic Use of Evidence (SUE)** | Withholding known evidence and asking open-ended questions to detect inconsistencies, then confronting with withheld evidence | Asking "Were you anywhere near the store?" knowing GPS places defendant there, then revealing GPS data after denial | LOW to MODERATE — this technique (common in PEACE model) is less coercive than Reid but is used to lock the defendant into lies before confrontation |
+## Technique Identification — Output Format (carried over from SKILL.md Step 4)
+
+For each technique identified, document:
+
+```
+TECHNIQUE: [Name]
+TIMESTAMP: [HH:MM:SS - HH:MM:SS]
+INTERROGATOR: [Name/Badge]
+VERBATIM EXAMPLE: "[Exact quote from transcript/recording]"
+COERCION LEVEL: [LOW / MODERATE / HIGH / CRITICAL]
+LEGAL SIGNIFICANCE: [How this technique impacts voluntariness, Miranda waiver validity, or false confession risk]
+CROSS-EXAM SEED: [Question targeting this technique for cross-examination of the interrogating officer]
+```
+
+---
+

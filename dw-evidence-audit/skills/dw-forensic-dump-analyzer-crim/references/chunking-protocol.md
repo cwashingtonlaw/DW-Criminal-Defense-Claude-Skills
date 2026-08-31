@@ -259,3 +259,14 @@ Note which tiers were analyzed, which were scanned, and which were skipped (if e
 | Browser history | 500–5K records | 1 |
 | Photos/EXIF | 100–10K records | 1–2 |
 | App data | Varies | 1–5 |
+
+## Resuming from a Continuation Block (carried over from SKILL.md)
+
+### Resuming from a Continuation Block
+
+If the attorney pastes a **Continuation Block** from a prior session, skip Steps 0–1 and:
+1. Parse the Session State Block to restore case context and progress
+2. Parse all prior Chunk Findings Ledgers to carry forward cumulative intelligence and Cross-Chunk Leads
+3. Read `references/chunking-protocol.md` for the full chunking workflow
+4. Resume at the next uncompleted tier — do NOT re-analyze completed chunks
+5. Confirm with the attorney before proceeding: *"Resuming [Case Name] analysis. [N] chunks complete, [N] findings. Next: [Tier X: Category]. Ready?"*

@@ -1,5 +1,9 @@
 # Module C — Biological Evidence Chain Audit
 
+## Module Overview (carried over from SKILL.md)
+
+Biological evidence (DNA, blood, saliva, semen, hair, tissue, sexual assault kits) has the most demanding chain of custody requirements because biological samples degrade, can be cross-contaminated at trace levels, and are consumed during testing — meaning retesting may be impossible if the chain is compromised. Audit collection, packaging, cold-chain maintenance, lab analysis consumption tracking, and SAK-specific chain requirements.
+
 Biological evidence (DNA, blood, saliva, semen, hair, tissue, sexual assault kits) has the most demanding chain of custody requirements because biological samples degrade, can be cross-contaminated at trace levels, and are consumed during testing — meaning retesting may be impossible if the chain is compromised.
 
 ## Biological Evidence — The Degradation Timeline
@@ -65,3 +69,12 @@ The clock starts ticking the moment biological evidence is collected. Every hour
 | ASCLD/LAB Accreditation Requirements | American Society of Crime Laboratory Directors | Lab accreditation standards including evidence handling |
 | La. R.S. 15:621 | Louisiana Legislature | Louisiana Crime Laboratory standards and procedures |
 | NIJ National Best Practices for Sexual Assault Kits (2017) | National Institute of Justice | SAK collection, handling, storage, and submission standards |
+
+## Top CRITICAL Red Flags at a Glance
+
+Summary bullets carried over from SKILL.md Module C; the full matrix above is authoritative.
+
+- Wet biological evidence sealed in plastic at collection — bacterial degradation may have destroyed DNA
+- No documentation of refrigeration/freezing after collection — cold chain cannot be verified
+- Sample exhausted without defense notification — potential *Youngblood* / *Trombetta* violation; La. C.Cr.P. Art. 719 right to independent testing
+- Same gloves used to collect multiple items — cross-contamination by collector's gloves

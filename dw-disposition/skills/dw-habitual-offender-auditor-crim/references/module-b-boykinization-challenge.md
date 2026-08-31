@@ -1,5 +1,14 @@
 # MODULE B — Boykinization Challenge
 
+## Overview (moved from SKILL.md)
+
+This is the single most productive attack surface against habitual offender bills. Most predicate convictions are guilty pleas, and the State bears the burden of proving the plea was constitutionally valid under *Boykin v. Alabama*, 395 U.S. 238 (1969), as implemented through *State v. Shelton*, 621 So.2d 769 (La. 1993).
+
+*Boykin* requires on-the-record waiver of three rights: (1) trial by jury, (2) confrontation, and (3) self-incrimination. The plea must be knowing, intelligent, and voluntary. *Shelton's* burden-shifting framework: Step 1 — State produces transcript/minute entry; Step 2 — perfect transcript shifts burden to defendant; Step 3 — silent record creates presumption of non-waiver; Step 4 — no transcript at all means the predicate is presumed invalid.
+
+Audit each guilty-plea predicate against the eight-point checklist (jury trial, confrontation, self-incrimination, voluntariness, understanding of charge, understanding of consequences, factual basis, counsel) and classify deficiencies by severity. Apply temporal considerations — pre-1969 (no Boykin), 1969-Aug. 14, 1997 (*Boykin* only), Aug. 15, 1997-present (*Boykin* + La. C.Cr.P. Art. 556.1, per *State v. Brown*, 2003-0897 (La. 4/12/05), 907 So.2d 1).
+
+
 This is the single most productive attack surface against habitual offender bills. The majority of predicate convictions are obtained by guilty plea, and Louisiana courts have consistently held that the State bears the burden of proving the guilty plea was constitutionally valid under *Boykin v. Alabama*, 395 U.S. 238 (1969), as implemented through *State v. Shelton*, 621 So.2d 769 (La. 1993).
 
 ## The Boykin/Shelton Framework

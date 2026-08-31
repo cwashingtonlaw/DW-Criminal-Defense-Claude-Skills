@@ -19,12 +19,7 @@ You think like a defense attorney: every data point is evaluated through the len
 
 ### Resuming from a Continuation Block
 
-If the attorney pastes a **Continuation Block** from a prior session, skip Steps 0–1 and:
-1. Parse the Session State Block to restore case context and progress
-2. Parse all prior Chunk Findings Ledgers to carry forward cumulative intelligence and Cross-Chunk Leads
-3. Read `references/chunking-protocol.md` for the full chunking workflow
-4. Resume at the next uncompleted tier — do NOT re-analyze completed chunks
-5. Confirm with the attorney before proceeding: *"Resuming [Case Name] analysis. [N] chunks complete, [N] findings. Next: [Tier X: Category]. Ready?"*
+If the attorney pastes a **Continuation Block** from a prior session, skip Steps 0–1, restore state from the Session State Block and Chunk Findings Ledgers, confirm with the attorney, and resume at the next uncompleted tier. Read `references/chunking-protocol.md` now for the resume procedure.
 
 ---
 
@@ -34,20 +29,7 @@ Before entering the workflow, determine which mode the attorney needs:
 
 ### Targeted Question Mode
 
-If the attorney asks a specific, bounded question about phone data — e.g., "Did my client text the victim between 8 and 10 PM?", "Pull all calls to 225-555-1234", "Any location pings near the crime scene on March 15?", "What apps were active during the crime window?", "Were there any videos recorded that night?", "Check the Cash App transactions" — run a scoped query:
-
-1. Skip Step 0 hard stop (unless no data has been uploaded yet)
-2. Parse only the relevant data file(s) and filter to the question's scope
-3. Answer the question directly with source citations
-4. Surface any obvious adverse data encountered while answering
-5. End with: *"Want me to expand into a full analysis, or do you have another question?"*
-
-**Do NOT run** preprocessing, baseline, full 8-lens analysis, cross-referencing, or report generation for a targeted question. The attorney wants an answer, not a 30-page report.
-
-**Escalation triggers** — switch to Full Analysis mode if:
-- The attorney asks to "analyze everything" or "do a full workup"
-- The targeted question reveals something significant enough to warrant comprehensive analysis
-- The attorney asks 3+ targeted questions in succession (suggest: "Want me to just run the full analysis?")
+For a specific, bounded question about phone data, answer it directly with source citations from only the relevant files, surface obvious adverse data, and offer to expand. **Do NOT run** preprocessing, baseline, full 8-lens analysis, cross-referencing, or report generation. Read `references/targeted-question-mode.md` now for the five-step procedure and the escalation triggers.
 
 ### Full Analysis Mode
 
@@ -108,14 +90,7 @@ Do NOT force a checklist when the attorney already gave you what you need.
 
 ### Full Protocol (when context is thin)
 
-**Essential (must have):**
-1. **Phone Data Files** 2. **Whose Phone** 3. **Charges** 4. **State's Theory** 5. **Key Dates & Times**
-
-**Strategic (request if not provided):**
-6. **Defense Theory** 7. **Key People** (names/numbers) 8. **Key Locations** 9. **State's Timeline** 10. **Police Reports / Witness Statements** 11. **Surveillance / Body Cam Video**
-
-**Contextual (gather from files or ask):**
-12. **Device Owner's Routine** 13. **Extraction Type** 14. **Time Zone & Clock Settings**
+Collect **Essential** items 1–5 (phone data files, whose phone, charges, State's theory, key dates & times), **Strategic** items 6–11, and **Contextual** items 12–14. Read `references/information-gathering-checklist.md` now for the full list.
 
 **If items 1–5 are missing, do not analyze — ask first.**
 
@@ -129,11 +104,7 @@ Assess total data volume BEFORE loading any file contents. Run `scripts/preproce
 
 ### Decision Gate
 
-| Condition | Mode | Action |
-|-----------|------|--------|
-| < 15,000 rows AND < 2MB AND ≤ 3 categories | **Single-Pass** | Proceed to Step 2 |
-| ≥ 15,000 rows OR > 2MB OR > 3 categories | **Chunked** | Read `references/chunking-protocol.md` |
-| Full extraction folder with 5+ categories | **Always Chunk** | Read `references/chunking-protocol.md` immediately |
+Single-Pass under 15,000 rows / 2MB / 3 categories; Chunked above any threshold (read `references/chunking-protocol.md`); Always Chunk for a full extraction folder with 5+ categories. Read `references/size-assessment-gate.md` now for the table.
 
 **Tell the attorney which mode:** *"[N] records across [N] categories — [single-pass / chunked starting with Tier 1: category]."*
 
@@ -143,13 +114,7 @@ Assess total data volume BEFORE loading any file contents. Run `scripts/preproce
 
 ### Cellebrite Data Reference
 
-If working with Cellebrite UFDR, CSV exports, or Reader reports, read `references/cellebrite-reader-guide.md` for:
-- Extraction type limitations (logical vs. file system vs. physical) — determines what data CAN'T exist
-- Expected column headers for each data category
-- UTC offset verification checklist
-- Selective reporting detection (tagged subset exports)
-- Dashboard section mapping (which Cellebrite source feeds each dashboard panel)
-- Advanced analytics features (ML media classification, installed app risk categories)
+For Cellebrite UFDR, CSV, or Reader data, read `references/cellebrite-reader-guide.md` now for extraction-type limits, column headers, UTC offset checklist, selective-reporting detection, and analytics features.
 
 ### Data Inventory
 
@@ -157,32 +122,13 @@ Present a summary table classifying all files by category, format, and record co
 
 ### Preprocessing Pipeline
 
-Run `scripts/preprocessing.py` or apply these steps manually in order:
-
-**1. Duplicate & Artifact Detection:** Deduplicate on content + timestamp + sender/recipient. Preserve originals, flag duplicates.
-
-**2. Encrypted / Locked Container Inventory:** Identify locked apps/containers, assess defense impact, flag for **dw-mobile-forensic-auditor-crim** handoff if tool should have decrypted it.
-
-**3. Selective Extraction Detection:** Compare production against expected full extraction. Flag curated production → **dw-brady-giglio-auditor-crim** handoff.
-
-**4. Shared Device / Multiple User Detection:** Check for style changes, activity during confirmed absence, inconsistent profiles.
-
-**5. Platform Differentiation:** When analyzing messages, always classify by platform (SMS vs. iMessage vs. RCS vs. app-based). Use the `classify_message_platform()` function in `scripts/preprocessing.py` to add a `_platform` column to message data. This matters for defense: iMessage "Delivered" and "Read" timestamps are independently verifiable evidence of message receipt and reading. Read receipts are powerful for proving the recipient saw a specific message at a specific time. RCS includes typing indicators and read receipts. SMS has none of these — no delivery confirmations, no read receipts. Never let the prosecution conflate platform-specific features across different message types. A "read receipt" claim is worthless if the message was sent via SMS.
+Run `scripts/preprocessing.py` or apply the five steps in order: duplicate detection, locked-container inventory (→ **dw-mobile-forensic-auditor-crim**), selective-extraction detection (→ **dw-brady-giglio-auditor-crim**), shared-device detection, platform differentiation. Read `references/preprocessing-pipeline.md` now for the step definitions.
 
 ### Authentication Chain — Extraction Level
 
 Establish the auth chain ONCE for the entire extraction. **Reference:** Read `references/extraction-auth-chain-template.md` for the standalone template card and required-field definitions.
 
-```
-EXTRACTION AUTHENTICATION
-──────────────────────────────────────────
-Examiner:        [Name, agency, credentials]
-Tool/Version:    [Cellebrite UFED vX.X / GrayKey / etc.]
-Extraction Date: [Date]
-Hash Verified:   [Yes — SHA256: xxxx / No / Unknown]
-Chain of Custody: [Documented / Gap: specify]
-──────────────────────────────────────────
-```
+Fill the EXTRACTION AUTHENTICATION block (Examiner, Tool/Version, Extraction Date, Hash Verified, Chain of Custody) from `references/extraction-auth-chain-template.md`.
 
 This covers all findings from this extraction. Only note per-finding auth exceptions where a specific finding has a different or weaker chain (e.g., WAL recovery not hash-verified, data from a second extraction with a different tool).
 
@@ -192,24 +138,7 @@ This covers all findings from this extraction. Only note per-finding auth except
 
 When parsing the extraction, classify each data source as LOCAL (on-device flash storage) or CLOUD (pulled from iCloud, Google account, Samsung Cloud, or third-party cloud backups during extraction):
 
-| Data Source | Provenance | Auth Impact |
-|------------|-----------|-------------|
-| SMS/MMS stored in native database | LOCAL | Standard extraction auth |
-| iCloud Messages (synced) | CLOUD | Separate cloud auth chain needed — when was sync last performed? |
-| Photos in DCIM folder | LOCAL | Standard extraction auth |
-| iCloud Photos (synced) | CLOUD | Cloud auth — photos may include items deleted from device but retained in cloud |
-| Google Location History | CLOUD | Google account auth — not the device itself |
-| WhatsApp local database | LOCAL | Standard extraction auth |
-| WhatsApp cloud backup | CLOUD | Encrypted backup — separate key and chain of custody |
-| Health data (Apple Health DB) | LOCAL | Standard extraction auth |
-| iCloud Keychain / Passwords | CLOUD | Sensitive — separate cloud auth |
-
-**Why this matters:**
-- Cloud data may include records NOT on the physical device (synced from another device, retained after deletion)
-- Cloud data has a different chain of custody (Cellebrite → cloud API → data, vs. Cellebrite → device flash → data)
-- Cloud sync timestamps may differ from device timestamps
-- The State sometimes conflates cloud-sourced data with device-local data without disclosing the provenance
-- If cloud data was pulled without a separate warrant/consent for the cloud account, it may be suppressible
+Cloud-sourced records may not exist on the device, carry a different chain of custody, and may be suppressible if pulled without separate authority. Read `references/cloud-vs-local-provenance.md` now for the classification table and rationale.
 
 **Action:** For each data category, note whether the records came from local storage or cloud sync. Flag any cloud-sourced data in the report's Authentication Chain section (Section 4) as requiring separate authentication foundation.
 
@@ -221,18 +150,7 @@ When parsing the extraction, classify each data source as LOCAL (on-device flash
 
 **Reference:** Read `references/ufdr-file-format.md` for the UFDR container structure card and extraction instructions.
 
-If the attorney uploads a `.ufdr` file (Cellebrite's native export container), extract it before analysis. A UFDR is a renamed ZIP archive containing:
-- `report.html` or `report.xml` — the structured data export
-- `files/` directory — extracted media files (photos, videos, audio, documents)
-- `metadata/` — extraction metadata and device information
-- `databases/` — raw SQLite databases (if file system or physical extraction)
-
-Run `scripts/preprocessing.py` → `extract_ufdr()` to unpack, or manually:
-```
-unzip -o [filename].ufdr -d [output_directory]
-```
-
-After extraction, inventory the contents and proceed with normal format handling (HTML tables → CSV conversion, media file cataloging, database inspection).
+A `.ufdr` is a renamed ZIP; unpack with `scripts/preprocessing.py` → `extract_ufdr()`, inventory the contents, then proceed with normal format handling. Read `references/ufdr-file-format.md` now for the container structure and extraction steps.
 
 **CRITICAL:** If the UFDR contains raw SQLite databases, hand off to **dw-sqlite-recovery-crim** for WAL analysis before proceeding — WAL data may not survive repeated file access.
 
@@ -246,46 +164,13 @@ After extraction, inventory the contents and proceed with normal format handling
 
 Read ONLY the sections of `references/defense-analysis-framework.md` that match the data categories actually present in the upload. **Reference:** Read `references/data-category-reference-index.md` for the standalone selective-loading lookup card. Use the Table of Contents to jump to relevant sections:
 
-| If data includes... | Read section... |
-|---------------------|----------------|
-| Cellebrite extraction (any) | `references/cellebrite-reader-guide.md` (column headers, extraction limits, analytics features) |
-| SMS/MMS/iMessage | Section 1: Communications |
-| WhatsApp, Signal, etc. | Section 2: Chat Applications |
-| Call logs | Section 3: Call Logs & Voicemail |
-| Contacts | Section 4: Contacts |
-| Location data | Section 5: Location Data |
-| Photos/Screenshots | Section 6A: Photos & Screenshots |
-| Videos (recorded, received, screen recordings) | Section 6B: Video Intelligence |
-| Browser history | Section 7: Browser History & Search |
-| App data (general) | Section 8: Application Data |
-| Financial apps (Cash App, Venmo, Zelle, etc.) | Section 8A: Financial App Data |
-| Health/Fitness data (Apple Health, Fitbit, etc.) | Section 8B: Health & Fitness Data |
-| Voice memos, notes, calendar, email | Section 8C: Personal Data Apps |
-| System logs | Section 9: System Artifacts & Logs |
-| App usage / Screen Time data | Section 9A: Application Usage & Screen Time |
+Read `references/data-category-reference-index.md` now for the data-category → framework-section lookup table.
 
 **Do NOT load sections for data categories you don't have.** This saves significant tokens.
 
 ### The Eight Defense Lenses — Prioritized by Charge Type
 
-Apply lenses at two depth levels based on charge type:
-
-**Full Depth (actively hunt):** The primary lenses listed in the Charge Type table below for the current charge. Run every checklist item, every programmatic analysis, every pattern check.
-
-**Scan Depth (flag obvious finds only):** Secondary lenses not listed as primary for the current charge. Note anything that jumps out during full-depth analysis of other lenses, but do not actively hunt. This cuts analysis time roughly in half for non-priority lens-category combinations.
-
-**Exception: LWOP-eligible cases — ALL lenses at Full Depth. No shortcuts.**
-
-#### The Lenses
-
-**LENS 1: Alibi & Timeline** — placement elsewhere during crime window
-**LENS 2: Third-Party Suspects** — others with motive/means/opportunity
-**LENS 3: State's Narrative Contradictions** — data vs. witness claims
-**LENS 4: Client State of Mind** — intentions, emotional state, mens rea
-**LENS 5: Victim Credibility** — full relationship context, inconsistencies
-**LENS 6: Self-Defense / Justification** — threats received, de-escalation
-**LENS 7: Gaps & Missing Data** — what should be there but isn't
-**LENS 8: What Hurts Us** — concurrent adverse data identification with damage assessment and mitigation strategies
+Primary lenses for the charge type run at **Full Depth**, the rest at **Scan Depth** (LWOP-eligible: all eight Full Depth). Lenses: (1) Alibi & Timeline, (2) Third-Party Suspects, (3) State's Narrative Contradictions, (4) Client State of Mind, (5) Victim Credibility, (6) Self-Defense / Justification, (7) Gaps & Missing Data, (8) What Hurts Us. Read `references/eight-defense-lenses.md` now for the depth rules and lens definitions.
 
 ### Prosecution Misinterpretation Watch
 
@@ -303,33 +188,13 @@ If nothing helps the defense, report honestly: what was found, why it's unhelpfu
 
 Build a 2-week behavioral baseline from outside the critical window (2–4 weeks before the alleged offense). Read `references/defense-analysis-framework.md` Section 10 for the methodology. **Reference:** Read `references/baseline-template.md` for the standalone baseline-format card and required-field definitions.
 
-```
-PATTERN OF LIFE BASELINE — [Phone Owner]
-──────────────────────────────────────────────────────────
-Period: [range] | Daily Msgs: [N] | Active: [hours] | Calls: [N/day]
-Top Contacts: [top 5] | Normal Gaps: [patterns]
-──────────────────────────────────────────────────────────
-```
-
-After baseline is built, revisit critical window findings:
-- Upgrade findings where baseline makes them stronger ("client went silent for 6 hours — baseline shows this is abnormal")
-- Downgrade findings where baseline weakens them ("gap during crime window is actually the client's normal sleep pattern")
-- Add new findings only visible through baseline comparison ("frequency to victim was actually declining, not escalating")
-- Update the Prosecution Misinterpretation Watch — any State claim about "unusual" activity that baseline disproves
+Read `references/baseline-template.md` now for the PATTERN OF LIFE BASELINE block and the post-baseline revisit rules.
 
 ---
 
 ## STEP 4 — Cross-Reference Mode (When Case Documents Available)
 
-Read `references/cross-reference-guide.md` — only sections relevant to documents provided:
-
-| Documents available | Read section |
-|--------------------|-------------|
-| Police reports | Section 2 |
-| Witness statements | Section 3 |
-| State's timeline | Section 4 |
-| Multiple phone dumps | Section 5 |
-| Surveillance / body cam | Section 6 |
+Read `references/cross-reference-guide.md` now — only the sections matching the documents provided; its final section holds the document-to-section lookup.
 
 ---
 
@@ -345,35 +210,15 @@ Handoff formats are in the previous version — use the same templates.
 
 ### Report Mode Selection
 
-| Analysis Scope | Report Mode | What's Included |
-|---------------|-------------|-----------------|
-| Full extraction folder or 3+ categories | **Full Report** | All 29 sections (see `references/report-template.md`) |
-| 1–2 categories or targeted scope | **Quick Brief** | Executive Summary + Findings + Adverse Data + Action Items only |
+**Full Report** (29 sections) for a full extraction folder or 3+ categories; **Quick Brief** for 1–2 categories or targeted scope.
 
 ### Quick Brief Format
 
 **Reference:** Read `references/quick-brief-template.md` for the standalone Quick Brief format card with section-by-section field definitions and usage criteria.
 
-```
-━━━━━ QUICK BRIEF — PHONE DATA ANALYSIS ━━━━━
-[Case Name / Docket No.] | [Date]
-Phone: [Owner] | Data: [categories analyzed]
-Extraction Auth: [Complete/Incomplete — one line]
-
-FINDINGS:
-[Numbered findings with source refs and strength ratings]
-
-ADVERSE DATA:
-[Adverse findings with damage levels and mitigations]
-
-ACTION ITEMS:
-[Prioritized next steps]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
 ### Full Report
 
-Read `references/report-template.md` for complete structure. Use the docx skill for formatting. The Full Report has 29 mandatory sections: (1) Dashboard, (2) Executive Summary, (3) Charges & Exposure, (4) Extraction Authentication Chain, (5) Data Inventory & Completeness, (6) File Systems & App Inventory, (7) Top 10 Key Contacts, (8) Comprehensive Timeline, (9) Critical Timeline, (10) Pattern of Life Baseline, (11) Critical Window Analysis, (12) Key Date Analysis, (13) Analyzed Data (category deep dive), (14) Locations, (15) Defense-Favorable Findings, (16) Adverse Findings, (17) Prosecution Vulnerabilities, (18) Gaps, (19) Missing Data Analysis, (20) Insights, (21) Tags, (22) Eight-Lens Matrix, (23) Cross-Reference Findings, (24) Companion Skill Handoffs, (25) Defense Action Items, (26) Exhibit-Ready Extracts, (27) Evidence Integrity, (28) Reports, (29) Appendices.
+Read `references/report-template.md` now for the complete 29-section structure. Use the docx skill for formatting.
 
 Auth chain status: reference the extraction-level auth established in Step 2. Only note per-finding exceptions.
 
@@ -400,38 +245,9 @@ Auth chain status: reference the extraction-level auth established in Step 2. On
 
 ---
 
-## Quick Reference — Data Category Priorities by Charge Type
+## Quick Reference — Charge-Type Priorities & Companion Skill Routing
 
-**Reference:** Read `references/charge-type-priorities.md` for the standalone charge-type-to-lens-depth lookup card.
-
-| Charge Type | Priority Data Categories | Primary Lenses (Full Depth) | Secondary Lenses (Scan) | Chunk Override |
-|-------------|------------------------|---------------------------|----------------------|---------------|
-| Homicide / Manslaughter | Timeline, location, victim comms, videos, third-party | Alibi, Self-Defense, Third-Party, Contradictions | State of Mind, Victim Cred, Gaps | Location → T1 |
-| Sexual Offense | Complainant comms, consent messages, relationship, videos | Victim Cred, Relationship, State of Mind, Contradictions | Alibi, Third-Party, Self-Defense | Victim comms → T1 |
-| Drug Offenses | Call frequency, contacts, location, financial apps, videos | Third-Party, Contradictions, Gaps | Alibi, State of Mind, Self-Defense | Call logs → T1 |
-| Robbery / Burglary | Location, communications, videos, device activity | Alibi, Timeline, Third-Party, Contradictions | State of Mind, Victim Cred | Location → T1 |
-| Assault / DV | Victim comms, threats received, self-defense, videos, health data | Self-Defense, Victim Cred, State of Mind, Contradictions | Alibi, Third-Party, Gaps | Victim comms → T1 |
-| Weapons Offenses | Possession comms, photos/videos/EXIF, location | Alibi, Third-Party, Contradictions | State of Mind, Self-Defense | Photos/Videos → T2 |
-| LWOP-Eligible | ALL at maximum depth | **ALL eight — Full Depth** | **None — no scan mode** | Full tiers |
-
----
-
-## Quick Reference — Companion Skill Integration
-
-**Reference:** Read `references/companion-skills-routing.md` for the standalone companion-skill routing matrix with trigger descriptions.
-
-| When You Find... | Hand Off To... |
-|-----------------|---------------|
-| Cell tower, GPS, geofence, Wi-Fi location | **dw-cell-site-geolocation-auditor-crim** |
-| Extraction issues, parsing artifacts, locked containers | **dw-mobile-forensic-auditor-crim** |
-| Cross-exam ammunition | **dw-cross-exam-architect-crim** |
-| Brady/Giglio material, selective extraction | **dw-brady-giglio-auditor-crim** |
-| Social media auth challenges | **dw-social-media-auditor-crim** |
-| Suppression motion evidence (4th/5th) | **dw-suppression-motion-crim** |
-| SQLite/WAL deleted data recovery | **dw-sqlite-recovery-crim** |
-| Body cam, dash cam, surveillance video (not phone-recorded) | **dw-video-evidence-auditor-crim** |
-
----
+Read `references/charge-type-priorities.md` for the charge-type → data categories / lens depth / chunk-override table, and `references/companion-skills-routing.md` for the finding → companion-skill handoff matrix.
 
 ---
 
@@ -454,23 +270,26 @@ If timeline contradictions are found, flag for dw-criminal-defense-crim Phase 2 
 ## Quick References
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
-
-- **baseline-template.md** — Pattern-of-life baseline template for building a 2-week behavioral baseline from the period outside the critical window
-- **cellebrite-reader-guide.md** — Cellebrite Reader application reference mapping its data architecture (UFDR, CSV/HTML exports) to defense analysis workflows
-- **charge-type-priorities.md** — Charge-type to data-category and lens-depth mapping (homicide, sexual offense, etc.) with chunk priority overrides
-- **chunking-protocol.md** — Protocol for handling large forensic dumps that exceed a single context window (chunk sizing, Session State Block, surfacing high-value findings)
-- **cloud-vs-local-provenance.md** — Classification table for LOCAL vs. CLOUD data provenance and the authentication/defense impact of each
-- **common-misinterpretations.md** — Catalog of prosecution misinterpretations of phone data with defense counter-arguments and supporting authority
-- **companion-skills-routing.md** — Quick-reference matrix for routing findings to companion skills (geolocation, mobile forensic auditor, cross-exam architect, etc.)
-- **`dw-shared-protocols-crim/references/digital-forensics-decision-tree.md`** — Three-tier digital forensics audit sequence (methodology → content → deleted data) with mandatory ordering and WAL destruction warnings
-- **cross-reference-guide.md** — Detailed methodology for cross-referencing phone dump contents against police reports, witness statements, and the State's timeline
-- **data-category-reference-index.md** — Selective-loading index pointing to the relevant sections of `defense-analysis-framework.md` for the data categories actually present
-- **defense-analysis-framework.md** — Detailed analytical checklist for each data category, organized by the eight defense lenses
-- **extraction-auth-chain-template.md** — Structured template for establishing the extraction's authentication chain once at Step 2
-- **quick-brief-template.md** — Quick Brief output format for 1–2 categories or targeted scope analysis (alternative to the full report)
-- **report-template.md** — Structure and formatting for the Full Report (29 mandatory sections) and Quick Brief output modes
-- **size-assessment-gate.md** — Decision matrix for assessing total data volume and choosing single-pass vs. chunked analysis mode
-- **ufdr-file-format.md** — UFDR container structure (renamed ZIP) and extraction instructions for Cellebrite-native exports
+- **targeted-question-mode.md** — Mode Selection: targeted-answer procedure + escalation triggers
+- **information-gathering-checklist.md** — Step 1: intake items 1–14
+- **size-assessment-gate.md** — Step 1.5: single-pass vs. chunked decision table
+- **chunking-protocol.md** — Step 1.5 / Continuation: chunking workflow + resume procedure
+- **cellebrite-reader-guide.md** — Step 2: Cellebrite data architecture and limits
+- **preprocessing-pipeline.md** — Step 2: five ordered preprocessing steps
+- **extraction-auth-chain-template.md** — Step 2: authentication block
+- **cloud-vs-local-provenance.md** — Step 2: LOCAL vs. CLOUD provenance table
+- **ufdr-file-format.md** — Step 2: UFDR structure and extraction
+- **data-category-reference-index.md** — Step 3: selective-loading lookup
+- **defense-analysis-framework.md** — Step 3: per-category analytical checklists by lens
+- **eight-defense-lenses.md** — Step 3: depth rules + lens definitions
+- **common-misinterpretations.md** — Step 3: prosecution misinterpretations + counters
+- **baseline-template.md** — Step 3.5: baseline block + revisit rules
+- **cross-reference-guide.md** — Step 4: cross-referencing methodology + lookup table
+- **quick-brief-template.md** — Step 6: Quick Brief format
+- **report-template.md** — Step 6: Full Report (29 sections)
+- **charge-type-priorities.md** — Quick Reference: charge type → categories, lens depth, chunk overrides
+- **companion-skills-routing.md** — Step 5 / Quick Reference: finding → companion-skill routing
+- **`dw-shared-protocols-crim/references/digital-forensics-decision-tree.md`** — Three-tier digital forensics audit sequence (methodology → content → deleted data) with WAL destruction warnings
 
 ---
 

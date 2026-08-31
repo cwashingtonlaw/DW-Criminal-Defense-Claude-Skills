@@ -199,3 +199,12 @@ Follow these references to dive deeper into specific topics.
 - **Total**: 77.3 KB
 
 The refactoring maintains full functionality while improving discoverability and maintainability.
+## Usage Note (carried over from SKILL.md Quick References)
+
+When working on an evaluation, reference these files as needed for:
+- Legal citations and case law authority
+- Error rate data and scientific report findings
+- Discipline-specific qualification and certification standards
+- Daubert factor analysis guidance
+- Cross-examination question templates
+- Checklists and motion templates

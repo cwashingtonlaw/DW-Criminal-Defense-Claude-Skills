@@ -46,6 +46,8 @@ Every factual assertion in the firearms-offense analysis — weapon identificati
 
 ---
 
+**Date of offense governs every statute cite.** Before quoting any element, penalty range, enhancement, or parole-eligibility figure, confirm the date of offense per count and select the statute version in force on that date using `dw-shared-protocols-crim/references/sentencing-statute-versions.md` (15:529.1 / 15:571.3 / 15:574.4 and the offense statute itself). Never fabricate a prior-version value; flag `[VERIFY — Westlaw]` where that file does.
+
 ## WORKFLOW OVERVIEW
 
 This skill systematically analyzes firearms and weapons charges under Louisiana and federal law, with emphasis on:
@@ -101,31 +103,7 @@ Use **dw-case-brain-crim** to pull case data:
 
 This is the highest-priority first step. Firearms charges uniquely carry dual jurisdiction risk:
 
-**STATE CHARGES:**
-- R.S. 14:95 (Illegal carrying of weapons)
-- R.S. 14:95.1 (Felon in possession: 10-20 years hard labor, no probation/parole)
-
-**FEDERAL CHARGES:**
-- 18 U.S.C. § 922(g) (Prohibited persons: felon, drug user, mental defective, domestic violence, etc.)
-  - Penalty: up to 15 years (increased from 10 by Bipartisan Safer Communities Act 2022)
-- 18 U.S.C. § 924(c) (Using/carrying during drug/violence crime: 5/7/10/25 years MANDATORY CONSECUTIVE)
-- 18 U.S.C. § 924(e) ACCA (15-year mandatory minimum if 3+ violent felonies or serious drug offenses)
-
-**FEDERAL ADOPTION RISK:**
-Federal prosecutors routinely "adopt" state gun cases. Assess this risk immediately:
-- Is ATF/FBI involved in investigation?
-- Has federal grand jury been convened?
-- Any drug nexus? (drugs + gun = federal ticket)
-- Prior federal convictions?
-- Multi-defendant conspiracy or organized crime indicators?
-- Weapon type suggests trafficking (bulk purchases, altered serials)?
-
-**FORUM SELECTION ANALYSIS:**
-- Compare state vs. federal sentencing exposure
-- Which forum has more favorable jury pool?
-- Which sentencing judge is more favorable (if known)?
-- Does federal adoption block plea options in state court?
-- Can state conviction be avoided to prevent federal predicate?
+Map the state charges (R.S. 14:95 illegal carrying; R.S. 14:95.1 felon in possession, 10-20 years hard labor, no probation/parole) against the federal charges (18 U.S.C. § 922(g), § 924(c) mandatory consecutive, § 924(e) ACCA 15-year minimum), assess federal adoption risk (ATF/FBI involvement, grand jury, drug nexus, prior federal convictions, multi-defendant, trafficking indicators), and run the forum-selection comparison. Read `references/state-federal-firearms-matrix.md` now for the state/federal charge and penalty summary, the federal-adoption risk indicators, the forum-selection questions, and the side-by-side R.S. 14:95.1 vs. § 922(g) comparison table — the Step 2 operational guidance is appended at the end of that file.
 
 ---
 
@@ -133,83 +111,7 @@ Federal prosecutors routinely "adopt" state gun cases. Assess this risk immediat
 
 **READ: `references/louisiana-firearms-statutes.md`**
 
-### R.S. 14:95 — Illegal Carrying of Weapons
-
-**ELEMENTS:**
-- Intentionally carrying any firearm or other weapon in manner prohibited by statute
-- Manner includes: concealed handgun without proper permit, carrying while intoxicated, carrying on school property, carrying at parade/demonstration, carrying in courthouse
-
-**PENALTIES:**
-- First offense: up to 6 months imprisonment and/or $500 fine
-- Subsequent offense: up to 3 years imprisonment
-
-**DEFENSES:**
-- Valid concealed carry permit (R.S. 40:1379.3)
-- Permit-exempt locations (residence, vehicle, workplace)
-- No intent/knowledge of carrying
-- Permit obtained but officer unaware (reasonable mistake of law)
-
-### R.S. 14:95.1 — Felon in Possession of Firearm
-
-**CRITICAL STATUTE — MANDATORY SENTENCING**
-
-**ELEMENTS:**
-1. Defendant is a convicted felon (within Louisiana or elsewhere)
-2. Defendant intentionally possesses a firearm
-3. Firearm is accessible to defendant
-4. Defendant knows of possession
-5. Firearm is not a destructive device and not subject to NFA registration
-
-**PENALTIES:**
-- 10 to 20 years hard labor at Angola
-- **NO probation, parole, or suspension of sentence** — fully mandatory
-- No good-time credit applicable in some interpretations
-
-**PREDICATE CONVICTION AUDIT (MUST DO):**
-
-Is the prior conviction actually a disqualifying felony?
-
-1. **Was it a conviction?** (not a deferral under La. C.C.P. Art. 893, not a deferred adjudication)
-2. **Was it actually a felony?** (Some charges can be adjudicated as misdemeanors or felonies depending on sentencing)
-3. **Has it been expunged?** (Check LSHB 1018 — some felonies can be expunged after 5-10 years)
-4. **Was Boykin colloquy proper?** (Failure to comply with Boykin in guilty plea = void conviction)
-5. **What is the specific statute of conviction?** (Some crimes are wobbler offenses)
-
-**10-YEAR CLEANSING PERIOD — R.S. 14:95.1(C):**
-- Cleansing period runs from completion of sentence, NOT from date of conviction
-- If prior felony sentence ended 9 years ago, defendant is still within window
-- Completion includes parole/probation termination
-- Document exact dates of sentence and parole release
-
-### R.S. 14:95.2 — Firearm-Free Zone
-
-- Possession within 1000 feet of school property: enhanced penalty
-- Carries additional crime (separate charge possibility)
-- School property defined broadly (building, grounds, buses)
-
-### R.S. 14:95.5 — Prohibited Possession (Domestic Abuse)
-
-- Defendant convicted of domestic abuse battery (R.S. 14:35.3)
-- Possession of firearm while under such conviction: prohibited
-- Overlaps with federal § 922(g)(9) domestic violence prohibitor
-
-### R.S. 14:95.10 — Protective Order/Domestic Abuse
-
-- Possession prohibited while under protective order
-- Or while convicted of domestic abuse crime
-- Overlaps with federal law (18 U.S.C. § 922(g)(8))
-
-### Concealed Carry Permit Exemptions
-
-- R.S. 40:1379.3 outlines permit requirements
-- Certain locations exempt (vehicle, residence, workplace with employer consent)
-- Permit required for public carry in populated areas
-
-### Castle Doctrine / Stand Your Ground
-
-- R.S. 14:20 (Justifiable homicide) — self-defense principles
-- May apply as mitigation if firearm used in self-defense scenario
-- Separate from illegal carrying charge itself
+Analyze every charged Louisiana statute — R.S. 14:95 (illegal carrying: elements, penalties, permit defenses), R.S. 14:95.1 (felon in possession: five elements, mandatory 10-20 years hard labor without benefit, the MANDATORY predicate conviction audit, and the 10-year cleansing period under R.S. 14:95.1(C) running from completion of sentence), R.S. 14:95.2 (firearm-free zone), R.S. 14:95.5 and 14:95.10 (domestic abuse / protective order prohibitions overlapping § 922(g)(8)-(9)), concealed-carry permit exemptions (R.S. 40:1379.3), and Castle Doctrine / Stand Your Ground (R.S. 14:20). Read `references/louisiana-firearms-statutes.md` now for the elements, penalties, defenses, and predicate-audit checklist for each statute — the Step 3 operational guidance is appended at the end of that file.
 
 ---
 
@@ -217,162 +119,13 @@ Is the prior conviction actually a disqualifying felony?
 
 **READ: `references/federal-firearms-framework.md`**
 
-### 18 U.S.C. § 922(g) — Prohibited Persons
-
-**PENALTY:** Up to 15 years imprisonment (increased from 10 by Bipartisan Safer Communities Act 2022)
-
-**NINE CATEGORIES OF PROHIBITED PERSONS:**
-
-1. **Convicted of crime punishable by imprisonment >1 year (§ 922(g)(1))**
-   - **NOTE: Federal definition differs from state**
-   - Federal uses "crime punishable by imprisonment for more than one year" — ANY offense, even if classified as misdemeanor under state law
-   - Example: Some Louisiana felonies carry sentences <1 year; federal court may not recognize as disqualifying
-   - **Rehaney/Lara issues:** Does the state conviction meet federal predicates?
-   - ALWAYS check: what was the actual sentence imposed vs. what was authorized?
-
-2. **Fugitive from justice (§ 922(g)(2))**
-   - Fleeing to avoid prosecution, conviction, imprisonment, or testimony
-   - Active warrant = fugitive status
-
-3. **Unlawful user of controlled substance (§ 922(g)(3))**
-   - Marijuana use (federal illegal despite state decriminalization) = disqualifier
-   - Can be proven by positive drug test, possession, admission
-   - NOT limited to felony drug convictions
-   - Can trigger federal indictment independent of state charge
-
-4. **Adjudicated mental defective (§ 922(g)(4))**
-   - Prior adjudication of mental illness affecting judgment
-   - Involuntary commitment
-   - Incompetence to stand trial finding
-
-5. **Illegal alien (§ 922(g)(5))**
-   - Not lawful permanent resident
-   - Includes individuals on temporary visa, overstays, undocumented status
-
-6. **Dishonorable discharge (§ 922(g)(6))**
-   - Military dishonorable discharge only (not other-than-honorable)
-   - Must be from U.S. Armed Forces
-
-7. **Domestic violence conviction (§ 922(g)(9))**
-   - Misdemeanor crime of domestic violence (§ 921(a)(33))
-   - Includes Louisiana DV battery convictions
-   - **Rahimi (2024): DV restraining order also disqualifies** (separate from conviction)
-
-8. **Subject to protective order (§ 922(g)(8))**
-   - Restraining order issued by civil or criminal court
-   - Order must find reasonable cause to believe domestic violence was committed OR order issued to prevent harassment/threatening
-   - **United States v. Rahimi (2024):** upheld § 922(g)(8) under Bruen historical tradition test
-
-9. **Renounced U.S. citizenship (§ 922(g)(7))**
-   - Lesser-used category
-
-### 18 U.S.C. § 924(c) — Using or Carrying Firearm During Crime of Violence or Drug Trafficking Crime
-
-**MANDATORY CONSECUTIVE SENTENCING — HIGHEST STAKES ISSUE IN FIREARMS CASES**
-
-**PENALTIES:**
-- Base: 5 years consecutive (minimum)
-- Brandished: 7 years consecutive
-- Discharged: 10 years consecutive
-- Discharged and caused death/serious injury: 25+ years consecutive
-- **Second or subsequent § 924(c) conviction:** 25 years minimum
-
-**"IN FURTHERANCE" REQUIREMENT:**
-- Not just mere presence of gun near crime
-- Gun must facilitate, promote, or have reasonable nexus to underlying crime
-- Example: gun in car during drug transaction may not be "in furtherance" if never shown
-- Much fact-intensive inquiry
-
-**FEDERAL SENTENCING IMPLICATIONS:**
-- § 924(c) sentence runs CONSECUTIVE to underlying crime (drug trafficking, robbery, etc.)
-- Creates massive total sentence exposure
-- Example: Drug trafficking 10 years + § 924(c) 7 years = 17 years minimum
-- Cannot be shortened by guideline adjustments
-
-### 18 U.S.C. § 924(e) — Armed Career Criminal Act (ACCA)
-
-**15-YEAR MANDATORY MINIMUM SENTENCE**
-
-**TRIGGER:**
-- Defendant convicted of being felon in possession (§ 922(g)(1))
-- AND has three or more prior convictions for violent felonies or serious drug offenses
-
-**"VIOLENT FELONY" DEFINITION (Taylor categorical approach):**
-- Must have elements of force or substantial risk that force will be used
-- Typically: homicide, robbery, burglary, arson, aggravated assault
-- NOTE: Johnson v. United States (2015) struck down "residual clause" as void for vagueness
-- Must use elements test (Mathis v. United States, 2016)
-
-**"SERIOUS DRUG OFFENSE" DEFINITION:**
-- Federal felony drug offense (controlled substance)
-- Trafficking in cocaine, methamphetamine, heroin, etc.
-- NOT simple possession (unless it triggers mandatory minimum separately)
-
-**PREDICATE CHALLENGE STRATEGY:**
-- Every predicate must qualify categorically
-- Use Taylor/Mathis categorical approach
-- Get actual crime of conviction documents (indictment, plea colloquy, statute)
-- Some Louisiana felonies may not meet federal definition of "violent" or "serious drug"
-- Circuit split on whether Louisiana crimes qualify
-
-### Federal Sentencing Guidelines (USSG § 2K2.1)
-
-- Base offense level for § 922(g) possession: typically 12-14 (depending on weapon type)
-- Enhancements: prior convictions, number of weapons, trafficking in firearms
-- Criminal history category: calculated from prior convictions
-- Final guideline range (before mandatory minimums override)
-- REMEMBER: § 924(c) mandatory consecutive sentences override guideline calculations
+Analyze federal exposure under 18 U.S.C. § 922(g) (nine prohibited-person categories; up to 15 years post-Bipartisan Safer Communities Act 2022; federal "punishable by imprisonment >1 year" predicate definition differs from state), § 924(c) (mandatory consecutive 5/7/10/25 years; "in furtherance" element; second conviction 25-year minimum), § 924(e) ACCA (15-year mandatory minimum on 3+ violent felonies or serious drug offenses; Taylor/Mathis categorical approach; *Johnson* residual-clause invalidation), and USSG § 2K2.1. Read `references/federal-firearms-framework.md` now for the category-by-category elements, penalties, predicate challenge strategy, and guideline notes — the Step 4 operational guidance is appended at the end of that file.
 
 ---
 
 ## STEP 5 — POSSESSION ANALYSIS
 
-### Actual Possession
-
-**ELEMENTS:**
-- Firearm is on person's body or in hand
-- In waistband, holster, jacket pocket, or carried in hand
-- Direct physical control
-- Clear evidence: witness testimony, officer observation, body-cam footage
-
-**DEFENSE CONSIDERATIONS:**
-- Temporary/innocent possession (picked up to secure, found on ground)
-- Borrowed firearm (friend's gun, but whose knowledge/intent?)
-- Concealed carry permit (if applicable to charge)
-
-### Constructive Possession
-
-**APPLIES TO:**
-- Vehicle (glove box, under seat, center console, trunk)
-- Residence (bedroom, kitchen, common area, closet)
-- Shared spaces (apartment with roommates, office, business)
-
-**CONSTRUCTIVE POSSESSION FRAMEWORK (Harris Analysis):**
-
-Must prove three Harris factors:
-1. **Awareness:** Defendant knew firearm was present in vehicle/residence
-2. **Dominion and Control:** Defendant had power and intent to exercise control over firearm
-3. **Guilty Knowledge:** Defendant knew the object was a firearm (not innocent mistake)
-
-**MULTI-OCCUPANT ANALYSIS:**
-- Who else had access to vehicle/residence?
-- Can guilty knowledge/control be attributed to defendant or other occupants?
-- Example: Roommate's gun in shared apartment — was defendant aware? Could defendant control it?
-- Vehicle passengers: who had access to glove box, center console?
-- Judge/jury must be convinced DEFENDANT specifically possessed it
-
-**CONSTRUCTIVE POSSESSION WEAKNESSES:**
-- Presence alone insufficient (Harris requires all three factors)
-- Shared spaces create reasonable doubt if others had equal access
-- Defendant's knowledge can be inferred but must be probative
-- Some courts require additional factors (prior similar conduct, incriminating statements)
-
-### Temporary/Innocent Possession Defense
-
-- Defendant found firearm and immediately secured it (removed from crime scene)
-- Defendant borrowed gun unaware of legal restriction (reasonable mistake)
-- Defendant possessed on another's behalf but had no intent to exercise control
-- BURDEN: Often on defense to raise, must be credible and consistent with evidence
+Classify possession as actual (on the body, direct physical control) or constructive (vehicle, residence, shared spaces); for constructive possession run the three Harris factors (awareness, dominion and control, guilty knowledge), the multi-occupant analysis, and the constructive-possession weaknesses; evaluate the temporary/innocent possession defense. Read `references/firearms-possession-analysis.md` now for the elements, defense considerations, and multi-occupant framework.
 
 ---
 
@@ -382,72 +135,7 @@ Must prove three Harris factors:
 
 **THIS IS THE MOST RAPIDLY EVOLVING AREA OF FIREARMS LAW**
 
-### New York State Rifle & Pistol Association v. Bruen (2022)
-
-**PARADIGM SHIFT:**
-- Replaced multi-factor means-end scrutiny with **historical tradition test**
-- New standard: text-history-and-tradition framework
-- Court must look for "historical tradition" of comparable regulation
-- Requires actual historical analogue, not just general principle
-
-**IMPLICATION FOR § 922(g):**
-- § 922(g) felon-in-possession prohibition being challenged
-- Question: Is there historical tradition of disarming all persons convicted of felonies?
-- Founding era evidence: very limited; felons traditionally could keep guns
-- **Debate:** Does Rahimi foreclose all § 922(g) challenges? (See below)
-
-### United States v. Rahimi (2024)
-
-**DOMESTIC VIOLENCE RESTRAINING ORDER SURVIVES BRUEN**
-
-- Court upheld § 922(g)(8) restraining order prohibition
-- Applied Bruen historical tradition test
-- Found sufficient historical tradition of domestic abuse regulations
-- Rule: historical tradition doesn't require exact historical twin, but "analogue" suffices
-
-**IMPLICATIONS:**
-- Some § 922(g) categorical prohibitions survive post-Bruen challenge
-- DV restraining order disqualification firmly upheld
-- Unknown: whether Rahimi logic extends to all of § 922(g)(1)
-
-### Circuit Split on § 922(g)(1) Felon-in-Possession Under Bruen
-
-**RANGE v. ATTORNEY GENERAL (3rd Cir. 2023):**
-- Nonviolent felon (false tax return conviction) may retain Second Amendment rights
-- Court found no historical tradition of disarming nonviolent felons
-- Suggested Second Amendment protections exist for some felon categories
-
-**STATUS POST-RAHIMI:**
-- Unclear whether Range survives Rahimi logic
-- Some courts may distinguish violent vs. nonviolent predicates
-- 5th Circuit (covering Louisiana) continues to develop jurisprudence
-- **Must research current caselaw before filing any Second Amendment motion**
-
-### 5th Circuit Post-Bruen Development
-
-- Track **United States v. Daniels** (marijuana user § 922(g)(3) challenge)
-- Track **United States v. Rahimi** (pre-SCOTUS 5th Cir. decisions, then SCOTUS reversal/affirmance)
-- Search for ongoing circuit split on nonviolent felon category
-- Check casedev:search for latest 5th Cir. firearms decisions
-
-### When to Raise Second Amendment Challenge
-
-**GOOD CANDIDATES:**
-- Defendant convicted of nonviolent felony (white-collar crime, fraud, regulatory violation)
-- Defendant convicted of misdemeanor-level crime but facing § 922(g) predicate
-- Defendant subject to protective order but claims weak factual basis
-- Historical tradition argument appears viable
-
-**PROCEDURAL REQUIREMENTS:**
-- Standing: defendant must be "regulated party" (person with gun or seeking to acquire)
-- Ripeness: must be actual enforcement (not hypothetical)
-- As-applied challenge: narrow tailoring argument
-- Facial challenge: much harder to sustain
-
-**RESEARCH REQUIREMENT:**
-- ALWAYS verify current 5th Circuit precedent via casedev:search or WebSearch
-- Bruen/Rahimi jurisprudence evolves constantly
-- Circuit split remains unresolved on multiple issues
+Apply the *Bruen* (2022) text-history-and-tradition test and *United States v. Rahimi* (2024) to the charged prohibitor; evaluate the § 922(g)(1) circuit split (*Range v. Attorney General*, 3rd Cir. 2023), 5th Circuit development (*United States v. Daniels*), good-candidate criteria (nonviolent predicate, weak historical tradition), and procedural requirements (standing, ripeness, as-applied vs. facial). ALWAYS verify current 5th Circuit precedent via casedev:search or WebSearch before filing. Read `references/second-amendment-post-bruen.md` now for the doctrinal framework, circuit-split status, and when-to-raise criteria — the Step 6 operational guidance is appended at the end of that file.
 
 ---
 
@@ -455,48 +143,7 @@ Must prove three Harris factors:
 
 **ROUTE TO: `dw-suppression-motion-crim` with firearms-specific framing**
 
-### Terry Frisk Analysis
-
-- Officer claimed reasonable suspicion defendant was "armed and dangerous"
-- Was the suspicion justified? (Bulge consistent with weapon?)
-- Did frisk scope exceed what was necessary to detect weapons?
-- Did officer manipulate items through clothing excessively?
-
-### Vehicle Stop and Firearm Discovery
-
-- **Plain view doctrine:** Was firearm immediately apparent as firearm?
-  - Officer observed gun in glove box / under seat / visible through window?
-  - Lawful vantage point?
-  - Inadvertence?
-- **Automobile exception:** Officer searched vehicle without warrant — was exigent circumstance?
-- **Inventory search:** Was gun found during lawful vehicle inventory?
-
-### Residence Search
-
-- Did warrant authorize search for firearm? (If warrant says "drugs," does it allow seizing gun?)
-- Warrant scope exceeded for firearms discovery?
-- Consent search: did defendant consent to search for guns?
-- Third-party consent: did occupant with authority consent?
-
-### Consent Search
-
-- Was consent voluntary (not coerced by police presence/authority)?
-- Scope of consent: did defendant consent to "firearm" specifically or "anything you find"?
-- Withdrawal of consent: did defendant revoke consent before gun discovered?
-
-### Constructive Search / Informant Tip
-
-- Did police act on informant's tip that defendant had gun?
-- Was informant reliable? (Prior accuracy, corroboration?)
-- Did tip justify stop, frisk, or search?
-- Did police engage in illegal surveillance based on tip?
-
-### ShotSpotter / Gunshot Detection
-
-- Relatively new technology — reliability challenges emerging
-- Alert alone may not establish probable cause
-- Civilian witness testimony may be more reliable than algorithm
-- Consider suppressing alerts that lack additional corroboration
+Analyze the Terry frisk (armed-and-dangerous justification, scope), vehicle-stop discovery (plain view, automobile exception, inventory), residence search (warrant scope for firearms, consent, third-party consent), consent (voluntariness, scope, withdrawal), informant-tip reliability, and ShotSpotter / gunshot-detection reliability. Read `references/firearms-search-seizure-issues.md` now for the firearm-specific challenge questions under each search type.
 
 ---
 
@@ -504,55 +151,7 @@ Must prove three Harris factors:
 
 ### Primary Deliverable: Firearms Case Analysis Report
 
-**Create a comprehensive .docx report (use `docx` skill) containing:**
-
-**Section 1: Case Summary**
-- Charges (state and federal)
-- Weapon type/details
-- Defendant's prior record
-- Key facts of discovery/seizure
-- Current jurisdiction (state, federal, both?)
-
-**Section 2: Dual Jurisdiction Exposure Assessment**
-- State law penalties (R.S. 14:95, R.S. 14:95.1) vs. federal (§ 922(g), § 924(c), § 924(e))
-- Sentencing range comparison
-- Federal adoption risk assessment (is ATF/FBI involved?)
-- Forum analysis (which jurisdiction is more favorable?)
-- Recommended strategy (push for state-only, negotiate federal dismissal, etc.)
-
-**Section 3: Predicate Conviction Audit (if § 922(g) or ACCA exposure)**
-- List all prior convictions relied on as predicates
-- For each: Is it actually a felony? Was it a conviction (not deferral)? Has it been expunged?
-- Boykin colloquy: was it proper?
-- Cleansing period analysis (10 years from completion of sentence under R.S. 14:95.1(C))
-- Federal vs. state predicate definition comparison
-- Recommendations for attacking predicates
-
-**Section 4: Possession Analysis**
-- Actual vs. constructive
-- Harris factors (if constructive)
-- Multi-occupant analysis (if applicable)
-- Innocent possession defense viability
-- Constructive possession weaknesses to exploit
-
-**Section 5: Second Amendment Challenge Memo (if applicable)**
-- Candidate for Bruen challenge? (nonviolent predicate, weak historical tradition for prohibition?)
-- Current 5th Circuit precedent (cite Rahimi, Range, Daniels, etc.)
-- As-applied vs. facial challenge analysis
-- Timing and procedural requirements
-- Risk assessment (likelihood of success?)
-
-**Section 6: Search & Seizure Issues**
-- Reference: dw-suppression-motion-crim work (cross-link)
-- Firearm-specific suppression angles
-- ShotSpotter/technology reliability issues
-- Warrant scope, consent validity, etc.
-
-**Section 7: Strategic Recommendations**
-- Highest-leverage issues to attack first
-- Plea negotiation strategy (state vs. federal exposure)
-- Trial strategy (jury instructions, reasonable doubt arguments)
-- Expert witness needs (ballistics, gunshot residue, etc.)
+**Create a comprehensive .docx report (use `docx` skill)** with seven sections: (1) Case Summary; (2) Dual Jurisdiction Exposure Assessment; (3) Predicate Conviction Audit (if § 922(g) or ACCA exposure); (4) Possession Analysis; (5) Second Amendment Challenge Memo (if applicable); (6) Search & Seizure Issues; (7) Strategic Recommendations. Read `references/output-deliverable-specs.md` now for the required contents of each section.
 
 **SAVE TO:**
 ```
@@ -562,24 +161,7 @@ Firearms_Case_Analysis_[DefendantName]_[Date].docx
 
 ### Secondary Deliverables
 
-**Predicate Conviction Audit Spreadsheet (if ACCA or R.S. 14:95.1 exposure):**
-- Date, statute, sentence, parole release date
-- Federal vs. state classification (felony?)
-- Expungement status
-- Boykin colloquy notes
-- Categorization (violent felony, serious drug, other?)
-- Risk assessment per predicate
-
-**Second Amendment Challenge Memo (if filed):**
-- Stand-alone memo if § 922(g) challenge likely
-- Cite Bruen framework, Rahimi holding, 5th Circuit precedent
-- As-applied challenge theory
-- Historical tradition arguments specific to defendant's predicate
-
-**Dual Jurisdiction Forum Analysis:**
-- If federal adoption likely, create side-by-side state vs. federal comparison
-- Include sentencing exposure, parole eligibility, guideline ranges
-- Plea option analysis (can defendant plead state and avoid federal?)
+Predicate Conviction Audit Spreadsheet (if ACCA or R.S. 14:95.1 exposure), Second Amendment Challenge Memo (if filed), and Dual Jurisdiction Forum Analysis (if federal adoption likely) — required contents for each are in `references/output-deliverable-specs.md`.
 
 ---
 
@@ -672,16 +254,7 @@ Firearms_Case_Analysis_[DefendantName]_[Date].docx
 
 ## QUICK REFERENCE: STATE VS. FEDERAL COMPARISON
 
-| Issue | Louisiana R.S. 14:95.1 | Federal § 922(g) |
-|-------|------------------------|------------------|
-| **Predicate** | Louisiana felony | Crime punishable >1 year |
-| **Penalty Range** | 10-20 years hard labor | Up to 15 years |
-| **Parole/Probation** | None allowed (mandatory) | Supervised release after 85% served |
-| **Cleansing** | 10 years from end of sentence | No cleansing period |
-| **Enhancements** | Habitual offender bill possible | ACCA (15-year min if 3+ predicates) |
-| **§ 924(c) Exposure** | No federal consequence | 5-25 years mandatory consecutive |
-| **Forum** | Louisiana state court | U.S. District Court |
-| **Jury** | Louisiana jury (parish-specific) | Federal jury (diverse district) |
+The side-by-side R.S. 14:95.1 vs. § 922(g) comparison table (predicate, penalty range, parole/probation, cleansing, enhancements, § 924(c) exposure, forum, jury) is appended at the end of `references/state-federal-firearms-matrix.md` — read it when preparing the forum analysis and plea comparison.
 
 ---
 
@@ -689,7 +262,10 @@ Firearms_Case_Analysis_[DefendantName]_[Date].docx
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **federal-firearms-framework.md** — 18 U.S.C. § 922(g) prohibited-persons categories, penalties (post-Bipartisan Safer Communities Act), and federal firearms-charge framework
-- **louisiana-firearms-statutes.md** — Louisiana firearms statutes (R.S. 14:95 et seq.): definitions, prohibited conduct, and per-statute elements/penalties
-- **second-amendment-post-bruen.md** — Second Amendment challenges post-*Bruen*: rapidly-evolving area; framework for current 5th Circuit precedent and verification steps before filing
-- **state-federal-firearms-matrix.md** — State-vs-federal firearms prosecution matrix: side-by-side statute comparison to inform forum-selection strategy
+- **federal-firearms-framework.md** — Step 4. 18 U.S.C. § 922(g) prohibited-persons categories, penalties (post-Bipartisan Safer Communities Act), and federal firearms-charge framework; Step 4 operational guidance (§ 922(g) nine categories, § 924(c), § 924(e) ACCA, USSG § 2K2.1) appended
+- **firearms-possession-analysis.md** — Step 5. Actual vs. constructive possession of a firearm: Harris factors, multi-occupant analysis, constructive-possession weaknesses, temporary/innocent possession defense
+- **firearms-search-seizure-issues.md** — Step 7. Firearm-specific search-and-seizure challenge questions: Terry frisk, vehicle stop, residence search, consent, informant tip, ShotSpotter
+- **louisiana-firearms-statutes.md** — Step 3. Louisiana firearms statutes (R.S. 14:95 et seq.): definitions, prohibited conduct, and per-statute elements/penalties; Step 3 operational guidance (R.S. 14:95, 14:95.1 predicate audit and cleansing period, 14:95.2, 14:95.5, 14:95.10, permit exemptions, Castle Doctrine) appended
+- **output-deliverable-specs.md** — Step 8. Section-by-section contents of the Firearms Case Analysis Report and the secondary deliverables (Predicate Conviction Audit Spreadsheet, Second Amendment Challenge Memo, Dual Jurisdiction Forum Analysis)
+- **second-amendment-post-bruen.md** — Step 6. Second Amendment challenges post-*Bruen*: rapidly-evolving area; framework for current 5th Circuit precedent and verification steps before filing; Step 6 operational guidance (*Bruen*, *Rahimi*, *Range* circuit split, 5th Circuit tracking, when to raise) appended
+- **state-federal-firearms-matrix.md** — Step 2 and the state-vs-federal quick reference. State-vs-federal firearms prosecution matrix: side-by-side statute comparison to inform forum-selection strategy; Step 2 operational guidance (state/federal charges, federal adoption risk, forum selection) and the R.S. 14:95.1 vs. § 922(g) comparison table appended
