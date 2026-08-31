@@ -3,8 +3,8 @@ name: dw-brady-giglio-auditor-crim
 category: discovery
 description: >
   Brady/Giglio audit and confidential informant detection. ALWAYS invoke for "Brady audit,"
-  "Giglio," "CI audit," "informant," "reveal the deal," "snitch check," "undisclosed
-  exculpatory," or "cooperation agreement." Do NOT use for discovery tracking — use
+  "Giglio," "CI audit," "informant," "snitch check," "undisclosed
+  exculpatory," or "cooperation agreement." Do NOT use to draft the Motion to Reveal the Deal — use dw-pretrial-motion-library-crim. Do NOT use for discovery tracking — use
   dw-discovery-compliance-monitor-crim.
 ---
 # Brady/Giglio Compliance & Confidential Informant Auditor

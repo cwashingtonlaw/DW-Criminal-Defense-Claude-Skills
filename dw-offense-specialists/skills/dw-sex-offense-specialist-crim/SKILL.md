@@ -4,7 +4,7 @@ category: offense-specialists
 description: >
   Sex offense defense framework. ALWAYS invoke for "sex offense," "rape shield," "Art. 412,"
   "SANE exam," "sexual assault," "sexual battery," "indecent behavior," "child molestation,"
-  "SORNA," or "DNA mixture." Covers SANE auditing, rape shield, forensic interview issues,
+  or "SORNA." DNA / mixture methodology audits go to dw-dna-forensic-biology-auditor-crim. Covers SANE auditing, rape shield, forensic interview issues,
   delayed disclosure.
 ---
 

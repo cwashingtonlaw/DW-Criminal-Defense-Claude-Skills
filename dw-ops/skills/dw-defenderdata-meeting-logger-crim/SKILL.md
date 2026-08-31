@@ -1,5 +1,6 @@
 ---
 name: dw-defenderdata-meeting-logger-crim
+category: ops
 description: >-
   Logs attorney-client meetings into DefenderData (JusticeWorks dd7) as case
   Events from a plain message. Use when Chris sends a message describing client

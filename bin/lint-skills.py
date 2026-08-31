@@ -80,7 +80,6 @@ EXEMPT: dict[str, set[str]] = {
     "dw-client-interview-drafter-crim": {"W3"},                                    # question sheets contain no case-factual assertions — W3 intentionally omitted (2026-05-30 build)
     "dw-issue-code-tracker-crim":  {"W1", "W2", "W3"},                             # tracker infra; intake gate + protocols present under non-standard headings ("Hard-Stop File Intake Gate", "Read Before Drafting")
     "dw-case-brain-crim":          {"W1", "W2", "W3", "W4", "W7"},                 # session persistence — internal brain.md, no attorney deliverables
-    "dw-criminal-defense-crim.skill": {"W1", "W2", "W3", "W4", "W5", "W6", "W7"},  # legacy plugin shape
 }
 
 # ── Issue codes ─────────────────────────────────────────────────────────────

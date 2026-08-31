@@ -1,5 +1,6 @@
 ---
 name: dw-padilla-advisement-crim
+category: disposition
 description: >
   [OUTCOME]: Generates a signable, bilingual (English/Spanish) Padilla immigration-consequences
   advisement (.docx) that notifies a non-U.S.-citizen client, in writing, of the immigration

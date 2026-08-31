@@ -4,7 +4,7 @@ category: pleadings
 description: >
   Draft bond reduction and pretrial release motions. ALWAYS invoke for "bond reduction,"
   "reduce bond," "bail hearing," "pretrial release," "PR bond," "ROR," or "excessive bail."
-  Analyzes Art. 316/341 factors. Read ../../../dw-core/skills/dw-shared-protocols-crim/references/template-selection-protocol.md before
+  Analyzes Art. 316/341 factors. Read dw-shared-protocols-crim/references/template-selection-protocol.md before
   drafting.
 ---
 

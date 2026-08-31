@@ -1,5 +1,6 @@
 ---
 name: dw-local-transcription-crim
+category: transcription
 description: >-
   Court-reporter and working transcripts of criminal discovery media, produced entirely on firm
   hardware, with speaker diarization, cross-recording speaker identification, and a media-

@@ -9,7 +9,7 @@ description: >
   "drug ID audit," "audit the drug analysis," "GC/MS," "gas chromatography," "FTIR," "color
   test," "spot test," "presumptive test," "tox audit," "toxicology audit," "blood alcohol
   lab," "ELISA," "confirmatory test," "lab analyst qualifications," "lab accreditation,"
-  "ASCLD audit," "lab misconduct," "Dookhan," "Farak," or "Melendez-Diaz objection."
+  "ASCLD audit," "lab misconduct," "Dookhan," or "Farak." Drafting the Melendez-Diaz objection/motion itself is dw-pretrial-motion-library-crim; this skill supplies the certificate audit that supports it.
   Produces a Crime Lab Audit Report (.docx). DNA is OUT (use dw-dna-forensic-biology-auditor-crim).
   DWI roadside SFST and instrument-operator audit goes to dw-dwi-specialist-crim — this skill
   covers lab-side blood/urine only. Substantive drug-offense law goes to

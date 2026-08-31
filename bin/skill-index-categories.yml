@@ -130,7 +130,12 @@ evidence_auditing:
   - skill: dw-witness-statement-analyzer-crim
     label: "Witness statement consistency / impeachment synthesis"
     trigger: "analyze this statement or compare these statements"
-
+  - skill: dw-transcript-pipeline-calcasieu-crim
+    label: "Transcription — Calcasieu (JusticeText); normally reached via dw-transcript-router-crim"
+    trigger: "JusticeText transcript"
+  - skill: dw-transcript-pipeline-rev-crim
+    label: "Transcription — all other parishes (Rev.com); normally reached via dw-transcript-router-crim"
+    trigger: "Rev transcript"
 motions_pleadings:
   - skill: dw-suppression-motion-crim
     label: "Suppress evidence (4th/5th Amend.)"
@@ -162,7 +167,9 @@ motions_pleadings:
   - skill: dw-pretrial-motion-library-crim
     label: "Continuance"
     trigger: "continuance"
-
+  - skill: dw-case-law-researcher-crim
+    label: "Legal research / cite check (case.dev, CourtListener, Westlaw)"
+    trigger: "research case law or is this still good law"
 trial_preparation:
   - skill: dw-cross-exam-architect-crim
     label: "Cross-examination outlines (state witnesses)"
@@ -172,7 +179,7 @@ trial_preparation:
     trigger: "build a direct for [witness] or defendant testimony prep"
   - skill: dw-trial-narrative-builder-crim
     label: "Opening statement + closing argument (paired)"
-    trigger: "draft opening" / "draft closing" / "trial narrative"
+    trigger: "draft opening or draft closing or trial narrative"
   - skill: dw-jury-instructions-builder-crim
     label: "Jury instructions / charges"
     trigger: "draft jury instructions"
@@ -197,7 +204,12 @@ trial_preparation:
   - skill: dw-witness-threat-matrix-crim
     label: "Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam)"
     trigger: "witness threat matrix or rank the witnesses"
-
+  - skill: dw-exhibit-manager-crim
+    label: "Exhibit list & lifecycle tracking (pre-marking → admission)"
+    trigger: "exhibit list or exhibit tracker"
+  - skill: dw-jury-focus-group-crim
+    label: "Simulated jury focus group on the theory"
+    trigger: "focus group the case or how would a jury react"
 sentencing_appeal_pcr:
   - skill: dw-sentencing-mitigation-specialist-crim
     label: "Sentencing mitigation package"
@@ -217,7 +229,9 @@ sentencing_appeal_pcr:
   - skill: dw-post-conviction-relief-crim
     label: "Post-conviction relief (PCR / habeas / sentence modification)"
     trigger: "post-conviction or PCR or habeas"
-
+  - skill: dw-case-disposition-crim
+    label: "Close the case (disposition, final billing, expungement check)"
+    trigger: "close the case or final disposition"
 charge_specialists:
   - skill: dw-drug-offense-specialist-crim
     label: "Drug offenses (CDS, distribution, possession with intent)"
@@ -249,7 +263,24 @@ intake_setup:
     label: "Medical chronology (PI)"
     trigger: "medical chronology or med chron"
     external: true
-
+  - skill: dw-court-jail-tracker-crim
+    label: "Court & jail visit tracker (weekly docket sweep)"
+    trigger: "update the tracker or court dates this week"
+  - skill: dw-client-communication-drafter-crim
+    label: "Client letters, jail mail, family updates"
+    trigger: "write to the client or jail mail"
+  - skill: dw-jail-visit-list-crim
+    label: "Apple Notes jail-visit checklist"
+    trigger: "jail visit list"
+  - skill: dw-defenderdata-meeting-logger-crim
+    label: "Log client meetings into DefenderData"
+    trigger: "log my client meetings"
+  - skill: dw-billing-narrative-generator-crim
+    label: "Billing narratives / time entries"
+    trigger: "billing narrative"
+  - skill: dw-image-filename-stamp-crim
+    label: "Stamp filenames onto evidence images"
+    trigger: "stamp the filenames or label these photos"
 shared_references:
   - skill: dw-data-contracts-crim
     label: "Output schema definitions"
@@ -266,16 +297,4 @@ shared_references:
 uncategorized:
   - skill: dw-skill-index-crim            # the index itself
   - skill: dw-shared-protocols-crim       # library, loaded by other skills
-  - skill: dw-billing-narrative-generator-crim   # internal billing pipeline
-  - skill: dw-case-disposition-crim       # case-closing workflow
-  - skill: dw-case-law-researcher-crim    # auto-invoked by other skills
-  - skill: dw-client-communication-drafter-crim  # client correspondence drafter
-  - skill: dw-court-jail-tracker-crim     # weekly case-sweep automation
-  - skill: dw-defenderdata-meeting-logger-crim  # browser-automation event logger
-  - skill: dw-exhibit-manager-crim        # trial-day adjacent; covered indirectly
-  - skill: dw-image-filename-stamp-crim   # utility skill
-  - skill: dw-jail-visit-list-crim        # Apple Notes jail-visit checklist
-  - skill: dw-jury-focus-group-crim       # focus-group simulator
   - skill: dw-timeline-builder-crim       # timeline aggregator
-  - skill: dw-transcript-pipeline-calcasieu-crim  # invoked by dw-transcript-router-crim
-  - skill: dw-transcript-pipeline-rev-crim        # invoked by dw-transcript-router-crim

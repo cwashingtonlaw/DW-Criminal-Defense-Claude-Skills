@@ -42,6 +42,13 @@ SECTION_TO_CATEGORY: dict[str, str] = {
 
 # Per-skill overrides (applied when section mapping is empty or wrong)
 OVERRIDES: dict[str, str] = {
+    # Ops utilities routed under the "Intake & Setup" index section
+    "dw-defenderdata-meeting-logger-crim":   "ops",
+    "dw-jail-visit-list-crim":               "ops",
+    "dw-court-jail-tracker-crim":            "ops",
+    "dw-client-communication-drafter-crim":  "ops",
+    "dw-billing-narrative-generator-crim":   "ops",
+    "dw-image-filename-stamp-crim":          "ops",
     # Orchestrator + infrastructure -> core
     "dw-criminal-defense-crim":              "core",
     "dw-case-brain-crim":                    "core",

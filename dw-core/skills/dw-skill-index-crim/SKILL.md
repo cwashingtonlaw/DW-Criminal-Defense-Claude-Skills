@@ -98,6 +98,8 @@ The Barone workflow also adds:
 | Daubert/Foret hearing day package | `dw-evidence-audit:dw-expert-witness-evaluator-crim` (Module I) | "Daubert hearing prep" or "Foret hearing" |
 | Jail calls (recordings, logs, transcripts) | `dw-evidence-audit:dw-jail-call-analyzer-crim` | "audit jail calls" or "Securus/GTL/ViaPath" |
 | Witness statement consistency / impeachment synthesis | `dw-evidence-audit:dw-witness-statement-analyzer-crim` | "analyze this statement" or "compare these statements" |
+| Transcription — Calcasieu (JusticeText); normally reached via dw-transcript-router-crim | `dw-transcription:dw-transcript-pipeline-calcasieu-crim` | "JusticeText transcript" |
+| Transcription — all other parishes (Rev.com); normally reached via dw-transcript-router-crim | `dw-transcription:dw-transcript-pipeline-rev-crim` | "Rev transcript" |
 
 ---
 
@@ -115,6 +117,7 @@ The Barone workflow also adds:
 | Reveal the deal | `dw-pleadings:dw-pretrial-motion-library-crim` | "reveal the deal" |
 | Recusal | `dw-pleadings:dw-pretrial-motion-library-crim` | "recusal" |
 | Continuance | `dw-pleadings:dw-pretrial-motion-library-crim` | "continuance" |
+| Legal research / cite check (case.dev, CourtListener, Westlaw) | `dw-ops:dw-case-law-researcher-crim` | "research case law" or "is this still good law" |
 
 All motion skills use the template selection protocol in `dw-shared-protocols-crim/references/` to search DEVONthink for firm templates before drafting.
 
@@ -126,7 +129,7 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 |---|---|---|
 | Cross-examination outlines (state witnesses) | `dw-trial-prep:dw-cross-exam-architect-crim` | "build a cross for [witness]" |
 | Direct-examination outlines (defense witnesses) | `dw-trial-prep:dw-direct-exam-architect-crim` | "build a direct for [witness]" or "defendant testimony prep" |
-| Opening statement + closing argument (paired) | `dw-trial-prep:dw-trial-narrative-builder-crim` | "draft opening" / "draft closing" / "trial narrative" |
+| Opening statement + closing argument (paired) | `dw-trial-prep:dw-trial-narrative-builder-crim` | "draft opening" or "draft closing" or "trial narrative" |
 | Jury instructions / charges | `dw-trial-prep:dw-jury-instructions-builder-crim` | "draft jury instructions" |
 | Jury selection / voir dire | `dw-trial-prep:dw-voir-dire-assistant-crim` | "prep voir dire" |
 | Track errors for appeal | `dw-trial-prep:dw-appellate-error-monitor-crim` | "preserve error" or "log error" |
@@ -135,6 +138,8 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 | Track discovery compliance | `dw-intake-discovery:dw-discovery-compliance-monitor-crim` | "update the discovery ledger" |
 | Brady/Giglio audit | `dw-intake-discovery:dw-brady-giglio-auditor-crim` | "run Brady audit" |
 | Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam) | `dw-trial-prep:dw-witness-threat-matrix-crim` | "witness threat matrix" or "rank the witnesses" |
+| Exhibit list & lifecycle tracking (pre-marking → admission) | `dw-trial-prep:dw-exhibit-manager-crim` | "exhibit list" or "exhibit tracker" |
+| Simulated jury focus group on the theory | `dw-trial-prep:dw-jury-focus-group-crim` | "focus group the case" or "how would a jury react" |
 
 ---
 
@@ -148,6 +153,7 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 | Padilla immigration-consequences advisement (bilingual EN/ES, signable) | `dw-disposition:dw-padilla-advisement-crim` | "Padilla advisement" or "immigration consequences of a plea" |
 | Draft direct-appeal brief (assignments of error, argument, reply) | `dw-disposition:dw-appellate-brief-builder-crim` | "appellate brief" or "appeal brief" or "assignments of error" |
 | Post-conviction relief (PCR / habeas / sentence modification) | `dw-disposition:dw-post-conviction-relief-crim` | "post-conviction" or "PCR" or "habeas" |
+| Close the case (disposition, final billing, expungement check) | `dw-disposition:dw-case-disposition-crim` | "close the case" or "final disposition" |
 
 ---
 
@@ -173,6 +179,12 @@ Each specialist provides charge-specific elements, defenses, sentencing exposure
 | Client interview question sheets (initial + follow-up; the sheet the attorney USES to question the client) | `dw-intake-discovery:dw-client-interview-drafter-crim` | "client interview sheet" or "jail visit prep sheet" |
 | Evidence folder placeholders | `dw-ops:dw-evidence-placeholder-crim` | "evidence placeholders" |
 | Medical chronology (PI) | `medical-chronology` | "medical chronology" or "med chron" |
+| Court & jail visit tracker (weekly docket sweep) | `dw-ops:dw-court-jail-tracker-crim` | "update the tracker" or "court dates this week" |
+| Client letters, jail mail, family updates | `dw-ops:dw-client-communication-drafter-crim` | "write to the client" or "jail mail" |
+| Apple Notes jail-visit checklist | `dw-ops:dw-jail-visit-list-crim` | "jail visit list" |
+| Log client meetings into DefenderData | `dw-ops:dw-defenderdata-meeting-logger-crim` | "log my client meetings" |
+| Billing narratives / time entries | `dw-ops:dw-billing-narrative-generator-crim` | "billing narrative" |
+| Stamp filenames onto evidence images | `dw-ops:dw-image-filename-stamp-crim` | "stamp the filenames" or "label these photos" |
 
 *Note: `dw-lwop-populator` was retired in v5.3 — its functionality merged into `dw-criminal-defense-crim` Phase 1 Step 3.*
 

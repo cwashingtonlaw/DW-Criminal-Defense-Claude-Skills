@@ -5,9 +5,9 @@ description: >
   Evaluate and prepare post-conviction relief applications. ALWAYS invoke for "post-conviction,"
   "PCR," "habeas corpus," "post-conviction relief," "2254 petition," "newly discovered evidence,"
   "actual innocence," "ineffective assistance," "sentence modification," "Art. 930," "Art. 926,"
-  "AEDPA," "collateral review," "writ application," or "motion for new trial."
+  "AEDPA," "collateral review," or "writ application."
   Covers Louisiana PCR (Art. 924-930.10), federal habeas (28 U.S.C. § 2254), and sentence
-  modification (Art. 881.1). Do NOT use for direct appeal — use dw-appellate-brief-builder-crim
+  modification (Art. 881.1). Do NOT use for a motion for new trial or other post-trial motions — use dw-appellate-error-monitor-crim. Do NOT use for direct appeal — use dw-appellate-brief-builder-crim
   (to draft the appeal) or dw-appellate-error-monitor-crim (for error preservation/viability).
 ---
 
@@ -257,7 +257,7 @@ For each ground identified, produce:
 
 If proceeding with PCR application:
 
-1. **Template selection:** Use template-selection-protocol (read from ../../../dw-core/skills/dw-shared-protocols-crim/references/template-selection-protocol.md) to search DEVONthink for prior PCR applications as models
+1. **Template selection:** Use template-selection-protocol (read from dw-shared-protocols-crim/references/template-selection-protocol.md) to search DEVONthink for prior PCR applications as models
 2. **Pleading type:**
    - Louisiana PCR: Application for Post-Conviction Relief under Art. 926 (heading, facts, legal argument, conclusion, prayer)
    - Federal Habeas: Petition for Writ of Habeas Corpus under 28 U.S.C. § 2254 (caption, jurisdictional statement, exhaustion certification, factual background, legal argument, relief requested)
@@ -283,7 +283,7 @@ If proceeding with PCR application:
 - **Read from:** dw-sentencing-mitigation-specialist-crim (Dorthey analysis, mitigation data — for excessive sentence and sentence modification claims)
 - **Read from:** dw-habitual-offender-auditor-crim (predicate conviction challenges — for habitual offender PCR claims)
 - **Read from:** dw-brady-giglio-auditor-crim (Brady violation analysis — for undisclosed exculpatory evidence claims)
-- **Read:** ../../../dw-core/skills/dw-shared-protocols-crim/references/template-selection-protocol.md (template search)
+- **Read:** dw-shared-protocols-crim/references/template-selection-protocol.md (template search)
 - **Feed into:** dw-case-brain-crim (update with PCR status), dw-case-dashboard-crim (deadline tracking)
 - **Use:** docx skill for pleadings generation
 

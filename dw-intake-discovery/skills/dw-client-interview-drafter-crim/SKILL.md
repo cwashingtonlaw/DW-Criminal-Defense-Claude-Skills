@@ -1,5 +1,6 @@
 ---
 name: dw-client-interview-drafter-crim
+category: intake
 description: >
   Draft client interview question sheets — the document the attorney USES to question the client
   (distinct from dw-client-communication-drafter-crim, which drafts letters TO the client).

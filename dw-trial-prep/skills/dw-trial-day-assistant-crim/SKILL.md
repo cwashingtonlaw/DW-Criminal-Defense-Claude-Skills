@@ -5,13 +5,13 @@ description: >
   Real-time, in-trial support for Louisiana criminal defense. ALWAYS invoke for
   "trial day," "trial today," "objection log," "real-time trial," "during trial,"
   "tomorrow's witness," "end of day recap," "log this objection," "today's docket,"
-  "today's witnesses," "exhibit tracker," "Batson log," "missed objection," "mid-trial
+  "today's witnesses," "Batson log," "missed objection," "mid-trial
   issue," "mistrial trigger," or "overnight prep." Produces SHORT, scannable outputs
   used between witnesses, at sidebar, in the hallway, or at 9 PM during overnight prep.
   Seven modules (A-G), each producing its own terse deliverable, plus a single
   longer-form end-of-day memo. Feeds dw-appellate-error-monitor-crim (objection log),
   dw-cross-exam-architect-crim (witness scorecard → tomorrow's cross), and
-  dw-trial-notebook-builder-crim (daily roll-up). Do NOT use for pre-trial prep
+  dw-trial-notebook-builder-crim (daily roll-up). Do NOT use for exhibit-list management — use dw-exhibit-manager-crim. Do NOT use for pre-trial prep
   (dw-cross-exam-architect-crim, dw-jury-instructions-builder-crim) or post-verdict appellate
   audits (dw-appellate-error-monitor-crim in full audit mode).
 ---

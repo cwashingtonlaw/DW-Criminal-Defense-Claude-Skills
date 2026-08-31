@@ -17,6 +17,10 @@ If you are a D&W file-writing skill, your SKILL.md should include a step near th
 
 Template selection: the DEVONthink Template-First search protocol now lives in this skill's `references/template-selection-protocol.md`. Read it before drafting any pleading.
 
+## Locating this library
+
+These files ship inside the **dw-core** plugin at `dw-core/skills/dw-shared-protocols-crim/references/`. Consuming skills refer to them as `dw-shared-protocols-crim/references/<file>.md` (name-only, no `../` traversal — plugins are not sibling directories once installed). To resolve the path: in a source checkout use the repo's `dw-core/` directory; in a Claude Code install use `~/.claude/plugins/cache/<marketplace>/dw-core/<version>/`; otherwise search for `dw-shared-protocols-crim/SKILL.md` and use its directory.
+
 ## Reference manifest by document type
 
 > **Filed pleading orchestration:** for any filed pleading (motion, opposition, memo, sentencing memo, proposed order), read `filed-pleading-boilerplate.md` first — it walks through every component reference in the correct order. The table below remains the authoritative source for which component references each document type requires.
@@ -34,6 +38,21 @@ Template selection: the DEVONthink Template-First search protocol now lives in t
 | Digital forensics audit (mobile extraction, forensic dump, SQLite recovery) | `digital-forensics-decision-tree.md` (mandatory three-tier ordering) + `forensic-tool-registry.md` + `attorney-work-product-marking.md` + `output-path-formula.md` |
 | Discovery ledger / triage report | `attorney-work-product-marking.md` + `output-path-formula.md` ONLY |
 | Client deliverable (LWOP review sheet, plea analysis) | `attorney-work-product-marking.md` + `signature-block.md` + `output-path-formula.md` |
+
+## Standalone reference files (load on demand)
+
+| File | Use it for |
+|---|---|
+| `dw-firm-style-guide.md` | Firm writing/formatting conventions for any client- or court-facing document |
+| `letterhead.md` | Firm letterhead block for letters and non-pleading correspondence |
+| `verification-protocol.md` | `[VERIFIED]` / `[UNVERIFIED]` evidence-flag rules for every factual assertion |
+| `verification-formats.md` | Exact rendering formats for verification flags and citations |
+| `louisiana-ccp-quick-reference.md` | La. C.Cr.P. article quick-reference (deadlines, motions, procedure) |
+| `louisiana-sentencing-guidelines.md` | Sentencing-range quick-reference by offense |
+| `sentencing-statute-versions.md` | Offense-date-driven statute version selection (15:529.1 / 15:571.3 / 15:574.4) — mandatory for any sentencing, habitual-offender, or plea-exposure analysis |
+| `devonthink-search-patterns.md` | DEVONthink search syntax/patterns for template-first and prior-work searches |
+| `forensic-tool-registry.md` | Registry of forensic tools/versions for digital-evidence audits |
+| `template-selection-protocol.md` | DEVONthink template-first search before drafting any filed document |
 
 ## Variables expected from Case Brain
 
