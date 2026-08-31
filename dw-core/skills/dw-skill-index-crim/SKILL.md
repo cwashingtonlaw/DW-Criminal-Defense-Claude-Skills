@@ -43,6 +43,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Assemble trial notebook | `dw-trial-prep:dw-trial-notebook-builder-crim` | "build the trial notebook" |
 | Triage new discovery | `dw-intake-discovery:dw-discovery-orchestrator-crim` | "new discovery arrived" |
 | Transcribe recordings | `dw-transcription:dw-transcript-router-crim` | "transcribe the evidence" |
+| Transcribe locally (on-device, diarized, court-reporter format) | `dw-transcription:dw-local-transcription-crim` | "transcribe locally" |
 | Compare transcripts across cases | `dw-transcription:dw-dmar-synthesizer-crim` | "compare the DMARs" |
 | Neutral discovery inventory (pre-strategic) | `dw-trial-prep:dw-neutral-inventory-crim` | "neutral inventory" or "catalog the evidence" |
 | Deconstruct prosecution's theory | `dw-trial-prep:dw-theory-deconstructor-crim` | "deconstruct the theory" or "facts vs inferences" |

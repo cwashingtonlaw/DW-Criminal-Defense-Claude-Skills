@@ -55,6 +55,9 @@ quick_lookup:
   - skill: dw-transcript-router-crim
     label: "Transcribe recordings"
     trigger: "transcribe the evidence"
+  - skill: dw-local-transcription-crim
+    label: "Transcribe locally (on-device, diarized, court-reporter format)"
+    trigger: "transcribe locally"
   - skill: dw-dmar-synthesizer-crim
     label: "Compare transcripts across cases"
     trigger: "compare the DMARs"
