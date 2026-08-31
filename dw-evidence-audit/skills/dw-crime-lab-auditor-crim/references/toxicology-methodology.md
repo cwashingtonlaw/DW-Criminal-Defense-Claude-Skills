@@ -240,3 +240,9 @@ In postmortem toxicology (overdose cases, deaths in custody, vehicular homicide)
 ---
 
 *Last updated: see SKILL.md version. Mark any specific case-law, statute, or numeric cutoff `[VERIFY CURRENT]` before filing.*
+
+---
+
+## Module B Short Version (moved from SKILL.md)
+
+Short version: every positive drug screen by immunoassay (ELISA, EMIT) must be confirmed by an orthogonal technique — typically GC/MS or LC-MS/MS — at a defined cutoff with deuterated internal standards. Blood-alcohol quantitation by headspace GC requires calibration curve, dual-column or GC-MS confirmation, and explicit whole-blood-vs-serum reporting (serum reads ~1.14× higher than whole blood). Defendant has a statutory right to a preserved sample for independent testing (La. R.S. 32:663 and related provisions — VERIFY CURRENT). For THC, the presence of carboxy-THC metabolite proves only past use, not impairment at the time of driving. Postmortem redistribution is a major confounder for postmortem tox.

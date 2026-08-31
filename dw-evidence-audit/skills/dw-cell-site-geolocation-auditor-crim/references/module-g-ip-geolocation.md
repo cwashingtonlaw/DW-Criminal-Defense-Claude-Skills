@@ -17,3 +17,9 @@ IP geolocation attempts to determine a device's physical location from its IP ad
 - [ ] Was the IP address verified as assigned to the defendant's account at the specific time (not just the same day or week)?
 - [ ] Were VPN, proxy, or CGNAT possibilities investigated?
 - [ ] Was the geolocation result independently verified against any other evidence?
+
+---
+
+## Module G Summary (moved from SKILL.md)
+
+IP geolocation attempts to determine a device's physical location from its IP address. It is almost always unreliable — accurate to the city level at best, often worse. Dynamic IP assignment, VPNs/proxies, mobile network carrier pools, and CGNAT (hundreds or thousands of users sharing one public IP) all compound the unreliability.

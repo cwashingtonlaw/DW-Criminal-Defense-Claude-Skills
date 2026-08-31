@@ -12,6 +12,7 @@ description: >
   attorney has run transcript pipelines on multiple client folders and wants to see where the
   evidence conflicts. Do NOT use for single-case DMAR generation — use dw-transcript-router-crim
   for that.
+
 ---
 
 # DW DMAR Synthesizer — Cross-Case Defense Media Analysis
@@ -90,22 +91,7 @@ Read each DMAR using the `docx` skill's reading capabilities (pandoc or XML unpa
 
 For each DMAR, extract and index:
 
-```
-CASE REGISTRY ENTRY
-Client: [Name from DMAR header]
-Docket #: [From header]
-Parish: [From header]
-Platform: [JusticeText or Rev]
-Analysis Date: [From header]
-Media Files: [Count and list from Section 1]
-Speakers Identified: [All named speakers from Section 2 + Section 6]
-Finding Counts:
-  CR-### (Cross-Reference): [count]
-  RR-### (Report Discrepancies): [count]
-  ME-### (Miranda Events): [count]
-  IT-### (Interrogation Techniques): [count]
-  KE-### (Key Events): [count]
-```
+Registry fields: Client, Docket #, Parish, Platform, Analysis Date, Media Files, Speakers Identified, and CR / RR / ME / IT / KE finding counts. Read `references/dmar-ingestion-and-indexing.md` now for the exact CASE REGISTRY ENTRY block.
 ### Step 1.3 — Identify Shared Entities
 
 This is the critical indexing step. Across all ingested DMARs, build a master entity list:
@@ -118,21 +104,10 @@ This is the critical indexing step. Across all ingested DMARs, build a master en
 
 **Shared Evidence Items**: Weapons, vehicles, drugs, phones, or other physical evidence mentioned across DMARs.
 
-Present the entity crosswalk to the attorney:
-
-> **Cross-Case Entity Crosswalk**
->
-> I found the following entities appearing in multiple DMARs:
->
-> | Entity | Type | Appears In | Role in Each |
-> |--------|------|-----------|-------------|
-> | Det. Marcus Jones | Officer | Smith DMAR, Williams DMAR | Lead interrogator in both |
-> | 123 Main St | Location | Smith DMAR, Williams DMAR | Arrest location / Crime scene |
-> | ...  | ... | ... | ... |
->
-> *Please confirm these matches are correct, and let me know if I missed any connections or if any are false matches (different people with similar names, etc.).*
+Present the **Cross-Case Entity Crosswalk** table (Entity | Type | Appears In | Role in Each) to the attorney and ask them to confirm each match and flag false matches; use the exact prompt in `references/dmar-ingestion-and-indexing.md`.
 
 Wait for attorney confirmation before proceeding.
+
 ---
 
 ## STEP 2 — CROSS-CASE INCONSISTENCY ANALYSIS
@@ -147,24 +122,7 @@ For each person who appears as a speaker in multiple DMARs:
 2. **Compare factual claims** about the same event or topic
 3. **Flag inconsistencies** using this format:
 
-```
-CROSS-CASE WITNESS INCONSISTENCY [XW-001]
-Witness: [Name]
-Case A: [Client name] — DMAR Section [X], [source file] @ [timestamp]
-  Statement: "[What the witness said in Case A]"
-Case B: [Client name] — DMAR Section [X], [source file] @ [timestamp]
-  Statement: "[What the witness said in Case B]"
-Inconsistency Type: DIRECT CONTRADICTION / MATERIAL OMISSION / DETAIL SHIFT / SEQUENCE CONFLICT
-Severity: CRITICAL / SIGNIFICANT / MINOR
-Defense Significance: [Why this matters — impeachment, reasonable doubt, severance, Brady]
-Cross-Exam Seed: [One-line question exploiting this inconsistency]
-Affected Clients: [Which defendants benefit from this finding]
-```
-**Inconsistency Types:**
-- **DIRECT CONTRADICTION**: Witness says X happened in one case, says not-X in another
-- **MATERIAL OMISSION**: Witness includes a critical detail in one case but omits it entirely from the other
-- **DETAIL SHIFT**: Core claim is the same, but specifics change (time, distance, lighting, weapon type, number of people, sequence of events)
-- **SEQUENCE CONFLICT**: Witness describes the same events in a different chronological order across cases
+Record each as a **CROSS-CASE WITNESS INCONSISTENCY [XW-###]** block, typed DIRECT CONTRADICTION / MATERIAL OMISSION / DETAIL SHIFT / SEQUENCE CONFLICT with severity, defense significance, cross-exam seed, and affected clients. Read `references/cross-case-finding-schemas.md` now for the exact block and the four inconsistency-type definitions.
 
 ### Module S2 — Officer Consistency Audit
 
@@ -177,17 +135,7 @@ For each officer in multiple DMARs:
 3. **Compare Miranda administration** — did the officer give Miranda consistently, or did the warnings differ in completeness or timing across cases?
 4. **Compare report-vs-recording patterns** — do the same types of discrepancies (RR-### findings) appear in this officer's work across cases?
 
-```
-CROSS-CASE OFFICER AUDIT [XO-001]
-Officer: [Name / Badge #]
-Cases: [List all DMARs where this officer appears]
-Finding Category: NARRATIVE INCONSISTENCY / TECHNIQUE PATTERN / MIRANDA PATTERN / REPORT PATTERN
-Case A: [Description with DMAR section and source references]
-Case B: [Description with DMAR section and source references]
-Pattern: [What the cross-case comparison reveals]
-Defense Significance: [Impeachment value, suppression argument, Brady obligation]
-Cross-Exam Seeds: [Questions for each case where this officer testifies]
-```
+Record each as a **CROSS-CASE OFFICER AUDIT [XO-###]** block (category NARRATIVE INCONSISTENCY / TECHNIQUE PATTERN / MIRANDA PATTERN / REPORT PATTERN) per `references/cross-case-finding-schemas.md`.
 ### Module S3 — Timeline Reconciliation
 
 Merge the Master Timelines (Section 5) from all ingested DMARs into a single unified super-timeline.
@@ -198,33 +146,14 @@ This is where physically impossible state narratives become visible. If the stat
 2. **Interleave all events** from all DMARs into one chronological sequence
 3. **Flag conflicts** where the state's theory for one defendant contradicts the state's theory for another:
 
-```
-CROSS-CASE TIMELINE CONFLICT [XT-001]
-Time Window: [HH:MM:SS] — [HH:MM:SS] on [Date]
-Case A: [Client name] — [Event per Case A's DMAR timeline]
-  Source: [File] @ [timestamp]
-Case B: [Client name] — [Event per Case B's DMAR timeline]
-  Source: [File] @ [timestamp]
-Conflict: [Why these can't both be true simultaneously]
-Defense Significance: [Alibi, misidentification, reasonable doubt]
-Affected Clients: [Who benefits]
-```
+Record each as a **CROSS-CASE TIMELINE CONFLICT [XT-###]** block per `references/cross-case-finding-schemas.md`.
 
 ### Module S4 — Brady/Giglio Cross-Pollination
 
 Review each DMAR's Section 7.4 (Potential Brady/Giglio Issues) and Section 3 (Cross-Reference findings) for evidence that should have been disclosed to another defendant but may not have been.
 The classic scenario: Co-defendant B's DMAR contains a witness statement exculpating Co-defendant A — but the state may not have disclosed that statement in A's discovery. Or: Co-defendant B made a deal (Giglio material) that hasn't shown up in Co-defendant A's discovery.
 
-```
-CROSS-CASE BRADY/GIGLIO ALERT [XB-001]
-Source Case: [Client whose DMAR contains the evidence]
-Source: DMAR Section [X], [file/finding reference]
-Evidence: "[Description of potentially exculpatory or impeachment material]"
-Benefiting Case: [Client who should have received this in discovery]
-Brady Category: EXCULPATORY (A) / IMPEACHMENT (B) / MITIGATION (C)
-Disclosure Status: UNKNOWN — attorney should verify whether this was disclosed in [benefiting client]'s discovery
-Recommended Action: [Check discovery ledger, file Brady motion if undisclosed]
-```
+Record each as a **CROSS-CASE BRADY/GIGLIO ALERT [XB-###]** block (Brady Category A / B / C; disclosure status UNKNOWN pending attorney verification) per `references/cross-case-finding-schemas.md`.
 
 ### Module S4A — Report-vs-Recording Cross-Case Comparison (Barone 6-Category)
 
@@ -244,38 +173,15 @@ If co-defendants are joined for trial, the synthesis may reveal grounds for seve
 - Evidence admissible against one defendant would unfairly prejudice another
 - The timeline conflicts make it impossible for the jury to coherently evaluate both cases simultaneously
 
-```
-SEVERANCE INDICATOR [XS-001]
-Type: BRUTON / ANTAGONISTIC DEFENSES / SPILLOVER PREJUDICE / IRRECONCILABLE TIMELINES
-Case A Impact: [How this affects Client A]
-Case B Impact: [How this affects Client B]
-Source Findings: [List the XW/XO/XT/XB findings that support this indicator]
-Legal Authority: [Bruton v. United States, Zafiro v. United States, State v. [relevant LA case]]
-```
+Record each as a **SEVERANCE INDICATOR [XS-###]** block (BRUTON / ANTAGONISTIC DEFENSES / SPILLOVER PREJUDICE / IRRECONCILABLE TIMELINES) per `references/cross-case-finding-schemas.md`.
+
 ---
 
 ## STEP 3 — ATTORNEY CONFIRMATION
 
 Before generating the final report, present a summary of findings:
 
-> **Cross-Case Synthesis Preview**
->
-> DMARs Analyzed: [N]
-> Clients: [List]
->
-> Findings Summary:
-> - XW (Witness Inconsistencies): [count] ([critical count] critical)
-> - XO (Officer Audit): [count] ([critical count] critical)
-> - XT (Timeline Conflicts): [count]
-> - XB (Brady/Giglio Alerts): [count]
-> - XS (Severance Indicators): [count]
->
-> Top 3 Strongest Findings:
-> 1. [Brief description of highest-impact finding]
-> 2. [Brief description]
-> 3. [Brief description]
->
-> *Ready to generate the full Cross-Case DMAR Synthesis Report. Confirm or ask me to dig deeper into any area.*
+Present the **Cross-Case Synthesis Preview** — DMARs analyzed, clients, XW / XO / XT / XB / XS counts (with critical counts), top 3 strongest findings, and the confirm-or-dig-deeper prompt. Read `references/synthesis-report-structure.md` now for the exact preview block.
 
 ---
 
@@ -284,81 +190,9 @@ Before generating the final report, present a summary of findings:
 Use the `docx` skill to produce the output document.
 ### Report Structure
 
-```
-CROSS-CASE DMAR SYNTHESIS REPORT
-Cases: [Client A] | [Client B] | [Client C if applicable]
-Dockets: [List all docket numbers]
-Parish(es): [List]
-Analysis Date: [Date]
-Source DMARs: [List each DMAR filename and date]
-Prepared by: Claude AI — Attorney Work Product / Privileged
+Header, then Sections 1–8 (Case Registry & Entity Crosswalk; Inconsistency Matrix; Witness Comparison (XW); Officer Audit (XO); Unified Super-Timeline (XT); Brady/Giglio Cross-Pollination (XB); Severance Analysis (XS); Defense Intelligence Brief) and Appendices A–C (Finding ID Reference; Source DMAR Inventory with SHA-256; Methodology with Act 250 / ABA Opinion 512 and co-counsel sharing warning).
 
-SECTION 1: CASE REGISTRY & ENTITY CROSSWALK
-  1.1 Case Registry (table from Step 1.2 — one row per DMAR)
-  1.2 Shared Entity Crosswalk (table from Step 1.3)
-  1.3 Synthesis Scope (what was compared and what was excluded)
-
-SECTION 2: INCONSISTENCY MATRIX
-  Master table summarizing ALL cross-case findings:
-
-  | ID | Type | Severity | Witness/Officer | Cases | Brief Description | Defense Use |
-  |----|------|----------|----------------|-------|-------------------|-------------|
-  | XW-001 | Witness | CRITICAL | John Smith | A, B | Contradicts himself on weapon | Impeachment |
-  | XO-001 | Officer | SIGNIFICANT | Det. Jones | A, B, C | Miranda timing differs | Suppression |
-  | ... | ... | ... | ... | ... | ... | ... |
-
-SECTION 3: WITNESS STATEMENT CROSS-CASE COMPARISON
-  All XW-### findings from Module S1, organized by witness
-  Each witness gets a subsection with all their inconsistencies grouped together
-SECTION 4: OFFICER CONSISTENCY AUDIT
-  All XO-### findings from Module S2, organized by officer
-  Each officer gets a subsection
-
-SECTION 5: UNIFIED SUPER-TIMELINE
-  Merged timeline from Module S3
-  Timeline conflicts (XT-### findings) highlighted inline with color-coded flags
-
-SECTION 6: BRADY/GIGLIO CROSS-POLLINATION
-  All XB-### findings from Module S4
-  Organized by benefiting client (so each attorney can see what may be missing from their discovery)
-
-SECTION 7: SEVERANCE ANALYSIS
-  All XS-### findings from Module S5
-  Summary assessment: Is severance motion warranted? (Strong / Possible / Weak)
-
-SECTION 8: DEFENSE INTELLIGENCE BRIEF
-  8.1 Strongest Cross-Case Findings (top 10 ranked by trial impact)
-  8.2 Per-Client Action Items:
-      For [Client A]:
-        - [Specific next steps, motions, cross-exam targets]
-      For [Client B]:
-        - [Specific next steps]
-  8.3 Recommended Skill Invocations:
-      - "Run dw-cross-exam-architect-crim for [officer] using XO findings"
-      - "Run dw-brady-giglio-auditor-crim on [client]'s discovery with XB alerts"
-      - "Run dw-suppression-motion-crim for [Miranda issue from XO findings]"
-      - "Run dw-pretrial-motion-library-crim for severance motion using XS findings"
-  8.4 Outstanding Questions (gaps the synthesis could not resolve)
-APPENDIX A: FINDING ID REFERENCE
-  Complete legend of all finding ID prefixes:
-  - XW-### = Cross-case Witness inconsistency
-  - XO-### = Cross-case Officer audit finding
-  - XT-### = Cross-case Timeline conflict
-  - XB-### = Cross-case Brady/Giglio alert
-  - XS-### = Severance indicator
-  (Plus inherited single-case prefixes: CR, RR, ME, IT, KE)
-
-APPENDIX B: SOURCE DMAR INVENTORY
-  For each source DMAR: filename, SHA-256 hash, date produced, client, docket
-
-APPENDIX C: METHODOLOGY
-  Statement that cross-case synthesis was performed by Claude AI on previously
-  generated DMAR documents. Attorney verification required before any filing,
-  client communication, or disclosure to co-counsel.
-  Louisiana Act 250 / ABA Opinion 512 compliance note.
-  Note: sharing this report with co-defendant counsel requires client consent
-  and may waive privilege — consult before distributing.
-```
+Read `references/synthesis-report-structure.md` now for the complete report skeleton.
 
 ### File Naming
 
@@ -370,6 +204,7 @@ For three or more clients:
 ### Save Location
 
 Save to the primary client's case folder (the client whose case the attorney is currently working). If unclear, ask.
+
 ---
 
 ## STEP 5 — UPDATE CASE BRAIN
@@ -397,21 +232,12 @@ Write to `dw-case-brain-crim` for each client whose DMAR was included:
 5. **Speaker name matching requires confirmation**: Never assume "Marcus Jones" in DMAR-A is the same person as "M. Jones" in DMAR-B without attorney confirmation (Step 1.3). False matches are worse than missed matches.
 
 6. **Scope boundary**: This skill synthesizes existing DMARs. It does not re-analyze raw transcripts or media files. If the attorney needs a DMAR generated first, route to `dw-transcript-router-crim`.
+
 ---
 
 ## QUICK REFERENCE — LEGAL AUTHORITIES
 
-| Principle | Authority |
-|-----------|-----------|
-| Co-defendant statement admissibility | *Bruton v. United States*, 391 U.S. 123 (1968) |
-| Severance for antagonistic defenses | *Zafiro v. United States*, 506 U.S. 534 (1993) |
-| Louisiana severance standard | La. C.Cr.P. Art. 704 |
-| Brady disclosure obligation | *Brady v. Maryland*, 373 U.S. 83 (1963) |
-| Cumulative materiality of Brady evidence | *Kyles v. Whitley*, 514 U.S. 419 (1995) |
-| Giglio impeachment material | *Giglio v. United States*, 405 U.S. 150 (1972) |
-| Right to exculpatory evidence from co-defendant proceedings | *United States v. Bagley*, 473 U.S. 667 (1985) |
-| Joint defense privilege | *United States v. Schwimmer*, 892 F.2d 237 (2d Cir. 1989) |
-| Louisiana joinder of defendants | La. C.Cr.P. Art. 700–706 |
+Controlling authorities for Bruton, severance (Zafiro; La. C.Cr.P. Art. 704), Brady / Kyles / Giglio / Bagley, joint defense privilege (Schwimmer), and Louisiana joinder (La. C.Cr.P. Art. 700–706). Read `references/legal-authorities.md` now for the principle-to-citation table.
 
 ---
 
@@ -425,3 +251,12 @@ Write to `dw-case-brain-crim` for each client whose DMAR was included:
   - `dw-pretrial-motion-library-crim` — XS severance indicators support severance motions
   - `dw-discovery-compliance-monitor-crim` — XB alerts update discovery ledgers
   - `dw-plea-negotiation-analyzer-crim` — Cross-case inconsistencies strengthen negotiation leverage
+
+---
+
+## Quick References
+
+- **dmar-ingestion-and-indexing.md** — Steps 1.2–1.3; Case Registry entry schema and entity crosswalk prompt
+- **cross-case-finding-schemas.md** — Step 2, Modules S1–S5; XW / XO / XT / XB / XS finding-block formats and inconsistency-type definitions
+- **synthesis-report-structure.md** — Step 4; full Cross-Case DMAR Synthesis Report skeleton and appendices
+- **legal-authorities.md** — Quick Reference; principle-to-citation table (Bruton, Zafiro, Art. 704, Brady, Kyles, Giglio, Bagley, Schwimmer, Art. 700–706)

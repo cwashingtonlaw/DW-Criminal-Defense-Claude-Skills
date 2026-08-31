@@ -62,24 +62,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Evidence Type:** screenshots, platform-produced records (subpoena response), Cellebrite-extracted app data, screen recordings, or a mix
-2. **Platform(s):** Facebook/Meta, Instagram, Snapchat, TikTok, Twitter/X, WhatsApp, Telegram, Signal, or other
-3. **Charges:** all counts with statutory citations — severity determines the rigor of authentication the State should have pursued
-4. **What the State Claims the Social Media Evidence Proves:** the prosecution's theory — threats, admissions, gang affiliation, location, identity, consciousness of guilt, motive, relationship, etc.
-5. **Account Attribution Question:** does the defense dispute that the defendant owns/controls the account, authored the specific content, or both?
+Collect three tiers: **Essential** (items 1-5: evidence type, platform(s), charges, what the State claims the social media evidence proves, account attribution question), **Strategic** (items 6-10: how the evidence was collected, preservation documentation, defense theory, related forensic reports, known suppression issues), and **Contextual** (items 11-13: metadata present, records custodian information, account activity logs).
 
-### Strategic (request if not provided)
-6. **How the Evidence Was Collected:** law enforcement screenshot, platform subpoena/search warrant response, civilian witness screenshot, Cellebrite extraction from defendant's device, or unknown
-7. **Preservation Documentation:** was a preservation letter sent to the platform? When? Was the content already gone by the time records were produced?
-8. **Defense Theory:** what happened from the defense perspective — was the account hacked, was someone else posting, was the content fabricated, was it taken out of context, is there an alibi that contradicts the location data?
-9. **Related Forensic Reports:** was the defendant's phone also extracted? If so, does the mobile forensic extraction corroborate or contradict the social media evidence?
-10. **Known Suppression Issues:** any pending motions regarding the social media evidence or the device it came from
-
-### Contextual (gather from uploaded files)
-11. **Metadata Present:** are there EXIF headers, platform timestamps, IP logs, or device identifiers in the records?
-12. **Records Custodian Information:** did the platform provide a records custodian affidavit or certification?
-13. **Account Activity Logs:** login/logout history, IP addresses, session data, device fingerprints provided by platform
+Read `references/information-gathering-checklist.md` now for the full ranked checklist (items 1-13).
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1–5 are missing, do not audit — ask for them first.
 
@@ -226,23 +211,22 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
 
-| File | Purpose | Loaded At |
-|------|---------|-----------|
-| `references/evidence-type-classification.md` | Five-level Evidence Reliability Hierarchy + three-prong Authentication Adequacy Test (CRITICAL / FOUNDATION GAP / EXTRACTION LIMITATION) | Step 2 |
-| `references/module-a-facebook-meta.md` | Facebook/Meta architecture: account creation, content mutability, Messenger encryption, IP/session logs, EXIF stripping, records production format | Module A |
-| `references/module-b-instagram.md` | Instagram architecture: Stories ephemerality, DM E2EE rollout, account verification, comment/caption editing | Module B |
-| `references/module-c-snapchat.md` | Snapchat architecture: ephemerality, Snap Map, Memories/My Eyes Only, retention, screenshot notifications | Module C |
-| `references/module-d-tiktok.md` | TikTok architecture: algorithm-driven visibility, duets/stitches/reposts, video metadata, account attribution, data residency | Module D |
-| `references/module-e-twitter-x.md` | Twitter/X architecture: tweet editing, account anonymity, DM encryption, deleted-content caching | Module E |
-| `references/module-f-whatsapp.md` | WhatsApp architecture: E2EE default, backup vulnerability, phone-number identity, disappearing messages | Module F |
-| `references/module-g-telegram.md` | Telegram architecture: cloud vs. Secret chats, message editing/deletion, cooperation challenges | Module G |
-| `references/module-h-signal.md` | Signal architecture: minimal data retention, disappearing-by-default | Module H |
-| `references/screenshot-integrity-audit.md` | Fabrication Methods framework + Metadata Verification Checklist + Platform Records Integrity Checklist | Step 4 |
-| `references/account-attribution-analysis.md` | Three-link Attribution Challenge Framework (Account → Defendant; Defendant → Content; Content Integrity) + Common Attribution Defenses | Step 5 |
-| `references/audit-report-structure.md` | Eight-section narrative report template with header block and embedded Issue Codes / Cross Chapter Seeds placement | Step 6 |
-| `references/workflow-integration.md` | Master Evidence Table row spec + Issue Codes table + CROSS CHAPTER SEED template | Step 7 |
-| `references/warrant-subpoena-scope-audit.md` | Warrant/Subpoena Scope Audit checklist (SCA, overbreadth, preservation timing, geofence/keyword warrants) | Step 8 |
-| `references/quick-reference-tables.md` | Legal Standards for Social Media Evidence + Platform Data Retention & Legal Process | Reference throughout |
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-13)
+- **evidence-type-classification.md** — Step 2: five-level Evidence Reliability Hierarchy + three-prong Authentication Adequacy Test (CRITICAL / FOUNDATION GAP / EXTRACTION LIMITATION)
+- **module-a-facebook-meta.md** — Module A: Facebook/Meta architecture: account creation, content mutability, Messenger encryption, IP/session logs, EXIF stripping, records production format
+- **module-b-instagram.md** — Module B: Instagram architecture: Stories ephemerality, DM E2EE rollout, account verification, comment/caption editing
+- **module-c-snapchat.md** — Module C: Snapchat architecture: ephemerality, Snap Map, Memories/My Eyes Only, retention, screenshot notifications
+- **module-d-tiktok.md** — Module D: TikTok architecture: algorithm-driven visibility, duets/stitches/reposts, video metadata, account attribution, data residency
+- **module-e-twitter-x.md** — Module E: Twitter/X architecture: tweet editing, account anonymity, DM encryption, deleted-content caching
+- **module-f-whatsapp.md** — Module F: WhatsApp architecture: E2EE default, backup vulnerability, phone-number identity, disappearing messages
+- **module-g-telegram.md** — Module G: Telegram architecture: cloud vs. Secret chats, message editing/deletion, cooperation challenges
+- **module-h-signal.md** — Module H: Signal architecture: minimal data retention, disappearing-by-default
+- **screenshot-integrity-audit.md** — Step 4: Fabrication Methods framework + Metadata Verification Checklist + Platform Records Integrity Checklist
+- **account-attribution-analysis.md** — Step 5: three-link Attribution Challenge Framework (Account → Defendant; Defendant → Content; Content Integrity) + Common Attribution Defenses
+- **audit-report-structure.md** — Step 6: eight-section narrative report template with header block and embedded Issue Codes / Cross Chapter Seeds placement
+- **workflow-integration.md** — Step 7: Master Evidence Table row spec + Issue Codes table + CROSS CHAPTER SEED template
+- **warrant-subpoena-scope-audit.md** — Step 8: Warrant/Subpoena Scope Audit checklist (SCA, overbreadth, preservation timing, geofence/keyword warrants)
+- **quick-reference-tables.md** — Reference throughout: Legal Standards for Social Media Evidence + Platform Data Retention & Legal Process
 
 ---
 

@@ -112,3 +112,16 @@ viewing the evidence in the light most favorable to the prosecution,
 any rational trier of fact could have found the essential elements of
 the crime beyond a reasonable doubt." This standard informs how element
 instructions should be drafted to maximize appellate review.
+
+---
+
+## Moved from SKILL.md (Step 5 overview)
+
+The module produces four foundational instructions:
+
+- **Reasonable Doubt** (La. C.Cr.P. Art. 804; *State v. Cage*, 583 So.2d 1125 (La. 1991)) — must include the three Cage-required phrases: "grave uncertainty," "real, tangible, substantial basis," and "such a doubt as would give rise to a grave uncertainty." Failure is reversible error.
+- **Presumption of Innocence** (La. Const. Art. I, Sec. 16; *Coffin*, *Taylor v. Kentucky*)
+- **Burden Never Shifts** (*Winship*, *Jackson v. Virginia*, *Sullivan v. Louisiana*)
+- **Jackson v. Virginia Sufficiency Standard** — informs how element instructions should be drafted to maximize appellate review (not typically given to the jury)
+
+**Federal floor:** *Victor v. Nebraska*, 511 U.S. 1 (1994) — the Cage formulation satisfies federal constitutional requirements.

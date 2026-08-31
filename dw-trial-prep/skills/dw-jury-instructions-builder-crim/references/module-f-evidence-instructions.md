@@ -146,3 +146,14 @@ instruction when other-crimes evidence is admitted. If the court fails
 to give this instruction sua sponte, the defense must request it to
 preserve the issue. Always request a limiting instruction at the time
 the evidence is admitted AND in the final charge to the jury.
+
+---
+
+## Moved from SKILL.md (Step 7 overview)
+
+Four evidence-specific instructions are produced:
+
+- **Circumstantial Evidence** (La. R.S. 15:438; *Captville*; *Neal*) — evidence must "exclude every reasonable hypothesis of innocence." Defense-favorable; always request when State relies significantly on circumstantial evidence.
+- **Eyewitness Identification** (*Higgins*, *Manson v. Brathwaite*, *Neil v. Biggers*, *Hunt*) — seven-factor reliability framework including cross-racial identification caution
+- **Confession / Statement Voluntariness** (La. R.S. 15:451; La. C.Cr.P. Art. 703; *Jackson v. Denno*; *Glover*; *Miranda*)
+- **Prior Bad Acts Limiting Instruction** (La. C.E. Art. 404(B); *Prieur*; *Rose*; *Huddleston*) — request both at time of admission AND in final charge

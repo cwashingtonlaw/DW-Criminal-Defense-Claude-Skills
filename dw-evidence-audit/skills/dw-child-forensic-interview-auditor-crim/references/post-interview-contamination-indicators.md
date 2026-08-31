@@ -157,3 +157,11 @@ Ask yourself:
 | 2024-04-10 | Full graphic details provided | New iPhone | Material gift | (Credit card statement, dated 2024-04-11) |
 
 **Purpose:** Demonstrates whether the child's motivation to elaborate on allegations correlates with receipt of rewards, suggesting reinforcement-based narrative development rather than spontaneous memory recovery.
+
+---
+
+## Module H Sub-Module Summary (moved from SKILL.md)
+
+1. **Temporal Proximity Analysis** — map the disclosure date against legal events (divorce, custody, restraining orders, CPS involvement, school discipline, employment termination). Disclosures within close proximity to such events are red-flagged.
+2. **Adult Voice Detection** — exact-phrase matching, legal/formal terminology checks, parental accusation language mirroring, and interviewer-introduced language adoption.
+3. **Reward System Documentation** — track gifts, privileges, attention, suspended discipline, and social validation that follow disclosures, especially when escalating with allegation severity.

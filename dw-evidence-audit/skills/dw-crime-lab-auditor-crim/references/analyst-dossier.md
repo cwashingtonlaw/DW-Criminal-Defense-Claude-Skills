@@ -226,3 +226,9 @@ If the State refuses or returns nothing, the audit's **FIRST FINDING** is the re
 ---
 
 *Last updated: see SKILL.md version. Cautionary-precedent facts are matters of public record; check for updates and ongoing post-conviction litigation in each jurisdiction.*
+
+---
+
+## Module C Short Version (moved from SKILL.md)
+
+Short version: compile a full dossier on the testifying analyst — CV, certifications (ABC, ABFT), tenure, proficiency-test history (pass/fail), prior testimony record (Daubert challenges, exclusions), error-log entries naming the analyst, and discipline history. Cross-reference against the cautionary precedents (Dookhan, Farak, Houston, Detroit, NC SBI) — when systemic misconduct has occurred at a lab, the defense is entitled to it under Brady regardless of whether *this* analyst was directly implicated. Reference includes the discovery demand checklist.

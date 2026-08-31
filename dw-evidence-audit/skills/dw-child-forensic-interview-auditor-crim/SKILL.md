@@ -54,6 +54,7 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+3. `references/guardrails.md` — this skill's full Guardrails & Ethical Boundaries text (compact hard rules remain inline below)
 
 Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
@@ -73,66 +74,9 @@ This prevents mid-analysis discovery of contaminating interviews or contextual d
 
 ## STEP 1 — Information Gathering Protocol
 
-### **Essential Information (Must Have)**
-These items are non-negotiable for analysis:
+Collect three tiers: **Essential** (items 1-5: interview recording or transcript, charges, child demographic & developmental data, State's theory of the case, interview history), **Strategic** (items 6-8: interviewer credentials, context documents, multi-interview documentation), and **Contextual** (items 9-10: defense investigation findings, venue information). Essential items are non-negotiable for analysis.
 
-1. **Interview Recording or Transcript**
-   - Full recording (video/audio) with timestamps OR complete verbatim transcript
-   - Exact duration and date of interview
-   - Any breaks or interruptions noted
-
-2. **Charges Alleged Against Defendant**
-   - Specific allegations (molestation, sexual abuse, battering, neglect, etc.)
-   - Charges as they relate to the child's statements
-   - Indictment or criminal complaint text
-
-3. **Child Demographic & Developmental Data**
-   - Age at time of interview
-   - Age at time of alleged events (if different)
-   - Grade level or school information
-   - Any developmental delays, disabilities, language barriers, or special needs
-
-4. **State's Theory of the Case**
-   - What specific statements or behaviors is prosecution using as proof?
-   - What allegation does the interview "prove"?
-   - Is this interview the sole basis for charges, or corroborating?
-
-5. **Interview History**
-   - Total number of prior interviews (with teachers, parents, other investigators, CAC staff, therapists)
-   - Dates of each interview
-   - Names/titles of interviewers
-
-### **Strategic Information (Request if Missing)**
-
-6. **Interviewer Credentials**
-   - Full name, agency, and title
-   - Certifications and training hours
-   - Years of experience with child interviews
-   - Specific training in the protocol used
-
-7. **Context Documents**
-   - Police reports documenting what prompted investigation
-   - Parent/caregiver statements
-   - Any prior disclosures before this interview
-   - Preliminary investigative timeline
-
-8. **Multi-Interview Documentation**
-   - Transcripts or summaries of prior interviews (critical for contamination audit)
-   - Therapist notes (if child was in therapy)
-   - School counselor reports
-
-### **Contextual Information (Gather from Case Files)**
-
-9. **Defense Investigation Findings**
-   - Alibi evidence for defendant
-   - Inconsistent statements by child in prior interviews
-   - Alternative explanations for allegations
-   - Recanted statements
-
-10. **Venue Information**
-    - Interview location (CAC, police station, school, home, hospital)
-    - Who was present during interview
-    - Any modifications to standard protocol noted in file
+Read `references/information-gathering-checklist.md` now for the full ranked checklist with sub-items.
 
 ---
 
@@ -178,7 +122,7 @@ A red-flag table identifies CRITICAL openings such as launching with "Did he tou
 
 This is the **critical analysis module**. Every question must be classified and assessed for suggestiveness using a six-tier classification: open-ended (+1), follow-up open (+0.75), closed (+0.25), yes/no (0), leading (-1), highly suggestive (-3). A question-by-question analysis template captures exact text, type, score, analysis, and severity per question; a quantitative ratio analysis (% open vs. closed/leading) yields a cumulative score.
 
-A deep-dive catalog covers nine specific suggestive techniques: tag questions, forced-choice questions, presumptive questions, repeated questions after denial, positive/negative consequences, introducing information not from child, inappropriate language complexity, anatomical dolls (proper vs. improper use), and interviewer response to inconsistencies / recantation. A separate sub-test asks whether the interviewer ever explored alternative hypotheses ("Could it have been...?").
+A deep-dive catalog covers nine specific suggestive techniques (tag, forced-choice, presumptive, repeated-after-denial, consequences, introduced information, language complexity, anatomical dolls, response to inconsistency/recantation) plus an alternative-hypothesis sub-test.
 
 **Reference:** Read `references/questioning-technique-catalog.md` for the full classification rubric, scoring scheme, question-by-question template, ratio interpretation, the nine specific suggestive-technique deep-dives, the alternative-hypothesis test, and the Question Type Classification Guide summary table.
 
@@ -186,7 +130,7 @@ A deep-dive catalog covers nine specific suggestive techniques: tag questions, f
 
 ## STEP 7 — MODULE E: Disclosure Analysis
 
-Audit the nature of the disclosure itself. Areas covered: spontaneous vs. prompted vs. elicited disclosure (with subdivisions of prompted by suggestiveness of prompt); consistency of statements across multiple interviews (with a four-row scenario table); and the level of detail provided — distinguishing high-reliability sensory/peripheral/contextual details from low-reliability generic, allegation-matching, or emotional-only descriptions.
+Audit the disclosure itself: spontaneous vs. prompted vs. elicited; consistency across multiple interviews (four-row scenario table); and level of detail — high-reliability sensory/peripheral/contextual detail vs. low-reliability generic, allegation-matching, or emotional-only description.
 
 **Reference:** Read `references/disclosure-and-contamination-analysis.md` (MODULE E section) for full disclosure typology, the consistency-across-interviews scenario table, and the high- vs. low-reliability detail rubric.
 
@@ -194,7 +138,7 @@ Audit the nature of the disclosure itself. Areas covered: spontaneous vs. prompt
 
 ## STEP 8 — MODULE F: Multi-Interview Contamination Audit
 
-Audit cumulative interview history. Areas covered: a systematic contamination table per prior interview (interviewer, what child said, new details introduced, prior knowledge held by interviewer); a HIGH/CRITICAL contamination risk-factor checklist; source monitoring failure analysis (Johnson & Raye, Marche & Howe research on children under 10 blending memory with input); and Louisiana-specific taint-hearing framework with relevance to La. C.E. Art. 801-803.
+Audit cumulative interview history: a per-interview contamination table, a HIGH/CRITICAL risk-factor checklist, source-monitoring failure analysis (Johnson & Raye; Marche & Howe), and the Louisiana taint-hearing framework (La. C.E. Art. 801-803).
 
 **Reference:** Read `references/disclosure-and-contamination-analysis.md` (MODULE F section) for the systematic contamination audit template, contamination risk-factor checklists, source-monitoring analysis, and Louisiana taint-hearing framework.
 
@@ -202,9 +146,7 @@ Audit cumulative interview history. Areas covered: a systematic contamination ta
 
 ## STEP 9 — MODULE G: Developmental Competency Assessment
 
-Assess the child's developmental capacity using research-based age tables. Areas covered: age-appropriate language abilities (vocabulary, syntax, temporal understanding, memory capacity at 3-4, 5-6, 7-8, 9-12); memory capacity and forgetting (Tulving, Ebbinghaus); Ceci & Bruck (1995) suggestibility research with age-banded false-memory rates; fantasy/reality distinction (Flavell, 1986); time-concept understanding (Piaget, Friedman); and a cumulative competency-assessment scoring rubric.
-
-A quick-reference age-milestone matrix and a suggestibility-risk-factors table by age band complement the module.
+Assess the child's developmental capacity using research-based age tables: language abilities by age band (3-4, 5-6, 7-8, 9-12), memory and forgetting, Ceci & Bruck (1995) suggestibility findings, fantasy/reality distinction, time-concept understanding, and a cumulative competency-assessment scoring rubric, with an age-milestone matrix and by-age suggestibility risk-factor table.
 
 **Reference:** Read `references/developmental-competency-framework.md` for the full developmental science, age tables, Ceci & Bruck findings, the competency assessment scoring rubric, and the by-age suggestibility risk-factor profiles.
 
@@ -212,11 +154,7 @@ A quick-reference age-milestone matrix and a suggestibility-risk-factors table b
 
 ## STEP 10 — MODULE H: Post-Interview Contamination Indicators
 
-Audit external influences on the disclosure. Three sub-modules:
-
-1. **Temporal Proximity Analysis** — map the disclosure date against legal events (divorce, custody, restraining orders, CPS involvement, school discipline, employment termination). Disclosures within close proximity to such events are red-flagged.
-2. **Adult Voice Detection** — exact-phrase matching, legal/formal terminology checks, parental accusation language mirroring, and interviewer-introduced language adoption.
-3. **Reward System Documentation** — track gifts, privileges, attention, suspended discipline, and social validation that follow disclosures, especially when escalating with allegation severity.
+Audit external influences on the disclosure through three sub-modules: **Temporal Proximity Analysis** (disclosure date mapped against divorce / custody / restraining-order / CPS / discipline / termination events), **Adult Voice Detection** (exact-phrase matching, legal terminology, mirrored accusation language, interviewer-introduced language), and **Reward System Documentation** (gifts, privileges, attention, suspended discipline following disclosures).
 
 **Reference:** Read `references/post-interview-contamination-indicators.md` for the full timeline mapping, adult-voice detection methodology with examples, and the reward-system documentation framework.
 
@@ -224,12 +162,7 @@ Audit external influences on the disclosure. Three sub-modules:
 
 ## STEP 11 — MODULE I: Multi-Interview Comparative Analysis (Escalation Tracker)
 
-Trace the "growth of the allegation" across sequential interviews. Four-step process:
-
-1. **Original Claim Extraction** — locate the very first mention of abuse (often pre-forensic, often vague).
-2. **Trace Changes Across Sequential Interviews** — chronological table documenting each interview, new details introduced, and specificity level (vague → moderate → graphic).
-3. **Identify Contradictions & Timeline Problems** — five common patterns: location shifting, perpetrator identity confusion, frequency shifting, temporal confusion, detail contradiction.
-4. **Highlight "Growth of the Allegation" Over Time** — version-by-version narrative progression document, with forensic assessment of which interview produced the critical transformation.
+Trace the "growth of the allegation" across sequential interviews in four steps: original claim extraction → chronological tracking of new details and specificity (vague → moderate → graphic) → contradictions and timeline problems (location, perpetrator identity, frequency, temporal, detail) → version-by-version narrative progression identifying which interview produced the critical transformation.
 
 **Reference:** Read `references/escalation-and-baseline-modules.md` (MODULE I section) for the full four-step escalation methodology, contradiction patterns, and example narrative progression.
 
@@ -237,7 +170,7 @@ Trace the "growth of the allegation" across sequential interviews. Four-step pro
 
 ## STEP 12 — MODULE J: External Validity Cross-Check (Behavioral Baseline)
 
-Cross-check the child's contemporaneous school and behavioral records (created without knowledge of the allegations) against the alleged-abuse timeline. Areas covered: obtaining records (attendance, report cards, teacher progress reports, behavioral incidents, counselor notes, nurse logs); mapping alleged incidents against school records (with an example correlation table); the school-vs.-home check (was the child marked present when alleged abuse occurred?); academic baseline assessment timeline; and behavioral indicators (or absence of trauma response indicators) at school during the alleged abuse period.
+Cross-check the child's contemporaneous school and behavioral records (created without knowledge of the allegations) against the alleged-abuse timeline: obtain attendance, grades, teacher/counselor/nurse records; map alleged incidents against them (school-vs.-home presence check); assess academic baseline and the presence or absence of trauma-response indicators during the alleged abuse period.
 
 **Reference:** Read `references/escalation-and-baseline-modules.md` (MODULE J section) for the full cross-reference strategy, example correlation tables, and behavioral baseline comparison framework.
 
@@ -247,7 +180,7 @@ Cross-check the child's contemporaneous school and behavioral records (created w
 
 After completing Modules A–J, classify each finding as CRITICAL, SIGNIFICANT, or MINOR per the standard severity framework, then assemble the formal audit deliverable in Word (.docx) format. The deliverable contains: header (work-product marked), executive summary, methodology section, findings by module, consolidated findings & severity rating table, legal analysis, and cross-examination seeds.
 
-The Legal Analysis section applies seven legal frameworks against the audit findings: Daubert (via *State v. Foret*), Crawford v. Washington, Davis v. Washington, Idaho v. Wright, La. C.E. Art. 801-803, La. C.E. Art. 702, La. Ch.C. Art. 329, and *State v. Langley* (Louisiana child-witness competency).
+The Legal Analysis section applies the Daubert (*State v. Foret*), Crawford / Davis / Idaho v. Wright, La. C.E. Art. 702 and 801-803, La. Ch.C. Art. 329, and *State v. Langley* frameworks against the findings.
 
 **References:**
 - Read `references/audit-deliverable-template.md` for the severity classification system, the Word .docx deliverable template (header, executive summary, findings-by-module structure, consolidated findings table, cross-exam seed format).
@@ -271,49 +204,22 @@ Apply attorney work-product marking per `dw-shared-protocols-crim/references/att
 
 ## Guardrails & Ethical Boundaries
 
-1. **Never Accuse the Child of Lying**
-   - Frame all findings as "interviewer technique concerns," not "child fabrication"
-   - Children are reliable when properly interviewed; unreliability stems from process
+Hard rules — full text with framing examples in `references/guardrails.md` (loaded at Step 0.5):
 
-2. **Audit the Process, Not the Child**
-   - Criticize questioning techniques, not the child's responses
-   - Example: "The interviewer's use of leading questions introduces reliability concerns" NOT "The child made up the story"
-
-3. **Children CAN Be Highly Reliable Witnesses**
-   - When proper protocols followed (NICHD, Cognitive Interview, Step-Wise)
-   - When open-ended questions dominate
-   - When no contamination across interviews
-   - When developmental appropriateness maintained
-   - **Maintain this as underlying principle**
-
-4. **The Issue Is Always Interviewer Technique, Never Child Credibility**
-   - If this interview is problematic, it's because of how questions were asked
-   - Not because children can't remember or perceive accurately
-   - Reframe defenses around "how to interview children well," not "children lie"
-
-5. **Never Generate Victim-Blaming Content**
-   - Do not suggest child "asked for" abuse or "was complicit"
-   - Do not minimize impact of trauma on disclosure
-   - Do not suggest child delayed disclosure because disclosure was false
-   - Focus narrowly on interview methodology
-
-6. **All Findings Framed as Methodological Deficiencies**
-   - "This interview deviated from NICHD protocol by relying on yes/no questions"
-   - NOT: "The child fantasized the abuse"
-   - NOT: "The child was lying for attention"
-   - **Always: "The interview methodology introduced reliability concerns"**
+1. **Never accuse the child of lying** — frame every finding as an "interviewer technique concern," never "child fabrication."
+2. **Audit the process, not the child** — criticize questioning techniques, never the child's responses.
+3. **Children CAN be highly reliable witnesses** when proper protocols are followed — maintain this as the underlying principle.
+4. **The issue is always interviewer technique, never child credibility.**
+5. **Never generate victim-blaming content** — no suggestion the child "asked for" abuse, was complicit, or delayed disclosure because it was false.
+6. **All findings framed as methodological deficiencies** — always: "The interview methodology introduced reliability concerns."
 
 ---
 
 ## Integration with dw-cross-exam-architect-crim
 
-This audit feeds directly into cross-examination strategy. For each finding, dw-cross-exam-architect-crim can generate:
+This audit feeds directly into cross-examination strategy — deposition lock-in questions, cross sequences, impeachment materials, expert testimony outlines, and Daubert / Crawford / Davis motion language.
 
-1. **Deposition questions** designed to lock in interviewer's answers
-2. **Cross-examination question sequences** that expose methodology failures
-3. **Impeachment materials** citing specific transcript pages and research
-4. **Expert testimony outlines** for psychologist/child development expert
-5. **Motion language** for Daubert challenges or Crawford/Davis constitutional motions
+Read `references/audit-deliverable-template.md` now for the full list of what dw-cross-exam-architect-crim can generate from each finding.
 
 ---
 
@@ -335,11 +241,7 @@ If protocol deviations are found, offer to route to dw-expert-witness-evaluator-
 
 ## Using This Skill Effectively
 
-1. **Provide all materials upfront:** Recording/transcript, prior statements, all case documents
-2. **Wait for confirmation:** Confirm "No more uploads now" before I begin analysis
-3. **Allow time for detailed modules:** Full audit may take 30-60 minutes depending on interview length
-4. **Request specific exports:** Ask for Word audit, cross-exam seeds, or specific module focus as needed
-5. **Iterate:** If you find additional materials, we can supplement the audit
+Provide all materials upfront, confirm "No more uploads now," allow 30-60 minutes for a full audit, request specific exports as needed, and iterate if new materials surface. Read `references/information-gathering-checklist.md` (final section) for the five tips.
 
 ---
 
@@ -371,21 +273,20 @@ If the attorney wants to run a parallel audit in NotebookLM (e.g., for Red Team 
 
 ## Quick References
 
-All detailed analysis content has been offloaded to topic-focused reference files in `references/`. Load the relevant file(s) on demand as you progress through Modules A–J.
+Load the relevant file(s) on demand as you progress through Modules A–J.
 
-| File | Contents |
-|---|---|
-| `references/forensic-interview-protocols.md` | RATAC, NICHD, Cognitive Interview, Step-Wise, ChildFirst, Ten-Step protocols + triage decision tree + Protocol Comparison Matrix |
-| `references/interviewer-and-environment-audit.md` | Modules A (qualifications), B (environment), and C (rapport & ground rules) — including red-flag tables |
-| `references/questioning-technique-catalog.md` | Module D core — six-tier question classification, scoring, question-by-question template, nine deep-dive suggestive techniques, alternative-hypothesis test |
-| `references/disclosure-and-contamination-analysis.md` | Modules E (disclosure analysis) and F (multi-interview contamination, source-monitoring, Louisiana taint hearing) |
-| `references/developmental-competency-framework.md` | Module G — developmental science, Ceci & Bruck findings, competency scoring, by-age suggestibility profiles |
-| `references/post-interview-contamination-indicators.md` | Module H — temporal proximity, adult-voice detection, reward-system documentation |
-| `references/escalation-and-baseline-modules.md` | Modules I (escalation tracker) and J (school/behavioral baseline cross-check) |
-| `references/legal-authority-and-research.md` | Louisiana evidence code, federal Confrontation Clause cases, research authorities (Ceci & Bruck, Lamb, Lyon), and the Legal Analysis framework for the audit deliverable |
-| `references/audit-deliverable-template.md` | Severity classification system + Word .docx deliverable structure + cross-exam seed format |
-| `references/notebooklm-audit-prompts.md` | Five copy-paste prompts (A–E) plus the Golden Rule follow-up for parallel NotebookLM audits |
-
+- **information-gathering-checklist.md** — Step 1: full intake checklist (items 1-10) + "Using This Skill Effectively" tips
+- **guardrails.md** — Step 0.5: full Guardrails & Ethical Boundaries text
+- **forensic-interview-protocols.md** — Step 2: six protocols + triage decision tree + Protocol Comparison Matrix
+- **interviewer-and-environment-audit.md** — Steps 3-5 / Modules A, B, C — including red-flag tables
+- **questioning-technique-catalog.md** — Step 6 / Module D — six-tier classification, scoring, question-by-question template, nine suggestive techniques, alternative-hypothesis test
+- **disclosure-and-contamination-analysis.md** — Steps 7-8 / Modules E and F (contamination, source-monitoring, Louisiana taint hearing)
+- **developmental-competency-framework.md** — Step 9 / Module G — developmental science, Ceci & Bruck, competency scoring, by-age suggestibility profiles
+- **post-interview-contamination-indicators.md** — Step 10 / Module H — temporal proximity, adult-voice detection, reward-system documentation (+ sub-module summary)
+- **escalation-and-baseline-modules.md** — Steps 11-12 / Modules I (escalation tracker, + four-step summary) and J (school/behavioral baseline)
+- **legal-authority-and-research.md** — Step 13: Louisiana evidence code, Confrontation Clause cases, research authorities, Legal Analysis framework
+- **audit-deliverable-template.md** — Step 13: severity classification + .docx deliverable structure + cross-exam seed format + dw-cross-exam-architect-crim integration list
+- **notebooklm-audit-prompts.md** — NotebookLM section: Prompts A–E plus the Golden Rule follow-up
 ---
 
 **END OF SKILL DOCUMENTATION**

@@ -231,3 +231,9 @@ Defense stipulations to the lab result are sometimes offered by the State in ple
 ---
 
 *Last updated: see SKILL.md version. Confrontation law continues to develop, especially post-*Williams*. Verify all citations and the precise R.S. 15:501 deadline with current legal research before filing. Route any unclear point to `dw-case-law-researcher-crim`.*
+
+---
+
+## Module E Short Version (moved from SKILL.md)
+
+Short version: under La. R.S. 15:499, the State may file a criminalist's certificate in lieu of live analyst testimony. The defendant has a confrontation right to demand live testimony (*Melendez-Diaz v. Massachusetts*, 557 U.S. 305 (2009)) — but Louisiana imposes a statutory objection deadline under R.S. 15:501 (commonly 15 days before trial — **VERIFY CURRENT STATUTORY DEADLINE**). Failure to timely object waives the confrontation challenge. *Bullcoming v. New Mexico*, 564 U.S. 647 (2011) forbids surrogate analyst testimony — the analyst who performed the test (or in a multi-analyst protocol, the one who certified the result) must testify. *Williams v. Illinois*, 567 U.S. 50 (2012) is a fractured plurality on expert-basis testimony. Reference includes the template R.S. 15:501 objection.

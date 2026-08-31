@@ -141,31 +141,3 @@ X.    Conclusion
 ### Purpose
 
 Calculate the advisory Guidelines range under the United States Sentencing Guidelines (USSG), identify departure and variance arguments, and prepare sentencing advocacy under 18 U.S.C. SS 3553(a) for federal cases in the Fifth Circuit.
-
-> **📖 Reference:** Read `references/federal-sentencing-guidelines.md` for the complete federal sentencing framework, Guidelines calculation steps, departure and variance analysis, and Fifth Circuit sentencing standards.
-### Brief Overview
-
-**Post-Booker Framework:**
-- **United States v. Booker (2005):** Guidelines are advisory, not mandatory
-- **Gall v. United States (2007):** District courts may vary from Guidelines based on SS 3553(a) factors; appellate courts review for reasonableness
-- **Kimbrough v. United States (2007):** District courts may disagree with Guidelines policy in exercising SS 3553(a) discretion
-
-### Federal Sentencing Memorandum Structure
-
-```
-I.    Introduction and Sentencing Request
-II.   Objections to the Pre-Sentence Report (if any)
-III.  Guidelines Calculation (defense position)
-IV.   Departure Arguments (SS 5K motions)
-V.    Variance Arguments (SS 3553(a) analysis)
-      A. Nature and circumstances of the offense
-      B. History and characteristics of the defendant
-      C. Seriousness, deterrence, and public protection
-      D. Available sentences and alternatives to incarceration
-      E. Avoiding unwarranted sentencing disparities
-VI.   Mitigation Presentation
-VII.  Comparable Cases / Sentencing Data
-VIII. Proposed Sentence and Conditions
-IX.   Source Document Appendix (per Source Citation Protocol)
-X.    Conclusion
-```

@@ -17,3 +17,11 @@ Tower dumps exist in a legal gray area post-*Carpenter*. The Supreme Court held 
 - *In re Search of Information Associated with Cellular Towers*, various district courts have applied *Carpenter* to require warrants for tower dumps
 - The 5th Circuit has not definitively resolved whether *Carpenter* extends to tower dumps — monitor for recent developments
 - Even if the government obtained a warrant, challenge the particularity: did the warrant authorize a dump of all towers in a wide radius, capturing the location data of thousands of innocent people?
+
+---
+
+## Module B Summary (moved from SKILL.md)
+
+A tower dump is a request for all devices that connected to a specific cell tower during a specific time window. It produces a massive list of innocent people's phone identifiers alongside the suspect's. Audit the scope of the dump, the narrowing methodology, the false-positive risk, the over-inclusion of towers and time windows, and the legal authorization (warrant vs. lesser order).
+
+**Legal landscape:** Tower dumps exist in a legal gray area post-*Carpenter*. The Supreme Court did not explicitly address tower dumps; various district courts have applied *Carpenter* to require warrants for tower dumps. The 5th Circuit has not definitively resolved this — monitor for recent developments. Even if a warrant was obtained, challenge particularity for dragnet captures.

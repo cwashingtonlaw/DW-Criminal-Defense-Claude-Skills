@@ -24,3 +24,9 @@ GPS tracking evidence comes from dedicated tracking devices placed on vehicles, 
 - [ ] Was the data truly GPS-derived, or was it Wi-Fi- or cell-tower-assisted positioning presented as "GPS"? (Google Location History, for example, blends GPS, Wi-Fi, and cell data without always distinguishing them)
 - [ ] What was the accuracy estimate for each data point? (Google Location History includes an accuracy radius — points with large radii are unreliable)
 - [ ] How frequently were location fixes recorded? (Continuous tracking vs. periodic check-ins produce very different data quality)
+
+---
+
+## Module D Summary (moved from SKILL.md)
+
+GPS tracking evidence comes from dedicated vehicle trackers, phone GPS data (apps or carrier-assisted GPS), or court-ordered monitoring (ankle monitors). Audit accuracy and limitations (3-5m open sky; degrades indoors, in urban canyons, under tree cover; multipath errors; A-GPS reliability; altitude unreliability), tracking-device authorization (*United States v. Jones*, 565 U.S. 400 (2012) — warrant required for physical GPS trackers), data integrity (recording interval, signal-loss handling, raw NMEA vs. processed reports, accuracy indicators preserved), and phone GPS data sources (carrier records, Google Location History, Apple Significant Locations — beware blended GPS/Wi-Fi/cell positioning presented as "GPS").

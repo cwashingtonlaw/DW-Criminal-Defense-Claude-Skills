@@ -1,6 +1,6 @@
 {
   "name": "dw-pleadings",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Motion drafting: suppression, 404(b) opposition, bond/release, and the pretrial motion library.",
   "author": {
     "name": "Chris Washington",

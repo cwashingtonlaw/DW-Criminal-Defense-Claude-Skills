@@ -25,3 +25,9 @@ Legal Authority: [Daubert / La. C.E. Art. 702 / specific case law on CSLI testim
 ```
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`
+
+---
+
+## Step 5 Summary (moved from SKILL.md)
+
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. The cross of a cell site analyst is the most important cross in a location evidence case — establish the gap between what the analyst claims and what the data supports systematically, through concessions the analyst cannot deny. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.

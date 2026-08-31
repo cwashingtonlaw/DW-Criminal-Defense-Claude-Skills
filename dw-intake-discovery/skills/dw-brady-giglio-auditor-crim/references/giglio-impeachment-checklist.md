@@ -41,3 +41,17 @@ Giglio material is evidence that could be used to impeach the credibility of pro
 ## Cross-Reference Method
 
 Same as Brady identification: for each Giglio item identified, check whether it was disclosed, note the date if so, and flag as a **POTENTIAL GIGLIO VIOLATION** if not. Use the same severity scale (Critical / Significant / Notable).
+
+
+## Moved from SKILL.md — Step 3 Category Table, Brady-List Note, and Cross-Reference Method
+
+| Category | Applies To | Key Items |
+|---|---|---|
+| **Deals & Benefits** | All witnesses | Plea agreements, cooperation, immunity (formal/informal), CI payments, immigration benefits (S/U-visa), relocation/housing, pending charges as leverage, charges dropped pre/post-cooperation |
+| **Credibility & Character** | All witnesses | Criminal history, dishonesty (fraud/perjury/false reports), prior inconsistent statements, substance abuse, mental health affecting perception/memory, bias, financial interest in outcome |
+| **Law Enforcement** | Officer witnesses | IA complaints (sustained AND unsustained — *Milke v. Ryan*), discipline, prior dishonesty findings, **Brady list / do-not-call list status**, § 1983 lawsuits, pattern-and-practice findings, prior testimony found not credible |
+| **Expert Witnesses** | Forensic / opinion witnesses | Fee arrangement and total prosecution compensation, prosecution-vs-defense testimony rate, prior contradicted opinions, sanctions/license issues, prior *Daubert*/La. C.E. Art. 702 disqualification |
+
+**Brady-list note:** If the State has not affirmatively disclosed Brady-list/do-not-call-list status for every law enforcement witness, flag it as a potential Giglio gap and demand disclosure — even when the jurisdiction does not maintain a formal list.
+
+**Cross-reference method:** Same as Step 2 — for each Giglio item, check whether disclosed, note the date if so, and flag as a **POTENTIAL GIGLIO VIOLATION** at the same severity scale (Critical / Significant / Notable).

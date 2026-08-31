@@ -61,6 +61,8 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
 3. `dw-shared-protocols-crim/references/letterhead.md` — the records-request letters (Module D) leave the firm on firm letterhead; render the letterhead block at the top of each records-request letter (not on the internal tasking memo)
 
+Also load this skill's `references/guardrails.md` — the eight ethical boundaries, the constitutional framework (duty to investigate), and the documentation standards that govern every task generated.
+
 Do not proceed to Step 1 until these protocols are loaded. The internal investigator tasking memo is work product — apply marking per the shared protocol. The **records-request letters** are outward-facing correspondence: they carry firm letterhead, NOT work-product marking. Internal work-product output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
 ---
@@ -69,50 +71,9 @@ Do not proceed to Step 1 until these protocols are loaded. The internal investig
 
 After receiving case materials, systematically extract and organize information into three tiers before generating any investigation output.
 
-### Tier 1: Essential Information (Must Have)
+**Tier 1 — Essential:** defendant, charges, date/time and location of offense, alleged victims, prosecution witnesses, officers, physical evidence, statements, surveillance/video, digital evidence, co-defendants. **Tier 2 — Strategic:** defense theory, alibi, prior relationship, criminal history, victim background, witness issues, constitutional issues, expert needs, motions filed, bond/custody. **Tier 3 — Contextual:** media, community, institutional, political context, similar cases, victim advocacy.
 
-Extract or confirm the following from the case file:
-
-| Category | Information to Extract |
-|---|---|
-| **Defendant** | Full name, DOB, address, phone, employment, aliases |
-| **Charges** | Each count, statute, elements, penalties, enhancements |
-| **Date/Time of Offense** | Exact date(s), time(s), day of week |
-| **Location of Offense** | Street address, parish, municipality, GPS coordinates if available |
-| **Alleged Victims** | Names, DOB, addresses, relationship to defendant |
-| **Prosecution Witnesses** | Names, addresses, relationship to victim/defendant, role (eyewitness, expert, character) |
-| **Arresting/Investigating Officers** | Names, badge numbers, agency, division |
-| **Physical Evidence** | Items collected, chain of custody, lab results |
-| **Statements** | Defendant's statement (if any), witness statements, victim statements |
-| **Surveillance/Video** | Body cam, dash cam, business cameras, residential cameras |
-| **Digital Evidence** | Phone records, social media, GPS data, electronic communications |
-| **Co-defendants** | Names, charges, counsel, cooperation status |
-
-### Tier 2: Strategic Information (Should Have)
-
-| Category | Information to Extract |
-|---|---|
-| **Defense Theory** | Primary and alternative theories |
-| **Alibi Information** | Defendant's claimed location, potential alibi witnesses, corroborating evidence |
-| **Prior Relationship** | History between defendant, victim, and witnesses |
-| **Defendant's Criminal History** | Prior convictions, pending cases, probation/parole status |
-| **Victim's Background** | Criminal history, civil litigation, reputation in community |
-| **Prosecution Witness Issues** | Prior inconsistent statements, bias, criminal history, deals |
-| **Constitutional Issues** | Search/seizure concerns, Miranda issues, identification procedure problems |
-| **Expert Needs** | DNA, forensics, ballistics, medical, mental health, accident reconstruction |
-| **Pretrial Motions Filed** | Suppression motions, discovery motions, severance motions |
-| **Bond/Custody Status** | Bond amount, conditions, custody location |
-
-### Tier 3: Contextual Information (Nice to Have)
-
-| Category | Information to Extract |
-|---|---|
-| **Media Coverage** | News articles, social media posts, public commentary |
-| **Community Context** | Neighborhood characteristics, crime patterns, community relations |
-| **Institutional Context** | Agency policies, officer disciplinary history, lab accreditation |
-| **Political Context** | DA office priorities, judicial tendencies, election cycles |
-| **Similar Cases** | Comparable cases and outcomes in the jurisdiction |
-| **Victim Advocacy** | Victim advocacy involvement, protective orders, civil suits |
+Read `references/step-1-information-tiers.md` now for the three Category / Information-to-Extract tables.
 
 ---
 
@@ -200,48 +161,21 @@ Transform the individual tasks generated across Modules A-I into a consolidated,
 
 When generating investigation output, format deliverables as follows:
 
-| Output Type | Format | Contents |
-|---|---|---|
-| **Investigation Task List** | Structured table or numbered list | Task ID, priority, category, description, purpose, assigned investigator, deadline, documentation requirements, status |
-| **Witness Interview Questionnaire** | Numbered question format suitable for .docx export | Administration section, background, case-specific questions, perception foundations, prior statement comparison, closing |
-| **Scene Visit Checklist** | Checkbox format | Pre-visit preparation, exterior documentation, interior documentation, surveillance camera canvass, case-specific items |
-| **Records Request Letter** | Letter format | Addressee, legal authority, specific records requested, time period, delivery instructions |
-| **Canvass Assignment Sheet** | Table format with map reference | Zone designation, address list, standard questions, follow-up protocol, return visit log |
-| **Background Investigation Report** | Narrative with sections | Criminal history, civil litigation, social media, relationship/bias, credibility, impeachment assessment |
-| **Defense Timeline** | Chronological table | Time, event, source, prosecution position, defense position, corroboration, notes |
-| **Investigation Progress Report** | Summary with tables | Statistics, critical/overdue tasks, completed tasks, in-progress tasks, budget, priorities |
-| **Investigation Status Report** | Executive summary | Key findings, outstanding issues, recommended actions, budget status |
+Nine deliverable types (Task List, Interview Questionnaire, Scene Visit Checklist, Records Request Letter, Canvass Assignment Sheet, Background Investigation Report, Defense Timeline, Progress Report, Status Report), each with a prescribed format and required contents.
+
+Read `references/output-format-specifications.md` now for the Output Type / Format / Contents table.
 
 ---
 
 ## GUARDRAILS
 
 ### Ethical Boundaries
-1. **Never fabricate evidence or leads.** All investigation tasks must be grounded in legitimate defense investigation needs arising from the case materials.
-2. **Never suggest illegal investigative methods.** All tasks must comply with applicable law, including wiretapping statutes, privacy laws, trespass laws, and rules of professional conduct.
-3. **Never suggest witness tampering or intimidation.** Witness contact must be lawful, professional, and properly documented. If a witness is represented by counsel, do not suggest direct contact without counsel's permission.
-4. **Never suggest contact with represented parties.** If a co-defendant or the victim is represented by counsel, any contact must go through counsel (La. R.P.C. Rule 4.2).
-5. **Respect grand jury secrecy.** Do not suggest investigation methods that would violate grand jury secrecy rules (La. C.Cr.P. Art. 434).
-6. **Comply with protective orders.** If discovery materials are subject to a protective order, ensure all investigation tasks comply with its terms.
-7. **Investigator licensing.** All field investigation tasks must be performed by or under the supervision of a licensed private investigator (La. R.S. 15:145 et seq.) or by the attorney directly.
-8. **Client confidentiality.** Never include privileged attorney-client communications or work product in documents that may be discoverable. Apply attorney work product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`.
 
-### Constitutional Framework
-- **Sixth Amendment** — The right to effective assistance of counsel includes the right to investigation. Failure to investigate is a basis for ineffective assistance of counsel claims. Strickland v. Washington, 466 U.S. 668 (1984).
-- **Strickland v. Washington** — Defense counsel has a duty to make reasonable investigations or to make a reasonable decision that makes particular investigations unnecessary. Strategic choices made after less than complete investigation are reasonable only to the extent that reasonable professional judgments support the limitations on investigation.
-- **Wiggins v. Smith, 539 U.S. 510 (2003)** — Counsel's failure to investigate mitigating evidence violated the Sixth Amendment. The duty to investigate extends to all reasonably available mitigating evidence.
-- **Rompilla v. Beard, 545 U.S. 374 (2005)** — Defense counsel has a duty to examine the prosecution's case file, including prior conviction records that the prosecution intends to use.
-- **Brady v. Maryland, 373 U.S. 83 (1963)** — While Brady imposes obligations on the prosecution, it informs defense investigation by identifying categories of exculpatory evidence the defense should independently pursue rather than relying solely on prosecutorial disclosure.
-- **La. C.Cr.P. Art. 718-729** — Louisiana discovery obligations define the universe of information available and inform what additional investigation is needed beyond formal discovery.
+Eight hard rules — full text in `references/guardrails.md` (loaded at Step 0.5): never fabricate evidence or leads; never suggest illegal methods; never suggest witness tampering or intimidation; no contact with represented parties except through counsel (La. R.P.C. 4.2); respect grand jury secrecy (La. C.Cr.P. Art. 434); comply with protective orders; licensed-investigator rule (La. R.S. 15:145 et seq.); client confidentiality and work-product marking.
 
-### Documentation Standards
-1. All witness interviews must be documented with date, time, location, persons present, and summary of information obtained.
-2. All scene visits must be documented with photographs, video, measurements, and written observations.
-3. All records requests must be logged with date sent, recipient, records requested, response received, and date of response.
-4. All canvass contacts must be documented, including negative contacts (no one home, refused to speak, had no information).
-5. Apply attorney work product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`.
-6. Chain of custody must be maintained for all physical items obtained during investigation.
-7. All investigation hours and expenses must be documented for billing and court reporting purposes.
+### Constitutional Framework and Documentation Standards
+
+The Sixth Amendment duty to investigate (*Strickland*, *Wiggins*, *Rompilla*, *Brady*, La. C.Cr.P. Art. 718-729) and the seven documentation standards (interviews, scene visits, records requests, canvass contacts, work product marking, chain of custody, hours/expenses) were loaded at Step 0.5 from `references/guardrails.md`. Every task must satisfy both.
 
 ---
 
@@ -253,11 +187,7 @@ For Louisiana investigator licensing requirements, key Louisiana criminal proced
 
 ## INTEGRATION WITH OTHER DW SKILLS
 
-| Skill | Integration |
-|---|---|
-| `dw-shared-protocols-crim` | Attorney work product marking + output path formula |
-
-This skill integrates with the broader Daniels & Washington criminal defense skill ecosystem. Investigation outputs can feed directly into **dw-criminal-defense-crim** (Phase 2 theory development), **dw-pretrial-motion-library-crim**, **dw-trial-notebook-builder-crim**, and **dw-sentencing-mitigation-specialist-crim**. When generating investigation tasks, flag any findings that should trigger analysis under another D&W skill — for example, a constitutional violation discovered during investigation should trigger **dw-suppression-motion-crim**, and mitigation evidence uncovered during background investigation should trigger **dw-sentencing-mitigation-specialist-crim**.
+Shared protocols supply marking and output paths; investigation outputs feed dw-criminal-defense-crim Phase 2, dw-pretrial-motion-library-crim, dw-trial-notebook-builder-crim, and dw-sentencing-mitigation-specialist-crim; flag findings that should trigger dw-suppression-motion-crim or dw-sentencing-mitigation-specialist-crim. Read `references/integration-map.md` for the full integration statement.
 
 ---
 
@@ -276,3 +206,7 @@ This skill uses the following reference materials, available in the `references/
 - **module-i-case-type-templates.md** — Five case-type investigation templates (homicide, drug offense, sex offense, robbery, DUI/DWI) with priority-tiered task lists
 - **module-j-fieldwork-scheduling.md** — 30-day fieldwork plan structure (Weeks 1-4 by priority tier), day-by-day assignment sheet template, and prioritized-witness interview-script protocol
 - **quick-reference-tables.md** — Louisiana investigator licensing requirements (La. R.S. 15:145 et seq.), key Louisiana criminal procedure articles (Arts. 718-729; C.E. 607, 608, 609; R.S. 15:1303; R.S. 44:1-41), record retention/deadline table, and case-type investigation budget guidelines
+- **step-1-information-tiers.md** — Step 1: Tier 1 (Essential), Tier 2 (Strategic), and Tier 3 (Contextual) information-extraction tables
+- **output-format-specifications.md** — Output Format Specifications: the nine deliverable types with format and required contents
+- **guardrails.md** — Loaded at Step 0.5: the eight Ethical Boundaries, the constitutional framework (Strickland, Wiggins, Rompilla, Brady, Arts. 718-729), and the seven documentation standards
+- **integration-map.md** — Integration section: shared-protocols table and the downstream/trigger relationships with other DW skills

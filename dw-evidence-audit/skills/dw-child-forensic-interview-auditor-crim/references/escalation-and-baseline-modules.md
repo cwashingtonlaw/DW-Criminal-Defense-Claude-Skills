@@ -266,3 +266,18 @@ This module provides **powerful objective evidence** that:
 - If a child were experiencing severe, repeated abuse, school records would likely reflect behavioral changes, attendance problems, or academic decline
 - The absence of school-based indicators contradicts allegations of ongoing trauma
 - For jury presentations: "If this child were being abused weekly, why did the teacher write in December 2023 that she was a 'star pupil with excellent participation'?"
+
+---
+
+## Module I Four-Step Summary (moved from SKILL.md)
+
+1. **Original Claim Extraction** — locate the very first mention of abuse (often pre-forensic, often vague).
+2. **Trace Changes Across Sequential Interviews** — chronological table documenting each interview, new details introduced, and specificity level (vague → moderate → graphic).
+3. **Identify Contradictions & Timeline Problems** — five common patterns: location shifting, perpetrator identity confusion, frequency shifting, temporal confusion, detail contradiction.
+4. **Highlight "Growth of the Allegation" Over Time** — version-by-version narrative progression document, with forensic assessment of which interview produced the critical transformation.
+
+---
+
+## Module J Summary (moved from SKILL.md)
+
+Cross-check the child's contemporaneous school and behavioral records (created without knowledge of the allegations) against the alleged-abuse timeline. Areas covered: obtaining records (attendance, report cards, teacher progress reports, behavioral incidents, counselor notes, nurse logs); mapping alleged incidents against school records (with an example correlation table); the school-vs.-home check (was the child marked present when alleged abuse occurred?); academic baseline assessment timeline; and behavioral indicators (or absence of trauma response indicators) at school during the alleged abuse period.

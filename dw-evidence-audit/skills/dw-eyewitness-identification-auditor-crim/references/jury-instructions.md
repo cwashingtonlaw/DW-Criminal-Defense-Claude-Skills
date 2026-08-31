@@ -42,3 +42,11 @@ Depending on the facts, request additional instructions addressing:
 | Co-witness discussion | Memory contamination from co-witness information |
 
 ---
+
+---
+
+## Moved from SKILL.md -- Step 4 summary
+
+Jury instructions on eyewitness identification credibility are powerful tools to communicate to the jury the weaknesses in identifications marked by suggestive procedures, contamination, or poor viewing conditions. Model instructions address:
+- Standard eyewitness identification instruction on factors affecting reliability
+- Case-specific instruction add-ons tailored to the particular identification deficiency

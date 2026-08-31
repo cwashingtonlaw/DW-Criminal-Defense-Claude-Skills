@@ -37,3 +37,9 @@ Legal Authority: [Spoliation doctrine if applicable; Brady if non-disclosure]
 ```
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`
+
+---
+
+## Moved from SKILL.md — Step 5 summary
+
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. The most powerful cross from video evidence comes from the gap between what the officer wrote in the report and what the video actually shows — structure each Officer seed around that gap (lock the report → introduce the video → close the loop). Video-custodian / technical seeds focus on system capabilities, expected captures, and retention/overwrite explanations. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.

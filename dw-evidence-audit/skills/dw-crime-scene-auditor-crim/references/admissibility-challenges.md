@@ -21,3 +21,9 @@ For each admissibility challenge, recommend the appropriate motion:
 | Lab not accredited or analyst not qualified | Daubert challenge to analyst qualifications | La. C.E. Art. 702; ASCLD/LAB requirements |
 | Forensic evidence not disclosed timely | Motion to Compel / Brady motion | La. C.Cr.P. Art. 718-722; *Brady v. Maryland* |
 | Evidence destroyed or lost | Spoliation argument / Motion to Dismiss or Instruct | *Arizona v. Youngblood*, 488 U.S. 51 (1988); La. jurisprudence on bad faith |
+
+---
+
+## Step 5 Summary (moved from SKILL.md)
+
+For any forensic discipline where reliability is challenged, apply the *Daubert* framework as adopted in Louisiana (testability, peer review, error rate, standards, general acceptance). Match each CRITICAL finding to the appropriate motion and authority — Daubert exclusion, suppression under La. C.Cr.P. Art. 703, authentication challenges under La. C.E. Art. 901, *Brady* compel, or *Youngblood* spoliation.

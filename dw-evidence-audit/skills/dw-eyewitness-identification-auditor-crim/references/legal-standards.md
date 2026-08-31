@@ -21,3 +21,10 @@
 | 5th Circuit identification standard | United States v. Bautista, 23 F.3d 726 (5th Cir. 1994) | 5th Circuit application of Manson/Brathwaite |
 | 5th Circuit photo array challenge | United States v. Sanchez, 988 F.2d 1384 (5th Cir. 1993) | Photo array suggestiveness analysis |
 | Henderson system/estimator variables | State v. Henderson, 27 A.3d 872 (N.J. 2011) | Comprehensive framework (persuasive, not binding in LA) |
+
+---
+
+## Moved from SKILL.md -- Quick Reference summary
+
+Key authorities include Manson v. Brathwaite, Neil v. Biggers, Stovall v. Denno, United States v. Wade, Perry v. New Hampshire, and Louisiana Code of Criminal Procedure Articles 163-164.
+

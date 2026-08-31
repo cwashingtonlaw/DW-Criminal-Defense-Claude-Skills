@@ -96,55 +96,9 @@ Before building the panel, confirm with the attorney:
 
 This is the foundation of the simulation. The panel must be a statistically faithful model of who actually shows up for jury duty in the trial parish. Louisiana draws from driver's license and government ID lists, so this is the adult population aged 18–65.
 
-### Demographic Categories
+Model all 11 demographic categories (age, gender, race/ethnicity, education, income, children at home, homeownership, political ID, religion, Fox News viewership, occupation) to parish proportions within ±1 juror per category, sourcing per `references/demographic-methodology.md`. Generate a 1,000-person simulated population, stratified-sample 36, validate and resample if any category is off by more than 1. Output A is the full Demographic Summary Table (every value in every category); Output B is a unique two-paragraph bio for every one of the 36 jurors — no exceptions and no "remaining jurors in full report."
 
-Model the panel across all of the following dimensions, matching parish-level proportions within ±1 juror per category:
-
-| Category | Values |
-|----------|--------|
-| Age Group | 18–24, 25–34, 35–44, 45–54, 55–65 |
-| Gender | Male, Female |
-| Race/Ethnicity | White (non-Hispanic), Black (non-Hispanic), Hispanic/Latino, Other |
-| Education | <High School, High School, Some College/Associate, Bachelor's, Graduate+ |
-| Income Bracket | <$35k, $35–50k, $50–75k, $75–150k, $150k+ |
-| Children at Home | Yes, No |
-| Homeownership | Own, Rent |
-| Political ID | Republican, Democrat, Independent |
-| Religion | Evangelical Protestant, Mainline Protestant, Catholic, Unaffiliated, Other |
-| Fox News Viewer | Yes, No |
-| Occupation | White Collar (Mgmt), White Collar (Non-Mgmt), Blue Collar (Skilled), Blue Collar (Service), Government, Healthcare, Not in Labor Force |
-
-### Data Sources and Methodology
-
-Read `references/demographic-methodology.md` for the detailed approach to sourcing parish-level data. The short version:
-
-- **Race, age, gender, education, income, children, homeownership, occupation**: U.S. Census Bureau American Community Survey (ACS) 5-year estimates. Use the most recent available data for the specific parish.
-- **Political ID**: Derive from the most recent presidential election results in the parish. Republican vote share → Republican %, Democrat vote share → Democrat %, remainder → Independent.
-- **Religion**: Association of Religion Data Archives (ARDA) county-level adherence data.
-- **Fox News viewership**: Model from political ID and age (higher among Republican-leaning, 45+ demographics). This is an approximation — be transparent about it.
-
-### The Process
-
-1. **Generate a 1,000-person simulated population** using the parish demographics as probability distributions. Each simulated juror gets a value for every category, drawn proportionally.
-2. **Sample 36 jurors** from that population using stratified sampling to ensure the final panel matches parish proportions within ±1 per category.
-3. **Validate** the panel against the demographic targets. If any category is off by more than 1, resample.
-
-### Output for Step 1
-
-**A. Demographic Summary Table**
-A single table showing the count for each value in every one of the 11 demographic categories listed above. Each category must appear with every value and its count. For example, Age Group must show all 5 brackets, Race must show all 4 groups, Occupation must show all 7 types, etc. The attorney needs a complete snapshot — a partial table (showing only 3 of 11 categories) is useless.
-
-**B. Juror Profiles — All 36, No Exceptions**
-For each of the 36 jurors, write a unique two-paragraph bio in conversational prose. The bio should weave together all demographic attributes naturally — not as a data dump, but as a person. Give each juror a first name and last initial.
-
-Every single juror must have a full bio. The attorney needs to see who these people are to make strategic decisions. Writing 2 bios and then saying "remaining 34 detailed in full report" defeats the purpose of the simulation — there is no separate "full report," this IS the report. If the document is getting long, that's expected. A 36-person panel with bios will be a substantial document. That's the point.
-
-**Example:**
-> **Juror #7 — Marcus T.** Marcus is a 42-year-old Black man who works as a shift supervisor at a petrochemical plant in Westlake. He graduated from Sam Houston High School and completed some coursework at Sowela Tech but didn't finish his degree. He owns a modest home in Mossville and has two kids in elementary school. His household income is around $55,000.
->
-> Marcus is a registered Democrat but doesn't follow politics closely — he's more likely to watch ESPN than CNN or Fox News. He was raised Baptist and still attends Greater St. Mary on Sundays, though he'd describe himself as spiritual rather than strictly religious. He's been called for jury duty once before but wasn't selected. He has a cousin who did time for a drug charge, which gives him a complicated relationship with the criminal justice system.
-
-The bios should feel like real people the attorney might encounter in voir dire. Vary the level of detail and the narrative hooks — some jurors are straightforward, others have wrinkles that could matter.
+Read `references/step-1-panel-build.md` now for the category/value table, data-source rules, the three-step process, the output requirements, and the example juror bio.
 
 ---
 
@@ -173,25 +127,9 @@ Briefly present the strongest version of the State's case — the one a competen
 
 Go through all 36 jurors individually — every single one gets their own analysis entry. This is the core value of the simulation. A summary verdict tally without the individual reasoning is just a number; the attorney needs to understand *why* each juror leans a certain way so they can make informed voir dire and trial strategy decisions.
 
-For each one:
+Each entry carries Juror, Likely Verdict (Guilty / Not Guilty / Hung), Confidence (High / Medium / Low), Reasoning tied to that juror's specific profile, and Key Vulnerability. Weigh five psychological anchors: authority trust, personal experience, moral framing, burden of proof, empathy vs. accountability.
 
-| Field | Description |
-|-------|-------------|
-| **Juror** | Name and number |
-| **Likely Verdict** | Guilty, Not Guilty, or Hung (leaning but persuadable) |
-| **Confidence** | High, Medium, or Low — how firm is this prediction? |
-| **Reasoning** | 2–3 sentences connecting the prediction to the juror's specific profile. Why does their background make them more or less receptive to the defense themes? Be specific — "blue collar workers tend to..." is weaker than "Marcus's cousin's drug conviction means he's seen firsthand how the system can..." |
-| **Key Vulnerability** | What argument or evidence could flip this juror? |
-
-### Psychological Anchors to Consider
-
-When predicting reactions, think about how each juror's profile interacts with:
-
-- **Authority trust**: Does this juror default to believing law enforcement? (LE family, government workers, older conservative demographics tend higher; people with negative LE experiences tend lower)
-- **Personal experience**: Has anyone in their life been through something similar? (Parent? Sibling? Themselves?)
-- **Moral framing**: Do they see the world in black-and-white moral terms, or in shades of gray? (Strong evangelical identity and older age correlate with more rigid moral framing; younger, more educated, unaffiliated demographics tend more situational)
-- **Burden of proof**: Will they actually hold the State to its burden, or will they expect the defense to prove innocence? (Education level and prior jury experience matter here)
-- **Empathy vs. accountability**: Can they hold two things simultaneously — that what happened was terrible AND that the defendant deserves a fair shake?
+Read `references/step-3-juror-reaction-analysis.md` now for the field definitions and anchor-by-anchor guidance.
 
 ---
 
@@ -239,48 +177,9 @@ Note: For actual voir dire execution, hand off to **dw-voir-dire-assistant-crim*
 
 Generate the complete focus group report as a Word document (.docx) using docx-js. Read the `docx` skill's SKILL.md for generation patterns (page size, table formatting, list handling).
 
-### Generation Strategy — Build in Sections
+Build the report in sections (base document first, then juror analysis and recommendations via the docx unpack/edit/repack workflow) so nothing is truncated; the final document must contain complete content for all four steps. Structure: 1. Panel Composition, 2. Case Presentation, 3. Juror-by-Juror Analysis, 4. Strategic Recommendations. File name: `[3-digit prefix] - Jury Focus Group Report.docx`, next available prefix (or `001`).
 
-This report is large (typically 800–1,200 lines of content). Trying to generate it all in a single docx-js script will lead to truncation — the model will run out of room and start cutting corners (writing 2 bios instead of 36, dropping demographic categories, summarizing instead of analyzing).
-
-Instead, build the document in stages:
-
-1. **First pass**: Generate the docx-js script with the document structure, demographic summary table, and case presentation sections (Steps 1A and 2). Write juror bios as data arrays that the script iterates over — define all 36 juror objects with their full bio text.
-2. **Second pass**: If the script is getting too long, split generation into two scripts — one that creates the base document, and a second that adds the juror analysis section (Step 3) and strategic recommendations (Step 4) using the unpack/edit XML/repack workflow from the docx skill.
-
-The key principle: the final document must contain the complete content for all 4 steps. If you find yourself writing placeholder text like "remaining jurors detailed in full report" or "see complete analysis" — stop. That means the generation strategy needs restructuring, not the content.
-
-### Document Structure
-
-```
-JURY FOCUS GROUP SIMULATION REPORT
-[Case Name] — [Parish] Parish
-
-1. PANEL COMPOSITION
-   - Demographic Summary Table
-   - Individual Juror Profiles (36 bios)
-
-2. CASE PRESENTATION
-   - Defense Narrative (FABARC)
-   - Prosecution Summary
-
-3. JUROR-BY-JUROR ANALYSIS
-   - Verdict predictions table (summary)
-   - Individual juror analysis cards
-
-4. STRATEGIC RECOMMENDATIONS
-   - Verdict Tally & 12-Person Projection
-   - Favorable / Dangerous / Swing Jurors
-   - Theme Effectiveness Rankings
-   - Prosecution Vulnerabilities
-   - Voir Dire Strategy
-```
-
-### File Naming
-
-Follow D&W convention: `[3-digit prefix] - Jury Focus Group Report.docx`
-
-If a case folder exists with existing numbered documents, use the next available prefix. If no folder exists, use `001`.
+Read `references/output-format.md` now for the generation strategy, the full document structure, and the file-naming rule.
 
 ### Saving
 
@@ -311,3 +210,6 @@ Apply the output-path formula from `dw-shared-protocols-crim/references/output-p
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
 - **demographic-methodology.md** — Methodology for building a statistically representative 36-person mock jury panel for a Louisiana parish using ACS, election, and ARDA data sources
+- **step-1-panel-build.md** — Step 1: the 11-category demographic table, data-source rules, 1,000→36 stratified sampling process, Demographic Summary Table and 36-bio output requirements, and the example juror bio
+- **step-3-juror-reaction-analysis.md** — Step 3: per-juror analysis fields (verdict, confidence, reasoning, key vulnerability) and the five psychological anchors
+- **output-format.md** — Output Format: build-in-sections generation strategy, full report document structure, and file-naming convention

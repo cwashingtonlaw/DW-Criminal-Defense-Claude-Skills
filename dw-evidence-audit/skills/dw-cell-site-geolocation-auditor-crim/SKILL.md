@@ -63,25 +63,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Location Evidence Inventory:** list of all geolocation evidence in discovery — CSLI records, tower dumps, GPS data, geofence returns, cell site analyst reports, etc.
-2. **Charges:** all counts with statutory citations — charge severity determines the scrutiny threshold
-3. **What the State Claims the Location Data Proves:** the prosecution's theory of where the defendant (or the defendant's phone) was at specific times — this is what the audit is ultimately testing
-4. **Date(s) and Time(s) of the Alleged Offense:** the temporal window the state is trying to place the defendant at a particular location
-5. **Location(s) of the Alleged Offense:** the specific address or area the state claims the defendant was present — this is the geographic anchor for evaluating whether the cell data actually supports the claim
+Collect three tiers: **Essential** (items 1-5: evidence inventory, charges, the State's location claim, offense date(s)/time(s), offense location(s)), **Strategic** (items 6-10: legal authorization, analyst report, raw carrier records, defense theory, suppression issues), and **Contextual** (items 11-14: carrier/network, analyst credentials, device, time zone).
 
-### Strategic (request if not provided)
-6. **Warrant / Court Order / Legal Authorization:** the legal process used to obtain the location data — warrant, court order under 18 U.S.C. § 2703(d), pen register order, consent, exigent circumstances claim
-7. **Cell Site Analyst Report:** the state's analyst's conclusions, methodology description, and any coverage maps or visualizations
-8. **Carrier Records (raw):** the actual call detail records, cell site information, and network data from the carrier (AT&T, T-Mobile, Verizon, etc.)
-9. **Defense Theory:** what happened from the defense perspective — where the defendant actually was, alternative explanations for the cell data
-10. **Known Suppression Issues:** any pending motions regarding the location evidence
-
-### Contextual (gather from uploaded files)
-11. **Carrier and Network Type:** which carrier, technology generation (3G/4G LTE/5G), network configuration in the relevant area
-12. **Cell Site Analyst Credentials:** name, agency, training, certifications (FBI CAST, carrier-specific training, private sector)
-13. **Device Information:** phone make/model, operating system — relevant because different devices connect to towers differently
-14. **Time Zone and Daylight Saving:** carrier records may use UTC, local time, or the billing address time zone — misalignment can shift events by hours
+Read `references/information-gathering-checklist.md` now for the full ranked checklist.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1–5 are missing, do not audit — ask for them first.
 
@@ -91,138 +75,97 @@ Before drafting any audit, collect the following in ranked order:
 
 Identify every category of location evidence present in the case and flag which audit modules apply. Not every case involves every type — audit only what exists but flag conspicuous absences.
 
-### Evidence Category Matrix
+Seven categories map to Modules A-G: Historical CSLI (A), Tower Dump (B), Cell Site Simulator (C), GPS / Vehicle Tracking (D), Geofence Warrant (E), Wi-Fi Positioning (F), IP Geolocation (G).
 
-| Category | What It Is | Typical Source | Precision Claimed vs. Actual | Audit Module |
-|----------|-----------|---------------|------------------------------|--------------|
-| **Historical CSLI** | Records of which cell towers a phone connected to during calls/texts/data sessions | Carrier records (CDRs) | Often claimed as "placing phone at location" — actual precision is the tower's entire coverage area (potentially miles) | Module A |
-| **Tower Dump** | All devices that connected to a specific tower during a time window | Carrier records via warrant/order | Used to place a suspect's phone near a crime scene — but captures thousands of innocent users too | Module B |
-| **Cell Site Simulator (CSS)** | Device that mimics a cell tower to force phones to connect, revealing location | Law enforcement (Stingray, Hailstorm, Crossbow, DRTBox) | Can locate to within a building, but at the cost of capturing all phones in the area | Module C |
-| **GPS / Vehicle Tracking** | Satellite-based positioning from a tracking device or the phone itself | GPS tracker on vehicle, phone GPS data, ankle monitor | Precise (3-15 meters outdoors) but degrades indoors, in urban canyons, and when satellites are obstructed | Module D |
-| **Geofence Warrant** | Reverse-location query: "show me all devices in this area at this time" | Google (Sensorvault), Apple, other providers | Varies by data source — Google Location History can be Wi-Fi-assisted (precise) or cell-only (imprecise) | Module E |
-| **Wi-Fi Positioning** | Location derived from connection to or proximity to Wi-Fi access points | Device logs, app data, carrier Wi-Fi offload records | Typically within 15-40 meters of the access point, but access point location databases contain errors | Module F |
-| **IP Geolocation** | Location inferred from an IP address | ISP records, web service logs, app logs | Wildly imprecise — often accurate only to the city or region level; many databases contain stale or wrong data | Module G |
-
-### Conspicuous Absence Flags
-
-When the charge type strongly implies location evidence should exist but does not appear in discovery:
-
-> **CONSPICUOUS ABSENCE — [Category]:** In a [charge type] case where the state alleges the defendant was at [location] at [time], [location evidence type] would be standard investigative evidence. No [evidence type] appears in the discovery provided. This absence should be explored: was it obtained and not disclosed (*Brady* concern)? Was it not obtained (investigative deficiency — potentially favorable, as it may suggest the data did not support the state's theory)? Was it obtained and the results were unfavorable to the prosecution (*Brady/Youngblood*)? Flag for: Missing Discovery Demand + cross-examination of lead investigator.
+Read `references/evidence-category-triage.md` now for the Evidence Category Matrix and the Conspicuous Absence flag template.
 
 ---
 
 ## MODULE A — Historical CSLI Audit
 
-Historical CSLI is the most common form of cell site evidence and the most frequently overstated. A CSLI record places the phone within the coverage area of a sector — not at a specific point. Audit data integrity (CDR completeness, time zone, granularity), analysis methodology (azimuth-only mapping vs. propagation analysis, "first and last" tower fallacies, overlapping coverage), and prosecution overstatements (the gap between "the phone was at the crime scene" and what the records actually show).
+Historical CSLI places the phone within a sector's coverage area — not at a point. Audit data integrity, analysis methodology (azimuth-only wedges, "first and last tower" inferences, overlapping coverage), and every prosecution overstatement of precision.
 
-**Top precision overstatements to challenge:**
-- "The phone was at the crime scene" — actually places the phone within a sector that may include the defendant's home or workplace
-- "First and last tower" travel-direction inferences — notoriously unreliable
-- Narrow azimuth wedges drawn on maps without propagation modeling
-
-**Reference:** Read `references/module-a-historical-csli.md` for the CDR contents-vs-omissions framework, the Precision Problem with sector coverage details, the full Data Integrity / Analysis Methodology / Granularity audit checklist, and the Common Prosecution Overstatements challenge table.
+Read `references/module-a-historical-csli.md` now for the Module A summary, the CDR contents-vs-omissions framework, the Precision Problem, the full audit checklist, and the Common Prosecution Overstatements table.
 
 ---
 
 ## MODULE B — Tower Dump Audit
 
-A tower dump is a request for all devices that connected to a specific cell tower during a specific time window. It produces a massive list of innocent people's phone identifiers alongside the suspect's. Audit the scope of the dump, the narrowing methodology, the false-positive risk, the over-inclusion of towers and time windows, and the legal authorization (warrant vs. lesser order).
+Tower dumps capture thousands of innocent devices alongside the suspect's. Audit scope, narrowing methodology, false-positive risk, over-inclusion of towers/time windows, and legal authorization (warrant vs. lesser order; post-*Carpenter* gray area).
 
-**Legal landscape:** Tower dumps exist in a legal gray area post-*Carpenter*. The Supreme Court did not explicitly address tower dumps; various district courts have applied *Carpenter* to require warrants for tower dumps. The 5th Circuit has not definitively resolved this — monitor for recent developments. Even if a warrant was obtained, challenge particularity for dragnet captures.
-
-**Reference:** Read `references/module-b-tower-dump.md` for the full Tower Dump Methodology Audit checklist and the Tower Dump Legal Landscape commentary.
+Read `references/module-b-tower-dump.md` now for the Module B summary, the Tower Dump Methodology Audit checklist, and the Tower Dump Legal Landscape.
 
 ---
 
 ## MODULE C — Cell Site Simulator (CSS) Audit
 
-Cell site simulators (Stingray, Hailstorm, Crossbow, DRTBox, Jugular) impersonate a cell tower to force nearby phones to connect, allowing law enforcement to locate the target phone to within a building or room. Because CSS use is often concealed via NDAs and parallel construction, look for indicators in discovery (vague "investigative means" descriptions, pen register orders rather than warrants, FBI/U.S. Marshals technical assistance, suspect located inside a building without independent basis).
+Cell site simulators (Stingray, Hailstorm, DRTBox, etc.) impersonate a tower to locate a phone to a building; use is often concealed via NDAs and parallel construction. Look for detection indicators and press the warrant requirement (*Patrick*; *Lambis*), *Brady* disclosure, and dragnet-scope challenges.
 
-**Top legal challenges:**
-- Warrant requirement — *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016); *United States v. Lambis*, 197 F. Supp. 3d 606 (S.D.N.Y. 2016) (pen register order insufficient)
-- Concealment / parallel construction — *Brady v. Maryland* requires disclosure of the actual investigative method
-- Dragnet capture of all phones in the area — challenge scope and absence of minimization
-
-**Reference:** Read `references/module-c-cell-site-simulator.md` for the How CSS Devices Work explanation, the full CSS Detection Indicators table, and the CSS Legal Challenges framework.
+Read `references/module-c-cell-site-simulator.md` now for the Module C summary, How CSS Devices Work, the CSS Detection Indicators table, and the CSS Legal Challenges framework.
 
 ---
 
 ## MODULE D — GPS / Vehicle Tracking Audit
 
-GPS tracking evidence comes from dedicated vehicle trackers, phone GPS data (apps or carrier-assisted GPS), or court-ordered monitoring (ankle monitors). Audit accuracy and limitations (3-5m open sky; degrades indoors, in urban canyons, under tree cover; multipath errors; A-GPS reliability; altitude unreliability), tracking-device authorization (*United States v. Jones*, 565 U.S. 400 (2012) — warrant required for physical GPS trackers), data integrity (recording interval, signal-loss handling, raw NMEA vs. processed reports, accuracy indicators preserved), and phone GPS data sources (carrier records, Google Location History, Apple Significant Locations — beware blended GPS/Wi-Fi/cell positioning presented as "GPS").
+GPS evidence (vehicle trackers, phone GPS, ankle monitors) is precise in open sky but degrades indoors and in urban canyons. Audit accuracy limits, tracker authorization (*Jones*), data integrity, and blended GPS/Wi-Fi/cell positioning presented as "GPS."
 
-**Reference:** Read `references/module-d-gps-tracking.md` for the full GPS Technical Audit (accuracy/limitations), GPS Tracking Device Audit checklist, and Phone GPS Data Audit checklist.
+Read `references/module-d-gps-tracking.md` now for the Module D summary, the GPS Technical Audit, the GPS Tracking Device Audit checklist, and the Phone GPS Data Audit checklist.
 
 ---
 
 ## MODULE E — Geofence Warrant Audit
 
-Geofence warrants ("reverse location warrants") ask a technology company (most commonly Google) to identify all devices present within a defined geographic area during a defined time window. Google's Sensorvault implementation follows a three-step process (anonymized return → narrowing → de-anonymization). Audit scope and particularity (geofence size, time window, devices captured, narrowing criteria objectivity), data source and accuracy (GPS/Wi-Fi/cell/Bluetooth blend; accuracy radii; devices outside the geofence appearing inside), and constitutional challenges.
+Geofence ("reverse location") warrants ask Google/Apple for all devices in an area during a window (anonymize → narrow → de-anonymize). Audit scope and particularity, data-source accuracy, and the general-warrant challenge (*Chatrie*).
 
-**Top legal challenges:**
-- Particularity / general warrant — captures all devices in an area
-- ***United States v. Chatrie***, 590 F. Supp. 3d 901 (E.D. Va. 2022) — found unconstitutional general search but applied good-faith exception; the analysis is highly useful even where suppression was denied
-- 5th Circuit and state-law developments — monitor
-
-**Reference:** Read `references/module-e-geofence-warrant.md` for the full How Geofence Warrants Work walkthrough, the Scope and Particularity / Data Source and Accuracy audit points, and the Legal Challenges commentary.
+Read `references/module-e-geofence-warrant.md` now for the Module E summary, How Geofence Warrants Work, the Scope/Particularity and Data Source/Accuracy audit points, and the Legal Challenges commentary.
 
 ---
 
 ## MODULE F — Wi-Fi Positioning Audit
 
-Wi-Fi positioning determines a device's location based on Wi-Fi networks the device can detect or has connected to. Typical accuracy is 15-40 meters but depends entirely on the accuracy of crowdsourced access-point location databases (Google, Apple). Access-point movement, range overestimation (a device detecting a network is not necessarily close to it), and database errors all undermine reliability.
+Wi-Fi positioning (typically 15-40 m) depends entirely on crowdsourced access-point databases that contain errors; access-point movement and range overestimation undermine reliability.
 
-**Reference:** Read `references/module-f-wifi-positioning.md` for the full Technical Limitations explanation and Wi-Fi Evidence Audit Checklist.
+Read `references/module-f-wifi-positioning.md` now for the Module F summary, the Technical Limitations explanation, and the Wi-Fi Evidence Audit Checklist.
 
 ---
 
 ## MODULE G — IP Geolocation Audit
 
-IP geolocation attempts to determine a device's physical location from its IP address. It is almost always unreliable — accurate to the city level at best, often worse. Dynamic IP assignment, VPNs/proxies, mobile network carrier pools, and CGNAT (hundreds or thousands of users sharing one public IP) all compound the unreliability.
+IP geolocation is accurate to the city level at best; dynamic IPs, VPNs/proxies, carrier pools, and CGNAT compound the unreliability.
 
-**Reference:** Read `references/module-g-ip-geolocation.md` for the full Why IP Geolocation Is Almost Always Unreliable commentary and the IP Geolocation Audit Checklist.
+Read `references/module-g-ip-geolocation.md` now for the Module G summary, Why IP Geolocation Is Almost Always Unreliable, and the IP Geolocation Audit Checklist.
 
 ---
 
 ## STEP 3 — Mapping & Visualization Guidance
 
-Cell site evidence is inherently spatial — juries need to see coverage areas, tower locations, and the relationship between the data and the prosecution's claims. While this skill does not generate maps directly, it provides guidance for creating effective defense visual exhibits.
+Cell site evidence is inherently spatial — juries need to see coverage areas and tower locations against the prosecution's claims. This skill does not generate maps; it guides defense visual exhibits. The defense map must show the full sector coverage area (not an azimuth wedge), the defendant's claimed location, every tower connected to, overlap zones, and — for tower dumps and geofences — the captured area with innocent-device counts and accuracy radii.
 
-**The defense map should show:**
-- The full coverage area of the relevant sector (not just an azimuth wedge)
-- The defendant's claimed location plotted relative to the same coverage area
-- All towers the phone connected to during the relevant period
-- Overlap zones demonstrating that tower selection is not deterministic
-- For tower dumps: the geographic area captured with innocent-device counts highlighted
-- For geofence warrants: the boundary with accuracy radii overlaid
-
-**Reference:** Read `references/mapping-visualization.md` for the full Defense Mapping Exhibit Checklist and the Recommended Defense Expert Types table (RF engineer, GPS/GNSS engineer, digital forensics expert, network engineer per evidence type).
+Read `references/mapping-visualization.md` now for the Defense Map Essentials list, the Defense Mapping Exhibit Checklist, and the Recommended Defense Expert Types table.
 
 ---
 
 ## STEP 4 — Generate the Geolocation Audit Report
 
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed ten-section structure (Executive Summary, Location Evidence Inventory, Legal Authorization Audit, Methodology Audit, Prosecution Claims vs. Data Reality, Mapping & Visualization Recommendations, Admissibility Challenges, Cross-Examination Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Legal Standards Reference Table, Cross-Exam Chapter Seeds, Technical Glossary).
+Produce the audit as a **Word document (.docx)** using the docx skill (read and follow the `docx` SKILL.md). The report follows a fixed ten-section structure plus three appendices; tag every finding **CRITICAL** / **SIGNIFICANT** / **MINOR**.
 
-Tag every finding with a severity level: **CRITICAL** (directly undermines reliability or admissibility — supports suppression, *Daubert*, or substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (technical irregularity affecting weight only).
-
-**Reference:** Read `references/audit-report-structure.md` for the full ten-section + appendix template, the case-information header fields, and the severity-classification examples.
+Read `references/audit-report-structure.md` now for the Step 4 summary (section list and severity definitions), the full ten-section + appendix template, the case-information header fields, and the severity-classification examples.
 
 ---
 
 ## STEP 5 — Cross-Examination Integration
 
-For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. The cross of a cell site analyst is the most important cross in a location evidence case — establish the gap between what the analyst claims and what the data supports systematically, through concessions the analyst cannot deny. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds for **dw-cross-exam-architect-crim**, built on concessions the analyst cannot deny. Tag each seed `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
 
-**Reference:** Read `references/cross-exam-seeds.md` for the Cell Site Analyst Cross philosophy and the full Cross Chapter Seed template (witness type, chapter goal, Q1-Q5 architecture, source, impeachment note, legal authority).
+Read `references/cross-exam-seeds.md` now for the Step 5 summary, the Cell Site Analyst Cross philosophy, and the full Cross Chapter Seed template (witness type, chapter goal, Q1-Q5 architecture, source, impeachment note, legal authority).
 
 ---
 
 ## STEP 6 — Admissibility & Legal Challenge Framework
 
-Match each CRITICAL finding to the appropriate motion and authority. Twelve canonical challenge types span warrantless historical CSLI (*Carpenter*), warrant defects (4th Amendment; La. C.Cr.P. Art. 162), tower dump overbreadth, CSS without warrant (*Patrick*; *Lambis*), CSS concealment (*Brady*), GPS trackers (*Jones*), geofence warrants (*Chatrie*), analyst overstatements (*Daubert* / La. C.E. Art. 702), discovery violations (*Brady*; La. C.Cr.P. Art. 718-722), spoliation (*Youngblood*), authentication (La. C.E. Art. 803(6) / 901(B)(9)), and good-faith exception challenges (*Davis*).
+Match each CRITICAL finding to the appropriate motion and authority across the twelve canonical location-evidence challenge types (*Carpenter*, warrant defects, tower dump overbreadth, CSS, GPS/*Jones*, geofence/*Chatrie*, *Daubert*, discovery, spoliation, authentication, good faith).
 
-**Reference:** Read `references/admissibility-challenges.md` for the full Location-Specific Challenges table mapping challenge type to motion type and supporting authority.
+Read `references/admissibility-challenges.md` now for the Step 6 summary and the full Location-Specific Challenges table mapping challenge type to motion type and supporting authority.
 
 ---
 
@@ -276,23 +219,22 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 ## Quick References
 
-The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
+Load each file when you reach the corresponding step or module:
 
-| File | Purpose | Loaded At |
-|------|---------|-----------|
-| `references/module-a-historical-csli.md` | CDR contents-vs-omissions, the Precision Problem (sector coverage), full audit checklist (Data Integrity / Methodology / Granularity), Common Prosecution Overstatements challenge table | Module A |
-| `references/module-b-tower-dump.md` | Tower Dump Methodology Audit checklist + Tower Dump Legal Landscape (post-*Carpenter* gray area, 5th Circuit posture) | Module B |
-| `references/module-c-cell-site-simulator.md` | How CSS Devices Work + CSS Detection Indicators table + CSS Legal Challenges (*Patrick*, *Lambis*, *Brady*, dragnet) | Module C |
-| `references/module-d-gps-tracking.md` | GPS Technical Audit (accuracy/limitations) + GPS Tracking Device Audit + Phone GPS Data Audit | Module D |
-| `references/module-e-geofence-warrant.md` | How Geofence Warrants Work (Google/Sensorvault three-step) + Scope/Particularity + Data Source/Accuracy + Legal Challenges (*Chatrie*) | Module E |
-| `references/module-f-wifi-positioning.md` | Wi-Fi Positioning Technical Limitations + Wi-Fi Evidence Audit Checklist | Module F |
-| `references/module-g-ip-geolocation.md` | Why IP Geolocation Is Almost Always Unreliable + IP Geolocation Audit Checklist | Module G |
-| `references/mapping-visualization.md` | Defense Mapping Exhibit Checklist + Recommended Defense Expert Types table | Step 3 |
-| `references/audit-report-structure.md` | Ten-section audit report template + three appendices + severity classification | Step 4 |
-| `references/cross-exam-seeds.md` | Cell Site Analyst Cross philosophy + Cross Chapter Seed template | Step 5 |
-| `references/admissibility-challenges.md` | Location-Specific Challenges table mapping challenge type to motion and authority | Step 6 |
-| `references/quick-reference-tables.md` | Legal Standards for Location Evidence + Carrier-Specific CSLI Notes (AT&T / T-Mobile / Verizon / Sprint) | Reference throughout |
-
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-14)
+- **evidence-category-triage.md** — Step 2: Evidence Category Matrix (Modules A-G) + Conspicuous Absence flag template
+- **module-a-historical-csli.md** — Module A: summary, CDR framework, Precision Problem, audit checklist, Prosecution Overstatements table
+- **module-b-tower-dump.md** — Module B: summary, Methodology Audit checklist, Legal Landscape (post-*Carpenter*)
+- **module-c-cell-site-simulator.md** — Module C: summary, How CSS Devices Work, Detection Indicators, Legal Challenges (*Patrick*, *Lambis*, *Brady*)
+- **module-d-gps-tracking.md** — Module D: summary, GPS Technical Audit, Tracking Device Audit, Phone GPS Data Audit
+- **module-e-geofence-warrant.md** — Module E: summary, How Geofence Warrants Work, Scope/Particularity, Data Source/Accuracy, *Chatrie*
+- **module-f-wifi-positioning.md** — Module F: summary, Technical Limitations, Wi-Fi Evidence Audit Checklist
+- **module-g-ip-geolocation.md** — Module G: summary, IP unreliability commentary, IP Geolocation Audit Checklist
+- **mapping-visualization.md** — Step 3: Defense Map Essentials, Mapping Exhibit Checklist, Defense Expert Types
+- **audit-report-structure.md** — Step 4: summary, ten-section template + appendices, severity classification
+- **cross-exam-seeds.md** — Step 5: summary, Cell Site Analyst Cross philosophy, Cross Chapter Seed template
+- **admissibility-challenges.md** — Step 6: summary + Location-Specific Challenges table (challenge → motion → authority)
+- **quick-reference-tables.md** — Reference throughout: Legal Standards for Location Evidence + Carrier-Specific CSLI Notes
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for Phase 2 integration, the dw-cross-exam-architect-crim skill for witness cross-examination preparation, the dw-mobile-forensic-auditor-crim skill for digital evidence from mobile devices, the dw-crime-scene-auditor-crim skill for physical evidence challenges, and the dw-video-evidence-auditor-crim skill for video evidence analysis.*

@@ -67,3 +67,14 @@ This is the single most important issue in CSLI evidence. The defense must under
 | "The phone was not at the defendant's claimed location" | If the defendant's claimed location is within the same sector's coverage area, the data does not exclude it | Demand the analyst map the defendant's claimed location relative to coverage |
 | "The phone's location is accurate to within X meters" | CSLI records contain no distance measurement — this claim has no basis in the data itself | Demand the scientific basis for the precision claim |
 | "This tower is the closest tower to the crime scene" | Closest tower is irrelevant — phones do not always connect to the closest tower. Load balancing, signal strength, terrain, and network optimization all affect tower selection | Demand documentation of when and why phones connect to non-nearest towers |
+
+---
+
+## Module A Summary (moved from SKILL.md)
+
+Historical CSLI is the most common form of cell site evidence and the most frequently overstated. A CSLI record places the phone within the coverage area of a sector — not at a specific point. Audit data integrity (CDR completeness, time zone, granularity), analysis methodology (azimuth-only mapping vs. propagation analysis, "first and last" tower fallacies, overlapping coverage), and prosecution overstatements (the gap between "the phone was at the crime scene" and what the records actually show).
+
+**Top precision overstatements to challenge:**
+- "The phone was at the crime scene" — actually places the phone within a sector that may include the defendant's home or workplace
+- "First and last tower" travel-direction inferences — notoriously unreliable
+- Narrow azimuth wedges drawn on maps without propagation modeling

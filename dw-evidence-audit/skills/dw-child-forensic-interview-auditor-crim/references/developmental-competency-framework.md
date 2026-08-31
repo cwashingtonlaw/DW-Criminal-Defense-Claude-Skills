@@ -116,3 +116,11 @@ Landmark research: "Jeopardy in the Courtroom"
 **Age 9-12 Years (Lower Risk):**
 - Risk increased by: Repeated questions by persistent authority, peer influence, emotional stakes
 - Risk factors: Interviewer repeating question 3+ times after denial; pressure from adult in charge
+
+---
+
+## Module G Summary (moved from SKILL.md)
+
+Assess the child's developmental capacity using research-based age tables. Areas covered: age-appropriate language abilities (vocabulary, syntax, temporal understanding, memory capacity at 3-4, 5-6, 7-8, 9-12); memory capacity and forgetting (Tulving, Ebbinghaus); Ceci & Bruck (1995) suggestibility research with age-banded false-memory rates; fantasy/reality distinction (Flavell, 1986); time-concept understanding (Piaget, Friedman); and a cumulative competency-assessment scoring rubric.
+
+A quick-reference age-milestone matrix and a suggestibility-risk-factors table by age band complement the module.

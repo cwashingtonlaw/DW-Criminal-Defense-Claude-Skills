@@ -19,3 +19,10 @@ When identification is at issue, demand the following in discovery:
 | Body camera footage from responding officers | Evaluate witness's initial description and demeanor |
 | Communication between witness and law enforcement between crime and identification | Detect information leakage |
 | Any media coverage or social media posts showing suspect's image | Evaluate post-event information exposure |
+
+---
+
+## Moved from SKILL.md -- Quick Reference summary
+
+Discovery demands cover photo array packets, lineup compositions, witness instructions, administrator credentials, recordings, prior descriptions, confidence statements, prior identification procedures, and media exposure records.
+

@@ -155,26 +155,9 @@ Four deliverables:
 
 ## INTEGRATION
 
-**Reads from:**
-- **dw-case-brain-crim:** Case context, charges, witness list, trial date, judge assignment
-- **dw-trial-notebook-builder-crim:** Existing exhibit list (if trial notebook already created)
-- **dw-cross-exam-architect-crim:** Witness examination plans and cross-examination vulnerabilities
-- **dw-discovery-compliance-monitor-crim:** Evidence inventory and authentication issues
-- **dw-chain-of-custody-auditor-crim:** Chain of custody gaps and evidence handling concerns
+Reads from dw-case-brain-crim, dw-trial-notebook-builder-crim, dw-cross-exam-architect-crim, dw-discovery-compliance-monitor-crim, dw-chain-of-custody-auditor-crim; writes to dw-appellate-error-monitor-crim, dw-case-brain-crim, and the Trial Notebook folder; feeds dw-trial-notebook-builder-crim, dw-appellate-error-monitor-crim, dw-404b-opposition-crim; uses the xlsx and docx skills.
 
-**Writes to:**
-- **dw-appellate-error-monitor-crim:** Every sustained objection automatically, with exhibit #, objection basis, ruling, judge, trial date
-- **dw-case-brain-crim:** Update case status with exhibit admission/exclusion summary post-trial
-- **Trial Notebook folder:** Master Exhibit List (xlsx), Clerk's Exhibit List (docx), Objection Log (xlsx), Authentication Checklist (docx)
-
-**Feeds into:**
-- **dw-trial-notebook-builder-crim:** Final exhibit package (Master Exhibit List, Authentication Checklist, Clerk's Exhibit List)
-- **dw-appellate-error-monitor-crim:** Sustained objections and excluded exhibits for error preservation
-- **dw-404b-opposition-crim:** If any exhibits implicate Art. 404(b) other crimes evidence, cross-reference for objection strategy
-
-**Uses these skills:**
-- **xlsx skill:** Master Exhibit List, Objection Log
-- **docx skill:** Clerk's Exhibit List, Authentication Checklist
+Read `references/integration-map.md` now for what each exchange carries.
 
 ---
 
@@ -200,40 +183,9 @@ This skill addresses ten recurring exhibit categories that demand specialized ha
 
 ## WORKFLOW EXECUTION CHECKLIST
 
-Use this checklist to ensure complete exhibit management:
+Three-phase checkbox list — Pre-Trial (context load, scope, Steps 1-4, four outputs), Live Trial (real-time status, objection logging, automatic appellate flags, limiting instructions), Post-Trial (finalize logs and clerk's list, excluded-exhibits sheet, appellate feed, Case Brain update, notebook package, clerk filing).
 
-**PRE-TRIAL PHASE:**
-- [ ] Invoked dw-case-brain-crim for case context and trial date
-- [ ] Checked with dw-trial-notebook-builder-crim for existing exhibit list
-- [ ] Confirmed trial date, court, judge, and judge's exhibit marking preference with attorney
-- [ ] Confirmed scope: pre-trial only, live trial only, or both
-- [ ] Completed STEP 1 — Exhibit Inventory (all documentary, visual, digital, expert, demonstrative exhibits identified)
-- [ ] Cross-referenced dw-discovery-compliance-monitor-crim for authentication issues
-- [ ] Completed STEP 2 — Pre-mark all exhibits with exhibit cards (all columns populated)
-- [ ] Completed STEP 3 — Authentication chain tracking (foundation questions, witness ID, hearsay exceptions noted)
-- [ ] Completed STEP 4 — Prepared for live trial (attorney briefed on exhibit offer procedures)
-- [ ] Generated OUTPUTS:
-  - [ ] Master Exhibit List (.xlsx) with all columns and separate sheets (Defense, State, Joint, Excluded)
-  - [ ] Authentication Checklist (.docx) ready for counsel table
-  - [ ] Objection Log template (.xlsx) prepared
-  - [ ] Clerk's Exhibit List template (.docx) prepared
-
-**LIVE TRIAL PHASE (if applicable):**
-- [ ] Attorney provides exhibit offer, objection, and ruling information in real-time
-- [ ] Update exhibit status for each offered exhibit (Offered → Objected → Ruled → Admitted/Excluded)
-- [ ] Log all evidentiary objections in Objection Log with basis and ruling
-- [ ] For every sustained objection: AUTOMATICALLY flag to dw-appellate-error-monitor-crim
-- [ ] Track limiting instructions from court
-- [ ] Update Master Exhibit List with trial status (actual ruling column)
-
-**POST-TRIAL PHASE:**
-- [ ] Finalize Objection Log with all trial objections
-- [ ] Finalize Clerk's Exhibit List with court rulings
-- [ ] Generate Excluded Exhibits sheet (all ruled inadmissible)
-- [ ] Feed all sustained objections to dw-appellate-error-monitor-crim
-- [ ] Update dw-case-brain-crim with exhibit admission/exclusion summary
-- [ ] Prepare trial notebook package for dw-trial-notebook-builder-crim
-- [ ] File Clerk's Exhibit List with clerk of court (if required by local rule)
+Read `references/workflow-execution-checklist.md` now and work every box for the applicable phase.
 
 
 ---
@@ -275,33 +227,9 @@ Use the template selection protocol in dw-shared-protocols-crim/references/templ
 
 ## RELATED SKILLS (DO NOT USE FOR)
 
-This skill handles exhibit management ONLY. Do NOT use for:
+This skill handles exhibit management ONLY. Trial notebook assembly → **dw-trial-notebook-builder-crim**; chain-of-custody auditing → **dw-chain-of-custody-auditor-crim**; cross-examination planning → **dw-cross-exam-architect-crim**; 404(b) opposition → **dw-404b-opposition-crim**; appellate error preservation → **dw-appellate-error-monitor-crim**; discovery compliance → **dw-discovery-compliance-monitor-crim**.
 
-- **Trial notebook assembly:** Use **dw-trial-notebook-builder-crim**
-  - Assembles complete trial notebook (all sections, exhibits, jury instructions, etc.)
-  - dw-exhibit-manager-crim feeds INTO it
-
-- **Evidence chain of custody auditing:** Use **dw-chain-of-custody-auditor-crim**
-  - Audits evidence handling from initial collection through trial
-  - Identifies custody gaps and break-in-chain issues pre-trial
-  - dw-exhibit-manager-crim reads from it
-
-- **Cross-examination planning:** Use **dw-cross-exam-architect-crim**
-  - Designs witness examination outlines and cross-examination strategies
-  - Identifies impeachment opportunities for authenticating witnesses
-  - dw-exhibit-manager-crim reads from it
-
-- **404(b) opposition strategy:** Use **dw-404b-opposition-crim**
-  - Develops objections to other crimes evidence
-  - dw-exhibit-manager-crim flags 404(b) exhibits to it
-
-- **Appellate error preservation:** Use **dw-appellate-error-monitor-crim**
-  - Tracks all trial errors (evidentiary, instructional, procedural)
-  - dw-exhibit-manager-crim FEEDS sustained objections INTO it
-
-- **Discovery compliance:** Use **dw-discovery-compliance-monitor-crim**
-  - Tracks discovery obligations, production status, sanctions risk
-  - dw-exhibit-manager-crim reads authentication/custody issues from it
+Read `references/related-skills-scope.md` now for what each skill does and the direction of data flow with this one.
 
 ---
 
@@ -322,17 +250,9 @@ This skill handles exhibit management ONLY. Do NOT use for:
 
 ## QUESTIONS TO ASK ATTORNEY
 
-Before beginning:
-1. What is the trial date? Court? Judge?
-2. Does Judge [name] have exhibit marking preferences (D-1 vs. "Defense Exhibit 1")?
-3. Are we pre-marking exhibits before trial, tracking live at trial, or both?
-4. Does the State have an exhibit list to track?
-5. Do we anticipate any Art. 404(b) exhibits?
-6. Any exhibits with known authentication problems (custody gaps, foundational issues)?
-7. Any demonstrative exhibits (timelines, diagrams) planned?
-8. Should we object to any State exhibits pre-trial, or prepare for live objections?
-9. Is there an existing trial notebook exhibit list to import?
-10. Will the clerk require a filed Clerk's Exhibit List post-trial?
+Ten questions: trial date/court/judge, marking preferences, scope (pre-mark / live / both), State exhibit list, 404(b), authentication problems, demonstratives, pre-trial objections, existing notebook list, clerk filing requirement.
+
+Read `references/attorney-intake-questions.md` now and ask all ten before beginning.
 
 ---
 
@@ -352,3 +272,7 @@ The references directory contains the detailed exhibit-management content offloa
 | `references/judge-preferences.md` | Judge marking-preference catalog and pre-flight checklist | Judge-Specific Preferences |
 | `references/objection-responses-bank.md` | Prepared-response bank for Hearsay, Authentication, Relevance, Best Evidence, Unfair Prejudice, Confrontation, Expert Methodology | Common Objection Responses |
 | `references/appellate-error-preservation.md` | Eight-field appellate-feed schema for dw-appellate-error-monitor-crim | Error Preservation for Appeal |
+| `references/integration-map.md` | Reads-from / Writes-to / Feeds-into / Uses lists for every connected skill | Integration |
+| `references/workflow-execution-checklist.md` | Pre-Trial / Live Trial / Post-Trial checkbox list | Workflow Execution Checklist |
+| `references/related-skills-scope.md` | Do-not-use-for boundaries with the six adjacent skills and data-flow direction | Related Skills |
+| `references/attorney-intake-questions.md` | Ten questions to ask the attorney before beginning | Questions to Ask Attorney |

@@ -155,3 +155,13 @@ APPELLATE RECORD:
 [ ] All refused instructions proffered into the record
 [ ] Court's rulings on each contested instruction noted
 ```
+
+---
+
+## Moved from SKILL.md (Step 9 overview)
+
+The Louisiana objection framework spans Articles 801, 802, 803, 804, and 841. Three deliverables come out of this module:
+
+- **Objection to State's Proposed Instruction** — formal motion stating legal error, omission, misleading/confusing language, and prejudice grounds
+- **Proffer of Refused Instruction** — preserves the refused instruction in the record with grounds (entitlement, deprivation, evidentiary support, reversible-error authority) for appellate review
+- **Charge Conference Preparation Checklist** — pre-conference, during-conference, post-conference, and appellate-record task lists

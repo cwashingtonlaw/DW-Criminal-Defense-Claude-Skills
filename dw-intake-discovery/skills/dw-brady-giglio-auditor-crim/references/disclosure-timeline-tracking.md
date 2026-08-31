@@ -27,3 +27,15 @@ Look across the entire disclosure history for patterns:
 - Has the State invoked any privilege (work product, informant privilege, law enforcement privilege) to withhold material?
 
 Flag any pattern for inclusion in a Brady/Giglio motion — patterns establish that violations are systemic rather than inadvertent, which matters for remedies.
+
+
+## Moved from SKILL.md — Step 4 Timeliness Tiers and Pattern Detection
+
+| Tier | Definition | Consequence |
+|---|---|---|
+| **Timely** | Disclosed with sufficient time for defense to investigate and use at trial | Compliant |
+| **Late but remediable** | Disclosed late; continuance or other relief could cure prejudice | Request relief; preserve objection |
+| **Late and prejudicial** | Disclosed so close to trial (or during trial) that defense was materially prejudiced | Brady remedy + La. C.Cr.P. Art. 729.3 sanctions analysis |
+| **Never disclosed** | Not in the discovery production at all | Potential suppression / Brady motion |
+
+**Pattern detection:** Look across the entire disclosure history for systemic patterns — consistently late categories, supplemental reports / lab results / witness statements held to the last minute, "open file" claims that exclude entire categories (police personnel files, CI files, pending cases against witnesses), and any privilege invocations (work product, informant privilege, law enforcement privilege). Patterns establish that violations are systemic rather than inadvertent, which matters for remedies.

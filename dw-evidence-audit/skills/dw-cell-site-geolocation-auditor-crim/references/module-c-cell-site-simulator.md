@@ -31,3 +31,14 @@ Because CSS use is often concealed, look for these indicators in the discovery:
 - **Non-disclosure and parallel construction:** If CSS use was concealed through parallel construction, the defendant's rights to full discovery, confrontation, and due process are implicated. *Brady v. Maryland* requires disclosure of the actual investigative method.
 - **Dragnet capture:** CSS devices capture all phones in the area — challenge the scope of the intrusion and the absence of minimization procedures.
 - **5th Circuit:** Monitor for circuit-specific CSS rulings.
+
+---
+
+## Module C Summary (moved from SKILL.md)
+
+Cell site simulators (Stingray, Hailstorm, Crossbow, DRTBox, Jugular) impersonate a cell tower to force nearby phones to connect, allowing law enforcement to locate the target phone to within a building or room. Because CSS use is often concealed via NDAs and parallel construction, look for indicators in discovery (vague "investigative means" descriptions, pen register orders rather than warrants, FBI/U.S. Marshals technical assistance, suspect located inside a building without independent basis).
+
+**Top legal challenges:**
+- Warrant requirement — *United States v. Patrick*, 842 F.3d 540 (7th Cir. 2016); *United States v. Lambis*, 197 F. Supp. 3d 606 (S.D.N.Y. 2016) (pen register order insufficient)
+- Concealment / parallel construction — *Brady v. Maryland* requires disclosure of the actual investigative method
+- Dragnet capture of all phones in the area — challenge scope and absence of minimization

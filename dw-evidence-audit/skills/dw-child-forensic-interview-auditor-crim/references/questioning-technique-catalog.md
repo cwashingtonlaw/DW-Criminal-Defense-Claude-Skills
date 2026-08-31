@@ -230,3 +230,9 @@ Best-practice interviews consider alternative explanations:
 | Yes/No | "Did he touch you?" | 0 | Acceptable for minor clarification | MAJOR PROBLEM if used to establish core allegations |
 | Leading | "He touched you, didn't he?" | -1 | Only in closing (summarizing what child said) | CRITICAL if used during main narrative phase |
 | Highly Suggestive | "He took your clothes off, right?" | -3 | NEVER | ALWAYS problematic; interviewer introducing allegations |
+
+---
+
+## Module D Summary — Nine Suggestive Techniques (moved from SKILL.md)
+
+A deep-dive catalog covers nine specific suggestive techniques: tag questions, forced-choice questions, presumptive questions, repeated questions after denial, positive/negative consequences, introducing information not from child, inappropriate language complexity, anatomical dolls (proper vs. improper use), and interviewer response to inconsistencies / recantation. A separate sub-test asks whether the interviewer ever explored alternative hypotheses ("Could it have been...?").

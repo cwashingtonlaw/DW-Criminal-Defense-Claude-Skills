@@ -37,3 +37,14 @@ Before conducting any audit, collect the following. The more complete the pictur
 18. **Case Timeline:** Key dates — offense, arrest, first appearance, discovery cutoffs, trial date
 
 **Present missing info as a ranked checklist.** If essential items 1–5 are incomplete, flag what's missing but proceed with what you have — partial audits still catch violations. Note at the top of the report which documents were available and which were not.
+
+
+## Moved from SKILL.md — Step 1 Tier Table
+
+| Tier | Purpose | Examples |
+|---|---|---|
+| **Essential** (must have) | Foundation for any audit | Discovery production(s), all charges with statutory cites, bill of information / indictment, all police reports, prosecution witness list |
+| **Critical for Cross-Referencing** | Where Brady items are buried | Witness statements/interviews, arrest reports w/ PC affidavits, supplemental/follow-up reports, lab/forensic results, 911/CAD logs |
+| **Impeachment-Specific (Giglio)** | Witness credibility material | Plea/cooperation agreements, witness criminal histories, prior testimony, IA/disciplinary records, CI files |
+| **CI Detection-Specific** (always request) | Surfacing undisclosed informants | Co-defendant docket info, wiretap/surveillance applications, DEA-6/ATF/federal reports, "reliable source" warrant affidavits, sealed/in camera proceedings, attorney's CI suspicion trigger |
+| **Contextual** | Frames the audit | Defense theory, prior discovery motions/orders, case timeline (offense → trial date) |

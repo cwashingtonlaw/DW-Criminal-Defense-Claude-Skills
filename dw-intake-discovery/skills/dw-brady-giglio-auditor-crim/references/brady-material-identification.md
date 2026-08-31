@@ -37,3 +37,16 @@ For each item identified above:
    - **NOTABLE** — Favorable but with limited independent impact; may gain significance in combination with other undisclosed material
 
 Remember: under *Kyles*, the cumulative effect of individually minor pieces of undisclosed evidence can be material even when no single item is. Track everything, not just the obvious violations.
+
+
+## Moved from SKILL.md — Step 2 Category Table and Cross-Reference Method
+
+| Category | Scope | Examples |
+|---|---|---|
+| **A — Innocence** | Evidence tending to show defendant did not commit the offense | Alternative suspects, contradictory physical evidence, alibi support, recantations, exculpatory test results |
+| **B — Undermines State Theory** | Evidence weakening prosecution narrative even if not exculpatory | Inconsistent timelines, missing-but-expected evidence, abandoned leads, witness contradictions |
+| **C — Mitigating Punishment** | Evidence relevant to sentencing | Victim provocation, defendant mental health / cognitive limitations, minor role, youth/trauma (*Miller v. Alabama*) |
+
+**Cross-reference method:** for each item identified — (1) flag the Brady category; (2) check whether disclosed; (3) if disclosed, note date; (4) if undisclosed, flag as **POTENTIAL BRADY VIOLATION** at severity **CRITICAL** (directly exculpatory or outcome-determinative), **SIGNIFICANT** (materially favorable; affects case theory or witness credibility), or **NOTABLE** (favorable but limited independent impact; may gain significance cumulatively).
+
+Under *Kyles*, the cumulative effect of individually minor pieces of undisclosed evidence can be material even when no single item is. Track everything, not just the obvious violations.

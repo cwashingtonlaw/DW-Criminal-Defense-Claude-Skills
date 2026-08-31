@@ -189,73 +189,22 @@ This phase adds Rev-equivalent AI analysis capabilities to JusticeText transcrip
 #### Module A — Multi-File Cross-Reference Analysis
 *Replicates Rev's Multi-File Insights capability*
 
-For each transcript, extract and compare:
-1. **Named entities**: Officers, witnesses, locations, vehicles, weapons, drugs, amounts
-2. **Temporal references**: Dates, times, durations, sequences ("before," "after," "then")
-3. **Factual claims**: What each speaker says happened, in what order
-
-Cross-reference across all transcripts to identify:
-- **Contradictions**: Where Speaker A in File 1 says X but Speaker B in File 2 says Y about the same event
-- **Corroborations**: Where multiple sources confirm the same fact
-- **Gaps**: Events referenced but not covered by any recording
-- **Sequence conflicts**: Where the chronological order of events differs between accounts
-
-Output format (in DMAR Section 3):
-```
-CROSS-REFERENCE FINDING [CR-001]
-Files: [File 1 name] @ [timestamp] vs. [File 2 name] @ [timestamp]
-Type: CONTRADICTION / CORROBORATION / GAP / SEQUENCE CONFLICT
-Speaker 1: [Name] — "[quoted claim]"
-Speaker 2: [Name] — "[quoted claim]"
-Defense Significance: [How this helps the defense theory]
-Cross-Exam Seed: [One-line question this finding supports]
-```
+Extract named entities, temporal references, and factual claims from every transcript; cross-reference to find **Contradictions**, **Corroborations**, **Gaps**, and **Sequence conflicts**; output each as a `CROSS-REFERENCE FINDING [CR-###]` block in DMAR Section 3. Read `references/dmar-analysis-modules.md` now for the extraction steps and the exact CR block format.
 
 #### Module B — Document-vs-Media Comparison
 *Replicates Rev's ability to compare PDFs/documents against transcripts*
 
-If police reports, incident reports, or other written documents exist in the client folder:
-1. Read the written reports (PDF/DOCX via file reading skills)
-2. Compare factual claims in written reports against transcript content
-3. Flag every discrepancy between what an officer wrote and what the recording shows
-
-Output format (in DMAR Section 4):
-```
-REPORT-VS-RECORDING DISCREPANCY [RR-001]
-Document: [Report name, page, paragraph]
-Recording: [File name] @ [timestamp]
-Report says: "[quoted from report]"
-Recording shows: "[quoted from transcript]"
-Severity: CRITICAL / SIGNIFICANT / MINOR
-Defense Use: [Impeachment, suppression, Brady, etc.]
-```
+Read every police / incident report in the client folder, compare its factual claims against transcript content, and flag each discrepancy as a `REPORT-VS-RECORDING DISCREPANCY [RR-###]` block (Severity CRITICAL / SIGNIFICANT / MINOR; Defense Use) in DMAR Section 4 — format in `references/dmar-analysis-modules.md`.
 
 #### Module C — Chronological Master Timeline
 *Replicates Rev's timeline construction capability*
 
-Build a unified timeline from ALL transcripts and documents:
-1. Extract every timestamped event from every source
-2. Normalize to a single clock (resolve timezone/format differences)
-3. Interleave events from all sources into one chronological sequence
-4. Flag timeline gaps (periods with no coverage from any source)
-5. Flag overlapping contradictions (two sources describing different events at the same time)
-
-Output format (in DMAR Section 5):
-```
-TIME | SOURCE | EVENT | NOTES
-[HH:MM:SS] | [File name] @ [media timestamp] | [What happened] | [Any flags]
-```
+Extract every timestamped event from all sources, normalize to one clock, interleave chronologically, and flag coverage gaps and overlapping contradictions; output the `TIME | SOURCE | EVENT | NOTES` table in DMAR Section 5 — format in `references/dmar-analysis-modules.md`.
 
 #### Module D — Speaker Behavior Analysis
 *Replicates Rev's sentiment/behavioral analysis*
 
-For each identified speaker across all transcripts:
-1. **Speech patterns**: Hesitation markers, corrections, evasions
-2. **Emotional shifts**: Changes in tone described by context (raised voice, crying, silence)
-3. **Consistency**: Does this speaker's account stay consistent across multiple recordings?
-4. **Power dynamics**: Who controls the conversation? Interruptions, redirections, topic changes
-
-Output as narrative paragraphs in DMAR Section 6, organized by speaker.
+For each speaker analyze speech patterns, emotional shifts, cross-recording consistency, and power dynamics; output narrative paragraphs by speaker in DMAR Section 6 — detail in `references/dmar-analysis-modules.md`.
 
 ---
 
@@ -265,70 +214,9 @@ Use the `docx` skill to produce the Defense Media Analysis Report. **This format
 
 #### DMAR Structure
 
-```
-DEFENSE MEDIA ANALYSIS REPORT
-Schema Version: 1.0                          ← per dw-data-contracts-crim Contract 1
-Date Generated: [ISO-8601 timestamp]         ← per dw-data-contracts-crim Contract 1
-Pipeline: dw-transcript-pipeline-calcasieu-crim   ← per dw-data-contracts-crim Contract 1
-[Client Name] | [Docket #] | [Parish: Calcasieu]
-Transcription Platform: JusticeText
-Analysis Date: [Date]
-Prepared by: Claude AI — Attorney Work Product / Privileged
+Header (Schema Version 1.0, ISO-8601 Date Generated, Pipeline, client / docket / parish, platform, work-product legend — per `dw-data-contracts-crim` Contract 1), then: Section 1 Evidence Inventory; Section 2 Transcript Summaries (synopsis, key moments, Miranda/rights events, interrogation technique flags per file); Section 3 Cross-Reference Analysis (CR-###); Section 4 Report-vs-Recording Discrepancies (RR-###); Section 4A Report-vs-Recording Matrix (Barone 6-category, per Contract 1 Section 10); Section 5 Master Timeline; Section 6 Speaker Behavior Analysis; Section 7 Defense Intelligence Summary (strongest findings, recommended skill invocations, outstanding questions, Brady/Giglio issues); Appendix A File Hash Log (SHA-256); Appendix B Analysis Methodology (Act 250 / ABA Opinion 512 note).
 
-SECTION 1: EVIDENCE INVENTORY
-  1.1 Media Files Processed (table: filename, type, duration, source folder)
-  1.2 Written Documents Reviewed (table: filename, type, pages, source)
-  1.3 Processing Summary (total files, total duration, transcription platform)
-
-SECTION 2: TRANSCRIPT SUMMARIES
-  For each transcript:
-    2.X.1 File: [name] | Duration: [time] | Speakers: [list]
-    2.X.2 Synopsis (3–5 sentence summary)
-    2.X.3 Key Moments (timestamp + event + defense relevance)
-    2.X.4 Miranda/Rights Events (if applicable — timestamp + what was said)
-    2.X.5 Interrogation Technique Flags (if applicable — see Module E below)
-
-SECTION 3: CROSS-REFERENCE ANALYSIS
-  All CR-### findings from Module A
-
-SECTION 4: REPORT-VS-RECORDING DISCREPANCIES
-  All RR-### findings from Module B
-  (Empty section with "No written reports available for comparison" if none exist)
-
-SECTION 4A: REPORT-VS-RECORDING MATRIX (BARONE 6-CATEGORY)
-  Per-officer comparison matrix per dw-data-contracts-crim Contract 1 Section 10:
-    4A.1 Narrative Match — report account vs. recording events
-    4A.2 Omissions — what the report leaves out
-    4A.3 Additions — what the report adds without recording support
-    4A.4 Timing Discrepancies — report timestamps vs. recording timestamps
-    4A.5 Quote Accuracy — reported quotes vs. actual statements
-    4A.6 Procedural Compliance — procedures described vs. procedures shown
-  Each entry: Report citation | Recording citation | Discrepancy | Severity
-  (Empty section with "No officer reports available for matrix comparison" if none exist)
-
-SECTION 5: MASTER TIMELINE
-  Unified chronological timeline from Module C
-
-SECTION 6: SPEAKER BEHAVIOR ANALYSIS
-  Narrative analysis from Module D, organized by speaker
-
-SECTION 7: DEFENSE INTELLIGENCE SUMMARY
-  7.1 Strongest Defense Findings (ranked by impact)
-  7.2 Recommended Skill Invocations:
-      - "Run dw-confession-interrogation-auditor-crim on [file]" (if interrogation detected)
-      - "Run dw-video-evidence-auditor-crim on [file]" (if BWC/video gaps found)
-      - "Build cross-exam for [officer] using DMAR findings" (for each officer)
-  7.3 Outstanding Questions (what the recordings don't answer)
-  7.4 Potential Brady/Giglio Issues (if any detected)
-
-APPENDIX A: FILE HASH LOG
-  SHA-256 hash of each source media file for chain of custody
-
-APPENDIX B: ANALYSIS METHODOLOGY
-  Statement that analysis was performed by Claude AI on [platform] transcripts.
-  Attorney verification required before any filing or client communication.
-  Louisiana Act 250 / ABA Opinion 512 compliance note.
-```
+Read `references/dmar-structure.md` now for the complete DMAR skeleton.
 
 Save to the client's evidence folder as:
 `DMAR — [LastName, FirstName] — [Date].docx`
@@ -389,5 +277,7 @@ Follow shared protocols for output paths (see Step 0.5).
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **justicetext-architecture.md** — Technical analysis of JusticeText's auth, upload, and API patterns; documents potential automation surfaces for the upload step
-- **transcriptpad-database.md** — Technical reference for the TranscriptPad `.tracase` SQLite Core Data database; documented from analysis of working cases (Perry, Joseph and Taraba)
+- **justicetext-architecture.md** — Bundled Resources / Phase 2; technical analysis of JusticeText's auth, upload, and API patterns; documents potential automation surfaces for the upload step
+- **transcriptpad-database.md** — Bundled Resources / Phase 4; technical reference for the TranscriptPad `.tracase` SQLite Core Data database; documented from analysis of working cases (Perry, Joseph and Taraba)
+- **dmar-analysis-modules.md** — Phase 5; Module A–D extraction steps and CR-### / RR-### / timeline / speaker output formats
+- **dmar-structure.md** — Phase 6; full Defense Media Analysis Report skeleton (Sections 1–7, 4A, Appendices A–B)

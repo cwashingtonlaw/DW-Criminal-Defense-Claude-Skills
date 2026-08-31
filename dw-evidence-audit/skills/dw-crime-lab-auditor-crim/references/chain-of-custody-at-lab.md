@@ -234,3 +234,9 @@ When the audit identifies a defect at the boundary (e.g., the lab intake form co
 ---
 
 *Last updated: see SKILL.md version. Mark any specific statutory provision (e.g., La. R.S. 32:663, La. C.E. Art. 1004) `[VERIFY CURRENT]` before filing.*
+
+---
+
+## Module F Short Version (moved from SKILL.md)
+
+Short version: this skill audits the **lab-side** chain — intake, internal sub-sampling, analyst-to-analyst transfers, storage conditions, and consumption tracking. **Field-side chain** (collection at scene through transport to lab) belongs to `dw-chain-of-custody-auditor-crim`. Watch for: anonymous handoffs, undocumented sub-samples, seal break without log entry, freezer/refrigerator temperature gaps, and disposal/consumption without preservation of a defense sample.

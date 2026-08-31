@@ -204,3 +204,15 @@ Key Questions:
 3. "After [child] said no three times, what made you ask, 'Some kids don't like to talk about this, but did he?'"
 Impeachment: [Child eventually said "maybe" or "yes," but only after denying 3+ times; this indicates pressure, not reliable memory.]
 ```
+
+---
+
+## Integration with dw-cross-exam-architect-crim (moved from SKILL.md)
+
+This audit feeds directly into cross-examination strategy. For each finding, dw-cross-exam-architect-crim can generate:
+
+1. **Deposition questions** designed to lock in interviewer's answers
+2. **Cross-examination question sequences** that expose methodology failures
+3. **Impeachment materials** citing specific transcript pages and research
+4. **Expert testimony outlines** for psychologist/child development expert
+5. **Motion language** for Daubert challenges or Crawford/Davis constitutional motions

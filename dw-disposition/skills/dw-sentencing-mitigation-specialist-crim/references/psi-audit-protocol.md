@@ -114,22 +114,6 @@ Daniels & Washington
 
 Audit the Pre-Sentence Investigation report for factual errors, omissions, misleading characterizations, and any content that inflates the client's sentencing exposure or undermines mitigation. The PSI is often the single most influential document at sentencing -- errors in the PSI can result in years of additional imprisonment.
 
-### Louisiana PSI Requirements
-
-**Authority:** La. C.Cr.P. Art. 875 -- Court may order a PSI before imposing sentence. For felonies, PSI is standard practice.
-
-**PSI Contents (Art. 875):**
-- Circumstances of the offense
-- Criminal history
-- Social history (family, education, employment, health)
-- Victim impact information
-- Evaluative summary and sentencing recommendation (by probation officer)
-### Audit Protocol
-
-> **📖 Reference:** Read `references/psi-audit-protocol.md` for detailed audit checklists by PSI section (Offense Description, Criminal History, Social History, Recommendation).
-
-**Source Citation Requirement for PSI Audits:** Every error, omission, or discrepancy identified in the PSI must cite both (1) the PSI page/section where the error appears and (2) the contradicting source document with page/paragraph. For example: "PSI Report, p. 8, Section III states three prior felonies; NCIC Rap Sheet, p. 2 shows only two felony entries." This dual-citation approach gives the attorney — and ultimately the court — immediate ability to verify each correction.
-
 ### PSI Audit Output
 
-When errors are identified, package the corrections as findings within the sentencing memorandum or as supporting tables for oral objections at sentencing. Each correction must dual-cite: (1) the PSI page/section containing the error, and (2) the contradicting source document with page/paragraph.
+When errors are identified, package the corrections as findings within the sentencing memorandum or as supporting tables for oral objections at sentencing.

@@ -64,32 +64,9 @@ Every factual assertion in the Eyewitness Identification Audit Report must trace
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Identification Procedure Documentation:** photo array packets, lineup composition forms, showup reports, identification procedure reports -- the official documentation of every identification procedure conducted
-2. **Charges:** all counts with statutory citations -- charge severity determines the scrutiny threshold and the weight the identification carries in the prosecution's case
-3. **What the State Claims the Identification Proves:** the prosecution's theory of how the identification links the defendant to the charged offense (e.g., "victim identified defendant as the person who robbed her at gunpoint")
-4. **Witness Statement(s):** the identifying witness's account of the crime, including what they claim to have seen and under what conditions
-5. **Identification Outcome(s):** what the witness said or did during the identification procedure -- selection, non-selection, hesitation, stated confidence level, any comments made
+Collect three tiers: **Essential** (items 1-5: identification procedure documentation, charges, what the State claims the identification proves, witness statement(s), identification outcome(s)), **Strategic** (items 6-14: array/lineup composition, administrator identity and blind status, instructions given, recording of the procedure, prior description, crime-to-ID interval, defense theory, multiple procedures, known suppression issues), and **Contextual** (items 15-21: viewing conditions, witness and perpetrator characteristics, stress, cross-racial ID, post-event information, prior mugshot exposure).
 
-### Strategic (request if not provided)
-6. **Photo Array / Lineup Composition:** photographs of all fillers and the suspect as presented to the witness; documentation of filler selection methodology
-7. **Lineup Administrator Identity & Role:** who administered the procedure, whether they knew the suspect's position (single-blind vs. double-blind), their training and certification
-8. **Instructions Given to the Witness:** written or verbal instructions provided before the identification procedure (particularly whether the witness was told the perpetrator may or may not be in the array)
-9. **Body Camera / Recording of the Procedure:** video or audio recording of the identification procedure itself
-10. **Witness's Prior Description of the Perpetrator:** the initial description given to responding officers or 911 dispatch before any identification procedure
-11. **Time Between Crime and Identification:** exact interval from the offense to the identification procedure
-12. **Defense Theory:** what happened from the defense perspective -- alibi, misidentification, alternative suspect
-13. **Multiple Identification Procedures:** whether the witness participated in more than one identification procedure (e.g., mugshot viewing, photo array, live lineup, in-court identification)
-14. **Known Suppression Issues:** any pending motions regarding the identification
-
-### Contextual (gather from uploaded files)
-15. **Viewing Conditions During the Crime:** lighting (natural/artificial, intensity), distance between witness and perpetrator, duration of observation, obstructions to view, angle of observation
-16. **Witness Characteristics:** age, visual acuity, intoxication or drug influence at time of crime, emotional state, familiarity with the perpetrator (stranger vs. acquaintance)
-17. **Perpetrator Characteristics:** disguise, facial coverings, distinctive features, whether a weapon was displayed (weapon focus)
-18. **Stress Level:** nature of the crime, threat level to the witness, weapon presence, violence witnessed
-19. **Cross-Racial Identification:** whether the witness and the identified person are of different races or ethnicities
-20. **Post-Event Information Exposure:** media coverage, co-witness discussions, social media exposure, law enforcement comments to the witness before or after the identification
-21. **Prior Mugshot Exposure:** whether the witness viewed mugshot databases or other photographs before the formal identification procedure
+Read `references/information-gathering-checklist.md` now for the full ranked checklist (items 1-21).
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1-5 are missing, do not audit -- ask for them first.
 
@@ -99,22 +76,9 @@ Before drafting any audit, collect the following in ranked order:
 
 Identify every identification procedure conducted in the case and flag which audit modules apply. Most cases involve multiple identification events -- audit each one independently, then assess cumulative contamination.
 
-### Identification Procedure Matrix
+Map each procedure to its module using the Identification Procedure Matrix: photo array / live lineup → Module A; showup → Module B; in-court identification → Module B (suggestiveness) + Module F; voice identification → Module C + Module D; composite / sketch → Module D. When multiple procedures occurred, run the Procedure Sequence Contamination Check and issue the PROCEDURE SEQUENCE FLAG (commitment effect / mugshot exposure effect).
 
-| Procedure Type | Description | Key Constitutional Standard | Audit Module |
-|---------------|-------------|---------------------------|--------------|
-| **Photo Array (Six-Pack)** | Witness views photographs of suspect and fillers | Manson v. Brathwaite; La. C.Cr.P. Art. 163 | Module A |
-| **Live Lineup** | Witness views suspect and fillers in person | United States v. Wade; Manson v. Brathwaite | Module A |
-| **Showup** | Witness views single suspect, typically near crime scene shortly after offense | Stovall v. Denno; Neil v. Biggers | Module B |
-| **In-Court Identification** | Witness identifies defendant at trial or hearing | Perry v. New Hampshire; Moore v. Illinois | Module B (suggestiveness) + Module F |
-| **Voice Identification** | Witness identifies voice rather than face | La. C.E. Art. 901(B)(5) | Module C + Module D |
-| **Composite / Sketch** | Witness works with artist or software to create facial image | Estimator variables | Module D |
-
-### Procedure Sequence Contamination Check
-
-When multiple identification procedures occurred, the sequence itself is a source of contamination:
-
-> **PROCEDURE SEQUENCE FLAG:** Multiple identification procedures were conducted in the following order: [list with dates]. Each successive procedure after the first carries an escalating risk of *commitment effect* -- the witness's memory of the prior identification procedure replaces the original memory of the perpetrator. The witness is no longer identifying the person they saw during the crime; they are identifying the person they selected (or saw) during the prior procedure. This is the *mugshot exposure effect* (Deffenbacher et al., 2006; Dysart et al., 2001). Document the sequence, assess contamination risk for each procedure, and evaluate whether the final identification is an independent act of recognition or a product of prior procedural exposure.
+Read `references/procedure-triage-matrix.md` now for the full matrix (constitutional standard per procedure type) and the verbatim PROCEDURE SEQUENCE FLAG language.
 
 ---
 
@@ -152,7 +116,7 @@ When multiple identification procedures occurred, the sequence itself is a sourc
 
 **For the five-factor reliability analysis framework with supporting science and critique of the Manson framework, read `references/manson-biggers-framework.md`**
 
-The Manson/Brathwaite test applies a two-step inquiry: (1) Was the procedure impermissibly suggestive? (2) If so, is the identification nevertheless reliable under the totality of circumstances? The five Biggers/Manson factors address opportunity to view, degree of attention, accuracy of prior description, level of certainty, and time elapsed. The module also discusses modern scientific critiques and the Henderson framework as persuasive authority.
+Two-step inquiry (impermissibly suggestive? if so, reliable under the totality?) using the five Biggers/Manson factors, plus the modern scientific critique and *Henderson* as persuasive authority.
 
 ---
 
@@ -183,112 +147,13 @@ Produce the audit as a **Word document (.docx)** using the docx skill. Read and 
 
 ### Report Structure
 
-```
-EYEWITNESS IDENTIFICATION AUDIT
-Daniels & Washington | [Case Name / Docket No.]
-
-CASE INFORMATION
-Defendant:       [Name]
-Charges:         [All counts with La. R.S. citations]
-Offense Date:    [Date]
-Identification
-  Procedure(s):  [Photo Array / Live Lineup / Showup / In-Court]
-Witness(es):     [Name(s) of identifying witness(es)]
-Administrator:   [Name / Agency / Training]
-Procedure
-  Date(s):       [Date(s) of each identification procedure]
-
-SECTION 1: EXECUTIVE SUMMARY
-[One-page overview: total identification procedures audited,
-critical findings count, overall assessment of identification
-reliability, top 3 defense opportunities]
-
-SECTION 2: IDENTIFICATION PROCEDURE AUDIT
-[One subsection per identification procedure:
- - Procedure type and documentation
- - Module A or B analysis (as applicable)
- - Each finding tagged: CRITICAL / SIGNIFICANT / MINOR]
-
-SECTION 3: SYSTEM VARIABLE DEFICIENCY MATRIX (Module C)
-[Comprehensive system variable analysis with table format:
- each variable assessed as Compliant / Deficient with severity]
-
-SECTION 4: ESTIMATOR VARIABLE RISK ASSESSMENT (Module D)
-[Comprehensive estimator variable analysis with risk level:
- each variable assessed with scientific citations]
-
-SECTION 5: SUGGESTIVENESS ASSESSMENT (Module E)
-[Overall suggestiveness evaluation:
- procedural, contextual, and post-identification sources]
-
-SECTION 6: MANSON/BRATHWAITE RELIABILITY ANALYSIS (Module F)
-[Five-factor analysis with supporting science for each factor:
- - Factor-by-factor assessment
- - Scientific critique of each factor
- - Overall reliability conclusion]
-
-SECTION 7: SUPPRESSION MOTION FRAMEWORK (Module G)
-[Complete motion framework:
- - Suggestiveness argument
- - Reliability analysis
- - Independent source doctrine analysis
- - Wade/Sixth Amendment analysis (if applicable)]
-
-SECTION 8: CROSS-EXAMINATION OUTLINES (Module H)
-[Organized by witness:
- - Identifying witness cross-examination seeds
- - Lineup administrator cross-examination seeds
- - State's eyewitness expert cross-examination seeds
-   (if applicable)
- Each question with:
-  - The deficiency it targets
-  - Source document and page/Bate stamp reference
-  - Expected response and follow-up if denied
-  - Impeachment note if applicable]
-
-SECTION 9: EXPERT WITNESS NEED ASSESSMENT (Module I)
-[Assessment of whether defense eyewitness expert is needed:
- - Factors warranting expert testimony
- - Qualifications to seek
- - Key testimony topics for this case
- - Daubert/Foret admissibility analysis]
-
-SECTION 10: JURY INSTRUCTION PROPOSALS
-[Proposed special jury instructions on eyewitness
- identification reliability -- see Section below]
-
-SECTION 11: DEFENSE ACTION ITEMS
-[Prioritized list:
- - Motions to file (suppress identification, exclude expert,
-   compel disclosure of identification procedure details)
- - Missing discovery items
- - Expert witness retention recommendation
- - Items for Cross-Exam Architect skill
- - Items requiring investigator follow-up
- - Pre-trial hearing requests (Wade hearing, suppression
-   hearing)]
-
-SECTION 12: DISCOVERY GAP REPORT
-[Expected identification documentation not provided:
- Each with: what's missing, why it matters, recommended action]
-
-APPENDIX A: LEGAL AUTHORITY TABLE
-[All authorities cited in the audit with full citations]
-
-APPENDIX B: SCIENTIFIC LITERATURE TABLE
-[All scientific studies and meta-analyses cited with
- full citations]
-
-APPENDIX C: CROSS-EXAM CHAPTER SEEDS
-[Formatted for dw-cross-exam-architect-crim integration]
-```
+The report opens with a header block (Case Information: defendant, charges, offense date, procedure(s), witness(es), administrator, procedure date(s)) followed by twelve sections -- 1 Executive Summary, 2 Identification Procedure Audit, 3 System Variable Deficiency Matrix (Module C), 4 Estimator Variable Risk Assessment (Module D), 5 Suggestiveness Assessment (Module E), 6 Manson/Brathwaite Reliability Analysis (Module F), 7 Suppression Motion Framework (Module G), 8 Cross-Examination Outlines (Module H), 9 Expert Witness Need Assessment (Module I), 10 Jury Instruction Proposals, 11 Defense Action Items, 12 Discovery Gap Report -- plus Appendices A (Legal Authority Table), B (Scientific Literature Table), and C (Cross-Exam Chapter Seeds).
 
 ### Severity Classification
-Tag every finding with a severity level:
 
-- **CRITICAL:** Deficiency that directly undermines the reliability or constitutionality of the identification. Supports a motion to suppress, creates substantial reasonable doubt, or involves a constitutional violation. Example: single-blind administration with confirming feedback; showup conducted days after the crime with no exigent justification; post-indictment lineup without counsel.
-- **SIGNIFICANT:** Deficiency that weakens the identification and provides strong cross-examination material but may not independently support suppression. Example: simultaneous presentation; retention interval of several weeks; no confidence statement recorded.
-- **MINOR:** Procedural irregularity or estimator variable that affects weight with the jury but does not independently undermine admissibility. Example: photo array presented in a slightly non-standard format; witness was mildly nervous during the crime.
+Tag every finding **CRITICAL** (directly undermines reliability or constitutionality -- supports suppression), **SIGNIFICANT** (weakens the identification -- strong cross material), or **MINOR** (affects weight only).
+
+Read `references/audit-report-structure.md` now for the full report template and the severity definitions with examples.
 
 ---
 
@@ -296,9 +161,7 @@ Tag every finding with a severity level:
 
 **For standard eyewitness identification jury instructions and case-specific instruction add-ons, read `references/jury-instructions.md`**
 
-Jury instructions on eyewitness identification credibility are powerful tools to communicate to the jury the weaknesses in identifications marked by suggestive procedures, contamination, or poor viewing conditions. Model instructions address:
-- Standard eyewitness identification instruction on factors affecting reliability
-- Case-specific instruction add-ons tailored to the particular identification deficiency
+Propose the standard eyewitness identification instruction plus case-specific add-ons tailored to the deficiencies found in this audit.
 
 ---
 
@@ -306,26 +169,9 @@ Jury instructions on eyewitness identification credibility are powerful tools to
 
 For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill.
 
-For each finding, produce:
+For each finding, produce a CROSS CHAPTER SEED block (witness type, chapter goal, key questions Q1-Q3, source, impeachment note, legal authority).
 
-```
-CROSS CHAPTER SEED -- [Finding Title]
-Witness Type: Identifying Witness / Lineup Administrator /
-  Investigating Detective / State's Expert
-Chapter Goal: [What this chapter must establish]
-Key Questions:
-  Q1: [Question targeting the deficiency -- leading, closed,
-      fact-specific]
-  Q2: [Follow-up that locks in the concession]
-  Q3: [Question establishing the significance of the gap]
-Source: [Report/document page reference with Bate stamp
-  if available]
-Impeachment Note: [If the report/testimony contradicts best
-  practices, the witness's own prior statements, or the
-  scientific literature]
-Legal Authority: [Constitutional authority / La. C.E. /
-  La. C.Cr.P. / specific scientific study]
-```
+Read `references/cross-chapter-seed-template.md` now for the exact seed template.
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT -- pass to dw-cross-exam-architect-crim skill]`
 
@@ -355,15 +201,11 @@ For a complete navigation guide to all reference materials in this skill — mod
 
 **For the complete table of legal authorities, holdings, and Louisiana/5th Circuit case law governing identifications, read `references/legal-standards.md`**
 
-Key authorities include Manson v. Brathwaite, Neil v. Biggers, Stovall v. Denno, United States v. Wade, Perry v. New Hampshire, and Louisiana Code of Criminal Procedure Articles 163-164.
-
 ---
 
 ## Quick Reference -- Key Scientific Literature
 
 **For the comprehensive table of eyewitness research findings and their case applications, read `references/scientific-literature.md`**
-
-Key research includes the NAS Report (2014), Innocence Project data, Wells & Bradfield (1998) on post-identification feedback, Steblay (1992) on weapon focus, Meissner & Brigham (2001) on cross-racial identification, and dozens of other foundational studies.
 
 ---
 
@@ -371,15 +213,11 @@ Key research includes the NAS Report (2014), Innocence Project data, Wells & Bra
 
 **For the complete discovery checklist with explanation of why each item matters, read `references/discovery-demands.md`**
 
-Discovery demands cover photo array packets, lineup compositions, witness instructions, administrator credentials, recordings, prior descriptions, confidence statements, prior identification procedures, and media exposure records.
-
 ---
 
 ## Quick Reference -- Common Prosecution Arguments & Defense Responses
 
 **For the complete table of prosecution arguments and science-based defense responses, read `references/prosecution-arguments.md`**
-
-Covers common arguments like "witness is very confident," "picked from six-pack," "had good opportunity to view," "corroborated by other evidence," and tactical responses to each.
 
 ---
 
@@ -404,7 +242,10 @@ If identification procedure is suggestive, offer to route to dw-suppression-moti
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
 - **INDEX.md** — Quick navigation guide to all eyewitness-identification reference materials, organized by audit framework module
+- **audit-report-structure.md** — Step 3: full audit report template (header block, Sections 1-12, Appendices A-C) and severity classification with examples
+- **cross-chapter-seed-template.md** — Step 5: CROSS CHAPTER SEED template for `dw-cross-exam-architect-crim` handoff
 - **discovery-demands.md** — Discovery-demands quick reference: items to demand from the State when identification is at issue, with rationale for each
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-21)
 - **jury-instructions.md** — Step 4 jury-instruction proposals: special-instruction framework for evaluating identification testimony reliability factors
 - **legal-standards.md** — Constitutional and Louisiana legal standards (*Manson*, *Biggers*, *Stovall*, *Wade*, *Ash*, *Kirby*) for identification challenges
 - **manson-biggers-framework.md** — Module F: *Manson v. Brathwaite* / *Neil v. Biggers* two-step due process challenge framework with the five reliability factors
@@ -415,6 +256,7 @@ This skill uses the following reference materials, available in the `references/
 - **module-e-suggestiveness.md** — Module E: suggestiveness assessment — procedural, conduct-based, and totality-of-circumstances sources
 - **module-h-cross-examination.md** — Module H: cross-examination chapter seeds, formatted for use by `dw-cross-exam-architect-crim`
 - **module-i-expert-witness.md** — Module I: expert-witness need assessment (when to recommend an eyewitness identification expert)
+- **procedure-triage-matrix.md** — Step 2: Identification Procedure Matrix and Procedure Sequence Contamination Check (PROCEDURE SEQUENCE FLAG)
 - **prosecution-arguments.md** — Common prosecution arguments and defense responses for eyewitness identification challenges
 - **scientific-literature.md** — Key scientific literature (NAS Report 2014, Innocence Project, Wells & Bradfield, Steblay, Meissner & Brigham, Deffenbacher) with applications
 - **suppression-motion-framework.md** — Module G: motion to suppress out-of-court identification — structural framework for the motion

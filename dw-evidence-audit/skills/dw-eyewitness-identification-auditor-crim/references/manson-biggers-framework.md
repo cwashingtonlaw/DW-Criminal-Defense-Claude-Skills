@@ -80,3 +80,9 @@ The NAS Report (2014) and the majority of eyewitness researchers have criticized
 > **Advocacy point:** When applying the Manson factors, argue that the court should consider the modern science underlying each factor, not merely the factor labels. The Supreme Court in Manson did not have the benefit of 40+ years of controlled research on eyewitness identification. Present the science alongside the legal framework.
 
 ---
+
+---
+
+## Moved from SKILL.md -- Module F summary
+
+The Manson/Brathwaite test applies a two-step inquiry: (1) Was the procedure impermissibly suggestive? (2) If so, is the identification nevertheless reliable under the totality of circumstances? The five Biggers/Manson factors address opportunity to view, degree of attention, accuracy of prior description, level of certainty, and time elapsed. The module also discusses modern scientific critiques and the Henderson framework as persuasive authority.

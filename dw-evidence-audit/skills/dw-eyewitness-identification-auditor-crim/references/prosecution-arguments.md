@@ -10,3 +10,10 @@
 | "The witness described the perpetrator before the identification" | Compare the description to the defendant. If the description is generic ("tall Black male in dark clothing"), it does not corroborate the identification -- it describes thousands of people. |
 | "Perry v. New Hampshire means there's no due process issue" | Perry applies only to suggestive circumstances not arranged by police. If police arranged the identification procedure (photo array, lineup, showup), the full Manson/Brathwaite framework applies. |
 | "The witness identified the defendant, not a filler" | Correct identification of a suspect does not validate the procedure. In studies where the real perpetrator is absent from the lineup, witnesses still choose someone 30-50% of the time. The choosing rate, not just the choice, matters. |
+
+---
+
+## Moved from SKILL.md -- Quick Reference summary
+
+Covers common arguments like "witness is very confident," "picked from six-pack," "had good opportunity to view," "corroborated by other evidence," and tactical responses to each.
+

@@ -68,34 +68,9 @@ Do not proceed to Step 1 until these protocols are loaded. The internal ledger, 
 
 All information must be extracted from uploaded documents or explicitly provided by user. Ranked by criticality:
 
-### ESSENTIAL (Case-Critical)
+**ESSENTIAL (Case-Critical):** charges with La. R.S. cites, every discovery demand filed (initial, supplementals, standing Brady/Giglio orders), every production to date, charging document, arraignment date, all court dates. **STRATEGIC:** defense theory, witness list, expert list, co-defendant status, plea offers. **CONTEXTUAL:** case chronology, attorney notes on suspected gaps, prior discovery motions/orders.
 
-- **Charges:** Specific counts with Louisiana Revised Statutes cites (e.g., La. R.S. 14:109 for manslaughter)
-- **Discovery demands filed:**
-  - Initial demand (date, scope)
-  - All supplemental demands (dates, specific items)
-  - Standing Brady/Giglio orders (if any)
-- **Discovery produced to date:**
-  - Dates of productions
-  - General categories of items
-  - Any productions marked "incomplete" or "under review"
-- **Charging document:** Bill of Information or Indictment with count descriptions
-- **Arraignment date:** Current status
-- **All court dates:** Pretrial conferences, status hearings, discovery deadlines, trial date
-
-### STRATEGIC (Case-Development)
-
-- **Defense theory:** What the defense intends to prove; how discovery relates
-- **Witness list:** Prosecution and defense witnesses (to assess discovery sufficiency)
-- **Expert list:** Any retained or prosecution experts (triggers discovery of underlying data, reports, CVs, prior opinions)
-- **Co-defendant status:** Joint trial, severed, guilty plea, cooperation (affects discovery obligations)
-- **Plea offers:** Any formal offers (to assess discovery's impact on evaluation)
-
-### CONTEXTUAL (Enhancement)
-
-- **Case chronology:** Arrest → charges → arraignment → discovery
-- **Attorney notes:** Flag any items the defense attorney suspects are missing
-- **Prior discovery motions/orders:** What has been ruled, what discovery was compelled, what was denied
+Read `references/information-gathering-protocol.md` now for the full ESSENTIAL / STRATEGIC / CONTEXTUAL capture lists.
 
 ---
 
@@ -132,21 +107,10 @@ The operational heart of the compliance monitor: a living ledger of every demand
 
 ### Discovery Bucket Classification (Barone 7-Bucket System)
 
-Every ledger entry must be classified into one of the seven Barone Discovery Buckets. This classification enables gap analysis by category — revealing whether entire categories of discovery are missing (e.g., "we have zero digital evidence disclosures") rather than just individual items.
+Every ledger entry must be classified into one of the seven Barone Discovery Buckets — (1) Law Enforcement Reports & Statements, (2) Physical/Forensic Evidence, (3) Digital/Electronic Evidence, (4) Witness Statements & Information, (5) Expert Reports & Analysis, (6) Prosecution Case File, (7) Exculpatory/Impeachment Material (Brady/Giglio) — so gap analysis can reveal whether an entire category is missing. Track per-bucket demanded / received / outstanding and a completeness percentage; a bucket at 0% is a red flag. Cross-reference with `dw-neutral-inventory-crim` Report 0.
 
-| Bucket # | Bucket Name | What It Covers |
-|----------|-------------|----------------|
-| 1 | Law Enforcement Reports & Statements | Incident reports, supplemental reports, arrest reports, officer statements, internal affairs records, use-of-force reports, training records |
-| 2 | Physical/Forensic Evidence | Lab reports (DNA, fingerprint, ballistics, toxicology), crime scene photos, autopsy/medical examiner reports, chain of custody logs, evidence inventories |
-| 3 | Digital/Electronic Evidence | BWC footage, dash cam, CCTV/surveillance, cell phone extractions, CSLI data, social media records, computer forensics, GPS/location data |
-| 4 | Witness Statements & Information | Civilian witness statements, victim statements, informant information, 911 call recordings/transcripts, grand jury testimony |
-| 5 | Expert Reports & Analysis | Expert CVs, expert reports, underlying data/bench notes, testing protocols, proficiency testing results, lab accreditation records |
-| 6 | Prosecution Case File | Plea offers, correspondence, internal memos (if discoverable), prior consistent/inconsistent statements of prosecution witnesses, co-defendant statements, cooperation agreements |
-| 7 | Exculpatory/Impeachment Material (Brady/Giglio) | Exculpatory evidence, impeachment evidence, witness criminal histories, officer discipline records, prior inconsistent statements, benefits/deals given to witnesses |
-
-**Bucket completeness metric:** For each bucket, track: items demanded, items received, items outstanding, and a completeness percentage. A bucket at 0% is a red flag — it likely means the demand was insufficient or the State is withholding an entire category. Cross-reference with `dw-neutral-inventory-crim` Report 0 to verify expected evidence types are accounted for.
-
-**Reference:** Read `references/production-tracker-and-prioritization.md` for:
+Read `references/production-tracker-and-prioritization.md` now for:
+- The **Discovery Bucket Classification (Barone 7-Bucket System)** definitions table and bucket completeness metric
 - The full **Discovery Production Tracker** schema (15-row example with all columns: Item #, Category, Description, Discovery Bucket, Demanded Date, Produced Date, Status, Days Outstanding, Notes)
 - The **Status Legend** (definitions for each status value)
 - **Automated Flags** (30/60/90-day outstanding escalation language)
@@ -237,127 +201,9 @@ Classify discovery deficiencies by severity (CRITICAL / SIGNIFICANT / MINOR) to 
 
 Generate a professional written report summarizing the discovery compliance audit. This is the primary deliverable to the attorney; it consolidates outputs from Modules B, C, D, G, and H.
 
-### **DISCOVERY COMPLIANCE REPORT — [Case Name/Client] / Case No. [___]**
+Report sections in order: header + Case Information table; Executive Summary; Discovery Demand and Production Summary (metrics table); Production Tracker (Module B); Brady/Giglio Analysis (Module C); Late Disclosure Impact Analysis (Module D); Open File Policy Audit (Module G); Severity Classification (Module H); Recommended Actions (immediate / short-term / medium-term / pre-trial conference); Motions Recommended checklist; Cross-Examination Seeds (Module J); Integration Notes checklist.
 
-**Prepared by:** [Defense Attorney/Firm]
-
-**Date:** [Today's Date]
-
-**Case Information:**
-
-| Field | Information |
-|-------|-------------|
-| **Defendant(s)** | [Names] |
-| **Charges** | [List counts with statutory cites] |
-| **Case Number** | [Court/Case No.] |
-| **Charging District** | [District, Parish] |
-| **Trial Date** | [Date] |
-| **Prosecutor(s)** | [Names] |
-
----
-
-### **EXECUTIVE SUMMARY**
-
-[1-2 paragraphs summarizing overall discovery compliance status, key findings, and recommended actions]
-
----
-
-### **DISCOVERY DEMAND AND PRODUCTION SUMMARY**
-
-| Metric | Status |
-|--------|--------|
-| **Initial Demand Filed** | [Date] |
-| **Supplemental Demand(s) Filed** | [Dates, if any] |
-| **Total Items Demanded** | [Number] |
-| **Items Received Timely** | [Number] ([%]) |
-| **Items Outstanding** | [Number] ([%]) |
-| **Items Produced Late** | [Number] with average delay [X] days |
-| **Overall Compliance** | [%] |
-
----
-
-### **PRODUCTION TRACKER**
-
-[Insert full production tracker from Module B]
-
----
-
-### **BRADY/GIGLIO ANALYSIS**
-
-[Insert Brady/Giglio ledger from Module C]
-
-**Specific Brady/Giglio Concerns:**
-- [Item 1]
-- [Item 2]
-
----
-
-### **LATE DISCLOSURE IMPACT ANALYSIS**
-
-[For each late item, include analysis from Module D]
-
----
-
-### **OPEN FILE POLICY AUDIT**
-
-[Include audit findings from Module G]
-
----
-
-### **SEVERITY CLASSIFICATION**
-
-| Category | Items | Risk Level |
-|----------|-------|-----------|
-| **Critical** | [List] | HIGH |
-| **Significant** | [List] | MEDIUM |
-| **Minor** | [List] | LOW |
-
----
-
-### **RECOMMENDED ACTIONS**
-
-1. **Immediate (Within 48 hours):**
-   - [Specific action]
-   - [Specific action]
-
-2. **Short-term (This week):**
-   - [File supplemental demand]
-   - [File motion to compel]
-
-3. **Medium-term (Before trial):**
-   - [Expert review]
-   - [Investigation of gaps]
-
-4. **Pre-trial Conference:**
-   - [Raise discovery issues]
-   - [Request ruling on Brady/Giglio material]
-
----
-
-### **MOTIONS RECOMMENDED**
-
-- [ ] Motion to Compel Discovery (Items: [List])
-- [ ] Motion for Sanctions (Basis: [Describe])
-- [ ] Motion for Continuance Due to Late Discovery (Timeline: [X] days)
-- [ ] Motion for Brady/Giglio Standing Order
-- [ ] Motion to Exclude Late-Disclosed Evidence (Items: [List])
-- [ ] Writ Application (If: [Condition])
-
----
-
-### **CROSS-EXAMINATION SEEDS**
-
-For use in preparing witnesses for deposition or trial. See Module J below.
-
----
-
-### **INTEGRATION NOTES**
-
-- [ ] Evidence table in Case Tables.xlsx updated
-- [ ] Pretrial Notebook/02-Discovery folder populated
-- [ ] Cross-exam architect skill alerted to key witnesses
-- [ ] Gaps flagged for ongoing investigation
-
+Read `references/discovery-compliance-report-template.md` now for the full report template with every table and placeholder.
 ---
 
 ## MODULE J — Cross-Examination Chapter Seeds
@@ -417,14 +263,17 @@ This skill integrates with other Daniels & Washington tools:
 
 Reference files in `references/` (load on demand):
 
-- `louisiana-discovery-framework.md` — La. C.Cr.P. Arts. 716-729.5 + Brady/Giglio/Kyles constitutional overlay
-- `discovery-demand-templates.md` — Initial 16-part demand template, supplemental-demand triggers, supplemental-demand template
-- `production-tracker-and-prioritization.md` — Production tracker schema, status legend, automated flags, compliance metrics, Prioritized Missing Items Report format
-- `brady-giglio-ledger.md` — Parallel Brady/Giglio ledger schema, three-pronged materiality test, Kyles constructive-knowledge and cumulative-materiality doctrines
-- `late-disclosure-protocol.md` — Six-step late-disclosure assessment (document, prejudice, continuance, exclusion, sanctions motion, pattern)
-- `discovery-motion-templates.md` — Eight motion templates (compel, sanctions, Brady/Giglio standing order, exclude late evidence, continuance, in camera, dismiss, writ application)
-- `open-file-policy-audit.md` — 7-question open-file audit checklist + statutory comparison matrix + audit summary report
-- `severity-and-quick-reference.md` — CRITICAL/SIGNIFICANT/MINOR severity classification + Louisiana discovery articles matrix + Brady/Giglio elements checklist + sanctions comparison + timeline calculator + standing-order open-court language
+- **information-gathering-protocol.md** — Step 1; ESSENTIAL / STRATEGIC / CONTEXTUAL capture lists
+- **louisiana-discovery-framework.md** — Step 2; La. C.Cr.P. Arts. 716-729.5 + Brady/Giglio/Kyles constitutional overlay
+- **discovery-demand-templates.md** — Modules A and E; Initial 16-part demand template, supplemental-demand triggers, supplemental-demand template
+- **production-tracker-and-prioritization.md** — Module B; Production tracker schema, Barone 7-bucket classification table, status legend, automated flags, compliance metrics, Prioritized Missing Items Report format
+- **brady-giglio-ledger.md** — Module C; Parallel Brady/Giglio ledger schema, three-pronged materiality test, Kyles constructive-knowledge and cumulative-materiality doctrines
+- **late-disclosure-protocol.md** — Module D; Six-step late-disclosure assessment (document, prejudice, continuance, exclusion, sanctions motion, pattern)
+- **discovery-motion-templates.md** — Module F; Eight motion templates (compel, sanctions, Brady/Giglio standing order, exclude late evidence, continuance, in camera, dismiss, writ application)
+- **open-file-policy-audit.md** — Module G; 7-question open-file audit checklist + statutory comparison matrix + audit summary report
+- **severity-and-quick-reference.md** — Modules H and K; CRITICAL/SIGNIFICANT/MINOR severity classification + Louisiana discovery articles matrix + Brady/Giglio elements checklist + sanctions comparison + timeline calculator + standing-order open-court language
+- **discovery-compliance-report-template.md** — Module I; full Discovery Compliance Report skeleton
+- **cross-exam-seeds.md** — Module J; question outlines for lead investigator, evidence custodian / records clerk, and prosecutor
 
 ---
 

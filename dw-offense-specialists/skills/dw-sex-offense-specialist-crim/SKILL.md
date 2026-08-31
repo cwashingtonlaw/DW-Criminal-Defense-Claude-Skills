@@ -24,6 +24,8 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ---
 
+**Date of offense governs every statute cite.** Before quoting any element, penalty range, registration tier, enhancement, or parole-eligibility figure, confirm the date of offense per count and select the statute version in force on that date using `dw-shared-protocols-crim/references/sentencing-statute-versions.md` (15:529.1 / 15:571.3 / 15:574.4 and the offense statute itself). Never fabricate a prior-version value; flag `[VERIFY — Westlaw]` where that file does.
+
 ## CRITICAL CASE ORIENTATION
 
 These matters involve allegations of extraordinary gravity. The analysis framework below maintains **zealous advocacy for the constitutional rights of the accused** while acknowledging the serious harm of sexual violence. Both wrongful convictions and sexual violence inflict profound damage. Our duty is to audit evidence rigorously, protect constitutional protections, and ensure the State meets its burden of proof beyond a reasonable doubt.
@@ -81,52 +83,9 @@ Every factual assertion in the sex-offense analysis — alleged conduct, victim 
 
 ## STEP 1 — INFORMATION GATHERING PROTOCOL
 
-### ESSENTIAL INFORMATION (Non-negotiable)
+**ESSENTIAL (non-negotiable):** (1) Charge Specification — exact cite, degree, all counts and specifications; (2) Alleged Victim Profile — age at offense, relationship, prior history, developmental status; (3) Alleged Offense Timeline — date/time, location, duration; (4) State's Prima Facie Evidence — physical evidence, SANE findings, DNA, ID, statement; (5) Forensic Materials — full SANE report, kit chain of custody, forensic interview video/transcript, polygraph. **STRATEGIC:** mental health, substance use, prior sexual history (strategic consent analysis), relationship communications, prior complaints, third-party statements. **CONTEXTUAL:** community/family dynamics, records, religious/cultural context, immigration status.
 
-1. **Charge Specification**
-   - Exact statutory cite (La. R.S. 14:42, 14:43, etc.)
-   - Degree (1st, 2nd, 3rd; simple or aggravated)
-   - All counts and any specification (e.g., "with firearm")
-
-2. **Alleged Victim Profile**
-   - Age at time of alleged offense
-   - Relationship to accused (stranger, family, authority figure, peer)
-   - Any prior relationship history
-   - Developmental/cognitive status (if known)
-
-3. **Alleged Offense Timeline**
-   - Specific date/time of alleged conduct
-   - Location (single location vs. extended encounter)
-   - Duration of alleged assault
-
-4. **State's Prima Facie Evidence**
-   - What physical evidence does State claim proves guilt?
-   - SANE findings (if any)
-   - DNA match or exclusion?
-   - Eyewitness identification?
-   - Confession/statement?
-
-5. **Forensic Materials**
-   - SANE report (if exists) — full document with all sections
-   - Sexual assault kit chain of custody
-   - Forensic interview (video/transcript preferred)
-   - Any polygraph results (admissibility issues)
-
-### STRATEGIC INFORMATION
-
-- Mental health history (both victim and accused)
-- Substance use at time of alleged offense
-- Prior sexual history of alleged victim (for strategic consent analysis)
-- Relationship communications (texts, emails, social media)
-- Prior complaints/reports and outcomes
-- Any third-party statements
-
-### CONTEXTUAL INFORMATION
-
-- Community/family dynamics
-- Educational/employment records
-- Religious or cultural context
-- Immigration status (if relevant to victim credibility or accused vulnerabilities)
+Read `references/information-gathering-protocol.md` now for the full capture lists.
 
 ---
 
@@ -237,76 +196,9 @@ Analyze evidence by severity level to prioritize resources and identify case dis
 
 ## STEP 3 — REPORT TEMPLATE
 
-### SEX OFFENSE DEFENSE ANALYSIS — [Case Name]
+**SEX OFFENSE DEFENSE ANALYSIS — [Case Name]** — Executive Summary, then sections I. Charge Analysis; II. SANE Examination Audit; III. DNA Evidence Analysis; IV. Rape Shield Law Issues; V. Forensic Interview Analysis; VI. Expert Witness Issues; VII. Defense Strategy Assessment; VIII. Severity Assessment; IX. Joinder / Severance Issues; X. Registration Consequences; XI. Recommendations.
 
-**EXECUTIVE SUMMARY**
-- Charge(s) and degree(s)
-- Core State theory
-- Primary defense theory(ies)
-- Critical evidentiary issue(s)
-- Registration tier (if plea relevant)
-
-**I. CHARGE ANALYSIS**
-- Statutory elements for each count
-- State's prima facie evidence
-- Elements analysis against evidence
-
-**II. SANE EXAMINATION AUDIT** (if applicable)
-- Examiner qualifications assessment
-- Timeline analysis
-- Injury findings interpretation
-- Alternative explanations
-
-**III. DNA EVIDENCE ANALYSIS** (if applicable)
-- Chain of custody assessment
-- Mixture interpretation review
-- Touch DNA / secondary transfer issues
-- Defense expert recommendations
-
-**IV. RAPE SHIELD LAW ISSUES**
-- Victim prior sexual conduct evidence needed?
-- Exceptions analysis
-- Pretrial motion assessment
-
-**V. FORENSIC INTERVIEW ANALYSIS** (if applicable)
-- Protocol compliance
-- Leading questions / suggestibility assessment
-- Inconsistencies between interviews
-- Delayed disclosure / recantation issues
-
-**VI. EXPERT WITNESS ISSUES**
-- Prosecution experts: reliability challenges
-- Defense experts: recommendation & scope
-
-**VII. DEFENSE STRATEGY ASSESSMENT**
-- Viable defense theories
-- Misidentification risk
-- False allegation analysis
-- Alibi / timeline defense
-- Consent defense (if applicable)
-- Statute of limitations (if applicable)
-
-**VIII. SEVERITY ASSESSMENT**
-- Critical issues (case-dispositive)
-- Significant issues (trial-critical)
-- Minor issues (evidentiary detail)
-
-**IX. JOINDER / SEVERANCE ISSUES**
-- Multiple counts prejudicial joinder?
-- Multiple victims prejudicial joinder?
-- Severance motion assessment
-
-**X. REGISTRATION CONSEQUENCES**
-- Current tier assignment
-- Plea negotiation impact (tier reduction value)
-- Collateral consequences analysis
-
-**XI. RECOMMENDATIONS**
-- Investigation priorities
-- Motions strategy
-- Expert witness needs
-- Plea negotiation analysis
-- Trial strategy framework
+Read `references/report-template.md` now for every section's required bullets.
 
 ---
 
@@ -349,45 +241,15 @@ Analyze evidence by severity level to prioritize resources and identify case dis
 
 ## INTEGRATION WITH D&W CASE MANAGEMENT
 
-### Recommended Parallel Skills/Resources:
-- **dw-child-forensic-interview-auditor-crim** — For detailed forensic interview methodology review
-- **dw-cross-exam-architect-crim** — For developing cross-examination strategy and witness questioning
-- **dw-pretrial-motion-library-crim** — For procedural motions (severance, joinder, discovery, compel)
-- **dw-expert-witness-evaluator-crim** — For expert selection, evaluation, and Daubert/Foret motion practice
+Parallel skills: **dw-child-forensic-interview-auditor-crim**, **dw-cross-exam-architect-crim**, **dw-pretrial-motion-library-crim**, **dw-expert-witness-evaluator-crim**. Keep SANE/lab/forensic-interview materials in the secure case folder, maintain a chronological timeline, index discovery by type, and flag Brady/Giglio material. Nine ranked discovery priorities start with the complete SANE report, kit documentation, and the full unedited forensic interview video.
 
-### Document Management:
-- Store SANE reports, lab reports, forensic interview videos in secure case folder
-- Maintain chronological incident timeline
-- Index all discovery documents by type (physical evidence, testimonial, expert)
-- Flag Brady/Giglio material for compliance review
-
-### Discovery Priorities:
-1. Complete SANE examination report with all annexes
-2. Sexual assault kit documentation (collection, chain of custody, analysis results)
-3. Forensic interview video (full, unedited version)
-4. Lab accreditation, analyst qualifications, QA/QC documentation
-5. Police investigation file (witness statements, scene photographs, timeline)
-6. Toxicology results (if any)
-7. Alleged victim's prior medical/mental health records (with protective order if necessary)
-8. Text messages, social media communications between parties
-9. Exculpatory evidence (alibi, prior relationship documentation, alternative explanations)
+Read `references/integration-and-discovery-priorities.md` now for the parallel-skill list, document-management rules, and the nine discovery priorities.
 
 ---
 
 ## FINAL ANALYSIS FRAMEWORK
 
-**For Every Sex Offense Case:**
-
-1. **Identify the burden:** Prosecution must prove every element beyond reasonable doubt
-2. **Map the evidence:** Which evidence addresses which elements?
-3. **Audit the evidence:** Is collection proper? Is interpretation reliable? Are assumptions documented?
-4. **Identify weaknesses:** Delayed disclosure? Inconsistent statements? Normal medical findings? Touch DNA? Misidentification risk?
-5. **Develop the defense:** Consent? Misidentification? False allegation? Timing issues? DNA consistency with alternative explanation?
-6. **Integrate experts:** What expert testimony strengthens the defense?
-7. **Negotiate or try:** What is the strength of the case at each stage?
-8. **Consider collateral consequences:** Registration tier impacts plea analysis fundamentally
-
-**Remember:** These cases require intellectual honesty, evidentiary rigor, and unwavering commitment to constitutional protections while acknowledging the serious nature of sexual violence.
+Eight steps for every case: identify the burden → map the evidence → audit the evidence → identify weaknesses → develop the defense → integrate experts → negotiate or try → consider collateral consequences (registration tier). Read `references/final-analysis-framework.md` now for the full framework and closing reminder.
 
 ---
 
@@ -403,18 +265,22 @@ Analyze evidence by severity level to prioritize resources and identify case dis
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **cross-examination-seeds.md** — Cross-examination chapter seeds (SANE nurse, forensic interviewer, complaining witness, expert) for integration with `dw-cross-exam-architect-crim`
-- **defense-strategy-reference-guide.md** — Defense strategy reference: consent defense framework, elements prosecution must disprove, and available defense theories
-- **dna-analysis-methodology-reference.md** — DNA analysis methodology and chain-of-custody checklist (LADOJ kit collection protocols, contamination audit points)
-- **expert-witness-framework.md** — Expert witness framework including CSAAS (Child Sexual Abuse Accommodation Syndrome) admissibility status in Louisiana
-- **forensic-interview-challenge-standards.md** — Forensic interview challenge standards: interviewer qualifications audit and protocol-compliance checklist
-- **louisiana-case-law-authority.md** — Louisiana case-law authority for sex-offense defense (*State v. Kennedy*, death-penalty context, current statutory framework)
-- **louisiana-sex-offense-statutes.md** — Louisiana sex offense statutes (R.S. 14:42 through 14:43.1 etc.): elements, penalties, registration tier in matrix form
-- **quick-reference-tables.md** — Statute comparison matrix tables across Louisiana sex offenses (degree, force, age threshold, registration)
-- **rape-shield-law-framework.md** — La. C.E. Art. 412 rape-shield framework: general prohibition, defense-use exceptions, and procedural mechanics
-- **sane-exam-audit-protocols.md** — SANE exam audit protocols: examiner-qualifications audit and exam-protocol challenge points
-- **severity-classification-matrix.md** — Severity classification matrix for case-dispositive (CRITICAL) and significant findings in sex-offense audits
-- **sorna-tier-classification-matrix.md** — Louisiana SORNA tier classification matrix (R.S. 15:540 et seq.): Tier 1/2/3 offenses, duration, and notification requirements
+- **information-gathering-protocol.md** — Step 1; ESSENTIAL / STRATEGIC / CONTEXTUAL capture lists
+- **louisiana-sex-offense-statutes.md** — Step 2 / all cases; Louisiana sex offense statutes (R.S. 14:42 through 14:43.1 etc.): elements, penalties, registration tier in matrix form
+- **sane-exam-audit-protocols.md** — Module A; SANE exam audit protocols: examiner-qualifications audit and exam-protocol challenge points
+- **dna-analysis-methodology-reference.md** — Module B; DNA analysis methodology and chain-of-custody checklist (LADOJ kit collection protocols, contamination audit points)
+- **rape-shield-law-framework.md** — Module C; La. C.E. Art. 412 rape-shield framework: general prohibition, defense-use exceptions, and procedural mechanics
+- **forensic-interview-challenge-standards.md** — Module D; forensic interview challenge standards: interviewer qualifications audit and protocol-compliance checklist
+- **expert-witness-framework.md** — Module E; expert witness framework including CSAAS (Child Sexual Abuse Accommodation Syndrome) admissibility status in Louisiana
+- **sorna-tier-classification-matrix.md** — Module F; Louisiana SORNA tier classification matrix (R.S. 15:540 et seq.): Tier 1/2/3 offenses, duration, and notification requirements
+- **defense-strategy-reference-guide.md** — Module G; defense strategy reference: consent defense framework, elements prosecution must disprove, and available defense theories
+- **severity-classification-matrix.md** — Severity Classification; case-dispositive (CRITICAL) and significant findings in sex-offense audits
+- **report-template.md** — Step 3; full Sex Offense Defense Analysis report skeleton
+- **cross-examination-seeds.md** — Step 4; cross-examination chapter seeds (SANE nurse, forensic interviewer, complaining witness, expert) for integration with `dw-cross-exam-architect-crim`
+- **louisiana-case-law-authority.md** — Key Louisiana Case Law; *State v. Kennedy*, death-penalty context, current statutory framework
+- **quick-reference-tables.md** — Quick Reference Tables; statute comparison matrix tables across Louisiana sex offenses (degree, force, age threshold, registration)
+- **integration-and-discovery-priorities.md** — Integration with D&W Case Management; parallel skills, document management, nine discovery priorities
+- **final-analysis-framework.md** — Final Analysis Framework; eight-step per-case framework
 
 ---
 

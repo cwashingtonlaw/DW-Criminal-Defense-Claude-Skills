@@ -62,25 +62,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Video Evidence Inventory:** list of all video files in discovery — BWC, dash cam, surveillance, interview room, civilian cell phone, etc.
-2. **Charges:** all counts with statutory citations — charge severity determines the scrutiny threshold
-3. **What the State Claims the Video Proves:** the prosecution's theory of what the video establishes
-4. **Incident Reports / Arrest Reports:** the officers' written account of events to compare against video content
-5. **Timeline of the Incident:** dispatch time, arrival time, arrest time, transport time — the temporal framework against which video gaps are measured
+Collect three tiers: **Essential** (items 1-5: video evidence inventory, charges, what the State claims the video proves, incident / arrest reports, timeline of the incident), **Strategic** (items 6-10: BWC activation records / metadata, agency BWC policy, surveillance system information, defense theory, known suppression or disclosure issues), and **Contextual** (items 11-14: officer identification, video file metadata, chain of custody for video, CAD / dispatch records).
 
-### Strategic (request if not provided)
-6. **BWC Activation Records / Metadata:** system-generated logs showing camera on/off times, buffering, battery status, upload timestamps
-7. **Agency BWC Policy:** the department's written policy governing when officers must activate and deactivate cameras
-8. **Surveillance System Information:** for CCTV/surveillance — system type, camera locations, recording schedule, retention policy, export method
-9. **Defense Theory:** what happened from the defense perspective — what the video should or shouldn't show
-10. **Known Suppression or Disclosure Issues:** any pending motions regarding video evidence
-
-### Contextual (gather from uploaded files)
-11. **Officer Identification:** names, badge numbers, assignments — which officer wore which camera
-12. **Video File Metadata:** format, resolution, frame rate, codec, file size, creation timestamps
-13. **Chain of Custody for Video:** who exported the video, from what system, when, and in what format
-14. **CAD / Dispatch Records:** computer-aided dispatch logs providing independent timestamps
+Read `references/information-gathering-checklist.md` now for the full ranked checklist (items 1-14).
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1–5 are missing, do not audit — ask for them first.
 
@@ -90,27 +74,15 @@ Before drafting any audit, collect the following in ranked order:
 
 Classify every video source in the case and identify which audit modules apply.
 
-### Video Source Matrix
+Apply the Video Source Matrix — Body-Worn Camera → Module A; In-Car / Dash Cam → Module B; Surveillance / CCTV → Module C; Interview Room → Module D; Civilian / Cell Phone → Module E — noting the common systems and key audit concerns for each. When the incident type strongly implies video should exist but none appears in discovery, issue a CONSPICUOUS ABSENCE flag (*Brady* non-disclosure vs. policy-violation non-activation vs. spoliation) and route to the Missing Discovery Demand plus officer / video-custodian cross-examination.
 
-| Source Type | Common Systems | Key Audit Concerns | Audit Module |
-|-------------|---------------|-------------------|--------------|
-| **Body-Worn Camera** | Axon (Body 2/3/4), Motorola (V300/Si500), Getac, Utility | Activation compliance, buffering gaps, perspective limits, officer control of camera angle | Module A |
-| **In-Car / Dash Cam** | Axon Fleet, WatchGuard, Coban, L3 Mobile-Vision | Trigger events, forward-only perspective, audio range limits, wireless mic pairing | Module B |
-| **Surveillance / CCTV** | Hikvision, Dahua, Axis, Genetec, Milestone, Avigilon | Timestamp accuracy, compression artifacts, export integrity, retention/overwrite cycles | Module C |
-| **Interview Room** | iRecord, Axon Interview, agency-specific systems | Recording continuity, Miranda documentation, off-camera conversations, audio quality | Module D |
-| **Civilian / Cell Phone** | Varies (iPhone, Android, Ring/Nest doorbell, dashcam apps) | Authentication, metadata integrity, selective recording, chain of custody from civilian to LE | Module E |
-
-### Conspicuous Absence Flags
-
-When the incident type strongly implies video should exist but does not appear in discovery:
-
-> **CONSPICUOUS ABSENCE — [Source Type]:** [Agency] equips officers with [BWC system / dash cam / etc.]. Officer [name/badge] responded to this incident but no [video type] appears in discovery. Determine: was the camera activated and footage not disclosed (*Brady* concern)? Was the camera not activated (policy violation)? Was footage recorded and subsequently lost, deleted, or overwritten (spoliation)? Flag for: Missing Discovery Demand + cross-examination of the officer and video custodian.
+Read `references/video-source-classification.md` now for the full Video Source Matrix and the verbatim CONSPICUOUS ABSENCE flag template.
 
 ---
 
 ## MODULE A — Body-Worn Camera Audit
 
-The single most important BWC audit question: **was the camera activated when policy required it to be?** Map activation gaps across the timeline (dispatch → arrival → key event → arrest), apply the Policy Compliance Checklist (use of force, statements, searches, Miranda, transport), and assess perspective and content limitations (field of view, audio range, low-light performance, motion stability) that shape what the camera captured versus what the officer experienced.
+The single most important BWC audit question: **was the camera activated when policy required it to be?** Map activation gaps across the dispatch → arrival → key event → arrest timeline, apply the Policy Compliance Checklist, and assess perspective and content limitations.
 
 **Reference:** Read `references/module-a-bwc-audit.md` for the full Activation Gap Analysis template, the Policy Compliance Checklist, the Common BWC Systems technical-details table (Axon Body 3/4, Motorola V300/Si500, WatchGuard, Getac), and the Perspective & Content Limitations framework (FOV, audio, low-light, motion).
 
@@ -160,22 +132,15 @@ Tag every entry with one of nine flag types: TIME DISCREPANCY, OMISSION, DISCREP
 
 ## STEP 3A — Report-vs-Recording Matrix (Barone 6-Category)
 
-For every officer whose written report can be compared against recorded footage, generate a **Report-vs-Recording Matrix** per `dw-data-contracts-crim` Contract 1 Section 10. The six categories are:
+For every officer whose written report can be compared against recorded footage, generate the six-category matrix per `dw-data-contracts-crim` Contract 1 Section 10 — Narrative Match, Omissions, Additions, Timing Discrepancies, Quote Accuracy, Procedural Compliance — assign each discrepancy a severity (CRITICAL / SIGNIFICANT / MINOR) with its defense implication, and feed the matrix into STEP 5 (Cross-Examination Integration).
 
-1. **Narrative Match** — Does the report account match the footage?
-2. **Omissions** — What does the report leave out that the recording shows?
-3. **Additions** — What does the report claim that the recording doesn't show?
-4. **Timing Discrepancies** — Do report timestamps match recording timestamps?
-5. **Quote Accuracy** — Do reported quotes match what was actually said?
-6. **Procedural Compliance** — Do procedures described in the report match procedures shown on camera?
-
-For each discrepancy found, assign severity (CRITICAL / SIGNIFICANT / MINOR) and note the defense implication. This matrix feeds directly into STEP 5 (Cross-Examination Integration) — the gap between report and recording is the most powerful source of impeachment material for officer witnesses.
+Read `references/report-vs-recording-matrix.md` now for the six category definitions and the severity / defense-implication instructions.
 
 ---
 
 ## STEP 4 — Generate the Narrative Audit Report
 
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed twelve-section structure (Executive Summary, Video Inventory, Activation & Coverage Analysis, Timestamp Logs, Content-vs-Report Discrepancies, Report-vs-Recording Matrix, Technical Limitations, Authentication & Metadata, Policy Compliance, Admissibility Challenges, Cross-Exam Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Complete Timestamp Logs, Cross-Exam Chapter Seeds, Agency BWC Policy Excerpts).
+Produce the audit as a **Word document (.docx)** using the docx skill (read and follow the `docx` SKILL.md for all formatting and generation instructions). The report follows a fixed twelve-section structure plus three appendices.
 
 Tag every finding: **CRITICAL** (directly undermines reliability/admissibility — supports a motion or creates substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (procedural irregularity affecting weight only).
 
@@ -185,7 +150,7 @@ Tag every finding: **CRITICAL** (directly undermines reliability/admissibility �
 
 ## STEP 5 — Cross-Examination Integration
 
-For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds formatted for the **dw-cross-exam-architect-crim** skill. The most powerful cross from video evidence comes from the gap between what the officer wrote in the report and what the video actually shows — structure each Officer seed around that gap (lock the report → introduce the video → close the loop). Video-custodian / technical seeds focus on system capabilities, expected captures, and retention/overwrite explanations. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
+For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds for **dw-cross-exam-architect-crim** — Officer seeds built on the report-vs-video gap (lock the report → introduce the video → close the loop), video-custodian / technical seeds on system capabilities and retention. Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`.
 
 **Reference:** Read `references/cross-exam-seeds.md` for both the Officer Cross template (BWC/Dash Cam findings) and the Video Custodian / Technical Cross template.
 
@@ -193,7 +158,7 @@ For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapt
 
 ## STEP 6 — Admissibility & Legal Challenge Framework
 
-Match each video deficiency to its corresponding motion type and authority. Core challenges: authentication failure (La. C.E. Art. 901(B)(1); *Nuccio*), edited/altered video (Art. 901; *Magee*), destroyed/non-preserved BWC (*Youngblood*), surveillance overwritten due to LE delay (spoliation), warrantless non-public surveillance (Art. 703 / 4th Amendment / *Carpenter*), incomplete disclosure of camera angles (*Brady* / Art. 718-722), unverified timestamp (Art. 901(B)(9)), foundation gaps, misleading still-frame use (Art. 403), and BWC policy violations (adverse-inference framework). Always demand the unedited complete video when the prosecution selects stills or clips.
+Match each video deficiency to its motion type and authority (authentication, alteration, destruction / spoliation, warrantless surveillance, *Brady* disclosure, unverified timestamp, foundation, still-frame selection, BWC policy violation). Always demand the unedited complete video when the prosecution selects stills or clips.
 
 **Reference:** Read `references/admissibility-challenges.md` for the full Video-Specific Challenges matrix, the Still Frame & Clip Selection challenge framework, and the Quick Reference table of legal standards for video evidence.
 
@@ -235,18 +200,19 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
 
-| File | Purpose | Loaded At |
-|------|---------|-----------|
-| `references/module-a-bwc-audit.md` | Activation Gap Analysis template + Policy Compliance Checklist + Common BWC Systems technical-details table + Perspective & Content Limitations (FOV, audio, low-light, motion) | Module A |
-| `references/module-b-dash-cam-audit.md` | System Configuration framework (triggers, camera angles, wireless mic) + Dash Cam-Specific Audit Points checklist | Module B |
-| `references/module-c-cctv-surveillance-audit.md` | Timestamp / retention / export / multi-camera framework + CCTV Audit Checklist | Module C |
-| `references/module-d-interview-room-audit.md` | Recording Integrity framework + Content Audit Points checklist | Module D |
-| `references/module-e-civilian-third-party-audit.md` | Authentication & Chain of Custody framework + La. C.E. Art. 901 challenge framework | Module E |
-| `references/timestamp-log-format.md` | Video File Log template + complete Flag Types table | Step 3 |
-| `references/audit-report-structure.md` | Twelve-section narrative report template + three appendices + severity classification examples | Step 4 |
-| `references/cross-exam-seeds.md` | Officer Cross template (BWC/Dash Cam) + Video Custodian / Technical Cross template | Step 5 |
-| `references/admissibility-challenges.md` | Video-Specific Challenges matrix + Still Frame & Clip Selection framework + legal standards Quick Reference | Step 6 |
-| `references/bwc-systems-known-issues.md` | BWC system known-issues quick reference (Axon Body 2/3/4, Motorola, WatchGuard, Axon Fleet, Getac, all-systems firmware) | Reference throughout |
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-14)
+- **video-source-classification.md** — Step 2: Video Source Matrix (source type, common systems, key audit concerns, module) + CONSPICUOUS ABSENCE flag template
+- **module-a-bwc-audit.md** — Module A: Activation Gap Analysis template + Policy Compliance Checklist + Common BWC Systems technical-details table + Perspective & Content Limitations (FOV, audio, low-light, motion)
+- **module-b-dash-cam-audit.md** — Module B: System Configuration framework (triggers, camera angles, wireless mic) + Dash Cam-Specific Audit Points checklist
+- **module-c-cctv-surveillance-audit.md** — Module C: Timestamp / retention / export / multi-camera framework + CCTV Audit Checklist
+- **module-d-interview-room-audit.md** — Module D: Recording Integrity framework + Content Audit Points checklist
+- **module-e-civilian-third-party-audit.md** — Module E: Authentication & Chain of Custody framework + La. C.E. Art. 901 challenge framework
+- **timestamp-log-format.md** — Step 3: Video File Log template + complete Flag Types table
+- **report-vs-recording-matrix.md** — Step 3A: Barone six-category Report-vs-Recording Matrix with severity assignment
+- **audit-report-structure.md** — Step 4: Twelve-section narrative report template + three appendices + severity classification examples
+- **cross-exam-seeds.md** — Step 5: Officer Cross template (BWC/Dash Cam) + Video Custodian / Technical Cross template
+- **admissibility-challenges.md** — Step 6: Video-Specific Challenges matrix + Still Frame & Clip Selection framework + legal standards Quick Reference
+- **bwc-systems-known-issues.md** — Reference throughout: BWC system known-issues quick reference (Axon Body 2/3/4, Motorola, WatchGuard, Axon Fleet, Getac, all-systems firmware)
 
 ---
 

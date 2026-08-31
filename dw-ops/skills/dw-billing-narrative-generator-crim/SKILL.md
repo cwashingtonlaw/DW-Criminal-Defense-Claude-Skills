@@ -89,84 +89,17 @@ Check for duplicate work items before mapping to billing codes:
 - Deduplicated: dw-suppression-motion-crim (2.25 hrs) — Fourth Amendment illegal search (drafting and revisions)
 ### STEP 2 — Map to Billing Categories
 
-Use the D&W Skill-to-LEDES Code Mapping table below to assign each work item to its primary billing code. Add sub-codes from the Criminal Defense Sub-Codes reference section for additional granularity.
+Use the D&W Skill-to-LEDES Code Mapping table in `references/ledes-code-mapping.md` to assign each work item to its primary billing code. Add sub-codes from the Criminal Defense Sub-Codes Reference in the same file for additional granularity.
 
-#### D&W Skill-to-LEDES Code Mapping
+Primary codes: L100 Case Management, L110 Investigation (all evidence auditors, timeline, investigator tasking), L120 Legal Research, L130 Experts, L140 Transcripts, L150 Negotiations, L160 Discovery (orchestrator, compliance monitor, Brady/Giglio), L200 Motions, L300 Trial Preparation, L400 Appeals, L500 Sentencing. Sub-codes (L110.1–.4, L120.1–.3, L160.1–.3, L200.1–.3, L300.1–.3, L500.1–.2) add granularity within a primary code.
 
-| D&W Skill | Primary LEDES Code | Activity Type |
-|-----------|-------------------|---------------|
-| dw-case-brain-crim | L100 | Case Management |
-| dw-case-dashboard-crim | L100 | Case Management |
-| dw-criminal-defense-crim (Phase 1) | L100 | Case Management |
-| dw-discovery-orchestrator-crim | L160 | Discovery |
-| dw-discovery-compliance-monitor-crim | L160 | Discovery |
-| dw-suppression-motion-crim | L200 | Motions |
-| dw-404b-opposition-crim | L200 | Motions |
-| dw-pretrial-motion-library-crim | L200 | Motions |
-| dw-bond-and-release-motion-crim | L200 | Motions |
-| dw-cross-exam-architect-crim | L300 | Trial Preparation |
-| dw-trial-notebook-builder-crim | L300 | Trial Preparation |
-| dw-jury-instructions-builder-crim | L300 | Trial Preparation |
-| dw-voir-dire-assistant-crim | L300 | Trial Preparation |
-| dw-jury-focus-group-crim | L300 | Trial Preparation |
-| dw-witness-statement-analyzer-crim | L110 | Investigation |
-| dw-timeline-builder-crim | L110 | Investigation |
-| dw-video-evidence-auditor-crim | L110 | Investigation |
-| dw-forensic-dump-analyzer-crim | L110 | Investigation |
-| dw-mobile-forensic-auditor-crim | L110 | Investigation |
-| dw-crime-scene-auditor-crim | L110 | Investigation |
-| dw-chain-of-custody-auditor-crim | L110 | Investigation |
-| dw-cell-site-geolocation-auditor-crim | L110 | Investigation |
-| dw-eyewitness-identification-auditor-crim | L110 | Investigation |
-| dw-social-media-auditor-crim | L110 | Investigation |
-| dw-confession-interrogation-auditor-crim | L110 | Investigation |
-| dw-child-forensic-interview-auditor-crim | L110 | Investigation |
-| dw-brady-giglio-auditor-crim | L160 | Discovery |
-| dw-expert-witness-evaluator-crim | L130 | Experts |
-| dw-sex-offense-specialist-crim | L120 | Legal Research |
-| dw-plea-negotiation-analyzer-crim | L150 | Negotiations |
-| dw-sentencing-mitigation-specialist-crim | L500 | Sentencing |
-| dw-habitual-offender-auditor-crim | L500 | Sentencing |
-| dw-post-conviction-relief-crim | L500 | Sentencing |
-| dw-appellate-error-monitor-crim | L400 | Appeals |
-| dw-client-communication-drafter-crim | L100 | Case Management |
-| dw-defense-investigator-tasking-crim | L110 | Investigation |
-| dw-transcript-router-crim | L140 | Transcripts |
-#### Criminal Defense Sub-Codes Reference
+Read `references/ledes-code-mapping.md` now for the full D&W Skill-to-LEDES Code Mapping table and the Criminal Defense Sub-Codes Reference table.
 
-Use these sub-codes for additional granularity and to distinguish specific activity types within main LEDES categories:
-
-| Sub-Code | Description | Primary LEDES |
-|----------|-------------|---------------|
-| L110.1 | Witness Interview (Defense) | L110 |
-| L110.2 | Scene Investigation | L110 |
-| L110.3 | Digital/Electronic Evidence Review | L110 |
-| L110.4 | Forensic Evidence Analysis | L110 |
-| L120.1 | Legal Research — Statutory | L120 |
-| L120.2 | Legal Research — Case Law | L120 |
-| L120.3 | Strategy Conference (Internal) | L120 |
-| L160.1 | Discovery Receipt & Indexing | L160 |
-| L160.2 | Discovery Compliance Audit | L160 |
-| L160.3 | Brady/Giglio Review | L160 |
-| L200.1 | Motion Drafting | L200 |
-| L200.2 | Motion Research | L200 |
-| L200.3 | Motion Hearing Preparation | L200 |
-| L300.1 | Cross-Examination Preparation | L300 |
-| L300.2 | Jury Selection Preparation | L300 |
-| L300.3 | Trial Exhibit Preparation | L300 |
-| L500.1 | Sentencing Memorandum | L500 |
-| L500.2 | Post-Conviction Review | L500 |
 ### STEP 3 — Generate Narratives
 
 For each deduplicated work item, draft a discovery-safe billing narrative using this template:
 
-**Template:**
-```
-[Skill Name / Activity]: [Case Phase]
-Time: [X.XX hours]
-LEDES Code: [Code] [Sub-Code if applicable]
-Narrative: [2-3 sentences describing work performed, documents reviewed, analysis conducted, or deliverables created. Use professional language suitable for opposing counsel discovery.]
-```
+**Template fields:** `[Skill Name / Activity]: [Case Phase]`, `Time`, `LEDES Code [Sub-Code]`, and a 2–3 sentence `Narrative` suitable for opposing-counsel discovery. Read `references/narrative-templates-and-examples.md` now for the exact template block.
 
 **Safety Rules:**
 - Never include strategy assessments, case theory debates, or attorney mental impressions
@@ -176,18 +109,7 @@ Narrative: [2-3 sentences describing work performed, documents reviewed, analysi
 - Focus on scope and methodology, not conclusions
 - Generate multiple narrative options (Brief, Standard, Detailed) for attorney selection
 
-**Example Narratives:**
-
-**Brief:**
-"Reviewed body camera footage and police reports for Fourth Amendment issues. Prepared written analysis."
-(1.5 hours, L110.3)
-
-**Standard:**
-"Reviewed body camera footage, dispatch records, and police incident reports. Analyzed for Fourth Amendment violations regarding warrantless search and seizure. Prepared written memorandum summarizing findings for motion preparation."
-(1.5 hours, L110.3)
-**Detailed:**
-"Reviewed body camera footage (47 minutes), dispatch call recordings, incident reports, and witness statements. Analyzed evidence timeline and police conduct for potential Fourth Amendment violations including warrantless search, seizure, and detention issues. Prepared comprehensive memorandum with evidence citations and legal analysis framework for suppression motion preparation."
-(1.5 hours, L110.3)
+**Example narratives** (Brief / Standard / Detailed versions of the same 1.5-hour L110.3 body-camera review) are in `references/narrative-templates-and-examples.md` — read them now before drafting.
 
 ---
 
@@ -207,19 +129,7 @@ Display all three narrative options (Brief/Standard/Detailed) and allow attorney
 5. **Reject:** Removes entry from this billing cycle
 6. **Flag for review:** Attorney adds internal notes
 
-**Example Approval UI:**
-```
-[Session: 2026-04-06] [Case: State v. Rodriguez, 2025-CV-12345]
-
-| Skill | Hours | Code | Narrative | Action |
-|-------|-------|------|-----------|--------|
-| dw-suppression-motion-crim | 2.25 | L200.1 | [Standard narrative] | [Approve] [Edit] [Reject] |
-| dw-brady-giglio-auditor-crim | 1.5 | L160.3 | [Detailed narrative] | [Approve] [Edit] [Reject] |
-| dw-cross-exam-architect-crim | 3.0 | L300.1 | [Brief narrative] | [Approve] [Edit] [Reject] |
-
-TOTAL BILLABLE HOURS: 6.75
-[Save as Draft] [Submit to Billing] [Export]
-```
+See the **Example Approval UI** block (session header, per-skill table with Approve / Edit / Reject actions, total billable hours, Save as Draft / Submit to Billing / Export) in `references/narrative-templates-and-examples.md`.
 ### STEP 5 — Output Options
 
 Attorney selects output format after approval. System automatically creates save paths and folder structure.
@@ -337,66 +247,15 @@ This skill is **automatically invoked** in these scenarios:
 
 ## Example Workflow
 
-**Scenario:** Attorney completes a session involving suppression motion drafting, discovery review, and Brady analysis.
+Worked example — a session with suppression-motion drafting, discovery review, and Brady analysis walked through Steps 1 → 1A → 2 → 3 → 4 → 5 (three entries, 3.67 hours, XLSX export to Clio). Read `references/example-workflow.md` now for the full walkthrough.
 
-1. **STEP 1 — Session Work Inventory**
-   - dw-suppression-motion-crim invoked at 2:15 PM, completed 4:00 PM (1.75 hours)
-   - dw-brady-giglio-auditor-crim invoked at 4:05 PM, completed 5:15 PM (1.25 hours)
-   - dw-discovery-compliance-monitor-crim invoked at 1:30 PM, completed 2:10 PM (0.67 hours)
-   - No duplicates identified
+---
 
-2. **STEP 1A — Deduplication Check**
-   - Each skill invoked once with distinct subject matter
-   - No consolidation needed
-   - Proceed to mapping
-3. **STEP 2 — Map to Billing Categories**
-   - dw-suppression-motion-crim → L200.1 (Motion Drafting)
-   - dw-brady-giglio-auditor-crim → L160.3 (Brady/Giglio Review)
-   - dw-discovery-compliance-monitor-crim → L160.2 (Discovery Compliance Audit)
+## Quick References
 
-4. **STEP 3 — Generate Narratives** (Standard option shown)
-
-   **Entry 1:**
-   - Skill: dw-suppression-motion-crim
-   - Time: 1.75 hours
-   - LEDES Code: L200.1
-   - Narrative: "Drafted Fourth Amendment suppression motion challenging warrantless vehicle search. Reviewed case law on vehicle exception to warrant requirement. Incorporated factual analysis from police reports and witness statements."
-
-   **Entry 2:**
-   - Skill: dw-brady-giglio-auditor-crim
-   - Time: 1.25 hours
-   - LEDES Code: L160.3
-   - Narrative: "Conducted Brady/Giglio audit of prosecution discovery materials. Reviewed police reports and witness statements for material exculpatory information and witness credibility issues. Prepared summary for case file."
-
-   **Entry 3:**
-   - Skill: dw-discovery-compliance-monitor-crim
-   - Time: 0.67 hours
-   - LEDES Code: L160.2
-   - Narrative: "Updated discovery compliance ledger with received police reports and digital evidence. Cross-referenced with case inventory to ensure all materials logged and tracked."
-5. **STEP 4 — Present for Attorney Review**
-
-   Summary displayed:
-   ```
-   Session: 2026-04-06 | Case: State v. Williams, 2025-CR-08847
-   Total Hours (before approval): 3.67
-
-   | Skill | Hours | Code | Narrative | Action |
-   |-------|-------|------|-----------|--------|
-   | dw-suppression-motion-crim | 1.75 | L200.1 | [Narrative] | [Approve] |
-   | dw-brady-giglio-auditor-crim | 1.25 | L160.3 | [Narrative] | [Approve] |
-   | dw-discovery-compliance-monitor-crim | 0.67 | L160.2 | [Narrative] | [Approve] |
-   ```
-
-   Attorney reviews, approves all three entries without modification.
-
-6. **STEP 5 — Output Options**
-
-   System generates:
-   - XLSX: `/case-root/05 - Billing/Williams - Time Entries - 2026-04-06.xlsx`
-   - CSV: `/case-root/05 - Billing/Williams - Time Entries - 2026-04-06.csv`
-   - PDF: `/case-root/05 - Billing/Williams - Time Entries - 2026-04-06.pdf`
-
-   Attorney selects XLSX export for import into Clio practice management system.
+- **ledes-code-mapping.md** — Step 2; D&W Skill-to-LEDES Code Mapping table and Criminal Defense Sub-Codes Reference
+- **narrative-templates-and-examples.md** — Steps 3–4; narrative entry template, Brief / Standard / Detailed example narratives, example approval UI
+- **example-workflow.md** — Example Workflow; end-to-end worked session (Steps 1–5)
 
 ---
 

@@ -47,3 +47,9 @@ Every item of physical evidence must have a documented, unbroken chain of custod
 | Evidence booked days after collection | Unexplained delay creates opportunity for contamination, loss, or fabrication |
 | No evidence custodian signature | Cannot verify who had access; contradicts the purpose of the chain |
 | Lab received evidence with broken seal — but analyzed anyway | Lab should have documented the compromise and contacted the submitting agency |
+
+---
+
+## Module H Summary (moved from SKILL.md)
+
+Audit each link in the chain of custody from scene through trial — Link 1 (Scene to Transport), Link 2 (Transport to Storage), Link 3 (Storage), Link 4 (Storage to Laboratory), Link 5 (Laboratory Internal), Link 6 (Return and Court). A gap in the chain does not automatically result in exclusion under Louisiana law, but it goes to the weight of the evidence and can support a *State v. Toney* challenge. Catalog red flags (custody-record gaps, broken seals, unrefrigerated biological evidence, multi-item packaging, late booking, missing custodian signatures, lab-accepted broken seals).

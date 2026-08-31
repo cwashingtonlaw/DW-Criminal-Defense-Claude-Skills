@@ -215,3 +215,9 @@ Under La. C.E. Art. 702 and *State v. Foret*, 628 So. 2d 1116 (La. 1993), expert
 ---
 
 *Last updated: see SKILL.md version. Mark any specific case-law or statute citation `[VERIFY CURRENT]` before filing.*
+
+---
+
+## Module A Short Version (moved from SKILL.md)
+
+Short version: every controlled-substance identification must satisfy the **two-test rule** — at least one presumptive (color, microcrystalline, immunoassay) plus at least one confirmatory (GC/MS is the gold standard; FTIR or LC-MS/MS may suffice). Color tests alone (Marquis, Mecke, Mandelin, Scott, Duquenois-Levine for marijuana) are *presumptive* and not admissible standing alone for the substance element under Daubert/Foret. Bulk-sample cases require defensible statistical sampling (random or hypergeometric) — if only 1 of 50 units was tested, the State has not proven the other 49. CBD/THC distinction post-Farm Bill requires quantitative analysis, not just Duquenois-Levine. Audit chromatograms for co-elution, library-match score, and analyst-confirmed identification.

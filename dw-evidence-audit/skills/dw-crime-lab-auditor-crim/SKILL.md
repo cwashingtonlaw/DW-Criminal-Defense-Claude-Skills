@@ -57,6 +57,7 @@ Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and lo
 
 1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
 2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+3. `references/guardrails.md` — this skill's full Guardrails text (compact hard rules remain inline below)
 
 Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output path follows the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
 
@@ -64,11 +65,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 ## STEP 1 — Information Gathering Protocol
 
-**Essential (must have before auditing):** (1) Lab Evidence Inventory — every lab report with item and lab case numbers; (2) Charges with La. R.S. citations; (3) What the State Claims the lab result proves (substance element theory); (4) Substance / specimen type (powder, plant, pills, blood, urine, residue); (5) Quantity claimed (gross/net weight, unit count — drives sampling-adequacy review).
+Collect three tiers: **Essential** (items 1-5: lab evidence inventory, charges, what the State claims the result proves, substance/specimen type, quantity claimed), **Strategic** (items 6-13: analyst CV, validation study, accreditation certificate, error logs, proficiency tests, raw instrument data, lab chain of custody, R.S. 15:499/15:501 filing and service record), and **Contextual** (items 14-17: lab and accrediting body, method/SOP version, instrument and calibration history, batch co-samples).
 
-**Strategic (request if not provided):** (6) Analyst CV and credentials (ABC, ABFT); (7) Validation study for the specific method; (8) Current accreditation certificate with scope; (9) Error logs / corrective actions for the analyst and section; (10) Proficiency tests (past 3-5 years, CTS); (11) Raw instrument data (chromatograms, mass spectra, library hits); (12) Lab chain of custody (intake log, sub-sampling, internal transfers); (13) R.S. 15:499 filing and R.S. 15:501 service record / deadline.
-
-**Contextual (extract from uploaded files):** (14) Lab name and accrediting body (SPCL, LSP Crime Lab, NOPD, private lab, etc.); (15) Method name and SOP version; (16) Instrument identifier and calibration history; (17) Co-defendant / comparison samples in the same batch (cross-contamination risk).
+Read `references/information-gathering-checklist.md` now for the full ranked checklist.
 
 **Present missing essential items as a ranked checklist before auditing.** If essentials 1-5 are missing, do not audit — ask for them first.
 
@@ -78,19 +77,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Identify every category of lab evidence present and flag which audit modules apply. Audit only what exists, but flag conspicuous absences (e.g., a kilogram cocaine case with no GC/MS confirmation, or a DWI blood case with no confirmatory testing of drug screen positives).
 
-| Category | What It Is | Typical Methodology Issues | Module |
-|---|---|---|---|
-| **Controlled substance ID** (cocaine, meth, heroin, fentanyl, MDMA, marijuana, synthetic cannabinoids, prescription pills, LSD blotter) | Identification of the substance | Color test only; no confirmatory test; library match without analyst-confirmed spectrum; outdated SOP; analyte not in validated scope (novel synthetic) | A |
-| **Bulk weight / sampling** (10 baggies, 100 pills, 50 dosage units) | Whether the total mass is the controlled substance | Random sampling vs. hypergeometric sampling; only some units tested; weight from packaged vs. net | A |
-| **Blood alcohol — lab analysis** | Quantitation of ethanol in blood/urine | Headspace GC-FID vs. confirmatory GC-MS; single-column ID; serum-vs-whole-blood conversion; preservation/anticoagulant; storage temperature | B (hand off DWI roadside/operator issues to dw-dwi-specialist-crim) |
-| **Blood/urine drug screen + confirmation** | Immunoassay screen plus instrumental confirmation | ELISA/EMIT cross-reactivity; cutoffs; failure to confirm positive screens by GC/MS or LC-MS/MS; metabolite vs. parent drug | B |
-| **Trace evidence — fibers, paint, GSR** | Comparative microscopy and elemental analysis | Limited probative value; SEM-EDS for GSR; touch points to `dw-firearms-specialist-crim` (GSR) and `dw-crime-scene-auditor-crim` (collection) | A/B (flag handoff) |
+Five categories: controlled substance ID (Module A), bulk weight / sampling (A), blood alcohol — lab analysis (B; roadside/operator issues to dw-dwi-specialist-crim), blood/urine drug screen + confirmation (B), and trace evidence — fibers, paint, GSR (A/B; flag handoff to `dw-firearms-specialist-crim` and `dw-crime-scene-auditor-crim`). When the charge implies lab work absent from discovery, issue a **CONSPICUOUS ABSENCE** flag (*Brady* / investigative deficiency / *Youngblood*).
 
-### Conspicuous Absence Flags
-
-When the charge implies lab work that does not appear in discovery:
-
-> **CONSPICUOUS ABSENCE — [Category]:** In a [charge type] case where the State alleges [substance/quantity/condition], a [method type] result would be standard. No such report appears in the discovery provided. Was it obtained and not disclosed (*Brady*)? Was it not obtained (investigative deficiency)? Were results unfavorable (*Brady/Youngblood*)? Flag for: Missing Discovery Demand + cross-examination of lead investigator.
+Read `references/evidence-category-triage.md` now for the category table (typical methodology issues per category) and the Conspicuous Absence flag template.
 
 ---
 
@@ -99,34 +88,40 @@ When the charge implies lab work that does not appear in discovery:
 Each module has a short summary here and a full reference in `references/`. Apply only the modules that match the evidence categories triaged in Step 2.
 
 ### Module A — Drug ID Methodology
-**Reference:** `references/drug-id-methodology.md`
 
-Short version: every controlled-substance identification must satisfy the **two-test rule** — at least one presumptive (color, microcrystalline, immunoassay) plus at least one confirmatory (GC/MS is the gold standard; FTIR or LC-MS/MS may suffice). Color tests alone (Marquis, Mecke, Mandelin, Scott, Duquenois-Levine for marijuana) are *presumptive* and not admissible standing alone for the substance element under Daubert/Foret. Bulk-sample cases require defensible statistical sampling (random or hypergeometric) — if only 1 of 50 units was tested, the State has not proven the other 49. CBD/THC distinction post-Farm Bill requires quantitative analysis, not just Duquenois-Levine. Audit chromatograms for co-elution, library-match score, and analyst-confirmed identification.
+Every controlled-substance ID must satisfy the **two-test rule** (presumptive + confirmatory; GC/MS is the gold standard) — color tests alone are presumptive only; bulk seizures need defensible statistical sampling; CBD/THC needs quantitative analysis; audit chromatograms for co-elution and library-match quality.
+
+Read `references/drug-id-methodology.md` now for the Module A short version and the full drug-ID methodology audit.
 
 ### Module B — Toxicology Methodology
-**Reference:** `references/toxicology-methodology.md`
 
-Short version: every positive drug screen by immunoassay (ELISA, EMIT) must be confirmed by an orthogonal technique — typically GC/MS or LC-MS/MS — at a defined cutoff with deuterated internal standards. Blood-alcohol quantitation by headspace GC requires calibration curve, dual-column or GC-MS confirmation, and explicit whole-blood-vs-serum reporting (serum reads ~1.14× higher than whole blood). Defendant has a statutory right to a preserved sample for independent testing (La. R.S. 32:663 and related provisions — VERIFY CURRENT). For THC, the presence of carboxy-THC metabolite proves only past use, not impairment at the time of driving. Postmortem redistribution is a major confounder for postmortem tox.
+Every immunoassay positive must be confirmed by an orthogonal technique (GC/MS or LC-MS/MS) at a defined cutoff; blood-alcohol headspace GC requires calibration, confirmation, and explicit whole-blood-vs-serum reporting; the defendant has a statutory right to a preserved sample; carboxy-THC proves past use, not impairment.
+
+Read `references/toxicology-methodology.md` now for the Module B short version and the full toxicology methodology audit.
 
 ### Module C — Analyst Dossier Compilation
-**Reference:** `references/analyst-dossier.md`
 
-Short version: compile a full dossier on the testifying analyst — CV, certifications (ABC, ABFT), tenure, proficiency-test history (pass/fail), prior testimony record (Daubert challenges, exclusions), error-log entries naming the analyst, and discipline history. Cross-reference against the cautionary precedents (Dookhan, Farak, Houston, Detroit, NC SBI) — when systemic misconduct has occurred at a lab, the defense is entitled to it under Brady regardless of whether *this* analyst was directly implicated. Reference includes the discovery demand checklist.
+Compile the testifying analyst's full dossier — CV, certifications, proficiency history, prior testimony, error-log entries, discipline — and cross-reference the cautionary precedents (Dookhan, Farak, Houston, Detroit, NC SBI) for *Brady* entitlement.
+
+Read `references/analyst-dossier.md` now for the Module C short version, the dossier template, and the discovery demand checklist.
 
 ### Module D — Lab Accreditation Audit
-**Reference:** `references/lab-accreditation.md`
 
-Short version: verify the lab's current accreditation under ANAB (ISO 17025:2017) — the legacy ASCLD/LAB-International accreditation has been consolidated into ANAB. Verify the scope of accreditation covers the specific method used (a lab can be accredited for cocaine ID but not for novel synthetic cannabinoids). Pull recent ANAB audit reports and corrective-action plans. Loss of accreditation or significant audit findings during the case period is admissibility-level material. Flag Louisiana state and parish labs and their current status (attorney must verify currency at time of trial).
+Verify current ANAB (ISO 17025:2017) accreditation and that its scope covers the specific method used; pull recent audit reports and corrective-action plans; loss of accreditation during the case period is admissibility-level material.
+
+Read `references/lab-accreditation.md` now for the Module D short version and the full accreditation audit.
 
 ### Module E — Certificate Challenges (Melendez-Diaz / La. R.S. 15:499 / 15:501)
-**Reference:** `references/certificate-challenges-louisiana.md`
 
-Short version: under La. R.S. 15:499, the State may file a criminalist's certificate in lieu of live analyst testimony. The defendant has a confrontation right to demand live testimony (*Melendez-Diaz v. Massachusetts*, 557 U.S. 305 (2009)) — but Louisiana imposes a statutory objection deadline under R.S. 15:501 (commonly 15 days before trial — **VERIFY CURRENT STATUTORY DEADLINE**). Failure to timely object waives the confrontation challenge. *Bullcoming v. New Mexico*, 564 U.S. 647 (2011) forbids surrogate analyst testimony — the analyst who performed the test (or in a multi-analyst protocol, the one who certified the result) must testify. *Williams v. Illinois*, 567 U.S. 50 (2012) is a fractured plurality on expert-basis testimony. Reference includes the template R.S. 15:501 objection.
+Under La. R.S. 15:499 the State may file a criminalist's certificate; the defendant must timely object under R.S. 15:501 (**VERIFY CURRENT STATUTORY DEADLINE**) to preserve *Melendez-Diaz* confrontation; *Bullcoming* forbids surrogate testimony; preserve the *Williams* issue.
+
+Read `references/certificate-challenges-louisiana.md` now for the Module E short version, the statutory framework, and the template R.S. 15:501 objection.
 
 ### Module F — Chain of Custody at the Lab (Lab-Side Only)
-**Reference:** `references/chain-of-custody-at-lab.md`
 
-Short version: this skill audits the **lab-side** chain — intake, internal sub-sampling, analyst-to-analyst transfers, storage conditions, and consumption tracking. **Field-side chain** (collection at scene through transport to lab) belongs to `dw-chain-of-custody-auditor-crim`. Watch for: anonymous handoffs, undocumented sub-samples, seal break without log entry, freezer/refrigerator temperature gaps, and disposal/consumption without preservation of a defense sample.
+Audit the **lab-side** chain only — intake, sub-sampling, analyst transfers, storage conditions, consumption tracking; field-side chain belongs to `dw-chain-of-custody-auditor-crim`.
+
+Read `references/chain-of-custody-at-lab.md` now for the Module F short version and the lab-side chain audit.
 
 ---
 
@@ -141,29 +136,11 @@ Produce as a **Word document (.docx)** following the **dw-data-contracts-crim Au
 ### Output Path
 `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 
-### Report Structure (Contract 2 sections)
+### Report Structure & Severity
 
-1. **Case Information header** — defendant, charges, lab(s), analyst(s), method(s) audited, report date(s), **R.S. 15:501 deadline (flag if missed)**
-2. **Executive Summary** — 2-3 paragraphs: categories audited, CRITICAL count, overall assessment, top 3 defense opportunities, certificate-challenge status
-3. **Evidence Examined** — every lab report, raw data file, CV, accreditation document, validation study reviewed, with Bate-stamp references
-4. **Methodology Audit** — Module A/B findings (two-test rule, validation, raw data, sampling, cutoffs, calibration, internal standards), each tagged CRITICAL / SIGNIFICANT / MINOR / INFORMATIONAL
-5. **Analyst Dossier** — Module C output (credentials, proficiency, prior testimony, error logs, discipline, cautionary-precedent cross-reference)
-6. **Lab Accreditation Audit** — Module D output (status, scope vs. method, audit findings, loss-of-accreditation issues)
-7. **Certificate & Confrontation Audit** — Module E output (R.S. 15:499 filing, R.S. 15:501 deadline, object-or-accept recommendation, *Bullcoming* surrogate risk, *Williams* preservation)
-8. **Chain of Custody at the Lab** — Module F output (lab-side only); cross-reference to `dw-chain-of-custody-auditor-crim` for field-side
-9. **Findings by Severity** — consolidated CRITICAL / SIGNIFICANT / MINOR / INFORMATIONAL list
-10. **Defense Implications** — for each Critical/Significant: effect on substance element, weight, defense theory
-11. **Key Findings for Cross-Examination** — bullet list: finding, source reference, suggested line of questioning, target witness
-12. **Recommendations** — R.S. 15:501 objection deadline; motion to compel raw data; Daubert/Foret; defense expert needs; Brady/Giglio demand; independent testing
-13. **Case Brain Registration** — per Contract 5
-14. **Appendices** — A: Legal Standards Table; B: Cross-Exam Chapter Seeds; C: Technical Glossary
+Fourteen Contract 2 sections: Case Information header (with **R.S. 15:501 deadline — flag if missed**), Executive Summary, Evidence Examined, Methodology Audit, Analyst Dossier, Lab Accreditation Audit, Certificate & Confrontation Audit, Chain of Custody at the Lab, Findings by Severity, Defense Implications, Key Findings for Cross-Examination, Recommendations, Case Brain Registration, Appendices A-C. Tag each finding CRITICAL / SIGNIFICANT / MINOR / INFORMATIONAL.
 
-### Severity Classification
-
-- **CRITICAL:** Directly undermines the substance element or admissibility. Examples: color test only — no confirmatory test on a Schedule II charge; analyst not qualified to interpret the chromatogram; lab lost accreditation during the case period; the R.S. 15:501 objection deadline was missed and confrontation is waived.
-- **SIGNIFICANT:** Weakens evidentiary weight and provides strong cross material. Examples: only 3 of 50 baggies tested without statistical sampling protocol; immunoassay positive not confirmed by GC/MS; analyst's two most recent proficiency tests were failures.
-- **MINOR:** Technical irregularity affecting weight but not admissibility. Examples: SOP version outdated by one revision; calibration verification slightly outside window but within tolerance.
-- **INFORMATIONAL:** Noted for completeness. Example: method is well-validated and properly applied — no defect found, document for credibility.
+Read `references/audit-report-structure.md` now for the full section-by-section structure, the severity definitions with examples, and the Severity Quick Reference table.
 
 ---
 
@@ -171,17 +148,9 @@ Produce as a **Word document (.docx)** following the **dw-data-contracts-crim Au
 
 For each CRITICAL and SIGNIFICANT finding, generate cross-examination chapter seeds formatted for `dw-cross-exam-architect-crim`.
 
-### Two analyst-cross archetypes
+Two analyst-cross archetypes (drug analyst; toxicologist) plus an auditor cross when the State calls an external auditor. Each seed carries Witness Type, Chapter Goal, 5 Key Questions, Source, Impeachment Note, and Legal Authority.
 
-1. **Drug-analyst cross** — establish that color tests are presumptive, that the GC/MS run is the only confirmatory result, then attack chromatogram quality, library-match score, co-elution risk, and sampling adequacy.
-2. **Toxicologist cross** — establish the immunoassay-confirmation hierarchy, then attack cutoffs, cross-reactivity, retention time, internal standards, and (for blood alcohol) serum-vs-whole-blood reporting.
-
-### Auditor cross (when applicable)
-If the State calls an external auditor (rare), use ANAB audit findings, corrective-action plans, and any open nonconformances to establish that the lab section was operating under known deficiencies during the analysis at issue.
-
-### Cross Chapter Seed Format
-
-Each seed contains: Witness Type (Drug Analyst / Toxicologist / Lab Auditor); Chapter Goal; 5 Key Questions (lock into methodology → establish scientific standard → apply to case data → demonstrate the gap → close on reasonable doubt); Source (lab report page/Bate, chromatogram, analyst CV); Impeachment Note (prior proficiency failures, prior Daubert exclusions, SOP inconsistency); Legal Authority (Daubert/Foret, La. C.E. Art. 702, *Melendez-Diaz*, *Bullcoming*, R.S. 15:499-501).
+Read `references/cross-exam-seeds.md` now for the archetypes and the Cross Chapter Seed format.
 
 Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-architect-crim skill]`
 
@@ -189,27 +158,17 @@ Tag each seed: `[READY FOR CROSS-EXAM ARCHITECT — pass to dw-cross-exam-archit
 
 ## STEP 6 — Admissibility & Legal Challenge Framework
 
-| Challenge Type | Motion | Authority |
-|---|---|---|
-| Methodology unreliable (no confirmatory test; library-match-only) | Daubert/Foret motion in limine | La. C.E. Art. 702; *Daubert v. Merrell Dow*, 509 U.S. 579 (1993); *State v. Foret*, 628 So. 2d 1116 (La. 1993) |
-| State proceeds on certificate without live analyst | R.S. 15:501 objection demanding live testimony | La. R.S. 15:499; La. R.S. 15:500; La. R.S. 15:501; *Melendez-Diaz v. Massachusetts*, 557 U.S. 305 (2009) |
-| Surrogate analyst testifies in place of certifier | Confrontation objection / motion in limine | *Bullcoming v. New Mexico*, 564 U.S. 647 (2011) |
-| Expert opinion based on absent analyst's data | Confrontation objection; preserve for appeal | *Williams v. Illinois*, 567 U.S. 50 (2012) (fractured plurality — preserve issue) |
-| Raw instrument data, chromatograms, error logs, proficiency tests withheld | Motion to compel / *Brady* motion | La. C.Cr.P. Art. 718-722; *Brady v. Maryland*, 373 U.S. 83 (1963); *Giglio v. United States*, 405 U.S. 150 (1972) |
-| Bulk-sample case — untested units | Motion in limine to restrict the weight to tested units | La. C.E. Art. 702; sufficiency-of-evidence |
-| Loss / non-preservation of sample, no preserved aliquot for defense testing | Motion for independent testing; *Trombetta/Youngblood* challenge | La. R.S. 32:663 (where applicable); *California v. Trombetta*, 467 U.S. 479 (1984); *Arizona v. Youngblood*, 488 U.S. 51 (1988) |
-| Lab not accredited for the specific scope used | Daubert/Foret challenge; foundation objection | La. C.E. Art. 702; foundation under La. C.E. Art. 901 |
-| Lab misconduct (Dookhan/Farak-style pattern) | Motion for *Brady* disclosure; new-trial / suppression | *Brady v. Maryland*; *Giglio v. United States* |
+Match each CRITICAL finding to its motion and authority — Daubert/Foret in limine, R.S. 15:501 objection (*Melendez-Diaz*), *Bullcoming* surrogate objection, *Williams* preservation, motion to compel / *Brady*, bulk-sample weight restriction, *Trombetta/Youngblood* preservation, scope-of-accreditation foundation, and lab-misconduct *Brady*.
+
+Read `references/admissibility-challenges.md` now for the full Challenge Type → Motion → Authority table.
 
 ---
 
 ## STEP 7 — Defense Expert Engagement
 
-Flag when an independent forensic chemist or toxicologist is needed and route to `dw-expert-witness-evaluator-crim`. Trigger conditions:
+Flag when an independent forensic chemist, forensic toxicologist, or lab-systems / quality auditor is needed and route to `dw-expert-witness-evaluator-crim`.
 
-- **Forensic chemist** retained when: novel synthetic at issue; the State's identification rests on a single test (no confirmatory); statistical sampling of a bulk seizure is in dispute; chromatogram interpretation will require rebuttal expert testimony; the case involves a Daubert/Foret hearing.
-- **Forensic toxicologist** retained when: blood-alcohol case turns on retrograde extrapolation, serum/whole-blood conversion, or rising-BAC defense (coordinate with `dw-dwi-specialist-crim`); drug-tox case turns on metabolite-vs-parent or impairment-vs-presence (THC); postmortem redistribution is in play; an immunoassay positive was not confirmed.
-- **Lab-systems / quality auditor** retained when: lab misconduct, accreditation loss, or systemic Dookhan/Farak-pattern evidence emerges.
+Read `references/defense-expert-engagement.md` now for the trigger conditions for each expert type.
 
 Mark every finding requiring expert support: `[EXPERT REQUIRED — retain defense forensic chemist / toxicologist / lab-systems auditor]`.
 
@@ -217,12 +176,7 @@ Mark every finding requiring expert support: `[EXPERT REQUIRED — retain defens
 
 ## Severity Classification (Quick Reference)
 
-| Tag | Meaning | Example |
-|---|---|---|
-| CRITICAL | Excludable evidence or material outcome effect | No confirmatory test; analyst not qualified; R.S. 15:501 waived |
-| SIGNIFICANT | Strong cross / weight reduction | Untested units in bulk seizure; immunoassay-only |
-| MINOR | Procedural deficiency affecting weight | SOP revision lag; minor calibration window slip |
-| INFORMATIONAL | Documented for credibility / completeness | Method validated and properly applied |
+CRITICAL (excludable evidence / material outcome effect) · SIGNIFICANT (strong cross / weight reduction) · MINOR (procedural deficiency affecting weight) · INFORMATIONAL (credibility / completeness). Full table with examples: `references/audit-report-structure.md`.
 
 ---
 
@@ -232,17 +186,9 @@ After completing this audit, offer the attorney:
 
 > *"This audit identified [X] findings rated CRITICAL or SIGNIFICANT. Would you like me to generate cross-examination chapters and route the certificate-challenge filing now?"*
 
-Downstream routing:
+Route by finding: `dw-cross-exam-architect-crim` (analyst / auditor cross); `dw-pretrial-motion-library-crim` (R.S. 15:501 objection, motion to compel, Daubert/Foret); `dw-drug-offense-specialist-crim` (substance element); `dw-dwi-specialist-crim` (blood-alcohol confirmation issues); `dw-suppression-motion-crim` (lab-chain grounds); `dw-issue-code-tracker-crim` (issue codes for every CRITICAL). Upstream: `dw-discovery-orchestrator-crim`.
 
-- **`dw-cross-exam-architect-crim`** — analyst cross (drug analyst and/or toxicologist); auditor cross if applicable
-- **`dw-pretrial-motion-library-crim`** — R.S. 15:501 objection / Melendez-Diaz demand; motion to compel raw data and proficiency tests; Daubert/Foret motion in limine
-- **`dw-drug-offense-specialist-crim`** — substantive drug-offense strategy (the lab audit feeds the substance element of the charge)
-- **`dw-dwi-specialist-crim`** — lab-portion findings feed back into the DWI workflow (especially blood-alcohol confirmation issues)
-- **`dw-suppression-motion-crim`** — chain-of-custody-at-lab grounds if any link supports suppression
-- **`dw-issue-code-tracker-crim`** — Issue codes for every CRITICAL finding so they ripen into trial and appellate issues
-
-**Upstream — read from:**
-- `dw-discovery-orchestrator-crim` — for the discovery production identifying the lab documents and for triage of incoming productions
+Read `references/downstream-routing.md` now for the full downstream / upstream routing list.
 
 ---
 
@@ -266,28 +212,35 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 ## Guardrails
 
-- **No fabricated chemistry.** If you do not know the validated detection limit of a particular method, the specificity of a particular immunoassay, or the proper internal standard for a particular analyte, say so and recommend retaining a defense forensic chemist or toxicologist. The audit's credibility depends on intellectual honesty about the limits of what can be inferred from the documents on hand.
-- **Recommend a defense expert when limits of analysis are hit.** Mark such findings `[EXPERT REQUIRED]`. Do not bluff through technical detail that would not survive cross by a competent State chemist.
-- **Brady awareness.** Always treat error logs, proficiency-test failures, prior Daubert exclusions, analyst discipline, and lab-wide misconduct as *Brady/Giglio* material. If it has not been produced, the audit's first finding is the failure to produce.
-- **Intellectual honesty when the chemistry is solid.** If the State's methodology is rigorous, the analyst is well-credentialed, and the chromatogram is clean, say so. An audit that strains to attack solid chemistry damages credibility at the next audit. Document the strength; redirect defense energy to other vulnerable elements (chain, search, intent, identity).
-- **Jurisdictional toggle.** Default to Louisiana / 5th Circuit. *Melendez-Diaz* and *Bullcoming* are SCOTUS decisions that apply everywhere; the R.S. 15:499 / 15:501 procedure is Louisiana-specific. If another jurisdiction is specified, adapt to that state's confrontation-procedure statute.
-- **File intake hard stop.** Never analyze without first clearing the intake gate in Step 0 and confirming the essential intake set is either in-hand or logged as the first audit finding.
-- **DNA is OUT.** Any DNA, serology, mixture interpretation, STR, or forensic biology issue routes to `dw-dna-forensic-biology-auditor-crim`. Do not duplicate that skill's work here.
-- **DWI roadside is OUT.** SFST, roadside conduct, breath-instrument operator audit, and rising-BAC arithmetic belong to `dw-dwi-specialist-crim`. This skill covers the lab-side blood/urine chemistry only.
-- **Substantive drug law is OUT.** Schedule classification, constructive possession, intent-to-distribute, drug-free zones, and habitual-offender enhancement belong to `dw-drug-offense-specialist-crim`. This skill audits the chemistry that proves the substance element.
-- **Verify current statutes and case law.** R.S. 15:501's objection deadline and the post-*Williams* Louisiana confrontation cases evolve. Mark legal analysis `[VERIFY CURRENT]` and recommend the attorney confirm before filing.
+Hard rules — full text in `references/guardrails.md` (loaded at Step 0.5):
+
+- **No fabricated chemistry.** Unknown detection limits, immunoassay specificity, or internal standards → say so and recommend a defense forensic chemist or toxicologist.
+- **Recommend a defense expert** when the limits of analysis are hit; mark `[EXPERT REQUIRED]`. Do not bluff technical detail.
+- **Brady awareness.** Error logs, proficiency failures, prior Daubert exclusions, analyst discipline, and lab-wide misconduct are *Brady/Giglio* material; non-production is the first finding.
+- **Intellectual honesty when the chemistry is solid** — say so and redirect defense energy to other elements.
+- **Jurisdictional toggle.** Louisiana / 5th Circuit default; the R.S. 15:499 / 15:501 procedure is Louisiana-specific.
+- **File intake hard stop.** Clear Step 0; log missing essentials as the first audit finding.
+- **DNA is OUT** → `dw-dna-forensic-biology-auditor-crim`. **DWI roadside is OUT** → `dw-dwi-specialist-crim`. **Substantive drug law is OUT** → `dw-drug-offense-specialist-crim`.
+- **Verify current statutes and case law.** Mark legal analysis `[VERIFY CURRENT]`.
 
 ## Quick References
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
-- **drug-id-methodology.md** — Module A: controlled-substance identification chemistry (presumptive screening, confirmatory analysis, instrumental methods, bulk sampling, Daubert/Foret sufficiency standards)
-- **toxicology-methodology.md** — Module B: forensic toxicology chemistry (immunoassay screening, instrumental confirmation, blood-alcohol analysis, metabolite-vs-impairment problem)
-- **analyst-dossier.md** — Module C: analyst professional-record compilation template, discovery demand checklist, and cautionary precedents
-- **lab-accreditation.md** — Module D: accreditation regime, audit reports, corrective-action plans, and admissibility consequences of lost/restricted accreditation
-- **certificate-challenges-louisiana.md** — Module E: Louisiana lab-certificate statutory framework, confrontation-clause overlay, and challenge-preservation mechanics
-- **chain-of-custody-at-lab.md** — Module F: lab-side chain of custody from evidence intake through analysis, sub-sampling, storage, and disposition
-
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-17)
+- **evidence-category-triage.md** — Step 2: lab-evidence category table + Conspicuous Absence flag template
+- **guardrails.md** — Step 0.5: full Guardrails text
+- **drug-id-methodology.md** — Module A: short version + controlled-substance identification chemistry (presumptive screening, confirmatory analysis, instrumental methods, bulk sampling, Daubert/Foret sufficiency)
+- **toxicology-methodology.md** — Module B: short version + forensic toxicology chemistry (immunoassay screening, instrumental confirmation, blood-alcohol analysis, metabolite-vs-impairment)
+- **analyst-dossier.md** — Module C: short version + dossier template, discovery demand checklist, cautionary precedents
+- **lab-accreditation.md** — Module D: short version + accreditation regime, audit reports, corrective-action plans, admissibility consequences
+- **certificate-challenges-louisiana.md** — Module E: short version + Louisiana lab-certificate statutory framework, confrontation-clause overlay, challenge-preservation mechanics
+- **chain-of-custody-at-lab.md** — Module F: short version + lab-side chain of custody from intake through disposition
+- **audit-report-structure.md** — Step 4: Contract 2 report structure, severity definitions with examples, Severity Quick Reference table
+- **cross-exam-seeds.md** — Step 5: analyst-cross archetypes, auditor cross, Cross Chapter Seed format
+- **admissibility-challenges.md** — Step 6: Challenge Type → Motion → Authority table
+- **defense-expert-engagement.md** — Step 7: trigger conditions for forensic chemist / toxicologist / lab-systems auditor
+- **downstream-routing.md** — Handoff: downstream / upstream routing list
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit (Phase 2 — Discovery Processing). Pair with `dw-dna-forensic-biology-auditor-crim` (DNA & biology), `dw-chain-of-custody-auditor-crim` (field-side chain), `dw-dwi-specialist-crim` (DWI workflow), `dw-drug-offense-specialist-crim` (substantive drug-offense strategy), `dw-cross-exam-architect-crim` (analyst cross), and `dw-pretrial-motion-library-crim` (R.S. 15:501 objection / Daubert/Foret motion).*

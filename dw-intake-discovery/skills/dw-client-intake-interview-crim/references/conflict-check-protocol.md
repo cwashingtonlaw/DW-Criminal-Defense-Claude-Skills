@@ -411,9 +411,8 @@ If the client begins narrating immediately, gently redirect:
 
 That sheet is the conflict screen input. The narrative comes later.
 
-### What gets screened (`references/conflict-check-protocol.md`)
-
-The conflict-check protocol reference (`references/conflict-check-protocol.md`) covers:
+### What gets screened
+This protocol covers:
 
 - Firm database query workflow (current and former clients)
 - Co-defendant screen (Rule 1.7 concurrent conflicts; joint representation almost never advisable in criminal co-defendant scenarios)

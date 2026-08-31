@@ -32,3 +32,14 @@ Geofence warrants face serious constitutional challenges, and the law is still d
 - ***United States v. Chatrie***, 590 F. Supp. 3d 901 (E.D. Va. 2022) — the most comprehensive judicial analysis of geofence warrants to date. The court found the geofence warrant was an unconstitutional general search but applied the good-faith exception. The analysis is highly useful even where the result was not suppression.
 - **5th Circuit:** Monitor for circuit-specific geofence rulings. Several state courts have begun addressing geofence warrants.
 - **State law:** Some states have enacted legislation specifically addressing geofence warrants — check whether Louisiana has done so.
+
+---
+
+## Module E Summary (moved from SKILL.md)
+
+Geofence warrants ("reverse location warrants") ask a technology company (most commonly Google) to identify all devices present within a defined geographic area during a defined time window. Google's Sensorvault implementation follows a three-step process (anonymized return → narrowing → de-anonymization). Audit scope and particularity (geofence size, time window, devices captured, narrowing criteria objectivity), data source and accuracy (GPS/Wi-Fi/cell/Bluetooth blend; accuracy radii; devices outside the geofence appearing inside), and constitutional challenges.
+
+**Top legal challenges:**
+- Particularity / general warrant — captures all devices in an area
+- ***United States v. Chatrie***, 590 F. Supp. 3d 901 (E.D. Va. 2022) — found unconstitutional general search but applied good-faith exception; the analysis is highly useful even where suppression was denied
+- 5th Circuit and state-law developments — monitor

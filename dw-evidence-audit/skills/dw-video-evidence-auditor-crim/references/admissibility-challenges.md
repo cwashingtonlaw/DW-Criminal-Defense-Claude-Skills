@@ -36,3 +36,9 @@ Prosecutors often present selected still frames or short clips from video footag
 | Prior inconsistent statements (report vs. video) | La. C.E. Art. 613 |
 | Confrontation Clause (if video used in lieu of testimony) | 6th Amendment; *Crawford v. Washington*, 541 U.S. 36 (2004) |
 | Warrant for surveillance footage | La. C.Cr.P. Art. 162; 4th Amendment |
+
+---
+
+## Moved from SKILL.md — Step 6 summary
+
+Match each video deficiency to its corresponding motion type and authority. Core challenges: authentication failure (La. C.E. Art. 901(B)(1); *Nuccio*), edited/altered video (Art. 901; *Magee*), destroyed/non-preserved BWC (*Youngblood*), surveillance overwritten due to LE delay (spoliation), warrantless non-public surveillance (Art. 703 / 4th Amendment / *Carpenter*), incomplete disclosure of camera angles (*Brady* / Art. 718-722), unverified timestamp (Art. 901(B)(9)), foundation gaps, misleading still-frame use (Art. 403), and BWC policy violations (adverse-inference framework). Always demand the unedited complete video when the prosecution selects stills or clips.

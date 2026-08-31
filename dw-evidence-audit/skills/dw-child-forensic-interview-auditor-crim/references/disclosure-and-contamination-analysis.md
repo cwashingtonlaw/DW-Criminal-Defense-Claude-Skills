@@ -125,3 +125,15 @@ If court grants a taint hearing:
 - Assess whether child's statements in the "forensic" interview are independent memory or recycled from earlier suggestions
 
 **Relevance:** If taint is found, child's statements may be inadmissible as hearsay under La. C.E. Art. 801-803 (unreliable due to suggestive interviewing).
+
+---
+
+## Module E Summary (moved from SKILL.md)
+
+Audit the nature of the disclosure itself. Areas covered: spontaneous vs. prompted vs. elicited disclosure (with subdivisions of prompted by suggestiveness of prompt); consistency of statements across multiple interviews (with a four-row scenario table); and the level of detail provided — distinguishing high-reliability sensory/peripheral/contextual details from low-reliability generic, allegation-matching, or emotional-only descriptions.
+
+---
+
+## Module F Summary (moved from SKILL.md)
+
+Audit cumulative interview history. Areas covered: a systematic contamination table per prior interview (interviewer, what child said, new details introduced, prior knowledge held by interviewer); a HIGH/CRITICAL contamination risk-factor checklist; source monitoring failure analysis (Johnson & Raye, Marche & Howe research on children under 10 blending memory with input); and Louisiana-specific taint-hearing framework with relevance to La. C.E. Art. 801-803.

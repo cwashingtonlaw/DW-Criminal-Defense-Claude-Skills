@@ -153,43 +153,9 @@ Letter delivery follows custody status (jail mail certified format vs. email + c
 
 **Trigger:** Case disposition is Guilty Plea OR Guilty Verdict.
 
-### Appeal Viability Check
+Display the appeal deadline prominently (La. C.Cr.P. Art. 914 — 30 days from sentence; misdemeanors 2 days), then ask whether to run **dw-appellate-error-monitor-crim** for a viability assessment. YES → invoke it, mark "APPEAL PENDING — DO NOT ARCHIVE," save state to Case Brain, follow Step 5A (no archival until the appellate decision is final). NO → record "No appeal pursued" and proceed to Step 5B.
 
-1. **Display Appeal Deadline Prominently**
-   ```
-   APPEAL DEADLINE: [Calculate: Date + 30 days from sentence]
-   (La. C.Cr.P. Art. 914 — Motion for appeal must be filed within 30 days of sentence)
-   (Misdemeanor appeals: 2 days from date sentence)
-   ```
-
-2. **Prompt Attorney Decision**
-   ```
-   "Do you want to run dw-appellate-error-monitor-crim for an appeal viability assessment?"
-   ```
-
-3. **If Attorney Selects YES (Pursuing Appeal)**
-   - Invoke **dw-appellate-error-monitor-crim**
-   - Pass: Complete trial transcript, trial errors preserved, sentencing transcript
-   - Review error log for preserved trial errors
-   - Assess viability of appeal based on error preservation
-   - **CRITICAL:** Do NOT archive case while appeal is being pursued
-   - Mark case status: "APPEAL PENDING — DO NOT ARCHIVE"
-   - Save intermediate state to Case Brain
-   - Schedule follow-up per appellate timeline
-   - Proceed to Step 5A (appeal path)
-
-4. **If Attorney Selects NO (No Appeal)**
-   - Record decision in Case Brain: "No appeal pursued"
-   - Proceed to Step 5B (expungement eligibility check)
-
-### Step 5A: Appeal Workflow (if applicable)
-
-- Ensure trial transcript is complete and ordered
-- Preserve record for appellate review
-- Brief attorney on appellate deadlines and filing requirements
-- Do NOT proceed to file archival yet
-- Notify attorney when appeal is final (appellate court decision rendered)
-- Then return to Step 5B for post-appeal actions
+**Reference**: Read `references/module-4-appeal-assessment.md` now for the full Appeal Viability Check and the Step 5A appeal workflow.
 
 ---
 
@@ -229,33 +195,9 @@ Move the case folder from active to archive location (default: prefix with "CLOS
 
 ## INTEGRATION WITH D&W SKILL ECOSYSTEM
 
-### Reads From:
-- **dw-case-brain-crim:** Full case history, preliminary disposition status
-- **dw-case-dashboard-crim:** Case critical dates, final status
-- **dw-appellate-error-monitor-crim:** Error preservation log (for appeal assessment in Step 4)
+Reads from dw-case-brain-crim, dw-case-dashboard-crim, dw-appellate-error-monitor-crim; invokes the billing, client-communication, sentencing-mitigation, appellate-error-monitor, pretrial-motion-library, criminal-defense, and habitual-offender-auditor skills at Steps 2-6 plus docx / xlsx; writes to Case Brain, the case folder, DEVONthink tags, and Google Calendar.
 
-### Invokes:
-- **dw-billing-narrative-generator-crim** (Step 2): Captures all unbilled work across case lifecycle
-- **dw-client-communication-drafter-crim** (Step 3): Drafts disposition-specific client letters
-- **dw-appellate-error-monitor-crim** (Step 4): Optional appeal viability assessment
-- **dw-sentencing-mitigation-specialist-crim** (Step 3): Custody client good-time calculations
-- **dw-pretrial-motion-library-crim** (Step 5): Optional expungement motion draft
-- **dw-criminal-defense-crim** (Step 6, Phase 1 Step 3): LWOP review sheet completion via `000 - Case Profile.docx` Part 2A (Homicide) or 2B (Sex Offense), if applicable — formerly the dw-lwop-populator skill, merged into the master workflow in v5.3
-- **dw-habitual-offender-auditor-crim** (Step 6): Habitual offender audit (if applicable)
-- **docx** skill: Case closing checklist generation
-- **xlsx** skill: Final billing summary workbook
-
-### Writes To:
-- **Case Brain:** Final disposition type, dates, sentence, appeal/expungement deadlines
-- **Case Folder:** Closing checklist, billing summary, expungement memo, archive summary
-- **DEVONthink:** Archive tags (if available)
-- **Google Calendar:** Appeal deadline, expungement eligibility reminder, file destruction deadline
-
-### Uses:
-- **docx skill** for closing checklist
-- **xlsx skill** for final billing summary
-- **Google Calendar API** for deadline tracking
-- **DEVONthink MCP** for archive tagging (if available)
+**Reference**: Read `references/integration-with-dw-skills.md` for the full Reads From / Invokes / Writes To / Uses lists.
 
 ---
 
@@ -306,17 +248,9 @@ Move the case folder from active to archive location (default: prefix with "CLOS
 
 ## EXECUTION SUMMARY
 
-This skill executes a 7-step case disposition workflow:
+Seven steps: Disposition Confirmation → Case Brain Update → Final Billing → Client Notification → Appeal Assessment → Expungement Check → File Archive.
 
-1. **DISPOSITION CONFIRMATION** — Mandatory gate confirming case has reached final disposition
-2. **CASE BRAIN UPDATE** — Record all disposition details, deadlines, sentence
-3. **FINAL BILLING** — Capture unbilled work and generate comprehensive billing summary
-4. **CLIENT NOTIFICATION** — Draft disposition-specific letter with rights/obligations/next steps
-5. **APPEAL ASSESSMENT** — Evaluate appeal viability and set appeal deadline
-6. **EXPUNGEMENT CHECK** — Determine expungement eligibility and timeline
-7. **FILE ARCHIVE** — Generate closing checklist, move to archive, set retention deadline
-
-**Success Metric:** Case is fully closed, all obligations to client met, file archived and tagged per Louisiana Rules of Professional Conduct, and all downstream systems (Case Brain, DEVONthink, Google Calendar) updated.
+**Reference**: Read `references/execution-summary.md` for the step list and success metric.
 
 ---
 
@@ -338,16 +272,19 @@ Five exceptions cover non-standard closure paths: (1) Co-Defendant Cases (close 
 
 ## QUICK REFERENCES
 
-The following reference files in `references/` carry the detailed module content. Read them as the corresponding step is invoked:
+The following reference files in `references/` carry the detailed module content. Read each as the corresponding step is invoked:
 
-- `references/module-1-case-brain-record.md` — Step 1: Case Brain disposition data schema, charge status taxonomy, sentencing fields, appellate deadlines (Arts. 914 / 881.1 / 930.8 / 215)
-- `references/module-2-final-billing.md` — Step 2: dw-billing-narrative-generator-crim handoff, four-step billing process, Excel workbook sheet specification, billing summary template items
-- `references/module-3-client-notification-letters.md` — Step 3: six disposition-specific letter templates (Acquittal/Dismissal, Guilty Plea/Verdict, Diversion, Nolle Prosequi, Transfer, Abatement), letter content checklist, delivery protocol
-- `references/module-5-expungement-eligibility.md` — Step 5: Louisiana Code Title XXXIV Arts. 971-986 article-by-article framework, per-charge determination checklist, expungement memo specification
-- `references/module-6-closing-checklist.md` — Step 6: nine-section attorney closing checklist (Discovery, Financial, Client Communication, Case Brain & Records, Appeal & Post-Conviction, Expungement, Administrative Closure, Special Case Types, File Retention & Archive) with sign-off block
-- `references/module-7-archive-and-retention.md` — Step 7: archive folder relocation procedure, Louisiana RPC 5-year retention policy, DEVONthink tagging schema, final archive checklist
-- `references/example-scenarios.md` — Four worked closure scenarios (immediate-sentencing plea, trial acquittal, delayed-sentencing verdict, diversion completion)
-- `references/troubleshooting-exceptions.md` — Five non-standard closure paths (co-defendant, retrial/mistrial, jurisdiction transfer, sensitive documents, post-sentencing custody)
+- **module-1-case-brain-record.md** — Step 1: Case Brain disposition data schema, charge-status taxonomy, sentencing fields, appellate deadlines (Arts. 914 / 881.1 / 930.8 / 215)
+- **module-2-final-billing.md** — Step 2: four-step billing process, Excel workbook sheet specification, billing summary template items
+- **module-3-client-notification-letters.md** — Step 3: six disposition-specific letter templates, letter content checklist, delivery protocol
+- **module-4-appeal-assessment.md** — Step 4: Appeal Viability Check (Art. 914 deadline display, attorney prompt, YES/NO branches) and Step 5A appeal workflow
+- **module-5-expungement-eligibility.md** — Step 5: Arts. 971-986 article-by-article framework, per-charge determination checklist, expungement memo specification
+- **module-6-closing-checklist.md** — Step 6: nine-section attorney closing checklist with sign-off block
+- **module-7-archive-and-retention.md** — Step 7: archive folder relocation, Louisiana RPC 5-year retention policy, DEVONthink tagging schema, final archive checklist
+- **integration-with-dw-skills.md** — Integration: Reads From / Invokes / Writes To / Uses lists for the DW skill ecosystem
+- **execution-summary.md** — Seven-step execution summary and success metric
+- **example-scenarios.md** — Four worked closure scenarios (immediate-sentencing plea, trial acquittal, delayed-sentencing verdict, diversion completion)
+- **troubleshooting-exceptions.md** — Five non-standard closure paths (co-defendant, retrial/mistrial, jurisdiction transfer, sensitive documents, post-sentencing custody)
 
 ---
 

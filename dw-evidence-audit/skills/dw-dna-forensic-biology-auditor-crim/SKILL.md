@@ -56,30 +56,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Lab Report(s)** — the State's DNA report(s) with all conclusions, profiles, statistics, and analyst signatures
-2. **Electropherograms (EPGs) / Raw Data** — the actual capillary electrophoresis output for every sample interpreted, including amplification controls
-3. **Lab Standard Operating Procedures (SOPs)** in effect at the time of testing — analytical and stochastic thresholds, mixture interpretation policy, statistical reporting policy
-4. **Analyst CV** — training, certifications (ABC, NRGC), proficiency-test history if available, prior testimony
-5. **Lab Accreditation Records** — ANAB/ASCLD-LAB or equivalent; date of last assessment; any open corrective actions
-6. **Validation Studies** — internal and developer validation studies for any probabilistic genotyping software (STRmix, TrueAllele, EuroForMix) used in the case
-7. **Charges & Statutes** — every count with La. R.S. citation; charge severity sets the scrutiny threshold
-8. **What the State Claims the DNA Proves** — the prosecution's theory of contributor identity, activity, and timing — this is what the audit ultimately tests
+Collect three tiers: **Essential** (items 1-8: lab report(s), EPGs / raw data, SOPs in effect, analyst CV, accreditation records, validation studies, charges & statutes, what the State claims the DNA proves), **Strategic** (items 9-15: proficiency history, error logs / corrective actions, bench notes, chain-of-custody records, reference-sample documentation, CODIS hit documentation, IGG documentation), and **Contextual** (items 16-19: evidence item description, NOC assignment, software / kit, statistical framework).
 
-### Strategic (request if not provided)
-9. **Lab Proficiency-Test History** — for the specific analyst and the section; pattern of errors, retests, declarations
-10. **Internal Lab Error Logs / Corrective Action Reports** — contamination events, equipment failures, validation deficiencies
-11. **Bench Notes / Worksheets** — the analyst's contemporaneous notes (Brady material — frequently withheld)
-12. **Chain-of-Custody Records** — from collection through analysis, including all internal lab transfers
-13. **Reference Sample Documentation** — collection method, consent, kit type, who collected
-14. **CODIS Hit Documentation** — if applicable, the original hit confirmation report, the confirmation re-test, and the CODIS administrator's logs
-15. **IGG / Genealogy Documentation** — if applicable, the SNP profile generation lab (Parabon, Othram, etc.), the genealogist's report, all GEDmatch / FamilyTreeDNA queries
-
-### Contextual (gather from uploaded files)
-16. **Evidence Item Description** — what was swabbed/extracted, collection method, substrate, environmental exposure
-17. **Number of Contributors (NOC) Assignment** — what the analyst called and how that decision was made
-18. **Software / Kit Used** — amplification kit (PowerPlex Fusion, GlobalFiler, Identifiler Plus); CE instrument (3500, 3130); interpretation software and version
-19. **Statistical Framework** — RMP (random match probability), CPI (combined probability of inclusion), or LR (likelihood ratio); which population database; theta value used
+Read `references/information-gathering-checklist.md` now for the full ranked checklist.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1–8 are missing, do not audit — issue the Missing Discovery demand as Finding #1 and ask for them.
 
@@ -89,26 +68,9 @@ Before drafting any audit, collect the following in ranked order:
 
 Identify every category of DNA evidence present in the case and flag which audit modules apply. Not every case involves every type — audit only what exists but flag conspicuous absences.
 
-### Evidence Category Matrix
+Ten categories map to Modules A-F: single-source STR (A, E); 2-person mixture (A, C, D); 3+ person complex mixture (A, B, C, D); low-template / LCN (A, C, E); touch / transfer (A, C, E); Y-STR (A, D); mtDNA (A, D, E); kinship (B, D); CODIS hit (A, D, F); IGG (F). When the charge implies DNA evidence absent from discovery, issue a **CONSPICUOUS ABSENCE** flag (*Brady* / investigative deficiency / *Youngblood*).
 
-| Category | What It Is | Typical Issue | Audit Module(s) |
-|---|---|---|---|
-| **Single-source STR** | Clean profile from one contributor matched to a reference | Often the strongest DNA evidence — focus on contamination, chain of custody, activity-level inference | A, E |
-| **2-person mixture** | DNA from two contributors interpreted to assign major/minor | Sub-threshold alleles, stochastic effects, contributor inference; LR computation | A, C, D |
-| **3+ person complex mixture** | DNA from three or more contributors, often degraded | Interpretive limits — PCAST 2016 flagged complex mixtures as the highest-risk category; NOC uncertainty; black-box deconvolution | A, B, C, D |
-| **Low-template / LCN DNA** | Sub-100 picogram inputs, increased PCR cycles or post-amp enhancement | Stochastic drop-out, drop-in, allele imbalance, replicate inconsistency — many labs and courts have rejected LCN | A, C, E |
-| **Touch / transfer DNA** | DNA from skin cells deposited by contact | Secondary/tertiary transfer, persistence, shedder variability — activity-level propositions overreach | A, C, E |
-| **Y-STR** | Y-chromosome-only profile (male lineage) | Haplotype frequency (not unique to individual), shared with paternal relatives, statistical limits | A, D |
-| **Mitochondrial DNA (mtDNA)** | Maternal-line marker for degraded/hair-shaft samples | Heteroplasmy, haplogroup commonality, contamination from maternal relatives | A, D, E |
-| **Kinship analysis** | Familial relationship calculations | Prior-probability assumptions, pedigree assumptions, software validation | B, D |
-| **CODIS database hit** | A profile uploaded to CODIS produced a candidate match | Hit is investigative lead, not evidence — confirmation re-test required; database-search statistics differ from RMP | A, D, F |
-| **Investigative Genetic Genealogy (IGG)** | SNP profile run against direct-to-consumer (GEDmatch, FamilyTreeDNA) databases to identify suspects via family trees | 4th Amendment scope, particularity, third-party doctrine; private-lab SNP methodology pre-*Daubert*/*Foret*; Brady on methodology | F |
-
-### Conspicuous Absence Flags
-
-When the charge type strongly implies DNA evidence should exist but does not appear in discovery, flag:
-
-> **CONSPICUOUS ABSENCE — [Category]:** In a [charge type] case where the state alleges [touching / penetration / weapon use / etc.], [evidence type] would be standard investigative evidence. No [evidence type] appears in the discovery provided. This absence should be explored: was it obtained and not disclosed (*Brady* concern)? Was it not obtained (investigative deficiency — possibly favorable)? Was it obtained with unfavorable results to the prosecution (*Brady/Youngblood*)? Flag for Missing Discovery Demand + cross-examination of lead investigator.
+Read `references/evidence-category-triage.md` now for the Evidence Category Matrix and the Conspicuous Absence flag template.
 
 ---
 
@@ -146,18 +108,9 @@ Audit CODIS handling and any IGG workflow: CODIS upload eligibility, confirmatio
 
 Produce as **Word document (.docx)** via the docx skill. Filename: `DNA Audit Report — [Client Last Name] [Date].docx`. Output: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`. Apply attorney work-product marking per shared protocol.
 
-Follow **`dw-data-contracts-crim` Contract 2 (Auditor Reports)** for required sections, in order:
+Follow **`dw-data-contracts-crim` Contract 2 (Auditor Reports)**: Executive Summary, Evidence Examined, Methodology, Findings by Severity (CRITICAL / SIGNIFICANT / MINOR / INFORMATIONAL), Defense Implications, Key Findings for Cross-Examination, Recommendations, Case Brain Registration, plus four appendices.
 
-1. **Executive Summary** — 2–3 paragraphs: evidence audited, finding count by severity, gap between lab conclusions and prosecution claims
-2. **Evidence Examined** — inventory of items audited with Bate refs and lab item numbers
-3. **Methodology** — SWGDAM 2017 mixture guidelines, ISFG DNA Commission recommendations, NIST validation framework, PCAST 2016, lab SOPs in effect, ANAB/ASCLD-LAB accreditation criteria, La. C.E. Art. 702 / *State v. Foret*
-4. **Findings by Severity** — CRITICAL / SIGNIFICANT / MINOR / INFORMATIONAL; each: description, source citation, defense impact, recommended action
-5. **Defense Implications** — how each finding affects identity, activity, presence, force, recency
-6. **Key Findings for Cross-Examination** — bullet list formatted for handoff to dw-cross-exam-architect-crim (see Step 5)
-7. **Recommendations** — motions to file, experts to retain, independent re-test, Brady demands
-8. **Case Brain Registration** — skill name, output filename, date, location
-
-Appendices: Legal Standards Reference; Cross-Exam Chapter Seeds; Discovery Gap Report; Technical Glossary.
+Read `references/audit-report-structure.md` now for the required content of each section, the appendices, and the Severity Classification summary block.
 
 ---
 
@@ -165,20 +118,7 @@ Appendices: Legal Standards Reference; Cross-Exam Chapter Seeds; Discovery Gap R
 
 For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapter seeds for **dw-cross-exam-architect-crim**:
 
-```
-CROSS CHAPTER SEED — [Finding Title]
-Witness Type: Expert (DNA Analyst / Lab Technical Leader / IGG Genealogist)
-Chapter Goal:  [e.g., "Establish that the STRmix LR for this 4-person mixture
-                was generated outside the lab's internal validation range."]
-Key Questions: Q1 lock in methodology/SOP/training → Q2 establish technical
-               limitation the analyst must concede → Q3 apply limitation to
-               this case → Q4 demonstrate equally consistent innocent
-               explanation → Q5 closing concession.
-Source:        [Lab report p./§ + EPG ref + SOP §]
-Impeachment:   [Exceeds published standards? Contradicts lab SOP, SWGDAM 2017,
-                or developer validation manual?]
-Authority:     State v. Foret, 628 So. 2d 1116 (La. 1993); Daubert; La. C.E. 702.
-```
+Read `references/cross-exam-seeds.md` now for the Cross Chapter Seed template (witness type, chapter goal, Q1-Q5 architecture, source, impeachment, authority).
 
 Tag each seed `[READY FOR CROSS-EXAM ARCHITECT]`.
 
@@ -186,21 +126,9 @@ Tag each seed `[READY FOR CROSS-EXAM ARCHITECT]`.
 
 ## STEP 6 — Admissibility & Legal Challenge Framework
 
-| Challenge Type | Motion | Authority |
-|---|---|---|
-| Methodology unreliable / novel | *Daubert/Foret* exclusion; Motion in Limine | *State v. Foret*, 628 So. 2d 1116 (La. 1993); *Daubert v. Merrell Dow Pharm.*, 509 U.S. 579 (1993); La. C.E. Art. 702 |
-| Probabilistic genotyping — source code withheld | Motion to Compel Source Code Access | Due process; *Brady v. Maryland*, 373 U.S. 83 (1963); confrontation; *People v. Chubbs*; *NY v. Hillary* |
-| Raw data / EPGs not produced | Motion to Compel Raw Data | *Brady*; La. C.Cr.P. Art. 718–722 |
-| Validation studies withheld | Motion to Compel Validation Documents | *Brady*; foundation under La. C.E. Art. 702/901 |
-| Contamination / chain-of-custody break | Motion to Suppress / Motion in Limine | La. C.E. Art. 901; La. C.Cr.P. Art. 703 |
-| LCN / low-template DNA | *Daubert/Foret* challenge | *Foret*; PCAST 2016 |
-| Complex mixture exceeding interpretive limits | *Daubert/Foret* challenge | *Foret*; PCAST 2016; SWGDAM 2017 |
-| Analyst not qualified | Motion in Limine / Voir Dire of expert | La. C.E. Art. 702–705 |
-| IGG — 4th Amendment scope | Motion to Suppress | *Carpenter v. United States*, 585 U.S. 296 (2018); particularity |
-| IGG — novel methodology | *Daubert/Foret* | *Foret* + relevant 5th Cir. case law |
-| Statistical overstatement (verbal scale) | Motion in Limine | La. C.E. Art. 403; *Foret* |
-| Brady on bench notes / proficiency / corrective actions | Motion to Compel / Brady motion | *Brady*; *Giglio v. United States*, 405 U.S. 150 (1972) |
-| Destroyed / consumed sample | Spoliation / *Youngblood* | *Arizona v. Youngblood*, 488 U.S. 51 (1988); La. R.S. 15:621 |
+Thirteen challenge types: methodology unreliable / novel (*Daubert/Foret*); source code withheld; raw data / EPGs withheld; validation studies withheld; contamination / chain break; LCN; complex mixture beyond interpretive limits; analyst not qualified; IGG 4th Amendment scope (*Carpenter*); IGG novel methodology; statistical overstatement; *Brady* on bench notes / proficiency / corrective actions; destroyed or consumed sample (*Youngblood*).
+
+Read `references/admissibility-challenges.md` now for the full Challenge Type → Motion → Authority table.
 
 See `references/louisiana-dna-case-law.md` for the full legal-standards reference.
 
@@ -216,12 +144,7 @@ Do not list specific individual experts in the audit report without attorney-con
 
 ## Severity Classification — Summary Block
 
-| Severity | Standard | Typical Finding |
-|---|---|---|
-| **CRITICAL** | Affects admissibility or outcome materially | STRmix run outside validated NOC range; CODIS hit reported without re-test; IGG SNP methodology not *Foret*-validated; contamination event in the section concealed |
-| **SIGNIFICANT** | Weakens prosecution case / supports defense theory | Verbal-scale LR label overstates math; analyst proficiency record incomplete; mixture at outer edge of SOP |
-| **MINOR** | Procedural deficiency, may not affect admissibility | Undocumented bench-note shorthand; minor chain-of-custody timing gap |
-| **INFORMATIONAL** | Completeness only | Kit lot rotation; accreditation cycle renewal pending |
+CRITICAL (affects admissibility or outcome materially) · SIGNIFICANT (weakens the State's case / supports the defense theory) · MINOR (procedural, may not affect admissibility) · INFORMATIONAL (completeness only). Full table with typical findings: `references/audit-report-structure.md`.
 
 ---
 
@@ -238,14 +161,9 @@ If yes, invoke **dw-cross-exam-architect-crim** and pass:
 
 **Additional downstream routing:**
 
-| When the audit finds... | Hand off to... |
-|---|---|
-| DNA analyst cross-exam material | **dw-cross-exam-architect-crim** |
-| Need to vet a defense DNA expert | **dw-expert-witness-evaluator-crim** |
-| Chain-of-custody / handling suppression grounds | **dw-suppression-motion-crim** |
-| *Daubert/Foret* motion; motion to compel raw data; motion to compel STRmix source code | **dw-pretrial-motion-library-crim** |
-| Issue tag tracking for trial notebook | **dw-issue-code-tracker-crim** |
-| Brady demand on validation studies, bench notes, proficiency, corrective-action records | **dw-brady-giglio-auditor-crim** (cross-reference) |
+Route: analyst cross → `dw-cross-exam-architect-crim`; vet a defense DNA expert → `dw-expert-witness-evaluator-crim`; chain / handling suppression → `dw-suppression-motion-crim`; *Daubert/Foret*, compel raw data, compel STRmix source code → `dw-pretrial-motion-library-crim`; issue tags → `dw-issue-code-tracker-crim`; Brady demands → `dw-brady-giglio-auditor-crim`.
+
+Read `references/downstream-routing.md` now for the full When-the-audit-finds → Hand-off table.
 
 **Upstream:** Read discovery from the package routed by **dw-discovery-orchestrator-crim**. If discovery is incomplete on essentials, surface the gap as Finding #1 and feed back to the discovery orchestrator.
 
@@ -284,15 +202,20 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 This skill uses the following reference materials, available in the `references/` subdirectory:
 
+- **information-gathering-checklist.md** — Step 1: ranked intake checklist (items 1-19)
+- **evidence-category-triage.md** — Step 2: Evidence Category Matrix + Conspicuous Absence flag template
 - **str-methodology.md** — Module A: STR methodology audit (all autosomal DNA cases)
-- **probabilistic-genotyping.md** — Module B: STRmix / TrueAllele / EuroForMix and other probabilistic interpretation software audits
+- **probabilistic-genotyping.md** — Module B: STRmix / TrueAllele / EuroForMix audits
 - **mixture-interpretation.md** — Module C: DNA mixture interpretation audit (two or more contributors)
 - **statistical-challenges.md** — Module D: challenges to reported DNA statistics (RMP, CPI, LR, kinship index)
-- **contamination-and-handling.md** — Module E: contamination and handling audit (load in essentially every DNA case)
-- **igg-and-databases.md** — Module F: CODIS hits, Investigative Genetic Genealogy, and DNA-database methodology
-- **louisiana-dna-case-law.md** — Legal standards for DNA admissibility and challenge under Louisiana law and 5th Circuit practice (annotate `[VERIFY CURRENT]`)
-- **defense-dna-experts.md** — Defense DNA expert categories and sourcing channels for Modules B–F retention recommendations
-
+- **contamination-and-handling.md** — Module E: contamination and handling audit (load in nearly every DNA case)
+- **igg-and-databases.md** — Module F: CODIS hits, Investigative Genetic Genealogy, DNA-database methodology
+- **audit-report-structure.md** — Step 4: Contract 2 section list, appendices, Severity Classification summary block
+- **cross-exam-seeds.md** — Step 5: Cross Chapter Seed template
+- **admissibility-challenges.md** — Step 6: Challenge Type → Motion → Authority table
+- **louisiana-dna-case-law.md** — Step 6: Louisiana / 5th Circuit DNA admissibility standards (annotate `[VERIFY CURRENT]`)
+- **defense-dna-experts.md** — Step 7: defense DNA expert categories and sourcing channels
+- **downstream-routing.md** — Handoff: When-the-audit-finds → Hand-off table
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for Phase 2 integration, dw-cross-exam-architect-crim for analyst cross-examination, dw-expert-witness-evaluator-crim for defense expert vetting, dw-suppression-motion-crim and dw-pretrial-motion-library-crim for motion practice, and dw-issue-code-tracker-crim for trial notebook integration. Upstream from dw-discovery-orchestrator-crim. For drug/toxicology audits use dw-crime-lab-auditor-crim; for sex-offense offense-level strategy use dw-sex-offense-specialist-crim — this skill is the deep methodology audit.*

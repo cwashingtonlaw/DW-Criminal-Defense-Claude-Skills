@@ -60,25 +60,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Forensic Report(s):** Cellebrite UFED, MSAB XRY, Magnet AXIOM, GrayKey, or other tool output
-2. **Device Identifier:** Make, model, and OS version of the target device
-3. **Extraction Type Used:** Logical, Advanced Logical, Full File System (FFS), or Physical
-4. **Charges:** all counts with statutory citations — severity determines extraction adequacy threshold
-5. **What the State Claims the Extraction Proves:** the prosecution's theory of what the phone data establishes
+Collect three tiers: **Essential** (items 1-5: forensic report(s), device identifier, extraction type used, charges, what the State claims the extraction proves), **Strategic** (items 6-10: examiner credentials, chain of custody documentation, warrant/consent scope, defense theory, known suppression issues), and **Contextual** (items 11-14: tool version, extraction logs/audit trail, hash values, time zone and clock settings).
 
-### Strategic (request if not provided)
-6. **Examiner Credentials:** name, agency, certifications (CCME, CCPA, EnCE, GCFE, etc.)
-7. **Chain of Custody Documentation:** seizure-to-extraction timeline, storage conditions, who handled the device
-8. **Warrant/Consent Scope:** what the warrant authorized vs. what was actually extracted
-9. **Defense Theory:** what happened from the defense perspective — what data should or shouldn't be there
-10. **Known Suppression Issues:** any pending motions regarding the device or its seizure
-
-### Contextual (gather from uploaded files)
-11. **Tool Version:** exact software version and license type used for extraction
-12. **Extraction Logs/Audit Trail:** automated logs showing extraction parameters, errors, retries
-13. **Hash Values:** MD5/SHA verification of extracted image vs. source device
-14. **Time Zone & Clock Settings:** device time zone, NTP sync status, manual vs. automatic time
+Read `references/information-gathering-checklist.md` now for the full ranked checklist (items 1-14).
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1–5 are missing, do not audit — ask for them first.
 
@@ -98,43 +82,17 @@ Classify the extraction used and flag inadequacy based on case severity.
 | 5 | **Physical** | Bit-for-bit image of all storage — includes unallocated space, carved artifacts, wear-leveling remnants | Secure enclave keys (requires separate exploit); hardware-damaged sectors |
 
 ### Adequacy Test
-Apply this decision matrix:
+Apply the decision matrix: serious charges + Logical / Advanced Logical extraction → **METHODOLOGY FLAG — CRITICAL**; Logical extraction + examiner conclusions about "no deleted data" → **METHODOLOGY FLAG — MISLEADING CONCLUSION**; FFS / Physical extraction → confirm hash verification, write-blocker, original-vs-clone, and preserved extraction logs.
 
-**If the case involves serious charges (homicide, sexual offense, LWOP-eligible, distribution/trafficking) AND a Logical or Advanced Logical extraction was used:**
-> ⚠ **METHODOLOGY FLAG — CRITICAL:** Law enforcement chose a superficial extraction method (Level [X]) in a [charge severity] case. A Full File System or Physical extraction was available and would have captured deleted messages, app databases, SQLite WAL journals, and unallocated space artifacts that the chosen method cannot access. This methodological choice forfeited the ability to recover deleted evidence — evidence that could exculpate or further contextualize the State's narrative. Flag for: (1) cross-examination of examiner, (2) Missing Discovery Demand, (3) potential motion to compel re-extraction or independent examination.
-
-**If a Logical extraction was used but the examiner's report draws conclusions about "no deleted data" or "no additional relevant data":**
-> ⚠ **METHODOLOGY FLAG — MISLEADING CONCLUSION:** The examiner asserts [specific claim] but used a Logical extraction that is structurally incapable of accessing deleted records, SQLite WAL files, or unallocated space. This conclusion exceeds the scope of the methodology employed. The absence of evidence in a Logical dump is not evidence of absence.
-
-**If a Full File System or Physical extraction was used, confirm:**
-- Was the extraction verified with hash values (MD5 + SHA-256)?
-- Was the write-blocker documented?
-- Was the extraction performed on the original device or a clone?
-- Were extraction logs preserved showing parameters and any errors?
+Read `references/extraction-adequacy-test.md` now for the verbatim flag language and the FFS / Physical confirmation checks.
 
 ---
 
 ## STEP 3 — OS Security Verification
 
-### Apple iOS Security Architecture
+Work the two architecture tables — **Apple iOS** (Secure Enclave Processor, Data Protection Classes, Keychain, iOS version-specific barriers, USB Restricted Mode) and **Android** (File-Based Encryption / BFU vs. AFU, hardware-backed keystore, Verified Boot / dm-verity, version fragmentation, Samsung Secure Folder / Knox) — and record the defense implication of each layer for this device.
 
-| Security Layer | Defense Implications |
-|---------------|---------------------|
-| **Secure Enclave Processor (SEP)** | Hardware-isolated coprocessor manages encryption keys, biometric data, and passcode verification. Keys never leave the SEP. No commercial tool can extract SEP contents directly. If the examiner claims to have bypassed SEP protections, demand: exploit documentation, tool validation for this specific iOS version, and peer review. |
-| **Data Protection Classes** | iOS uses per-file encryption classes (Complete Protection, Protected Unless Open, Protected Until First Authentication, No Protection). A Logical extraction typically only accesses "No Protection" and "Protected Until First Authentication" classes. Files in "Complete Protection" (most messaging apps, health data, some photos) require device unlock state at extraction time — verify this was documented. |
-| **Keychain** | Stores passwords, tokens, certificates. Accessible only via FFS+ on jailbroken devices or via GrayKey/Cellebrite Premium exploits on specific iOS versions. If keychain data appears in a Logical extraction, flag as anomalous — investigate how it was obtained. |
-| **iOS Version-Specific Barriers** | Exploits are version-dependent. An exploit validated for iOS 14.x may fail silently on iOS 16.x and produce an incomplete extraction without logging the failure. Always cross-reference: device iOS version vs. tool's published supported version matrix. |
-| **USB Restricted Mode (iOS 11.4.1+)** | After 1 hour without unlock, Lightning/USB-C data connection is disabled. If the device was seized powered off or locked for >1 hour, physical/FFS extraction requires a bypass of USB Restricted Mode. Was this documented? |
-
-### Android Security Architecture
-
-| Security Layer | Defense Implications |
-|---------------|---------------------|
-| **File-Based Encryption (FBE) — Android 7.0+** | Replaces Full Disk Encryption. Each file encrypted with a unique key derived from user credentials + hardware-bound key. Before First Unlock (BFU): only Device Encrypted (DE) storage accessible — no user data. After First Unlock (AFU): Credential Encrypted (CE) storage becomes accessible. Verify: was the device in BFU or AFU state at extraction? If BFU, the extraction captured almost no user-generated content. |
-| **Hardware-Backed Keystore** | Similar to Apple's SEP — Titan M (Google Pixel), Knox (Samsung), TrustZone (Qualcomm). Key material is hardware-bound and cannot be extracted by software alone. |
-| **Verified Boot / dm-verity** | Ensures system partition integrity. If the examiner rooted the device for extraction, dm-verity may have triggered a factory reset or flagged the boot state — potentially destroying evidence. Was this risk documented? |
-| **Android Version Fragmentation** | Samsung, Google, OnePlus, etc. implement security differently atop stock Android. A tool validated for Samsung Galaxy S21 on Android 12 is NOT validated for Pixel 6 on Android 12. Always check: OEM + model + Android version + security patch level vs. tool's supported device matrix. |
-| **Secure Folder / Knox (Samsung)** | Samsung devices with Knox may have a Secure Folder that operates as a separate encrypted workspace. Standard extractions — even FFS — may not access Secure Folder contents without the Secure Folder credential. Was Secure Folder presence checked? Was its content extracted or ignored? |
+Read `references/os-security-architecture.md` now for both security-layer tables with defense implications.
 
 ### OS Verification Checklist (Apply to Every Audit)
 For each extraction report, confirm and document:
@@ -150,30 +108,9 @@ For each extraction report, confirm and document:
 
 ## STEP 4 — Tool Integrity & Bypass Capability Audit
 
-### The Adversarial Landscape of Forensic Tools
-Commercial forensic tools operate in an adversarial environment: they exploit security vulnerabilities in consumer devices to extract data. This creates a fundamental reliability tension — **the same software vulnerabilities that enable extraction can compromise the integrity of the extracted data.**
+Commercial forensic tools exploit device vulnerabilities to extract data — the same vulnerabilities can compromise the integrity of the extracted data. Audit the tool actually used: Cellebrite UFED / Premium (Signal/Cellebrite April 2021 vulnerability disclosure — unsigned code execution, outdated FFmpeg DLLs, missing exploit mitigations — and the *Daubert* / La. C.E. Art. 702 defense implications), GrayKey (iOS-version dependence, undisclosed proprietary exploits, extraction-duration verification), and MSAB XRY / Magnet AXIOM (validation reports, parsing vs. acquisition, SQLite WAL handling).
 
-### Cellebrite UFED / Cellebrite Premium — Known Issues
-
-**Signal/Cellebrite Vulnerability Disclosure (April 2021):**
-Signal's creator Moxie Marlinspike published research demonstrating that Cellebrite's UFED software contained critical security vulnerabilities:
-- Cellebrite UFED loaded and executed unsigned code from the device being analyzed — meaning a crafted file on the target device could modify the extraction report, add fabricated data, or alter existing data without leaving an audit trail
-- The software shipped with outdated FFmpeg DLLs (dating back years without security patches) containing known exploits
-- Cellebrite's own software lacked basic exploit mitigations (ASLR, DEP) that are standard in consumer software
-
-**Defense Implications:**
-> If the extraction was performed with a Cellebrite UFED version predating the remediation of these vulnerabilities, the integrity of the entire extraction report is questionable. The examiner must establish: (1) the exact Cellebrite software version used, (2) whether that version contained the disclosed vulnerabilities, (3) what controls were in place to prevent report modification, and (4) whether the software has been independently validated for forensic reliability under *Daubert* / La. C.E. Art. 702.
-
-### GrayKey (Grayshift) — Known Limitations
-- Capability is highly iOS-version-dependent; Apple frequently patches exploited vulnerabilities
-- GrayKey extraction capabilities degrade with each iOS update — a successful extraction on iOS 15.2 does not validate the tool for iOS 16.1
-- GrayKey relies on undisclosed (proprietary) exploits — no peer review, no published methodology, no independent validation
-- Extraction time estimates vary wildly (hours to days for passcode brute force) — verify actual extraction duration vs. tool's expected range for this passcode complexity
-
-### MSAB XRY / Magnet AXIOM — Audit Points
-- Cross-reference tool version against the vendor's published validation reports for the specific device
-- Check whether the tool performed parsing (interpreting data) vs. acquisition (imaging data) — parsing introduces interpretation layers that can be challenged
-- Verify that the tool's SQLite parser handled WAL (Write-Ahead Logging) files correctly — incorrect WAL merging is a known source of phantom artifacts and duplicated records
+Read `references/tool-integrity-known-issues.md` now for the adversarial-landscape framing, the tool-by-tool known issues, and the defense-implications language.
 
 ### Tool Integrity Checklist (Apply to Every Audit)
 For each extraction, demand documentation of:
@@ -192,83 +129,9 @@ For each extraction, demand documentation of:
 
 ### Output Structure
 
-Produce a structured audit report with the following sections:
+Produce a structured audit report: header block (Device, Tool, Extraction, Examiner, Date, Hash Verified) followed by seven sections — 1 Methodology Adequacy, 2 OS Security Analysis, 3 Tool Integrity Assessment, 4 Chain of Custody & Procedural Gaps, 5 Cross-Examination Ammunition, 6 Defense Action Items, 7 Discovery Gap Report.
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MOBILE FORENSIC EXTRACTION AUDIT
-Daniels & Washington | [Case Name / Docket No.]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-DEVICE:        [Make / Model / OS Version]
-TOOL:          [Name / Version]
-EXTRACTION:    [Type: Logical / Adv. Logical / FFS / Physical]
-EXAMINER:      [Name / Agency / Certifications]
-DATE:          [Extraction Date]
-HASH VERIFIED: [Yes — MD5: ___ SHA-256: ___ / No / Not Documented]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 1: METHODOLOGY ADEQUACY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Extraction level classification, adequacy assessment against
-charge severity, specific data categories forfeited by chosen
-method, recommendation for re-extraction or independent exam]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 2: OS SECURITY ANALYSIS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[OS-specific security layers, encryption state, tool
-validation status for this OS version, barriers that may
-have prevented complete extraction, undocumented risks]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 3: TOOL INTEGRITY ASSESSMENT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Known vulnerabilities, validation status, exploit
-mitigation posture, Signal/Cellebrite findings if
-applicable, proprietary exploit concerns]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 4: CHAIN OF CUSTODY & PROCEDURAL GAPS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Seizure-to-extraction timeline, storage conditions,
-USB Restricted Mode status, device state documentation,
-any gaps or anomalies]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 5: CROSS-EXAMINATION AMMUNITION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Numbered list of specific challenges, each with:
- - The deficiency
- - Why it matters
- - Suggested cross question
- - Source/exhibit reference
- - Applicable legal authority]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 6: DEFENSE ACTION ITEMS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Prioritized list:
- ⚖ Motion to Suppress (grounds)
- ⚖ Motion to Compel Re-Extraction / Independent Exam
- ⚖ Daubert / La. C.E. Art. 702 Challenge
- 📋 Missing Discovery Demand items
- 📋 Expert Witness needs
- 📋 Items for Cross-Exam Architect skill]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SECTION 7: DISCOVERY GAP REPORT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Expected forensic documentation not provided:
- - Extraction logs
- - Hash verification records
- - Tool validation certificates
- - Examiner CV / training records
- - Device intake photographs
- - Write-blocker documentation
- - Warrant / consent form
- Each with: why it matters + add to Missing Discovery Demand?]
-```
+Read `references/audit-report-structure.md` now for the full section-by-section template with the required content of each section.
 
 ---
 
@@ -323,35 +186,29 @@ Flag any scope violation for suppression motion consideration under La. C.Cr.P. 
 
 ## Quick Reference — Legal Standards for Digital Forensic Evidence
 
-| Situation | Authority |
-|-----------|-----------|
-| Expert testimony reliability | La. C.E. Art. 702; *Daubert v. Merrell Dow* |
-| Suppression of illegally obtained evidence | La. C.Cr.P. Art. 703; 4th Amendment |
-| Cell phone search warrant requirement | *Riley v. California*, 573 U.S. 373 (2014) |
-| Historical cell-site location info | *Carpenter v. United States*, 585 U.S. 296 (2018) |
-| Good faith exception | *United States v. Leon*, 468 U.S. 897 (1984) |
-| Warrant particularity (digital) | *United States v. Ganias*, 824 F.3d 199 (2d Cir. 2016) |
-| Authentication of digital evidence | La. C.E. Art. 901; Fed. R. Evid. 901(b)(9) |
-| Best evidence rule (digital) | La. C.E. Art. 1001–1004 |
-| Brady obligations (withheld exculpatory data) | *Brady v. Maryland*; *Giglio v. United States* |
-| Chain of custody | La. C.E. Art. 901(B)(1); *State v. Toney* |
+Situation-to-authority table: La. C.E. Art. 702 / *Daubert* (expert reliability), La. C.Cr.P. Art. 703 / 4th Amendment (suppression), *Riley* (cell phone warrant), *Carpenter* (historical CSLI), *Leon* (good faith), *Ganias* (digital particularity), Art. 901 / FRE 901(b)(9) (authentication), Art. 1001-1004 (best evidence), *Brady* / *Giglio* (withheld exculpatory data), Art. 901(B)(1) / *State v. Toney* (chain of custody).
 
-*Adapt all rules when jurisdiction toggle is set to federal or another state.*
+Read `references/quick-reference-tables.md` now for the full legal-standards table (adapt all rules when the jurisdiction toggle is set to federal or another state).
 
 ---
 
 ## Quick Reference — Common Forensic Tool Versions & Known Issues
 
-| Tool | Known Concern | Defense Action |
-|------|--------------|----------------|
-| Cellebrite UFED (pre-2021 patch) | Signal vulnerability disclosure — unsigned code execution, report tampering risk | Demand version number; challenge under Art. 702 |
-| Cellebrite UFED (all versions) | Proprietary parsing — no open-source validation | Request raw database files, not just parsed reports |
-| GrayKey (all versions) | Undisclosed proprietary exploits — no peer review | Challenge as unreliable methodology under *Daubert* |
-| MSAB XRY | SQLite WAL merging errors documented | Request raw .db + .wal files for independent verification |
-| Magnet AXIOM | Parsing layer can create phantom artifacts | Distinguish acquisition artifacts from parsed interpretations |
-| Oxygen Forensic Detective | Limited FFS capability on newer devices | Verify extraction type actually achieved vs. attempted |
+Tool / known concern / defense action rows for Cellebrite UFED (pre-2021 patch and all versions), GrayKey, MSAB XRY, Magnet AXIOM, and Oxygen Forensic Detective.
+
+Read `references/quick-reference-tables.md` now for the full tool-versions table.
 
 ---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-14)
+- **extraction-adequacy-test.md** — Step 2: Adequacy Test decision matrix (METHODOLOGY FLAG — CRITICAL / MISLEADING CONCLUSION) and FFS / Physical confirmation checks
+- **os-security-architecture.md** — Step 3: Apple iOS and Android security-layer tables with defense implications
+- **tool-integrity-known-issues.md** — Step 4: adversarial landscape of forensic tools; Cellebrite UFED / Premium (Signal disclosure), GrayKey, MSAB XRY / Magnet AXIOM known issues
+- **audit-report-structure.md** — Step 5: full seven-section Mobile Forensic Extraction Audit report template
+- **quick-reference-tables.md** — Reference throughout: Legal Standards for Digital Forensic Evidence table + Common Forensic Tool Versions & Known Issues table
 
 ---
 

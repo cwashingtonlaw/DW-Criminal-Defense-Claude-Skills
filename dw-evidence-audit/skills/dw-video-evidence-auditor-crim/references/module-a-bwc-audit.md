@@ -75,3 +75,9 @@ BWC footage is not a neutral recording of events — it is a recording from the 
 **Motion & Stability:**
 - During foot pursuits, physical altercations, or any rapid movement, BWC footage becomes chaotic — frames blur, perspective shifts rapidly, and it becomes extremely difficult to determine spatial relationships
 - Jurors watching stabilized, slow-motion replay in a courtroom experience the footage very differently from the officer experiencing real-time, unstabilized motion
+
+---
+
+## Moved from SKILL.md — Module A summary
+
+The single most important BWC audit question: **was the camera activated when policy required it to be?** Map activation gaps across the timeline (dispatch → arrival → key event → arrest), apply the Policy Compliance Checklist (use of force, statements, searches, Miranda, transport), and assess perspective and content limitations (field of view, audio range, low-light performance, motion stability) that shape what the camera captured versus what the officer experienced.

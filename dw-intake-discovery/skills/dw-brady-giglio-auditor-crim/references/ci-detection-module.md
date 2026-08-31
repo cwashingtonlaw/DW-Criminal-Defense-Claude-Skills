@@ -74,3 +74,25 @@ Apply Louisiana: **State v. Broadway**, 96-2659 (La. 10/19/99), 753 So.2d 801.
 - **Motion to Suppress** — if CI taints evidence (4th/5th/6th Amendment)
 
 **Federal note:** For federal charges/adoption/agency involvement, also cite U.S.S.G. § 5K1.1, 18 U.S.C. § 3553(e), Fed. R. Crim. P. 16.
+
+
+## Moved from SKILL.md — Step 3B Indicator Scan Table, Roviaro Balancing, Module Deliverables, and Federal Note
+
+### CI Indicator Scan — four categories
+
+| Category | What to look for |
+|---|---|
+| **A — Direct CI Language** | High-confidence: "confidential informant"/"CI", "reliable source", "cooperating individual"/"CW", "controlled buy/purchase", "the CI was searched/debriefed/provided buy money". Medium-confidence: "information was received", "acting on information", "anonymous tip", "investigators developed information that…", "the investigation revealed" (passive, no source) |
+| **B — Timeline & Procedural Red Flags** | Surveillance without explanation; arrest-to-cooperation gaps; charge asymmetry between co-defendants; reactive-to-proactive investigation jump; sealed proceedings/in camera reviews; improbable pre-arrest specificity; "buy-walk" patterns; federal adoption/cross-designation |
+| **C — Cooperation Indicators** | Proffer / queen-for-a-day agreements; 5K1.1 (federal) or La. C.Cr.P. Art. 894.1 departures; plea-timing anomalies; co-defendant testimony when own charges pending; immunity/non-prosecution agreements; witness relocation/protection; co-defendant grand jury testimony |
+| **D — Document Gaps** | No CI file despite CI language; redacted names in "source" sections; missing audio/video of described controlled buys; no handler notes despite debriefing references; no background check or reliability history for source |
+
+### Roviaro Balancing (undisclosed CI identity)
+
+Apply **Roviaro v. United States**, 353 U.S. 53 (1957) — Louisiana: **State v. Broadway**, 96-2659 (La. 10/19/99), 753 So.2d 801 — weighing (1) seriousness of the crime, (2) possible defenses (CI participation/witness status weighs heavily for disclosure), and (3) significance of CI testimony to reasonable doubt.
+
+### Module deliverables
+
+The module then builds a Per-CI/Cooperator Checklist (CI identity disclosed? benefits disclosed? reliability history? prior false info? cooperation agreement produced? cooperator criminal history?), identifies five CI cross-examination attack vectors (Motive & Bias / Reliability / Deal's Fine Print / Investigative Integrity / Constitutional — *Massiah*, *Moulton*, *Jacobson*, La. R.S. 14:17), and triggers CI-specific motions (Motion to Reveal the Deal, Motion to Reveal CI Identity, Supplemental Discovery Demand, Motion for In Camera Review under La. C.Cr.P. Art. 723, Motion to Suppress for CI-tainted evidence).
+
+**Federal note:** For federal charges, federal adoption, or federal-agency involvement, also cite U.S.S.G. § 5K1.1, 18 U.S.C. § 3553(e), and Fed. R. Crim. P. 16.

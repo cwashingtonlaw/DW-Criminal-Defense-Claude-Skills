@@ -27,3 +27,15 @@ Cell site evidence is inherently spatial — juries need to see coverage areas, 
 | GPS tracking | GPS/GNSS engineer | Accuracy assessment, multipath analysis, data integrity review |
 | Geofence warrant | Digital forensics expert + location data analyst | Data source analysis, accuracy assessment, scope challenge |
 | Wi-Fi positioning | Network engineer | Access point verification, database accuracy assessment |
+
+---
+
+## Defense Map Essentials (moved from SKILL.md)
+
+**The defense map should show:**
+- The full coverage area of the relevant sector (not just an azimuth wedge)
+- The defendant's claimed location plotted relative to the same coverage area
+- All towers the phone connected to during the relevant period
+- Overlap zones demonstrating that tower selection is not deterministic
+- For tower dumps: the geographic area captured with innocent-device counts highlighted
+- For geofence warrants: the boundary with accuracy radii overlaid

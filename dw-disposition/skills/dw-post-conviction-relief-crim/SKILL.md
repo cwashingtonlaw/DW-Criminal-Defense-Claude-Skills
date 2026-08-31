@@ -67,25 +67,9 @@ Every factual assertion in the post-conviction relief analysis and application �
 
 ## STEP 1 — Information Gathering Protocol
 
-Before conducting any PCR analysis, collect the following in ranked order:
+Before conducting any PCR analysis, collect the ranked checklist — **Essential** (1-6: original conviction and sentence, direct appeal history, prior PCR applications, time since finality, triggering event, incarceration status) and **Strategic** (7-13: trial and sentencing transcripts, appellate opinion / record, prior PCR applications in full text, evidence inventory, plea colloquy, defense theory at trial).
 
-### Essential (must have before analysis)
-
-1. **Original Conviction & Sentence:** The charges, manner of conviction (guilty plea or jury verdict), verdict date/sentencing date, and sentence imposed on each count
-2. **Direct Appeal History:** Whether a direct appeal was filed, the disposition (affirmed, reversed, remanded, dismissed), and appellate opinion or order
-3. **Current PCR Applications:** Any prior Art. 926 applications filed, their dates, grounds asserted, and outcomes — critical for Art. 930.4 repetitive application analysis
-4. **Time Since Finality:** The date the conviction became final (last day to appeal or appellate decision date), and how much time has passed
-5. **Triggering Event:** Why is relief being sought now? New evidence? Change in law? Ineffective assistance claim? New witness?
-6. **Incarceration Status:** Is the defendant incarcerated, released on parole, probation, or off supervision? Time served?
-
-### Strategic (request if not provided)
-
-7. **Trial Transcript:** The complete record of trial proceedings — essential for any ineffective assistance or preserved error claim
-8. **Sentencing Transcript:** The sentencing proceeding — needed to assess sentence modification viability and mitigation issues9. **Appellate Opinion/Record:** The appellate court's decision and record — determines what issues were already addressed on appeal
-10. **Prior PCR Applications (full text):** Prior applications and court responses — establishes what grounds have been exhausted and whether any exceptions apply to refiling under Art. 930.4
-11. **Evidence Inventory:** Any evidence the defendant believes is newly discovered — what it is, when it was discovered, why it wasn't available at trial
-12. **Plea Colloquy (if guilty plea):** The transcript of the guilty plea — needed to assess whether deficient guilty plea waiver can support an IAC claim
-13. **Defense Theory at Trial:** What the trial defense theory was — critical for assessing whether trial counsel's performance was reasonable
+Read `references/step-1-information-gathering.md` now for the full item-by-item checklist and why each item matters.
 
 ---
 
@@ -129,114 +113,13 @@ Before conducting any PCR analysis, collect the following in ranked order:
 
 For each potentially viable ground, assess likelihood, strength, and procedural posture.
 
-### Repetitive Application Analysis (Art. 930.4) — CHECK FIRST**Before evaluating any ground, determine whether prior PCR applications have been filed.** Louisiana courts routinely dismiss successive applications under Art. 930.4.
+**Check Art. 930.4 (repetitive applications) FIRST** — compare every current ground to ALL prior applications; a ground raised before, or inexcusably not raised before, will be dismissed unless it was unavailable at the time or rests on an Art. 930.8 exception. Then evaluate the Louisiana grounds (Art. 930.3(1)-(7); IAC under *Strickland* / *Hill v. Lockhart*; newly discovered evidence; unconstitutional conviction or sentence; excessive sentence; retroactive change in law; *Brady*; *Schlup* actual-innocence gateway) and, on denial, the Art. 930.9-930.10 writ path (30 days, La. Unif. R. Cts. of App. Rule 4-3).
 
-- **Art. 930.4(A):** Unless the application alleges a claim that was not available at the time of a prior application, the court shall dismiss any application that raises the same grounds as a prior application
-- **Art. 930.4(B):** A successive application shall be dismissed if it raises a new or different claim that was inexcusably not raised in a prior application
-- **Art. 930.4(C):** If the court determines the application is repetitive, it may be dismissed without response from the State
-- **Overcoming Art. 930.4:** The new claim must either (1) not have been available at the time of the prior application, or (2) be based on an exception to the time bar under Art. 930.8 (newly discovered evidence, DNA, retroactive law change)
-- **Action:** Compare current grounds to ALL prior applications. For each ground, determine whether it was raised before, could have been raised before, or is genuinely new. Flag any ground likely to be dismissed as repetitive.
+Read `references/louisiana-pcr-grounds-and-art-930-4.md` now for the Art. 930.4 analysis, each ground's elements, strength assessment, evidence needed, and cross-references, and the appeal-from-denial rules.
 
-### Louisiana State Post-Conviction Relief (Art. 924-930.10)
+For federal habeas (28 U.S.C. § 2254): exhaustion; AEDPA deference (§ 2254(d)); presumption of correctness for state fact findings (§ 2254(e)(1)); procedural default and its exceptions (*Martinez v. Ryan*, cause-and-prejudice, *Schlup*); *Rhines v. Weber* stay-and-abeyance for mixed petitions (file a protective petition if the 1-year deadline is imminent); *Cullen v. Pinholster* record limits; and the Certificate of Appealability (§ 2253(c); *Slack v. McDaniel*; 30-day FRAP 4(a)(1)(B) appeal window).
 
-**Grounds for Relief (Art. 930.3):**
-- (1) The conviction was obtained in violation of the constitution of the United States or Louisiana
-- (2) The court exceeded its jurisdiction
-- (3) The conviction or sentence subjected defendant to double jeopardy
-- (4) The limitations on the institution of prosecution had expired
-- (5) The statute creating the offense for which convicted is unconstitutional
-- (6) The conviction or sentence is otherwise subject to collateral attack on a ground of alleged error not combatable on appeal
-- (7) The results of DNA testing prove by clear and convincing evidence that the petitioner is factually innocent
-
-**Ineffective Assistance of Counsel (Strickland v. Washington)**
-- Deficient performance prong: Trial counsel's action/inaction fell below prevailing professional norms
-- Prejudice prong: Objectively reasonable probability different result at trial or sentencing
-- Higher bar if guilty plea (Padilla standard for plea counsel; Hill v. Lockhart, 474 U.S. 52 (1985))
-- Strength assessment: Often Moderate-to-Strong if counsel failed to investigate, raise preserved errors, or present mitigation
-- Evidence needed: Trial transcript, plea colloquy (if applicable), investigation records (or lack thereof), sentencing materials**Newly Discovered Evidence**
-- Due diligence standard: Evidence must be truly unavailable despite reasonable investigation at trial
-- Materiality: Evidence must be material to guilt/innocence or sentence
-- Probably different result: Reasonable probability different verdict or sentence
-- Strength assessment: Strong if evidence goes to guilt/innocence; Weak if purely sentencing-related and sentence not excessive
-- Evidence needed: The evidence itself, proof of discovery date, certification it was unavailable pre-trial, affidavits
-
-**Unconstitutional Conviction or Sentence**
-- Focuses on constitutional errors NOT addressed on direct appeal
-- Includes preserved trial errors, Brady violations, Confrontation Clause issues, insufficient evidence
-- Strength assessment: Varies — depends on nature of constitutional error
-- Evidence needed: Trial transcript, evidence documentation, appellate record showing error wasn't addressed
-
-**Excessive Sentence (if not raised on appeal)**
-- Requires showing sentence is grossly disproportionate or unconstitutional (rare bar)
-- Must show ineffective assistance if counsel failed to challenge at sentencing
-- Strength assessment: Usually Weak unless sentence is exceptionally harsh or law has changed
-- Evidence needed: Sentencing transcript, mitigation materials, comparable sentences in jurisdiction
-- Cross-reference `dw-sentencing-mitigation-specialist-crim` for Dorthey analysis and comparable case data
-
-**Change in Law Made Retroactive**
-- Only if appellate courts have retroactively applied new constitutional rule
-- Common examples: Blakely/Cunningham rule (prior convictions as enhancements), emerging jurisprudence on mandatory minimums
-- Strength assessment: Strong if law change clearly applies
-- Evidence needed: Appellate authority on retroactivity, trial record showing applicability
-
-**Brady Violation**
-- Prosecution failed to disclose exculpatory evidence
-- Must show materiality under Brady v. Maryland and cumulative effect
-- Strength assessment: Strong if credible evidence of Brady violation and materiality
-- Evidence needed: Discovery materials, police/prosecution files, evidence showing non-disclosure
-- Cross-reference `dw-brady-giglio-auditor-crim` for systematic Brady analysis
-
-**Actual Innocence Gateway (Schlup v. Delo)**
-- Rare and high bar: Defendant must present evidence making it more likely than not that no reasonable jury would convict
-- Often used as gateway to raise otherwise procedurally defaulted claims
-- Strength assessment: Very Weak unless defendant has compelling exculpatory evidence
-- Evidence needed: Innocence evidence (DNA, recantations, alibi evidence, false confession documentation)### Federal Habeas (28 U.S.C. § 2254)
-
-**Exhaustion Requirement**
-- All claims must be presented to state courts first (or procedurally defaulted in state court)
-- Must give state courts full opportunity to address federal constitutional claims
-- Action: Verify whether claim was raised in state PCR or prior state application. If not, likely defaulted.
-
-**AEDPA Deference (§ 2254(d))**
-- Federal court defers to state court decision if it was not "contrary to" or an "unreasonable application of" clearly established federal law (as determined by U.S. Supreme Court)
-- Much more difficult to win federal relief than de novo review
-- Action: Assess whether state court decision was reasonable under this deferential standard. Be candid about reduced likelihood of federal relief.
-
-**Presumption of Correctness for State Court Factual Findings (§ 2254(e)(1))**
-- State court factual findings are presumed correct on federal habeas review
-- Petitioner must rebut the presumption by clear and convincing evidence
-- This is a separate and significant hurdle beyond § 2254(d) — even if the legal standard is met, the factual findings underlying the state court decision carry a strong presumption of correctness
-- Action: Identify every critical factual finding from the state court record. Assess whether clear and convincing evidence exists to rebut any finding that undermines the federal claim.
-
-**Procedural Default Analysis**
-- If claim was not properly raised in state court, it is procedurally defaulted and likely barred from federal review
-- Exception: Martinez v. Ryan, 566 U.S. 1 (2012) — IAC-of-trial-counsel claims can be raised on federal habeas if not properly raised in initial state PCR due to ineffective PCR counsel (or absence of PCR counsel)
-- Exception: Cause and prejudice — external impediment prevented raising claim, and actual prejudice resulted
-- Exception: Fundamental miscarriage of justice (actual innocence gateway under Schlup v. Delo)
-- Action: Trace procedural history. Flag defaulted claims. Assess whether Martinez exception or cause-and-prejudice applies.
-
-**Mixed Petitions and Stay-and-Abeyance (Rhines v. Weber)**
-- **Rhines v. Weber, 544 U.S. 269 (2005):** When a federal petition contains both exhausted and unexhausted claims (a "mixed petition"), the court may stay the federal petition and hold it in abeyance while the petitioner returns to state court to exhaust the unexhausted claims
-- Stay-and-abeyance is available when: (1) petitioner had good cause for failure to exhaust, (2) unexhausted claims are not plainly meritless, and (3) petitioner has not engaged in intentionally dilatory litigation tactics
-- **Critical tactical option:** If the federal 1-year deadline is about to expire and the petitioner has unexhausted claims, filing a "protective" federal petition and requesting a Rhines stay can preserve the federal filing window
-- Action: If any claims are unexhausted, assess whether Rhines stay-and-abeyance is tactically appropriate. If federal deadline is imminent, consider filing protective petition immediately.
-
-**Evidentiary Hearing Standards (Cullen v. Pinholster)**
-- Federal court review of § 2254(d) claims limited to state court record. New evidence generally not considered.
-- Exception: New evidence may be considered if claim was not previously adjudicated on merits in state court (§ 2254(e)(2))- Action: Determine whether state court adjudicated claim on merits. If not, new evidence may support federal relief; if yes, limited to state record.
-
-**Certificate of Appealability (§ 2253(c))**
-- A petitioner CANNOT appeal the denial of a § 2254 petition without first obtaining a Certificate of Appealability (COA)
-- COA standard: Petitioner must make a "substantial showing of the denial of a constitutional right" — reasonable jurists could debate whether the petition should have been resolved differently (Slack v. McDaniel, 529 U.S. 473 (2000))
-- If the district court denied on procedural grounds, the COA must show both that jurists would debate the procedural ruling AND the underlying constitutional claim
-- Action: When drafting a § 2254 petition, build the record for a COA request from the outset. If the petition is denied, immediately assess COA viability and file within the appeal deadline (30 days under FRAP 4(a)(1)(B)).
-
-### Appeal from Denial of State PCR (Art. 930.9-930.10)
-
-- **Art. 930.9:** Defendant may seek supervisory review of denial of PCR from the court of appeal
-- **Art. 930.10:** After court of appeal, may seek review from the Louisiana Supreme Court
-- **Deadline:** Writ application must be filed within 30 days of the ruling being sought to be reviewed (La. Unif. R. Cts. of App. Rule 4-3)
-- Action: If PCR is denied at the trial court level, immediately calendar the 30-day writ application deadline.
+Read `references/federal-habeas-2254-framework.md` now for each doctrine's standard and the required Action items.
 
 ---
 
@@ -298,3 +181,13 @@ If proceeding with PCR application:
 5. **Actual innocence is a gateway, not a freestanding claim** — Use it to overcome procedural default or time bar, not as primary relief vehicle (except in extraordinary circumstances).
 6. **Source Citation Protocol applies** — Cite trial record, appellate record, and all supporting evidence with specificity. Conclusory allegations fail.
 7. **Preserve all downstream deadlines** — When a PCR application is denied, immediately calendar writ application deadlines (30 days), and for federal petitions, COA and appeal deadlines. Missing a downstream deadline can be as fatal as missing the initial filing deadline.
+
+---
+
+## Quick References
+
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **step-1-information-gathering.md** — Step 1: Essential (1-6) and Strategic (7-13) information-gathering checklist
+- **louisiana-pcr-grounds-and-art-930-4.md** — Step 3: Art. 930.4 repetitive-application screen, Louisiana grounds for relief (Art. 930.3, IAC, newly discovered evidence, Brady, actual innocence, etc.) with strength / evidence needed, and Art. 930.9-930.10 appeal from denial
+- **federal-habeas-2254-framework.md** — Step 3: § 2254 exhaustion, AEDPA deference, § 2254(e)(1) presumption of correctness, procedural default (Martinez / cause-and-prejudice / Schlup), Rhines stay-and-abeyance, Pinholster, Certificate of Appealability

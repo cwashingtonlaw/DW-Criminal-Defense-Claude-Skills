@@ -16,3 +16,9 @@
 | Location data destroyed or not preserved | Spoliation argument | *Arizona v. Youngblood*, 488 U.S. 51 (1988) |
 | Carrier records authentication | Foundation objection | La. C.E. Art. 803(6) (business records); La. C.E. Art. 901(B)(9) |
 | Good-faith exception applicability | Opposition to good-faith exception | *Davis v. United States*, 564 U.S. 229 (2011); argue *Carpenter* was clearly established |
+
+---
+
+## Step 6 Summary (moved from SKILL.md)
+
+Match each CRITICAL finding to the appropriate motion and authority. Twelve canonical challenge types span warrantless historical CSLI (*Carpenter*), warrant defects (4th Amendment; La. C.Cr.P. Art. 162), tower dump overbreadth, CSS without warrant (*Patrick*; *Lambis*), CSS concealment (*Brady*), GPS trackers (*Jones*), geofence warrants (*Chatrie*), analyst overstatements (*Daubert* / La. C.E. Art. 702), discovery violations (*Brady*; La. C.Cr.P. Art. 718-722), spoliation (*Youngblood*), authentication (La. C.E. Art. 803(6) / 901(B)(9)), and good-faith exception challenges (*Davis*).

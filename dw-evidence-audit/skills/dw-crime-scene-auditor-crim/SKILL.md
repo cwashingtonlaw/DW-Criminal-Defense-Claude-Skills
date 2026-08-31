@@ -62,26 +62,9 @@ Do not proceed to Step 1 until these protocols are loaded. All deliverables from
 
 Before drafting any audit, collect the following in ranked order:
 
-### Essential (must have before auditing)
-1. **Crime Scene Report(s):** initial response report, supplemental reports, scene processing documentation
-2. **Charges:** all counts with statutory citations — charge severity determines the scrutiny threshold for evidence handling
-3. **What the State Claims the Physical Evidence Proves:** the prosecution's theory of what the forensic evidence establishes (e.g., "defendant's DNA on the weapon proves he held it")
-4. **Evidence Collection Logs / Property Receipts:** what was collected, by whom, when, and from where at the scene
-5. **Lab Reports:** forensic analysis results (DNA, latent prints, firearms, serology, trace, toxicology, etc.)
+Collect three tiers: **Essential** (items 1-5: crime scene report(s), charges, what the State claims the physical evidence proves, evidence collection logs / property receipts, lab reports), **Strategic** (items 6-11: scene diagrams, photographs / photo log, chain of custody documentation, autopsy / ME report, defense theory, known suppression issues), and **Contextual** (items 12-15: personnel identification, scene type & conditions, timeline, SANE/SAE report).
 
-### Strategic (request if not provided)
-6. **Scene Diagrams / Sketches:** official scene measurements and spatial relationships
-7. **Crime Scene Photographs / Photo Log:** sequential documentation of the scene, including overall, mid-range, and close-up shots
-8. **Chain of Custody Documentation:** evidence transfer records from scene to lab to court
-9. **Autopsy / Medical Examiner Report:** if homicide or death case — cause and manner of death, wound documentation, evidence recovered from the body
-10. **Defense Theory:** what happened from the defense perspective — what evidence should or shouldn't support
-11. **Known Suppression Issues:** any pending motions regarding evidence seizure or scene access
-
-### Contextual (gather from uploaded files)
-12. **Personnel Identification:** names, roles, agencies, and certifications of all crime scene responders and lab analysts
-13. **Scene Type & Conditions:** indoor/outdoor, weather, lighting, time of day, scene security measures
-14. **Timeline:** dispatch-to-arrival, scene processing duration, evidence submission-to-analysis intervals
-15. **SANE/SAE Report:** if sexual assault case — Sexual Assault Nurse Examiner documentation
+Read `references/information-gathering-checklist.md` now for the full ranked checklist.
 
 **Present missing info as a ranked checklist before auditing.** If essential items 1-5 are missing, do not audit — ask for them first.
 
@@ -91,24 +74,9 @@ Before drafting any audit, collect the following in ranked order:
 
 Identify every category of physical evidence present in the case and flag which audit modules apply. Not every case involves every evidence type — audit only what exists but flag conspicuous absences (evidence that *should* have been collected given the charge type but wasn't).
 
-### Evidence Category Matrix
+Eight categories map to Modules A-H: Crime Scene Processing (A), Latent Prints (B), DNA / Serology (C), Firearms / Toolmarks / Ballistics (D), Bloodstain Pattern Analysis (E), Trace Evidence (F), Scene Documentation (G), Chain of Custody (H) — each with its key standards body. When the charge type implies evidence absent from discovery, issue a **CONSPICUOUS ABSENCE** flag (*Brady* / investigative deficiency / spoliation).
 
-| Category | Common In | Key Standards Body | Audit Module |
-|----------|-----------|-------------------|--------------|
-| **Crime Scene Processing** | All cases | NIJ, IAI, NIST | Module A |
-| **Latent Prints** | Burglary, homicide, robbery | IAI, SWGFAST | Module B |
-| **DNA / Serology** | Homicide, sexual assault, assault | SWGDAM, FBI QAS | Module C |
-| **Firearms / Toolmarks / Ballistics** | Homicide, armed robbery, assault | AFTE, NIST/OSAC | Module D |
-| **Bloodstain Pattern Analysis** | Homicide, assault | IABPA, SWGSTAIN | Module E |
-| **Trace Evidence** | Homicide, hit-and-run, assault | SWGMAT, ASTM | Module F |
-| **Scene Documentation** | All cases | NIJ, IAI | Module G |
-| **Chain of Custody** | All cases | ASCLD, NIJ | Module H |
-
-### Conspicuous Absence Flags
-
-When the charge type strongly implies a category of evidence should exist but it does not appear in discovery:
-
-> **CONSPICUOUS ABSENCE — [Category]:** In a [charge type] case, [evidence category] is standard investigative practice. No [evidence type] appears in the discovery provided. This absence should be explored: was it collected and not disclosed (*Brady* concern)? Was it not collected (investigative deficiency)? Was it collected and lost/destroyed (spoliation)? Flag for: Missing Discovery Demand + cross-examination of lead investigator.
+Read `references/evidence-category-triage.md` now for the Evidence Category Matrix and the Conspicuous Absence flag template.
 
 ---
 
@@ -170,7 +138,7 @@ Audit photography (photo log, overall/mid-range/close-up sequencing, scale prese
 
 ## MODULE H — Chain of Custody Audit
 
-Audit each link in the chain of custody from scene through trial — Link 1 (Scene to Transport), Link 2 (Transport to Storage), Link 3 (Storage), Link 4 (Storage to Laboratory), Link 5 (Laboratory Internal), Link 6 (Return and Court). A gap in the chain does not automatically result in exclusion under Louisiana law, but it goes to the weight of the evidence and can support a *State v. Toney* challenge. Catalog red flags (custody-record gaps, broken seals, unrefrigerated biological evidence, multi-item packaging, late booking, missing custodian signatures, lab-accepted broken seals).
+Audit all six links (Scene → Transport → Storage → Laboratory → Lab Internal → Return/Court). A gap goes to weight, not automatic exclusion, under Louisiana law (*State v. Toney*); catalog red flags (custody gaps, broken seals, unrefrigerated biologicals, multi-item packaging, late booking, missing signatures).
 
 **Reference:** Read `references/module-h-chain-of-custody.md` for the full six-link audit checklist and the Chain of Custody Red Flags table.
 
@@ -180,9 +148,7 @@ Audit each link in the chain of custody from scene through trial — Link 1 (Sce
 
 ## STEP 3 — Generate the Crime Scene & Physical Evidence Audit Report
 
-Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed nine-section structure (Executive Summary, Scene Processing Audit, Evidence-Specific Audits, Scene Documentation Audit, Chain of Custody Audit, Admissibility Challenges, Cross-Examination Questions, Defense Action Items, Discovery Gap Report) plus two appendices (Standards Reference Table, Cross-Exam Chapter Seeds).
-
-Tag every finding with a severity level: **CRITICAL** (directly undermines reliability or admissibility — supports suppression, *Daubert*, or substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (procedural irregularity affecting weight only).
+Produce the audit as a **Word document (.docx)** using the docx skill (read and follow the `docx` SKILL.md). Nine sections plus two appendices; tag every finding **CRITICAL** / **SIGNIFICANT** / **MINOR**.
 
 **Reference:** Read `references/audit-report-structure.md` for the full nine-section + appendix template, the case-information header fields, and the severity-classification examples.
 
@@ -198,7 +164,7 @@ For each CRITICAL and SIGNIFICANT finding, auto-generate cross-examination chapt
 
 ## STEP 5 — Admissibility Challenge Framework
 
-For any forensic discipline where reliability is challenged, apply the *Daubert* framework as adopted in Louisiana (testability, peer review, error rate, standards, general acceptance). Match each CRITICAL finding to the appropriate motion and authority — Daubert exclusion, suppression under La. C.Cr.P. Art. 703, authentication challenges under La. C.E. Art. 901, *Brady* compel, or *Youngblood* spoliation.
+Apply the Louisiana *Daubert* framework to any challenged discipline and match each CRITICAL finding to its motion — *Daubert* exclusion, Art. 703 suppression, Art. 901 authentication, *Brady* compel, or *Youngblood* spoliation.
 
 **Reference:** Read `references/admissibility-challenges.md` for the full *Daubert* / La. C.E. Art. 702 framework and the Motion Recommendations table mapping each challenge type to motion and authority.
 
@@ -255,23 +221,22 @@ If no Case Brain session is active, skip this step silently — the deliverable 
 
 ## Quick References
 
-The references directory contains the detailed audit content offloaded from this orchestration scaffold. Load each file when you reach the corresponding step or module:
+Load each file when you reach the corresponding step or module:
 
-| File | Purpose | Loaded At |
-|------|---------|-----------|
-| `references/module-a-crime-scene-processing.md` | Scene Security & Integrity + Scene Processing Protocol checklist + Standards Evaluation deficiency table (NIJ CSI Guide, IAI Evidence Handling) | Module A |
-| `references/module-b-latent-prints.md` | Collection Methodology + ACE-V phase-by-phase audit + Known Reliability Concerns (NAS 2009, PCAST 2016, Brandon Mayfield) | Module B |
-| `references/module-c-dna-serology.md` | Collection & Preservation + Laboratory Analysis + Known Reliability Concerns (low-template, transfer, mixtures, contamination) + FBI QAS / SWGDAM standards | Module C |
-| `references/module-d-firearms-toolmarks.md` | Evidence Recovery + Firearms Comparison + Known Reliability Concerns (PCAST 2016, AFTE subjectivity, NAS 2008, GSR limits) | Module D |
-| `references/module-e-bloodstain-pattern.md` | Scene Documentation + Pattern Classification + Known Reliability Concerns (NAS 2009, David Camm, limited error data, confirmation bias) | Module E |
-| `references/module-f-trace-evidence.md` | Evidence Types & Collection + Analytical Methods per type (hair/fibers/glass/fire debris) + SWGMAT / ASTM standards | Module F |
-| `references/module-g-scene-documentation.md` | Photography + Sketching + Video checklist + Documentation Deficiency Matrix | Module G |
-| `references/module-h-chain-of-custody.md` | Six-link chain audit (Scene → Transport → Storage → Lab → Internal → Court) + Chain of Custody Red Flags | Module H |
-| `references/audit-report-structure.md` | Nine-section audit report template + two appendices + severity classification | Step 3 |
-| `references/cross-exam-seeds.md` | Cross Chapter Seed template (witness type, chapter goal, Q1-Q3, source, impeachment, authority) | Step 4 |
-| `references/admissibility-challenges.md` | *Daubert* / La. C.E. Art. 702 framework + Motion Recommendations table mapping challenge type to motion and authority | Step 5 |
-| `references/quick-reference-tables.md` | Legal Standards for Physical Evidence + National Forensic Standards Bodies | Reference throughout |
-
+- **information-gathering-checklist.md** — Step 1: ranked Essential / Strategic / Contextual intake checklist (items 1-15)
+- **evidence-category-triage.md** — Step 2: Evidence Category Matrix (Modules A-H, standards bodies) + Conspicuous Absence flag template
+- **module-a-crime-scene-processing.md** — Module A: Scene Security & Integrity + Processing Protocol checklist + Standards Evaluation deficiency table
+- **module-b-latent-prints.md** — Module B: Collection Methodology + ACE-V audit + Known Reliability Concerns (NAS 2009, PCAST 2016, Mayfield)
+- **module-c-dna-serology.md** — Module C: Collection & Preservation + Laboratory Analysis + Known Reliability Concerns + FBI QAS / SWGDAM
+- **module-d-firearms-toolmarks.md** — Module D: Evidence Recovery + Firearms Comparison + Known Reliability Concerns (PCAST 2016, AFTE, NAS 2008, GSR)
+- **module-e-bloodstain-pattern.md** — Module E: Scene Documentation + Pattern Classification + Known Reliability Concerns (NAS 2009, David Camm)
+- **module-f-trace-evidence.md** — Module F: Evidence Types & Collection + Analytical Methods per type + SWGMAT / ASTM standards
+- **module-g-scene-documentation.md** — Module G: Photography + Sketching + Video checklist + Documentation Deficiency Matrix
+- **module-h-chain-of-custody.md** — Module H: summary + six-link chain audit + Chain of Custody Red Flags
+- **audit-report-structure.md** — Step 3: summary + nine-section report template + two appendices + severity classification
+- **cross-exam-seeds.md** — Step 4: Cross Chapter Seed template
+- **admissibility-challenges.md** — Step 5: summary + *Daubert* / La. C.E. Art. 702 framework + Motion Recommendations table
+- **quick-reference-tables.md** — Reference throughout: Legal Standards for Physical Evidence + National Forensic Standards Bodies
 ---
 
 *This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for Phase 2 integration, the dw-cross-exam-architect-crim skill for witness cross-examination preparation, and the dw-mobile-forensic-auditor-crim skill for digital evidence from mobile devices.*

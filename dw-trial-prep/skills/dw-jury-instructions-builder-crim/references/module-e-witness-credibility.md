@@ -150,3 +150,15 @@ only for the purpose of evaluating the witness's credibility.
 AUTHORITY: La. C.E. Art. 607(D)(2); La. C.E. Art. 801(D)(1)(a);
 State v. Owens, 12-0400 (La. App. 5th Cir. 2012), 102 So.3d 1028.
 ```
+
+---
+
+## Moved from SKILL.md (Step 6 overview)
+
+Five witness-credibility instructions are produced:
+
+- **General credibility** (*Mussall*, *Casey*) — seven-factor evaluation framework
+- **Accomplice / cooperating witness** (*Robinson*, *May*) — view with great caution; consider blame-shifting, plea benefits, curry-favor motive
+- **Informant** (*Broadway*, *Brooks*) — payment, motive, corroboration
+- **Expert witness** (La. C.E. Art. 702; *Foret*; *Daubert*) — qualifications, factual basis, methodology, bias
+- **Prior inconsistent statement** (La. C.E. Art. 607(D)(2); 801(D)(1)(a); *Owens*) — substantive use only if under oath

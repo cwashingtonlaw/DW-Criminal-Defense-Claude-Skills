@@ -88,3 +88,20 @@ For each missing item (e.g., body-cam footage, dispatch logs, lab notes, personn
 - **Deadline Urgency:** Days until next court date or discovery deadline
 
 This report feeds directly into the **dw-criminal-defense-crim** Phase 2 Report 7 (Table of Missing Discovery) and triggers the Auto-Action Missing Discovery Demand Letter. Route CRITICAL items immediately to **dw-brady-giglio-auditor-crim**.
+
+
+## Moved from SKILL.md — Discovery Bucket Classification (Barone 7-Bucket System)
+
+Every ledger entry must be classified into one of the seven Barone Discovery Buckets. This classification enables gap analysis by category — revealing whether entire categories of discovery are missing (e.g., "we have zero digital evidence disclosures") rather than just individual items.
+
+| Bucket # | Bucket Name | What It Covers |
+|----------|-------------|----------------|
+| 1 | Law Enforcement Reports & Statements | Incident reports, supplemental reports, arrest reports, officer statements, internal affairs records, use-of-force reports, training records |
+| 2 | Physical/Forensic Evidence | Lab reports (DNA, fingerprint, ballistics, toxicology), crime scene photos, autopsy/medical examiner reports, chain of custody logs, evidence inventories |
+| 3 | Digital/Electronic Evidence | BWC footage, dash cam, CCTV/surveillance, cell phone extractions, CSLI data, social media records, computer forensics, GPS/location data |
+| 4 | Witness Statements & Information | Civilian witness statements, victim statements, informant information, 911 call recordings/transcripts, grand jury testimony |
+| 5 | Expert Reports & Analysis | Expert CVs, expert reports, underlying data/bench notes, testing protocols, proficiency testing results, lab accreditation records |
+| 6 | Prosecution Case File | Plea offers, correspondence, internal memos (if discoverable), prior consistent/inconsistent statements of prosecution witnesses, co-defendant statements, cooperation agreements |
+| 7 | Exculpatory/Impeachment Material (Brady/Giglio) | Exculpatory evidence, impeachment evidence, witness criminal histories, officer discipline records, prior inconsistent statements, benefits/deals given to witnesses |
+
+**Bucket completeness metric:** For each bucket, track: items demanded, items received, items outstanding, and a completeness percentage. A bucket at 0% is a red flag — it likely means the demand was insufficient or the State is withholding an entire category. Cross-reference with `dw-neutral-inventory-crim` Report 0 to verify expected evidence types are accounted for.

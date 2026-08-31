@@ -117,3 +117,9 @@ When drafting the audit report's Legal Analysis section, use the following frame
 **State v. Langley — Louisiana Child Witness Competency:**
 - Does child have capacity to perceive, remember, and communicate?
 - **Conclusion:** Competency is [ESTABLISHED/QUESTIONABLE].
+
+---
+
+## Step 13 Legal Analysis Summary (moved from SKILL.md)
+
+The Legal Analysis section applies seven legal frameworks against the audit findings: Daubert (via *State v. Foret*), Crawford v. Washington, Davis v. Washington, Idaho v. Wright, La. C.E. Art. 801-803, La. C.E. Art. 702, La. Ch.C. Art. 329, and *State v. Langley* (Louisiana child-witness competency).

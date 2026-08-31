@@ -233,3 +233,20 @@ defendant did not act under an honest and reasonable mistake of fact.
 AUTHORITY: La. R.S. 14:16; State v. Givens, 99-3518 (La. 2000), 776
 So.2d 443.
 ```
+
+---
+
+## Moved from SKILL.md
+
+Ten Louisiana affirmative defenses are addressed in this module:
+
+1. **Self-defense / justifiable homicide** (La. R.S. 14:20; *Patterson*, *Freeman*, *Brumfield*) — burden on State BARD it was NOT self-defense
+2. **Defense of others** (La. R.S. 14:22) — parallels self-defense
+3. **Justification** (La. R.S. 14:18) — burden on State BARD
+4. **Insanity / mental incapacity** (La. R.S. 14:14; La. C.Cr.P. Art. 652; M'Naghten) — burden on **defendant** by preponderance (the exception)
+5. **Intoxication** (La. R.S. 14:15) — applies ONLY to specific-intent crimes
+6. **Duress** (La. R.S. 14:18(6)) — NOT a defense to homicide (*Marcantel*)
+7. **Entrapment** (judicially recognized; *Molinario*, *Brand*, *Jacobson*) — burden on State BARD predisposition
+8. **Alibi** (*Marshall*, *Williams*) — not an affirmative defense; State retains burden
+9. **Consent** (offense-specific) — negates "without consent" element
+10. **Mistake of fact** (La. R.S. 14:16; *Givens*) — burden on State BARD no mistake

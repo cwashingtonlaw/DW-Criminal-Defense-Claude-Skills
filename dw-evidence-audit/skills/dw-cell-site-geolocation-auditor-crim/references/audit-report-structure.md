@@ -107,3 +107,11 @@ Tag every finding:
 - **CRITICAL:** Directly undermines the reliability or admissibility of the location evidence, or reveals that the data does not actually support the state's placement claim. Supports a motion to suppress, Daubert challenge, or creates substantial reasonable doubt. Example: the sector coverage area that the state says proves presence at the crime scene also covers the defendant's home; CSS use was concealed through parallel construction; geofence warrant lacked particularity.
 - **SIGNIFICANT:** Weakens the evidentiary value and provides strong cross-examination material. Example: analyst used azimuth-only mapping without propagation analysis; tower dump captured 3,000 devices; GPS data points have large accuracy radii.
 - **MINOR:** Technical irregularity that may affect weight but does not independently undermine the evidence. Example: CDR time zone not explicitly documented but inferable; analyst credentials lack specific training in the technology at issue.
+
+---
+
+## Step 4 Summary (moved from SKILL.md)
+
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed ten-section structure (Executive Summary, Location Evidence Inventory, Legal Authorization Audit, Methodology Audit, Prosecution Claims vs. Data Reality, Mapping & Visualization Recommendations, Admissibility Challenges, Cross-Examination Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Legal Standards Reference Table, Cross-Exam Chapter Seeds, Technical Glossary).
+
+Tag every finding with a severity level: **CRITICAL** (directly undermines reliability or admissibility — supports suppression, *Daubert*, or substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (technical irregularity affecting weight only).

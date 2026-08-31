@@ -14,3 +14,9 @@ Wi-Fi positioning determines a device's location based on the Wi-Fi networks the
 - [ ] Was the access point location verified in the field, or was a database lookup used?
 - [ ] Was the access point location current at the time of the alleged offense, or could it have changed?
 - [ ] What was the reported accuracy estimate for the Wi-Fi-derived location?
+
+---
+
+## Module F Summary (moved from SKILL.md)
+
+Wi-Fi positioning determines a device's location based on Wi-Fi networks the device can detect or has connected to. Typical accuracy is 15-40 meters but depends entirely on the accuracy of crowdsourced access-point location databases (Google, Apple). Access-point movement, range overestimation (a device detecting a network is not necessarily close to it), and database errors all undermine reliability.

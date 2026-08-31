@@ -89,3 +89,11 @@ Tag every finding with a severity level:
 - **CRITICAL:** Deficiency that directly undermines the reliability or admissibility of the evidence. Supports a motion to suppress, Daubert challenge, or creates substantial reasonable doubt. Example: DNA evidence collected with contaminated swabs; no chain of custody for the murder weapon.
 - **SIGNIFICANT:** Deficiency that weakens the evidentiary value and provides strong cross-examination material, but may not independently support exclusion. Example: No elimination prints collected; crime scene log incomplete.
 - **MINOR:** Procedural irregularity that may affect weight with the jury but does not independently undermine admissibility. Example: Photo log has minor gaps in sequence numbering; scene sketch lacks compass orientation.
+
+---
+
+## Step 3 Summary (moved from SKILL.md)
+
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed nine-section structure (Executive Summary, Scene Processing Audit, Evidence-Specific Audits, Scene Documentation Audit, Chain of Custody Audit, Admissibility Challenges, Cross-Examination Questions, Defense Action Items, Discovery Gap Report) plus two appendices (Standards Reference Table, Cross-Exam Chapter Seeds).
+
+Tag every finding with a severity level: **CRITICAL** (directly undermines reliability or admissibility — supports suppression, *Daubert*, or substantial reasonable doubt), **SIGNIFICANT** (weakens evidentiary value — strong cross-exam material), or **MINOR** (procedural irregularity affecting weight only).

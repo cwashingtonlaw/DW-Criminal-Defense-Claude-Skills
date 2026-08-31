@@ -204,3 +204,9 @@ A "no" or "missing" on any of items 4-10 escalates to a **CRITICAL or SIGNIFICAN
 ---
 
 *Last updated: see SKILL.md version. Accreditation bodies, scope formats, and assessment cycles change — always confirm the current state of the lab's accreditation through the body's public registry and through specific discovery in the case. Mark accreditation findings `[VERIFY CURRENT]` before relying on them at hearing.*
+
+---
+
+## Module D Short Version (moved from SKILL.md)
+
+Short version: verify the lab's current accreditation under ANAB (ISO 17025:2017) — the legacy ASCLD/LAB-International accreditation has been consolidated into ANAB. Verify the scope of accreditation covers the specific method used (a lab can be accredited for cocaine ID but not for novel synthetic cannabinoids). Pull recent ANAB audit reports and corrective-action plans. Loss of accreditation or significant audit findings during the case period is admissibility-level material. Flag Louisiana state and parish labs and their current status (attorney must verify currency at time of trial).

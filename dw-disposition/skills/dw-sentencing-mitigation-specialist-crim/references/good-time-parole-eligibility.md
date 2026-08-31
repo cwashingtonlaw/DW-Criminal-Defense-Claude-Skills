@@ -131,37 +131,3 @@ currently in effect.
 ### Purpose
 
 Calculate the actual time the client will serve under any given sentence, accounting for good time credits and parole eligibility. This calculation is essential for plea negotiations, sentencing arguments, and client counseling.
-> **📖 Reference:** Read `references/good-time-parole-eligibility.md` for detailed good time earning rates by offense category and conviction date, offenses ineligible for good time, parole eligibility rules, and complete statutory framework.
-
-### Calculation Output Template
-
-**Sentencing Projection Worksheet:**
-
-```
-CLIENT: ____________________     DOCKET: ____________________
-OFFENSE: ___________________     STATUTE: ___________________
-SENTENCE IMPOSED: __________     DATE OF SENTENCE: __________
-CREDIT FOR TIME SERVED: ____     ADJUSTED START DATE: _______
-
-GOOD TIME CALCULATION:
-  Sentence length (days): _______
-  Good time rate: _______
-  Good time credits earned: _______
-  Net time to serve: _______
-  Projected release date (good time): _______
-
-PAROLE ELIGIBILITY CALCULATION:
-  Sentence length (days): _______
-  Parole eligibility percentage: _______
-  Time to parole eligibility (days): _______
-  Projected parole eligibility date: _______
-
-MANDATORY DISCHARGE DATE:
-  Sentence expiration date: _______
-
-SUMMARY:  Earliest possible release (parole eligibility): _______
-  Expected release (good time): _______
-  Latest possible release (full sentence): _______
-```
-
-**Always present three dates:** parole eligibility date, good time release date, and full sentence expiration date. The client and attorney need all three for informed decision-making.

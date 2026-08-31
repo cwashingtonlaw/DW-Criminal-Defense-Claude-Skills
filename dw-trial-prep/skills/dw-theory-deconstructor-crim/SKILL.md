@@ -101,33 +101,9 @@ Before performing the theory deconstruction, collect the following in ranked ord
 
 For each element of each charged offense, systematically map the State's evidentiary support. This module builds the structural skeleton that the remaining modules flesh out.
 
-### A.1 — Identify Elements
+A.1 pull or import the element grid per count; A.2 map each element to direct evidence, circumstantial evidence (noting the inference required), or `[NO EVIDENCE IN DISCOVERY]`; A.3 classify each element DIRECT / INFERENTIAL / ASSUMED / CONTESTED / SUPPRESSION CANDIDATE.
 
-Pull the elements of each charged offense from the statutory text (La. R.S. citations). If a charge-type specialist has already built the element grid, import it. Otherwise, build from scratch:
-
-| Count | Charge | Statute | Element 1 | Element 2 | Element 3 | Element N |
-|-------|--------|---------|-----------|-----------|-----------|-----------|
-| 1 | [Charge] | La. R.S. ___:___ | [Element] | [Element] | [Element] | [Element] |
-
-### A.2 — Map Evidence to Elements
-
-For each element, identify:
-
-1. **Direct evidence** — evidence that, if believed, proves the element without requiring any inferential step. Cite the specific document and Bate stamp.
-2. **Circumstantial evidence** — evidence that requires an inference to connect it to the element. Cite the document and note the inferential step required.
-3. **No evidence** — the element has no evidentiary support in the current discovery. Mark `[NO EVIDENCE IN DISCOVERY]`.
-
-### A.3 — Classify Evidentiary Sufficiency
-
-For each element, assign a sufficiency classification:
-
-| Classification | Meaning |
-|---------------|---------|
-| **DIRECT** | Direct evidence supports this element; no inferential leap required |
-| **INFERENTIAL** | Evidence exists but requires one or more inferences to connect to the element |
-| **ASSUMED** | No evidence directly supports this element; the State must assume it |
-| **CONTESTED** | Competing evidence exists — some supports, some contradicts |
-| **SUPPRESSION CANDIDATE** | Evidence exists but may be excludable (cross-reference Report 3) |
+Read `references/module-a-element-mapping.md` now for the grid template and the classification definitions.
 
 ---
 
@@ -135,33 +111,9 @@ For each element, assign a sufficiency classification:
 
 Extract every verifiable fact from the discovery — things that are objectively documented and not subject to interpretation.
 
-### B.1 — Fact Categories
+B.1 organize facts as physical, documentary, testimonial, forensic, or timeline; B.2 tag each `[VERIFIED]` / `[MULTI-SOURCE VERIFIED]` / `[UNVERIFIED]` / `[CONTRADICTED]` / `[CONTESTED]`; B.3 enter every fact in the Fact Inventory Table with source, Bate stamp, status, and element(s) supported.
 
-Organize extracted facts by category:
-
-- **Physical evidence facts:** items seized, locations, quantities, conditions (cite evidence logs, inventory receipts, lab reports)
-- **Documentary facts:** dates, times, records, financial transactions, communications (cite documents by Bate stamp)
-- **Testimonial facts:** statements made by witnesses or the defendant that are direct quotes or objectively verifiable claims (cite transcripts, statements, BWC timestamps)
-- **Forensic facts:** lab results, DNA profiles, toxicology readings, ballistics matches, digital forensic artifacts (cite lab reports by Bate stamp and page)
-- **Timeline facts:** undisputed chronological events with source documentation (cite 911 logs, CAD records, BWC timestamps, surveillance footage)
-
-### B.2 — Verification Protocol
-
-For each extracted fact, apply the verification protocol:
-
-| Status | Criteria |
-|--------|----------|
-| **[VERIFIED]** | Fact is documented in at least one discovery item AND is not contradicted by any other discovery item |
-| **[MULTI-SOURCE VERIFIED]** | Fact is documented in two or more independent discovery items |
-| **[UNVERIFIED]** | Fact appears in one source but cannot be independently confirmed; no contradiction found |
-| **[CONTRADICTED]** | Fact is asserted in one source but contradicted by another — cite both sources |
-| **[CONTESTED]** | Fact is disputed between witnesses or between witness accounts and physical evidence |
-
-### B.3 — Fact Inventory Table
-
-| # | Fact | Category | Source(s) | Bate Stamp | Verification Status | Element(s) Supported |
-|---|------|----------|-----------|------------|--------------------|--------------------|
-| 1 | [Statement of fact] | [Category] | [Document] | [Bate #] | [Status] | [Element ref] |
+Read `references/module-b-fact-extraction.md` now for the category definitions, status criteria, and table template.
 
 ---
 
@@ -169,37 +121,9 @@ For each extracted fact, apply the verification protocol:
 
 Identify every inference the prosecution draws — or must draw — from the verified facts to connect evidence to charged elements.
 
-### C.1 — Inference Extraction
+C.1 state each inference, cite its underlying Fact Inventory numbers, rate it STRONG / MODERATE / WEAK, and note alternative inferences (feeds Module F); C.2 map stacked chains (`Fact(s) → Inference A → Inference B → Element`) — any WEAK link is a defense target; C.3 complete the Inference Table.
 
-For each inference:
-
-1. **State the inference** — what conclusion is the prosecution drawing?
-2. **Identify the underlying fact(s)** — what verified facts (from Module B) support this inference? Cite by Fact Inventory number.
-3. **Assess inferential strength:**
-
-| Strength | Criteria |
-|----------|----------|
-| **STRONG** | The inference follows logically and almost inevitably from the facts; few reasonable alternative explanations exist |
-| **MODERATE** | The inference is reasonable but not the only logical conclusion; alternative explanations exist and are plausible |
-| **WEAK** | The inference requires a significant logical leap; multiple equally plausible or more plausible alternatives exist |
-
-4. **Identify the alternative inference(s)** — what other conclusions could a reasonable person draw from the same facts? This feeds Module F.
-
-### C.2 — Inference Chain Analysis
-
-Some prosecution theories require stacked inferences — Inference A must be accepted before Inference B is possible, and Inference B must be accepted before Inference C connects to the element. Map the chain:
-
-```
-Fact(s) → Inference A (strength) → Inference B (strength) → Element
-```
-
-Stacked inferences compound weakness. A chain with two MODERATE links is weaker than either link alone. A chain with any WEAK link is a defense target.
-
-### C.3 — Inference Table
-
-| # | Inference | Underlying Fact(s) | Strength | Element Supported | Alternative Inference(s) | Chain Position |
-|---|-----------|-------------------|----------|------------------|------------------------|----------------|
-| 1 | [Inference] | Fact #[N], #[N] | STRONG/MOD/WEAK | [Element ref] | [Alternatives] | Standalone / Chain [X] Link [N] |
+Read `references/module-c-inference-identification.md` now for the strength criteria, chain analysis, and table template.
 
 ---
 
@@ -207,26 +131,9 @@ Stacked inferences compound weakness. A chain with two MODERATE links is weaker 
 
 Identify every assumption the prosecution makes that is NOT supported by evidence in the discovery. Assumptions are the weakest points in any theory — they are assertions the State needs the jury to accept without proof.
 
-### D.1 — Assumption Identification
+D.1 state each assumption, explain why it is unsupported, identify what evidence would cure it, and rate defense challenge viability HIGH / MEDIUM / LOW; D.2 complete the Assumption Table with element affected and a brief defense strategy note.
 
-For each assumption:
-
-1. **State the assumption** — what is the prosecution taking for granted?
-2. **Explain why it is unsupported** — what evidence would be needed to convert this assumption into a fact, and why is that evidence absent?
-3. **Identify what evidence would cure it** — if this assumption were converted to a verified fact, what document or testimony would do it? This identifies both discovery gaps the State might fill and investigation opportunities for the defense.
-4. **Assess defense challenge viability:**
-
-| Viability | Criteria |
-|-----------|----------|
-| **HIGH** | The assumption is demonstrably false or contradicted by existing evidence — the defense can affirmatively disprove it |
-| **MEDIUM** | The assumption is unsupported but not contradicted — the defense can highlight the gap but cannot affirmatively disprove it |
-| **LOW** | The assumption is unsupported but common-sense plausible — the jury may accept it without evidence, making it harder to challenge |
-
-### D.2 — Assumption Table
-
-| # | Assumption | Why Unsupported | Evidence Needed to Cure | Challenge Viability | Element Affected | Defense Strategy |
-|---|------------|----------------|------------------------|--------------------|-----------------|-----------------| 
-| 1 | [Assumption] | [Explanation] | [What would cure] | HIGH/MED/LOW | [Element ref] | [Brief strategy note] |
+Read `references/module-d-assumption-audit.md` now for the viability criteria and table template.
 
 ---
 
@@ -234,30 +141,9 @@ For each assumption:
 
 Synthesize the outputs of Modules A through D into a single summary matrix showing, for each element of each charged offense, the complete logical path from evidence to proof.
 
-### E.1 — Element Gap Matrix
+E.1 build the Element Gap Matrix (evidence, inferences and strength, assumptions and viability, overall vulnerability, defense opportunity); E.2 rate each element FORTIFIED / SOLID / EXPOSED / VULNERABLE / CRITICAL GAP (the last signals possible La. C.Cr.P. Art. 778 / 821 relief); E.3 write the 2-3 paragraph Prosecution Theory Strength Summary.
 
-| Element | State's Evidence (Direct/Circumstantial) | Inference(s) Required | Inference Strength | Assumption(s) Required | Assumption Challenge Viability | Overall Vulnerability | Defense Opportunity |
-|---------|----------------------------------------|----------------------|-------------------|----------------------|-------------------------------|---------------------|-------------------|
-| [Element 1] | [Evidence with Bate stamps] | [Inference #s from Module C] | STRONG/MOD/WEAK | [Assumption #s from Module D] | HIGH/MED/LOW | [Rating] | [Brief opportunity note] |
-
-### E.2 — Overall Vulnerability Rating
-
-For each element, assign an overall vulnerability rating based on the combined strength of the evidentiary chain:
-
-| Rating | Criteria |
-|--------|----------|
-| **FORTIFIED** | Direct evidence supports the element; no inference or assumption required. Defense should not attack this element head-on. |
-| **SOLID** | Circumstantial evidence with STRONG inferences; no unsupported assumptions. Difficult to challenge but not impossible. |
-| **EXPOSED** | Evidence requires MODERATE inferences or contains one or more unsupported assumptions with LOW challenge viability. Viable defense target. |
-| **VULNERABLE** | Evidence requires WEAK inferences, stacked inference chains, or unsupported assumptions with MEDIUM or HIGH challenge viability. Priority defense target. |
-| **CRITICAL GAP** | No evidence, or evidence likely excludable, or assumption with HIGH challenge viability on an essential element. The State may not survive a motion for judgment of acquittal (La. C.Cr.P. Art. 778 / 821) on this element. |
-
-### E.3 — Prosecution Theory Strength Summary
-
-Provide a 2-3 paragraph narrative summary of the prosecution's overall theory strength, organized by:
-- Where the theory is strongest (FORTIFIED / SOLID elements)
-- Where the theory is weakest (VULNERABLE / CRITICAL GAP elements)
-- The single most significant weakness the defense should exploit
+Read `references/module-e-gap-analysis-matrix.md` now for the matrix template and rating criteria.
 
 ---
 
@@ -265,31 +151,9 @@ Provide a 2-3 paragraph narrative summary of the prosecution's overall theory st
 
 For each prosecution inference identified in Module C, propose the strongest defense counter-inference that can be drawn from the same underlying facts. This module feeds directly into `dw-criminal-defense-crim` Report 4 (Competing Theories) and provides the raw material for defense narrative construction.
 
-### F.1 — Counter-Inference Development
+F.1 for each prosecution inference propose the strongest defense counter-inference from the same facts, rate it, and cite supporting evidence; F.2 complete the Alternative Inference Table with a Report 4 theme tag; F.3 identify 2-3 defense narrative seeds with supporting counter-inferences, remaining gaps, and compatibility notes. **Do not advocate for a particular defense theory** — present alternatives neutrally; the attorney selects.
 
-For each prosecution inference:
-
-1. **Restate the prosecution inference** (from Module C)
-2. **Identify the underlying fact(s)** (same facts the prosecution relies on)
-3. **Propose the defense counter-inference** — the strongest alternative reading of the same facts that is consistent with innocence, lesser culpability, or an affirmative defense
-4. **Assess counter-inference strength** — using the same STRONG / MODERATE / WEAK scale
-5. **Identify supporting evidence** — any additional facts from the discovery that bolster the defense reading over the prosecution reading
-
-### F.2 — Alternative Inference Table
-
-| Prosecution Inference | Underlying Facts | Defense Counter-Inference | Counter Strength | Supporting Evidence | Feeds Report 4 Theme |
-|----------------------|-----------------|--------------------------|-----------------|--------------------|--------------------|
-| [State's reading] | Fact #[N], #[N] | [Defense reading] | STRONG/MOD/WEAK | [Additional evidence] | [Theme tag] |
-
-### F.3 — Defense Narrative Seeds
-
-Based on the counter-inferences with the strongest support, identify 2-3 candidate defense narrative threads. For each:
-- State the narrative thread in one sentence
-- List the counter-inferences that support it (by number)
-- Identify remaining gaps the defense would need to fill (investigation, expert, testimony)
-- Assess compatibility with other defense theories being considered
-
-**Do not advocate for a particular defense theory.** Present the alternatives neutrally with their respective strengths and weaknesses. The attorney selects the theory; this skill provides the analytical foundation.
+Read `references/module-f-alternative-inference.md` now for the five-step development protocol and table template.
 
 ---
 
@@ -301,24 +165,9 @@ Based on the counter-inferences with the strongest support, identify 2-3 candida
 
 **Location:** `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`
 
-**Contents:**
+**Contents:** work-product header; Executive Summary; Sections 1-6 (Modules A-F in order); Section 7 Prosecution Theory Strength Summary; Section 8 Recommended Next Steps (elements to target, investigation, discovery demands, experts, motions); Source Citation Appendix.
 
-1. **Header** — work-product marking per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`. Defendant name, docket number, parish/court, date, attorney.
-2. **Executive Summary** — 1-2 paragraphs summarizing the prosecution theory, its strongest and weakest points, and the number of verified facts, inferences, and assumptions identified.
-3. **Section 1: Element Mapping** (Module A) — charge-by-charge element grid with evidentiary sufficiency classifications.
-4. **Section 2: Fact Inventory** (Module B) — complete table of extracted facts with verification status and source citations.
-5. **Section 3: Inference Analysis** (Module C) — complete table of prosecution inferences with strength assessments and alternative inferences.
-6. **Section 4: Assumption Audit** (Module D) — complete table of unsupported assumptions with challenge viability and cure requirements.
-7. **Section 5: Gap Analysis Matrix** (Module E) — element-by-element synthesis with vulnerability ratings and defense opportunities.
-8. **Section 6: Alternative Inference Table** (Module F) — counter-inferences and defense narrative seeds.
-9. **Section 7: Prosecution Theory Strength Summary** — narrative assessment of overall theory strength.
-10. **Section 8: Recommended Next Steps** — prioritized list of defense actions informed by the deconstruction:
-    - Elements to target at trial
-    - Investigation needs (to convert assumptions to contradicted facts)
-    - Discovery demands (to force the State to fill gaps or reveal weaknesses)
-    - Expert needs (to challenge inferences requiring scientific interpretation)
-    - Motion opportunities (suppression, judgment of acquittal, directed verdict)
-11. **Source Citation Appendix** — every factual claim mapped to its discovery citation.
+Read `references/report-2a-contents.md` now for the required content of each of the eleven sections.
 
 ### Case Brain Update
 
@@ -332,36 +181,7 @@ After producing Report 2a, update `dw-case-brain-crim` with:
 
 ## Cross-Skill Integration
 
-### This skill READS FROM:
-
-| Skill | What It Provides |
-|-------|-----------------|
-| `dw-criminal-defense-crim` Phase 2 Step 2 | Report 2 — Prosecution's Case Summary (hard prerequisite) |
-| `dw-criminal-defense-crim` Phase 1 Step 4 | Case Tables.xlsx — Evidence Table |
-| `dw-case-brain-crim` | Structured case context, charge information, Case Brain variables |
-| Charge-type specialists (`dw-violent-crime-specialist-crim`, `dw-drug-offense-specialist-crim`, etc.) | Element grids and defense theory maps |
-| `dw-criminal-defense-crim` Phase 2 Step 2 | Report 3 — Immediate Red Flags (suppression candidates affecting element mapping) |
-
-### This skill FEEDS:
-
-| Skill | What It Receives |
-|-------|-----------------|
-| `dw-criminal-defense-crim` Report 4 | Alternative Inference Table (Module F) provides raw material for Competing Theories / Core Defense Narrative construction |
-| `dw-adversarial-stress-test-crim` | Gap Analysis Matrix (Module E) identifies the weakest points for stress-testing; Assumption Audit (Module D) provides the specific assumptions to attack |
-| `dw-theory-to-workplan-crim` | Full deconstruction output informs workplan prioritization — VULNERABLE and CRITICAL GAP elements drive investigation and motion priorities |
-
-### Workflow Position:
-
-```
-Report 2 (Prosecution's Case Summary)
-    │
-    ▼
-Report 2a (Theory Deconstruction) ◄── YOU ARE HERE
-    │
-    ├──► Report 4 (Competing Theories / Core Defense Narrative)
-    ├──► dw-adversarial-stress-test-crim
-    └──► dw-theory-to-workplan-crim
-```
+Reads Report 2 (hard prerequisite), Report 3, Case Tables.xlsx, Case Brain, and charge-type specialist element grids; feeds `dw-criminal-defense-crim` Report 4 (Module F), `dw-adversarial-stress-test-crim` (Modules D–E), and `dw-theory-to-workplan-crim`. Read `references/cross-skill-integration.md` for the full tables and workflow-position diagram.
 
 ---
 
@@ -387,7 +207,18 @@ Report 2a (Theory Deconstruction) ◄── YOU ARE HERE
 
 ## Quick References
 
-This skill does not currently maintain its own `references/` subdirectory. It relies on:
+This skill uses the following reference materials, available in the `references/` subdirectory:
+
+- **module-a-element-mapping.md** — Step 2: element grid, evidence-to-element mapping, sufficiency classifications
+- **module-b-fact-extraction.md** — Step 3: fact categories, verification protocol, Fact Inventory Table
+- **module-c-inference-identification.md** — Step 4: inference extraction, strength scale, chain analysis, Inference Table
+- **module-d-assumption-audit.md** — Step 5: assumption identification, challenge-viability scale, Assumption Table
+- **module-e-gap-analysis-matrix.md** — Step 6: Element Gap Matrix, vulnerability ratings, theory strength summary
+- **module-f-alternative-inference.md** — Step 7: counter-inference development, Alternative Inference Table, defense narrative seeds
+- **cross-skill-integration.md** — Cross-Skill Integration: READS FROM / FEEDS tables and workflow-position diagram
+- **report-2a-contents.md** — Step 8: the eleven-section contents specification for Report 2a
+
+It also relies on:
 
 - **Report 2 output** — the prosecution's case summary generated by `dw-criminal-defense-crim` Phase 2 Step 2
 - **Case Tables.xlsx** — the evidence index and witness tables from Phase 1 Step 4

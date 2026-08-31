@@ -115,3 +115,9 @@ Tag every finding:
 - **CRITICAL:** Directly undermines the reliability or admissibility of the video evidence, or reveals a significant discrepancy between the video and the prosecution's narrative. Supports a motion or creates substantial reasonable doubt. Examples: key event occurs during an activation gap; officer's report describes events that are contradicted by the video; video evidence deleted or overwritten.
 - **SIGNIFICANT:** Weakens evidentiary value or reveals procedural failures that provide strong cross-examination material. Examples: BWC not activated per policy but video from another source partially covers the gap; minor timeline discrepancies between video and reports; audio gaps during critical statements.
 - **MINOR:** Procedural irregularity that may affect weight but does not independently undermine the evidence. Examples: brief activation delay at scene arrival; minor metadata documentation gaps; CCTV timestamp off by seconds rather than minutes.
+
+---
+
+## Moved from SKILL.md — Step 4 summary
+
+Produce the audit as a **Word document (.docx)** using the docx skill. Read and follow the `docx` SKILL.md for all formatting and generation instructions. The report follows a fixed twelve-section structure (Executive Summary, Video Inventory, Activation & Coverage Analysis, Timestamp Logs, Content-vs-Report Discrepancies, Report-vs-Recording Matrix, Technical Limitations, Authentication & Metadata, Policy Compliance, Admissibility Challenges, Cross-Exam Questions, Defense Action Items, Discovery Gap Report) plus three appendices (Complete Timestamp Logs, Cross-Exam Chapter Seeds, Agency BWC Policy Excerpts).

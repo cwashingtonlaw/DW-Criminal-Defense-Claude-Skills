@@ -19,3 +19,10 @@
 | Wells et al. (1998) | Seminal framework for system variable reform | Foundation for best-practice arguments |
 | PCAST Report (2016) | Review of forensic science validity including eyewitness identification | Supplementary authority for science-based arguments |
 | Wixted & Wells (2017) | Initial confidence-accuracy relationship under pristine conditions | Nuanced confidence discussion |
+
+---
+
+## Moved from SKILL.md -- Quick Reference summary
+
+Key research includes the NAS Report (2014), Innocence Project data, Wells & Bradfield (1998) on post-identification feedback, Steblay (1992) on weapon focus, Meissner & Brigham (2001) on cross-racial identification, and dozens of other foundational studies.
+
