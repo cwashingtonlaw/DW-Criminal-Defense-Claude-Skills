@@ -22,7 +22,7 @@ When the defendant takes the stand, the 5th Amendment is waived for the subject 
 1. *"Mr./Ms. [Defendant], you understand you have the right to remain silent under the 5th Amendment and the State cannot use that silence against you (Griffin v. California, 380 U.S. 609 (1965))?"*
 2. *"You understand you have the right to testify in your own defense (Rock v. Arkansas, 483 U.S. 44 (1987))?"*
 3. *"You understand that by taking the stand you waive the 5th as to all matters within the scope of your direct testimony — the State can cross-examine you on every topic we cover (La. C.E. Art. 611(B); subject-matter waiver)?"*
-4. *"You understand that prior convictions that are admissible under La. C.E. Art. 609 (or federal Rule 609 if WDLA) will be brought out on cross to challenge your credibility?"*
+4. *"You understand that prior convictions that are admissible under La. C.E. art. 609.1 (or federal Rule 609 if WDLA) will be brought out on cross to challenge your credibility?"*
 5. *"You understand the decision whether to testify is yours alone, after consultation with me (Brooks v. Tennessee, 406 U.S. 605 (1972))?"*
 6. *"Knowing all of this, what is your decision?"*
 
@@ -61,9 +61,9 @@ For defendants with high temperament risk (per STEP 0.6 risk score), add additio
 **Tone:** Respectful to State on cross — "sir/ma'am, yes/no, I don't recall." Do not argue. Do not interrupt. Do not lecture.
 **Failure modes to drill out:** sparring with the prosecutor, over-explaining, volunteering information, sarcasm, contempt for procedure, "yes-but" answers.
 
-### 1.6 — Prior conviction sanitization (La. C.E. Art. 609 / Federal Rule 609)
+### 1.6 — Prior conviction sanitization (La. C.E. art. 609.1 / Federal Rule 609)
 
-If defendant has prior convictions, the State will seek to introduce them under La. C.E. Art. 609 to impeach credibility once defendant testifies. Sanitization protocol:
+If defendant has prior convictions, the State will seek to introduce them under La. C.E. art. 609.1 to impeach credibility once defendant testifies. Sanitization protocol:
 
 1. **Motion in limine** filed pretrial. Argue:
    - Conviction more than 10 years old (per Art. 609(B)) — presumptively excluded
@@ -192,7 +192,7 @@ Alibi witnesses are interviewed multiple times before trial — by defense, by i
 
 A defense expert offers opinion testimony grounded in specialized knowledge (La. C.E. Art. 702). Defense experts are deployed to challenge State forensic evidence (DNA, ballistics, accident reconstruction, eyewitness identification, mental state, digital forensics) or to support affirmative defenses (self-defense, mental health). Daubert/Foret is the gatekeeping threshold (State v. Foret, 628 So. 2d 1116 (La. 1993)).
 
-### 3.1 — La. C.Cr.P. Art. 705 disclosure compliance
+### 3.1 — Defense expert disclosure compliance `[VERIFY article — NOT La. C.Cr.P. art. 705]`
 
 Louisiana Code of Criminal Procedure Article 705 requires the defense to disclose, upon State request, the substance of any defense expert testimony.
 

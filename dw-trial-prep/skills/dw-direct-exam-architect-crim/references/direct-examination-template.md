@@ -52,7 +52,7 @@ The cover page identifies the outline at a glance.
 ```
 
 **Formatting:**
-- 11pt Times New Roman or document body font
+- Times New Roman 14 pt body; page numbers bottom right (`Page N of M`)
 - Work-product header banner top of page (per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`)
 - Vertical center on page
 - Bold for "DIRECT EXAMINATION OUTLINE"
@@ -373,7 +373,8 @@ REHEARSAL & PREP SCHEDULE
 
 ## Document-Wide Formatting Specifications
 
-- **Font:** Times New Roman 11pt body; 14pt chapter headers; 9pt header/footer
+- **Font:** Times New Roman **14 pt** body and table text; 14 pt bold chapter headers; 9–10 pt work-product header/footer
+- **Page numbers:** bottom right of every page, `Page N of M`
 - **Margins:** 1" all sides
 - **Header:** ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIAL (per shared protocol)
 - **Footer:** Case caption + page number (e.g., "State v. Smith — Docket No. 2026-1234 — Direct of J. Doe — Page X of Y")
@@ -389,7 +390,7 @@ REHEARSAL & PREP SCHEDULE
 
 ## Filename Convention
 
-- **Primary outline:** `Direct-Examination - [Witness Name].docx`
+- **Primary outline:** `Direct-Examination — [Witness Name].docx`
 - **Saved to:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`
 - **Indexing copy:** `Direct-Exam Summary - [Witness Name] - [YYYY-MM-DD].docx`
 - **Saved to:** `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`

@@ -53,12 +53,16 @@ A prior statement of a witness, whether inconsistent or otherwise, is admissible
 
 Any party may attack the credibility of any witness, including a witness called by that party. Defense direct exam may include "get out in front of it" sanitization of a defense witness's own credibility issues.
 
-### La. C.E. Art. 608 — Evidence of character and conduct of a witness
+### La. C.E. art. 608 — Character and conduct of a witness
+
+**⚠ Art. 608(B) bars specific-acts credibility attacks** — "particular acts, vices, or courses of conduct… may not be inquired into or proved by extrinsic evidence" to attack truthfulness, other than convictions under arts. 609/609.1 or as constitutionally required. This is the **opposite** of FRE 608(b). On direct it constrains character-witness examination and what your own witness may be asked to volunteer; on the cross that follows, it constrains the State the same way — flag it when the State strays. Four lawful routes for credibility material: conviction (609.1), bias (607(D)(1)), accuracy of the testimony (607(C)), prior inconsistent statement (613).
 
 (A) Character evidence of witness for truthfulness: opinion or reputation form only, after witness's credibility has been attacked.
 (B) Specific instances of conduct: NOT admissible to attack or support credibility through extrinsic evidence (exceptions: criminal convictions under Art. 609; cross-examination of witness directly).
 
-### La. C.E. Art. 609 — Impeachment by evidence of conviction of crime
+### La. C.E. art. 609.1 — Impeachment by conviction, CRIMINAL cases
+
+**Use art. 609.1, not art. 609.** Art. 609 is the civil rule; art. 609.1 governs criminal cases. Art. 609.1(A) subjects every testifying witness to examination on his convictions; (B) bars inquiry into arrests, warrants, indictments, prosecutions, and acquittals; (C) opens the *details* only on three triggers (denial, exculpatory explanation, or probative value outweighing prejudice); (D) a pending appeal goes to weight, not admissibility; (E) a pardon based on innocence bars it; (F) juvenile adjudications generally inadmissible. **No 10-year limit** — unlike FRE 609(b).
 
 The most heavily litigated impeachment rule in defense direct exam — because the defendant's testifying decision turns on it.
 
@@ -129,7 +133,7 @@ Testimony in the form of an opinion or inference otherwise admissible is NOT obj
 
 An expert may testify in terms of opinion or inference and give reasons therefor WITHOUT first testifying to the underlying facts or data, unless the court requires otherwise. The expert may, in any event, be required to disclose the underlying facts or data on cross-examination.
 
-> **Defense implication:** This is the LA C.E. Art. 705 — distinct from La. C.Cr.P. Art. 705 (the pretrial disclosure procedure). Both apply.
+> **Defense implication:** This is **La. C.E. art. 705** — disclosure of the facts or data underlying an expert opinion. Do not confuse it with La. C.Cr.P. art. 705, which is *"Effects of severance of indictments"* and has nothing to do with experts. The pretrial defense-expert disclosure obligation lives in the La. C.Cr.P. arts. 716–729 discovery scheme `[VERIFY the current article]`.
 
 ### La. C.E. Art. 803(6) — Business records hearsay exception
 
@@ -156,7 +160,9 @@ Art. 902 — Self-authentication categories (no extrinsic evidence required):
 
 ## Part II — Louisiana Code of Criminal Procedure
 
-### La. C.Cr.P. Art. 705 — Defense expert disclosure
+### Defense expert disclosure — `[VERIFY correct article before citing]`
+
+**⚠ Correction:** a prior version of this file cited **La. C.Cr.P. art. 705** for defense expert disclosure. Art. 705 is *"Effects of severance of indictments"* and has nothing to do with expert disclosure. Defense reciprocal discovery runs through the La. C.Cr.P. arts. 716–729 scheme (art. 719 covers reports of examinations and tests; art. 724 covers documents and tangible objects), substantially restructured by Acts 2013, No. 250. **Confirm the current article and its text before relying on it.** Note also: La. C.E. art. 705 is a different rule entirely — disclosure of the facts or data underlying an expert opinion.
 
 Upon request by the State, the defense shall disclose:
 - Names and addresses of expert witnesses defense intends to call
@@ -255,7 +261,7 @@ Visible shackling during the guilt phase of a criminal trial violates the 14th A
 
 (b)(1)(C) — On government request, defense must produce a written summary of expert testimony defense intends to use in its case-in-chief. Summary must describe (a) the witness's opinions, (b) the bases for those opinions, (c) the witness's qualifications.
 
-> **WDLA federal practice note:** Federal Rule 16 disclosure differs from La. C.Cr.P. Art. 705 — sequence and triggers vary. For WDLA cases, consult the local rules and the scheduling order.
+> **Federal practice note:** Fed. R. Crim. P. 16 disclosure differs from the Louisiana scheme — sequence and triggers vary, and Rule 16(b)(1)(C) requires an expert summary Louisiana has no direct analogue for. For W.D./E.D./M.D. La. cases, consult the local rules and the scheduling order.
 
 ---
 

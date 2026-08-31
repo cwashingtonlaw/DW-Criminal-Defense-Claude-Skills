@@ -37,7 +37,7 @@ Create a 5-column inventory table with the following columns:
 4. **Source Documents column:** List every source where the witness appears:
    - Format: `(N) Document Title, page/Bates/timestamp`
    - Use the source register numbering scheme if already established
-   - Include: police reports, witness statements, interviews, depositions, preliminary hearing transcripts, recordings, social media, email, text messages, search warrant returns
+   - Include: police reports, supplemental reports, witness statements, recorded interviews, preliminary hearing transcripts, grand jury testimony where available, recordings (BWC/dash/jail calls), social media, email, text messages, search warrant applications and returns. Depositions are rare in Louisiana criminal practice — include only if testimony was actually perpetuated
    - Note any omissions (missing statement, missing interview, expected document not produced)
 
 5. **Trial Exam Status column:**

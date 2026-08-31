@@ -62,7 +62,7 @@ Every harmful-content claim and impeachment hook in the threat matrix must trace
 - `CASE_ROOT` — absolute path to client case folder
 - Case Brain (via `dw-case-brain-crim`) for State's theory and contested elements
 - Phase 1–3 deliverables in `CASE_ROOT`: DMAR, Brady/Giglio audit, Discovery Compliance Ledger, Video Audit, Forensic Dump Analysis, Eyewitness ID Audit, Confession/Interrogation Audit, Expert Witness Evaluations
-- Every `.docx` already in `CASE_ROOT/Trial Notebook/Witnesses/` (existing cross-exam outlines)
+- Every `.docx` already in `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` (existing cross-exam outlines, named `Cross-Examination — [Witness Name].docx` per dw-data-contracts-crim Contract 3)
 
 If the State's witness list is missing, STOP and tell the attorney to file a Bill of Particulars / motion to compel first. Do not invent witnesses.
 
@@ -117,7 +117,7 @@ If the State's witness list is missing, STOP and tell the attorney to file a Bil
 
 `# | Witness (name + role + type) | Why They Matter (1 sentence — element proved) | Harmful Content | Source (path / Bates / DMAR cite / timestamp) | Impeachment Hooks | Damage | Vulnerability | Priority | Defense Action | Cross Outline Status`
 
-Cross Outline Status comes from actually scanning `Trial Notebook/Witnesses/`: "Drafted" (with file link), "In progress," or "Not started."
+Cross Outline Status comes from actually scanning `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`: "Drafted" (with file link), "In progress," or "Not started."
 
 ## Document structure
 
@@ -148,7 +148,7 @@ Create `01 - Trial Notebook/03 - Witnesses/` if it does not exist. Apply attorne
 **REFRESH MODE** (prior matrix exists). Runs AFTER cross outlines have been drafted for at least the CRITICAL witnesses. Refines Vulnerability scores using impeachment hooks discovered during cross prep, updates Cross Outline Status, and converts the matrix from prep planner into trial-prep dashboard.
 
 Refresh process:
-1. Load most recent prior matrix from `Trial Notebook/Witnesses/`
+1. Load most recent prior matrix from `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/`
 2. Re-scan upstream deliverables AND every cross-exam outline now present
 3. Re-score every witness; add any newly-identified witnesses
 4. Record deltas in a **Score Change Log** table for any witness whose Damage or Vulnerability moved ≥ 2 points OR whose Priority tier changed: `Witness | Prior D/V/Priority | New D/V/Priority | Reason | Source of New Information`

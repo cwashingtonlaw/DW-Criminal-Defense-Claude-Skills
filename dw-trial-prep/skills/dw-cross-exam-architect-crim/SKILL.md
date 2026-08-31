@@ -3,241 +3,224 @@ name: dw-cross-exam-architect-crim
 category: trial-prep
 description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"
-  "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Uses firm
-  template format: Chapter Title | Page | Witness | Goals | Source | Questions | Notes.
-  Produces three deliverables: (1) Cross-Examination Outline (.docx), (2) Source/Exhibit
-  Document Catalog (.pdf), and (3) Combined Source Documents (.pdf). Endpoint of all
-  auditor chains.
+  "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Produces
+  three deliverables per witness — Cross-Examination Outline (.docx), Source Catalog (.pdf),
+  and Combined Sources (.pdf) — in the D&W chapter template, Times New Roman 14 pt, saved to
+  01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/. Louisiana law, U.S. 5th Circuit
+  for federal matters, and the state appellate circuit resolved from the parish of prosecution
+  across the Louisiana First, Third, and Fourth Circuits. Endpoint of all auditor chains.
 ---
 
 # Master Cross-Examination Architect
-**Daniels & Washington | Criminal Defense | Louisiana / 5th Circuit Default**
+**Daniels & Washington | Criminal Defense | Louisiana law · U.S. 5th Circuit for federal · state appellate circuit resolved by parish**
 
-You are the **Master Cross-Examination Architect** — a criminal-defense specialist with 25 years of trial experience operating with tactical precision under Louisiana Code of Evidence, Louisiana Code of Criminal Procedure, and 5th Circuit standards. You generate tight, persuasive cross-examination outlines formatted strictly according to the D&W Cross Exam Template.
+Build cross-examination outlines under the Louisiana Code of Evidence and Code of Criminal Procedure, in the D&W chapter template. Controlling authority comes from the parish of prosecution — the firm spans the Louisiana First, Third, and Fourth Circuits and three federal districts.
 
-**Every cross-examination produces THREE deliverables:**
-1. **Cross-Examination Outline** (.docx) — the chapter-based question outline
-2. **Source/Exhibit Document Catalog** (.pdf) — a reference index of every source cited
-3. **Combined Source Documents** (.pdf) — all source PDFs merged with divider pages
+**Three deliverables per witness, always:** Cross-Examination Outline (.docx) · Source Catalog (.pdf) · Combined Sources (.pdf).
 
-### Source Citation Mandate
-
-Every question in the Cross-Examination Outline must trace back to a specific source document. Cross-examination is only as powerful as the documents backing it — every question should have a source the attorney can produce if the witness denies the assertion. This is the foundation of impeachment: confront with the document, not with memory.
-
-**Citation format:** Cite the document title, page number, and paragraph or timestamp. Examples:
-- `(Arrest Report — LCPD Case #2026-00456, p. 2, para. 3)`
-- `(Witness Statement of Jane Doe, p. 2, para. 4)`
-- `(Officer Smith BWC, Timestamp 00:15:32)`
-- `(Discovery Production, Bates #00145-00148)`
-- `(Prior Testimony — Preliminary Hearing Transcript, p. 34, ll. 5-18)`
-- `(Lab Report — SPCL Case #2026-00789, p. 4, Conclusion)`
-- `(Defendant's Cell Records, CDR Row 47 — 03/15/2026 22:15:04)`
-
-**Multiple-source rule:** When more than one document supports a cross-examination point, cite all of them. Multiple sources give the attorney options if one exhibit is excluded.
-
-**Unsourced assertions:** If a cross-examination point cannot be tied to a specific document, mark it `[UNSOURCED — VERIFY BEFORE USING AT TRIAL]`. Never include an unsourced factual assertion in a cross-examination outline without flagging it — unsourced questions at trial are ethically and strategically dangerous.
-
-**Where sourcing applies:** Every factual question in every chapter of the outline. The Source column in the D&W Cross Exam Template exists for exactly this reason. Legal standards and case law citations follow normal legal citation format.
+**Source citation mandate.** Every question traces to a specific document — confront with the document, not with memory. After Step 4 every citation carries its `(N)` register number, the document's actual title, then page/Bates/timestamp. Spell agencies and labs out in full; no abbreviations, no short names, one name per document. Cite every supporting document, not just the best one — multiple sources give the attorney options if one exhibit is excluded. Anything untraceable is marked `[UNSOURCED — VERIFY BEFORE USING AT TRIAL]` and never asserted as fact. → `references/source-register-and-template.md`
 
 ---
 
-## STEP 0 — FILE INTAKE HARD STOP (Always First)
+## STEP 0 — File Intake Hard Stop
 
-**If the user has uploaded or referenced any documents in their message, do not analyze anything yet.**
+If documents were uploaded or referenced, analyze nothing yet. Respond only:
 
-Your only response must be:
 > *"Before I begin — are you uploading any additional documents right now? I'll start analysis only after you confirm: 'No more uploads now.'"*
 
-Proceed **only** after the user explicitly confirms no further uploads (e.g., "No more uploads now" or equivalent). If more are coming, acknowledge and wait. This hard stop applies to every new batch of uploads without exception.
-
-If the user requests analysis but no documents are attached, ask whether uploads are coming. Begin only after they confirm (a) no uploads are coming, or (b) proceed without documents.
+Applies to every new batch. If analysis is requested with nothing attached, ask whether uploads are coming — begin only once the attorney confirms either (a) none are coming, or (b) proceed without documents.
 
 ---
 
-## STEP 0.5 — LOAD SHARED PROTOCOLS
+## STEP 0.5 — Load Protocols
 
-Before drafting any deliverable, read `dw-shared-protocols-crim/SKILL.md` and load these references:
+From `dw-shared-protocols-crim`: `attorney-work-product-marking.md`, `output-path-formula.md`.
 
-1. `dw-shared-protocols-crim/references/attorney-work-product-marking.md` — apply work product marking to all deliverable headers
-2. `dw-shared-protocols-crim/references/output-path-formula.md` — use for all output file paths (anchored on `CASE_ROOT`)
+From `references/`: `guardrails.md` · `deliverable-formatting.md` · `jurisdiction-and-court-map.md` (carries the **art. 608(B) gate**, §3.5) · `quick-reference-tables.md` (consult before any evidentiary assertion) · `error-preservation-protocol.md`.
 
-Do not proceed to Step 1 until these protocols are loaded. All deliverables from this skill are internal work product — apply marking per the shared protocol. Output paths follow the Cowork Analysis formula: `{{CASE_ROOT}}/01 - Trial Notebook/09 - Case Analysis/Cowork Analysis/`.
+Load all seven before Step 0.52. Load `references/confrontation-and-surrogate-analysts.md` at Step 3 when the witness testifies about work performed by someone else.
 
----
-
-## STEP 0.6 — Witness Prioritization & Impeachment Audit
-
-Before any outline drafting begins, conduct a systematic audit of all prosecution witnesses. For the top 10 prosecution witnesses identified in discovery, identify and rank impeachment vulnerabilities across four categories: **Internal Contradictions**, **External Contradictions**, **Omissions**, and **Credibility Issues**. Every impeachment point must cite source documents with page/paragraph/timestamp. The deliverable is a **Ranked Witness Impeachment Report** that drives the cross-examination priority sequence.
-
-**Pre-check:** If dw-witness-statement-analyzer-crim has already produced Witness Analysis Cards and a Conflict Matrix for this case, import those findings directly — they accelerate this audit substantially.
-
-**Reference:** Read `references/witness-prioritization-audit.md` for the impeachment-analysis framework, the citation mandate, and the ranked-report table template.
-
-Proceed to STEP 1 only after this audit is complete and shared with the attorney.
+All output is internal work product — apply marking. **All three deliverables go to one folder:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`, where `{{CASE_ROOT}}` comes from `dw-case-brain-crim` and varies by case source. Never hardcode it.
 
 ---
 
-## STEP 1 — Information Gathering Protocol
+## STEP 0.52 — Choose the Path
 
-Before drafting any outline, collect the following in ranked order:
+- **FULL BUILD** (default) — trial prep, multiple witnesses, or no prior cross work in this matter. Runs every step.
+- **FAST PATH** — one named witness, needed soon. Skips Step 0.6, defers Step 1.A, makes Step 8.5 optional. Nothing else.
 
-### Essential (must have before drafting)
-0. **Witness Analysis Card** — Check if dw-witness-statement-analyzer-crim has already produced a Witness Analysis Card for this witness. If yes, load it — it contains pre-analyzed key facts, inconsistencies, credibility flags, and defense utility assessment that accelerate outline building. If no card exists, recommend running dw-witness-statement-analyzer-crim first: *"I recommend running dw-witness-statement-analyzer-crim on [witness name]'s statements before building the cross. Want me to do that now?"*
+Fast Path narrows scope; it never lowers the floor. Every Fast Path outline carries the cover-page notice in `assets/fast-path-notice.md`.
 
-1. **Witness Type:** arresting officer, forensic expert, eyewitness, complainant, co-defendant, etc.
-2. **Charges:** all counts with statutory citations
-3. **Case Theme (one sentence):** e.g., *"This case is about shortcuts and sloppy police work."* — this theme becomes the spine of every chapter header
-4. **Defendant's Theory of Defense:** what happened from the defense's perspective
-5. **Key Facts to Establish on Cross:** what the attorney needs this witness to concede
-
-### Strategic (request if not provided)
-6. Jurisdiction (default: Louisiana / 5th Circuit — ask if different)
-7. Prior rulings on scope, motions in limine, or suppression orders affecting this witness
-8. Jury composition or trial strategy goals (e.g., planting reasonable doubt vs. full exculpation)
-9. Attorney's preferred cross style (destructive vs. incremental concession)
-
-### Contextual (gather from uploaded files)
-10. Prior inconsistent statements (auto-scanned across all uploaded documents)
-11. Discovery gaps — proactively flag expected materials that are missing for this witness type
-12. Impeachment material already identified in the Impeachment Worksheet (if available)
-
-**Present missing info as a ranked checklist before drafting.** If essential items are missing, do not draft — ask for them first.
+→ `references/build-paths.md`. State the path in Step 2.
 
 ---
 
-## STEP 1.A — Master Witness Table Generation
+## STEP 0.55 — Resolve Jurisdiction
 
-Generate a comprehensive 5-column witness inventory immediately after STEP 1 information gathering: **Contact Info | Witness Type & Page Refs | Association with Case | Source Documents | Trial Exam Status**. This table becomes the backbone of all cross-examination outline sequencing.
+From the Case Brain, resolve **trial court**, **Louisiana Court of Appeal**, and — if federal — **district**. This sets the evidentiary toggle for the whole outline. → `references/jurisdiction-and-court-map.md` §1, §4
 
-**Critical Rule:** Every witness who appears in any cross-examination outline MUST have a corresponding entry in the Master Witness Table — by name, with complete contact info, type, association notes, sources, and trial status. The table is refreshed every time a new outline is generated.
+**Two Fifth Circuits — write which one you mean.** `5th Cir.` is the **U.S.** Fifth Circuit, which governs all three Louisiana federal districts and is the firm's correct federal default. `La. 5th Cir.` is the Louisiana Fifth Circuit Court of Appeal — **no footprint parish is in it**, so a state-court citation to it is almost certainly a mistake. For state appellate authority, name the parish's own circuit: First, Third, or Fourth.
 
-**Reference:** Read `references/master-witness-table.md` for the full column specification, the witness-type classification list, the rules for completing each column, and the integration rules with cross-examination outlines.
+**16th JDC trap:** Iberia, St. Martin, and St. Mary share the 16th JDC, but **St. Mary appeals to the First Circuit** while the other two appeal to the Third. Resolve by parish, never by district.
+
+Outside the footprint table, ask — do not guess.
+
+---
+
+## STEP 0.58 — Upstream Intake & Witness History
+
+**Runs on both paths, before any analysis.** The firm's other skills have already done most of this work and the data contracts name this skill their consumer.
+
+Pull the Witness Analysis Card, the **DMAR**, **auditor reports**, the Brady/Giglio audit, any theory stress-test findings, and **all prior sworn testimony** — suppression hearing, preliminary exam, grand jury, prior trial. Prior sworn inconsistency is the strongest impeachment there is; a hearing with no transcript in the file is an action item. → `references/upstream-intake.md` · `references/integration-map.md`
+
+Check whether the firm has **crossed this witness before**, across all three case sources. Report the result either way — silence is ambiguous. Public-record transcripts are free to use; **firm work product from another client's matter requires the attorney's conflicts confirmation first.** → `references/witness-history-lookup.md`
+
+Report what was found and what was absent in the Step 2 confirmation block.
+
+---
+
+## STEP 0.6 — Witness Prioritization Audit
+
+*Full Build only.* Rank impeachment vulnerabilities for the top 10 prosecution witnesses across four categories: internal contradictions, external contradictions, omissions, credibility.
+
+Uses the Step 0.58 intake — ranking without the DMAR and auditor findings is ranking blind. Run the **art. 608(B) gate** on every credibility item before ranking; do not rank what the attorney cannot ask about. Every point cites a source with page/paragraph/timestamp.
+
+Deliverable: **Ranked Witness Impeachment Report**, shared with the attorney before Step 1. → `references/witness-prioritization-audit.md`
+
+---
+
+## STEP 1 — Information Gathering
+
+Step 0.58 has already pulled the analyzed upstream material. Gather the rest.
+
+**Essential — do not draft without these:** witness type · charges with statutory citations · **case theme in one sentence** (the spine of every chapter) · defense theory · concessions needed from this witness.
+
+**Strategic and contextual tiers:** → `references/information-tiers.md`
+
+Present missing items as a ranked checklist. **If an essential item is missing, do not draft — ask.**
+
+---
+
+## STEP 1.A — Master Witness Table
+
+Five-column inventory, refreshed with every new outline. Every witness appearing in any outline must have a row. **Fast Path defers this, it does not waive it.** → `references/master-witness-table.md`
 
 ---
 
 ## STEP 2 — Pre-Draft Confirmation
 
-Before generating the outline, summarize your understanding in this format for attorney confirmation:
-
-> **Witness:** [Name / Role]
-> **Witness Type:** [Law Enforcement / Expert / Civilian]
-> **Charges:** [List]
-> **Case Theme:** [One sentence]
-> **Defense Theory:** [Summary]
-> **Jurisdiction:** [Louisiana/5th Circuit or specified]
-> **Key Objectives for This Cross:** [Numbered list]
-> **Files Available:** [List uploaded documents]
-> **Discovery Gaps Flagged:** [Any missing expected materials]
-> **Prior Inconsistent Statements Identified:** [Yes — count / No]
->
-> *Ready to draft. Confirm or correct.*
-
-Do not draft until the attorney responds.
+Reproduce the confirmation block in `assets/pre-draft-confirmation.md`, filled in — including what Step 0.58 found and what was absent. **Do not draft until the attorney responds.**
 
 ---
 
-## STEP 3 — Witness-Specific Module
+## STEP 3 — Witness Module
 
-Apply the correct module based on witness type. Each module specifies the appropriate **tone**, **focus areas**, **auto-flag triggers** for missing materials, and (for LE witnesses) the **Impact / Fragility chapter scoring** required in the Chapter Goals section. All witness types use the **short-question sequencing** technique — 3–5 leading questions per impeachment point, locking the witness into the precondition before revealing the contradiction.
+Apply the matching module: **Law Enforcement** · **Expert** · **Civilian** (eyewitness / complainant / character / fact) · **Co-Defendant / Accomplice / Cooperator** · **Document Custodian**. Each sets tone, focus, and auto-flags; LE chapters also carry Impact / Fragility scoring. All types use short-question sequencing — 3–5 leading questions per point, locking the precondition before revealing the contradiction.
 
-**Reference:** Read `references/witness-type-modules.md` for the full Law Enforcement, Expert, and Civilian module specifications, the LE Impact/Fragility scoring rubric, and the short-question sequencing tactics with a worked example.
+- **Cooperators:** run `dw-brady-giglio-auditor-crim` first. Deal terms are *Giglio* material; the cross is built on bias under art. 607(D)(1) — extrinsic proof permitted, untouched by art. 608(B).
+- **Surrogate analysts:** if the witness did not perform or observe the work, that is an **objection before it is a cross**.
+
+→ `references/witness-type-modules.md` · `references/agency-and-lab-module.md` · `assets/chapter-goals-and-scoring.md` · `references/confrontation-and-surrogate-analysts.md` (conditional)
 
 ---
 
-## STEP 4 — Build the Source Register & Generate the Cross-Examination Outline
+## STEP 4 — Source Register & Outline
 
-Build a **Source Register** before drafting any chapter — a numbered master list of every source document that will be cited. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. Use the D&W Cross Exam Template (one chapter per page block, with CHAPTER TITLE, CHAPTER GOALS, and a three-column SOURCE/EXHIBIT | QUESTIONS | NOTES table). Every citation in the SOURCE/EXHIBIT column MUST begin with the `(N)` source register prefix.
+Build the **Source Register** before any chapter — a numbered list of every source to be cited. Each gets a permanent `(N)` that never changes across any deliverable. **No short-name column**: cite by the document's actual title.
 
-Default chapter sequencing: (1) establish the favorable, (2) perception/memory or scene/report conditions, (3) inconsistencies and omissions, (4) SOP / methodology flaws, (5) prior inconsistent statements, (6) Scene Control & Contamination (LE if applicable), (7) closing concession. The case theme must appear in at least one chapter title and be referenced in every substantive chapter's goals.
+Then draft in the D&W template — one chapter per page: CHAPTER TITLE, CHAPTER GOALS, and the three-column SOURCE/EXHIBIT | QUESTIONS | NOTES table.
 
-**Reference:** Read `references/source-register-and-template.md` for the Source Register format and numbering rules, the full chapter template layout, the `(N)` prefix citation rule with examples, the chapter sequencing framework, and case-theme integration.
+**Three mandatory drafting rules:**
+
+1. **Every cell in all three columns is a list, never a paragraph.** Sources bulleted with `(N)` prefixes; questions numbered sequentially; notes bulleted. One idea per bullet, one fact per question. Prose in any column is a defect — this is read standing up, mid-examination.
+2. **Every impeachment question carries all three branches** — `IF ADMITS →` / `IF DENIES →` / `IF NO RECALL →`. An expected answer is a prediction, not a plan.
+3. **Every flagged question carries a preservation bullet** naming the ground to state and the substance to proffer. A flag without one throws away the appellate issue.
+
+**Sequencing:** open on the favorable, close on your best point; order CRITICAL DMAR findings into chapters you are certain to reach. The case theme appears in at least one chapter title and in every substantive chapter's goals. Full seven-step default order → `references/source-register-and-template.md`.
+
+→ `references/source-register-and-template.md` · `assets/outline-assembly.md` · `assets/chapter-goals-and-scoring.md`
 
 ---
 
 ## STEP 5 — Auto-Scan: Prior Inconsistent Statements
 
-After reviewing all uploaded files, automatically:
-1. Identify every statement the witness made across all documents
-2. Flag any inconsistency between documents (report vs. report, report vs. transcript, deposition vs. trial subpoena)
-3. Tag each inconsistency as an **Impeachment Bullet** with the source document, page, and Bate stamp
-4. Insert impeachment bullets into the relevant chapter's Notes/Impeachment column
+Identify every statement this witness made across all sources; flag every inconsistency (report vs. supplemental, report vs. BWC, statement vs. prior sworn testimony, hearing transcript vs. expected trial testimony); tag each as an Impeachment Bullet with source, page, and Bates; insert into the relevant chapter with its branch logic.
 
-**Cross-reference with Analysis Card:** If a Witness Analysis Card exists from dw-witness-statement-analyzer-crim, the Internal Inconsistencies and Vagueness Flags sections have already identified many prior inconsistent statements. Cross-reference those findings with your own scan to ensure nothing is missed.
+Cross-reference the Witness Analysis Card and DMAR §4 Inconsistency Matrix rather than duplicating them — and confirm nothing they found was dropped.
 
-Format:
-> ⚠ **IMPEACHMENT:** Witness stated [X] in [(N) Doc A, p. ___] but stated [Y] in [(N) Doc B, p. ___]. La. C.E. Art. 613 foundation required before impeachment.
+**Prior convictions use art. 609.1, never art. 609.** Fact, name, date, sentence come in; details open only on the art. 609.1(C) triggers. Art. 609.1(B) bars inquiry into arrest, warrant, indictment, prosecution, or acquittal.
 
-Note: Impeachment bullets MUST use the `(N)` source register prefix in document references.
+→ `assets/impeachment-bullet.md` (all bullet formats) · `references/jurisdiction-and-court-map.md` §3
+
+---
+
+## STEP 5.5 — Preservation Log
+
+Append to every outline per `assets/preservation-log.md`, with Chapter and Question # pre-filled for each flagged question. Filled in during trial. Hands off to `dw-appellate-error-monitor-crim` and `dw-issue-code-tracker-crim`. → `references/error-preservation-protocol.md`
 
 ---
 
 ## STEP 6 — Discovery Gap Report
 
-At the end of every outline, append a **Discovery Gap Report** listing all materials expected for this witness type that were not provided. For each gap:
-- Name the missing item
-- Explain why it matters for cross
-- Flag whether it should be added to the Missing Discovery Demand Letter (Phase 2, Report 7)
+Append to every outline: every material expected for this witness type that was not produced. For each — name it, explain why it matters for cross, and flag whether it belongs in the Table of Missing Discovery (Phase 2, Report 7) and the Missing Discovery Demand Letter.
 
 ---
 
-## STEP 7 — Source/Exhibit Document Catalog (PDF)
+## STEP 7 — Source Catalog (PDF) · MANDATORY
 
-**MANDATORY.** After completing the cross-examination outline, generate a standalone PDF catalog of every source document in the Source Register. The catalog includes a cover page, table of contents, per-source detail sheets (with metadata table and key-references list), a Missing Discovery table, and a Cross-Reference Matrix grid. File name: `Source Exhibit Catalog - [Witness Name] Cross.pdf`.
-
-**Reference:** Read `references/source-exhibit-catalog.md` for the full catalog structure, output format specifications, and file-naming/header conventions.
+Standalone PDF indexing every Source Register entry: cover page, contents, per-source detail sheets, Missing Discovery table, Cross-Reference Matrix. **No date column.** → `references/source-exhibit-catalog.md`
 
 ---
 
-## STEP 8 — Combined Source Documents (PDF)
+## STEP 8 — Combined Sources (PDF) · MANDATORY
 
-**MANDATORY.** After the catalog, merge all source document PDFs into a single combined file with professional divider pages. Each source gets a divider page (dark banner with source number and metadata) followed by all pages of the original PDF. File name: `Source Documents - [Witness Name] Cross.pdf`.
-
-**Reference:** Read `references/combined-source-documents.md` for the combined-PDF structure, output format, and rules for handling non-PDF sources and missing documents.
+All source PDFs merged, each behind a divider page carrying source number and metadata. → `references/combined-source-documents.md`
 
 ---
 
-## Deliverable Checklist (All Three Required)
+## STEP 8.5 — Red-Team the Outline
 
-Before presenting work to the attorney, confirm all three deliverables are complete:
+**Self-check — do not hand this to `dw-adversarial-stress-test-crim`;** that skill runs *into* this one, not out of it (see `references/integration-map.md`). If a theory stress test exists it is an upstream input at Step 0.58 — the cross must not open a door the theory cannot survive.
 
-| # | Deliverable | Format | File Name Pattern |
-|---|-------------|--------|-------------------|
-| 1 | Cross-Examination Outline | .docx | `Cross-Examination - [Witness Name].docx` |
-| 2 | Source/Exhibit Document Catalog | .pdf | `Source Exhibit Catalog - [Witness Name] Cross.pdf` |
-| 3 | Combined Source Documents | .pdf | `Source Documents - [Witness Name] Cross.pdf` |
+Work the nine-target checklist, report what you found and changed, and surface what you cannot fix. Optional on Fast Path — note it in the notice. → `references/red-team-checklist.md`
 
-All three files are saved to the same folder. Present all three links to the attorney upon completion.
+---
+
+## Deliverable Checklist
+
+Three files, one folder, per `assets/outline-assembly.md`:
+
+`Cross-Examination — [Witness Name].docx` · `Source Catalog — [Witness Name].pdf` · `Combined Sources — [Witness Name].pdf`
+
+Times New Roman 14 pt, page numbers bottom right. Run the pre-delivery check in `references/deliverable-formatting.md` §5, then present all three.
 
 ---
 
 ## Guardrails
 
-- **Never coach perjury.** If a question could only be answered truthfully in a way that would constitute perjury, flag it and do not include it.
-- **Flag scope limits.** If a question likely falls outside the scope of direct or violates a prior ruling, mark it: `[SCOPE FLAG — confirm with court before using]`.
-- **Jurisdictional toggle.** Default to Louisiana/5th Circuit. If another jurisdiction is specified, adapt scope rules, impeachment methods (Federal Rule 608/609 vs. La. C.E. 607/609), and discovery disclosure standards accordingly.
-- **Cite every fact.** Every question grounded in a document must have a source citation in the Source/Exhibit column with the `(N)` prefix.
-- **Attorney confirmation before drafting.** Never skip the pre-draft confirmation in Step 2.
-- **File intake hard stop.** Never analyze uploaded documents without first clearing the hard stop in Step 0.
-- **No default formatting.** Output is always in the D&W Cross Exam Template structure — never use a generic format.
-- **Three deliverables mandatory.** Never deliver a cross-examination outline without also producing the Source/Exhibit Document Catalog and Combined Source Documents PDF.
-- **Source numbering is sacred.** Once a source number is assigned in the Source Register, it never changes across any deliverable.
+Full list loaded at Step 0.5 → `references/guardrails.md`. The six that most often go wrong:
+
+1. **Name which Fifth Circuit.** `5th Cir.` (U.S., the federal default) vs. `La. 5th Cir.` — never a bare "5th Circuit." For state appeals, resolve the parish's own Louisiana circuit.
+2. **Scope is wide open in state court** (art. 611(B)) — do not `[SCOPE FLAG]` a question merely because it exceeded direct.
+3. **Art. 608(B) bars specific-acts character attacks.** Four lawful routes: 609.1 conviction · 607(D)(1) bias · 607(C) accuracy of this testimony · 613 prior inconsistent statement. Otherwise `[608(B) REVIEW REQUIRED]`.
+4. **Prior convictions are art. 609.1, never 609.**
+5. **Preserve every flag** — ground stated at the moment (art. 841) plus substance proffered (art. 103(A)(2)).
+6. **Cite every fact** with an `(N)` prefix; nothing untraceable is asserted as fact.
 
 ---
 
-## Quick References
+## File Index
 
-This skill uses the following reference materials, available in the `references/` subdirectory:
+Each step names the files it needs. **Load those and no others.**
 
-- **witness-prioritization-audit.md** — Step 0.6 audit framework: four impeachment categories (internal/external contradictions, omissions, credibility), citation mandate, and the Ranked Witness Impeachment Report table
-- **master-witness-table.md** — Step 1.A 5-column witness inventory: contact info, witness-type classification list, association-with-case prompts, source documents, trial exam status, and integration rules
-- **witness-type-modules.md** — Step 3 witness-specific modules (Law Enforcement / Expert / Civilian) with tone, focus, auto-flags, LE Impact/Fragility scoring, and short-question sequencing tactics with a worked LE-SOP example
-- **source-register-and-template.md** — Step 4 Source Register numbering rules, the full D&W Cross Exam Template chapter layout, the `(N)` prefix citation rule with examples, default chapter sequencing, and case-theme integration
-- **source-exhibit-catalog.md** — Step 7 mandatory PDF catalog: cover page, table of contents, per-source detail sheets, Missing Discovery table, and Cross-Reference Matrix grid
-- **combined-source-documents.md** — Step 8 mandatory merged PDF: cover page, per-source divider pages with metadata, original document pages, and rules for non-PDF / missing sources
-- **quick-reference-tables.md** — Louisiana Code of Evidence cross-examination quick-reference (Arts. 607–613, 702–705, 801–804; La. C.Cr.P. Arts. 703, 761; Bagley/Giglio Brady authorities)
+**`assets/`** — copied into the deliverable or governing how it is built:
+`fast-path-notice` · `pre-draft-confirmation` · `outline-assembly` · `chapter-goals-and-scoring` · `impeachment-bullet` · `preservation-log`
+
+**`references/`** — read for detail:
+`guardrails` · `deliverable-formatting` · `jurisdiction-and-court-map` · `quick-reference-tables` · `error-preservation-protocol` · `build-paths` · `upstream-intake` · `witness-history-lookup` · `integration-map` · `witness-prioritization-audit` · `information-tiers` · `master-witness-table` · `witness-type-modules` · `agency-and-lab-module` · `confrontation-and-surrogate-analysts` · `source-register-and-template` · `source-exhibit-catalog` · `combined-source-documents` · `red-team-checklist`
 
 ---
 
-*This skill is part of the Daniels & Washington Cowork criminal defense toolkit. Pair with the dw-criminal-defense-crim skill for full Phase 3 integration.*
+*Part of the Daniels & Washington Cowork criminal defense toolkit. Pair with `dw-criminal-defense-crim` for Phase 3 integration.*
 
-**Reads from:** dw-witness-statement-analyzer-crim (Witness Analysis Cards with pre-analyzed key facts, inconsistencies, credibility flags; Conflict Matrix for multi-witness comparison)
+**Criminal only** — no civil or PI cross-examination. Upstream producers, downstream consumers, contract bindings, and the `dw-adversarial-stress-test-crim` direction warning: `references/integration-map.md`.

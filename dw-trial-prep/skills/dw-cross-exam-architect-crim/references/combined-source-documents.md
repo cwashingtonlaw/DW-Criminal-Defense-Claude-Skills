@@ -15,9 +15,10 @@ After completing the catalog, merge all source document PDFs into a single combi
 ## Combined PDF Output
 
 - **Format:** PDF (using pypdf to merge + reportlab for divider pages)
-- **File name:** `Source Documents - [Witness Name] Cross.pdf`
-- **Location:** Same folder as the cross-examination outline
-- **Header on divider pages:** ATTORNEY WORK PRODUCT — PRIVILEGED & CONFIDENTIAL
+- **File name:** `Combined Sources — [Witness Name].pdf`
+- **Typography:** divider page text in Times New Roman 14 pt, per `deliverable-formatting.md` (original source documents are appended as-is and retain their own formatting)
+- **Location:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` — the same folder as the outline and the catalog
+- **Footer on divider pages:** ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIAL / PREPARED IN ANTICIPATION OF LITIGATION
 
 ## Handling Non-PDF Sources
 

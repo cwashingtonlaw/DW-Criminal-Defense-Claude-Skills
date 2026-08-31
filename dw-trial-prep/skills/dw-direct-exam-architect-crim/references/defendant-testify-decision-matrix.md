@@ -60,7 +60,7 @@ Rate 5 if the client is a strong communicator who can stay disciplined on cross.
 
 > **Critical:** A high score on this factor cannot rescue a case where the substance hurts (high AGAINST score). A great communicator who has nothing helpful to say should not testify. But a low score here is a near-veto regardless of substance.
 
-### F4 — No prior convictions admissible under La. C.E. Art. 609 (rate 1–5)
+### F4 — No prior convictions admissible under La. C.E. art. 609.1 (rate 1–5)
 
 Or convictions successfully sanitized via motion in limine. Rate based on:
 - Number and recency of priors
@@ -97,11 +97,13 @@ The defendant's preference matters. Rate 5 if defendant has consistently and cle
 
 ## Factors Weighing AGAINST Testimony
 
-### A1 — Prior convictions admissible under La. C.E. Art. 609 that will harm credibility (rate 1–5)
+### A1 — Prior convictions admissible under La. C.E. art. 609.1 that will harm credibility (rate 1–5)
 
 Mirror of F4 inverted. Rate based on the same factors but scored for damage potential. Rate 5 if multiple recent felony convictions are admissible un-sanitized, especially crimen falsi. Rate 1 if no priors or fully sanitized.
 
-> **Worst case:** Defendant has multiple recent crimen falsi convictions (theft, fraud, identity theft, perjury, false personation). Federal Rule 609(a)(2) makes these automatically admissible in WDLA. La. C.E. Art. 609.1 makes them admissible subject to 10-year limit and balancing. Even sanitized, the jury knows the defendant has been convicted of dishonesty crimes.
+> **Worst case:** Defendant has multiple recent crimen falsi convictions (theft, fraud, identity theft, perjury, false personation). In federal court, FRE 609(a)(2) makes these automatically admissible and FRE 609(b) imposes a 10-year limit with reverse-balancing beyond it.
+>
+> **⚠ Louisiana is harsher, and a prior version of this matrix stated the opposite.** **La. C.E. art. 609.1 contains NO 10-year limit and no balancing prerequisite for the fact of conviction.** Art. 609.1(A): "In a criminal case, every witness by testifying subjects himself to examination relative to his criminal convictions." An old conviction does not age out in Louisiana state court the way it does federally — do not advise the defendant that a conviction is too old to come in. The only balancing in art. 609.1 is at (C)(3), and it governs whether the **details** of a conviction come in, not the fact of it. `[VERIFY current text before relying on this in a testify decision.]`
 
 ### A2 — Client temperament — angry, evasive, talks too much, will spar with prosecutor (rate 1–5)
 
@@ -183,7 +185,7 @@ Hypothetical case: First-degree battery, complainant is ex-girlfriend, defendant
 | F1 — Affirmative defense requiring defendant | 5 | Self-defense — state of mind essential |
 | F2 — No alternative narrative source | 4 | Defendant only one who saw the moment |
 | F3 — Client articulate, controllable | 3 | Articulate but sometimes argues; needs rehearsal |
-| F4 — No 609 priors | 4 | One old battery conviction (8 years); sanitized to "felony" |
+| F4 — No 609.1 priors | 3 | One battery conviction (8 years). **Note: age does not help in Louisiana state court — no 10-year cutoff under art. 609.1.** Sanitization is a matter of argument, not entitlement |
 | F5 — Weak state case | 3 | Complainant credible but inconsistent in statements |
 | F6 — Jury expects defendant | 4 | Domestic case, jury expectation high |
 | F7 — Defendant wants to testify | 5 | Defendant strongly insists |
@@ -218,7 +220,7 @@ After State rest, decision is reaffirmed:
 - [ ] State's case stronger / weaker / same as anticipated
 - [ ] No new impeachment material disclosed mid-trial
 - [ ] Defendant still wishes to testify
-- [ ] No new 609 issue or motion in limine ruling adverse to defendant
+- [ ] No new art. 609.1 issue or motion in limine ruling adverse to defendant
 
 _____________________________   ______________________________
 [Attorney signature]              [Defendant signature]
