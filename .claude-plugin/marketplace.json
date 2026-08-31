@@ -23,7 +23,7 @@
       "name": "dw-intake-discovery",
       "source": "./dw-intake-discovery",
       "description": "Client intake interview plus discovery orchestration, compliance monitoring, and Brady/Giglio audit.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -33,7 +33,7 @@
       "name": "dw-evidence-audit",
       "source": "./dw-evidence-audit",
       "description": "Methodology and reliability audits across all evidence types: forensics, interrogations, eyewitness ID, cell-site, video, social media, lab, DNA, chain of custody.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -43,7 +43,7 @@
       "name": "dw-offense-specialists",
       "source": "./dw-offense-specialists",
       "description": "Element-by-element defense theory for drug, DWI, firearms, sex, and violent-crime charges.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -53,7 +53,7 @@
       "name": "dw-pleadings",
       "source": "./dw-pleadings",
       "description": "Motion drafting: suppression, 404(b) opposition, bond/release, and the pretrial motion library.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"
@@ -73,7 +73,7 @@
       "name": "dw-transcription",
       "source": "./dw-transcription",
       "description": "Media transcription routing and DMAR pipelines (Calcasieu + Rev) plus cross-case DMAR synthesis.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Chris Washington",
         "email": "cjw@danielswashington.com"

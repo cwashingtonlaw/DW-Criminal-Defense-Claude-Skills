@@ -1,6 +1,6 @@
 {
   "name": "dw-evidence-audit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Methodology and reliability audits across all evidence types: forensics, interrogations, eyewitness ID, cell-site, video, social media, lab, DNA, chain of custody.",
   "author": {
     "name": "Chris Washington",
