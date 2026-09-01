@@ -50,6 +50,7 @@ Do not proceed to Step 1 until these protocols are loaded. Note: this is a refer
 | Stress-test the defense theory | `dw-trial-prep:dw-adversarial-stress-test-crim` | "stress test" or "red team the theory" |
 | Generate a workplan from theory | `dw-trial-prep:dw-theory-to-workplan-crim` | "build a workplan" or "theory to workplan" |
 | Track issue codes (living issue-code ledger) | `dw-trial-prep:dw-issue-code-tracker-crim` | "issue codes" or "issue tracker" |
+| Compute statutory clocks (institution, trial commencement, Art. 701, appeal, PCR) | `dw-core:dw-deadline-engine-crim` | "compute the clocks" or "deadline check" or "speedy trial" |
 
 ---
 
@@ -148,9 +149,11 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 | Task | Skill | Trigger Phrase |
 |---|---|---|
 | Sentencing mitigation package | `dw-disposition:dw-sentencing-mitigation-specialist-crim` | "build sentencing mitigation" |
+| Probation / parole revocation defense (Morrissey-Gagnon rights, technical-violation caps, alternative sanctions) | `dw-disposition:dw-probation-parole-revocation-crim` | "revocation" or "probation violation" or "PV hearing" |
+| Expungement eligibility deep-screen + motion packet drafting (Arts. 976-978, uniform forms) | `dw-disposition:dw-expungement-drafter-crim` | "expunge" or "expungement" or "clear my record" |
 | Habitual offender bill audit | `dw-disposition:dw-habitual-offender-auditor-crim` | "audit the habitual bill" |
 | Evaluate plea offer | `dw-disposition:dw-plea-negotiation-analyzer-crim` | "analyze the plea offer" |
-| Padilla immigration-consequences advisement (bilingual EN/ES, signable) | `dw-disposition:dw-padilla-advisement-crim` | "Padilla advisement" or "immigration consequences of a plea" |
+| Padilla immigration + collateral-consequences advisement (registration, firearms, licensing, housing, voting; bilingual EN/ES, signable) | `dw-disposition:dw-padilla-advisement-crim` | "Padilla advisement" or "collateral consequences of a plea" |
 | Draft direct-appeal brief (assignments of error, argument, reply) | `dw-disposition:dw-appellate-brief-builder-crim` | "appellate brief" or "appeal brief" or "assignments of error" |
 | Post-conviction relief (PCR / habeas / sentence modification) | `dw-disposition:dw-post-conviction-relief-crim` | "post-conviction" or "PCR" or "habeas" |
 | Close the case (disposition, final billing, expungement check) | `dw-disposition:dw-case-disposition-crim` | "close the case" or "final disposition" |

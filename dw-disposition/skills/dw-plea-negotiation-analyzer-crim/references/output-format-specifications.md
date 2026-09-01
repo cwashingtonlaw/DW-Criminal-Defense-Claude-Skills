@@ -1,6 +1,6 @@
 # Output Format Specifications
 
-Read when producing any of the six deliverables after the analysis modules (Steps 2-9) are complete.
+Read when producing any of the six deliverables after the analysis modules (Steps 2-10) and the Step 11 collateral-consequences gate are complete.
 
 ### Output Format 1: Plea Offer Analysis Summary
 
@@ -22,7 +22,7 @@ Detailed calculation showing all inputs, applicable statutes, rates applied, and
 
 ### Output Format 4: Collateral Consequences Checklist
 
-Single-page checklist format suitable for case file documentation. Each consequence category with YES/NO/N-A designation and brief explanation.
+Single-page checklist format suitable for case file documentation. Each consequence category with YES/NO/N-A designation and brief explanation. Populate from the completed plea-counseling checklist produced by dw-padilla-advisement-crim at the Step 11 gate (category × triggered-by-this-plea? × client-advised? × date); the same checklist is appended to Deliverables 2 and 6.
 
 ### Output Format 5: Case Strength Assessment Matrix
 

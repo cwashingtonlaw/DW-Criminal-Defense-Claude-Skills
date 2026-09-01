@@ -2,14 +2,15 @@
 name: dw-pretrial-motion-library-crim
 category: pleadings
 description: >
-  Draft 15 pretrial motion types. ALWAYS invoke for "speedy trial," "701 motion," "bill of
+  Draft 15 pretrial motion types plus post-trial motions. ALWAYS invoke for "speedy trial," "701 motion," "bill of
   particulars," "continuance," "motion to compel," "motion for discovery," "initial discovery
   motion," "severance," "change of venue," "recusal," "quash," "competency evaluation,"
   "reveal the deal," "preliminary exam," "preliminary examination," "Art. 292 hearing,"
   "omnibus motion," "omnibus pretrial motion," "self-defense notice," "notice of
-  justification," "Art. 390 notice," "Melendez-Diaz," "Melendez-Diaz objection," or
-  "criminalist certificate objection." Do NOT use for suppression, 404(b), or bond —
-  those have dedicated skills.
+  justification," "Art. 390 notice," "Melendez-Diaz," "Melendez-Diaz objection,"
+  "criminalist certificate objection," "new trial," "motion for new trial," "PVJA,"
+  "post verdict," "post-verdict judgment of acquittal," or "arrest of judgment."
+  Do NOT use for suppression, 404(b), or bond — those have dedicated skills.
 ---
 
 # Daniels & Washington — Pretrial Motion Library
@@ -200,6 +201,12 @@ Confrontation Clause objection to criminalist certificates under R.S. 15:499 et 
 
 ---
 
+### MODULE 16: POST-TRIAL MOTIONS (NEW TRIAL / PVJA / ARREST OF JUDGMENT)
+
+Motion for New Trial (Arts. 851-854), Post-Verdict Judgment of Acquittal (Art. 821, *Jackson* standard), and Motion in Arrest of Judgment (Arts. 859-861) — all must be disposed of before sentence, and their rulings drive the Art. 914 appeal clock (compute dates via `dw-deadline-engine-crim`; log rulings with `dw-appellate-error-monitor-crim`). Read `references/module-16-post-trial-motions.md` now for the timing table, per-ground standards, the newly-discovered-evidence four-part test, intake checklist, and draft-shell guidance.
+
+---
+
 ## STEP 2.5 — Pre-Trial Motion Action Plan Report
 
 Generate the consolidated Pre-Trial Motion Action Plan (HIGH / MEDIUM / LOW likelihood per motion) before drafting any individual motion; the attorney selects which motions to pursue. Read `references/pretrial-motion-action-plan.md` now for the per-motion report fields, output filename and save-path conventions, and the Source Citation Mandate application.
@@ -220,7 +227,7 @@ Apply the standard review flags (`[VERIFY]`, `[RESEARCH]`, `[ATTORNEY TO COMPLET
 
 ## Guardrails
 
-**Hard Rules** (full text in `references/guardrails.md`, loaded at STEP 0.5): never fabricate citations — cross-check `references/caselaw-citations.md`; drafts only, attorney reviews; Louisiana default (5th Circuit standards); STEP 1 Template Source Selection before any drafting; reset the caption (only the Art. 701 template is 14th JDC); verify La. C.Cr.P. renumbering; route suppression / 404(b) / bond / new trial / appeal to their dedicated skills; never skip Step 0.
+**Hard Rules** (full text in `references/guardrails.md`, loaded at STEP 0.5): never fabricate citations — cross-check `references/caselaw-citations.md`; drafts only, attorney reviews; Louisiana default (5th Circuit standards); STEP 1 Template Source Selection before any drafting; reset the caption (only the Art. 701 template is 14th JDC); verify La. C.Cr.P. renumbering; route suppression / 404(b) / bond / appeal / reconsider-sentence to their dedicated skills (post-trial motions are MODULE 16 here); never skip Step 0.
 
 Read `references/guardrails.md` now for the full guardrails text.
 
@@ -255,5 +262,6 @@ This skill uses the following reference materials, available in the `references/
 - **module-13-omnibus-pretrial.md** — MODULE 13: omnibus-vs-piecemeal, search, intake, drafting protocol, authority
 - **module-14-self-defense-notice.md** — MODULE 14: Art. 390 timing, strategy, search, intake, authority
 - **module-15-melendez-diaz-objection.md** — MODULE 15: R.S. 15:499 timing, strategy, searches, intake, argument, authority
+- **module-16-post-trial-motions.md** — MODULE 16: Arts. 851-854 / 821 / 859-861 timing table, per-ground standards, *Prudholm* four-part test, Art. 914 appeal-clock interaction, intake, draft shells
 - **pretrial-motion-action-plan.md** — STEP 2.5: report fields, filename / save path, citation mandate
 - **drafting-and-review.md** — STEPS 3-4: Motion + Memorandum structure, review flags, save locations, Clio task, handoff matrix

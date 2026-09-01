@@ -246,6 +246,10 @@ Several skills feed each other in well-defined chains. Preserve these contracts.
 | `dw-criminal-defense-crim` Phase 2 Step 1D | All charge-type specialists | Charge-type routing |
 | `dw-criminal-defense-crim` Phase 3 Step 11 | `dw-trial-day-assistant-crim` | Trial-day live support routing |
 | `dw-confession-interrogation-auditor-crim` Step 4 | `dw-suppression-motion-crim` | Audit findings → Art. 703 motion |
+| `dw-deadline-engine-crim` CLOCK STATUS block | `dw-case-brain-crim` (persists) + `dw-case-dashboard-crim` Step 6C (renders) | Fixed 7-column clock table; status vocabulary RUNNING / EXPIRED-MOVE / SATISFIED / TOLLED / NEEDS-DATA — schema is a contract, additive changes only |
+| `dw-voir-dire-assistant-crim` Batson Strike Record (BSR-###) | `dw-trial-day-assistant-crim` objection log → `dw-appellate-error-monitor-crim` | BSR rows route into objection log as appended fields only (`Batson Step Reached`, `Batson Strike Rec #`); the 16-field objection-log contract is unchanged |
+| `dw-padilla-advisement-crim` Step 2A collateral-consequences checklist | `dw-plea-negotiation-analyzer-crim` Step 11 gate | Mandatory before any plea recommendation is finalized; checklist appends to plea memo deliverables |
+| `dw-case-disposition-crim` expungement-eligibility assessment | `dw-expungement-drafter-crim` Module A | Deep-screen consumes and controls on conflict |
 
 When you change an upstream skill's output, check the consumer skills for breakage.
 

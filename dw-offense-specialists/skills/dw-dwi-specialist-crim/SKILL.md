@@ -54,15 +54,18 @@ Every factual assertion in the DWI defense analysis — BAC reading, test method
 
 ---
 
+**Date of offense governs every statute cite.** Before quoting any element, penalty range, enhancement, or parole-eligibility figure, confirm the date of offense per count and select the statute version in force on that date using `dw-shared-protocols-crim/references/sentencing-statute-versions.md` (15:529.1 / 15:571.3 / 15:574.4 and the offense statute itself — R.S. 14:98 was restructured into 14:98.1–98.4 effective 1/1/2015 and amended repeatedly since). Never fabricate a prior-version value; flag `[VERIFY — Westlaw]` where the source file does.
+
 ## STEP 0: HARD STOP — Confirm DWI Case Type
 
 **Do NOT proceed without establishing:**
+- **Date of offense** (fixes the governing statute version — see version-control rule above; no penalty analysis before this is confirmed)
 - Specific offense level (1st/2nd/3rd/4th+ offense under R.S. 14:98)
 - BAC result (if any)
 - Test type (breath/blood/urine/refusal)
 - Arrest circumstances (routine stop vs. accident vs. checkpoint)
 - Whether accident involved (and if so, injuries/fatalities — may be vehicular homicide, route to dw-criminal-defense-crim)
-- Child passenger under 13? (R.S. 14:98.5 enhancement)
+- Child passenger under 13? (child-endangerment enhancement — in R.S. 14:98 itself under current law, not 14:98.5; verify the cite for the governing version)
 - BAC ≥ 0.15 or ≥ 0.20? (aggravating factors)
 
 **If vehicular homicide involved:** Stop here and invoke dw-criminal-defense-crim (Phase 1: Homicide).
@@ -70,6 +73,7 @@ Every factual assertion in the DWI defense analysis — BAC reading, test method
 ## STEP 1: Load Case Context
 
 Invoke **dw-case-brain-crim** to retrieve:
+- Date of offense (per count — controls the applicable statute version; see version-control rule above)
 - Prior DWI convictions and conviction dates (for offense level calculation and 10-year cleansing period)
 - Specific R.S. 14:98 subsection charged
 - BAC reading (exact numerical value)
@@ -82,16 +86,18 @@ Invoke **dw-case-brain-crim** to retrieve:
 
 📖 Reference: Read `references/dwi-penalty-ladder.md`
 
-**Map the charge to the correct tier:**
-- 1st offense (R.S. 14:98(A)): fine $300-1000, jail 10 days-6 months (48 hrs mandatory minimum or 32 hrs community service), license suspension 90 days
-- 2nd offense (R.S. 14:98(B)): fine $750-1000, jail 30 days-6 months (48 hrs mandatory minimum), license suspension 2 years, ignition interlock
-- 3rd offense (R.S. 14:98(C)): fine $2000, imprisonment 1-5 years (1 year mandatory minimum), license suspension 4 years, vehicle seizure, ignition interlock, substance abuse treatment
-- 4th+ offense (R.S. 14:98(D)): fine $5000, imprisonment 10-30 years (10 years mandatory minimum), permanent license revocation, vehicle seizure
+> ⚠️ **OFFENSE-DATE / VERSION CONTROL.** The R.S. 14:98 version in force on the DATE OF OFFENSE controls (restructured into 14:98.1–98.4 by Act 385 of 2014, eff. 1/1/2015; amended through Acts 2025, No. 194). Confirm the offense date first; verify the governing version on Westlaw or legis.la.gov before any figure goes into a deliverable; treat every `[VERIFY CITATION]` value as unconfirmed. Suspension periods are administrative (Title 32, R.S. 32:414 et seq.) — verify separately. Full warning: top of `references/dwi-penalty-ladder.md`.
+
+**Map the charge to the correct tier (current-law values, checked Aug. 2026, except as flagged):**
+- 1st offense (R.S. 14:98.1): fine $300-1000, imprisonment 10 days-6 months (48 hrs jail or 32 hrs community service as minimum condition), license suspension 90 days `[VERIFY CITATION]`
+- 2nd offense (R.S. 14:98.2): fine $750-1000, imprisonment 30 days-6 months (48 hrs without benefit; 96 hrs if BAC ≥ 0.15), license suspension 2 years `[VERIFY CITATION]`, mandatory ignition interlock
+- 3rd offense (R.S. 14:98.3): fine $2000, imprisonment 1-5 years with or without hard labor (1 year without benefit), license suspension 4 years `[VERIFY CITATION]`, vehicle seizure, ignition interlock, substance abuse treatment
+- 4th+ offense (R.S. 14:98.4): fine $5000, imprisonment 10-30 years with or without hard labor (2 years without benefit — the 10-year floor is the range bottom, NOT a no-benefit minimum), permanent license revocation `[VERIFY CITATION]`, vehicle seizure
 
 **Flag aggravating factors:**
-- BAC ≥ 0.15 (enhanced penalties)
-- BAC ≥ 0.20 (further enhanced)
-- Child passenger under 13 (R.S. 14:98.5 — misdemeanor becomes felony, mandatory 48 hrs jail minimum)
+- BAC ≥ 0.15 (enhanced penalties — added no-benefit time, longer suspension; verify per tier)
+- BAC ≥ 0.20 (further enhanced — higher fine, interlock; verify per tier)
+- Child passenger under 13 (R.S. 14:98 child endangerment — mandatory minimum may not be suspended; older "14:98.5 felony" characterization `[VERIFY CITATION]`)
 - Accident with injury or property damage
 
 **Calculate cleansing period:** 10 years from prior conviction date. Priors older than 10 years do NOT count toward offense level.
@@ -228,8 +234,8 @@ Invoke **dw-case-brain-crim** to retrieve:
 - Pre-trial diversion programs (parish-specific; consult local DA office)
 
 ### Reduced Charge Negotiations
-- Reckless operation (R.S. 14:99): 30 days-3 months jail, $25-100 fine (not a DWI)
-- Careless operation (R.S. 32:58): Traffic violation, fine $500-1000 (not a DWI)
+- Reckless operation (R.S. 14:99): 1st offense up to $200 fine and/or 90 days (current text; confirm governing version) — not a DWI
+- Careless operation (R.S. 32:58): traffic violation; penalty per Title 32/local schedule `[VERIFY CITATION]` — not a DWI
 - Reduces criminal exposure, no DWI license suspension, ignition interlock avoidance
 
 ### Alternative Sentences
@@ -318,6 +324,6 @@ This skill uses the following reference materials, available in the `references/
 
 - **breath-blood-testing-standards.md** — Breath (Intoxilyzer 9000) and blood testing standards for systematic audit of test methodology and admissibility challenges
 - **dwi-diversion-alternatives.md** — Louisiana DWI diversionary programs and alternative dispositions (parish-by-parish, first-offense and beyond) to minimize criminal exposure
-- **dwi-penalty-ladder.md** — La. R.S. 14:98 enhancement ladder: penalty escalation by prior convictions (10-year cleansing), BAC level, child passenger, and accident with injury
+- **dwi-penalty-ladder.md** — La. R.S. 14:98 enhancement ladder: penalty escalation by prior convictions (10-year cleansing), BAC level, child passenger, and accident with injury; version-control warning at top — read before quoting values
 - **rising-bac-defense.md** — Rising BAC and retrograde extrapolation defense: BAC at testing does not equal BAC at driving; absorption-phase analysis
 - **sfst-protocol-standards.md** — NHTSA Standardized Field Sobriety Test protocol standards, clues, and validation rates for systematic SFST audit

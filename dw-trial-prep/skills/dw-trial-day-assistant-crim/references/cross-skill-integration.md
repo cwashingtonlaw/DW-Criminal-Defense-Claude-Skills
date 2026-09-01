@@ -18,6 +18,7 @@ Read at **Cross-Skill Integration** of `SKILL.md` (and when handing off any modu
 
 **Upstream inputs:**
 
+- `dw-voir-dire-assistant-crim` — Module C.6 compact Batson strike records (BSR rows) seed the Module E.1 Batson tracker; each ruled-on challenge also logs as a Module B objection-log row (additive Batson fields) so the record reaches `dw-appellate-error-monitor-crim`
 - `dw-witness-threat-matrix-crim` — for today's witness CRITICAL/HIGH priority labels in Module A
 - `dw-cross-exam-architect-crim` — existing cross outlines to reference in Module A and recall during Module C scorecards
 - `dw-case-brain-crim` — for case theme, defense theory, case caption, attorney info

@@ -103,7 +103,7 @@ For each juror rated STRIKE or CAUTION, evaluate against every La. C.Cr.P. Art. 
 
 After cause challenges are resolved, develop a four-tier prioritized strike list (Must Strike / Strong Strike / Conditional / Preserve), maintain a real-time strike allocation table for both sides, and ensure every defense peremptory strike is **Batson-compliant**. Apply the three-step Batson framework (prima facie → race/gender-neutral reason → pretext) and J.E.B. for gender; document a race- and gender-neutral justification before exercising any defense strike; monitor State strikes for discriminatory patterns and raise Batson challenges with a prima facie case and Snyder pretext analysis.
 
-**Reference:** Read `references/module-c-peremptory-strikes-batson.md` for the four-tier priority framework, the strike allocation table, the Batson three-step authority chart (Batson, J.E.B., Purkett, Snyder, Foster, Flowers, *Collier*, *Elie*), the Batson compliance record template (with red-line forbidden reasons), and the Batson challenge motion template against State strikes.
+**Reference:** Read `references/module-c-peremptory-strikes-batson.md` for the four-tier priority framework, the strike allocation table, the Batson three-step authority chart (Batson, J.E.B., Purkett, Snyder, Foster, Flowers, *Collier*, *Elie*), the Batson compliance record template (with red-line forbidden reasons), the Batson challenge motion template against State strikes, and the compact Batson strike record schema (C.6) handed to `dw-trial-day-assistant-crim`.
 
 ---
 
@@ -169,7 +169,7 @@ Follow shared protocols for output paths (see Step 0.5).
 
 ## Integration with Other DW Skills
 
-Connected: dw-criminal-defense-crim, dw-cross-exam-architect-crim, dw-discovery-compliance-monitor-crim, dw-sex-offense-specialist-crim, dw-404b-opposition-crim, dw-crime-scene-auditor-crim, docx, DEVONthink, TextExpander. Read `references/integration-map.md` for how each connects.
+Connected: dw-criminal-defense-crim, dw-trial-day-assistant-crim, dw-cross-exam-architect-crim, dw-discovery-compliance-monitor-crim, dw-sex-offense-specialist-crim, dw-404b-opposition-crim, dw-crime-scene-auditor-crim, docx, DEVONthink, TextExpander. Read `references/integration-map.md` for how each connects.
 
 ---
 

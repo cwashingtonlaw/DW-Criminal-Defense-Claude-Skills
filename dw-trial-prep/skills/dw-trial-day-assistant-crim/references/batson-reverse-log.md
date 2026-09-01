@@ -253,3 +253,11 @@ Read at **MODULE E.1 — Batson / Reverse-Batson Tracker** of `SKILL.md`; the sh
 | ... | | | | | | | |
 
 Three-step Batson framework (`Batson v. Kentucky`, 476 U.S. 79 (1986)): (1) prima facie pattern, (2) race-neutral reason from striking party, (3) pretext analysis. Log the Batson challenge and the court's ruling at each step.
+
+---
+
+## Upstream Seed and Objection-Log Routing (Batson strike record handoff)
+
+**Upstream seed:** When `dw-voir-dire-assistant-crim` is running selection, its Module C.6 compact Batson strike record is the source of truth — one `BSR-###` row per peremptory strike (both sides) carrying: Juror # / Name, Cognizable Class, Strike By, Race-Neutral Reason Offered, Step-3 Pretext Notes, Ruling, Defense Objection Preserved? (Y/N). Import those rows into this tracker as-is (add the contemporaneous timestamp this skill requires) rather than re-keying strikes into the per-strike row format above. The BSR field names are a handoff contract with the voir-dire assistant — do not rename them.
+
+**Objection-log routing:** Every Batson / reverse-Batson / J.E.B. challenge the court rules on ALSO gets a standard `Obj-###` row in the Module B objection log, with the two additive Batson fields (`Batson Step Reached`, `Batson Strike Rec #`) per `references/objection-log-schema.md` § "Batson Ruling Routing." That row — not this tracker — is what `dw-appellate-error-monitor-crim` ingests, so a Batson ruling logged here but missing from Module B is an unpreserved-looking record. Cross-check at the Daily Roll-Up.

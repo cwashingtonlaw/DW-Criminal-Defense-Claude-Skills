@@ -1,5 +1,7 @@
 # Louisiana Sex Offense Statutes — Elements & Penalties
 
+> ⚠️ **Offense-date / version control.** Louisiana penalty statutes are amended frequently — the version in force on the DATE OF OFFENSE controls (see the version-control rule in `SKILL.md` and `dw-shared-protocols-crim/references/sentencing-statute-versions.md`). Confirm the offense date per count before applying any penalty range or registration tier below; verify the governing version on Westlaw or legis.la.gov before any value goes into a deliverable; never fabricate a prior-version value — flag `[VERIFY CITATION]` instead.
+
 ## Statute Comparison Matrix
 
 | Statute | Offense | Key Elements | Penalty | Registration |

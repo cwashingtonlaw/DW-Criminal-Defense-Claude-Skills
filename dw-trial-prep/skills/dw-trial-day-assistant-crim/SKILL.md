@@ -148,7 +148,7 @@ At end of trial, the running master is `Objection Log - MASTER.md` and feeds dir
 
 **Trigger phrases:** "juror log," "Batson log," "Batson tracking," "log juror," "log a juror issue"
 
-**E.1 — Batson / Reverse-Batson Tracker:** Log every strike (side, juror, race, gender, stated reason, ruling, pattern note) and apply the three-step *Batson* framework. Read `references/batson-reverse-log.md` now ("Quick-Fields Tracker" is the short form; the rest is the full running log).
+**E.1 — Batson / Reverse-Batson Tracker:** Log every strike (side, juror, race, gender, stated reason, ruling, pattern note), apply the three-step *Batson* framework, and route rulings into Module B. Read `references/batson-reverse-log.md` now ("Quick-Fields Tracker" is the short form; the rest is the full running log).
 
 **E.2 — Juror Attentiveness / Reaction Flags · E.3 — Juror Contact / Misconduct Concerns:** Brief time-stamped bullets: observable attentiveness or reactions per juror (E.2), and any contact, media exposure, or misconduct concern with action taken (E.3). Read `references/juror-observation-log.md` now for the example entry formats for both sub-logs.
 

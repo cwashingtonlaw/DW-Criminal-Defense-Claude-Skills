@@ -175,3 +175,20 @@ The defense requests that this Court:
 (3) Dismiss the entire venire and begin jury selection anew.
 ================================================================
 ```
+
+## C.6 — Compact Batson Strike Record (Handoff Schema)
+
+Maintain one compact row per peremptory strike — **both sides, every strike, whether or not a challenge was raised**. This is the record that flows into `dw-trial-day-assistant-crim` Module E.1 (Batson tracker) and, for every ruled-on challenge, into its Module B objection log — which is how the Batson record reaches `dw-appellate-error-monitor-crim`. The field names below are a handoff contract; do not rename them.
+
+| Field | Content |
+|-------|---------|
+| BSR # | Sequential — `BSR-001`, one counter per case, both sides interleaved |
+| Juror # / Name | Venire number + name (initials in any document that may circulate) |
+| Cognizable Class | Race / gender / other protected class of the struck panelist (the basis of any challenge) |
+| Strike By | State / Defense |
+| Race-Neutral Reason Offered | The Step-2 reason as stated on the record (`—` if no challenge raised; for defense strikes, the C.4 compliance-record justification documented before the strike) |
+| Step-3 Pretext Notes | Comparator panelists, disparate questioning, implausibility, pattern history — with questionnaire/transcript cites per the Source Citation Mandate |
+| Ruling | Strike allowed / Strike denied — panelist reseated / Deferred / No challenge raised |
+| Defense Objection Preserved? | Y / N — challenge raised before the panel was sworn, protected class stated specifically, Step-1 and Step-3 record made |
+
+The C.2 allocation table and C.4 compliance record are the working documents; the BSR row is their one-line distillation. Update the BSR row the moment the court rules — the trial-day assistant time-stamps its copy, and the appellate monitor will ask for the ruling and preservation status, not the argument.

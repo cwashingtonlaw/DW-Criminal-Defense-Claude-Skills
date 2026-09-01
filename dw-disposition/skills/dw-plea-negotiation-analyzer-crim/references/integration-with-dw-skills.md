@@ -7,8 +7,9 @@ This skill integrates with other Daniels & Washington criminal defense skills. W
 - **Sentencing analysis** — for detailed sentencing memorandum preparation after plea acceptance
 - **Motion practice** — for suppression motions that may improve negotiation leverage
 - **Habitual offender defense** — for detailed predicate attack and constitutional challenge analysis
-- **Immigration consequences** — for comprehensive Padilla analysis requiring immigration law expertise
+- **Immigration and collateral consequences** — `dw-padilla-advisement-crim` for the Padilla immigration advisement AND the mandatory Step 11 collateral-consequences check (its plea-counseling checklist returns to this skill's plea memo)
 - **Post-conviction relief** — for analyzing plea validity challenges on collateral review
-- **Expungement eligibility** — for post-disposition record clearing analysis
+- **Expungement eligibility** — `dw-expungement-drafter-crim` for post-disposition record clearing, including the Art. 893/894 set-aside and diversion-dismissal expungement mechanics surfaced by Module I
+- **Specialty-court / diversion specifics** — `dw-drug-offense-specialist-crim` (drug court and CDS conditional discharge) and `dw-dwi-specialist-crim` (sobriety court, Art. 894 DWI mechanics)
 
 When invoking integration, pass the case data already gathered in Step 1 to avoid redundant intake.

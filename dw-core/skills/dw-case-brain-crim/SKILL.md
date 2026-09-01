@@ -132,7 +132,8 @@ If the attorney types "full brief" or "full case summary," display the complete 
 8. Key Decisions Log
 9. Session History (last 5 sessions)
 10. Companion Skill Outputs (links/references)
-11. Next Steps
+11. Clock Status (statutory deadline clocks — written by dw-deadline-engine-crim)
+12. Next Steps
 
 ---
 
@@ -165,6 +166,8 @@ Build the Case File Locations table (between "Charges & Exposure" and "Theory of
 ### 6F — Linking to Other Cowork Outputs
 
 When a companion skill generates a major output (suppression motion, forensic audit, cross-exam outline), record the output filename and date in the Case Brain under `COMPANION SKILL OUTPUTS`. This creates a map of everything Cowork has produced for the case.
+
+The `## CLOCK STATUS` block is a recognized Case Brain section: `dw-deadline-engine-crim` writes and refreshes it (via this skill's read-merge-write protocol). Persist and reload it like any other section, but never edit its contents by hand — clock rows change only through a dw-deadline-engine-crim recomputation.
 
 ### 6G — DW-CASE BRAINS Folder Structure
 

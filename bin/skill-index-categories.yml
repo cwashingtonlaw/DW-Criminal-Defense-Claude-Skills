@@ -76,6 +76,9 @@ quick_lookup:
   - skill: dw-issue-code-tracker-crim
     label: "Track issue codes (living issue-code ledger)"
     trigger: "issue codes or issue tracker"
+  - skill: dw-deadline-engine-crim
+    label: "Compute statutory clocks (institution, trial commencement, Art. 701, appeal, PCR)"
+    trigger: "compute the clocks or deadline check or speedy trial"
 
 evidence_auditing:
   - skill: dw-mobile-forensic-auditor-crim
@@ -214,6 +217,12 @@ sentencing_appeal_pcr:
   - skill: dw-sentencing-mitigation-specialist-crim
     label: "Sentencing mitigation package"
     trigger: "build sentencing mitigation"
+  - skill: dw-probation-parole-revocation-crim
+    label: "Probation / parole revocation defense (Morrissey-Gagnon rights, technical-violation caps, alternative sanctions)"
+    trigger: "revocation or probation violation or PV hearing"
+  - skill: dw-expungement-drafter-crim
+    label: "Expungement eligibility deep-screen + motion packet drafting (Arts. 976-978, uniform forms)"
+    trigger: "expunge or expungement or clear my record"
   - skill: dw-habitual-offender-auditor-crim
     label: "Habitual offender bill audit"
     trigger: "audit the habitual bill"
@@ -221,8 +230,8 @@ sentencing_appeal_pcr:
     label: "Evaluate plea offer"
     trigger: "analyze the plea offer"
   - skill: dw-padilla-advisement-crim
-    label: "Padilla immigration-consequences advisement (bilingual EN/ES, signable)"
-    trigger: "Padilla advisement or immigration consequences of a plea"
+    label: "Padilla immigration + collateral-consequences advisement (registration, firearms, licensing, housing, voting; bilingual EN/ES, signable)"
+    trigger: "Padilla advisement or collateral consequences of a plea"
   - skill: dw-appellate-brief-builder-crim
     label: "Draft direct-appeal brief (assignments of error, argument, reply)"
     trigger: "appellate brief or appeal brief or assignments of error"

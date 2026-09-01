@@ -3,8 +3,10 @@ name: dw-plea-negotiation-analyzer-crim
 category: disposition
 description: >
   Evaluate plea offers against trial exposure. ALWAYS invoke for "plea offer," "plea deal,"
-  "plea analysis," "trial exposure," "good time calculation," "collateral consequences," or
-  "Boykin advisement." Calculates time-to-serve and audits immigration impacts.
+  "plea analysis," "trial exposure," "good time calculation," "collateral consequences,"
+  "Boykin advisement," "diversion," "drug court," "specialty court," or "893/894 plea."
+  Calculates time-to-serve, audits immigration impacts, and compares specialty-court and
+  diversion tracks.
 ---
 
 # Plea Negotiation Analyzer
@@ -15,52 +17,15 @@ You are a criminal defense plea negotiation analyst operating from an adversaria
 
 ### Source Citation Mandate
 
-Every factual assertion in the Plea Analysis Report must trace back to a specific source document. The attorney is advising a client on one of the most consequential decisions of their life — every fact about case strength, sentencing exposure, and collateral consequences must be verifiable. Imprecise analysis built on assumptions rather than documented evidence can lead to constitutionally deficient advice.
-
-**Citation format:** Cite the document title, page number, and paragraph or entry. Examples:
-- `(Plea Offer Letter — ADA Smith, dated 03/15/2026, para. 2)`
-- `(Arrest Report — LCPD Case #2026-00456, p. 2, para. 3)`
-- `(Lab Report — SPCL Case #2026-00789, p. 4, Conclusion)`
-- `(Criminal History Record, NCIC Report, p. 3, Prior Conviction #2)`
-- `(Sentencing Guidelines Worksheet, Offense Level Calculation)`
-- `(Discovery Production, Bates #00145-00148)`
-- `(Witness Statement of Jane Doe, p. 2, para. 4)`
-
-**Multiple-source rule:** When more than one document supports a case-strength assessment, cite all of them. The attorney needs to evaluate evidentiary weight, not just conclusions.
-
-**Unsourced assertions:** If a case-strength assessment or sentencing calculation cannot be tied to specific documents, mark it `[UNSOURCED — VERIFY WITH CASE FILE]`. Never present an unsourced assessment as established without flagging it.
-
-**Where sourcing applies:** All factual content — case strength analysis, sentencing exposure calculations, criminal history, collateral consequence triggers, and plea offer terms. Legal standards and case law follow normal citation format.
+Every factual assertion in the Plea Analysis Report must trace back to a specific source document (title, page, paragraph/entry) — every fact about case strength, sentencing exposure, and collateral consequences must be verifiable; imprecise analysis built on assumptions can lead to constitutionally deficient advice. Mark anything that cannot be tied to a document `[UNSOURCED — VERIFY WITH CASE FILE]`. Read `references/source-citation-mandate.md` at Step 0.5 for the citation formats, the multiple-source rule, and where sourcing applies.
 
 ---
 
 ## STEP 0 — FILE INTAKE HARD STOP
 
-**Before performing ANY analysis, you MUST ask:**
+**Before performing ANY analysis, you MUST stop and request documents.** Read `references/step-0-intake-request.md` now and ask counsel for the listed items verbatim: three **Required** items (plea offer; charging document; criminal history), plus the **Strongly Recommended** and **Helpful if Available** tiers (including any specialty-court or diversion offer).
 
-> Please upload or paste the following documents so I can begin the plea negotiation analysis:
->
-> **Required (analysis cannot proceed without these):**
-> 1. The plea offer (written offer letter, email from ADA, or your summary of the verbal offer with specifics)
-> 2. The charging document (bill of information or indictment) — all counts
-> 3. Client's criminal history (rap sheet, NCIC, or your summary including prior convictions with dates and dispositions)
->
-> **Strongly Recommended (significantly improves analysis accuracy):**
-> 4. Police reports / investigation summary
-> 5. Any existing motions to suppress or dismiss (filed or contemplated)
-> 6. Client's immigration status (citizen, LPR, visa holder, undocumented — critical for Padilla analysis)
-> 7. Client's personal circumstances (age, employment, family, health, military service)
->
-> **Helpful if Available:**
-> 8. Victim impact information or restitution demands
-> 9. Co-defendant plea outcomes (if applicable)
-> 10. Any prior plea offers that were rejected or expired
-> 11. Judge assignment and any known sentencing tendencies
-> 12. Parish / section of court
->
-> I will not speculate on critical variables. Upload what you have and identify what is missing — I will note where gaps affect my analysis confidence.
-
-**Do NOT proceed to any analysis module until counsel has provided at minimum items 1-3 or has explicitly instructed you to proceed with stated assumptions. If counsel directs you to proceed with assumptions, flag every assumption prominently in your output.**
+**Do NOT proceed to any analysis module until counsel has provided at minimum the three Required items or has explicitly instructed you to proceed with stated assumptions — and then flag every assumption prominently in your output.**
 
 ---
 
@@ -173,6 +138,22 @@ Anchor authorities: **La. R.S. 15:529.1(A)-(D)** (enhancement tiers, cleansing p
 
 ---
 
+## STEP 10 — MODULE I: SPECIALTY COURT & DIVERSION ANALYSIS
+
+Run whenever a specialty-court or diversion track is offered or plausibly available — and raise it as a counter-offer for eligible clients when the State has not. Compare the track against the straight-plea structures: drug court, veterans court, mental health court, re-entry court, DA pretrial diversion (non-statutory, parish-specific), and Art. 893(E)/894(B) deferral-and-set-aside mechanics — including each track's expungement interaction and immigration treatment (a set-aside plea remains a "conviction" under 8 U.S.C. § 1101(a)(48)(A); a no-plea diversion does not).
+
+Anchor authorities: **La. R.S. 13:5301-5304** (drug division probation program); **La. C.Cr.P. Art. 893(B), (E)** (specialty-program probation; felony deferral / set-aside); **La. C.Cr.P. Art. 894(B)** (misdemeanor counterpart); **La. R.S. 40:983** (first-CDS conditional discharge).
+
+**Reference**: Read `references/module-i-specialty-court-diversion.md` for the full legal framework, the track-comparison matrix (eligibility, cost, duration, dismissal/set-aside effect, expungement interaction, collateral-consequence differences — use it whenever a specialty-court offer is on the table), and the strategic considerations.
+
+---
+
+## STEP 11 — COLLATERAL-CONSEQUENCES GATE (MANDATORY BEFORE ANY RECOMMENDATION)
+
+No plea recommendation may be finalized — not the Module E structure recommendation, not Module F's letter, not the Strategy Memo — until the collateral-consequences check in **dw-padilla-advisement-crim** (its Step 2A module set: registration, firearms, licensing, housing/benefits/aid, voting) has been run against the proposed plea and its one-page plea-counseling checklist (category × triggered-by-this-plea? × client-advised? × date) is completed. Module B's audit feeds that check; the completed checklist populates Deliverable 4 and is appended to the Client Advisement Letter and Strategy Memo. For a non-citizen, generate the full Padilla immigration advisement there as well.
+
+---
+
 ## OUTPUT FORMAT SPECIFICATIONS
 
 Six deliverables: (1) Plea Offer Analysis Summary; (2) Client Advisement Letter (.docx); (3) Good Time / Actual Time Worksheet; (4) Collateral Consequences Checklist; (5) Case Strength Assessment Matrix (attorney only); (6) Plea Negotiation Strategy Memo (ATTORNEY WORK PRODUCT — never shared with the client or the State).
@@ -206,6 +187,8 @@ When the analysis surfaces issues needing deeper work — sentencing, motion pra
 Read each as the corresponding step is invoked:
 
 - **guardrails.md** — Step 0.5: full guardrails (does / does not do, ethical boundaries, citation verification warning)
+- **source-citation-mandate.md** — Step 0.5: citation formats, multiple-source rule, where sourcing applies
+- **step-0-intake-request.md** — Step 0: the verbatim three-tier document-request script
 - **step-1-information-gathering.md** — Step 1: three-tier intake tables and module-priority prompt
 - **module-a-offer-vs-exposure.md** — Module A: comparison table, plea-discount formula, risk-adjusted expected value
 - **module-b-collateral-consequences.md** — Module B: six-category collateral-consequence audit checklist
@@ -215,6 +198,7 @@ Read each as the corresponding step is invoked:
 - **module-f-client-advisement-letter.md** — Module F: ten-section advisement letter template with acknowledgment block
 - **module-g-comparable-case-outcomes.md** — Module G: comparability factors, sources, four-tier classification
 - **module-h-habitual-offender-leverage.md** — Module H: La. R.S. 15:529.1 exposure calculation, leverage grid, strategic considerations
+- **module-i-specialty-court-diversion.md** — Module I: specialty-court/diversion legal framework, track-comparison matrix, expungement interaction, strategic considerations
 - **output-format-specifications.md** — Output: the six deliverable formats
 - **integration-with-dw-skills.md** — Integration: hand-off list to specialized DW skills
 - **quick-reference-tables.md** — fast-lookup tables (plea types, Boykin rights, habitual ranges, collateral triggers, withdrawal standards, key cases, deadlines)

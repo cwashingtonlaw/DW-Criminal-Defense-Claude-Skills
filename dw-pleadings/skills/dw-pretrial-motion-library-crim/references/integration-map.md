@@ -11,6 +11,9 @@ Read by `dw-pretrial-motion-library-crim` at the Integration section (before STE
 | `dw-suppression-motion-crim` | Hand off suppression issues |
 | `dw-404b-opposition-crim` | Hand off 404(b) issues |
 | `dw-bond-and-release-motion-crim` | Hand off bond issues |
+| `dw-deadline-engine-crim` | Computes post-trial and appeal deadlines for MODULE 16 (Arts. 853, 861, 873, 881.1, 914 chain) |
+| `dw-appellate-error-monitor-crim` | MODULE 16 coordination: holds the firm new-trial template exemplar and drafts the Motion for Appeal / Motion to Reconsider Sentence (its MODULE E); its error log supplies the Art. 851(B)(2) ruling inventory |
+| `dw-trial-day-assistant-crim` | Module B objection log feeds MODULE 16's Art. 851(B)(2) prejudicial-error ground |
 | `docx` | Document generation |
 | `assets/templates/` (bundled) | Firm template exemplars for 7 pretrial filings — see `assets/templates/README.md` for the full inventory. Bond, new trial, and appeal templates have been moved to `dw-bond-and-release-motion-crim` and `dw-appellate-error-monitor-crim` respectively |
 | `references/caselaw-citations.md` (bundled) | Consolidated caselaw inventory extracted from the bundled templates, organized by module with verification flags for known typos and stale cites |

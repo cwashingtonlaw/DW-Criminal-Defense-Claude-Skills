@@ -39,3 +39,14 @@ Run a parallel log for objections counsel intended but did not make. Schema matc
 | Why It Wasn't Made | Strategic choice / didn't catch in time / believed waived by prior ruling / other |
 | Salvage Pathway | Errors patent (Art. 920) / structural / IAC (post-conviction) / Brady / N/A |
 | Prejudice | Critical / Significant / Minor / De minimis |
+
+### Batson Ruling Routing (additive — existing fields unchanged)
+
+Every ruled-on Batson / reverse-Batson / J.E.B. challenge ALSO logs as a standard `Obj-###` row so it reaches `dw-appellate-error-monitor-crim` with the rest of the objection log: Phase = `Voir dire`, Type of Objection = `Batson / J.E.B. / reverse-Batson`, Legal Basis Cited = the class asserted plus authority (e.g., `Batson v. Kentucky; La. C.Cr.P. Art. 800 — race`), Court's Ruling and Preservation Status as usual. The 16 fields above are a preserved contract — do NOT modify them. Append only these two additive fields to Batson rows:
+
+| Additive Field | Content |
+|---|---|
+| Batson Step Reached | 1 (prima facie denied) / 2 (reason offered) / 3 (pretext ruled on) |
+| Batson Strike Rec # | `BSR-###` — links the row to the compact Batson strike record produced by `dw-voir-dire-assistant-crim` Module C.6 and mirrored in this skill's Module E.1 tracker |
+
+Non-Batson rows leave both additive fields blank.

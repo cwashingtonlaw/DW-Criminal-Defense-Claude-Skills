@@ -120,6 +120,10 @@ Based on Phase 0–3 status:
 
 Check `Case Tables.xlsx` for an `Issue Codes` sheet (maintained by `dw-issue-code-tracker-crim` v2.0 — 33 codes: 14 Universal + 8 Homicide + 11 Rape/Sexual Assault). If absent, render the "Issue ledger not yet initialized" notice and skip. If present, count rows by Status, group Open codes by category, sort ascending, flag codes Open more than 30 days as STALE. **Read-only; no auto-routing.** Read `references/step-6b-issue-code-scan.md` now for the exact procedure.
 
+### Step 6C: Scan Clock Status
+
+Check the Case Brain (via `dw-case-brain-crim`) for a `## CLOCK STATUS` block, and `Cowork Analysis/Deadlines/` for the most recent Deadline Clock Table (both maintained by `dw-deadline-engine-crim`). If present, render the block's table verbatim in the dashboard's Clock Status element, surfacing any `EXPIRED-MOVE` or `NEEDS-DATA` rows at the top. If absent, render: *"No clocks computed — run dw-deadline-engine-crim."* **Read-only; the dashboard never computes or edits clock rows.**
+
 ### Step 7: Flag Workflow Gaps
 
 Check for and flag any of the following:
@@ -137,7 +141,7 @@ Based on current phase and gaps, recommend the exact next skill to invoke (e.g.,
 
 ## Dashboard Output Format
 
-**Always produce the dashboard in this exact markdown structure.** Render to console. Optionally save to a `.docx` file if the user requests a written summary. Read `references/dashboard-output-template.md` now and reproduce its structure exactly — Current Status, Phase 0–3 blocks, Issue Code Status, Workflow Gaps & Flags, Recommended Next Steps (with time estimates), Phase Completion Checklist, footer.
+**Always produce the dashboard in this exact markdown structure.** Render to console. Optionally save to a `.docx` file if the user requests a written summary. Read `references/dashboard-output-template.md` now and reproduce its structure exactly — Current Status, Phase 0–3 blocks, Issue Code Status, Workflow Gaps & Flags, Recommended Next Steps (with time estimates), Phase Completion Checklist, footer. Additionally render the **Clock Status** element (Step 6C) immediately after Issue Code Status.
 
 ---
 
@@ -152,6 +156,7 @@ Read `references/implementation-notes-and-accuracy-tips.md` before scanning — 
 - **dw-criminal-defense-crim** — Execute any phase of the 4-phase workflow
 - **dw-case-brain-crim** — Load/save persistent case context across sessions
 - **dw-issue-code-tracker-crim** — Maintain the case-level issue code ledger (Open/Addressed/N/A). The dashboard reads this ledger read-only; only the tracker writes to it.
+- **dw-deadline-engine-crim** — Compute the statutory deadline clocks. The dashboard renders the CLOCK STATUS block read-only; only the deadline engine writes it.
 - **dw-cross-exam-architect-crim** — Generate cross-examination outlines for witnesses
 - **dw-discovery-orchestrator-crim** — Triage and route incoming discovery to auditor skills
 - **dw-discovery-compliance-monitor-crim** — Track prosecution disclosure obligations
