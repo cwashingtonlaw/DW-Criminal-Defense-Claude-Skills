@@ -24,7 +24,7 @@ When working in this repo, follow the conventions below. They exist because they
 ├── docs/
 │   ├── DW_Criminal_Defense_Cowork Project_Instructions_1.md
 │   ├── DW_Skills_Operations_Guide_v1.2.docx
-│   └── Updated_Skill_Map_March_2026.docx     ← Canonical skill map (refresh on net additions/removals)
+│   └── Updated_Skill_Map_September_2026.docx ← Canonical skill map (refresh on net additions/removals; March 2026 edition in docs/archive/)
 └── skills/
     ├── dw-criminal-defense-crim/     ← Master 3-phase orchestrator (the entry point)
     ├── dw-skill-index-crim/          ← Lookup table for all skills (the routing manual)
