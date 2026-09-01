@@ -2,24 +2,18 @@
 name: dw-padilla-advisement-crim
 category: disposition
 description: >
-  [OUTCOME]: Generates signable, written plea-consequence advisements. Flagship module: the
-  bilingual (English/Spanish) Padilla immigration-consequences advisement (.docx) that notifies
-  a non-U.S.-citizen client, in writing, of the immigration effects of pleading guilty or being
-  found guilty — deportability, inadmissibility, mandatory ICE detention, bars to
-  relief/naturalization — with client, attorney, and interpreter certification/signature blocks.
-  Companion module (any client, citizen or not): a full collateral-consequences advisement —
-  sex-offender registration, firearm prohibitions, occupational licensing, housing/benefits/
-  student aid, voting — plus a one-page plea-counseling checklist for the case file.
-  [TRIGGER]: ALWAYS invoke for "Padilla advisement," "immigration advisement," "advise the client
-  of immigration consequences," "immigration consequences of a plea," "non-citizen plea warning,"
-  "advise non-citizen client," "collateral consequences," "collateral consequences of this plea,"
-  "what else does this plea do," "registration consequences," "will he lose his license,"
-  "will he lose his housing," "will he lose his gun rights," or any request to warn a defendant
-  about the immigration or other collateral effects of a conviction or plea.
-  [ANTI-TRIGGER]: Do NOT use for actual immigration relief analysis or removal-defense strategy
-  (refer to immigration counsel); for general client status letters (use
-  dw-client-communication-drafter-crim); or for the plea trial-exposure math (use
-  dw-plea-negotiation-analyzer-crim).
+  [OUTCOME]: Signable, written plea-consequence advisements. Flagship: bilingual (EN/ES)
+  Padilla immigration advisement (.docx) — deportability, inadmissibility, ICE detention,
+  bars to relief — with client/attorney/interpreter signature blocks. Companion (any
+  client): full collateral-consequences advisement — registration, firearms, licensing,
+  housing/benefits/aid, voting — plus a one-page plea-counseling checklist.
+  [TRIGGER]: ALWAYS invoke for "Padilla advisement," "immigration consequences of a plea,"
+  "non-citizen plea warning," "collateral consequences," "what else does this plea do,"
+  "registration consequences," "will he lose his license/housing/gun rights," or any request
+  to warn a defendant about immigration or other collateral effects of a conviction or plea.
+  [ANTI-TRIGGER]: NOT for immigration relief/removal-defense strategy (refer to immigration
+  counsel), client status letters (dw-client-communication-drafter-crim), or plea
+  trial-exposure math (dw-plea-negotiation-analyzer-crim).
 ---
 
 # D&W Padilla Immigration & Collateral-Consequences Advisement
