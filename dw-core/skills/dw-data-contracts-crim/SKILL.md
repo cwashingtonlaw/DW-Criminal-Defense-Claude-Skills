@@ -57,7 +57,7 @@ One deliverable per witness — `Cross-Examination — [Witness Name].docx` — 
 **Producer:** `dw-direct-exam-architect-crim`
 **Consumers:** `dw-trial-notebook-builder-crim`, `dw-case-brain-crim`
 
-Three deliverables per defense witness — `Direct-Examination — [Witness Name].docx`, `Source Catalog — [Witness Name] Direct.pdf`, `Combined Sources — [Witness Name] Direct.pdf` — saved to `01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`. Mirrors the cross-exam template with "Anticipated Cross-Attack Vectors" in place of "Impeachment Hooks" (Witness Role, Foundation Required, open-ended Questions, Anticipated Answers, Exhibits to Introduce, etc.). Read `references/contract-3a-direct-exam-outlines.md` now for the full schema.
+One deliverable per defense witness — `Direct-Examination — [Witness Name].docx` — saved to `01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`, plus an indexing summary copy to the Cowork Analysis folder. No Source Catalog and no Combined Sources PDF. **Structurally identical to Contract 3:** three-column Source Register, one chapter per page with a two-column Source/Exhibit | Questions table and a blank Notes — Witness Responses box, then the Discovery & Notice Gap Report, the Preservation Log and the Rehearsal & Prep Schedule. What differs is the content — open-ended questions instead of leading ones, and cross-attack anticipation reported to the attorney where cross reports branch logic. Read `references/contract-3a-direct-exam-outlines.md` now for the full schema.
 
 ---
 

@@ -20,7 +20,7 @@ Every revocation memo states, in numbers, what the client actually serves under 
 
 **Parole (technical revocation):** capped term (currently 90/120/180 days by tier, treatment ≤ 180 days [VERIFY]; caps inapplicable to crime-of-violence and sex-offense parolees), running from the committee's revocation order, without diminution or pre-revocation credit [VERIFY — confirm credit language]; then return to active parole for the remainder of the original term.
 
-**Both tracks:** custody on a new charge *and* the hold simultaneously — determine which docket the jail is booking the time against; jail-credit allocation errors are common and correctable. Good-time (diminution) eligibility on the revoked term is its own analysis — route computation to the good-time reference in `dw-sentencing-mitigation-specialist-crim` (`references/good-time-parole-eligibility.md`).
+**Both tracks:** custody on a new charge *and* the hold simultaneously — determine which docket the jail is booking the time against; jail-credit allocation errors are common and correctable. Good-time (diminution) eligibility on the revoked term is its own analysis — route computation to the good-time reference in `dw-sentencing-mitigation-specialist-crim` (`dw-sentencing-mitigation-specialist-crim/references/good-time-parole-eligibility.md`).
 
 ## D-2. Worked example (probation, full revocation)
 

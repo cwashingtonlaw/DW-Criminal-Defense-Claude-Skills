@@ -11,7 +11,7 @@ Read at SKILL.md STEP 1 (Information Gathering Protocol): the Essential / Strate
 3. **Case Theme (one sentence):** the spine of every chapter header (mirrors cross-exam theme — must be the SAME theme as the cross outlines; defense case is one story)
 4. **Defense Theory:** what happened from the defense's perspective — the affirmative narrative this witness builds
 5. **Key Facts to Elicit:** the propositions this witness must establish on direct
-6. **Anticipated Cross-Attack Vectors:** for each key fact, what will the State attack? (this drives the rehearsal plan and the cross-attack column of the outline)
+6. **Anticipated Cross-Attack Vectors:** for each key fact, what will the State attack? (this drives the rehearsal plan and the STEP 5 cross-attack report — vectors are reported to the attorney, never printed on a chapter page)
 
 ### Strategic (request if not provided)
 7. Jurisdiction — Louisiana state law by default; for federal matters the U.S. Fifth Circuit governs and the toggle changes (FRE 609 with its 10-year limit vs. La. C.E. art. 609.1 with none; FRE 702/Daubert; Fed. R. Crim. P. 16 expert disclosure). Confirm parish and forum.

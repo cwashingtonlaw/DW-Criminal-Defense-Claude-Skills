@@ -141,7 +141,7 @@ D&W has ~60 specialized skills. You must invoke the correct skill for each task 
 | Plea offer analysis | `dw-plea-negotiation-analyzer-crim` |
 | Witness threat ranking (post-jail-call cross-feed) | `dw-witness-threat-matrix-crim` |
 | Mock juror reaction modeling | `dw-jury-focus-group-crim` |
-| Exhibit list / authentication tracker | `dw-exhibit-manager-crim` |
+| Exhibit list / authentication tracker | Pre-trial exhibit metadata (sponsoring witness, authentication route, anticipated objections) lives on the **Evidence Table** in `Case Tables.xlsx`; live offer/admission status is `dw-trial-day-assistant-crim` **Module D**, the exhibit tracker of record |
 | **Real-time trial-day support** (objection log, witness scorecards, juror obs) | `dw-trial-day-assistant-crim` |
 | Issue-code based docket tracking | `dw-issue-code-tracker-crim` |
 | Court date / jail status tracker | `dw-court-jail-tracker-crim` |
@@ -464,7 +464,7 @@ Final polish rolls into the Trial Notebook via Phase 3 Step 12 (`dw-trial-notebo
 
 ## Reference Materials
 
-For deep-dive operations: see `docs/DW_Skills_Operations_Guide_v1.3.md` in the GitHub repo (`cwashingtonlaw/DW-Criminal-Defense-Claude-Skills`). That manual contains:
+For deep-dive operations: see `docs/DW_Skills_Operations_Guide_v1.4.md` in the GitHub repo (`cwashingtonlaw/DW-Criminal-Defense-Claude-Skills`). That manual contains:
 
 - Full step-by-step Barone Workflow deep dive
 - Complete D&W 3-phase workflow with skill assignments

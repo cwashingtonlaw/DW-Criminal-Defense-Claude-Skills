@@ -22,7 +22,7 @@ Scan every question in the outline. If a question:
 - Can be answered yes/no without elaboration ("Did you see the defendant?")
 - Embeds a factual proposition ("After he punched you...")
 
-Mark it: `⚠ LEADING — REPHRASE (La. C.E. Art. 611(C))`. Provide an open-ended rewrite in the Notes column.
+Mark it `⚠ LEADING — REPHRASE (La. C.E. art. 611(C))` **while drafting** and rewrite it open-ended before delivery. This flag is a draft-time defect and never survives into a delivered outline — if a question genuinely cannot be rewritten open-ended, keep it out of the QUESTIONS column entirely and surface it to the attorney in the STEP 4.5 report.
 
 ### Permissible exceptions (flag the basis)
 
@@ -30,6 +30,8 @@ Mark it: `⚠ LEADING — REPHRASE (La. C.E. Art. 611(C))`. Provide an open-ende
 - `[LEADING OK — Refreshing recollection — first establish exhaustion of memory]`
 - `[LEADING OK — Hostile witness ruling — confirm with court before trial]`
 - `[LEADING OK — Adverse party called by defense — La. C.E. Art. 611(C)]`
+
+These tags **stay inline in the QUESTIONS cell**, appended to the question they govern. They are the only annotation permitted on a direct chapter page: whether you may lead is a live question at the moment you open your mouth, so it belongs beside the question rather than in a report.
 
 ### The "story" cadence
 

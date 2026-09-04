@@ -1,7 +1,7 @@
 # Daniels & Washington — Skills Operations Guide
-**Version 1.3 | May 2026 | Internal Use Only**
+**Version 1.4 | September 2026 | Internal Use Only**
 
-This is the canonical operations manual for the Daniels & Washington Claude skill suite. It supersedes v1.2 (`DW_Skills_Operations_Guide_v1.2.docx`). Use this guide to understand:
+This is the canonical operations manual for the Daniels & Washington Claude skill suite. It supersedes v1.3 (May 2026), which superseded v1.2 (`DW_Skills_Operations_Guide_v1.2.docx`). Use this guide to understand:
 
 - The two intersecting workflows (3-phase D&W + 9-step Barone)
 - What every skill does and when to invoke it
@@ -10,6 +10,29 @@ This is the canonical operations manual for the Daniels & Washington Claude skil
 - Practical recipes for the case scenarios you see most often
 
 For development conventions and repository structure, see `CLAUDE.md` at the repo root. For the searchable trigger-phrase routing table, ask Claude for the skill index ("what skills do we have").
+
+---
+
+## What changed in v1.4 (September 2026)
+
+**Current inventory:** 76 skills across 9 criminal-practice plugins — `dw-core` (7), `dw-trial-prep` (17), `dw-evidence-audit` (16), `dw-disposition` (9), `dw-ops` (8), `dw-intake-discovery` (5), `dw-offense-specialists` (5), `dw-transcription` (5), `dw-pleadings` (4).
+
+**Witness-exam outlines were rebuilt.** Cross and direct now use one identical template and each produce **one file**:
+
+| | Before | Now |
+|---|---|---|
+| Deliverables per witness | 3 (outline .docx + Source Catalog .pdf + Combined Sources .pdf) | **1** (`… — [Witness Name].docx`) |
+| Source Register | 4–5 columns incl. short name and date | **3**: Source Number \| Evidence Item \| Reference/Bates |
+| Chapter table | Cross: 3 columns · Direct: 8 columns | **2**: SOURCE/EXHIBIT \| QUESTIONS |
+| Notes | printed column of prep text | **blank write-in box**, ~5 lines, at the foot of every chapter |
+| Type | 14 pt Times New Roman | **12 pt** Times New Roman |
+| Colour | none | blue `D6E4F0` = source · red `F4CCCC` = questions · yellow `FFF2CC` = notes |
+
+The chapter page now carries only the exhibit to pick up and the question to ask. Branch logic, impeachment bullets and cross-attack vectors are **reported to the attorney during the build** rather than printed; ground-to-state and proffer-substance are **pre-filled columns in the Preservation Log** so art. 841 / art. 103(A)(2) protection survives off the page. Contracts 3 and 3A in `dw-data-contracts-crim` carry the full schema.
+
+**Because the catalogs are gone, the Source Register is the only index.** Every register row's Evidence Item title and Reference/Bates entry must be enough to pull that document from the case file cold, and a document's date now lives inside the Evidence Item entry.
+
+**`dw-exhibit-manager-crim` is retired** (at `dw-trial-prep` v1.9 / `dw-criminal-defense-crim` v6.2). Pre-trial exhibit metadata — sponsoring witness, authentication route, anticipated objections — lives on the **Evidence Table** in `Case Tables.xlsx`; live offer/admission status is `dw-trial-day-assistant-crim` **Module D**, the exhibit tracker of record. The appellate objection-preservation chain is unbroken.
 
 ---
 
@@ -217,7 +240,7 @@ Explodes the attorney-selected theory into a 7-stream action plan:
 | 3 — Experts | Experts needed, Daubert/Foret challenges | `dw-expert-witness-evaluator-crim` |
 | 4 — Motions | Suppress, exclude 404(b), sever, etc. | `dw-suppression-motion-crim`, `dw-404b-opposition-crim`, `dw-pretrial-motion-library-crim` |
 | 5 — Witnesses | Cross prep, direct prep | `dw-cross-exam-architect-crim`, `dw-direct-exam-architect-crim` |
-| 6 — Exhibits | Exhibit list, demonstratives, authentication | `dw-exhibit-manager-crim`, `dw-trial-notebook-builder-crim` |
+| 6 — Exhibits | Exhibit list, demonstratives, authentication | **Evidence Table** in `Case Tables.xlsx` (pre-trial metadata), `dw-trial-day-assistant-crim` Module D (live offer/admission status), `dw-trial-notebook-builder-crim` |
 | 7 — Narrative | Opening, closing, jury instructions, voir dire | `dw-trial-narrative-builder-crim`, `dw-jury-instructions-builder-crim`, `dw-voir-dire-assistant-crim` |
 
 Each task carries: priority, responsible party, D&W skill, deadline, dependencies, status. Living document — updates as the case evolves.
@@ -399,15 +422,15 @@ All motion skills consult `dw-shared-protocols-crim/references/` for the firm's 
 
 | Skill | What it does |
 |---|---|
-| `dw-cross-exam-architect-crim` | Chapter-based cross outlines for State witnesses |
-| `dw-direct-exam-architect-crim` | Direct outlines for defense witnesses |
+| `dw-cross-exam-architect-crim` | Chapter-based cross outlines for State witnesses. One .docx per witness: three-column Source Register, two-column chapter table, blank notes box, 12 pt |
+| `dw-direct-exam-architect-crim` | Direct outlines for defense witnesses. Same template as cross, one .docx per witness; open-ended questions, cross-attack anticipation reported rather than printed |
 | `dw-trial-narrative-builder-crim` | Opening + Closing + Theme Tracker + Rebuttal Anticipation Memo |
 | `dw-jury-instructions-builder-crim` | Louisiana jury charge drafting |
 | `dw-voir-dire-assistant-crim` | Voir dire strategy and question banks |
 | `dw-defense-investigator-tasking-crim` | Generate concrete tasks for the defense investigator |
 | `dw-witness-threat-matrix-crim` | Witness vulnerability ranking; receives jail-call tampering cross-feed |
 | `dw-jury-focus-group-crim` | Mock juror reaction modeling |
-| `dw-exhibit-manager-crim` | Exhibit list construction, authentication tracking |
+| *(retired — `dw-exhibit-manager-crim`)* | Retired at `dw-trial-prep` v1.9 / `dw-criminal-defense-crim` v6.2. Exhibit list construction and authentication tracking now split between the **Evidence Table** in `Case Tables.xlsx` and `dw-trial-day-assistant-crim` **Module D** |
 | `dw-trial-day-assistant-crim` | Real-time in-court support (objection log, witness scorecards, juror obs, mid-trial issues) |
 | `dw-issue-code-tracker-crim` | Issue-code based docket tracking |
 
@@ -447,7 +470,7 @@ Each provides charge-specific elements, defenses, sentencing exposure, motions, 
 | Skill | Purpose |
 |---|---|
 | `dw-shared-protocols-crim` | Protocol library — work-product marking, output-path formula, **verification protocol**, citation standards, template selection |
-| `dw-data-contracts-crim` (v1.2) | Output schemas for all cross-skill deliverables (DMAR with 6-category matrix, auditor reports, cross/direct outlines, Case Tables, Case Brain entries, discovery ledger with bucket column) |
+| `dw-data-contracts-crim` | Output schemas for all cross-skill deliverables (DMAR with 6-category matrix, auditor reports, cross/direct outlines — Contracts 3 and 3A, both now one .docx per witness — Case Tables, Case Brain entries, discovery ledger with bucket column) |
 
 ### 5.13 Non-Criminal / Utility
 
@@ -860,7 +883,7 @@ DW-Criminal-Defense-Claude-Skills/
 │   ├── auto-pull.sh             ← Background auto-pull
 │   └── install-agent.sh         ← LaunchAgent installer for auto-pull
 ├── docs/
-│   ├── DW_Skills_Operations_Guide_v1.3.md   ← This file
+│   ├── DW_Skills_Operations_Guide_v1.4.md   ← This file
 │   ├── DW_Skills_Operations_Guide_v1.2.docx ← Superseded
 │   ├── DW_Criminal_Defense_Cowork Project_Instructions_1.md
 │   └── Updated_Skill_Map_March_2026.docx

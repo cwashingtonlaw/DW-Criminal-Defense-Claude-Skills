@@ -2,7 +2,7 @@
 
 Read by `dw-pretrial-motion-library-crim` at MODULE 16 before drafting any post-trial motion. This module covers the three post-verdict, pre-sentence filings: Motion for New Trial (La. C.Cr.P. arts. 851-854), Motion for Post-Verdict Judgment of Acquittal (art. 821), and Motion in Arrest of Judgment (arts. 859-861). It also maps how these motions interact with the appeal clock (art. 914).
 
-**Bundled template:** None in this skill. The firm's new-trial exemplar is bundled with `dw-appellate-error-monitor-crim` at `assets/templates/motion_for_new_trial.docx` (see that skill's MODULE E and `references/07-post-trial-motions.md`); load it through that skill's assets when the attorney selects a bundled template at STEP 1, then port per the STEP 1.5 procedure. The Motion for Appeal and Motion to Reconsider Sentence (art. 881.1) remain the monitor's MODULE E — do not draft those here.
+**Bundled template:** None in this skill. The firm's new-trial exemplar is bundled with `dw-appellate-error-monitor-crim` at `assets/templates/motion_for_new_trial.docx` (see that skill's MODULE E and `dw-appellate-error-monitor-crim/references/07-post-trial-motions.md`); load it through that skill's assets when the attorney selects a bundled template at STEP 1, then port per the STEP 1.5 procedure. The Motion for Appeal and Motion to Reconsider Sentence (art. 881.1) remain the monitor's MODULE E — do not draft those here.
 
 **DEVONthink search:**
 ```

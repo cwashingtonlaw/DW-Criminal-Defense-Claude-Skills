@@ -275,7 +275,7 @@ For each skill, the table below lists what it consumes (inputs from other skills
 | `dw-appellate-error-monitor-crim` | Trial transcripts + objection log (from `dw-trial-day-assistant-crim`) + minute entries | Error-preservation audit; post-trial motion package; ranked appellate issues → `dw-appellate-brief-builder-crim` |
 | `dw-trial-day-assistant-crim` | Daily docket + live trial events | 7-module per-day output (objection log, witness scorecard, exhibit tracker, juror log, recap, issue spotter); Module B + C feed appellate-error-monitor + cross-exam-architect |
 | `dw-trial-notebook-builder-crim` | All Phase 2 + Phase 3 deliverables | Trial Notebook assembly + Trial Readiness Gap Report |
-| `dw-exhibit-manager-crim` | Trial exhibits + court rulings | Master exhibit list + authentication tracker |
+| *(retired — `dw-exhibit-manager-crim`)* | Trial exhibits + court rulings | Retired at `dw-trial-prep` v1.9 / `dw-criminal-defense-crim` v6.2. Pre-trial exhibit metadata → **Evidence Table** in `Case Tables.xlsx`; live offer/admission status → `dw-trial-day-assistant-crim` **Module D** |
 | `dw-timeline-builder-crim` | Discovery documents | Comprehensive Case Timeline (Phase 2 Report 1 input) |
 
 ### Transcription

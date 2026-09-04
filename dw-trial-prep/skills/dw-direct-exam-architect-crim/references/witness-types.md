@@ -36,7 +36,7 @@ La. C.E. Art. 611(B) limits cross to subjects raised on direct plus credibility.
 
 **Broad scope:** Defendant testifies to the entire State narrative. Risk: cross is unconstrained, every weakness exposed. Reward: jury hears the defendant's full account; some juries punish narrow testimony as evasive.
 
-The Anticipated Cross-Attack Vectors column of every chapter must reflect the chosen scope. Document the scope choice in the outline's STEP 2 confirmation block.
+The cross-attack vectors reported at STEP 5 for every chapter must reflect the chosen scope. Document the scope choice in the outline's STEP 2 confirmation block.
 
 ### 1.4 — Rehearsal schedule
 
@@ -136,7 +136,7 @@ An alibi witness's testimony alone is weak — the State will say the witness is
 | Social media | Geotagged posts during the alibi window | Authenticated screenshot bundle |
 | Financial transactions | Credit card swipe, Cash App transaction, ATM use | Subpoenaed bank records |
 
-**Rule:** Every alibi witness direct must reference at least one independent corroboration anchor in the Source column. An alibi resting solely on the witness's word will fail at trial.
+**Rule:** Every alibi witness direct must reference at least one independent corroboration anchor in the SOURCE/EXHIBIT column. An alibi resting solely on the witness's word will fail at trial.
 
 ### 2.3 — Timeline lock-down
 
@@ -161,7 +161,7 @@ For every alibi witness, the State will explore:
 | Inconsistent statements | Prior accounts that drift | Sanitize on direct OR move in limine |
 | Memory selectivity | "You remember 9:42 pm exactly?" | Tie memory to a corroborating anchor — receipt, photo, geotagged post |
 
-The Anticipated Cross-Attack Vectors column for every alibi chapter must reflect these.
+The cross-attack vectors reported at STEP 5 for every alibi chapter must reflect these.
 
 ### 2.5 — Pre-testimony interview discipline
 
@@ -230,7 +230,7 @@ The qualifications colloquy is the opening chapter of every defense-expert direc
 La. C.E. Art. 703 — An expert may base an opinion on facts or data: (a) perceived by the expert at or before the hearing, (b) made known to the expert at or before the hearing, (c) of a type reasonably relied upon by experts in the particular field.
 
 **Direct-exam sequencing:**
-1. Establish the materials reviewed (Source column lists each: police reports, lab reports, photos, videos, raw data)
+1. Establish the materials reviewed (the SOURCE/EXHIBIT column lists each: police reports, lab reports, photos, videos, raw data)
 2. Establish independence — did the expert reach the opinion before or after talking to defense counsel?
 3. Establish the methodology applied
 4. Tender the opinion
@@ -429,7 +429,7 @@ Foundation testimony is mechanical and unremarkable. Most prosecutors will stipu
 **Pre-trial protocol:**
 1. Identify every defense exhibit needing foundation
 2. Draft a stipulation offer to the State for each
-3. If State stipulates → no witness needed; mark exhibit "authentication stipulated" in the catalog
+3. If State stipulates → no witness needed; note "authentication stipulated" against that source in the Source Register's Reference/Bates entry
 4. If State refuses → call the witness, but only for the refused exhibits
 
 **Why stipulate?** Calling a foundation witness opens that witness to any cross within the scope of direct. A bank records custodian called to authenticate a deposit slip may be cross-examined on every transaction in the defendant's account. Stipulation closes the door entirely.
