@@ -26,7 +26,7 @@
 |---|---|
 | `dw-appellate-error-monitor-crim` | The completed **Preservation Log** — rulings, grounds stated, proffers made, and anything marked UNPRESERVED |
 | `dw-issue-code-tracker-crim` | Issue codes from the Preservation Log |
-| `dw-trial-notebook-builder-crim` | All three deliverables, by their Contract 3 filenames |
+| `dw-trial-notebook-builder-crim` | The outline, by its Contract 3 filename |
 | `dw-case-brain-crim` | Output registration — skill name, filenames, date, location |
 | `dw-trial-day-assistant-crim` | The outline itself, used at counsel table; its witness scorecard feeds tomorrow's cross back into this skill |
 

@@ -2,7 +2,9 @@
 
 ## Source Register (Mandatory — Build Before Drafting Any Chapter)
 
-Before writing any chapter, build a **Source Register** — a numbered master list of every source document that will be cited in the cross-examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE/EXHIBIT cell throughout the outline. This register also drives the companion deliverables produced in Steps 7 and 8.
+Before writing any chapter, build a **Source Register** — a numbered master list of every source document that will be cited in the cross-examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE/EXHIBIT cell throughout the outline.
+
+**The register is the outline's only index.** This skill produces no Source Catalog and no Combined Sources PDF, so nothing else in the package says what `(3)` is or where to find it. Every row must identify its document unambiguously by title and give a Reference/Bates entry precise enough to pull it from the case file at counsel table.
 
 **Source Register format — three columns, exactly these headers:**
 
@@ -11,7 +13,7 @@ Before writing any chapter, build a **Source Register** — a numbered master li
 | (1) | [Document title as it actually appears, or evidence item # / filing description] | [Bates range, page span, timestamp range, or N/A] |
 | (2) | ... | ... |
 
-Header row shaded **blue** (`D6E4F0`) — the register is source data, and blue is the source colour everywhere in this package. → `deliverable-formatting.md` §1.1
+Header row shaded **blue** (`D6E4F0`) — the register is source data, and blue is the source colour throughout the outline. → `deliverable-formatting.md` §1.1
 
 **Three columns only.** No short-name column and no date column.
 
@@ -19,7 +21,7 @@ Header row shaded **blue** (`D6E4F0`) — the register is source data, and blue 
 - **Evidence Item** — the document or item itself, by its actual title. One name per document, everywhere. Do not maintain a separate shorthand alias; two competing names for the same exhibit is how a source gets mis-pulled at counsel table.
 - **Reference/Bates** — where it lives: Bates range, page span, recording timestamp range, evidence item number, or filing/record citation. `N/A` where the item carries none.
 
-**Where the date goes now that the register has no date column.** If the date distinguishes this document from another in the case — a supplemental report, a second interview, an amended lab report — carry it inside the **Evidence Item** entry as part of the title: `Supplemental Incident Report (03/14/2024)`. Otherwise the date lives in the source's description and key-references list in the Source Catalog (Step 7) and on that source's divider page in the Combined Sources PDF (Step 8). Never leave a date-sensitive document identified only by a bare title when the file holds more than one version of it.
+**Where the date goes now that the register has no date column.** Inside the **Evidence Item** entry, as part of the title: `Supplemental Incident Report (03/14/2024)`. There is nowhere else — with no catalog and no combined PDF, the register is the only record of the document anywhere in the package. Carry the date whenever it is material, and always where the case file holds more than one version of a document. Never leave a date-sensitive document identified by a bare title.
 
 **Rules for Source Register numbering:**
 - Assign numbers in the order sources are first expected to appear in the outline

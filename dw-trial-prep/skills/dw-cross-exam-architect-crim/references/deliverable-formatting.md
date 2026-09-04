@@ -1,6 +1,6 @@
-# Deliverable Formatting — Cross-Examination Package
+# Deliverable Formatting — Cross-Examination Outline
 
-Applies to **all three** deliverables produced by this skill. Read before generating any file.
+This skill produces **one file**: `Cross-Examination — [Witness Name].docx`. Read before generating it.
 
 ---
 
@@ -19,7 +19,7 @@ Applies to **all three** deliverables produced by this skill. Read before genera
 
 **Hierarchy comes from weight and case, not from size.** Chapter titles are bold and capitalized rather than set larger, so a long chapter does not lose a line to an oversized heading. Only the work product marking, footnotes, and page numbers drop below 12 pt.
 
-**Consistent with the firm standard.** The firm style guide (`dw-shared-protocols-crim/references/dw-firm-style-guide.md`) specifies 12 pt Times New Roman body for filed pleadings. These three deliverables are **internal work product** — never filed, never served — but they use the same 12 pt body spec, so any portion adapted into a filed pleading carries over without a reset.
+**Consistent with the firm standard.** The firm style guide (`dw-shared-protocols-crim/references/dw-firm-style-guide.md`) specifies 12 pt Times New Roman body for filed pleadings. This outline is **internal work product** — never filed, never served — but it uses the same 12 pt body spec, so any portion adapted into a filed pleading carries over without a reset.
 
 ### 1.1 Colour bands (firm-specified)
 
@@ -27,7 +27,7 @@ Three shaded bands, one colour per structural element. The colour means the same
 
 | Band | Colour | Hex | Where it appears |
 |---|---|---|---|
-| **Source** | Blue | `D6E4F0` | Source Register header row; the SOURCE/EXHIBIT header cell in every chapter table; source detail-sheet headers in the Source Catalog; divider-page banners in the Combined Sources PDF |
+| **Source** | Blue | `D6E4F0` | Source Register header row; the SOURCE/EXHIBIT header cell in every chapter table |
 | **Questions** | Red | `F4CCCC` | The QUESTIONS header cell in every chapter table |
 | **Notes** | Yellow | `FFF2CC` | The NOTES — WITNESS RESPONSES label row at the foot of every chapter table |
 
@@ -57,11 +57,7 @@ Three shaded bands, one colour per structural element. The colour means the same
 
 Per `dw-shared-protocols-crim/references/attorney-work-product-marking.md`:
 
-**Footer sharing.** Page numbers sit bottom **right**; the two-line work product marking sits bottom **center** in the same footer. They do not collide. Where a deliverable puts the marking in the header instead, the footer carries the page number alone.
-
-- **Cross-Examination Outline (.docx)** — marking in the **header** of every page
-- **Source Catalog (.pdf)** — marking in the **footer** of every page
-- **Combined Source Documents (.pdf)** — marking in the **footer** of divider pages
+The two-line marking goes in the **header** of every page; the footer carries the page number alone, bottom right. They do not collide.
 
 Marking text, two lines, no terminal period:
 
@@ -74,25 +70,21 @@ Apply via .docx header/footer XML rather than body text so it survives copy/past
 
 ---
 
-## 4. Output Location — All Three Files
+## 4. Output Location
 
-All three deliverables are written to the **same folder**:
+The outline is written to:
 
 ```
 {{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/
 ```
 
-Cross-examination materials live with the witness file, not with the general case analysis — they are reached for at counsel table, keyed to a witness.
+Cross-examination material lives with the witness file, not with the general case analysis — it is reached for at counsel table, keyed to a witness.
 
 `{{CASE_ROOT}}` is resolved by `dw-case-brain-crim` and varies by case source (Calcasieu PDO / NOLA Conflict / D&W private). Never hardcode it; never write outside `CASE_ROOT`. See `dw-shared-protocols-crim/references/output-path-formula.md`.
 
-**File names:**
+**File name:** `Cross-Examination — [Witness Name].docx`
 
-| # | Deliverable | File name |
-|---|---|---|
-| 1 | Cross-Examination Outline | `Cross-Examination — [Witness Name].docx` |
-| 2 | Source Catalog | `Source Catalog — [Witness Name].pdf` |
-| 3 | Combined Source Documents | `Combined Sources — [Witness Name].pdf` |
+**No Source Catalog and no Combined Sources PDF.** Do not generate them and do not reference them from the outline. The Source Register on page 2 is the outline's only index, and exhibits are pulled from the case file by the Reference/Bates entry the register gives — which is why that entry has to be precise.
 
 If a witness is crossed again after a superseding production, version with a ` - v2` suffix rather than overwriting. A prior outline may already have been annotated by hand.
 
@@ -103,17 +95,17 @@ If a witness is crossed again after a superseding production, version with a ` -
 Before presenting to the attorney, confirm:
 
 **Type and colour**
-- [ ] Body and table text is Times New Roman 12 pt throughout all three files
+- [ ] Body and table text is Times New Roman 12 pt throughout
 - [ ] SOURCE/EXHIBIT header shaded blue `D6E4F0`; QUESTIONS header shaded red `F4CCCC`; NOTES label shaded yellow `FFF2CC`
 - [ ] No body text set in colour; no shaded question, source, or writing cells
 - [ ] Page numbers present, bottom right of every page, `Page N of M` format
-- [ ] Work product marking present, in the correct position per file type
+- [ ] Work product marking present in the header of every page; page number alone in the footer
 
 **Source Register**
 - [ ] Appears on page 2 of the outline, before Chapter 1, header row blue
 - [ ] Exactly three columns — Source Number | Evidence Item | Reference/Bates — no short-name column, no date column
 - [ ] Where a date distinguishes one version of a document from another, it appears inside the Evidence Item entry
-- [ ] Every `(N)` cited anywhere in the package has a register row
+- [ ] Every `(N)` cited anywhere in the outline has a register row, and each row's Evidence Item title plus Reference/Bates entry is enough to pull that document from the case file with no catalog to consult
 
 **Chapter pages**
 - [ ] **Every chapter table has exactly two columns — SOURCE/EXHIBIT and QUESTIONS. No third column anywhere**
@@ -127,7 +119,7 @@ Before presenting to the attorney, confirm:
 **Appendices and law**
 - [ ] Preservation Log appended as the final section, with Chapter, Question #, **Ground to state** and **Proffer substance** pre-filled for every flagged question
 - [ ] Discovery Gap Report present
-- [ ] Source Catalog has no date column in the TOC or metadata tables
+- [ ] Exactly one file was produced — no Source Catalog, no Combined Sources PDF
 - [ ] Parish, trial court, and Louisiana appellate circuit stated; any federal citation written as `5th Cir.` and any state one as `La. [N] Cir.` — no bare "5th Circuit"
 - [ ] The Step 5 report to the attorney covers every branch, flag, and reserve question that is no longer printed on the chapter page
 - [ ] On a Fast Path build: the Fast Path notice appears on the cover page under the caption

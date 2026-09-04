@@ -8,11 +8,11 @@
 
 **FULL BUILD** — the default. Use when preparing a case for trial, when the request names more than one witness, or when no prior cross work exists in this matter.
 
-Runs: `0.55 → 0.58 → 0.6 → 1 → 1.A → 2 → 3 → 4 → 5 → 5.5 → 6 → 7 → 8 → 8.5`
+Runs: `0.55 → 0.58 → 0.6 → 1 → 1.A → 2 → 3 → 4 → 5 → 5.5 → 6 → 8.5`
 
 **FAST PATH** — use when the attorney names **one witness** and needs the outline soon: "cross for Officer [X] tomorrow," "I'm up in the morning," "just the one witness."
 
-Runs: `0.55 → 0.58 → 1 → 2 → 3 → 4 → 5 → 5.5 → 6 → 7 → 8`
+Runs: `0.55 → 0.58 → 1 → 2 → 3 → 4 → 5 → 5.5 → 6`
 
 ---
 
@@ -26,7 +26,7 @@ Runs: `0.55 → 0.58 → 1 → 2 → 3 → 4 → 5 → 5.5 → 6 → 7 → 8`
 
 ## What Fast Path never skips
 
-Jurisdiction resolution (0.55) · upstream intake and witness history (0.58) · the art. 608(B) admissibility gate · pre-draft confirmation (2) · the Source Register and `(N)` citation discipline (4) · preservation bullets and the Preservation Log (4, 5.5) · the Discovery Gap Report (6) · all three deliverables (7, 8).
+Jurisdiction resolution (0.55) · upstream intake and witness history (0.58) · the art. 608(B) admissibility gate · pre-draft confirmation (2) · the Source Register and `(N)` citation discipline (4) · preservation bullets and the Preservation Log (4, 5.5) · the Discovery Gap Report (6).
 
 Those are the parts that keep a cross from failing in the room. Speed comes from narrowing scope to one witness, never from lowering the floor.
 

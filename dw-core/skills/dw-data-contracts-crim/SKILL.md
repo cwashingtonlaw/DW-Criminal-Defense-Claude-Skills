@@ -48,7 +48,7 @@ Filename `[Audit Type] Report — [Client Last Name] [Date].docx`, saved to `01 
 **Producer:** `dw-cross-exam-architect-crim`
 **Consumers:** `dw-trial-notebook-builder-crim`, `dw-case-brain-crim`
 
-Three deliverables per witness — `Cross-Examination — [Witness Name].docx`, `Source Catalog — [Witness Name].pdf`, `Combined Sources — [Witness Name].pdf` — saved to `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` or `Defense Witnesses/`. The outline follows the firm's chapter-based template (Chapter Title, Page, Witness, Goals, Source, Questions, Notes). Read `references/contract-3-cross-exam-outlines.md` now for the full schema.
+One deliverable per witness — `Cross-Examination — [Witness Name].docx` — saved to `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` or `Defense Witnesses/`. No Source Catalog and no Combined Sources PDF; the Source Register inside the outline is its only index. The outline follows the firm's chapter-based template: cover page, three-column Source Register (Source Number | Evidence Item | Reference/Bates), one chapter per page with a two-column Source/Exhibit | Questions table and a blank Notes — Witness Responses box, then the Discovery Gap Report and the Preservation Log. Read `references/contract-3-cross-exam-outlines.md` now for the full schema.
 
 ---
 

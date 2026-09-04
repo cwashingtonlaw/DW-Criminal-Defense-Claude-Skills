@@ -29,7 +29,7 @@ Generated: [Date] | Readiness: [READY / NEAR-READY / etc.]
 | # | Document | Type | Date | Status | Link |
 |---|----------|------|------|--------|------|
 | 1 | Cross-Examination — Officer LeBlanc | .docx | 2026-03-15 | Complete | [Open](file://...) |
-| 2 | Source Catalog — Officer LeBlanc | .pdf | 2026-03-15 | Complete | [Open](file://...) |
+| 2 | Direct-Examination — Dr. Fontenot | .docx | 2026-03-15 | Complete | [Open](file://...) |
 
 3. **Gap callouts** for any missing items in that tab (red text or bold flag)
 

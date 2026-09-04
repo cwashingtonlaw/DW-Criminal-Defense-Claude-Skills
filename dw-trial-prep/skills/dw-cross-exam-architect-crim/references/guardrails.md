@@ -21,7 +21,7 @@ Loaded at Step 0.5 and in force for the entire build. One line each; the named r
 **Process**
 - **File intake hard stop** before analyzing uploads. **Attorney confirmation** before drafting.
 - **Two columns in the chapter table — SOURCE/EXHIBIT (blue) and QUESTIONS (red), both bulleted or numbered, no third column.** Chapter closes with the blank yellow-banded NOTES box. **All three branches still worked on every impeachment question — reported at Step 5, not printed on the page.**
-- **Three deliverables, always** — Fast Path does not waive them.
+- **One deliverable** — the outline .docx. No Source Catalog, no Combined Sources PDF. The Source Register is the only index, so every register row must be pullable from the case file on its own.
 - **Nothing but sources and questions on a chapter page.** Branches, flags and preservation grounds are reported to the attorney and pre-filled into the Preservation Log — and the delivery message says so.
 - **Formatting is fixed** — Times New Roman 12 pt, blue `D6E4F0` / red `F4CCCC` / yellow `FFF2CC` header bands, page numbers bottom right, one output folder. → `deliverable-formatting.md`
 

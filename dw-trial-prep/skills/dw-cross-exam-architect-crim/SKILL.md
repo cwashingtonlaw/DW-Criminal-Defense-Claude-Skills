@@ -4,8 +4,8 @@ category: trial-prep
 description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"
   "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Produces
-  three deliverables per witness — Cross-Examination Outline (.docx), Source Catalog (.pdf),
-  and Combined Sources (.pdf) — in the D&W chapter template, Times New Roman 12 pt, saved to
+  one deliverable per witness — the Cross-Examination Outline (.docx) — in the D&W chapter
+  template, Times New Roman 12 pt, saved to
   01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/. Louisiana law, U.S. 5th Circuit
   for federal matters, and the state appellate circuit resolved from the parish of prosecution
   across the Louisiana First, Third, and Fourth Circuits. Endpoint of all auditor chains.
@@ -16,7 +16,7 @@ description: >
 
 Build cross-examination outlines under the Louisiana Code of Evidence and Code of Criminal Procedure, in the D&W chapter template. Controlling authority comes from the parish of prosecution — the firm spans the Louisiana First, Third, and Fourth Circuits and three federal districts.
 
-**Three deliverables per witness, always:** Cross-Examination Outline (.docx) · Source Catalog (.pdf) · Combined Sources (.pdf).
+**One deliverable per witness:** `Cross-Examination — [Witness Name].docx`. No Source Catalog and no Combined Sources PDF — the Source Register on page 2 of the outline is the only index, and exhibits are pulled from the case file by their Bates or evidence-item reference.
 
 **Source citation mandate.** Every question traces to a specific document — confront with the document, not with memory. After Step 4 every citation carries its `(N)` register number, the document's actual title, then page/Bates/timestamp. Spell agencies and labs out in full; no abbreviations, no short names, one name per document. Cite every supporting document, not just the best one — multiple sources give the attorney options if one exhibit is excluded. Anything untraceable is marked `[UNSOURCED — VERIFY BEFORE USING AT TRIAL]` and never asserted as fact. → `references/source-register-and-template.md`
 
@@ -40,7 +40,7 @@ From `references/`: `guardrails.md` · `deliverable-formatting.md` · `jurisdict
 
 Load all seven before Step 0.52. Load `references/confrontation-and-surrogate-analysts.md` at Step 3 when the witness testifies about work performed by someone else.
 
-All output is internal work product — apply marking. **All three deliverables go to one folder:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`, where `{{CASE_ROOT}}` comes from `dw-case-brain-crim` and varies by case source. Never hardcode it.
+All output is internal work product — apply marking. **The outline goes to:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`, where `{{CASE_ROOT}}` comes from `dw-case-brain-crim` and varies by case source. Never hardcode it.
 
 ---
 
@@ -177,18 +177,6 @@ Append to every outline: every material expected for this witness type that was 
 
 ---
 
-## STEP 7 — Source Catalog (PDF) · MANDATORY
-
-Standalone PDF indexing every Source Register entry: cover page, contents, per-source detail sheets, Missing Discovery table, Cross-Reference Matrix. **No date column.** → `references/source-exhibit-catalog.md`
-
----
-
-## STEP 8 — Combined Sources (PDF) · MANDATORY
-
-All source PDFs merged, each behind a divider page carrying source number and metadata. → `references/combined-source-documents.md`
-
----
-
 ## STEP 8.5 — Red-Team the Outline
 
 **Self-check — do not hand this to `dw-adversarial-stress-test-crim`;** that skill runs *into* this one, not out of it (see `references/integration-map.md`). If a theory stress test exists it is an upstream input at Step 0.58 — the cross must not open a door the theory cannot survive.
@@ -199,11 +187,11 @@ Work the ten-target checklist, report what you found and changed, and surface wh
 
 ## Deliverable Checklist
 
-Three files, one folder, per `assets/outline-assembly.md`:
+One file, per `assets/outline-assembly.md`:
 
-`Cross-Examination — [Witness Name].docx` · `Source Catalog — [Witness Name].pdf` · `Combined Sources — [Witness Name].pdf`
+`Cross-Examination — [Witness Name].docx`
 
-Times New Roman 12 pt, blue/red/yellow header bands, page numbers bottom right. Run the pre-delivery check in `references/deliverable-formatting.md` §5, then present all three.
+Cover page · Source Register · chapters · Discovery Gap Report · Preservation Log. Times New Roman 12 pt, blue/red/yellow header bands, page numbers bottom right. Run the pre-delivery check in `references/deliverable-formatting.md` §5, then present it.
 
 ---
 
@@ -218,6 +206,7 @@ Full list loaded at Step 0.5 → `references/guardrails.md`. The six that most o
 5. **Preserve every flag** — ground stated at the moment (art. 841) plus substance proffered (art. 103(A)(2)).
 6. **Cite every fact** with an `(N)` prefix; nothing untraceable is asserted as fact.
 7. **The chapter page is sources, questions, and a blank notes box.** Everything else is reported to the attorney or lands in the Preservation Log — and say so on delivery, so no one works the chapters believing the branches are on the page.
+8. **The Source Register is the only index.** With no catalog and no combined PDF, every `(N)` must resolve from the register alone — the Evidence Item title has to identify the document unambiguously, and the Reference/Bates entry has to be enough to pull it from the case file.
 
 ---
 
@@ -229,7 +218,7 @@ Each step names the files it needs. **Load those and no others.**
 `fast-path-notice` · `pre-draft-confirmation` · `outline-assembly` · `chapter-goals-and-scoring` · `impeachment-bullet` · `preservation-log`
 
 **`references/`** — read for detail:
-`guardrails` · `deliverable-formatting` · `jurisdiction-and-court-map` · `quick-reference-tables` · `error-preservation-protocol` · `build-paths` · `upstream-intake` · `witness-history-lookup` · `integration-map` · `witness-prioritization-audit` · `information-tiers` · `master-witness-table` · `witness-type-modules` · `agency-and-lab-module` · `confrontation-and-surrogate-analysts` · `source-register-and-template` · `source-exhibit-catalog` · `combined-source-documents` · `red-team-checklist`
+`guardrails` · `deliverable-formatting` · `jurisdiction-and-court-map` · `quick-reference-tables` · `error-preservation-protocol` · `build-paths` · `upstream-intake` · `witness-history-lookup` · `integration-map` · `witness-prioritization-audit` · `information-tiers` · `master-witness-table` · `witness-type-modules` · `agency-and-lab-module` · `confrontation-and-surrogate-analysts` · `source-register-and-template` · `red-team-checklist`
 
 ---
 

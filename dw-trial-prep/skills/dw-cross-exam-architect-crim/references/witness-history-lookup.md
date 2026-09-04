@@ -14,9 +14,9 @@ Prior cross-examination deliverables follow a fixed filename pattern (`deliverab
 
 ```
 Cross-Examination — [Witness Name].docx
-Source Catalog — [Witness Name].pdf
-Combined Sources — [Witness Name].pdf
 ```
+
+Outlines built before this skill dropped the companion PDFs may still have a `Source Catalog — [Witness Name].pdf` and a `Combined Sources — [Witness Name].pdf` beside them. Read those where they exist; never create new ones.
 
 They live under each matter's `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`.
 
