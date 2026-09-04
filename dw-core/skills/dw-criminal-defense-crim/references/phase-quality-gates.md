@@ -7,7 +7,7 @@ Before proceeding to Phase 2, confirm all step checks are complete:
 - [ ] Folder structure confirmed — all standard subfolders exist (Step 1)
 - [ ] Discovery fully organized, Bate-stamped, OCR'd, transcribed, and placeholders generated (Step 2)
 - [ ] `000 - Case Profile.docx` complete with all auto-populated fields (Step 3) — including Part 2A/2B for any LWOP case
-- [ ] All Case Tables populated — Evidence Table (all 11 columns), Witness List (alphabetical, Priority 1–5 ranked) (Step 4)
+- [ ] All Case Tables populated — Evidence Table (all 7 columns; Bate Stamp Range reconciled to the Bate Stamp Master Log; every named Sponsoring Witness appears on the Witness List), Witness List (all 4 columns, alphabetical, Priority 1–5 ranked) (Step 4)
 - [ ] Case state saved to **dw-case-brain-crim** — Phase 1 complete, ready for Phase 2
 
 ---

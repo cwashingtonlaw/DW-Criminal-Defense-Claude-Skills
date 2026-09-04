@@ -26,5 +26,5 @@ Read at SKILL.md STEP 1 (Information Gathering) of `dw-trial-narrative-builder-c
 - `dw-issue-code-tracker-crim` — the defense's coded issues (e.g., I-1 ID, I-2 chain of custody, I-3 SOP failure) for theme keying
 - `dw-witness-threat-matrix-crim` — which prosecution witnesses are weakest and most worth foreshadowing in opening
 - `dw-timeline-builder-crim` — the defense timeline (used for the "story-arc" structure in opening)
-- `dw-exhibit-manager-crim` — exhibit numbers and short names for opening foreshadowing and closing callback
+- `Case Tables.xlsx` Evidence Table — Evidence Number and Evidence Name for opening foreshadowing and closing callback
 - `dw-jury-instructions-builder-crim` — reasonable doubt instruction text (Cage formulation), responsive verdict chart, affirmative-defense burden if applicable. **The closing must mirror the jury instructions verbatim where possible.**

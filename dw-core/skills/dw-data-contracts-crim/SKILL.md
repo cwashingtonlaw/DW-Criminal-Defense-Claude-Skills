@@ -94,7 +94,7 @@ Filename `Crime Lab Audit — [Client Last Name] [Date].docx`, saved to `01 - Tr
 **Writers:** `dw-criminal-defense-crim` (creates), Phase 2 and 3 skills (populate)
 **Readers:** `dw-case-dashboard-crim`, `dw-trial-notebook-builder-crim`, `dw-cross-exam-architect-crim`
 
-Column schemas for the Evidence Table (11 columns incl. Review Priority and Defense Relevance), Timeline Sheet (11 columns incl. Certainty), Witness Sheet, and Defense Matrix Sheet, each with type, populator, and required flag. Read `references/contract-4-case-tables-sheets.md` now for the column tables.
+Column schemas for the 7-column Evidence Table (an admissibility worksheet as of v6.1), the Timeline Sheet, and the 4-column Witness List, each with type, populator, and required flag. `Case Tables.xlsx` carries three sheets as of v6.0. Read `references/contract-4-case-tables-sheets.md` now for the column tables.
 
 ---
 
@@ -183,7 +183,7 @@ Full schemas in the `references/` subdirectory (one file per contract):
 - **contract-3b-trial-narrative-deliverables.md** — Contract 3B: opening, closing, theme tracker, rebuttal memo schemas
 - **contract-3c-dna-forensic-biology-audit.md** — Contract 3C: DNA-specific audit sections
 - **contract-3d-crime-lab-audit.md** — Contract 3D: crime-lab audit sections incl. R.S. 15:499 certificate audit
-- **contract-4-case-tables-sheets.md** — Contract 4: Evidence Table, Timeline, Witness, Defense Matrix column schemas
+- **contract-4-case-tables-sheets.md** — Contract 4: Evidence Table, Timeline, and Witness List column schemas
 - **contract-5-case-brain-registration.md** — Contract 5: COMPANION SKILL OUTPUTS and OPEN ISSUES entry formats
 - **contract-6-discovery-compliance-ledger.md** — Contract 6: ledger column schema
 - **contract-7-jail-call-tampering-cross-feed.md** — Contract 7: cross-feed header, per-entry fields, consumer behavior, schema-drift policy

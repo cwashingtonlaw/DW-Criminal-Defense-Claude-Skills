@@ -1,6 +1,6 @@
 # Witness Priority Rubric (1–5)
 
-Daniels & Washington standard for ranking every witness on the **Witness List** sheet of `Case Tables.xlsx` by importance to the case outcome. This rubric is the single source of truth for the `Priority (1–5)` column. Apply it identically on every case so rankings are reproducible and defensible.
+Daniels & Washington standard for ranking every witness on the **Witness List** sheet of `Case Tables.xlsx` by importance to the case outcome. This rubric is the single source of truth for the `Priority` column. Apply it identically on every case so rankings are reproducible and defensible.
 
 The ranking is **defense-theory-driven**: a witness's importance is measured by how much their testimony helps or hurts the defense theory of the case (from the Case Profile / Report 4 selected theory) and the elements the State must prove. Read the selected defense theory FIRST, then rank.
 
@@ -10,7 +10,7 @@ The ranking is **defense-theory-driven**: a witness's importance is measured by 
 
 Evaluate each witness against the tiers **in order, 1 → 5, and assign the FIRST tier the witness satisfies.** Do not average. If a witness plausibly fits two tiers, the first match (lower number = higher priority) wins, subject to the modifiers below.
 
-The `Priority (1–5)` cell is written as a number + label: `1 – Critical`, `2 – High`, `3 – Medium`, `4 – Low`, `5 – Peripheral`.
+The `Priority` cell is written as a number + label: `1 – Critical`, `2 – High`, `3 – Medium`, `4 – Low`, `5 – Peripheral`.
 
 ### 1 – Critical (case-determinative)
 Assign 1 if the witness is any of:
@@ -64,9 +64,9 @@ Assign 5 if not already 1–4 and the witness is any of:
 ## Procedure (how to rank a full list)
 
 1. Load the **selected defense theory** (Case Profile / Report 4a). Note the contested elements and the facts the theory turns on.
-2. For each witness, gather: role, what they observed/analyzed, the Bate refs of their statement/report, and any impeachment/Brady flags.
+2. For each witness, gather: role in the case, what they observed/analyzed, the Bate refs of their statement/report (these populate `Key Evidence Sources`), and any impeachment/Brady flags.
 3. Apply the **first-match rule** to set the base tier, then the **modifiers**.
-4. Write `Priority (1–5)` as `N – Label` and capture the one-to-two-sentence justification in **Priority Rationale**, naming the specific defense-theory connection.
+4. Write `Priority` as `N – Label`. The Witness List carries no rationale column — capture the one-to-two-sentence justification, naming the specific defense-theory connection, in Report 8 or the witness worksheet.
 5. Sort the sheet **alphabetically by Last, First** (Priority remains a sortable column).
 6. Re-run this rubric whenever a new transcript, lab report, or discovery supplement changes what a witness offers.
 

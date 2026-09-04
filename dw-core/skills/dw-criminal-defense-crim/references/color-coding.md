@@ -17,76 +17,54 @@ This reference defines the firm's standard color coding scheme for all sheets in
 
 ## Evidence Table Sheet
 
+Seven columns. This sheet is an admissibility worksheet — discovery-intake tracking lives in the Download Log and `Bate Stamp Master Log.xlsx`.
+
 ### Column Headers (Row 1)
 
 | Column | Header Color | Hex | Text |
 |--------|-------------|-----|------|
-| Doc # | Navy | #003366 | White |
-| Evidence Type | Dark Slate Blue | #483D8B | White |
-| Name | Indigo | #4B0082 | White |
-| Description | Teal | #008080 | White |
-| Bate Stamp | Dark Cyan | #008B8B | White |
-| Reviewed (Y/N) | Sea Green | #2E8B57 | White |
-| Notes | Olive | #808000 | White |
-| Discovery Set | Steel Blue | #4682B4 | White |
-| Date of Delivery | Slate Gray | #708090 | White |
-| Review Priority ★ | Dark Orange | #FF8C00 | White |
-| Defense Relevance ★ | Crimson | #DC143C | White |
+| Evidence Number | Navy | #003366 | White |
+| Evidence Name | Indigo | #4B0082 | White |
+| Number of Pages | Slate Gray | #708090 | White |
+| Bate Stamp Range | Dark Cyan | #008B8B | White |
+| Sponsoring Witness | Sea Green | #2E8B57 | White |
+| Authentication Route | Steel Blue | #4682B4 | White |
+| Anticipated Objections | Crimson | #DC143C | White |
 
-### Evidence Type Dropdown Cell Colors
+### Authentication Route Dropdown Cell Colors
 
-When a cell value matches one of these types, apply the corresponding fill:
-
-| Evidence Type | Fill Color | Hex | Text |
-|--------------|-----------|-----|------|
-| Police Report | Navy | #003366 | White |
-| Incident Report | Dark Slate Blue | #483D8B | White |
-| Supplemental Report | Steel Blue | #4682B4 | White |
-| Witness Statement | Indigo | #4B0082 | White |
-| Interview / Interrogation | Purple | #800080 | White |
-| Lab Report | Dark Cyan | #008B8B | White |
-| Forensic Report | Teal | #008080 | White |
-| Forensic Extraction | Dark Green | #006400 | White |
-| Autopsy / Medical Examiner | Maroon | #800000 | White |
-| Medical Record | Crimson | #DC143C | White |
-| SANE Report | Dark Red | #8B0000 | White |
-| Photograph | Olive | #808000 | White |
-| Audio Recording | Dark Orange | #FF8C00 | White |
-| Video / Body Camera | Orange Red | #FF4500 | White |
-| Transcript | Goldenrod | #DAA520 | Dark |
-| Surveillance Footage | Sienna | #A0522D | White |
-| 911 Call / Dispatch | Tomato | #FF6347 | White |
-| Prior Bad Acts | Red | #FF0000 | White |
+| Value | Fill Color | Hex | Text |
+|-------|-----------|-----|------|
+| Self-Authenticating | Green | #4CAF50 | White |
+| Certified Public Record | Sea Green | #2E8B57 | White |
+| Certified Business Record | Dark Cyan | #008B8B | White |
+| Stipulated | Light Green | #90EE90 | Dark |
+| Witness with Knowledge | Steel Blue | #4682B4 | White |
 | Chain of Custody | Slate Gray | #708090 | White |
-| Court Document | Cadet Blue | #5F9EA0 | White |
-| Plea Agreement | Sea Green | #2E8B57 | White |
-| Booking / Arrest Record | Dim Gray | #696969 | White |
-| Administrative | Light Gray | #D3D3D3 | Dark |
-| Correspondence | Medium Purple | #9370DB | White |
-| UNSURE | Yellow | #FFD93D | Dark |
+| Distinctive Characteristics | Cadet Blue | #5F9EA0 | White |
+| Voice or Speaker ID | Medium Purple | #9370DB | White |
+| Process or System | Dark Slate Blue | #483D8B | White |
+| Contested — Motion Required | Red | #F44336 | White |
+| TBD | Yellow | #FFD93D | Dark |
 
-### Review Priority Dropdown Cell Colors
+### Anticipated Objections Cell Colors
 
-| Value | Fill Color | Hex | Text |
-|-------|-----------|-----|------|
-| HIGH | Red | #FF6B6B | Dark |
-| MED | Yellow | #FFD93D | Dark |
-| LOW | Light Green | #90EE90 | Dark |
+Free-text column using the shorthand legend in `phase1-step4-case-tables-population.md`. Apply by content:
 
-### Defense Relevance Dropdown Cell Colors
+| Content | Fill Color | Hex | Text |
+|---------|-----------|-----|------|
+| Contains `404(B)` or `CONFRONTATION` | Red | #F44336 | White |
+| Contains `HEARSAY`, `AUTH`, or `BEST EVIDENCE` | Amber | #FFC000 | Dark |
+| Any other objection code | Yellow | #FFD93D | Dark |
+| `NONE ANTICIPATED` | Light Gray | #E0E0E0 | Dark |
+| Blank | White | #FFFFFF | Dark |
 
-| Value | Fill Color | Hex | Text |
-|-------|-----------|-----|------|
-| FAVORABLE | Green | #4CAF50 | White |
-| FLAG | Red | #F44336 | White |
-| NEUTRAL | Light Gray | #E0E0E0 | Dark |
+### Sponsoring Witness Cell Colors
 
-### Reviewed (Y/N) Dropdown Cell Colors
-
-| Value | Fill Color | Hex | Text |
-|-------|-----------|-----|------|
-| Y | Green | #4CAF50 | White |
-| N | Light Gray | #E0E0E0 | Dark |
+| Content | Fill Color | Hex | Text |
+|---------|-----------|-----|------|
+| `UNASSIGNED` | Yellow | #FFD93D | Dark |
+| Any named witness | White | #FFFFFF | Dark |
 
 ---
 
@@ -155,15 +133,15 @@ When a cell value matches one of these types, apply the corresponding fill:
 
 ## Witness List Sheet
 
-Single consolidated sheet (replaces the former Alpha & Priority sheets). Sorted alphabetically by Last, First; `Priority (1–5)` is a sortable, color-coded column.
+Single consolidated sheet, four columns. Sorted alphabetically by Last, First; `Priority` is a sortable, color-coded column.
 
 ### Column Headers
 
-All 13 headers use **white text on Navy (#003366)** for firm consistency. (Optional palette rotation per the "creating a new sheet" guidance below is acceptable, but Navy across the row is the standard.)
+All four headers use **white text on Navy (#003366)**.
 
-Columns: Witness Name · Address · Role · Type · Priority (1–5) · Priority Rationale · Bate Ref (Statement) · Bate Ref (Other) · Connection to Case · Key Testimony Expected · Impeachment Issues · Exam Prep (Y/N) · Notes
+Columns: Witness Name · Role in Case · Priority · Key Evidence Sources
 
-### Priority (1–5) Dropdown Cell Colors
+### Priority Dropdown Cell Colors
 
 | Value | Fill Color | Hex | Text |
 |-------|-----------|-----|------|
@@ -172,36 +150,6 @@ Columns: Witness Name · Address · Role · Type · Priority (1–5) · Priority
 | 3 – Medium | Yellow | #FFD93D | Dark |
 | 4 – Low | Light Green | #C6EFCE | Dark |
 | 5 – Peripheral | Light Gray | #E0E0E0 | Dark |
-
-### Type Dropdown Cell Colors
-
-| Type | Fill Color | Hex | Text |
-|------|-----------|-----|------|
-| Defendant | Maroon | #800000 | White |
-| Co-Defendant | Dark Red | #8B0000 | White |
-| State Witness | Navy | #003366 | White |
-| State Expert | Purple | #800080 | White |
-| Defense Witness | Sea Green | #2E8B57 | White |
-| Victim | Crimson | #DC143C | White |
-
-### Exam Prep (Y/N) Dropdown Cell Colors
-
-| Value | Fill Color | Hex | Text |
-|-------|-----------|-----|------|
-| Y | Green | #4CAF50 | White |
-| N | Light Gray | #E0E0E0 | Dark |
-
----
-
-## Defense Matrix Sheet
-
-### Column Headers
-
-| Column | Header Color | Hex | Text |
-|--------|-------------|-----|------|
-| Charge/Defense | Navy | #003366 | White |
-| Responsive Verdicts | Crimson | #DC143C | White |
-| Applicable Defenses | Dark Green | #006400 | White |
 
 ---
 
@@ -222,4 +170,4 @@ Columns: Witness Name · Address · Role · Type · Priority (1–5) · Priority
 
 ---
 
-*Daniels & Washington color coding standards. Last revised March 2026.*
+*Daniels & Washington color coding standards. Last revised September 2026 (v6.0 — Defense Matrix section retired; Witness List reduced to four columns).*

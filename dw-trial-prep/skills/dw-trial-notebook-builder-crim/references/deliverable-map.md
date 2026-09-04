@@ -64,8 +64,8 @@ Read this file before every scan to ensure nothing is missed.
 
 | Deliverable | Expected Location | Producing Skill | Phase | Critical? |
 |------------|-------------------|-----------------|-------|-----------|
-| Master Exhibit List | `04 - Exhibit List/` | Manual / `dw-criminal-defense-crim` | 3-4 | YES |
-| Exhibit Authentication Notes | `04 - Exhibit List/` | Manual | 3-4 | Recommended |
+| Master Exhibit List | `04 - Exhibit List/` | `Case Tables.xlsx` Evidence Table, via `dw-criminal-defense-crim` Phase 1 Step 4 | 3-4 | YES |
+| Exhibit Authentication Notes | `04 - Exhibit List/` | `Case Tables.xlsx` Evidence Table — Authentication Route and Anticipated Objections columns | 3-4 | Recommended |
 | Stipulated Exhibits List | `04 - Exhibit List/` | Manual / negotiation with State | 4 | Recommended |
 
 ## Tab 5 — Evidence

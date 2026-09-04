@@ -21,19 +21,15 @@ For spreadsheet color coding specs, see `color-coding.md`.
 
 ## Case Tables.xlsx — Sheet Reference
 
-The master template in `assets/Case Tables.xlsx` contains all sheets below with pre-formatted headers, column structures, dropdowns, and color coding. Copy it to new case roots; never create sheets from scratch.
+The master template in `assets/Case Tables.xlsx` contains the three sheets below with pre-formatted headers, column structures, dropdowns, and color coding. Copy it to new case roots; never create sheets from scratch.
+
+The Defense Matrix, Legal Defenses (Rape), Legal Defenses (Homicide), Dealing with States Narrative, and Running List sheets were retired in v6.0 — defense-strategy work now runs through Report 4a, `dw-jury-instructions-builder-crim`, and `dw-voir-dire-assistant-crim` rather than through spreadsheet tabs.
 
 | Sheet Name | Contents | Phase Populated |
 |------------|----------|-----------------|
-| Evidence Table | Master discovery index (11 columns) | Phase 1 Step 4 |
+| Evidence Table | Exhibit / admissibility worksheet (7 columns — Evidence Number, Evidence Name, Number of Pages, Bate Stamp Range, Sponsoring Witness, Authentication Route, Anticipated Objections) | Phase 1 Step 4 → refined through Phase 3 |
 | Timeline Sheet | Chronological case events (10 columns) | Phase 2 Report 1 / Phase 3 Step 1 |
-| Witness List | Consolidated witness list (13 columns), alphabetical by Last, First, with sortable Priority (1–5) column — replaces the former Witness Sheet / Alpha / Priority sheets | Phase 1 Step 4 → Phase 3 Step 2 |
-| Defense Matrix | Charges, responsive verdicts, defenses (7 columns) | Phase 3 Step 3B |
-| Legal Defenses (Rape) | **Defense Shield template** — sex offense defense catalog (7 columns) | Phase 3 Step 3A (sex offense cases only) |
-| Legal Defenses (Homicide) | **Defense Shield template** — homicide defense catalog (7 columns) | Phase 3 Step 3A (homicide cases only) |
-| Legal Defenses ([Case Type]) | **Defense Shield template** — created for new case types as needed (7 columns) | Phase 3 Step 3A (when no template exists) |
-| Dealing with States Narrative | Counter-narrative strategies — Rape & Homicide applications (6 columns) | Phase 3 Step 3A |
-| Running List | Defenses discovered/refined during each litigation phase (3 columns) | Phase 3 Step 3C → ongoing through trial |
+| Witness List | Consolidated witness list (4 columns — Witness Name, Role in Case, Priority, Key Evidence Sources), alphabetical by Last, First, with sortable Priority column | Phase 1 Step 4 → Phase 3 Step 2 |
 
 ---
 

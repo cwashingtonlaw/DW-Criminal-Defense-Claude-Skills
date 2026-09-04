@@ -197,7 +197,7 @@ All four files (when applicable to the selected mode) are saved to `{{CASE_ROOT}
 
 ## Upstream Consumers (READS FROM)
 
-This skill reads from `dw-case-brain-crim`, `dw-issue-code-tracker-crim`, `dw-witness-threat-matrix-crim`, `dw-timeline-builder-crim`, `dw-exhibit-manager-crim`, and `dw-jury-instructions-builder-crim` — pull these before asking the attorney, and recommend running any that are missing. Read `references/integration-map.md` now for the full downstream tab mapping, the per-skill upstream input list, and the missing-upstream recommendation script.
+This skill reads from `dw-case-brain-crim`, `dw-issue-code-tracker-crim`, `dw-witness-threat-matrix-crim`, `dw-timeline-builder-crim`, the `Case Tables.xlsx` Evidence Table, and `dw-jury-instructions-builder-crim` — pull these before asking the attorney, and recommend running any that are missing. Read `references/integration-map.md` now for the full downstream tab mapping, the per-skill upstream input list, and the missing-upstream recommendation script.
 
 ---
 
@@ -225,4 +225,4 @@ This skill uses the following reference materials, available in the `references/
 
 ---
 
-*This skill is a Phase 4 (Trial Prep) capstone in the Daniels & Washington Cowork criminal defense toolkit. Pair with `dw-jury-instructions-builder-crim` and `dw-voir-dire-assistant-crim`. Feeds into `dw-trial-notebook-builder-crim` Tab 2 (Opening & Closing). Reads upstream from `dw-case-brain-crim`, `dw-issue-code-tracker-crim`, `dw-witness-threat-matrix-crim`, `dw-timeline-builder-crim`, `dw-exhibit-manager-crim`, and `dw-jury-instructions-builder-crim`.*
+*This skill is a Phase 4 (Trial Prep) capstone in the Daniels & Washington Cowork criminal defense toolkit. Pair with `dw-jury-instructions-builder-crim` and `dw-voir-dire-assistant-crim`. Feeds into `dw-trial-notebook-builder-crim` Tab 2 (Opening & Closing). Reads upstream from `dw-case-brain-crim`, `dw-issue-code-tracker-crim`, `dw-witness-threat-matrix-crim`, `dw-timeline-builder-crim`, the `Case Tables.xlsx` Evidence Table, and `dw-jury-instructions-builder-crim`.*

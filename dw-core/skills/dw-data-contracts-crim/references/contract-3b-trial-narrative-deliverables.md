@@ -33,7 +33,7 @@ The trial-narrative-builder produces four interlocking deliverables that share a
 1. **Header Block** — Same as Opening
 2. **Theme Restatement** — Tie back to opening theme
 3. **Burden and Reasonable Doubt** — Jury instruction quotations
-4. **Element-by-Element Walk** — Each charged element, the State's proof, the gap, the defense response (cross-reference Defense Matrix)
+4. **Element-by-Element Walk** — Each charged element, the State's proof, the gap, the defense response (cross-reference the Report 4a theory selection and Report 5 Viable Legal Defenses)
 5. **Witness Credibility** — Per-witness impeachment summary (cross-reference Cross-Examination outlines)
 6. **Exhibit Highlights** — Key exhibits the jury should re-examine in deliberation
 7. **Anticipated State Rebuttal Responses** — Cross-reference Rebuttal Anticipation Memo

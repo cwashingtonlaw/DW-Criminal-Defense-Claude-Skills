@@ -18,7 +18,7 @@
 ## PRE-INTERVIEW ATTORNEY PREP
 
 - Pull Witness Threat Matrix (`dw-witness-threat-matrix-crim`) — top 5 State witnesses ranked
-- Pull Defense Matrix — charges, responsive verdicts, defenses
+- Pull Case Profile § 4 (Charges & Exposure) — charges and art. 814 responsive verdicts — plus Report 5 (Viable Legal Defenses)
 - Pull preliminary exhibit list — State and defense
 - Pull Voir Dire profile (`dw-voir-dire-assistant-crim`) — favorable / dangerous juror types
 - Pull jury instruction draft — lesser included offenses, responsive verdicts

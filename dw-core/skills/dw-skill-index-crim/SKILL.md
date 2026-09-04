@@ -139,7 +139,8 @@ All motion skills use the template selection protocol in `dw-shared-protocols-cr
 | Track discovery compliance | `dw-intake-discovery:dw-discovery-compliance-monitor-crim` | "update the discovery ledger" |
 | Brady/Giglio audit | `dw-intake-discovery:dw-brady-giglio-auditor-crim` | "run Brady audit" |
 | Rank state witnesses by threat (Phase 3 capstone; feeds cross-exam) | `dw-trial-prep:dw-witness-threat-matrix-crim` | "witness threat matrix" or "rank the witnesses" |
-| Exhibit list & lifecycle tracking (pre-marking → admission) | `dw-trial-prep:dw-exhibit-manager-crim` | "exhibit list" or "exhibit tracker" |
+| Exhibit metadata (authentication route, anticipated objections, sponsoring witness) | `Case Tables.xlsx` Evidence Table, via `dw-core:dw-criminal-defense-crim` Phase 1 Step 4 | "exhibit list" or "authentication route" |
+| Live trial exhibit status (offered -> admitted/excluded) | `dw-trial-prep:dw-trial-day-assistant-crim` (Module D) | "exhibit tracker" or "what's been admitted" |
 | Simulated jury focus group on the theory | `dw-trial-prep:dw-jury-focus-group-crim` | "focus group the case" or "how would a jury react" |
 
 ---

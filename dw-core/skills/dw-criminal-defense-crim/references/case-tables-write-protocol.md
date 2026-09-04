@@ -1,6 +1,6 @@
 # Case Tables Write Protocol
 
-**CRITICAL:** Google Drive sync can silently overwrite changes to `Case Tables.xlsx` if the file is open in Excel, Google Sheets, or any other application on another device. To prevent data loss, **ALWAYS follow this protocol before writing to any sheet in `Case Tables.xlsx`** — including Evidence Table, Timeline Sheet, Witness List, Defense Matrix, Defense Shield, Running List, and any future sheets.
+**CRITICAL:** Google Drive sync can silently overwrite changes to `Case Tables.xlsx` if the file is open in Excel, Google Sheets, or any other application on another device. To prevent data loss, **ALWAYS follow this protocol before writing to any sheet in `Case Tables.xlsx`** — including Evidence Table, Witness List, Timeline, and any future sheets.
 
 ## Pre-Write Warning
 

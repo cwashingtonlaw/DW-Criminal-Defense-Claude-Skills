@@ -22,7 +22,7 @@ This skill reads from the following upstream D&W skills. Pull these inputs befor
 - **`dw-issue-code-tracker-crim`** — defense's coded issues, used as theme spine candidates
 - **`dw-witness-threat-matrix-crim`** — which prosecution witnesses are weakest and worth foreshadowing in opening; which are strongest and need pre-emption
 - **`dw-timeline-builder-crim`** — defense timeline, used as the chronological backbone of the opening's story-arc
-- **`dw-exhibit-manager-crim`** — exhibit numbers, short names, and admissibility status (for opening foreshadowing and closing callback)
+- **`Case Tables.xlsx` Evidence Table** — Evidence Number, Evidence Name, and Authentication Route / Anticipated Objections (for opening foreshadowing and closing callback)
 - **`dw-jury-instructions-builder-crim`** — reasonable-doubt instruction (Cage-compliant), responsive verdict chart, affirmative-defense burden — the closing must mirror these instructions verbatim
 
 If any of these upstream skills have not been run for this case, recommend they be run first:

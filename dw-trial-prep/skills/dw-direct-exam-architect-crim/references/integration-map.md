@@ -14,7 +14,7 @@ Read at SKILL.md "Integration" section (after the Quick Reference): downstream t
 - **`dw-expert-witness-evaluator-crim`** — defense expert vetting, Daubert-survival prep, qualifications/methodology audit, prior testimony record
 - **`dw-case-brain-crim`** — defense theory, charges, parties, case theme, CASE_ROOT
 - **`dw-timeline-builder-crim`** — alibi corroboration timeline; defense narrative sequencing; cross-witness time anchors
-- **`dw-exhibit-manager-crim`** — exhibit numbers, Bates references, authentication status for sponsored exhibits
+- **`Case Tables.xlsx` Evidence Table** — Evidence Number, Bate Stamp Range, Sponsoring Witness, and Authentication Route for sponsored exhibits
 
 If any of these upstream products is missing or stale, prompt the attorney to refresh before drafting.
 
@@ -28,7 +28,7 @@ If any of these upstream products is missing or stale, prompt the attorney to re
 - `dw-witness-statement-analyzer-crim` (defense-favorable Analysis Cards)
 - `dw-expert-witness-evaluator-crim` (Daubert-survival prep for defense experts)
 - `dw-timeline-builder-crim` (alibi/corroboration timeline)
-- `dw-exhibit-manager-crim` (exhibit metadata)
+- `Case Tables.xlsx` Evidence Table (exhibit metadata)
 
 **Feeds to:**
 - `dw-trial-notebook-builder-crim` (Phase 4 Defense Witnesses tab assembly)

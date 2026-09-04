@@ -176,7 +176,7 @@ What exhibits support the theory? What demonstratives need to be created? What e
    - Cross-reference with `dw-chain-of-custody-auditor-crim` findings
    - Identify hearsay, best evidence, or foundation deficiencies
 
-**Routing:** Route exhibit management to `dw-exhibit-manager-crim`. Route trial notebook assembly to `dw-trial-notebook-builder-crim`.
+**Routing:** Record exhibit metadata on the `Case Tables.xlsx` Evidence Table (Sponsoring Witness, Authentication Route, Anticipated Objections); route live trial-day exhibit status to `dw-trial-day-assistant-crim` Module D. Route trial notebook assembly to `dw-trial-notebook-builder-crim`.
 
 ---
 
@@ -198,7 +198,7 @@ How does the theory translate into the courtroom story? What is the memorable th
    - Route to `dw-trial-narrative-builder-crim` for full development
 
 3. **Closing argument framework** -- Build the closing around the theme:
-   - Element-by-element burden walk using the Defense Matrix
+   - Element-by-element burden walk using the Report 4a theory selection and Report 5 (Viable Legal Defenses)
    - Witness credibility summary using cross-examination findings
    - Verdict form walk-through
    - Route to `dw-trial-narrative-builder-crim` for full development

@@ -13,7 +13,7 @@ Read at Step 1 — the ranked Essential / Strategic / Contextual list of inputs 
 
 5. **Reports 1-8 + 4a (Barone Discovery Workflow):** The full analytical output from `dw-criminal-defense-crim` Phase 2 -- Comprehensive Case Timeline (Report 1), Prosecution's Case Summary (Report 2), Theory Deconstruction (Report 2a from `dw-theory-deconstructor-crim`), Immediate Red Flags (Report 3), Competing Defense Theories (Report 4), Theory Selection Memo (Report 4a), Viable Legal Defenses (Report 5), Memorable Theme (Report 6), Table of Missing Discovery (Report 7), Key Witness Impeachment Plan (Report 8). Plus Report 0 (Neutral Discovery Inventory from `dw-neutral-inventory-crim`).
 6. **All completed audit reports:** Brady/Giglio audit, mobile forensic audit, chain of custody audit, crime scene audit, eyewitness ID audit, confession/interrogation audit, expert witness evaluation, DNA audit, crime lab audit, video evidence audit, jail call analysis, social media audit -- any audit that has been run feeds task generation.
-7. **Case Tables.xlsx:** Evidence Table, Timeline, Witness List, Defense Matrix -- these are the structured data that seed tasks.
+7. **Case Tables.xlsx:** Evidence Table, Witness List, Timeline -- these are the structured data that seed tasks.
 8. **Discovery compliance ledger:** Outstanding discovery items from `dw-discovery-compliance-monitor-crim` feed Stream 2 tasks directly.
 
 ### Contextual (gather from uploaded files)

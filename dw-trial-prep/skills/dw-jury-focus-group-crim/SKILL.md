@@ -74,7 +74,7 @@ Every demographic figure in the panel composition and every juror-profile attrib
 
 1. **Check for Case Brain first.** If the attorney has an active case loaded (via dw-case-brain-crim), pull the case facts from there: client name, charges, parish, case narrative, key evidence, and any defense theory already developed.
 2. **Check for case files.** If a client folder is mounted or accessible, look for:
-   - `Case Tables.xlsx` (Evidence Table, Timeline, Witness List, Defense Matrix)
+   - `Case Tables.xlsx` (Evidence Table, Witness List, Timeline)
    - Any existing pleadings, police reports, or discovery summaries
    - Prior deliverables from other D&W skills (DMARs, suppression motions, cross outlines)
 3. **If no Case Brain or files exist**, ask the attorney to provide:

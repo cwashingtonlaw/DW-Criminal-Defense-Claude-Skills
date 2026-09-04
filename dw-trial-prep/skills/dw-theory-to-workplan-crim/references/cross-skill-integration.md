@@ -13,7 +13,7 @@ Read at the Cross-Skill Integration section (after Step 4) — prerequisites, up
 - `dw-discovery-compliance-monitor-crim` -- outstanding discovery ledger (feeds Stream 2)
 - `dw-brady-giglio-auditor-crim` -- Brady/Giglio findings (feeds Streams 2 and 4)
 - All completed audit reports -- every auditor skill's output feeds task generation across streams
-- `Case Tables.xlsx` -- Evidence Table, Timeline, Witness List, Defense Matrix
+- `Case Tables.xlsx` -- Evidence Table, Witness List, Timeline
 
 ### This skill ROUTES TO (downstream execution):
 
@@ -29,7 +29,7 @@ Read at the Cross-Skill Integration section (after Step 4) — prerequisites, up
 | 4 - Motions | `dw-pretrial-motion-library-crim` | All other pretrial motions |
 | 5 - Witness | `dw-cross-exam-architect-crim` | Cross-examination outlines for prosecution witnesses |
 | 5 - Witness | `dw-direct-exam-architect-crim` | Direct-examination outlines for defense witnesses |
-| 6 - Exhibit | `dw-exhibit-manager-crim` | Exhibit identification, preparation, and pre-marking |
+| 6 - Exhibit | `Case Tables.xlsx` Evidence Table · `dw-trial-day-assistant-crim` (Module D) | Exhibit identification and authentication planning; live offer/admission status |
 | 6 - Exhibit | `dw-trial-notebook-builder-crim` | Trial notebook assembly with theory-aligned tabs |
 | 7 - Narrative | `dw-trial-narrative-builder-crim` | Opening statement, closing argument, theme tracker |
 | 7 - Narrative | `dw-jury-instructions-builder-crim` | Theory-specific jury charges and verdict form |

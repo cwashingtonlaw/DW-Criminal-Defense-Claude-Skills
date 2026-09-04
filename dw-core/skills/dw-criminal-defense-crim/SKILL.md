@@ -12,7 +12,7 @@ description: >
 ---
 
 # Daniels & Washington — Criminal Defense Cowork Skill
-**Version 5.11 | Internal Use Only**
+**Version 6.2 | Internal Use Only**
 
 This skill governs all Claude Cowork operations for criminal defense case management at Daniels & Washington. Follow this skill for every task involving a client case file. The 3-phase workflow below is the single source of truth.
 
@@ -75,11 +75,11 @@ For the § 4 Responsive Verdicts cell, read `references/art814-responsive-verdic
 
 ⚠ **Follow the Case Tables Write Protocol before modifying this file.** See `references/case-tables-write-protocol.md`.
 
-**Reference:** Read `references/color-coding.md` for the firm's full header and dropdown color specs (hex values for every column, evidence type, witness type, review priority, defense relevance, and timeline tag). Use the `xlsx` skill to apply formatting per those specs.
+**Reference:** Read `references/color-coding.md` for the firm's full header and dropdown color specs (hex values for every column, authentication route, witness priority, and timeline tag). Use the `xlsx` skill to apply formatting per those specs.
 
-Populate **4a — Evidence Table** (11 columns incl. Cowork's Review Priority ★ and Defense Relevance ★; attorney reviews all FAVORABLE/FLAG items before Phase 2) and **4b — Witness List** (one consolidated sheet, alphabetical, every witness ranked 1–5 per `references/witness-priority-rubric.md`).
+Populate **4a — Evidence Table** (7 columns; Cowork proposes Sponsoring Witness, Authentication Route, and Anticipated Objections ★, attorney confirms each) and **4b — Witness List** (4 columns, alphabetical, every witness ranked 1–5 per `references/witness-priority-rubric.md`). Column lists and legends are in the reference.
 
-Read `references/phase1-step4-case-tables-population.md` now for the column table, priority/relevance rules, Witness List columns, and the Step 4 Check.
+Read `references/phase1-step4-case-tables-population.md` now for the column table, the authentication-route and objection-code legends, Witness List columns, and the Step 4 Check.
 
 **✓ Step 4 Check:** all four items in the reference confirmed.
 
@@ -93,7 +93,7 @@ Read `references/phase-quality-gates.md` now and confirm every Phase 1 item (inc
 *Runs parallel analysis before attorney review. Auto-action loops triggered by Reports 7 and 8 eliminate rework in Phase 3.*
 
 ### Step 1: Rapid Triage & Specialist Routing
-Scan all documents to produce a **Triage Routing Memo** and early **specialist dispatches** — this step flags and routes; Step 2 analyzes. **1A** Triage Routing Memo (constitutional, Brady/Giglio, witness-inconsistency, timeline-conflict flags) · **1B** Chain of Custody Audit (substantive → **dw-chain-of-custody-auditor-crim**) · **1C** Specialist Evidence Routing (evidence type → auditor skill) · **1D** Charge-Type Specialist Routing (charge category → offense specialist; multi-domain cases dispatch to all).
+Scan all documents to produce a **Triage Routing Memo** and early **specialist dispatches** — this step flags and routes; Step 2 analyzes. **1A** Triage Routing Memo (constitutional, Brady/Giglio, witness-inconsistency, timeline-conflict flags) · **1B** Chain of Custody Audit (substantive → **dw-chain-of-custody-auditor-crim**) · **1C** Specialist Evidence Routing (evidence type, read from the file and Download Log → auditor skill) · **1D** Charge-Type Specialist Routing (charge category → offense specialist; multi-domain cases dispatch to all).
 
 Read `references/phase2-step1-triage-and-specialist-routing.md` now for flag-by-flag destinations and the full 1C/1D dispatch lists.
 
@@ -154,47 +154,44 @@ Read `references/phase-quality-gates.md` now and confirm every Phase 2 item (inc
 
 *Converts case analysis into actionable trial preparation. Cowork pre-builds all templates; attorneys complete cross and direct exam preparation using the integrated templates.*
 
-Read `references/phase3-trial-prep-procedures.md` now — the complete procedure for Steps 1–12; this skeleton gives order, outputs, and routing. ⚠ Steps 1–4 write to `Case Tables.xlsx`: follow `references/case-tables-write-protocol.md`.
+Read `references/phase3-trial-prep-procedures.md` now — the complete procedure for Steps 1–11; this skeleton gives order, outputs, and routing. ⚠ Steps 1–3 write to `Case Tables.xlsx`: follow `references/case-tables-write-protocol.md`.
 
 ### Step 1: Case Timeline Spreadsheet
 From **Report 1** → `Case Tables.xlsx — Timeline Sheet`: 11 columns, strict chronological order, color coding per `references/color-coding.md`, hyperlinked sources, conflicts flagged.
 
 ### Step 2: Update Witness List
-Fold Report 8 into `Impeachment Issues`, **re-rank Priority (1–5)** per `references/witness-priority-rubric.md` using Report 4a and Report 8, maintain `Exam Prep (Y/N)`.
+**Re-rank `Priority`** per `references/witness-priority-rubric.md` using Report 4a and Report 8; update `Key Evidence Sources` with that witness's Bate refs. Impeachment detail, exam-prep status, and rationale live in Report 8 and the witness worksheets. Route → **dw-witness-threat-matrix-crim**; the Report 4a theory drives **dw-jury-instructions-builder-crim** and **dw-voir-dire-assistant-crim** directly.
 
-### Step 3: Defense Shield & Defense Matrix
-Read **`references/defense-shield-procedure.md`** for 3A Defense Shield, 3B Defense Matrix, 3C Running List. Route → **dw-jury-instructions-builder-crim**, **dw-voir-dire-assistant-crim**, **dw-witness-threat-matrix-crim**.
+### Step 3: Version Control — Amended & Superseded Documents
+Keep a version control log; mark supersession in the `Evidence Name` cell (`— SUPERSEDED by [Evidence Number]`); never delete prior versions.
 
-### Step 4: Version Control — Amended & Superseded Documents
-Keep a version control log; mark superseded documents in the Evidence Table; never delete prior versions.
-
-### Step 5: Case Readiness Memo
+### Step 4: Case Readiness Memo
 One-page attorney entry point built from all 8 reports, Cowork parallel analysis, and current status.
 
-### Step 6: Discover the Story Worksheet (Case Story Development)
+### Step 5: Discover the Story Worksheet (Case Story Development)
 Complete before witness preparation — foundation of the defense narrative.
 
-### Step 7: Cross Exam Preparation (Per Key Witness)
+### Step 6: Cross Exam Preparation (Per Key Witness)
 Cowork prepopulates **7A** Battle Card, **7B** Mapping the Cross Worksheet, **7C** Cross Exam Template for Report 8 and Top 10 witnesses; route by witness type → `01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`.
 
-### Step 8: Direct Exam Preparation (Per Defense Witness)
+### Step 7: Direct Exam Preparation (Per Defense Witness)
 Cowork prepopulates **8A** Mapping the Direct Worksheet and **8B** Direct Exam Template → `01 - Trial Notebook/03 - Witnesses/Defense Witnesses/`.
 
-### Step 9: Opening Statement & Closing Argument Preparation
+### Step 8: Opening Statement & Closing Argument Preparation
 Populate Mapping the Story templates from Report 4 (theory per Report 4a), Report 6, and the Discover the Story worksheet.
 
-### Step 10: Appellate Readiness
+### Step 9: Appellate Readiness
 **dw-appellate-error-monitor-crim** (preservation) → **dw-appellate-brief-builder-crim** (direct appeal) or **dw-post-conviction-relief-crim** (collateral relief).
 
-### Step 11: Trial Day Support
+### Step 10: Trial Day Support
 Route in-court support (docket, objection log, scorecards, exhibit tracker, juror/Batson log, recap, issue spotter) to **dw-trial-day-assistant-crim**.
 
-### Step 12: Assemble Trial Notebook
+### Step 11: Assemble Trial Notebook
 Route to **dw-trial-notebook-builder-crim** for assembly, master index, and Trial Readiness Gap Report.
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.11 (July 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 6.2 (September 2026). Update this file whenever the master workflow document is revised.*
 
 ## Changelog
 
@@ -212,7 +209,6 @@ Reference materials in the `references/` subdirectory:
 - **case-profile-procedure.md** — Phase 1 Step 3: full Case Profile manual plus appended scope list and Step 3 Check
 - **case-tables-write-protocol.md** — Any `Case Tables.xlsx` write: mandatory write protocol
 - **color-coding.md** — Phase 1 Step 4, Phase 3 Step 1: color specs for every Case Tables sheet
-- **defense-shield-procedure.md** — Phase 3 Step 3: Defense Shield, Defense Matrix, Running List
 - **folder-structure-and-naming.md** — Phase 1 Step 1 and any file write: folder tree and naming conventions
 - **lwop-extraction-patterns.md** — Phase 1 Step 3 (LWOP): extracting each LWOP field from discovery
 - **lwop-field-maps.md** — Phase 1 Step 3 (LWOP): Part 2A/2B field schema and completeness checklist
@@ -229,4 +225,4 @@ Reference materials in the `references/` subdirectory:
 
 ---
 
-*This skill reflects Daniels & Washington Cowork Workflow Version 5.11 (July 2026). Update this file whenever the master workflow document is revised.*
+*This skill reflects Daniels & Washington Cowork Workflow Version 6.2 (September 2026). Update this file whenever the master workflow document is revised.*

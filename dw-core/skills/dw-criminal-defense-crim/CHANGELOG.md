@@ -1,5 +1,47 @@
 # dw-criminal-defense-crim — Changelog
 
+## v6.2 (September 2026) — dw-exhibit-manager-crim retired
+
+- **REMOVED `dw-exhibit-manager-crim`** (shipped in the `dw-trial-prep` package, deleted there at v1.9.0). Its work is now split between two places that already existed: pre-trial exhibit metadata — sponsoring witness, authentication route, anticipated objections — lives on the v6.1 Evidence Table, and live offer/admission status lives in `dw-trial-day-assistant-crim` Module D, which already fed `dw-appellate-error-monitor-crim`. The appellate objection-preservation chain is therefore unbroken.
+
+- **UPDATED `dw-skill-index-crim`** — the single exhibit-manager routing row is replaced by two rows pointing at those destinations.
+
+- **NOT REPLACED.** Three things the retired skill did have no new home: the prepared objection-responses bank, the State/Defense pre-marking numbering convention, and the clerk's exhibit list deliverable.
+
+## v6.1 (September 2026) — Evidence Table becomes an admissibility worksheet
+
+Second breaking change to `assets/Case Tables.xlsx`. The Evidence Table is cut from thirteen columns to seven and changes character: it is no longer a discovery-intake index but an **exhibit / admissibility worksheet**.
+
+- **REVISED Evidence Table (13 → 7 columns):** `Evidence Number` | `Evidence Name` | `Number of Pages` | `Bate Stamp Range` | `Sponsoring Witness` | `Authentication Route` | `Anticipated Objections`. Dropped: `EVIDENCE TYPE`, `REVIEWED STATUS`, `NOTES`, `ISSUE CODES`, `DISCOVERY SET`, `STATUS`, `DATE RECEIVED`, `REVIEW PRIORITY`, `DEFENSE RELEVANCE`.
+
+- **NEW `Authentication Route` dropdown** (11 values) mapped to La. C.E. arts. 901, 902, and 903 in `references/phase1-step4-case-tables-population.md`. Every article number in that map carries a `[VERIFY]` flag — the cites are from memory and Louisiana amends the Code of Evidence frequently. Verify before any filing or trial use.
+
+- **NEW `Anticipated Objections` shorthand legend** — `HEARSAY`, `RELEVANCE`, `403`, `AUTH`, `BEST EVIDENCE`, `404(B)`, `CONFRONTATION`, `PRIVILEGE`, `CUMULATIVE`, `NONE ANTICIPATED`. A `404(B)` entry routes to `dw-404b-opposition-crim`.
+
+- **NEW join between sheets.** `Sponsoring Witness` is a foreign key into the Witness List `Witness Name` column; the Phase 1 quality gate now checks that every named sponsor appears on the Witness List. `UNASSIGNED` is the placeholder until a sponsor is chosen.
+
+- **RELOCATED capabilities.** Discovery-intake tracking (production set, arrival date, completeness) now lives solely in the Download Log and `Bate Stamp Master Log.xlsx`. Cowork's substantive triage — formerly the `REVIEW PRIORITY` ★ and `DEFENSE RELEVANCE` ★ columns and the attorney's "review every FAVORABLE/FLAG item before Phase 2" rule — now lives solely in the Phase 2 Step 1A Triage Routing Memo. Phase 2 Step 1C reads evidence type from the file and the Download Log rather than from a column. Phase 3 Step 3 records supersession in the version control log and in the `Evidence Name` cell, since there is no longer a Status column.
+
+- **FIXED regression from v6.0.** The Phase 3 renumbering in v6.0 was applied too broadly and had shifted the Phase 1 and Phase 2 step headings as well (Phase 1 Step 4 had become a second "Step 3"; Phase 2 Steps 4–6 had shifted to 3–5). Phase 1 Steps 1–4 and Phase 2 Steps 1–6 are restored; Phase 3 Steps 1–11 are unchanged from v6.0.
+
+- **OVERLAP TO RESOLVE.** `dw-exhibit-manager-crim` (dw-trial-prep) already tracks authentication method and anticipated objections per exhibit across the exhibit lifecycle. The Evidence Table now seeds the same data at Phase 1. That skill should be pointed at this sheet as its input rather than building a parallel list — a change in the dw-trial-prep package, not this one.
+
+## v6.0 (September 2026) — Case Tables reduced to three sheets; Witness List cut to four columns
+
+Breaking schema change to `assets/Case Tables.xlsx`. The workbook now carries **three sheets — Evidence Table, Witness List, Timeline**. The defense-catalog block is retired, and the Witness List is reduced from thirteen columns to four. Affects `SKILL.md` (Phase 3 renumbered), five reference files, `dw-data-contracts-crim`, and `dw-case-dashboard-crim`.
+
+- **REMOVED five sheets.** `Defense Matrix`, `Legal Defenses (Rape)`, `Legal Defenses (Homicide)`, `Dealing with States Narrative`, and `Running List` are deleted from the master template. The bundled defense catalogs (rape and homicide) went with them.
+
+- **REMOVED Phase 3 Step 3 (Defense Shield & Defense Matrix)** and its reference file `references/defense-shield-procedure.md`. Sub-steps 3A (Defense Shield build), 3B (Defense Matrix population), and 3C (Running List initialization) no longer exist. **Phase 3 Steps 4–12 renumbered to 3–11;** cross-exam sub-steps 7A–7C are now 6A–6C and direct-exam 8A–8B are now 7A–7B.
+
+- **PRESERVED the specialist routing that lived in Step 3.** `dw-jury-instructions-builder-crim`, `dw-voir-dire-assistant-crim`, and `dw-witness-threat-matrix-crim` are now dispatched from Phase 3 Step 2 (Update Witness List), driven directly by the Report 4a theory selection rather than by an intermediate spreadsheet tab.
+
+- **REVISED Witness List (13 → 4 columns):** `Witness Name` | `Role in Case` | `Priority` | `Key Evidence Sources`. Dropped: Address, Type, Priority Rationale, Bate Ref (Statement), Bate Ref (Other), Connection to Case, Key Testimony Expected, Impeachment Issues, Exam Prep (Y/N), Notes. The `Priority` dropdown (`1 – Critical` … `5 – Peripheral`) and the witness-priority rubric are unchanged; the two Bate Ref columns are consolidated into `Key Evidence Sources`. Ranking rationale, impeachment material, and exam-prep status now live in Report 8 and the per-witness worksheets in `01 - Trial Notebook/03 - Witnesses/`.
+
+- **UPDATED downstream contracts.** `dw-data-contracts-crim` Contract 4 drops the Defense Matrix schema and restates the Witness List at four columns. `dw-case-dashboard-crim` no longer scans for the Defense Matrix and no longer looks for the long-retired `Witness List - Alpha` / `- Priority` sheets.
+
+- **KNOWN DRIFT, not addressed here.** Three pre-existing mismatches between the docs and the template survive this change and still need a decision: (1) the Evidence Table template has 13 columns (adds `# PAGES`, `ISSUE CODES`, `STATUS`; drops `Description`) while the docs describe 11; (2) the template's `DEFENSE RELEVANCE` dropdown reads `None/Routine/Important/Critical` and `REVIEW PRIORITY` reads `Low/Medium/High`, while the docs specify `FAVORABLE/NEUTRAL/FLAG` and `HIGH/MED/LOW`; (3) the Timeline template has 10 columns and lacks the documented `Certainty` and `Bate Stamp` columns.
+
 ## v5.11 (July 2026) — Prosecution Theory, Art. 814 auto-verdicts, JusticeWorks ingest
 
 Refocuses the Case Profile as a defense document built against a sourced statement of the State's case, and hardens the Charges section so responsive verdicts are emitted from statute rather than reconstructed from memory. Drafted from lessons learned on *State v. Harrison* (14780-25). Affects `references/case-profile-procedure.md`, `SKILL.md` (Step 3 spine and checks), and adds one reference file. `assets/CASE PROFILE.docx` template still needs the new § 1 prose block and the two new Seized Property columns added on first generation — see the migration note below.

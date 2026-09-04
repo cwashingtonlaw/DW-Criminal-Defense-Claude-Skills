@@ -40,7 +40,7 @@ Rules:
 **2e — Transcribe Interviews & Digital Media**
 Route to **dw-transcript-router-crim** for parish-based pipeline selection (JusticeText for Calcasieu, Rev for all other parishes). The router handles upload, transcription, TranscriptPad import, and Defense Media Analysis Report generation.
 - When transcripts return: name each transcript PDF identically to its audio/video file, save in the same folder.
-- Add transcript as a separate row in the Evidence Table (Evidence Type: Transcript).
+- Add transcript as a separate row in the Evidence Table, with its own Evidence Number and its own page count (the media row keeps the `A/V — HH:MM:SS` runtime).
 - Confirm every audio/video file has a corresponding transcript before proceeding.
 
 **2f — Digital Evidence Handling — Generate Placeholders**

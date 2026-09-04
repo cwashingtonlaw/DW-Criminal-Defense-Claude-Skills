@@ -23,8 +23,7 @@ When reading `Case Tables.xlsx`, check these sheets for population:
 - `Evidence Table`: Count rows with data (excluding headers)
 - `Timeline Sheet`: Count rows with data
 - `Witness Sheet`: Count rows with data
-- `Witness List - Alpha` & `Witness List - Priority`: Count rows with data
-- `Defense Matrix`: Count charge rows
+- `Witness List`: Count rows with data
 
 If a sheet does not exist, note it as missing.
 

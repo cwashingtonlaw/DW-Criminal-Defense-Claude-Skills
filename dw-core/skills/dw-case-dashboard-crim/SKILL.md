@@ -105,7 +105,7 @@ Check for the Case Brain, Discovery Compliance Ledger, Appellate Error Log, and 
 
 ### Step 5: Scan Phase 3 Deliverables
 
-Check `Case Tables.xlsx` and `01 - Trial Notebook/` for the Timeline Sheet, Witness Lists, Defense Matrix, cross/direct exam prep, Case Readiness Memo, and opening/closing prep; apply the Phase 3 status logic from the Steps 2–5 reference.
+Check `Case Tables.xlsx` and `01 - Trial Notebook/` for the Timeline Sheet, Witness List, cross/direct exam prep, Case Readiness Memo, and opening/closing prep; apply the Phase 3 status logic from the Steps 2–5 reference.
 
 ### Step 6: Determine Current Phase
 
@@ -128,7 +128,7 @@ Check the Case Brain (via `dw-case-brain-crim`) for a `## CLOCK STATUS` block, a
 
 Check for and flag any of the following:
 - Phase 2 reports exist but Phase 1 Master Evidence Table is missing (discovery not properly organized)
-- Phase 3 Defense Matrix populated but Phase 2 Red Flags report missing (risks not assessed)
+- Phase 3 witness prep underway but Phase 2 Red Flags report missing (risks not assessed)
 - Impeachment Worksheets exist but no corresponding witnesses in Master Evidence Table (inconsistency)
 - Evidence folder has files but Bate Stamp Log is missing (discovery not stamped)
 - Case Tables.xlsx missing entirely (critical blocker)

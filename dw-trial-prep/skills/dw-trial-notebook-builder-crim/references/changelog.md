@@ -28,6 +28,8 @@ Version history for dw-trial-notebook-builder-crim (read only when auditing skil
   `08 - Jury Selection Notes`) — the scheme the orchestrator (Reports → Tab 9
   `09 - Case Analysis`), dw-case-dashboard-crim (`03 - Witnesses`), and
   dw-exhibit-manager-crim (exhibits → Tab 4 `04 - Exhibit List`) all align to.
+  [dw-exhibit-manager-crim was retired in v1.9; Tab 4 is now fed by the
+  `Case Tables.xlsx` Evidence Table and dw-trial-day-assistant-crim Module D.]
   [VERIFY tab folder names against a live case file before relying on Tabs 2/6/7/8.]
 
 ### v1.0 (April 2026)

@@ -87,8 +87,7 @@ Read from the SKILL.md **Dashboard Output Format** section — the exact markdow
 
 ### Completed Items ✓
 - [x] Timeline Spreadsheet (N events, color-coded)
-- [x] Witness Lists (Alpha + Priority, N witnesses)
-- [x] Defense Matrix (N charges, responsive verdicts, defenses)
+- [x] Witness List (N witnesses)
 - [x] Case Readiness Memo
 - [x] Cross-Exam Prep (N witness battle cards)
 - [x] Direct-Exam Prep (N defense witness templates)
@@ -207,8 +206,7 @@ List each stale code with its `Last Updated` date:
 
 ### Phase 3
 - [ ] Timeline Spreadsheet ✓
-- [ ] Witness Lists ✓
-- [ ] Defense Matrix ✓
+- [ ] Witness List ✓
 - [ ] Cross-Exam Prep ✓
 - [ ] Direct-Exam Prep ✓
 - [ ] Opening/Closing ✓

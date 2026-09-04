@@ -11,7 +11,7 @@ description: >
   Seven modules (A-G), each producing its own terse deliverable, plus a single
   longer-form end-of-day memo. Feeds dw-appellate-error-monitor-crim (objection log),
   dw-cross-exam-architect-crim (witness scorecard → tomorrow's cross), and
-  dw-trial-notebook-builder-crim (daily roll-up). Do NOT use for exhibit-list management — use dw-exhibit-manager-crim. Do NOT use for pre-trial prep
+  dw-trial-notebook-builder-crim (daily roll-up). Module D is the trial exhibit tracker of record. Do NOT use for pre-trial prep
   (dw-cross-exam-architect-crim, dw-jury-instructions-builder-crim) or post-verdict appellate
   audits (dw-appellate-error-monitor-crim in full audit mode).
 ---

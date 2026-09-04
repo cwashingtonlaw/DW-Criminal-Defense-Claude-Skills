@@ -60,7 +60,7 @@ Every task in the workplan must trace to a specific case fact or legal requireme
 - `(Discovery Gap -- no autopsy toxicology results produced; demanded 2026-02-15)`
 - `(Report 2 -- Evidence Audit, p. 7, "Cell site records not yet subpoenaed")`
 - `(La. C.Cr.P. Art. 703 -- suppression motion must be filed pretrial)`
-- `(Case Tables.xlsx, Defense Matrix, "Consent voluntariness contested")`
+- `(Report 4a Theory Selection Memo, "Consent voluntariness contested")`
 
 **Unsourced tasks:** If a task cannot be tied to a specific case fact or legal requirement, mark it `[UNSOURCED -- VERIFY NECESSITY]` so the attorney can confirm or remove it before resources are committed.
 
@@ -142,7 +142,7 @@ What exhibits support the theory? What demonstratives need to be created? What e
 
 Generate tasks from the Module F task-category checklist. Read `references/stream-modules.md` now for the Module F task categories (and for Modules A–G together if building all streams in one pass).
 
-**Routing:** Route exhibit management to `dw-exhibit-manager-crim`. Route trial notebook assembly to `dw-trial-notebook-builder-crim`.
+**Routing:** Record exhibit metadata on the `Case Tables.xlsx` Evidence Table; route live trial-day exhibit status to `dw-trial-day-assistant-crim` Module D. Route trial notebook assembly to `dw-trial-notebook-builder-crim`.
 
 ---
 

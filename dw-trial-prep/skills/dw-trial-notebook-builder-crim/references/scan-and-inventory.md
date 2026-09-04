@@ -43,7 +43,7 @@ Open `Case Tables.xlsx` at the case root and verify these sheets exist and are p
 | Evidence Table | Phase 1 | Row count > 0; check for empty Review Priority or Defense Relevance columns |
 | Timeline Sheet | Phase 2/3 | Row count > 0; check chronological ordering |
 | Witness List | Phase 1 → 3 | Row count > 0; Priority (1–5) populated |
-| Defense Matrix | Phase 3 | Row count > 0; check for empty Defense column cells |
+
 
 ### 1D — Cross-Reference with Case Brain
 

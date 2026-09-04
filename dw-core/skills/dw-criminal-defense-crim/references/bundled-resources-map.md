@@ -12,7 +12,6 @@ dw-criminal-defense-crim/
 │   ├── case-profile-procedure.md         ← Phase 1 Step 3 detailed procedure (operating modes, Part 1/2A/2B/2C field detail, LWOP population, Refresh Mode, XML edit)
 │   ├── case-tables-write-protocol.md     ← Mandatory write protocol for Case Tables.xlsx (sync-conflict prevention)
 │   ├── case-analysis-prompts.md          ← Phase 2 Step 2: all 8 report prompt templates
-│   ├── defense-shield-procedure.md       ← Phase 3 Step 3 detailed procedure (Defense Shield + Defense Matrix + Running List)
 │   ├── output-path-convention.md         ← CASE_ROOT resolution, phase folders, file naming
 │   ├── lwop-field-maps.md                ← Field schema for Part 2A (Homicide) and Part 2B (Sex Offense) of Case Profile
 │   ├── lwop-extraction-patterns.md       ← How to extract each LWOP field from discovery
@@ -35,7 +34,6 @@ dw-criminal-defense-crim/
 - **Phase 1 Step 3 (Case Profile):** Read `references/case-profile-procedure.md`. For the § 4 Responsive Verdicts cell, read `references/art814-responsive-verdict-map.md` (emit verbatim from the map — never hand-type verdict sets). For LWOP cases (Part 2A or 2B), also read `references/lwop-field-maps.md` and `references/lwop-extraction-patterns.md`.
 - **Phase 1 Step 4 / Phase 3 Step 1 (Case Tables population):** Read `references/case-tables-write-protocol.md` before any write. Read `references/color-coding.md` for formatting specs. For the `Witness List` Priority column, read `references/witness-priority-rubric.md` and rank every witness 1–5.
 - **Phase 2 Step 2 (8 reports):** Read `references/case-analysis-prompts.md` for the exact prompt templates.
-- **Phase 3 Step 3 (Defense Shield):** Read `references/defense-shield-procedure.md`.
 - **Any file-write step:** Consult `references/output-path-convention.md` for the canonical save path and `references/folder-structure-and-naming.md` for folder/naming standards.
 - **For sheet index, action-type symbols, or specialist skill routing:** see `references/quick-reference.md`.
 

@@ -103,15 +103,14 @@ Check `Case Tables.xlsx` and `01 - Trial Notebook/`:
 | Deliverable | Location | Status |
 |-------------|----------|--------|
 | Timeline Spreadsheet | `Case Tables.xlsx — Timeline Sheet` (populated with color, links) | ✓ or ✗ |
-| Witness Lists (Alpha & Priority) | `Case Tables.xlsx — Witness List - Alpha/Priority sheets` | Check for rows > 0 |
-| Defense Matrix | `Case Tables.xlsx — Defense Matrix sheet` | Check for charges + verdicts + defenses |
+| Witness List | `Case Tables.xlsx — Witness List sheet` | Check for rows > 0 |
 | Cross-Exam Prep | `01 - Trial Notebook → 03 - Witnesses/` for battle cards, worksheets | Count files |
 | Direct-Exam Prep | `01 - Trial Notebook → 03 - Witnesses/` | Count files |
 | Case Readiness Memo | Scan root and Trial Notebook for one-page summary | ✓ or ✗ |
 | Opening/Closing Prep | Check Trial Notebook for outline or template progress | ✓ or ✗ |
 
 **Status Logic:**
-- Timeline + Witness Lists + Defense Matrix populated, Cross/Direct prep docs present → **Phase 3 Complete** ✓
-- Timeline + Witness Lists + Defense Matrix only → **Phase 3 Core Items Done** ⚠
+- Timeline + Witness List populated, Cross/Direct prep docs present → **Phase 3 Complete** ✓
+- Timeline + Witness List only → **Phase 3 Core Items Done** ⚠
 - 1-2 items present → **Phase 3 In Progress**
 - None present → **Phase 3 Not Started**

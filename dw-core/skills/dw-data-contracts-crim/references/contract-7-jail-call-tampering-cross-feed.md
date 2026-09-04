@@ -31,7 +31,7 @@ One row per identified witness-contact event:
 
 | Field | Type | Description |
 |---|---|---|
-| `witness_id` | string | Witness identifier matching the entry in `Case Tables.xlsx` Witness List - Alpha |
+| `witness_id` | string | Witness identifier matching the entry in `Case Tables.xlsx` Witness List |
 | `witness_name` | string | Full witness name (sanity-check field; `witness_id` is authoritative) |
 | `event_timestamp` | ISO-8601 | When the call/event occurred (call start time) |
 | `severity` | enum | `CRITICAL` (direct threat or explicit coaching) / `SIGNIFICANT` (indirect contact attempt or coordinated messaging) / `MODERATE` (third-party message relay) / `MINOR` (mention without contact attempt) |

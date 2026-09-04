@@ -222,7 +222,7 @@ Situation-to-rule table (La. C.E. arts. 611, 702–705, 404(A), 405, 607–609, 
 
 ## Integration — Downstream Consumers and Upstream Products
 
-`dw-trial-notebook-builder-crim` indexes the outline files from the Defense Witnesses folder — do not rename or move them after generation. Reads from `dw-witness-statement-analyzer-crim`, `dw-expert-witness-evaluator-crim`, `dw-case-brain-crim`, `dw-timeline-builder-crim`, `dw-exhibit-manager-crim`; feeds `dw-trial-notebook-builder-crim`, `dw-jury-instructions-builder-crim`, `dw-trial-narrative-builder-crim`. Read `references/integration-map.md` now for the full detail. If an upstream product is missing or stale, prompt the attorney to refresh first.
+`dw-trial-notebook-builder-crim` indexes the outline files from the Defense Witnesses folder — do not rename or move them after generation. Reads from `dw-witness-statement-analyzer-crim`, `dw-expert-witness-evaluator-crim`, `dw-case-brain-crim`, `dw-timeline-builder-crim`, and the `Case Tables.xlsx` Evidence Table; feeds `dw-trial-notebook-builder-crim`, `dw-jury-instructions-builder-crim`, `dw-trial-narrative-builder-crim`. Read `references/integration-map.md` now for the full detail. If an upstream product is missing or stale, prompt the attorney to refresh first.
 
 ## Quick References
 
