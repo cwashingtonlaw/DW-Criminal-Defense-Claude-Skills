@@ -4,6 +4,8 @@ This repository is the canonical source of truth for the Daniels & Washington (D
 
 When working in this repo, follow the conventions below. They exist because they have been established across ~60 skills and ~150 reference files; deviations create maintenance burden and lawyer-facing inconsistency.
 
+> **Distribution (as of September 2026): `.plugin` files.** A push to `origin/main` updates the source of truth and nothing else — **no machine changes until a `.plugin` file is built and accepted in Claude.** Build them with `bin/build-plugins.sh`, then accept the ones you changed. The `bin/auto-pull.sh` LaunchAgent and `bin/dw-skill-git.sh sync` are **not** the distribution path; the agent has been disabled since May 2026 and the scripts remain only for keeping a local clone current. Treat "pushed" and "shipped" as two separate events — the gap between them is where version drift comes from, and it is silent.
+
 > **Plugin layout (as of May 2026):** Skills now live in 9 plugins — `dw-core` (foundation) plus 8 functional plugins (`dw-intake-discovery`, `dw-evidence-audit`, `dw-offense-specialists`, `dw-pleadings`, `dw-trial-prep`, `dw-transcription`, `dw-disposition`, `dw-ops`) — installed as a machine-local marketplace named `dw-criminal-defense`. Invoke skills namespaced: `/dw-pleadings:dw-suppression-motion-crim`, `/dw-core:dw-case-brain-crim`, etc. Cross-skill references in prose still use bare `dw-*` names; the model resolves them via the available-skills list.
 
 ---
@@ -59,15 +61,19 @@ bin/dw-skill-git.sh status        # show sync state
 bin/dw-skill-git.sh sync          # one-shot sync
 ```
 
-### 3. (Optional) Install the auto-pull background agent
+### 3. Build and accept the plugin files
 
-Keeps the local repo current with `origin/main` automatically (macOS only — installs a LaunchAgent):
+**This is the step that actually installs the skills.** Cloning and syncing gets you the source; accepting `.plugin` files is what puts them in front of Claude.
 
 ```
-bin/install-agent.sh
+bin/build-plugins.sh --check      # what versions are in the repo right now
+bin/build-plugins.sh              # build all 9 into ./dist
+bin/build-plugins.sh dw-trial-prep  # or just the one you changed
 ```
 
-Confirm it's running: `launchctl list | grep com.dw.skill-git-pull`. To uninstall: `bin/uninstall-agent.sh`.
+Then accept each file in Claude. The script refuses to build from a dirty tree — a `.plugin` carrying a version that isn't in git is worse than no build at all.
+
+**Not the distribution path:** `bin/install-agent.sh` installs a LaunchAgent that pulls `origin/main` into the local clone. It has been disabled since May 2026 and updating the clone does not update any installed skill. Keep it off unless you specifically want a self-updating checkout.
 
 ### 4. Verify the linter and hooks
 
@@ -266,7 +272,9 @@ When you change an upstream skill's output, check the consumer skills for breaka
 | Lint including 3rd-party utility skills | `bin/lint-skills.py --all` |
 | Sync skills to ~/.claude/skills | `bin/dw-skill-git.sh sync` |
 | Check sync status | `bin/dw-skill-git.sh status` |
-| Background auto-pull | `bin/auto-pull.sh` |
+| **Build `.plugin` files for distribution** | **`bin/build-plugins.sh`** |
+| Report repo plugin versions without building | `bin/build-plugins.sh --check` |
+| Background auto-pull (disabled; not the distribution path) | `bin/auto-pull.sh` |
 | Regenerate `dw-skill-index-crim/SKILL.md` from frontmatter | `bin/regen-skill-index.py` |
 | Check whether the skill index is up to date | `bin/regen-skill-index.py --check` |
 | Add `category:` frontmatter to all skills | `bin/add-category-frontmatter.py` |

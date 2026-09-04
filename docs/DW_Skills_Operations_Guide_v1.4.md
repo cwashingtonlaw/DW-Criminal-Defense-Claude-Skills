@@ -32,6 +32,8 @@ The chapter page now carries only the exhibit to pick up and the question to ask
 
 **Because the catalogs are gone, the Source Register is the only index.** Every register row's Evidence Item title and Reference/Bates entry must be enough to pull that document from the case file cold, and a document's date now lives inside the Evidence Item entry.
 
+**Distribution is `.plugin` files.** A push to `origin/main` changes the source of truth and nothing else — no machine runs the new version until a `.plugin` file is built (`bin/build-plugins.sh`) and accepted in Claude. The LaunchAgent that used to pull `origin/main` every 300 seconds has been disabled since May 2026 and was never the thing that installed skills anyway. **"Pushed" and "shipped" are two events**, and the gap between them is silent: as of this revision the stale marketplace copy at `~/.claude/plugins/cache/dw-criminal-defense` sits at `dw-trial-prep` 1.8.0 against a repo at 1.13.0.
+
 **`dw-exhibit-manager-crim` is retired** (at `dw-trial-prep` v1.9 / `dw-criminal-defense-crim` v6.2). Pre-trial exhibit metadata — sponsoring witness, authentication route, anticipated objections — lives on the **Evidence Table** in `Case Tables.xlsx`; live offer/admission status is `dw-trial-day-assistant-crim` **Module D**, the exhibit tracker of record. The appellate objection-preservation chain is unbroken.
 
 ---
