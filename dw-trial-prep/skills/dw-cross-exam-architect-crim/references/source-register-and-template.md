@@ -4,14 +4,22 @@
 
 Before writing any chapter, build a **Source Register** — a numbered master list of every source document that will be cited in the cross-examination. Each source receives a permanent number `(1)`, `(2)`, `(3)`, etc. that is used as a prefix in every SOURCE/EXHIBIT cell throughout the outline. This register also drives the companion deliverables produced in Steps 7 and 8.
 
-**Source Register format:**
+**Source Register format — three columns, exactly these headers:**
 
-| # | Document / Evidence Item | Bates / Reference | Date |
-|---|--------------------------|-------------------|------|
-| (1) | [Document title as it actually appears, or evidence item # / filing description] | [Bates range or N/A] | [Date of document] |
-| (2) | ... | ... | ... |
+| Source Number | Evidence Item | Reference/Bates |
+|---|---|---|
+| (1) | [Document title as it actually appears, or evidence item # / filing description] | [Bates range, page span, timestamp range, or N/A] |
+| (2) | ... | ... |
 
-**No short-name column.** Do not maintain a separate shorthand alias for each document. Cite the document by its actual title — one name per document, everywhere. Two competing names for the same exhibit is how a source gets mis-pulled at counsel table.
+Header row shaded **blue** (`D6E4F0`) — the register is source data, and blue is the source colour everywhere in this package. → `deliverable-formatting.md` §1.1
+
+**Three columns only.** No short-name column and no date column.
+
+- **Source Number** — the permanent `(N)`, written with the parentheses so it matches the citation form used in every chapter.
+- **Evidence Item** — the document or item itself, by its actual title. One name per document, everywhere. Do not maintain a separate shorthand alias; two competing names for the same exhibit is how a source gets mis-pulled at counsel table.
+- **Reference/Bates** — where it lives: Bates range, page span, recording timestamp range, evidence item number, or filing/record citation. `N/A` where the item carries none.
+
+**Where the date goes now that the register has no date column.** If the date distinguishes this document from another in the case — a supplemental report, a second interview, an amended lab report — carry it inside the **Evidence Item** entry as part of the title: `Supplemental Incident Report (03/14/2024)`. Otherwise the date lives in the source's description and key-references list in the Source Catalog (Step 7) and on that source's divider page in the Combined Sources PDF (Step 8). Never leave a date-sensitive document identified only by a bare title when the file holds more than one version of it.
 
 **Rules for Source Register numbering:**
 - Assign numbers in the order sources are first expected to appear in the outline
@@ -20,25 +28,53 @@ Before writing any chapter, build a **Source Register** — a numbered master li
 - Civil filings, transcripts, and non-Bates-stamped items receive numbers just like evidence items
 - The Source Register is printed as a reference table on the second page of the cross-examination outline (after the cover page, before Chapter 1)
 
+---
+
 ## Template Structure
 
-Every cross-examination outline uses the D&W Cross Exam Template — one chapter per page block. Do not deviate from this structure.
+Every cross-examination outline uses the D&W Cross Exam Template — **one chapter per page**. Do not deviate from this structure.
 
-**Formatting:** Times New Roman **14 pt** body and table text, 1" margins, landscape orientation for chapter table pages, each chapter starting on a new page, **page numbers bottom right of every page** (`Page N of M`). Full spec in `deliverable-formatting.md`. Output to `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`.
+**Formatting:** Times New Roman **12 pt** body and table text, 1" margins, landscape orientation for chapter pages, each chapter starting on a new page, **page numbers bottom right of every page** (`Page N of M`). Full spec in `deliverable-formatting.md`. Output to `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/`.
 
-### Every cell is a list — never a paragraph
+### The chapter page carries three things and nothing else
 
-**All three columns are bulleted or numbered. No column contains running prose.** A cross-examination outline is read standing up, mid-examination, while a witness waits. Prose forces the attorney to re-parse a block of text to find the next question. Lists do not.
+1. The **chapter heading block** — title, witness, CHAPTER GOALS, and (Law Enforcement only) the Impact / Fragility score.
+2. The **two-column table** — `SOURCE/EXHIBIT | QUESTIONS`.
+3. The **NOTES box** — a blank, bordered, full-width band roughly five lines deep, where the attorney writes the witness's actual answers during the examination.
 
-| Column | Format | Why |
-|---|---|---|
-| **SOURCE/EXHIBIT** | **Bulleted.** One bullet per source, each beginning with its `(N)` register number | The attorney's hand goes to the right exhibit without reading a sentence |
-| **QUESTIONS** | **Numbered.** One number per question, sequential within the chapter (1, 2, 3…) | Numbered questions can be called out loud, skipped, or returned to — "back to 4" is unambiguous |
-| **NOTES/IMPEACHMENT** | **Bulleted.** One bullet per note, expected answer, or impeachment flag | Each note pairs visually with the question row it serves |
+Nothing else goes on the chapter page. **No expected answers, no branch logic, no impeachment bullets, no evidentiary flags, no preservation bullets, no strategy notes.** This page is a courtroom instrument, not a prep memo — it is read standing up while a witness waits, and every line on it is either an exhibit to pick up or a question to ask. Where that analysis goes is set out in **§ Where the prep analysis lives** below.
 
-**Alignment rule:** the numbered question and its supporting source bullet and note bullet sit on the same row. If a question needs no note, leave that cell's bullet as `—` rather than merging rows or letting text wrap across question boundaries.
+### The two-column table
+
+| Column | Header colour | Format | Why |
+|---|---|---|---|
+| **SOURCE/EXHIBIT** | **Blue** `D6E4F0` | **Bulleted.** One bullet per source, each beginning with its `(N)` register number | The attorney's hand goes to the right exhibit without reading a sentence |
+| **QUESTIONS** | **Red** `F4CCCC` | **Numbered.** One number per question, restarting at 1 in each chapter | Numbered questions can be called out loud, skipped, or returned to — "back to 4" is unambiguous |
+
+There is no third column. Do not create one.
+
+**Neither column contains running prose.** Prose forces the attorney to re-parse a block of text to find the next question. Lists do not.
+
+**Alignment rule:** the numbered question and its supporting source bullet sit on the same row. Group consecutive questions that ride on the same exhibit into a single row rather than repeating the citation, and use `—` in the SOURCE/EXHIBIT cell where a row genuinely rides on an exhibit already in hand.
 
 **One idea per bullet.** If a bullet contains "and," check whether it is two bullets. If a question contains "and," it is almost certainly two questions — split it. Short-question sequencing (see `witness-type-modules.md`) depends on one fact per question.
+
+**Question numbering restarts at 1 in every chapter.** `Q3` in Chapter 4 and `Q3` in Chapter 5 are different questions; the Preservation Log identifies a question by Chapter **and** number, never by number alone.
+
+### The NOTES box
+
+The last two rows of the chapter table, both spanning the full width:
+
+1. A label row reading **NOTES — WITNESS RESPONSES**, shaded **yellow** (`FFF2CC`).
+2. A blank row, minimum height 1300 twips (roughly five lines at 12 pt), left empty.
+
+The box is **blank on delivery and stays blank**. Never pre-fill it, never seed it with expected answers or reminders, never shade the writing area itself. It is where the attorney writes what the witness actually said — the one part of the page that belongs to the examination rather than to the preparation.
+
+Set the blank row `cantSplit` so the box never breaks across a page.
+
+### One chapter, one page
+
+A chapter must fit on a single page **with its notes box**. If it does not, the chapter is too long — split it into two chapters rather than letting it run over. Two to four goals and roughly eight to fourteen questions is a chapter; more than that is two.
 
 ### Chapter layout
 
@@ -54,61 +90,65 @@ CHAPTER GOALS:
 • Goal 2
 [Law Enforcement only: Impact: _/3 | Fragility: _/3]
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SOURCE/EXHIBIT        | QUESTIONS                  | NOTES/IMPEACHMENT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• (1) [Document       | 1. [Question — one fact,   | • Expected: [answer]
-  Title], p. 4        |    leading form]           | • If denied: go to (3)
-                      |                            |
-• (1) [Document       | 2. [Question]              | • Locks precondition
-  Title], p. 4        |                            |
-                      |                            |
-• (3) [Document       | 3. [Question revealing     | • ⚠ IMPEACHMENT:
-  Title], Bates 0033  |    the contradiction]      |   compare (1) vs. (3)
-                      |                            | • IF ADMITS → bank it,
-                      |                            |   move to next chapter
-                      |                            | • IF DENIES → confront
-                      |                            |   with (3), Bates 0033
-                      |                            | • IF NO RECALL → refresh
-                      |                            |   with (3), then confront
-                      |                            | • La. C.E. art. 613 —
-                      |                            |   foundation only before
-                      |                            |   EXTRINSIC proof
-                      |                            | • IF EXCLUDED — PRESERVE:
-                      |                            |   ground + proffer
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NOTES:
-• [Strategic note]
-• [Scope or evidentiary flag]
-• [Attorney action item]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ SOURCE/EXHIBIT      [blue] ┃ QUESTIONS                       [red] ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ • (1) [Document Title],    ┃ 1. [Question — one fact, leading form]┃
+┃   Bates 0028               ┃ 2. [Question]                         ┃
+┃                            ┃ 3. [Question]                         ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━╋━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ • (3) [Document Title],    ┃ 4. [Question revealing the            ┃
+┃   Bates 0033               ┃    contradiction]                     ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃ NOTES — WITNESS RESPONSES                              [yellow]    ┃
+┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫
+┃                                                                    ┃
+┃                        (blank — ~5 lines)                          ┃
+┃                                                                    ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
                                               Page N of M  (bottom right)
 ```
+
+---
+
+## Where the prep analysis lives
+
+Removing the third column removed the printed home for branch logic, impeachment bullets, evidentiary flags, and preservation bullets. **The analysis is not removed — only its place on the chapter page.** It still runs, and it surfaces in three places:
+
+| What | Where it goes now |
+|---|---|
+| Expected answers; `IF ADMITS` / `IF DENIES` / `IF NO RECALL` branches; the Fragility-3 second and third confrontation questions | **Reported to the attorney in the build conversation** at Step 5, chapter by chapter, and not printed into the outline |
+| Impeachment findings — prior inconsistent statements, omissions, prior sworn contradictions | Step 5 auto-scan report to the attorney, cross-referenced against the Witness Analysis Card and DMAR §4 |
+| `[608(B) REVIEW REQUIRED]`, `[SCOPE FLAG]`, art. 609.1(C) details held in reserve | Step 5 report to the attorney, plus a row in the Preservation Log for the affected question |
+| **Ground to state on the record and substance to proffer** | **Pre-filled in the Preservation Log** (Step 5.5), the outline's final appendix — see `assets/preservation-log.md` |
+| Chapter strategy, sequencing, scope posture, attorney action items | Step 5 report to the attorney; discovery items also go to the Discovery Gap Report (Step 6) |
+
+**The Preservation Log is the one place where prep text still prints inside the outline**, and it does so because art. 841 and art. 103(A)(2) protection cannot be reconstructed at the podium. It is an appendix at the back, not part of any chapter page. Its `Ground to state` and `Proffer substance` columns arrive pre-filled; the rest is filled in during trial.
+
+**Guardrail.** Because the chapter page no longer carries branch logic, an attorney working only from the chapter pages is working without it. Say so plainly when delivering the package: name which chapters carry flagged questions and point to the Preservation Log rows that cover them.
+
+---
 
 ## Outline Assembly Order
 
 **Canonical: `assets/outline-assembly.md`.** Summarized here for context; that file governs.
 
-Every cross-examination outline .docx is assembled in this order:
-
 1. **Cover page** — case caption, witness name, witness type, build date, attorney. On a **Fast Path** build (Step 0.52), the Fast Path notice goes here, directly under the caption. **Use the exact text in `assets/fast-path-notice.md`.**
-2. **Source Register** — page 2, before Chapter 1
-3. **Chapters** — one per page, in the sequence below
+2. **Source Register** — page 2, before Chapter 1. Three columns: Source Number | Evidence Item | Reference/Bates
+3. **Chapters** — one per page: heading block, two-column table, blank NOTES box
 4. **Discovery Gap Report** (Step 6)
-5. **Preservation Log** (Step 5.5) — the last appendix, blank, with Chapter and Question # rows pre-filled for every flagged question:
-
-   | Chapter | Question # | Ruling | Ground stated | Proffer made | Form of proffer | Issue code |
-   |---|---|---|---|---|---|---|
+5. **Preservation Log** (Step 5.5) — the last appendix, with `Ground to state` and `Proffer substance` pre-filled for every flagged question
 
 Items 1, 2, 4, and 5 are mandatory on every build, Fast Path included.
 
-## Branch Logic — Every Impeachment Question Needs All Three Answers
+---
 
-An outline that assumes the witness cooperates fails on the witness who fights. **Every question at an impeachment point carries all three branches.** Write both branches before trial, when there is time to think, not at the podium.
+## Branch Logic — Every Impeachment Question Still Needs All Three Answers
 
-Format in the NOTES/IMPEACHMENT column:
+An outline that assumes the witness cooperates fails on the witness who fights. **Every question at an impeachment point is still worked through all three branches** — the branches simply are not printed on the chapter page. Write all three during the build, when there is time to think, and report them to the attorney at Step 5.
 
 ```
+Q[N]
 • IF ADMITS → [next move: bank it and move on, or press one level deeper]
 • IF DENIES → confront with (N) [Document Title], [page/ref]
 • IF NO RECALL → [refresh recollection with the document, then confront]
@@ -122,34 +162,37 @@ Format in the NOTES/IMPEACHMENT column:
 | **Denies** | The document is now impeachment | Confront. The denial is what makes the exhibit powerful — the witness has committed against a document the jury is about to see |
 | **"I don't recall"** | Evasion, or genuine memory failure | Refresh recollection with the document. If memory is still not revived, the prior statement may come in on its own terms. Either way, "I don't recall" from a witness who wrote the report is itself an answer the jury notices |
 
-### Special branches worth pre-drafting
+### Special branches worth working through
 
-- **The conviction denial** — a denial or a claimed lack of recollection opens the **details** of the conviction under La. C.E. art. 609.1(C)(1). Pre-draft the detail questions and hold them in the NOTES column marked as reserve. Do not ask them unless the door opens.
+- **The conviction denial** — a denial or a claimed lack of recollection opens the **details** of the conviction under La. C.E. art. 609.1(C)(1). Draft the detail questions, report them to the attorney as reserve, and **keep them out of the QUESTIONS column** so nothing is read aloud that the door has not opened.
 - **The exculpatory explanation** — when a witness volunteers circumstances surrounding a conviction, art. 609.1(C)(2) opens the details. Same reserve treatment.
-- **The expansion** — a witness who answers beyond the question has given you new material. Note: `IF EXPANDS → new material; do not interrupt, follow it`.
-- **The fight** — for chapters scored Fragility 3, pre-draft the second and third questions of the confrontation, not just the first. A witness who resists the first confrontation will resist the follow-up, and improvising it in front of the jury is where crosses go wrong.
+- **The expansion** — a witness who answers beyond the question has given you new material: do not interrupt, follow it.
+- **The fight** — for chapters scored Fragility 3, work out the second and third questions of the confrontation, not just the first, and report them. A witness who resists the first confrontation will resist the follow-up.
 
 ### Rule
 
-**No impeachment question ships with only an expected answer.** "Expected: yes" is a prediction, not a plan. If the skill cannot write the denial branch, the question is not ready — surface it to the attorney rather than shipping it half-built.
+**No impeachment question is finished with only an expected answer.** "Expected: yes" is a prediction, not a plan. If the skill cannot articulate the denial branch, the question is not ready — surface it to the attorney rather than shipping it half-built.
+
+---
 
 ## Source/Exhibit Citation Rule — `(N)` Prefix Format (MANDATORY)
 
-**Every bullet in the SOURCE/EXHIBIT column MUST begin with the source register number in parentheses**, followed by the document's actual title, then the specific page, Bates number, or timestamp. This applies to ALL bullets without exception — standard question rows AND impeachment rows.
+**Every bullet in the SOURCE/EXHIBIT column MUST begin with the source register number in parentheses**, followed by the document's actual title, then the specific page, Bates number, or timestamp. This applies to every bullet without exception, and to every citation in the Preservation Log and in the Step 5 report.
 
 **Format:** `(N) Document Title, [page/Bates/timestamp]`
 
-Use the document's title exactly as it appears in the Source Register. **No short names, no aliases, no abbreviations invented for the outline** — one name per document, everywhere. A second name for the same exhibit is how the wrong document gets pulled at counsel table.
+Use the document's title exactly as it appears in the Source Register **Evidence Item** column. **No short names, no aliases, no abbreviations invented for the outline** — one name per document, everywhere. A second name for the same exhibit is how the wrong document gets pulled at counsel table.
 
 **Examples (illustrative only — not case facts):**
-- `(1) Recorded Interview of Complainant, 00:57` — source 1, timestamp 00:57
-- `(2) SANE Examination Records, Bates 0042` — source 2, Bates page 0042
-- `(3) Initial Incident Report, Bates 0033` — source 3, Bates page 0033
-- `(5) Arrest Affidavit, Bates 0013` — source 5, Bates page 0013
-- `(7) Protective Order Filing, p. 3` — source 7 (civil filing), page 3
-- `Compare: (1) vs. (2) vs. (5)` — impeachment bullet comparing multiple sources
+- `(1) Recorded Interview of Complainant, 00:57`
+- `(2) SANE Examination Records, Bates 0042`
+- `(3) Initial Incident Report, Bates 0033`
+- `(7) Protective Order Filing, p. 3` — civil filing
+- `—` — row riding on the exhibit already in hand
 
-**Never omit the `(N)` prefix.** Never cite a document without its source register number. If page is unknown, flag it: `(N) [Document Title], [PAGE UNCONFIRMED — verify before trial]`.
+**Never omit the `(N)` prefix.** If page is unknown, flag it: `(N) [Document Title], [PAGE UNCONFIRMED — verify before trial]`.
+
+---
 
 ## Chapter Sequencing
 

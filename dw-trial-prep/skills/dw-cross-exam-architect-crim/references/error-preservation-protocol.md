@@ -20,7 +20,9 @@ Read together: when the court kills a line of cross, you must (a) state your gro
 
 ## 2. Drafting Rule — Every Flag Carries a Proffer Line
 
-Whenever a chapter contains a flagged question, the NOTES/IMPEACHMENT column must include a preservation bullet. **The canonical format lives in `assets/preservation-log.md` — copy it from there, do not restate it.**
+Whenever a chapter contains a flagged question, that question gets a **Preservation Log row** with `Ground to state` and `Proffer substance` pre-filled. Preservation text never appears on a chapter page — the chapter table is `SOURCE/EXHIBIT | QUESTIONS` and closes with a blank notes box. **The canonical format lives in `assets/preservation-log.md` — copy it from there, do not restate it.**
+
+Because the grounds are no longer beside the question, name the affected chapters and questions when delivering the package. An attorney working only from the chapter pages is working without them.
 
 Never write "object and preserve." Name the ground and name the substance. An attorney reading the outline mid-cross has no time to compose either.
 
@@ -56,7 +58,7 @@ Never write "object and preserve." Name the ground and name the substance. An at
 
 ## 5. Appendix to Every Outline — Preservation Log
 
-Append the Preservation Log to the end of every cross-examination outline, filled in during trial, not before. **The canonical table lives in `assets/preservation-log.md`.**
+Append the Preservation Log to the end of every cross-examination outline. Chapter, Question #, Ground to state and Proffer substance are pre-filled at build time; Ruling, Proffer made, Form of proffer and Issue code are filled in during trial. **The canonical table lives in `assets/preservation-log.md`.**
 
 **Handoff:** at the end of the trial day, this log feeds `dw-appellate-error-monitor-crim` (harmless-error pre-assessment) and `dw-issue-code-tracker-crim`. A sustained objection with no proffer should be flagged in the log as **UNPRESERVED** so the attorney can decide whether to revisit it before the State rests.
 

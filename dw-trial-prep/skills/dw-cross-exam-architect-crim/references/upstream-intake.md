@@ -74,7 +74,7 @@ For recorded proceedings not yet transcribed, route through **`dw-transcript-rou
 - Extract every assertion the witness made under oath, with page and line.
 - Compare against: the report, the recording, later statements, and the expected trial testimony.
 - Cite in the standard format: `(N) Suppression Hearing Transcript, p. 34, ll. 5-18`.
-- Prior **sworn** inconsistency is materially stronger than an unsworn one — the witness swore to it. Say so in the NOTES column so the attorney can make that point to the jury.
+- Prior **sworn** inconsistency is materially stronger than an unsworn one — the witness swore to it. Say so in the Step 5 report so the attorney can make that point to the jury.
 - **La. C.E. art. 613:** foundation is required before offering **extrinsic** proof of the statement — fairly direct the witness to it and give an opportunity to admit. It is **not** required before simply asking. Do not telegraph.
 
 ### The transcript-availability trap

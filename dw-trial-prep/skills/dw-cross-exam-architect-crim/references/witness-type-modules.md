@@ -153,6 +153,6 @@ Sequence of short questions:
 For each chapter with an impeachment point:
 - In the SOURCE/EXHIBIT column: cite the source establishing the baseline or standard
 - In the QUESTIONS column: lay out the 3–5 question sequence
-- In the NOTES column: flag the revelation point and expected witness reaction
+- In the Step 5 report to the attorney, not on the page: flag the revelation point and expected witness reaction
 
 This prevents the witness from ducking the contradiction and makes the attorney's exhibit strategy bulletproof.

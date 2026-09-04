@@ -9,14 +9,14 @@ After completing the catalog, merge all source document PDFs into a single combi
 1. **Cover Page** — Firm name, "SOURCE DOCUMENTS," witness name, case caption, table of contents listing all sources with Bates ranges
 
 2. **For each source in Source Register order:**
-   - **Divider Page** — Dark banner with source number and title, metadata (evidence item, Bates range, date, file name, page count, cross-exam chapters referenced), and a note indicating the document follows
+   - **Divider Page** — Blue banner (`D6E4F0`, black text) with the source number and the Evidence Item entry exactly as the Source Register writes it, metadata (reference/Bates, document date, file name, page count, cross-exam chapters referenced), and a note indicating the document follows. The divider page is where a document's full date is recorded, since the Source Register carries no date column
    - **Actual Source Document** — All pages of the original PDF appended immediately after the divider
 
 ## Combined PDF Output
 
 - **Format:** PDF (using pypdf to merge + reportlab for divider pages)
 - **File name:** `Combined Sources — [Witness Name].pdf`
-- **Typography:** divider page text in Times New Roman 14 pt, per `deliverable-formatting.md` (original source documents are appended as-is and retain their own formatting)
+- **Typography:** divider page text in Times New Roman 12 pt, banner shaded blue `D6E4F0` with black text, per `deliverable-formatting.md` (original source documents are appended as-is and retain their own formatting)
 - **Location:** `{{CASE_ROOT}}/01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/` — the same folder as the outline and the catalog
 - **Footer on divider pages:** ATTORNEY WORK PRODUCT — PRIVILEGED AND CONFIDENTIAL / PREPARED IN ANTICIPATION OF LITIGATION
 

@@ -52,14 +52,14 @@ In a **Louisiana criminal trial**, cross-examination is **not limited to the sco
 Apply the flag **only** when one of these is true:
 
 1. **The case is in federal court.** Fed. R. Evid. 611(b) limits cross to the subject matter of direct plus credibility, with the court's discretion to allow more. In W.D. La., E.D. La., or M.D. La., the scope objection is live.
-2. **A specific in limine ruling or protective order limits this witness.** Cite the ruling in the NOTES column.
+2. **A specific in limine ruling or protective order limits this witness.** Cite the ruling in the Step 5 report and open a Preservation Log row for any question it touches.
 3. **The question strays into an area independently barred** — privileged material, La. C.E. art. 412 rape shield, sealed juvenile records, a suppressed statement being used substantively.
 
 ### When NOT to apply `[SCOPE FLAG]`
 
 Do **not** flag a question in a Louisiana state criminal trial merely because the subject was not raised on direct. That is proper cross under art. 611(B). Flagging it trains the attorney to abandon good questions and concedes ground the State is not entitled to.
 
-If the State objects "beyond the scope" in state court, the answer is art. 611(B) — put that citation in the NOTES column of any chapter likely to draw the objection.
+If the State objects "beyond the scope" in state court, the answer is art. 611(B) — put that citation in the `Ground to state` column of the Preservation Log for any question likely to draw the objection, and flag the chapter in the Step 5 report.
 
 **Civil caveat (not applicable to this criminal skill):** art. 611(B) contains a narrower rule for civil cases where an adverse party calls a witness for specific matters. This skill is criminal-only; ignore the civil proviso.
 
@@ -78,7 +78,7 @@ If the State objects "beyond the scope" in state court, the answer is art. 611(B
 | **609.1(E)** | Pardon or annulment **based on a finding of innocence** bars the impeachment | Check the basis of any pardon before relying on the conviction |
 | **609.1(F)** | Juvenile adjudications generally inadmissible (exception: habitual offender proceedings) | Do not draft juvenile-record questions for a trial cross |
 
-**Drafting rule:** whenever a chapter uses a prior conviction, structure it as a 609.1(C) sequence — establish the fact/name/date/sentence first, then hold the details in reserve in the NOTES column, marked: `DETAILS HELD IN RESERVE — admissible only if witness denies or explains (La. C.E. art. 609.1(C)(1)-(2))`.
+**Drafting rule:** whenever a chapter uses a prior conviction, structure it as a 609.1(C) sequence — establish the fact/name/date/sentence first, then draft the detail questions and hold them in the Step 5 report as reserve — **never in the QUESTIONS column**, so nothing is readable aloud that the door has not opened — marked: `DETAILS HELD IN RESERVE — admissible only if witness denies or explains (La. C.E. art. 609.1(C)(1)-(2))`.
 
 **Flagged:** La. C.E. arts. 609.1 and 611 are cited from current published sources as of this skill revision. Louisiana amends its evidence code regularly — verify the current text before relying on either in a filed pleading or a contested evidentiary argument.
 
@@ -152,4 +152,4 @@ Before drafting any chapter:
 2. Look up the row in §1 above. Record the trial court, the **La. appellate circuit**, and the federal district.
 3. State all three in the Step 2 Pre-Draft Confirmation block. For state matters name the parish's Louisiana circuit specifically rather than leaving it implicit.
 4. If the parish is **not** in the §1 table, do not guess the circuit. Prompt the attorney: *"This matter is in [Parish] Parish, which is outside the firm's usual footprint. Confirm the judicial district and Court of Appeal before I cite controlling authority."*
-5. If the matter is federal, switch the entire evidentiary toggle in §4 to the federal column and note it in every chapter's NOTES.
+5. If the matter is federal, switch the entire evidentiary toggle in §4 to the federal column and note it in the Step 5 report and in every affected Preservation Log row.

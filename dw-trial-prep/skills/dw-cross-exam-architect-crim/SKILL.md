@@ -5,7 +5,7 @@ description: >
   Build cross-examination outlines for any witness. ALWAYS invoke for "build a cross,"
   "cross-exam outline," "impeachment outline," or "prep cross for [witness]." Produces
   three deliverables per witness — Cross-Examination Outline (.docx), Source Catalog (.pdf),
-  and Combined Sources (.pdf) — in the D&W chapter template, Times New Roman 14 pt, saved to
+  and Combined Sources (.pdf) — in the D&W chapter template, Times New Roman 12 pt, saved to
   01 - Trial Notebook/03 - Witnesses/Prosecution Witnesses/. Louisiana law, U.S. 5th Circuit
   for federal matters, and the state appellate circuit resolved from the parish of prosecution
   across the Louisiana First, Third, and Fourth Circuits. Endpoint of all auditor chains.
@@ -126,17 +126,24 @@ Apply the matching module: **Law Enforcement** · **Expert** · **Civilian** (ey
 
 ## STEP 4 — Source Register & Outline
 
-Build the **Source Register** before any chapter — a numbered list of every source to be cited. Each gets a permanent `(N)` that never changes across any deliverable. **No short-name column**: cite by the document's actual title.
+Build the **Source Register** before any chapter — a numbered list of every source to be cited. Each gets a permanent `(N)` that never changes across any deliverable. **Three columns: Source Number | Evidence Item | Reference/Bates**, header row shaded blue. No short-name column and no date column — cite by the document's actual title, and where a date distinguishes one version from another, carry it inside the Evidence Item entry.
 
-Then draft in the D&W template — one chapter per page: CHAPTER TITLE, CHAPTER GOALS, and the three-column SOURCE/EXHIBIT | QUESTIONS | NOTES table.
+Then draft in the D&W template — **one chapter per page**, and a chapter that will not fit one page with its notes box is two chapters. Each chapter page carries three things and nothing else:
 
-**Three mandatory drafting rules:**
+1. **Heading block** — chapter title, witness, CHAPTER GOALS, and (Law Enforcement only) Impact / Fragility.
+2. **Two-column table** — `SOURCE/EXHIBIT` (header blue `D6E4F0`) and `QUESTIONS` (header red `F4CCCC`). There is no third column; do not create one.
+3. **NOTES box** — the final two rows of the same table, spanning both columns: a `NOTES — WITNESS RESPONSES` label shaded yellow `FFF2CC`, then a blank unshaded row about five lines deep. **Blank on delivery and it stays blank** — it is where the attorney writes what the witness actually said.
 
-1. **Every cell in all three columns is a list, never a paragraph.** Sources bulleted with `(N)` prefixes; questions numbered sequentially; notes bulleted. One idea per bullet, one fact per question. Prose in any column is a defect — this is read standing up, mid-examination.
-2. **Every impeachment question carries all three branches** — `IF ADMITS →` / `IF DENIES →` / `IF NO RECALL →`. An expected answer is a prediction, not a plan.
-3. **Every flagged question carries a preservation bullet** naming the ground to state and the substance to proffer. A flag without one throws away the appellate issue.
+**Four mandatory drafting rules:**
+
+1. **Both columns are lists, never paragraphs.** Sources bulleted with `(N)` prefixes; questions numbered, restarting at 1 in each chapter. One idea per bullet, one fact per question. Prose in either column is a defect — this is read standing up, mid-examination.
+2. **Nothing but sources and questions goes in the table.** No expected answers, branch logic, impeachment bullets, evidentiary flags, preservation bullets, or strategy notes on any chapter page.
+3. **Every impeachment question is still worked through all three branches** — `IF ADMITS →` / `IF DENIES →` / `IF NO RECALL →` — and reported to the attorney at Step 5. An expected answer is a prediction, not a plan.
+4. **Every flagged question gets a Preservation Log row** with the ground to state and the substance to proffer pre-filled. A flag without one throws away the appellate issue.
 
 **Sequencing:** open on the favorable, close on your best point; order CRITICAL DMAR findings into chapters you are certain to reach. The case theme appears in at least one chapter title and in every substantive chapter's goals. Full seven-step default order → `references/source-register-and-template.md`.
+
+**Where the prep analysis goes** now that the chapter page carries none of it: branches, impeachment findings, flags and reserve questions are **reported to the attorney in the build conversation at Step 5**; grounds and proffer substance are **pre-filled into the Preservation Log**; discovery items go to the Discovery Gap Report. → `references/source-register-and-template.md` § Where the prep analysis lives
 
 → `references/source-register-and-template.md` · `assets/outline-assembly.md` · `assets/chapter-goals-and-scoring.md`
 
@@ -148,6 +155,8 @@ Identify every statement this witness made across all sources; flag every incons
 
 Cross-reference the Witness Analysis Card and DMAR §4 Inconsistency Matrix rather than duplicating them — and confirm nothing they found was dropped.
 
+**Report, do not print.** None of this reaches the chapter page. Deliver it to the attorney chapter by chapter in the build conversation — impeachment findings, all three branches, `[608(B) REVIEW REQUIRED]` and `[SCOPE FLAG]` items, art. 609.1(C) reserve questions, and the Fragility-3 second and third confrontation questions. Every flagged question also becomes a Preservation Log row.
+
 **Prior convictions use art. 609.1, never art. 609.** Fact, name, date, sentence come in; details open only on the art. 609.1(C) triggers. Art. 609.1(B) bars inquiry into arrest, warrant, indictment, prosecution, or acquittal.
 
 → `assets/impeachment-bullet.md` (all bullet formats) · `references/jurisdiction-and-court-map.md` §3
@@ -156,7 +165,9 @@ Cross-reference the Witness Analysis Card and DMAR §4 Inconsistency Matrix rath
 
 ## STEP 5.5 — Preservation Log
 
-Append to every outline per `assets/preservation-log.md`, with Chapter and Question # pre-filled for each flagged question. Filled in during trial. Hands off to `dw-appellate-error-monitor-crim` and `dw-issue-code-tracker-crim`. → `references/error-preservation-protocol.md`
+Append to every outline per `assets/preservation-log.md`. **Chapter, Question #, Ground to state, and Proffer substance arrive pre-filled** for every flagged question; Ruling, Proffer made, Form of proffer, and Issue code are filled in during trial.
+
+This is the only place prep text still prints inside the outline. The chapter pages carry no preservation bullets, so art. 841 and art. 103(A)(2) protection lives here or nowhere — and it cannot be composed at the podium. Hands off to `dw-appellate-error-monitor-crim` and `dw-issue-code-tracker-crim`. → `references/error-preservation-protocol.md`
 
 ---
 
@@ -182,7 +193,7 @@ All source PDFs merged, each behind a divider page carrying source number and me
 
 **Self-check — do not hand this to `dw-adversarial-stress-test-crim`;** that skill runs *into* this one, not out of it (see `references/integration-map.md`). If a theory stress test exists it is an upstream input at Step 0.58 — the cross must not open a door the theory cannot survive.
 
-Work the nine-target checklist, report what you found and changed, and surface what you cannot fix. Optional on Fast Path — note it in the notice. → `references/red-team-checklist.md`
+Work the ten-target checklist, report what you found and changed, and surface what you cannot fix. Optional on Fast Path — note it in the notice. → `references/red-team-checklist.md`
 
 ---
 
@@ -192,7 +203,7 @@ Three files, one folder, per `assets/outline-assembly.md`:
 
 `Cross-Examination — [Witness Name].docx` · `Source Catalog — [Witness Name].pdf` · `Combined Sources — [Witness Name].pdf`
 
-Times New Roman 14 pt, page numbers bottom right. Run the pre-delivery check in `references/deliverable-formatting.md` §5, then present all three.
+Times New Roman 12 pt, blue/red/yellow header bands, page numbers bottom right. Run the pre-delivery check in `references/deliverable-formatting.md` §5, then present all three.
 
 ---
 
@@ -206,6 +217,7 @@ Full list loaded at Step 0.5 → `references/guardrails.md`. The six that most o
 4. **Prior convictions are art. 609.1, never 609.**
 5. **Preserve every flag** — ground stated at the moment (art. 841) plus substance proffered (art. 103(A)(2)).
 6. **Cite every fact** with an `(N)` prefix; nothing untraceable is asserted as fact.
+7. **The chapter page is sources, questions, and a blank notes box.** Everything else is reported to the attorney or lands in the Preservation Log — and say so on delivery, so no one works the chapters believing the branches are on the page.
 
 ---
 

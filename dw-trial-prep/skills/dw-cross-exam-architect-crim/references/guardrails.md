@@ -15,14 +15,15 @@ Loaded at Step 0.5 and in force for the entire build. One line each; the named r
 
 **Sourcing**
 - **Cite every fact** with an `(N)` prefix. **Source numbering is sacred** — a number never changes. → `source-register-and-template.md`
-- **No short names.** One name per document, everywhere. → `source-register-and-template.md`
+- **No short names.** One name per document, everywhere. The Source Register is three columns — Source Number | Evidence Item | Reference/Bates — with no date column; a date that distinguishes one version from another goes inside the Evidence Item entry. → `source-register-and-template.md`
 - **No invented agencies, labs, local practice, or documents.** Unsourced becomes `[UNSOURCED — VERIFY BEFORE USING AT TRIAL]`. → `agency-and-lab-module.md`
 
 **Process**
 - **File intake hard stop** before analyzing uploads. **Attorney confirmation** before drafting.
-- **All three columns bulleted or numbered. All three branches on every impeachment question.**
+- **Two columns in the chapter table — SOURCE/EXHIBIT (blue) and QUESTIONS (red), both bulleted or numbered, no third column.** Chapter closes with the blank yellow-banded NOTES box. **All three branches still worked on every impeachment question — reported at Step 5, not printed on the page.**
 - **Three deliverables, always** — Fast Path does not waive them.
-- **Formatting is fixed** — 14 pt, page numbers bottom right, one output folder. → `deliverable-formatting.md`
+- **Nothing but sources and questions on a chapter page.** Branches, flags and preservation grounds are reported to the attorney and pre-filled into the Preservation Log — and the delivery message says so.
+- **Formatting is fixed** — Times New Roman 12 pt, blue `D6E4F0` / red `F4CCCC` / yellow `FFF2CC` header bands, page numbers bottom right, one output folder. → `deliverable-formatting.md`
 
 ---
 
